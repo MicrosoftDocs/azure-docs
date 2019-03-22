@@ -36,13 +36,12 @@ To quickly begin using the Anomaly Detector API, try an [online demo](https://no
 
 To run the demo, complete the following steps:
 
-1. Get a valid Anomaly Detector API subscription key and service endpoint. The section below has instructions for signing up.  
+1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.  
 2. Sign in, and click Clone, in the upper right corner.
 3. Click **Run on free compute**
 4. Select one of the notebooks for this sample.
-5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
-6. Add your service endpoint to the `endpoint` variable.
-7. On the top menu bar, click **Cell**, then **Run All**.
+5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable and update your endpoint to the `endpoint` variable.
+6. On the top menu bar, click **Cell**, then **Run All**.
 
 ## Workflow
 
