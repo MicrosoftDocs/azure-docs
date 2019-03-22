@@ -214,11 +214,11 @@ Inner joins result in a complete cross product of the sets participating in the 
   
 The evaluation of the join depends on the context scope of the participating sets:  
   
--  A join between container-set A and container-scoped set B, results in a cross product of all elements in sets A and B.
+- A join between container-set A and container-scoped set B, results in a cross product of all elements in sets A and B.
   
--   A join between set A and document-scoped set B, results in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
+- A join between set A and document-scoped set B, results in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
   
- In the current release, a maximum of one container-scoped expression is supported by the query processor.  
+  In the current release, a maximum of one container-scoped expression is supported by the query processor.  
   
 ### Examples of joins  
   
@@ -317,17 +317,17 @@ WHERE <filter_condition>
   
  **Arguments**  
   
--   `<filter_condition>`  
+- `<filter_condition>`  
   
-     Specifies the condition to be met for the documents to be returned.  
+   Specifies the condition to be met for the documents to be returned.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     Expression representing the value to be computed. See the [Scalar expressions](#bk_scalar_expressions) section for details.  
+   Expression representing the value to be computed. See the [Scalar expressions](#bk_scalar_expressions) section for details.  
   
- **Remarks**  
+  **Remarks**  
   
- In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
+  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY clause  
  Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](how-to-sql-query.md#OrderByClause)
@@ -343,29 +343,29 @@ ORDER BY <sort_specification>
   
  **Arguments**  
   
--   `<sort_specification>`  
+- `<sort_specification>`  
   
-     Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or column alias.  
+   Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or column alias.  
   
-     Multiple sort columns can be specified. Column names must be unique. The sequence of the sort columns in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
+   Multiple sort columns can be specified. Column names must be unique. The sequence of the sort columns in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
   
-     The column names referenced in the ORDER BY clause must correspond to either a column in the select list or to a column defined in a table specified in the FROM clause without any ambiguities.  
+   The column names referenced in the ORDER BY clause must correspond to either a column in the select list or to a column defined in a table specified in the FROM clause without any ambiguities.  
   
--   `<sort_expression>`  
+- `<sort_expression>`  
   
-     Specifies a single property or expression on which to sort the query result set.  
+   Specifies a single property or expression on which to sort the query result set.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     See the [Scalar expressions](#bk_scalar_expressions) section for details.  
+   See the [Scalar expressions](#bk_scalar_expressions) section for details.  
   
--   `ASC | DESC`  
+- `ASC | DESC`  
   
-     Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
+   Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
   
- **Remarks**  
+  **Remarks**  
   
- While the query grammar supports multiple order by properties, the Cosmos DB query runtime supports sorting only against a single property, and only against property names (not against computed properties). Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
+  While the query grammar supports multiple order by properties, the Cosmos DB query runtime supports sorting only against a single property, and only against property names (not against computed properties). Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalar expressions  
  A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](how-to-sql-query.md#scalar-expressions)
@@ -403,62 +403,62 @@ ORDER BY <sort_specification>
   
  **Arguments**  
   
--   `<constant>`  
+- `<constant>`  
   
-     Represents a constant value. See [Constants](#bk_constants) section for details.  
+   Represents a constant value. See [Constants](#bk_constants) section for details.  
   
--   `input_alias`  
+- `input_alias`  
   
-     Represents a value defined by the `input_alias` introduced in the `FROM` clause.  
-    This value is guaranteed to not be **undefined** –**undefined** values in the input are skipped.  
+   Represents a value defined by the `input_alias` introduced in the `FROM` clause.  
+  This value is guaranteed to not be **undefined** –**undefined** values in the input are skipped.  
   
--   `<scalar_expression>.property_name`  
+- `<scalar_expression>.property_name`  
   
-     Represents a value of the property of an object. If the property does not exist or property is referenced on a value which is not an object, then the expression evaluates to **undefined** value.  
+   Represents a value of the property of an object. If the property does not exist or property is referenced on a value which is not an object, then the expression evaluates to **undefined** value.  
   
--   `<scalar_expression>'['"property_name"|array_index']'`  
+- `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
+   Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
   
--   `unary_operator <scalar_expression>`  
+- `unary_operator <scalar_expression>`  
   
-     Represents an operator that is applied to a single value. See [Operators](#bk_operators) section for details.  
+   Represents an operator that is applied to a single value. See [Operators](#bk_operators) section for details.  
   
--   `<scalar_expression> binary_operator <scalar_expression>`  
+- `<scalar_expression> binary_operator <scalar_expression>`  
   
-     Represents an operator that is applied to two values. See [Operators](#bk_operators) section for details.  
+   Represents an operator that is applied to two values. See [Operators](#bk_operators) section for details.  
   
--   `<scalar_function_expression>`  
+- `<scalar_function_expression>`  
   
-     Represents a value defined by a result of a function call.  
+   Represents a value defined by a result of a function call.  
   
--   `udf_scalar_function`  
+- `udf_scalar_function`  
   
-     Name of the user-defined scalar function.  
+   Name of the user-defined scalar function.  
   
--   `builtin_scalar_function`  
+- `builtin_scalar_function`  
   
-     Name of the built-in scalar function.  
+   Name of the built-in scalar function.  
   
--   `<create_object_expression>`  
+- `<create_object_expression>`  
   
-     Represents a value obtained by creating a new object with specified properties and their values.  
+   Represents a value obtained by creating a new object with specified properties and their values.  
   
--   `<create_array_expression>`  
+- `<create_array_expression>`  
   
-     Represents a value obtained by creating a new array with specified values as elements  
+   Represents a value obtained by creating a new array with specified values as elements  
   
--   `parameter_name`  
+- `parameter_name`  
   
-     Represents a value of the specified parameter name. Parameter names must have a single \@ as the first character.  
+   Represents a value of the specified parameter name. Parameter names must have a single \@ as the first character.  
   
- **Remarks**  
+  **Remarks**  
   
- When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
+  When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
   
- When creating an object, any property that is assigned undefined value will be skipped and not included in the created object.  
+  When creating an object, any property that is assigned undefined value will be skipped and not included in the created object.  
   
- When creating an array, any element value that is assigned **undefined** value will be skipped and not included in the created object. This will cause the next defined element to take its place in such a way that the created array will not have skipped indexes.  
+  When creating an array, any element value that is assigned **undefined** value will be skipped and not included in the created object. This will cause the next defined element to take its place in such a way that the created array will not have skipped indexes.  
   
 ##  <a name="bk_operators"></a> Operators  
  This section describes the supported operators. Each operator can be assigned to exactly one category.  
@@ -494,9 +494,11 @@ ORDER BY <sort_specification>
 |**String**|**&#124;&#124;**|Concatenation. Returns a concatenation of both arguments.|  
   
  **Ternary operators:**  
-  
-|Ternary operator|?|Returns the second argument if the first argument evaluates to **true**; return the third argument otherwise.|  
+
+|**Name**|**Operator**|**Details**| 
 |-|-|-|  
+|Ternary operator|?|Returns the second argument if the first argument evaluates to **true**; return the third argument otherwise.|  
+
   
  **Ordering of values for comparison**  
   
@@ -610,7 +612,7 @@ ORDER BY <sort_specification>
   
   String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
   
- Following escape sequences are allowed:  
+  Following escape sequences are allowed:  
   
 |**Escape sequence**|**Description**|**Unicode character**|  
 |-|-|-|  
@@ -630,17 +632,17 @@ ORDER BY <sort_specification>
   
  The following filters will be considered for index lookup:  
   
--   Use equality operator ( = ) with a document path expression and a constant.  
+- Use equality operator ( = ) with a document path expression and a constant.  
   
--   Use range operators (<, \<=, >, >=) with a document path expression and number constants.  
+- Use range operators (<, \<=, >, >=) with a document path expression and number constants.  
   
--   Document path expression stands for any expression that identifies a constant path in the documents from the referenced database container.  
+- Document path expression stands for any expression that identifies a constant path in the documents from the referenced database container.  
   
- **Document path expression**  
+  **Document path expression**  
   
- Document path expressions are expressions that a path of property or array indexer assessors over a document coming from database container documents. This path can be used to identify the location of values referenced in a filter directly within the documents in the database container.  
+  Document path expressions are expressions that a path of property or array indexer assessors over a document coming from database container documents. This path can be used to identify the location of values referenced in a filter directly within the documents in the database container.  
   
- For an expression to be considered a document path expression, it should:  
+  For an expression to be considered a document path expression, it should:  
   
 1.  Reference the container root directly.  
   
@@ -703,17 +705,17 @@ ABS (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows the results of using the ABS function on three different numbers.  
+  The following example shows the results of using the ABS function on three different numbers.  
   
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
@@ -736,17 +738,17 @@ ACOS(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the ACOS of -1.  
+  The following example returns the ACOS of -1.  
   
 ```  
 SELECT ACOS(-1)  
@@ -769,17 +771,17 @@ ASIN(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the ASIN of -1.  
+  The following example returns the ASIN of -1.  
   
 ```  
 SELECT ASIN(-1)  
@@ -802,17 +804,17 @@ ATAN(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the ATAN of the specified value.  
+  The following example returns the ATAN of the specified value.  
   
 ```  
 SELECT ATAN(-45.01)  
@@ -835,17 +837,17 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example calculates the ATN2 for the specified x and y components.  
+  The following example calculates the ATN2 for the specified x and y components.  
   
 ```  
 SELECT ATN2(35.175643, 129.44)  
@@ -868,17 +870,17 @@ CEILING (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows positive numeric, negative, and zero values with the CEILING function.  
+  The following example shows positive numeric, negative, and zero values with the CEILING function.  
   
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
@@ -901,17 +903,17 @@ COS(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example calculates the COS of the specified angle.  
+  The following example calculates the COS of the specified angle.  
   
 ```  
 SELECT COS(14.78)  
@@ -934,17 +936,17 @@ COT(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example calculates the COT of the specified angle.  
+  The following example calculates the COT of the specified angle.  
   
 ```  
 SELECT COT(124.1332)  
@@ -967,17 +969,17 @@ DEGREES (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the number of degrees in an angle of PI/2 radians.  
+  The following example returns the number of degrees in an angle of PI/2 radians.  
   
 ```  
 SELECT DEGREES(PI()/2)  
@@ -1000,17 +1002,17 @@ FLOOR (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows positive numeric, negative, and zero values with the FLOOR function.  
+  The following example shows positive numeric, negative, and zero values with the FLOOR function.  
   
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
@@ -1033,25 +1035,25 @@ EXP (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Remarks**  
+  **Remarks**  
   
- The constant **e** (2.718281…), is the base of natural logarithms.  
+  The constant **e** (2.718281…), is the base of natural logarithms.  
   
- The exponent of a number is the constant **e** raised to the power of the number. For example, EXP(1.0) = e^1.0 = 2.71828182845905 and EXP(10) = e^10 = 22026.4657948067.  
+  The exponent of a number is the constant **e** raised to the power of the number. For example, EXP(1.0) = e^1.0 = 2.71828182845905 and EXP(10) = e^10 = 22026.4657948067.  
   
- The exponential of the natural logarithm of a number is the number itself: EXP (LOG (n)) = n. And the natural logarithm of the exponential of a number is the number itself: LOG (EXP (n)) = n.  
+  The exponential of the natural logarithm of a number is the number itself: EXP (LOG (n)) = n. And the natural logarithm of the exponential of a number is the number itself: LOG (EXP (n)) = n.  
   
- **Examples**  
+  **Examples**  
   
- The following example declares a variable and returns the exponential value of the specified variable (10).  
+  The following example declares a variable and returns the exponential value of the specified variable (10).  
   
 ```  
 SELECT EXP(10)  
@@ -1086,29 +1088,29 @@ LOG (<numeric_expression> [, <base>])
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
--   `base`  
+- `base`  
   
-     Optional numeric argument that sets the base for the logarithm.  
+   Optional numeric argument that sets the base for the logarithm.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Remarks**  
+  **Remarks**  
   
- By default, LOG() returns the natural logarithm. You can change the base of the logarithm to another value by using the optional base parameter.  
+  By default, LOG() returns the natural logarithm. You can change the base of the logarithm to another value by using the optional base parameter.  
   
- The natural logarithm is the logarithm to the base **e**, where **e** is an irrational constant approximately equal to 2.718281828.  
+  The natural logarithm is the logarithm to the base **e**, where **e** is an irrational constant approximately equal to 2.718281828.  
   
- The natural logarithm of the exponential of a number is the number itself: LOG( EXP( n ) ) = n. And the exponential of the natural logarithm of a number is the number itself: EXP( LOG( n ) ) = n.  
+  The natural logarithm of the exponential of a number is the number itself: LOG( EXP( n ) ) = n. And the exponential of the natural logarithm of a number is the number itself: EXP( LOG( n ) ) = n.  
   
- **Examples**  
+  **Examples**  
   
- The following example declares a variable and returns the logarithm value of the specified variable (10).  
+  The following example declares a variable and returns the logarithm value of the specified variable (10).  
   
 ```  
 SELECT LOG(10)  
@@ -1143,21 +1145,21 @@ LOG10 (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Remarks**  
+  **Remarks**  
   
- The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n.  
+  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n.  
   
- **Examples**  
+  **Examples**  
   
- The following example declares a variable and returns the LOG10 value of the specified variable (100).  
+  The following example declares a variable and returns the LOG10 value of the specified variable (100).  
   
 ```  
 SELECT LOG10(100)  
@@ -1180,17 +1182,17 @@ PI ()
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the value of PI.  
+  The following example returns the value of PI.  
   
 ```  
 SELECT PI()  
@@ -1213,21 +1215,21 @@ POWER (<numeric_expression>, <y>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
--   `y`  
+- `y`  
   
-     Is the power to which to raise `numeric_expression`.  
+   Is the power to which to raise `numeric_expression`.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example demonstrates raising a number to the power of 3 (the cube of the number).  
+  The following example demonstrates raising a number to the power of 3 (the cube of the number).  
   
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
@@ -1250,17 +1252,17 @@ RADIANS (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example takes a few angles as input and returns their corresponding radian values.  
+  The following example takes a few angles as input and returns their corresponding radian values.  
   
 ```  
 SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
@@ -1289,17 +1291,17 @@ ROUND(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example rounds the following positive and negative numbers to the nearest integer.  
+  The following example rounds the following positive and negative numbers to the nearest integer.  
   
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
@@ -1322,17 +1324,17 @@ SIGN(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the SIGN values of numbers from -2 to 2.  
+  The following example returns the SIGN values of numbers from -2 to 2.  
   
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
@@ -1355,17 +1357,17 @@ SIN(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example calculates the SIN of the specified angle.  
+  The following example calculates the SIN of the specified angle.  
   
 ```  
 SELECT SIN(45.175643)  
@@ -1388,17 +1390,17 @@ SQRT(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the square roots of numbers 1-3.  
+  The following example returns the square roots of numbers 1-3.  
   
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
@@ -1421,17 +1423,17 @@ SQUARE(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the squares of numbers 1-3.  
+  The following example returns the squares of numbers 1-3.  
   
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
@@ -1454,17 +1456,17 @@ TAN (<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example calculates the tangent of PI()/2.  
+  The following example calculates the tangent of PI()/2.  
   
 ```  
 SELECT TAN(PI()/2);  
@@ -1487,17 +1489,17 @@ TRUNC(<numeric_expression>)
   
  **Arguments**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Is a numeric expression.  
+   Is a numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example truncates the following positive and negative numbers to the nearest integer value.  
+  The following example truncates the following positive and negative numbers to the nearest integer value.  
   
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
@@ -1529,17 +1531,17 @@ IS_ARRAY(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
   
 ```  
 SELECT   
@@ -1569,17 +1571,17 @@ IS_BOOL(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
   
 ```  
 SELECT   
@@ -1609,17 +1611,17 @@ IS_DEFINED(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks for the presence of a property within the specified JSON document. The first returns true since "a" is present, but the second returns false since "b" is absent.  
+  The following example checks for the presence of a property within the specified JSON document. The first returns true since "a" is present, but the second returns false since "b" is absent.  
   
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
@@ -1645,17 +1647,17 @@ IS_NULL(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
   
 ```  
 SELECT   
@@ -1685,17 +1687,17 @@ IS_NUMBER(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
   
 ```  
 SELECT   
@@ -1725,17 +1727,17 @@ IS_OBJECT(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_OBJECT function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_OBJECT function.  
   
 ```  
 SELECT   
@@ -1765,17 +1767,17 @@ IS_PRIMITIVE(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_PRIMITIVE function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_PRIMITIVE function.  
   
 ```  
 SELECT   
@@ -1805,17 +1807,17 @@ IS_STRING(<expression>)
   
  **Arguments**  
   
--   `expression`  
+- `expression`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_STRING function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_STRING function.  
   
 ```  
 SELECT   
@@ -1846,7 +1848,7 @@ SELECT
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
@@ -1859,17 +1861,17 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the concatenated string of the specified values.  
+  The following example returns the concatenated string of the specified values.  
   
 ```  
 SELECT CONCAT("abc", "def")  
@@ -1892,17 +1894,17 @@ CONTAINS(<str_expr>, <str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks if "abc" contains "ab" and contains "d".  
+  The following example checks if "abc" contains "ab" and contains "d".  
   
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
@@ -1925,17 +1927,17 @@ ENDSWITH(<str_expr>, <str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the "abc" ends with "b" and "bc".  
+  The following example returns the "abc" ends with "b" and "bc".  
   
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
@@ -1958,17 +1960,17 @@ INDEX_OF(<str_expr>, <str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the index of various substrings inside "abc".  
+  The following example returns the index of various substrings inside "abc".  
   
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
@@ -1991,21 +1993,21 @@ LEFT(<str_expr>, <num_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Is any valid numeric expression.  
+   Is any valid numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the left part of "abc" for various length values.  
+  The following example returns the left part of "abc" for various length values.  
   
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
@@ -2028,17 +2030,17 @@ LENGTH(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the length of a string.  
+  The following example returns the length of a string.  
   
 ```  
 SELECT LENGTH("abc")  
@@ -2061,17 +2063,17 @@ LOWER(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use LOWER in a query.  
+  The following example shows how to use LOWER in a query.  
   
 ```  
 SELECT LOWER("Abc")  
@@ -2095,17 +2097,17 @@ LTRIM(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use LTRIM inside a query.  
+  The following example shows how to use LTRIM inside a query.  
   
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
@@ -2128,17 +2130,17 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use REPLACE in a query.  
+  The following example shows how to use REPLACE in a query.  
   
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
@@ -2161,24 +2163,24 @@ REPLICATE(<str_expr>, <num_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+   Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
 
   > [!NOTE]
   > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use REPLICATE in a query.  
+  The following example shows how to use REPLICATE in a query.  
   
 ```  
 SELECT REPLICATE("a", 3)  
@@ -2201,17 +2203,17 @@ REVERSE(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use REVERSE in a query.  
+  The following example shows how to use REVERSE in a query.  
   
 ```  
 SELECT REVERSE("Abc")  
@@ -2234,21 +2236,21 @@ RIGHT(<str_expr>, <num_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Is any valid numeric expression.  
+   Is any valid numeric expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the right part of "abc" for various length values.  
+  The following example returns the right part of "abc" for various length values.  
   
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
@@ -2271,17 +2273,17 @@ RTRIM(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use RTRIM inside a query.  
+  The following example shows how to use RTRIM inside a query.  
   
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
@@ -2304,17 +2306,17 @@ STARTSWITH(<str_expr>, <str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example checks if the string "abc" begins with "b" and "a".  
+  The following example checks if the string "abc" begins with "b" and "a".  
   
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
@@ -2337,17 +2339,17 @@ StringToArray(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid JSON Array expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
+   Is any valid JSON Array expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
   
- **Return Types**  
+  **Return Types**  
   
- Returns an Array expression or undefined.  
+  Returns an Array expression or undefined.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how StringToArray behaves across different types. 
+  The following example shows how StringToArray behaves across different types. 
   
 ```  
 SELECT 
@@ -2381,17 +2383,17 @@ StringToBoolean(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression or undefined.  
+  Returns a Boolean expression or undefined.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how StringToBoolean behaves across different types. 
+  The following example shows how StringToBoolean behaves across different types. 
   
 ```  
 SELECT 
@@ -2424,17 +2426,17 @@ StringToNull(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid expression.  
+   Is any valid expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a null expression or undefined.  
+  Returns a null expression or undefined.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how StringToNull behaves across different types. 
+  The following example shows how StringToNull behaves across different types. 
   
 ```  
 SELECT 
@@ -2466,17 +2468,17 @@ StringToNumber(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+   Is any valid JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Number expression or undefined.  
+  Returns a Number expression or undefined.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how StringToNumber behaves across different types. 
+  The following example shows how StringToNumber behaves across different types. 
   
 ```  
 SELECT 
@@ -2511,17 +2513,17 @@ StringToObject(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid JSON object expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+   Is any valid JSON object expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
   
- **Return Types**  
+  **Return Types**  
   
- Returns an object expression or undefined.  
+  Returns an object expression or undefined.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how StringToObject behaves across different types. 
+  The following example shows how StringToObject behaves across different types. 
   
 ```  
 SELECT 
@@ -2555,21 +2557,21 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Is any valid numeric expression to denote the start and end character.    
+   Is any valid numeric expression to denote the start and end character.    
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example returns the substring of "abc" starting at 1 and for a length of 1 character.  
+  The following example returns the substring of "abc" starting at 1 and for a length of 1 character.  
   
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
@@ -2591,17 +2593,17 @@ ToString(<expr>)
   
  **Arguments**  
   
--   `expr`  
+- `expr`  
   
-     Is any valid scalar expression.  
+   Is any valid scalar expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how ToString behaves across different types.   
+  The following example shows how ToString behaves across different types.   
   
 ```  
 SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
@@ -2666,17 +2668,17 @@ TRIM(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use TRIM inside a query.  
+  The following example shows how to use TRIM inside a query.  
   
 ```  
 SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
@@ -2698,17 +2700,17 @@ UPPER(<str_expr>)
   
  **Arguments**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Is any valid string expression.  
+   Is any valid string expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a string expression.  
+  Returns a string expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to use UPPER in a query  
+  The following example shows how to use UPPER in a query  
   
 ```  
 SELECT UPPER("Abc")  
@@ -2739,17 +2741,17 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
  **Arguments**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Is any valid array expression.  
+   Is any valid array expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns an array expression.  
+  Returns an array expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example how to concatenate two arrays.  
+  The following example how to concatenate two arrays.  
   
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
@@ -2772,25 +2774,25 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
  **Arguments**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Is any valid array expression.  
+   Is any valid array expression.  
   
--   `expr`  
+- `expr`  
   
-     Is any valid expression.  
+   Is any valid expression.  
 
--   `bool_expr`  
+- `bool_expr`  
   
-     Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
+   Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean value.  
+  Returns a Boolean value.  
   
- **Examples**  
+  **Examples**  
   
- The following example how to check for membership in an array using ARRAY_CONTAINS.  
+  The following example how to check for membership in an array using ARRAY_CONTAINS.  
   
 ```  
 SELECT   
@@ -2834,17 +2836,17 @@ ARRAY_LENGTH(<arr_expr>)
   
  **Arguments**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Is any valid array expression.  
+   Is any valid array expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression.  
+  Returns a numeric expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example how to get the length of an array using ARRAY_LENGTH.  
+  The following example how to get the length of an array using ARRAY_LENGTH.  
   
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
@@ -2867,25 +2869,25 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
  **Arguments**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Is any valid array expression.  
+   Is any valid array expression.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Zero-based numeric index at which to begin the array. Negative values may be used to specify the starting index relative to the last element of the array i.e. -1 references the last element in the array.  
+   Zero-based numeric index at which to begin the array. Negative values may be used to specify the starting index relative to the last element of the array i.e. -1 references the last element in the array.  
 
--   `num_expr`  
+- `num_expr`  
 
-     Maximum number of elements in the resulting array.    
+   Maximum number of elements in the resulting array.    
 
- **Return Types**  
+  **Return Types**  
   
- Returns an array expression.  
+  Returns an array expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to get different slices of an array using ARRAY_SLICE.  
+  The following example shows how to get different slices of an array using ARRAY_SLICE.  
   
 ```  
 SELECT   
@@ -2916,10 +2918,10 @@ SELECT
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
  The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
-||||  
-|-|-|-|  
-|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
-|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
   
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
@@ -2932,17 +2934,17 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **Arguments**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a numeric expression containing the distance. This is expressed in meters for the default reference system.  
+  Returns a numeric expression containing the distance. This is expressed in meters for the default reference system.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to return all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. .  
+  The following example shows how to return all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. .  
   
 ```  
 SELECT f.id   
@@ -2969,21 +2971,21 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
  **Arguments**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean value.  
+  Returns a Boolean value.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to find all family documents within a polygon using ST_WITHIN.  
+  The following example shows how to find all family documents within a polygon using ST_WITHIN.  
   
 ```  
 SELECT f.id   
@@ -3011,21 +3013,21 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Arguments**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean value.  
+  Returns a Boolean value.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to find all areas that intersect with the given polygon.  
+  The following example shows how to find all areas that intersect with the given polygon.  
   
 ```  
 SELECT a.id   
@@ -3053,21 +3055,21 @@ ST_ISVALID(<spatial_expr>)
   
  **Arguments**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON Point, Polygon, or LineString expression.  
+   Is any valid GeoJSON Point, Polygon, or LineString expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a Boolean expression.  
+  Returns a Boolean expression.  
   
- **Examples**  
+  **Examples**  
   
- The following example shows how to check if a point is valid using ST_VALID.  
+  The following example shows how to check if a point is valid using ST_VALID.  
   
- For example, this point has a latitude value that's not in the valid range of values [-90, 90], so the query returns false.  
+  For example, this point has a latitude value that's not in the valid range of values [-90, 90], so the query returns false.  
   
- For polygons, the GeoJSON specification requires that the last coordinate pair provided should be the same as the first, to create a closed shape. Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.  
+  For polygons, the GeoJSON specification requires that the last coordinate pair provided should be the same as the first, to create a closed shape. Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
@@ -3090,17 +3092,17 @@ ST_ISVALID(<spatial_expr>)
   
  **Arguments**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Is any valid GeoJSON point or polygon expression.  
+   Is any valid GeoJSON point or polygon expression.  
   
- **Return Types**  
+  **Return Types**  
   
- Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.  
+  Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.  
   
- **Examples**  
+  **Examples**  
   
- The following example how to check validity (with details) using ST_ISVALIDDETAILED.  
+  The following example how to check validity (with details) using ST_ISVALIDDETAILED.  
   
 ```  
 SELECT ST_ISVALIDDETAILED({   

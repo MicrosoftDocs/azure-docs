@@ -58,15 +58,15 @@ You can use the storage emulator command-line tool to initialize the storage emu
 1. Open the Storage Emulator console window as described in the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section.
 1. In the console window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDB, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  You can also use the following command, which directs the emulator to use the default SQL Server instance:
+   You can also use the following command, which directs the emulator to use the default SQL Server instance:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
+   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 For more information about these commands, see [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference).
 

@@ -180,9 +180,9 @@ If you want to control and monitor the background jobs, use the following cmdlet
 
 4. If `$OneTime = $false`, the load generator starts the background jobs and then continues to run. Every 10 seconds, it monitors for any new tenants that are provisioned. If you set `$OneTime = $true`, the LoadGenerator starts the background jobs and then stops running in the foreground. For this tutorial, leave `$OneTime = $false`.
 
-  Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop or restart the load generator.
+   Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop or restart the load generator.
 
-  If you leave the load generator running in the foreground, use another PowerShell ISE instance to run other PowerShell scripts.
+   If you leave the load generator running in the foreground, use another PowerShell ISE instance to run other PowerShell scripts.
 
 &nbsp;
 

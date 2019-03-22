@@ -94,7 +94,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-The host name **www.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
+The host name **www\.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly. 
 
 ## Clean up resources
 

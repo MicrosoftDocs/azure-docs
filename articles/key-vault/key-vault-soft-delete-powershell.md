@@ -5,7 +5,7 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with PowerShell
@@ -96,10 +96,10 @@ With soft-delete enabled:
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- *Id* can be used to identify the resource when recovering, or purging. 
+- *ID* can be used to identify the resource when recovering or purging. 
 - *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
 - *Scheduled Purge Date* is when the vault will be permanently deleted, if no action is taken. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
@@ -172,19 +172,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Recover a secret in the deleted state: 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Purge a secret in deleted state: 
 
@@ -228,8 +228,27 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 >[!IMPORTANT]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable!
 
+## Enabling Purge Protection
+
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+
+You can enable purge protection only if soft-delete is also enabled. 
+
+To turn on both soft delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+To add purge protection to an existing vault (that already has soft delete enabled), use the [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), and [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).
-
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).ate=Succeeded}

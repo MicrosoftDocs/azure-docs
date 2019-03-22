@@ -37,7 +37,7 @@ To use this feature, you need:
 2. Configure your SumoLogic instance to [collect logs for Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Install the Azure AD SumoLogic app](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) to use the pre-configured dashboards that provide real-time analysis of your environment.
 
- ![Dashboard](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
+   ![Dashboard](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
 ## Next steps
 

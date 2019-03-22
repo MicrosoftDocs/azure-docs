@@ -60,7 +60,7 @@ To access queues in ASP.NET Core projects, include the following items in any C#
 
 ### Create a queue in code
 
-To create the Azure queue in code, call ``CreateIfNotExistsAsync`:
+To create the Azure queue in code, call `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with Domo, perform the following steps:
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
     | |
-	|--|	
+	|--|
 	| `https://<companyname>.domo.com` |
 	| `https://<companyname>.beta.domo.com` |
 	| `https://<companyname>.demo.domo.com` |

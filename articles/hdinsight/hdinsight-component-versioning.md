@@ -71,7 +71,7 @@ The following tables list the versions of HDInsight. The HDP versions that corre
 
 ### Available versions
 
-The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployment methods like PowerShell and .NET SDK.
+The following table lists the versions of HDInsight that are available in the Azure portal as well as other deployment methods like PowerShell and .NET SDK.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ The following table lists the versions of HDInsight that are available in the Az
 
 ### Retired versions
 
-The following table lists the versions of HDInsight that are **not** available in the Azure Portal.
+The following table lists the versions of HDInsight that are **not** available in the Azure portal.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -121,12 +121,12 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 - Authorization for data
 
-    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
-    - You can set access control on files and folders.
+  - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+  - You can set access control on files and folders.
 
     For more information, see:
 
-    - [Configure Apache Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configure Apache Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
 - View the audit logs to monitor accesses and the configured policies. 
 

@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Working with custom domains in Azure AD Application Proxy
 
-When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users to go to when they're working remotely. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you published an app named Expenses and your tenant is named Contoso, then the external URL would be https://expenses-contoso.msappproxy.net. If you want to use your own domain name, configure a custom domain for your application. 
+When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users to go to when they're working remotely. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you published an app named Expenses and your tenant is named Contoso, then the external URL would be `https://expenses-contoso.msappproxy.net`. If you want to use your own domain name, configure a custom domain for your application. 
 
 We recommend that you set up custom domains for your applications whenever possible. Some of the benefits of custom domains include:
 

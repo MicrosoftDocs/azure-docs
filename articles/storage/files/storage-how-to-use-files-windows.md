@@ -298,5 +298,5 @@ After creating this registry key, you must restart your server to disable SMB 1.
 ## Next steps
 See these links for more information about Azure Files:
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-* [FAQ](../storage-files-faq.md)
-* [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FAQ](../storage-files-faq.md)
+- [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      

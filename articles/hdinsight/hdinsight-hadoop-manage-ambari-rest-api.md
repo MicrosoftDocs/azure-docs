@@ -299,71 +299,71 @@ This example returns a JSON document containing the current configuration for th
 ### Update configuration
 
 1. Create `newconfig.json`.  
-  Modify, and then enter the commands below:
+   Modify, and then enter the commands below:
 
-    * Replace `livy2-conf` with the desired component.
-    * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#Get-all-configurations).
+   * Replace `livy2-conf` with the desired component.
+   * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#Get-all-configurations).
 
-    **A. Bash**  
-    ```bash
-    curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
-    | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
+     **A. Bash**  
+     ```bash
+     curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
+     | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
 
-    ```
+     ```
 
-    **B. powershell**  
-    The PowerShell script uses [jq](https://stedolan.github.io/jq/).  Edit `C:\HD\jq\jq-win64` below to reflect your actual path and version of [jq](https://stedolan.github.io/jq/).
+     **B. powershell**  
+     The PowerShell script uses [jq](https://stedolan.github.io/jq/).  Edit `C:\HD\jq\jq-win64` below to reflect your actual path and version of [jq](https://stedolan.github.io/jq/).
 
-    ```powershell
-    $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
-    $now = Get-Date
-    $unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" `
-        -Credential $creds -UseBasicParsing
-    $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
-    ```
+     ```powershell
+     $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
+     $now = Get-Date
+     $unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
+     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" `
+       -Credential $creds -UseBasicParsing
+     $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
+     ```
 
-    Jq is used to turn the data retrieved from HDInsight into a new configuration template. Specifically, these examples perform the following actions:
+     Jq is used to turn the data retrieved from HDInsight into a new configuration template. Specifically, these examples perform the following actions:
 
-    * Creates a unique value containing the string "version" and the date, which is stored in `newtag`.
+   * Creates a unique value containing the string "version" and the date, which is stored in `newtag`.
 
-    * Creates a root document for the new desired configuration.
+   * Creates a root document for the new desired configuration.
 
-    * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
+   * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
 
-    * Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.
+   * Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.
 
-    * Adds a `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
+   * Adds a `tag` element with a value of `version#################`. The numeric portion is based on the current date. Each configuration must have a unique tag.
 
-    Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
+     Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
 
      ```json
-    {
-        "Clusters": {
-          "desired_config": {
-            "tag": "version1552064778014",
-            "type": "livy2-conf",
-            "properties": {
-              "livy.environment": "production",
-              "livy.impersonation.enabled": "true",
-              "livy.repl.enableHiveContext": "true",
-              "livy.server.csrf_protection.enabled": "true",
-                ....
-            },
-          },
-        }
-    }
-    ```
+     {
+       "Clusters": {
+         "desired_config": {
+           "tag": "version1552064778014",
+           "type": "livy2-conf",
+           "properties": {
+             "livy.environment": "production",
+             "livy.impersonation.enabled": "true",
+             "livy.repl.enableHiveContext": "true",
+             "livy.server.csrf_protection.enabled": "true",
+               ....
+           },
+         },
+       }
+     }
+     ```
 
 2. Edit `newconfig.json`.  
-  Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"livy.server.csrf_protection.enabled"` from `"true"` to `"false"`.
+   Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"livy.server.csrf_protection.enabled"` from `"true"` to `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
 
     Save the file once you are done making modifications.
 
 3. Submit `newconfig.json`.  
-  Use the following commands to submit the updated configuration to Ambari.
+   Use the following commands to submit the updated configuration to Ambari.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName"
