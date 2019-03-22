@@ -59,6 +59,8 @@ The procedure shown here assigns a role scoped to a container, but you can follo
 
     ![Screenshot showing list of users assigned to a role](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
+![test](media/storage-auth-aad-rbac-portal.md/test.png)
+
 You can follow similar steps to assign a role scoped to the storage account, resource group, or subscription.
 
 > [!NOTE]
