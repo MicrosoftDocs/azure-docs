@@ -38,7 +38,7 @@ To grant the service permissions:
 1. Open a browser and connect to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
 2. For **Consent Option** > **Server App**, enter the Azure Active Directory tenant name or Directory ID, then select **Submit**.
         For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise customers, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
-3. Sign in to the Windows Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.  
+3. Sign in to the Windows Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.
 4. Select **Accept**.
 5. Wait for one minute.
 6. Navigate back to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
@@ -58,7 +58,8 @@ To assign the TenantCreator application role to your global administrator accoun
 3. Select **Users and groups**, then select **Add user**.
 4. Select Users and groups in the **Add Assignment** blade
 5. Search for a user account that will create your Windows Virtual Desktop tenant. 
-   - For simplicity, this can be the global administrator account.
+   - For simplicity, this can be the global administrator account. 
+   - If you are using Microsoft Identifty Provider such as contosoadmin@live.com or contosoadmin@outlook.com, signing in to Windows Virtual Desktop might be unsuccessful. It is recommended to use domain specific account such as admin@contoso.com or admin@contoso.onmicrosoft.com instead.
 6. Select the user account, click the **Select** button, and then select **Assign**.
 
 ## Create a Windows Virtual Desktop tenant
