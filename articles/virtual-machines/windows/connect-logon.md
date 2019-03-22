@@ -21,7 +21,7 @@ ms.author: cynthn
 # How to connect and sign on to an Azure virtual machine running Windows
 You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
 
-To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
 ## Connect to the virtual machine
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
