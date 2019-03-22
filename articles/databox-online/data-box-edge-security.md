@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
-# Data Box Edge security and data protection (preview)
+# Data Box Edge security and data protection
 
 Security is a major concern when adopting a new technology, especially if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
 
@@ -22,9 +22,6 @@ The Azure Data Box Edge solution consists of four main components that interact 
 - **Data Box Edge device** – The transfer device that is shipped to you to import your on-premises data into Azure.
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box Edge device and contain data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored. This location is typically the storage account linked to the Data Box Edge resource that you created.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## Data Box Edge/Data Box Gateway service protection
