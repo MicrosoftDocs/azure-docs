@@ -23,20 +23,32 @@ In either case, the `provisionAfterExtensions` property designates which extensi
 
 ## Sample Azure templates
 
-If, for instance, you wish to have Azure Disk Encryption applied after an extension called "DiskPreparationExtension", put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block:
+If you wish to have Azure Disk Encryption applied after another extension, put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block. 
+
+Here is an example using "CustomScriptExtension", a Powershell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
 
 ```json
 "virtualMachineProfile": {
   "extensionProfile": {
     "extensions": [
       {
-        "name": "DiskPreparationExtension",
+        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
+        "name": "CustomScriptExtension",
+        "location": "[resourceGroup().location]",
         "properties": {
-          "publisher": "DiskPreparationExtension.Publisher",
-          "settings": {},
-          "typeHandlerVersion": "1.0",
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.9",
           "autoUpgradeMinorVersion": true,
-          "type": "DiskPreparationExtension"
+          "forceUpdateTag": "[parameters('forceUpdateTag')]",
+          "settings": {
+            "fileUris": [
+              "https://gist.githubusercontent.com/Jyotsna-Anand/b5dcdb4e9cc85b5beb41563f1c088737/raw/0f44d995074a460c26f624b6ca71d94445da0e20/FormatMBRDisk.ps1"
+            ]
+          },
+          "protectedSettings": {
+           "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File FormatMBRDisk.ps1"
+          }
         }
       },
       {
@@ -45,7 +57,7 @@ If, for instance, you wish to have Azure Disk Encryption applied after an extens
         "location": "[resourceGroup().location]",
         "properties": {
           "provisionAfterExtensions": [
-            "DiskPreparationExtension"
+            "CustomScriptExtension"
           ],
           "publisher": "Microsoft.Azure.Security",
           "type": "AzureDiskEncryption",
@@ -63,20 +75,23 @@ If, for instance, you wish to have Azure Disk Encryption applied after an extens
             "SequenceVersion": "[parameters('sequenceVersion')]"
           }
         }
-      }
+      },
     ]
   }
 }
 ```
-If, on the other hand, you wish to have Azure Disk Encryption applied first, followed by an extention called "DiskDataAccessExtension", put the `provisionAfterExtensions` property in the "DiskDataAccessExtension" block:
+If you wish to have Azure Disk Encryption applied before another extention, put the `provisionAfterExtensions` property in the block of the extension to follow:
+
+Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSettings", an extension that provides  monitoring and diagnostics capabilities on a Windows-based Azure VM:
+
 
 ```json
 "virtualMachineProfile": {
   "extensionProfile": {
     "extensions": [
       {
-        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
         "name": "AzureDiskEncryption",
+        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
         "location": "[resourceGroup().location]",
         "properties": {
           "publisher": "Microsoft.Azure.Security",
@@ -92,22 +107,40 @@ If, on the other hand, you wish to have Azure Disk Encryption applied first, fol
             "KekVaultResourceId": "[variables('keyVaultResourceID')]",
             "KeyEncryptionAlgorithm": "[parameters('keyEncryptionAlgorithm')]",
             "VolumeType": "[parameters('volumeType')]",
-            "ResizeOSDisk": "[parameters('resizeOSDisk')]"
+            "SequenceVersion": "[parameters('sequenceVersion')]"
           }
         }
       },
-      {
-        "name": "DiskDataAccessExtension",
-        "properties": {
+      { 
+        "name": "Microsoft.Insights.VMDiagnosticsSettings", 
+        "type": "extensions", 
+        "location": "[resourceGroup().location]", 
+        "apiVersion": "2016-03-30", 
+        "dependsOn": [ 
+          "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]" 
+        ], 
+        "properties": { 
           "provisionAfterExtensions": [
             "AzureDiskEncryption"
           ],
-          "publisher": "DiskDataAccessExtension.Publisher",
-          "settings": {},
-          "typeHandlerVersion": "1.0",
-          "autoUpgradeMinorVersion": true,
-          "type": "DiskDataAccessExtension"
-        }
+	  "publisher": "Microsoft.Azure.Diagnostics", 
+          "type": "IaaSDiagnostics", 
+          "typeHandlerVersion": "1.5", 
+          "autoUpgradeMinorVersion": true, 
+          "settings": { 
+            "xmlCfg": "[base64(concat(variables('wadcfgxstart'), 
+            variables('wadmetricsresourceid'), 
+            concat('myVM', copyindex()),
+            variables('wadcfgxend')))]", 
+            "storageAccount": "[variables('storageName')]" 
+          }, 
+          "protectedSettings": { 
+            "storageAccountName": "[variables('storageName')]", 
+            "storageAccountKey": "[listkeys(variables('accountid'), 
+              '2015-06-15').key1]", 
+            "storageAccountEndPoint": "https://core.windows.net" 
+          } 
+        } 
       },
     ]
   }
