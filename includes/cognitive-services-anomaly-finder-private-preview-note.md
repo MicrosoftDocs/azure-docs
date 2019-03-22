@@ -14,4 +14,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> Anomaly Detector (new name for Anomaly Finder) is now in public preview and the documentation for that is available at [Anomaly Detector Documentation](../articles/cognitive-services/anomaly-detector/index.yml). Existing Anomaly Finder labs will be removed on April 30th, 2019. You are encouraged to use Anomaly Detector instead. 
+> The Anomaly Detector API (now in public preview) is replacing the Anomaly Finder lab. Existing Anomaly Finder labs will be removed on April 30th, 2019. We encourage you to migrate to the Anomaly Detector before this time. See the [Anomaly Detector API documentation](../articles/cognitive-services/anomaly-detector/index.yml) for more information. 
