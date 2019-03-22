@@ -14,12 +14,12 @@ manager: philmea
 
 *This article applies to builders and administrators.*
 
-In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md) *action groups* to attach multiple actions to a rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
+In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
 
 ## Prerequisites
 
 - A Pay-As-You-Go application
-- An Azure account and subscription to create and manage action groups
+- An Azure account and subscription to create and manage Azure Monitor action groups
 
 ## Create action groups
 
@@ -28,9 +28,9 @@ You can [create and manage action groups in the Azure portal](../azure-monitor/p
 An action group can:
 
 - Send notifications such as an email, an SMS, or make a voice call.
-- Run an action such as an Azure Function, an Azure Logic App, or a webhook.
+- Run an action such as calling a webhook.
 
-The following screenshot shows an action group that sends email and SMS notifications and calls an Azure Logic App:
+The following screenshot shows an action group that sends email and SMS notifications and calls a webhook:
 
 ![Action group](media/howto-use-action-groups/actiongroup.png)
 
@@ -50,7 +50,7 @@ Select **Save**. The action group now appears in the list of actions to run when
 
 ![Saved action group](media/howto-use-action-groups/savedactiongroup.png)
 
-The following table summarizes the information sent to the supported types of action in an action group:
+The following table summarizes the information sent to the supported action types:
 
 | Action type | Output format |
 | ----------- | -------------- |
