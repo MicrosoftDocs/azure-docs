@@ -36,7 +36,7 @@ The Data Box Edge/Data Box Gateway service is a management service hosted in Mic
 The Data Box Edge device is an on-premises device that helps transform the data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Data Box Edge/Data Box Gateway service.
-- Is protected at all times by a device administrator password.
+- Is protected at all times by a device password.
 - Is a locked-down device. The device BMC and BIOS are password-protected with limited user-access for the BIOS.
 - Has secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies. 
@@ -60,14 +60,14 @@ Passwords ensure that your data is accessible to authorized users only. Data Box
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign into the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device administrator password to sign into the device. For more information, go to [Connect remotely to your Data Box Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign into the device. For more information, go to [Connect remotely to your Data Box Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Keep the following best practices in mind:
 
 - The Data Box Edge service cannot retrieve existing passwords: it can only reset them via the Azure portal. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you reset a password, be sure to notify all the users before you reset it.
 - Use the local web UI to [change the password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so that they do not experience a sign in failure.
 - You can access the Windows PowerShell interface of your device remotely over HTTP. As a security best practice, you should use HTTP only on trusted networks.
-- Ensure that device administrator passwords are strong and well-protected. Follow the [Password best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Ensure that device passwords are strong and well-protected. Follow the [Password best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## Protect the data
 
