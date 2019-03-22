@@ -144,15 +144,15 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## Access datastores during training
 
-Once you make your datastore available on the remote compute, you can access it during training runs (for example, training or validation data) by simply passing the path to it as a parameter in your training script.
+Once you make your datastore available on the compute target, you can access it during training runs (for example, training or validation data) by simply passing the path to it as a parameter in your training script.
 
-The following table lists the  [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) method(s) that make datastores available on the remote compute.
+The following table lists the  [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) methods that tell the compute target how to use the datastore during runs.
 
 Way|Method|Description|
 ----|-----|--------
-Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use to mount a datastore on the remote compute. <br>Default mode for datastores.
-Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Use to download data from the location specified by `path_on_compute` on your datastore to the remote compute. <br> For  training run context, this download happens before the training run. 
-Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use to upload data to the root of your datastore from the location specified by `path_on_compute`. <br> For training run context, this upload happens after your training run to facilitate inclusion of any output writes to the datastore.
+Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use to mount the datastore on the compute target.
+Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Use to download the contents of your datastore to the location specified by `path_on_compute`. <br> For  training run context, this download happens before the run.
+Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use to upload a file from the location specified by `path_on_compute` to your datastore. <br> For training run context, this upload happens after your run.
 
  ```Python
 import azureml.data
@@ -163,24 +163,29 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-To reference a specific folder or file in your datastore, use the datastore's [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) function.
+To reference a specific folder or file in your datastore and make it available on the compute target, use the datastore's [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) function.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore to the remote compute
+#download the contents of the `./bar` directory in ds to the compute target
 ds.path('./bar').as_download()
 ```
 
 > [!NOTE]
-> Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the remote compute. The datastore path on the remote compute might not be the same as the execution path for the training script.
+> Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the target compute. The datastore path on the target compute might not be the same as the execution path for the training script.
 
-### Which methods are compatible with my compute context and datastore type?
+### Compute context and datastore type matrix
 
-The following matrix displays the usable methods and functions in each compute context scenario for Azure Blob and Azure File datastores.
+The following matrix displays the compatible data access methods/available functionalities for each of the different compute context and datastore scenarios. The term pipeline in this case indcates usage in the pipeline such as input/output in the pipeline.
 
 ||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
 |AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> pipeline|pipeline|pipeline|[`as_download()`] <br> [`as_upload()`]|pipeline||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureDataLakeDatastore|||pipeline|pipeline|||pipeline||
+|AzureDataLakeGen2Datastore|||pipeline||||||
+|AzureDataPostgresSqlDatastore|||pipeline||||||
+|AzureSqlDatabaseDataDatastore|||pipeline||||||
+
 
 > [!NOTE]
 > There may be scenarios in which highly iterative, large data processes run faster using [`as_download()`] instead of [`as_mount()`]; this can be validated experimentally.
