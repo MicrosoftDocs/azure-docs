@@ -36400,6 +36400,11 @@
       "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
       "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_document_id": false
     }
   ]
 }
