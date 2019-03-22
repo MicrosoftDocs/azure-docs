@@ -175,7 +175,7 @@ ds.path('./bar').as_download()
 
 ### Compute context and datastore type matrix
 
-The following matrix displays the compatible data access methods/available functionalities for each of the different compute context and datastore scenarios. The term pipeline in this case indcates usage in the pipeline such as input/output in the pipeline.
+The following matrix displays the compatible and available data access functionalities for each of the different compute context and datastore scenarios. The term pipeline in this case refers to the ability to directly use datastores as an input or output in the pipeline.
 
 ||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
@@ -211,9 +211,9 @@ est = Estimator(source_directory='your code directory',
 ```
 
 You can also pass in a list of datastores to the Estimator constructor `inputs` parameter to mount or copy to/from your datastore(s). This code example:
-* Downloads all the contents in datastore `ds1` to the remote compute before your training script `train.py` is run
-* Downloads the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is run
-* Uploads the file `'./bar.pkl'` from the remote compute up to the datastore `ds3` after your script has run
+* Downloads all the contents in datastore `ds1` to the compute target before your training script `train.py` is run
+* Downloads the folder `'./foo'` in datastore `ds2` to the compute target before `train.py` is run
+* Uploads the file `'./bar.pkl'` from the compute target up to the datastore `ds3` after your script has run
 
 ```Python
 est = Estimator(source_directory='your code directory',
