@@ -36393,7 +36393,7 @@
     },
     {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
-      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/mt219005(v=azure.100)",
+      "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
       "redirect_document_id": false
     },
     {
