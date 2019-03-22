@@ -13,7 +13,7 @@ ms.date: 09/18/2018
 ms.author: sharadag
 ---
 
-# Monitoring metrics for Azure Front Door
+# Monitoring metrics for Azure Front Door Service
 
 #### Front Door Service monitoring resources
 
