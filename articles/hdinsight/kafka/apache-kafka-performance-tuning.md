@@ -13,7 +13,7 @@ ms.date: 02/21/2019
 
 This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
 
-## Architecture Overview
+## Architecture overview
 
 Kafka topics are used to organize records. Records are produced by producers, and consumed by consumers. Producers send records to Kafka brokers, which then store the data. Each worker node in your HDInsight cluster is a Kafka broker.
 
@@ -29,7 +29,7 @@ Apache Kafka performance has two main aspects – throughput and latency. Throug
 * High throughput, high latency. This scenario requires high throughput (~1.5 GBps) but can tolerate higher latency (< 250 ms). An example of this type of application is telemetry data ingestion for near real-time processes like security and intrusion detection applications.
 * Low throughput, low latency. This scenario requires low latency (< 10 ms) for real-time processing, but can tolerate lower throughput. An example of this type of application is online spelling and grammar checks.
 
-## Producer Configurations
+## Producer configurations
 
 The following sections will highlight some of the most important configuration properties to optimize performance of your Kafka producers. For a detailed explanation of all configuration properties, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
 
