@@ -63,7 +63,7 @@ The following text is an example SMS message from an action group:
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
 
-<a id="payload">
+<a id="payload"></a>
 The following JSON shows an example webhook action payload:
 
 ```json
