@@ -1,5 +1,5 @@
 ---
-title: View and manage service providers
+title: View and manage service providers in the Azure portal
 description: As a service provider using Azure Delegated Resource Management, your customers can view info about the resources they have delegated by going to My customers in the Azure portal. 
 author: JnHs
 ms.author: jenhayes

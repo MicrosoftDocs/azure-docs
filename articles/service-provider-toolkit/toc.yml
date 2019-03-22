@@ -23,7 +23,7 @@
     href: ./how-to/publish-managed-services-offers.md
   - name: View and manage customers 
     displayName: managed services offer, azure marketplace, publish
-    href: ./how-to/view-and-manage-customers.md
+    href: ./how-to/view-manage-customers.md
   - name: View and manage service providers 
     displayName: managed services offer, azure marketplace, publish
-    href: ./how-to/view-and-manage-service-providers.md
+    href: ./how-to/view-manage-service-providers.md
