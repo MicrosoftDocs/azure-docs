@@ -28,7 +28,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 [!code-json[create-azure-sql-database](~/quickstart-templates/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json)]
 
-1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
+1. Select the following image to sign in to Azure and open a template.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-threat-detection-server-policy-optional-db%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
     ![Resource Manager template create azure sql database](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
-    Unless it is specified, use the default value to create the key vault and a secret.
+    Unless it is specified, use the default values.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
