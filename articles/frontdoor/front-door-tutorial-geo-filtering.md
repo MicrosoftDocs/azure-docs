@@ -32,17 +32,12 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
 Connect-AzAccount
 Install-Module -Name Az
 ```
-Before install Front Door module, make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
+Make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
 
-#### Install Az.FrontDoor module 
-
-```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
-```
 ### Create a Front Door profile
 Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md).
 
