@@ -225,6 +225,9 @@
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: /azure/cognitive-services/academic-knowledge/home
+    - name: Anomaly Detector
+      tocHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Bing Autosuggest
       tocHref: /azure/cognitive-services/Bing-Autosuggest/
       topicHref: /azure/cognitive-services/Bing-Autosuggest/
@@ -252,6 +255,9 @@
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Bing Local Business Search
+      tocHref: /azure/cognitive-services/bing-local-business-search/
+      topicHref: /azure/cognitive-services/bing-local-business-search/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
