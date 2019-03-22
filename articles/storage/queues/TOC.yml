@@ -104,6 +104,14 @@
       items:
       - name: Portal
         href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: CLI or PowerShell
+        href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Manage access rights with RBAC
+      items:
+      - name: Portal
+        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: CLI
+        href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authenticate with Azure AD
       items:
         - name: Manage access rights with RBAC
