@@ -255,11 +255,6 @@ In this article, you learned how to broadcast breaking news by category. The bac
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
-<!-- Images. -->
-[1]: 
-[14]: 
-[19]: 
-
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
