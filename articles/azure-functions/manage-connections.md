@@ -114,7 +114,7 @@ const masterKey = process.env.COSMOS_API_KEY;
 const { CosmosClient } = cosmos;
 
 const client = new CosmosClient({ endpoint, auth: { masterKey } });
-// All function invocations will also be referencing the same database and container
+// All function invocations also reference the same database and container.
 const container = client.database("MyDatabaseName").container("MyContainerName");
 
 module.exports = async function (context) {
