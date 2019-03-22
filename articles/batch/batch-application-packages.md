@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 03/22/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
