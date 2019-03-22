@@ -3,7 +3,7 @@ title: Connect a DevKit device to your Azure IoT Central application | Microsoft
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -16,7 +16,7 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 
 ## Before you begin
 
-To complete the steps in this article, you need the following:
+To complete the steps in this article, you need the following resources:
 
 1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](http://mxchip.com/az3166).
@@ -25,14 +25,14 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-- State which contains an example measurement for **Device State**.
-- Event measurement with a **Button B Pressed** event. 
+- Telemetry, which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
+- State, which contains an example measurement for **Device State**.
+- Event measurement with a **Button B Pressed** event.
 - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-- Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
+- Properties containing device properties **die number** and **Device Location**, which is a location property, and the cloud property **Manufactured In**.
+- Commands including **Echo** and **Countdown**. When a real device receives an **Echo** command, it shows the sent value on the device's display. When a real device receives a **Countdown** command, the LED cycles through a pattern and the device sends countdown values back to IoT Central.
 
 For full details on the configuration refer to [MXChip Device template details](#mxchip-device-template-details)
-
 
 ## Add a real device
 
@@ -82,19 +82,18 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 
     ![Device configuration page](media/howto-connect-devkit/configpage.png)
 
-    In the web page: 
-    - add the name of your WiFi network 
+    In the web page:
+    - add the name of your WiFi network
     - your WiFi network password
-    - PIN CODE shown on the device LCD 
-    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
-    - Select all the available telemetry measurements! 
+    - PIN CODE shown on the device LCD
+    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)
+    - Select all the available telemetry measurements
 
 1. After you choose **Configure Device**, you see this page:
 
     ![Device configured](media/howto-connect-devkit/deviceconfigured.png)
 
 1. Press the **Reset** button on your device.
-
 
 ## View the telemetry
 
@@ -105,9 +104,9 @@ When the DevKit device restarts, the screen on the device shows:
 * The number of desired properties received and the number of reported properties sent.
 
 > [!NOTE]
-> If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
+> If the device appears to loop when it tries to connect, check if the device is **Blocked** in IoT Central, and **Unblock** the device so it can connect to the app.
 
-Shake the device increment the number of reported properties sent. The device sends a random number as the **Die number** device property.
+Shake the device to send a reported property. The device sends a random number as the **Die number** device property.
 
 You can view the telemetry measurements and reported property values, and configure settings in Azure IoT Central:
 
@@ -127,10 +126,13 @@ You can view the telemetry measurements and reported property values, and config
 
     ![View device settings](media/howto-connect-devkit/devicesettingsnew.png)
 
+1. On the **Commands** page, you can call the **Echo** and **Countdown** commands:
+
+    ![Call commands](media/howto-connect-devkit/devicecommands.png)
+
 1. On the **Dashboard** page, you can see the location map
 
     ![View device dashboard](media/howto-connect-devkit/devicedashboardnew.png)
-
 
 ## Download the source code
 
@@ -142,31 +144,30 @@ To download the source code, run the following command on your desktop machine:
 git clone https://github.com/Azure/iot-central-firmware
 ```
 
-The previous command downloads the source code to a folder called `iot-central-firmware`. 
+The previous command downloads the source code to a folder called `iot-central-firmware`.
 
 > [!NOTE]
 > If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
 
 ## Review the code
 
-Use Visual Studio Code, which was installed when you prepared your development environment, to open the `AZ3166` folder in the `iot-central-firmware` folder: 
+Use Visual Studio Code, which was installed when you prepared your development environment, to open the `MXCHIP/mxchip_advanced` folder in the `iot-central-firmware` folder:
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-To see how the telemetry is sent to the Azure IoT Central application, open the **main_telemetry.cpp** file in the source folder.
+To see how the telemetry is sent to the Azure IoT Central application, open the **telemetry.cpp** file in the source folder.
 
 The function `buildTelemetryPayload` creates the JSON telemetry payload using data from the sensors on the device.
 
-The function `sendTelemetryPayload` calls `sendTelemetry` in the **iotHubClient.cpp** to send the JSON payload to the IoT Hub your Azure IoT Central application uses.
+The function `sendTelemetryPayload` calls `sendTelemetry` in the **AzureIOTClient.cpp** to send the JSON payload to the IoT Hub your Azure IoT Central application uses.
 
-To see how property values are reported to the Azure IoT Central application, open the **main_telemetry.cpp** file in the source folder.
+To see how property values are reported to the Azure IoT Central application, open the **telemetry.cpp** file in the source folder.
 
-The function `telemetryLoop` sends the **doubleTap** reported property when the accelerometer detects a double tap. It uses the `sendReportedProperty` function in the **iotHubClient.cpp** source file.
+The function `TelemetryController::loop` sends the **doubleTap** reported property when the accelerometer detects a double tap. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
 
-The code in the **iotHubClient.cpp** source file uses functions from the [
-Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) to interact with IoT Hub.
+The code in the **AzureIOTClient.cpp** source file uses functions from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) to interact with IoT Hub.
 
-For information about how to modify, build, and upload the sample code to your device, see the **readme.md** file in the `AZ3166` folder.
+For information about how to modify, build, and upload the sample code to your device, see the **readme.md** file in the `MXCHIP/mxchip_advanced` folder.
 
 ## MXChip Device template details
 
@@ -174,7 +175,7 @@ An application created from the Sample Devkits application template includes a M
 
 ### Measurements
 
-#### Telemetry 
+#### Telemetry
 
 | Field name     | Units  | Minimum | Maximum | Decimal places |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -226,10 +227,13 @@ Toggle settings
 | Device property | Device Location   | location  | location    |
 | Text            | Manufactured In     | manufacturedIn   | N/A       |
 
+### Commands
 
+| Display name | Field name | Return type | Input field display name | Input field name | Input field type |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| Echo         | echo       | text        | value to display         | displayedValue   | text             |
+| Countdown    | countdown  | number      | Count from               | countFrom        | number           |
 
 ## Next steps
 
-Now that you have learned how to connect a DevKit device to your Azure IoT Central application, here are the suggested next steps:
-
-* [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md)
+Now that you have learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
