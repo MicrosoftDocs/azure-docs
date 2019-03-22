@@ -28,7 +28,7 @@ IP deny list is often used to block a list of known bad actors.
 
 By default, your web application is accessible from internet. If you want to limit access to your web applications from a list of known IP addresses or IP address ranges only, you need to create two IP matching rules.  First IP matching rule contains the list of IP addresses as matching values and with "Allow" action. The second one with lower priority, is to block all other IP addresses by using operator "All".
 
-Once IP restriction  rule is applied, any requests originating from addresses outside this allowed list receive 403 (Forbidden) response. Customer may configure a desired respond code and message for WAF Block actions, see [Custom response code and message](custom-response.md).
+Once an IP restriction rule is applied, any requests originating from addresses outside this allowed list receive 403 (Forbidden) response. 
 
 ## <a id="ip-access-control-ip-match-rule"></a> IP match rule
 
@@ -37,7 +37,7 @@ By default, your web application is accessible from internet. If you want to lim
 
 ## <a id="ip-access-control-ip-block-list"></a> IP block list
 
-IP block list is often used to block access to your web applications from a list of known bad actors. You need to provide the list of IP addresses or IP address ranges as the match values to your IP match rule. Once IP restriction rule is applied, any requests originating from addresses outside this allowed list receive 403 (Forbidden) response. Customer may configure a desired respond code and message for WAF Block actions, see [Custom response code and message](custom-response.md).
+IP block list is often used to block access to your web applications from a list of known bad actors. You need to provide the list of IP addresses or IP address ranges as the match values to your IP match rule. Once IP restriction rule is applied, any requests originating from addresses outside this allowed list receive 403 (Forbidden) response.
 
 ## Next steps
 
