@@ -63,7 +63,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 8. Run the following cmdlet to grant users access to the RemoteApps in the app group.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## Next steps
