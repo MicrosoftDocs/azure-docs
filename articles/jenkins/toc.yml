@@ -18,7 +18,7 @@
   - name: 2. Configure
     items:
     - name: Scale with Azure VM agents
-      href: jenkins/jenkins-azure-vm-agents.md
+      href: jenkins-azure-vm-agents.md
   - name: 3. Implement CI/CD
     items:
     - name: AKS
@@ -31,7 +31,7 @@
     - name: App Service
       items:
       - name: Create Azure resources in a pipeline job
-        href: jenkins/execute-cli-jenkins-pipeline.md
+        href: execute-cli-jenkins-pipeline.md
       - name: CI/CD to App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
     - name: Build using Azure Container Instances
