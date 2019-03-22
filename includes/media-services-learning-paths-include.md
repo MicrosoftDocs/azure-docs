@@ -8,9 +8,12 @@ ms.author: juliako
 
 ### Media Services v3 (latest)
 
+Check out the latest version of Azure Media Services! 
+
 * [Overview](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
 * [Concepts](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
 * [Start developing](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [Migration guidance from v2 to v3](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
 
 ### Media Services v2 (legacy)
 
