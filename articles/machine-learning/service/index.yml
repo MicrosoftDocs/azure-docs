@@ -34,8 +34,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a>: (No install required)'
-    - html: '<a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a>: (local SDK install).'
+    - html: <a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a> (no install required).
+    - html: <a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a> (local SDK install).
 
 - title: Step-by-Step Tutorials
   items:
