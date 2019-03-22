@@ -95,7 +95,7 @@ Before migration check maximum number of databases per elastic pool for anything
 
 ## Basic to General Purpose
 
-There is no vCore option that matches the cost/performance of a single database in the Basic service tier. Basic elastic pools can be converted to vCore-based service tiers. 
+There is no vCore option that matches the cost/performance of a single database in the Basic service tier. Basic elastic pools can be converted to vCore-based service tiers.
 
 There are few more limitations than for Standard:
 
