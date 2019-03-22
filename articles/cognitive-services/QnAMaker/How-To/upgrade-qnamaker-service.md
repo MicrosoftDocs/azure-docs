@@ -19,7 +19,15 @@ You can choose to upgrade individual components of the QnA Maker stack after the
 
 ## Share existing services with QnA Maker
 
-QnA Maker creates several Azure resources. In order to reduce management and benefit from cost sharing, you can share an App Service plan between QnA Maker and other resources. However, do not share the App Service with other resources. This is not supported. 
+QnA Maker creates several Azure resources. In order to reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
+
+|Service|Share|
+|--|--|
+|Cognitive Services|X|
+|App service plan|✔|
+|App service|X|
+|Application Insights|✔|
+|Search service|✔|
 
 ## Upgrade QnA Maker Management SKU
 
