@@ -69,6 +69,8 @@ For details on the capabilities of log queries, visit the following [documentati
 
 ## Sample log queries
 
+
+
 ```Kusto
 //List all queries 
 AzureDiagnostics
@@ -92,5 +94,4 @@ AzureDiagnostics
 ```
 ## Next steps
 
-Now that you have set up and configured Azure monitor logs, customize
- Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to share across your team.
+Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to share across your team.
