@@ -809,9 +809,9 @@ For more information about analytics in Azure Storage, see these resources:
 * [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
 * [Storage analytics](storage-analytics.md)
 * [Storage analytics metrics](storage-analytics-metrics.md)
-* [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Storage analytics logs](storage-analytics-logging.md)
-* [Storage analytics log format](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Storage analytics log format](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduction]: #introduction
