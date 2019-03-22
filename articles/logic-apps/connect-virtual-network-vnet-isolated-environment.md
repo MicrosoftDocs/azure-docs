@@ -71,7 +71,7 @@ If you don't have a virtual network, learn how to
     > [create a route table](../virtual-network/manage-route-table.md) that has 
     > the following route and link that table with each subnet used by your ISE:
     > 
-    > **Name**: <route-name><br>
+    > **Name**: <*route-name*><br>
     > **Address prefix**: 0.0.0.0/0<br>
     > **Next hop**: Internet
 
@@ -206,7 +206,7 @@ and then choose **Review + create**, for example:
    remember to [create a route table] that has the following route and 
    link that table with each subnet used by your ISE:
 
-     **Name**: <route-name><br>
+     **Name**: <*route-name*><br>
      **Address prefix**: 0.0.0.0/0<br>
      **Next hop**: Internet
 
