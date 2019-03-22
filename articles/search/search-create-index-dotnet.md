@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 03/22/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
@@ -195,7 +195,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## Next steps
-In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The next quickstart in this series covers how to load the index with searchable content.
+In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The index is a "bare bones" index consisting of a name and a collection of attributed fields. A more realistic index would include other elements, such as [scoring profiles](index-add-scoring-profiles.md), [suggesters](index-add-suggesters.md) for typeahead  support, [synonyms](search-synonyms.md), and possibly [custom analyzers](index-add-custom-analyzers.md). We recommend that you revisit these capabilities after you understand the basic workflow.
+
+The next quickstart in this series covers how to load the index with searchable content.
 
 > [!div class="nextstepaction"]
 > [Load data to an Azure Search index using C#](search-import-data-dotnet.md)

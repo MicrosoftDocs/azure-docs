@@ -83,7 +83,62 @@ To deliver the expected outcome, your client code would render the results as dr
 
 ## .NET SDK (C#)
 
-TBD
+### 1 - Index with a suggester construct
+
+In the .NET SDK, use a [Suggester class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Suggester is a collection but it can only take one item.
+
+```csharp
+private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+{
+    var definition = new Index()
+    {
+        Name = "hotels",
+        Fields = FieldBuilder.BuildForType<Hotel>(),
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelId", "Category" }
+            }}
+    };
+
+    serviceClient.Indexes.Create(definition);
+
+}
+```
+
+### 2 - Query with Suggest method
+
+The [DocumentsOperationsExtensions.Suggest method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet) is used to return suggested query strings.
+
+```csharp
+public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+{
+    InitSearch();
+
+    // Call suggest API and return results
+    SuggestParameters sp = new SuggestParameters()
+    {
+        UseFuzzyMatching = fuzzy,
+        Top = 5
+    };
+
+    if (highlights)
+    {
+        sp.HighlightPreTag = "<b>";
+        sp.HighlightPostTag = "</b>";
+    }
+
+    DocumentSuggestResult suggestResult = _indexClient.Documents.Suggest(term, "sg",sp);
+
+    // Convert the suggest query results to a list that can be displayed in the client.
+    List<string> suggestions = suggestResult.Results.Select(x => x.Text).ToList();
+    return new JsonResult
+    {
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+        Data = suggestions
+    };
+}
+```
 
 ## See also
 

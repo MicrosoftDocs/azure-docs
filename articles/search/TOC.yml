@@ -115,7 +115,7 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Type-ahead
+    - name: Typeahead
       items:
       - name: Create a suggester
         href: index-add-suggesters.md

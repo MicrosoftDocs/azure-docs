@@ -17,13 +17,6 @@ ms.custom: seodec2018
 
 This preview feature "finishes" a partial term input by supplying a completed term from documents in an Azure Search index. You might have noticed this capability in commercial search engines. You can now add this feature, currently in public preview, to an Azure Search solution to simplify a query intake.
 
-
-
-
-
-
-
-
 In this example, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. 
 
 + *Suggestions* provide recommendations of actual results based on what the user has typed so far. 
