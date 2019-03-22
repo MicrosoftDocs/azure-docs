@@ -71,8 +71,8 @@ If you don't have a virtual network, learn how to
     > [add this specific route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
     > used by your ISE:
     > 
-    > **Name**: D3655BASE-route
-    > **Address prefix**: 0.0.0.0/0
+    > **Name**: D3655BASE-route<br>
+    > **Address prefix**: 0.0.0.0/0<br>
     > **Next hop**: Internet
     > 
     > If you use a route table with your subnets, 
@@ -209,8 +209,8 @@ and then choose **Review + create**, for example:
    remember to [add this specific route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
    used by your ISE:
 
-     **Name**: D3655BASE-route
-     **Address prefix**: 0.0.0.0/0
+     **Name**: D3655BASE-route<br>
+     **Address prefix**: 0.0.0.0/0<br>
      **Next hop**: Internet
 
      If you use a route table with your subnets, 
