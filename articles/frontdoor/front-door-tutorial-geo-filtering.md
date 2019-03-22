@@ -25,7 +25,7 @@ Before you begin to set up a geo-filter policy, set up your PowerShell environme
 ### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install AzureRM.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
 
 #### Connect to Azure with an interactive dialog for sign-in
 ```
@@ -44,11 +44,11 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor -AllowPrerelease
 ```
 ### Create a Front Door profile
-Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md)
+Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md).
 
 ## Define geo-filtering match condition
 
-Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azurermfrontdoormatchconditionobject) on parameters when creating a match condition. 
+Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) on parameters when creating a match condition. 
 Two letter country codes to country mapping are provided [here](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
@@ -61,7 +61,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
  
 ## Add geo-filtering match condition to a rule with Action and Priority
 
-Create a CustomRule object `nonUSBlockRule` based on the match condition, an Action, and a Priority using [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azurermfrontdoorcustomruleobject).  A CustomRule can have multiple MatchCondition.  In this example, Action is set to Block and Priority to 1, the highest priority.
+Create a CustomRule object `nonUSBlockRule` based on the match condition, an Action, and a Priority using [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject).  A CustomRule can have multiple MatchCondition.  In this example, Action is set to Block and Priority to 1, the highest priority.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
@@ -96,7 +96,7 @@ $geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupF
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Next, set the frontend WebApplicationFirewallPolicyLink property to the resourceId of the `geoPolicy`using [Set-AzureRmFrontDoor](https://docs.microsoft.com/azure/frontdoor/set-azurermfrontdoor).
+Next, set the frontend WebApplicationFirewallPolicyLink property to the resourceId of the `geoPolicy`using [Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
 Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
