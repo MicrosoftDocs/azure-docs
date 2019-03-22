@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/22/2019
 ms.author: raynew
 ---
 # Back up Azure VMs in a Recovery Services vault
@@ -34,15 +34,15 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 1. [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM backup architecture.
 [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
 2. [Review the support matrix](backup-support-matrix-iaas.md) for Azure VM backup.
-3. Prepare Azure VMs. Install the VM agent if it isn't installed, and verify outbound access for VMs you want to back up.
+3. Prepare Azure VMs:
+    - Install the VM agent if it isn't installed.
+    - Verify outbound access for VMs you want to back up.
 
 
-## Prepare Azure VMs
+## Install the VM agent
 
-Install the VM agent if needed, and verify outbound access from VMs.
+If you need to, install the VM agent as summarized in the table.
 
-### Install the VM agent
-If needed, install the agent as follows.
 
 **VM** | **Details**
 --- | ---
@@ -50,18 +50,23 @@ If needed, install the agent as follows.
 **Linux VMs** | Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operation is running, and update the binaries.
 
 
-### Establish network connectivity
+## Establish network connectivity
 
-The Backup extension running on the VM must have outbound access to Azure public IP addresses.
+The Backup extension running on the VM needs outbound access to Azure public IP addresses.
 
-- No explicit outbound network access is required for Azure VM to communicate with Azure Backup Service.
-- However, certain older virtual machines may face issues and fail with the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect. In this case, use one of the following options so that the backup extension can communicate to Azure public IP addresses for backup traffic.
+- Generally you don't need to explicitly allow outbound network access for Azure VMs in order for them to communicate with Azure Backup.
+- If you do run into difficulties with VMs connecting, and if you see the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect, you should explicitly allow access so the backup extension can communicate to Azure public IP addresses for backup traffic.
 
-   **Option** | **Action** | **Advantages** | **Disadvantages**
-   --- | --- | --- | ---
-   **Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  You can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), instead of individually allowing and managing every address range. [Learn more](../virtual-network/security-overview.md#service-tags) about service tags. | No additional costs. Simple to manage with service tags
-   **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage. Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.<br/><br/>
-   **Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service.|  Simple to use if you have Azure Firewall set up in a VNet subnet | Can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
+
+### Explicitly allow outbound access
+
+If your VM can't connect to the Backup service, explicitly allow outbound access using one of the method summarized in the following table.
+
+**Option** | **Action** | **Details** 
+--- | --- | --- 
+**Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). | Instead of allowing and managing every address range, you can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Learn more](../virtual-network/security-overview.md#service-tags).<br/><br/> No additional costs.<br/><br/> Simple to manage with service tags.
+**Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage.<br/><br/> Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.
+**Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service. |  Simple to use if you have Azure Firewall set up in a VNet subnet<br/><br/> You can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
 #### Set up an NSG rule to allow outbound access to Azure
 

@@ -1,25 +1,48 @@
 ---
-title: Azure VM Backup FAQ
-description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'
+title: Frequently asked questions about backing up Azure VMs with Azure Backup
+description: Answers to common questions about backing up Azure VMs with Azure Backup.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
 ---
-# Frequently asked questions-Azure Backup
+# Frequently asked questions-Back up Azure VMs
 
-This article answers common questions about the [Azure Backup](backup-introduction-to-azure-backup.md) service.
-
-## General questions
-
-### What Azure VMs can you back up using Azure Backup?
-[Review](backup-azure-arm-vms-prepare.md#before-you-start) supported operating systems and limitations.
+This article answers common questions about backing up Azure VMs with the [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
 ## Backup
+
+### Which VM images can be enabled for backup when I create them?
+When you create a VM you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### Is the backup cost included in the VM cost? 
+
+No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### Which permissions are required to enable backup for a VM? 
+
+If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM: 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
+
+
+### What Azure VMs can you back up using Azure Backup?
+
+Review the [support matrix](backup-support-matrix-iaas.md) for support details and limitations.
 
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
 No. You should specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
