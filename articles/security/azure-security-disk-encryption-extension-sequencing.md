@@ -19,11 +19,11 @@ In general, encryption should be applied to a disk:
 - After extensions or custom scripts that prepare the disks or volumes.
 - Before extensions or custom scripts that access or consume the data on the encrypted disks or volumes.
 
-In either case, the "provisionAfterExtensions" property is used to designate which extension should be added later in the sequence. 
+In either case, the `provisionAfterExtensions` property is used to designate which extension should be added later in the sequence. 
 
-## Sample Azure templates
+## Sample Azure template deployment
 
-If, for instance, you wish to have the Azure Disk Encryption extention added after an extension that prepares a disk, add the provisionAfterExtensions property to the AzureDiskEncryption extension block:
+If, for instance, you wish to have the Azure Disk Encryption extention added after an extension that prepares a disk, put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block:
 
 ```json
 "virtualMachineProfile": {
@@ -68,13 +68,11 @@ If, for instance, you wish to have the Azure Disk Encryption extention added aft
   }
 }
 ```
-If, on the other hand, you wish to have the Azure Disk Encryption extention added first, add the provisionAfterExtensions property to the extensions that follow:
+If, on the other hand, you wish to have the Azure Disk Encryption extention added first, put the `provisionAfterExtensions` property in the blocks of the extensions that follow:
 
 ```json
-"virtualMachineProfile":
-  {
-    "extensionProfile": 
-  {
+"virtualMachineProfile": {
+  "extensionProfile": {
     "extensions": [
       {
         "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
@@ -115,6 +113,13 @@ If, on the other hand, you wish to have the Azure Disk Encryption extention adde
   }
 }
 ```
+
+More in-depth templates can be found [here](https://github.com/Jyotsna-Anand/vmss-templates):
+* Apply the Azure Disk Encryption extension after a custom shell script that formats the desk (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-linux-ADE-after-customscript.json)
+* Apply the Azure Disk Encryption extension after a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-linux-ADE-after-customscript.json)
+* Apply the Azure Disk Encryption extension before a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-windows-CustomScript-after-ADE.json)
+
+
 ## Next Steps
 - For more information on extension sequencing, see [Sequence extension provisioning in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
-- For more information on the provisionAfterExtensions property, see [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- For more information on the `provisionAfterExtensions` property, see [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
