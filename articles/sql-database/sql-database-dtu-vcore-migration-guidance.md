@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 03/22/2019
 ---
 # DTU to vCore migration guidance
 
@@ -176,36 +176,6 @@ DTU|Name|Online Schedulers|HW|Price Sensitive vCores|Performance vCores|Suggeste
 |3500|38|Gen5|32|80|40|
 |4000|21|Gen4|16|24|24|
 |4000|42|Gen5|40|80|40|
-
-## New application sizing / moving from Gen4 to Gen5
-
-The default guidance is to double the number of vCores for Gen5 vs. Gen4. If applications are low IO utilizers (data or log, including tempdb) and do not experience significant blocking or otherwise| recurrently hitting worker caps, you can optimize for cost.
-
-Why would one move to Gen5 from Gen4?
-
-- Better network latencies. Gen5 has accelerated networking enabled and Gen4 does not.
-- Support for large Business Critical databases. Gen4 will support up to 1TB, while Gen5 up to 4TB.
-- Able to scale the overall throughput more than Gen4 node can (80 vCore configuration available).
-- Regions may have limited Gen4 availability.
-
-For CPU & memory bounded applications an initial sizing can use scaling factor between 1.25 and 1.5 when moving from Gen4 to Gen5. In rare cases, with non-parallelizable queries, it is possible that some queries will have a slower response on Gen5 than on Gen4, but generally applications have a mixed need of optimal response time vs. concurrent throughput.
-
-The following table takes in consideration existing available vCore click stops for Gen4 and Gen5. Available click stops Gen4: [1-10], 16, 24. Available click stops Gen5: [1-20], 24, 40, 80. It does not constitute a guarantee to maintain same latencies and throughput when moving between hardware architectures. It is a good starting point when price/performance is more important than performance and can realize between 0 and 37.5% cost saving with 3-year capacity reservation.
-
-|Gen4|Gen5 recommended|Gen5 smallest acceptable|Default Gen5|Max Cost Saving|Min Cost Saving|
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|1|2|2|2|0|0|
-|2|4|4|4|0|0|
-|3|6|4|6|33.33|0|
-|4|8|6|8|25|0|
-|5|8|8|10|20|20|
-|6|10|8|12|33.33|16.66|
-|7|12|10|14|28.57|14.28|
-|8|14|12|16|25|12.5|
-|9|16|12|18|33.33|11.11|
-|10|16|14|20|30|20|
-|16|24|20|32|37.5|25|
-|24|40|32|40|20|0|
 
 ## Frequently asked questions (FAQ)
 
