@@ -30,7 +30,7 @@ To submit images to the Prediction API, you will first need to publish your iter
 
 Once your model has been successfully published, you'll see a "Published" label appear next to your iteration in the left-hand sidebar, as well as the name of the published iteration in the description of the iteration.
 
-![The performance tab is shown, with a red rectangle surrounding the "Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
+![The performance tab is shown, with a red rectangle surrounding the Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
 
 ## Get the URL and prediction key
 
@@ -58,8 +58,8 @@ From the dialog, copy the following information for use in the application:
     > Change the following information:
     >
     > * Set the __namespace__ to the name of your project.
-    > * Set the __Prediction-Key__ value you received earlier in the line that begins with `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Set the __Prediction URL__ value you received earlier in the line that begins with `string url =`.
+    > * Set the __Prediction-Key__ value you retrieved earlier in the line that begins with `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Set the __Prediction URL__ value you retrieved earlier in the line that begins with `string url =`.
 
     ```csharp
     using System;
