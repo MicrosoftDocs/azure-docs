@@ -70,8 +70,4 @@ This group policy affects only Office 2016 apps for a local computer. If users d
 
 * [LinkedIn help center](https://www.linkedin.com/help/linkedin)
 
-## Next steps
-
-Use the following link to see your current LinkedIn integration setting in the Azure portal:
-
-[View your current LinkedIn integration setting in the Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)
+* [View your current LinkedIn integration setting in the Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)
