@@ -21,7 +21,7 @@
 - name: Tutorials
   items:
   - name: Create an Azure Storage queue, and insert, get, and delete messages
-    href: ../common/storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Samples
   items:
   - name: .NET
