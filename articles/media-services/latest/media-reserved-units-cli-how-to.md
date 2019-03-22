@@ -69,5 +69,5 @@ You are charged  based on the number, type, and amount of time that MRUs are pro
 
 ## See also
 
-* [Quotas and limitations](media-services-quotas-and-limitations.md)
+* [Quotas and limitations](limits-quotas-constraints.md)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
