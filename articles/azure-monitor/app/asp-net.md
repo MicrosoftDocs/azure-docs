@@ -130,7 +130,7 @@ There are alternative topics to look at if you are interested in:
 
 ## Video
 
-* External step-by-step video about <a href="https://www.youtube.com/watch?v=blnGAVgMAfA" "target=_blank">configuring Application Insights with a .NET application from scratch.</a>
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).</a>
 
 ### More telemetry
 
