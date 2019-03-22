@@ -176,7 +176,6 @@ The following table provides coverage information for Azure Maps routing.
 | +St. Pierre & Miquelon         |        ✓       |                      |             |
 | Georgia                        |        ✓       |                      |             |
 | Germany                        |        ✓       |         ✓            |     ✓      | 
-| Gibraltar                      |        ✓       |         ✓            |             | 
 | Greece                         |        ✓       |         ✓            |     ✓      |  
 | Guernsey                       |        ✓       |                      |             |
 | Hungary                        |        ✓       |         ✓            |     ✓      | 
@@ -218,6 +217,7 @@ The following table provides coverage information for Azure Maps routing.
 | +Bermuda                       |        ✓       |                      |             |
 | +British Virgin Islands        |        ✓       |                      |             |
 | +Cayman Islands                |        ✓       |                      |             |
+| +Gibraltar                      |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
 | +Turks & Caicos islands        |        ✓       |                      |             |
 | Vatican City                   |        ✓       |         ✓            |             |
