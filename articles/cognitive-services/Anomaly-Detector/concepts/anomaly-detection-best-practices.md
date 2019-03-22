@@ -19,11 +19,11 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 * The Anomaly Detector API parameters that were used.
 * The number of data points in your API request. 
 
-To help get the best results for your data, use this article to learn about best practices for using the API in your services and applications. 
+se this article to learn about best practices for using the API getting the best results for your data. 
 
 ## Data preparation
 
-The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order.  You must send windows of your time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12, and the maximum is 8640. 
+The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. 
 
 Data points sent to the Anomaly Detector API must have a valid Coordinated Universal Time (UTC) timestamp, and numerical value. 
 
@@ -45,7 +45,7 @@ Data points sent to the Anomaly Detector API must have a valid Coordinated Unive
 
 ### Missing data points
 
-Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every few minutes). Missing less than 10% of the expected number of points in your data shouldn't have a negative impact on your detection results. Consider filling gaps in your data based on its characteristics. These can include techniques like substituting data points from an earlier period, linear interpolation, or a moving average.
+Missing data points are common in evenly distributed time series data sets, especially ones with a fine granularity (A small sampling interval. For example, data sampled every few minutes). Missing less than 10% of the expected number of points in your data shouldn't have a negative impact on your detection results. Consider filling gaps in your data based on its characteristics like substituting data points from an earlier period, linear interpolation, or a moving average.
 
 ### Aggregate distributed data
 
@@ -61,7 +61,7 @@ For best results, provide 4 `period`'s worth of data point, plus an additional o
 
 ### Sampling data for real-time monitoring
 
-If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended amount of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval, like hours. Sampling your data in this way can also noticeably improve the API response time. 
+If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended number of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval, like hours. Sampling your data in this way can also noticeably improve the API response time. 
 
 ## Next Steps
 
