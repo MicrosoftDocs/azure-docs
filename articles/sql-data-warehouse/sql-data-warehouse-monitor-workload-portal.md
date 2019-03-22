@@ -18,8 +18,8 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 
 ## Prerequisites
 
-- Azure subscription: If you don'thave an Azure subscription, create a [free account](https://azure.microsoft.com/free/) beforeyou begin.
-- Azure SQL Data Warehouse: We willbe collecting logs for a SQL data warehouse. If you don't have a SQL datawarehouse provisioned, see the instructions in [Create a SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Azure SQL Data Warehouse: We will be collecting logs for a SQL data warehouse. If you don't have a SQL data warehouse provisioned, see the instructions in [Create a SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## Create a Log Analytics workspace
 
@@ -52,7 +52,7 @@ Logs can be emitted to Azure Storage, Stream Analytics, or Log Analytics. For th
 
 ## Run queries against Log Analytics
 
-Navigate to your Log Analytics workspace where you can dothe following:
+Navigate to your Log Analytics workspace where you can do the following:
 
 - Analyze logs using log queries and save queries for reuse
 - Save queries for reuse
