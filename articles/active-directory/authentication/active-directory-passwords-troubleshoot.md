@@ -34,7 +34,6 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | OnPremisesAdminActionRequired = 29 | We’re sorry, we can't reset your password at this time because of a problem with your organization’s password reset configuration. There is no further action you can take to resolve this situation. Please contact your admin and ask them to investigate. To learn more about the potential problem, see [Troubleshoot password writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: We are unable to reset your password due to an error in your on-premises configuration. Please contact your admin and ask them to investigate. |
 | OnPremisesConnectivityError = 30 | We’re sorry, we can't reset your password at this time because of connectivity issues to your organization. There is no action to take right now, but the problem might be resolved if you try again later. If the problem persists, please contact your admin and ask them to investigate. To learn more about connectivity issues, see [Troubleshoot password writeback connectivity](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: We can't reset your password due to a poor connection with your on-premises environment. Contact your admin and ask them to investigate.|
 
-
 ## Troubleshoot the password reset configuration in the Azure portal
 
 | Error | Solution |
@@ -166,8 +165,8 @@ The most common point of failure is that firewall and or proxy ports and idle ti
 
 For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access to the following:
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 
@@ -213,7 +212,6 @@ We recommend that you perform this step only after you attempt the first two ste
 
 > [!WARNING]
 > If you have customized the out-of-the-box sync rules, *back them up before proceeding with upgrade and then manually redeploy them after you're finished.*
->
 
 1. Download the latest version of Azure AD Connect from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Because you have already installed Azure AD Connect, you need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
@@ -232,12 +230,12 @@ Azure AD Connect requires Active Directory **Reset password** permission to perf
    ![Synchronization Service Manager showing how to edit properties](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
-   
+
    ![Finding the synchronization service Active Directory user account](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
 1. Select **View** and make sure the **Advanced Features** option is enabled.  
-   
+
    ![Active Directory Users and Computers show Advanced Features](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
@@ -248,7 +246,7 @@ Azure AD Connect requires Active Directory **Reset password** permission to perf
    ![Effective Access tab showing the Synchronization Account](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
-   
+
    ![Validating that the sync account has the Reset password permission](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## Azure AD forums
@@ -264,17 +262,17 @@ To properly assist you, we ask that you provide as much detail as possible when 
 * **General description of the error**: What is the error? What was the behavior that was noticed? How can we reproduce the error? Provide as much detail as possible.
 * **Page**: What page were you on when you noticed the error? Include the URL if you're able to and a screenshot of the page.
 * **Support code**: What was the support code that was generated when the user saw the error?
-  * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
+   * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
 
-    ![Find the support code at the bottom of the screen][Support code]
+   ![Find the support code at the bottom of the screen][Support code]
 
   * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
 * **Date, time, and time zone**: Include the precise date and time *with the time zone* that the error occurred.
 * **User ID**: Who was the user who saw the error? An example is *user\@contoso.com*.
-    * Is this a federated user?
-    * Is this a pass-through authentication user?
-    * Is this a password-hash-synchronized user?
-    * Is this a cloud-only user?
+   * Is this a federated user?
+   * Is this a pass-through authentication user?
+   * Is this a password-hash-synchronized user?
+   * Is this a cloud-only user?
 * **Licensing**: Does the user have an Azure AD Premium or Azure AD Basic license assigned?
 * **Application event log**: If you're using password writeback and the error is in your on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server.
 

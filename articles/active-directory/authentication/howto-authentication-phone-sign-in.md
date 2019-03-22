@@ -38,17 +38,20 @@ For public preview, an admin must first add a policy via powershell to allow use
 ### Steps to enable
 
 1. Ensure you have the latest version of the Public Preview release of the Azure Active Directory V2 PowerShell Module. You may wish to uninstall and reinstall to confirm this by executing the following commands:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Authenticate to the Azure AD tenant to use the Azure AD V2 PowerShell module. The account used must either be a Security Administrator or Global Administrator.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Create the Authenticator Sign In policy:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```
