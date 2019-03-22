@@ -7,7 +7,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/26/2019
 ms.author: aahi
 ---
 
