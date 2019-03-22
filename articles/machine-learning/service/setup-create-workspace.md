@@ -15,31 +15,37 @@ ms.date: 03/21/2019
 
 # Create an Azure Machine Learning service workspace
 
-You need an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace) in order to use Azure Machine Learning service.  This workspace is your top-level resource for Azure Machine Learning service. Your workspace provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
+To use Azure Machine Learning service, you need an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace).  This workspace is the top-level resource for the service and provides you with a centralized place to work with all the artifacts you create. 
 
-In this article, you create a workspace to use as prerequisites to other Machine Learning tutorials and how-to articles. As with other Azure services, certain limits and quotas are associated with Machine Learning. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
+In this article, you learn how to create a workspace using any of these methods: 
+* The [Azure portal](#portal) interface
+* The [Azure Machine Learning SDK for Python](#sdk)
+* An [Azure Resource Manager template](#template)
+* The [Azure Machine Learning CLI](#cli)
 
-The following Azure resources are added automatically to your workspace when they're regionally available:
+The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles. 
+
+When you create a workspace the following Azure resources are added automatically (if they're regionally available):
  
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
+>[!Note]
+>As with other Azure services, certain limits and quotas are associated with Machine Learning. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
+
+
+## Prerequisites
 To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
-You can create a workspace from any of the following:
-
-* The Azure portal
-* The Azure Machine Learning SDK for Python
-* Azure Resource Manager templates
-* The Azure Machine Learning CLI
-
-## <a name="portal"></a> Use the Azure portal
+## <a name="portal"></a> Azure portal
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="sdk"></a> Use the SDK
+No matter how it was created, you can view your workspace in the [Azure portal](https://portal.azure.com/).  See [view a workspace](how-to-manage-workspace.md#view) for details.
+
+## <a name="sdk"></a> Python SDK
 
 Create your workspace using the Python SDK. First you need to install the SDK.
 
@@ -169,23 +175,21 @@ This `write_config()` API call creates the configuration file in the current dir
 > [!TIP]
 > To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
 
-## Use a template
+## Resource manager template
 
 To create a workspace with a template, see [Create an Azure Machine Learning service workspace by using a template](how-to-create-workspace-template.md)
 
-## Use the CLI
+## CLI
 
 To create a workspace with the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
-
-## <a name="find"></a>View your workspace
-
-No matter how it was created, you can view your workspace in the [Azure portal](https://portal.azure.com/).  See [view a workspace](how-to-manage-workspace.md#view).
 
 ## Clean up resources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
+
+* No matter how it was created, you can view your workspace in the [Azure portal](https://portal.azure.com/).  See [view a workspace](how-to-manage-workspace.md#view) for details.
 
 * Try out your workspace with these quickstarts and tutorials.
 
