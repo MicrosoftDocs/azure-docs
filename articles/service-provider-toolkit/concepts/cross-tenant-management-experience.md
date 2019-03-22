@@ -21,18 +21,22 @@ This article describes the scenarios that you, as a service provider, can use wi
 Currently, the cross-tenant management experience supports the following scenarios with delegated customer resources:
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
+
 - View alerts for delegated subscriptions and filter on up to 20 subscriptions
 - View activity log details for delegated subscriptions
 - Query data from remote customer workspaces
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
+
 - Compliance snapshots showing details for assigned policies within delegated subscriptions
 - Creating and editing policy definitions within a delegated subscription
 - Assignment of customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they’ve authored themselves
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
-- Now shows the tenant ID in returned query results, allowing you to identify which tenant a subscription belongs to in the results 
+
+- Now includes the tenant ID in returned query results, allowing you to identify which tenant a subscription belongs to in the results 
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
+
 - Ability to filter and see all info for delegated subscriptions
