@@ -74,7 +74,7 @@ public class Program
     {
         var host = BuildWebHost(args);
         var logger = host.Services.GetRequiredService<ILogger<Program>>();
-        logger.LogInformation("From Program. Running the host now.."); // This will be picked up up by AI
+        logger.LogInformation("From Program. Running the host now.."); // This will be picked up by AI
         host.Run();
     }
 
@@ -115,7 +115,7 @@ public class Startup
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 	
-	// The following be picked up up by Application Insights.
+	// The following be picked up by Application Insights.
         _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked"); 
     }
 
@@ -124,13 +124,13 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-	    // The following be picked up up by Application Insights.	
+	    // The following be picked up by Application Insights.	
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
         else
         {
-            // The following be picked up up by Application Insights.
+            // The following be picked up by Application Insights.
             _logger.LogInformation("Configuring for Production environment");
         }
 
@@ -153,7 +153,7 @@ public class ValuesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
-        // All the following logs will be picked upby Application Insights.
+        // All the following logs will be picked up by Application Insights.
 	// and all have ("MyKey", "MyValue") in Properties.
 	using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
         {			

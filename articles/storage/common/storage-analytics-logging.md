@@ -139,15 +139,13 @@ You can specify the storage services that you want to log, and the retention per
  The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue   
--LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  The following command switches off logging for the table service in your default storage account:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Table   
--LoggingOperations none  
+Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
