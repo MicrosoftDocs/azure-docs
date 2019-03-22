@@ -151,7 +151,7 @@ Follow the instructions [here](../../virtual-machines/windows/capture-image-reso
 After creating an image from an existing managed disk VM using the script [here](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , the following example script creates a similar Linux VM from an existing image object:
 
 Azure Stack powershell module 1.7.0 or above:
-Follow the instructions [here](../../virtual-machines/windows/create-vm-generalized-managed) 
+Follow the instructions [here](../../virtual-machines/windows/create-vm-generalized-managed.md) 
 
 Azure Stack powershell module 1.6.0 or below:
 
