@@ -70,6 +70,8 @@ If your single database or elastic pool consumes more than 300 DTUs, converting 
 - Each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier
 - Each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier
 
+For additional DTU to vCore migration guidance, see [DTU to vCore migration guidance](sql-database-dtu-vcore-migration-guidance.md).
+
 ## DTU-based purchasing model
 
 The Database Transaction Unit (DTU) represents a blended measure of CPU, memory, reads, and writes. The DTU-based purchasing model offers a set of preconfigured bundles of compute resources and included storage to drive different levels of application performance. Customers who prefer the simplicity of a pre-configured bundle and fixed payments each month, may find the DTU-based model more suitable for their needs. In the DTU-based purchasing model, customers can choose between **basic**, **standard**, and **premium** service tiers for both [single databases](sql-database-single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). This purchase model is not available in [managed instances](sql-database-managed-instance.md).

@@ -110,6 +110,8 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
+    - name: Migration guidance DTU to vCore
+      href: sql-database-dtu-vcore-migration-guidance.md  
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
