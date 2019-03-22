@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop-specific preview configuration that can be used with your organization's existing processes.
+This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
