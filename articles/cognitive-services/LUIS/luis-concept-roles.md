@@ -19,7 +19,7 @@ Roles allow entities to have named subtypes. A role can be used with any prebuil
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
 
-## Simple entity example of roles
+## Machine-learned entity example of roles
 
 In the utterance "buy a ticket from **New York** to **London**, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city. 
 
@@ -34,7 +34,7 @@ Roles give a name to those differences:
 |Simple|Location|origin|where the plane leaves from|
 |Simple|Location|destination|where the plane lands|
 
-## Prebuilt entity example of roles
+## Non-machine-learned entity example of roles
 
 In the utterance "Schedule the meeting from 8 to 9", both the numbers indicate a time but each time has a different meaning in the utterance. Roles provide the name for the differences. 
 
@@ -46,6 +46,22 @@ Schedule the meeting from 8 to 9
 |--|--|--|
 |Prebuilt datetimeV2|Starttime|8|
 |Prebuilt datetimeV2|Endtime|9|
+
+## Are mutliple entities in an utterance the same thing as roles? 
+
+Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates with version of the entity has a value, then a role should be used. 
+
+### Don't use roles for duplicates without meaning
+
+If the utterance includes a list of locations, `I want to travel to Seattle, Cairo, and London.`, this is a list where each item doesn't have an additional meaning. 
+
+### Use roles if duplicates indicate meaning
+
+If the utterance includes a list of locations with meaning, `I want to travel from Seattle, with a layover in Londen, landing in Cairo.`, this meaning of origin, layover, and destination should be captured with roles.
+
+### Roles can indicate order
+
+If the utterance changed to indicate order that you wanted to extract, `I want to first start with Seattle, second London, then third Cairo`, you can extract in a couple of ways. You can tag the tokens that indicate the role, `first start with`, `second`, `third`. You could also use the prebuilt entity **Ordinal** and the **GeographyV2** prebuilt entity in a composite entity to capture the idea of order and place. 
 
 ## How are roles used in example utterances?
 
@@ -81,5 +97,5 @@ Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concep
 
 ## Next steps
 
-* Use a [hands-on tutorial](tutorial-entity-roles.md) using entity roles
+* Use a [hands-on tutorial](tutorial-entity-roles.md) using entity roles with non-machine-learned entities
 * Learn how to add [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)
