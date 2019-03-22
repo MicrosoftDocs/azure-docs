@@ -6,7 +6,7 @@ ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: prashanthyv
-ms.author: pryerram
+ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
@@ -70,6 +70,8 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 > An Azure AD tenant provides each registered application with a **[service principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, which serves as the application's identity. The service principal's Application ID is used when giving it authorization to access other Azure resources, through role-based access control (RBAC). Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under the same Application ID, within each Azure cloud:
 > - Azure AD tenants in Azure government cloud use Application ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Azure AD tenants in Azure public cloud and all others use Application ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+> - Currently you can use User Principal to ask Key Vault to manage a storage account and not a Service Principal
 
 
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
