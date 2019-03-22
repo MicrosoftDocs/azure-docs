@@ -89,7 +89,7 @@ In this guide we will also expose the **developer portal** to external audiences
 Log in to Azure
 
 ```powershell
-Login-AzAccount
+Connect-AzAccount
 ```
 
 Authenticate with your credentials.
