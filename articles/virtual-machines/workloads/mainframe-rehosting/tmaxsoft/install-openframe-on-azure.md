@@ -534,7 +534,7 @@ To install ODBC:
 
 The following output is displayed:
 
-![ODBC output showing connected to SQL](media/odbc_01)
+![ODBC output showing connected to SQL](media/odbc_01.png)
 
 ## Install OpenFrame Base
 

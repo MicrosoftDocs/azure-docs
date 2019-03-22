@@ -12,9 +12,7 @@ keywords:
 
 # Get started with TmaxSoft OpenFrame
 
-TmaxSoft OpenFrame is a popular mainframe rehosting solution that makes it easy to lift your existing mainframe assets and shift them to Microsoft Azure. Lift-and-shift is the no-code approach to quickly migrating existing applications as-is to a mainframe emulation environment on Azure. 
-
-By moving some or all of your mainframe workloads to the cloud, you can modernize your infrastructure, benefit from the scale of Azure, and leave behind many of the drawbacks associated with mainframes.
+Take your existing mainframe assets and move them to Microsoft Azure using TmaxSoft OpenFrame. This popular rehosting solution creates an emulation environment on Azure, enabling you to quickly migrate applications. No reformatting is required.
 
 ![OpenFrame rehosting environment on Azure](media/openframe_01.png)
 
