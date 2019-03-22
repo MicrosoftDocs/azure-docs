@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/15/2019
+ms.date: 03/22/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -30,13 +30,17 @@ ms.collection: M365-identity-device-management
 
 ## Create a catalog
 
-You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the Catalog Owner. A Catalog Owner can add additional Catalog Owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the Catalog Owner. A Catalog Owner can add additional Catalog Owners.
 
 **Prerequisite role:** User administrator or Catalog creator
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Catalogs**.
+1.  Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Catalogs**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-create-catalog/elm-catalogs.png)
 
 1. Click **New catalog**.
 
@@ -44,21 +48,23 @@ You create a catalog when you want to group related resources and access package
 
     Users will see this information in an access package's details.
 
+1. If you want the access packages in this catalog to be available for users to request as soon as they are created, set **Enabled** to **Yes**.
+
 1. Click **Create**.
 
 ## Add resources to a catalog
 
-To include resources in an access package, you must first add the resources to the catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in the catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
 
 **Prerequisite role:** User administrator or Catalog owner
 
 1. On the **Catalogs** page, click to open the catalog you want to add resources to.
 
-1. Click **Resources**.
+1. In the left menu, click **Resources**.
 
 1. Click **Add resources**.
 
-1. Select a resource type.
+1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
 
 1. Select one or more resources of the type that you would like to add to the catalog.
 
@@ -72,7 +78,9 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. Open the **Resources** page for the catalog that has the resources you want to remove.
+1. On the **Catalogs** page, click to open the catalog you want to remove resources from.
+
+1. In the left menu, click **Resources**.
 
 1. Select the resources you want to remove.
 
@@ -84,7 +92,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, open the catalog you want to edit.
+1. On the **Catalogs** page, click to open the catalog you want to edit.
 
 1. On the catalog's **Overview** page, click **Edit**.
 
@@ -98,7 +106,7 @@ You can delete a catalog, but only if it does not have any access packages.
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, open the catalog you want to delete.
+1. On the **Catalogs** page, click to open the catalog you want to delete.
 
 1. On the catalog's **Overview**, click **Delete**.
 
