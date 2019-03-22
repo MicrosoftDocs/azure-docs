@@ -58,7 +58,7 @@ Before you follow the steps in this section, note the following information:
 
     ![Enable replication Select virtual machines window](./media/vmware-azure-enable-replication/enable-replication5.png)
 
-1. For **Properties** > **Configure properties**, select the account that the process server used to automatically install the Site Recovery Mobility service on the virtual machine. Also, choose the type of target managed disk to replicate to based on your data churn patterns.
+1. For **Properties** > **Configure properties**, select the account that the process server uses to automatically install the Site Recovery Mobility service on the virtual machine. Also, choose the type of target managed disk to replicate to based on your data churn patterns.
 10. By default, all the disks of a source virtual machine are replicated. To exclude disks from replication, clear the **Include** check box for any disks that you don't want to replicate. Then select **OK**. You can set additional properties later. Learn more about [excluding disks](vmware-azure-exclude-disk.md).
 
     ![Enable replication configure properties window](./media/vmware-azure-enable-replication/enable-replication6.png)
