@@ -247,7 +247,7 @@
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
     - name: Monitor your workload - Portal 
-      href: sql-data-warehouse-monitor-worlkoad-portal.md
+      href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
