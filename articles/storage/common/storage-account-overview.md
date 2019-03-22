@@ -80,20 +80,14 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-> [!NOTE]
-> The [premium access tier (preview)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), which is optimized for performance sensitive applications, provides low and consistent latency with high throughput and transaction rates. The premium access tier is available only with Block Blob storage accounts (preview). For more information, see [Azure Premium Blob Storage public preview](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
 * The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
 * The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers. 
 
-
-If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
-
-
 
 ## Replication
 
