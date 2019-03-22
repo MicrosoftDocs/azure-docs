@@ -61,10 +61,10 @@
       href: custom-error.md      
   - name: SSL
     items:
-    - name: SSL policy overview
-      href: application-gateway-ssl-policy-overview.md
     - name: SSL termination and end to end SSL
       href: ssl-overview.md
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -119,7 +119,7 @@
         href: certificates-for-backend-authentication.md        
       - name: Renew certificates
         href: renew-certificates.md
-    - name: Manage certificates
+    - name: SSL policy
       items:           
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
