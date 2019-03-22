@@ -17,7 +17,7 @@ This article answers common questions about backing up Azure VMs with the [Azure
 ## Backup
 
 ### Which VM images can be enabled for backup when I create them?
-When you create a VM you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
+When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
  
 ### Is the backup cost included in the VM cost? 
 
@@ -45,10 +45,10 @@ If your Recovery Services vault and VM have different resource groups, make sure
 Review the [support matrix](backup-support-matrix-iaas.md) for support details and limitations.
 
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
-No. You should specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
+No. Specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
 
 ### I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
-You need to provide permissions for Azure Backup to access Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
+Provide permissions for Azure Backup to access Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
 
 ### I migrated VM disks to managed disks. Will my backups continue to work?
 Yes, backups work seamlessly. There's no need to reconfigure anything.
@@ -74,7 +74,7 @@ No. The date and time on your local computer is local with current daylight savi
 Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Does Azure backup support standard SSD managed disk?
-Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
+Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup. Disk exclusion for VMs with WA-enabled disks is supported only for subscriptions upgraded to Instant Restore.
@@ -82,17 +82,17 @@ Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup servi
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
 
-We do have a private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested in the private preview, email us at ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
+We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
 
 
 ## Restore
 
 ### How do I decide whether to restore disks only or a full VM?
-Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses and network interface names. The change maintains unique resources when a VM is created. The VM isn't added to an availability set.
+Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses, and network interface names. The change maintains unique resources when a VM is created. The VM isn't added to an availability set.
 
 You can use the restore disk option if you want to:
-  * Customize the VM that gets created. For example change the size.
-  * Add configuration settings which weren't there at the time of backup
+  * Customize the VM that gets created. For example, change the size.
+  * Add configuration settings which weren't there at the time of backup.
   * Control the naming convention for resources that are created.
   * Add the VM to an availability set.
   * Add any other setting that must be configured using PowerShell or a template.
@@ -131,6 +131,6 @@ The VM is backed up using the schedule and retention settings in the modified or
 
 1. Temporarily stop the backup, and retain backup data.
 2. Move the VM to the target resource group.
-3. Reenabled backup in the same or new vault.
+3. Re-enabled backup in the same or new vault.
 
 You can restore the VM from available restore points that were created before the move operation.

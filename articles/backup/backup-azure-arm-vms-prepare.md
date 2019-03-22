@@ -162,11 +162,11 @@ You can set up the Azure Firewall to allow outbound access for network traffic t
 By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
 - We recommend GRS for your primary backup.
-- You an use [locally-redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
+- You can use [locally-redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
 
 Modify storage replication type as follows:
 
-1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
+1. In the portal, click the new vault. Under the **Settings** section, click  **Properties**.
 2. In **Properties**, under **Backup Configuration**, click **Update**.
 3. Select the storage replication type, and click **Save**.
 
