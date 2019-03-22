@@ -25,10 +25,6 @@
       href: gen2-migration-schedule.md
     - name: Archived Release Notes
       items:   
-      - name: December 2018 
-        href: release-notes-december-2018.md  
-      - name: October 2018 
-        href: release-notes-october-2018.md
       - name: September 2018 
         href: release-notes-september-2018.md
       - name: August 2018 
