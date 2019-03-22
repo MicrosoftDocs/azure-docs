@@ -63,7 +63,18 @@ If you don't have a virtual network, learn how to
   * Your virtual network must have four *empty* subnets for deploying and 
   creating resources in your ISE. You can create these subnets in advance, 
   or you can wait until you create your ISE where you can create subnets 
-  at the same time. Learn more about [subnet requirements](#create-subnet).
+  at the same time. Learn more about [subnet requirements](#create-subnet). 
+  
+    > [!NOTE]
+    > If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
+    > which provides a private connection to Microsoft cloud services, you must 
+    > [add the following route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
+    > used by your ISE. If you use a route table with your subnets, 
+    > [add the following route to your route table](../virtual-network/manage-route-table.md):
+    > 
+    > **Name**: D3655BASE-route<br>
+    > **Address prefix**: 0.0.0.0/0<br>
+    > **Next hop**: Internet
 
   * Make sure that your virtual network [makes these ports available](#ports) 
   so your ISE works correctly and stays accessible.
@@ -191,6 +202,15 @@ and then choose **Review + create**, for example:
 
      To learn more about calculating addresses, see 
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+
+   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
+   remember to [add the following route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
+   used by your ISE. If you use a route table with your subnets, 
+   [add the following route to that route table](../virtual-network/manage-route-table.md):
+
+     **Name**: D3655BASE-route<br>
+     **Address prefix**: 0.0.0.0/0<br>
+     **Next hop**: Internet
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
 

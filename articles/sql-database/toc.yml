@@ -17,8 +17,11 @@
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database
+    - name: Single database - portal
       href: sql-database-single-database-get-started.md
+    - name: Single database - template
+      displayName: Azure Resource Manager template, ARM
+      href: sql-database-single-database-get-started-template.md
     - name: Managed instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
