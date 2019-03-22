@@ -26,6 +26,8 @@ In this documentation, you'll go over each feature in detail.
 > Azure Resource Graph is used by Azure portal's new browse 'All resources' experience. It is
 > designed to help customers with a need to manage large-scale environments.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/service-provider-toolkit-supported-service.md)]
+
 ## How does Resource Graph complement Azure Resource Manager
 
 Azure Resource Manager currently sends data to a limited resource cache that makes available

@@ -98,7 +98,7 @@ For the complete Python API reference, see the [ONNX Runtime reference docs](htt
 
 Here is an example for deploying an ONNX model:
 
-1. Initialize your Azure Machine Learning service workspace. If you don't have one yet, learn how to create a workspace in [this quickstart](quickstart-get-started.md).
+1. Initialize your Azure Machine Learning service workspace. If you don't have one yet, learn how to [create a workspace](setup-create-workspace.md).
 
    ```python
    from azureml.core import Workspace
