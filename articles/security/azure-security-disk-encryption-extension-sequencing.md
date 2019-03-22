@@ -21,6 +21,8 @@ In general, encryption should be applied to a disk:
 
 In either case, the "provisionAfterExtensions" property is used to designate which extension should be added later in the sequence. 
 
+## Sample Azure templates
+
 If, for instance, you wish to have the Azure Disk Encryption extention added after an extension that prepares a disk, add the provisionAfterExtensions property to the AzureDiskEncryption extension block:
 
 ```json
@@ -66,7 +68,7 @@ If, for instance, you wish to have the Azure Disk Encryption extention added aft
   }
 }
 ```
-If, on the other hand, you wish to have the Azure Disk Encryption extention added first, add add the provisionAfterExtensions property to the extensions that other extensions:
+If, on the other hand, you wish to have the Azure Disk Encryption extention added first, add the provisionAfterExtensions property to the extensions that follow:
 
 ```json
 "virtualMachineProfile":
@@ -113,5 +115,6 @@ If, on the other hand, you wish to have the Azure Disk Encryption extention adde
   }
 }
 ```
-
-For more information on extension sequencing, see [Sequence extension provisioning in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
+## Next Steps
+- For more information on extension sequencing, see [Sequence extension provisioning in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
+- For more information on the provisionAfterExtensions property, see [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
