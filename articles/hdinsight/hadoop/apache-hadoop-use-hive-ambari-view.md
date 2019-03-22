@@ -20,7 +20,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 ## Prerequisites
 
-* A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * A web browser
 
 ## Run a Hive query
