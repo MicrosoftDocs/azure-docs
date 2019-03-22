@@ -86,7 +86,7 @@ For more information, see [Sign up for Azure Active Directory Premium editions](
 
 Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. Access packages can be used to govern access by your internal employees, and also by guest users from outside your organization. Access packages are defined in containers called *catalogs*.
 
-Access packages also include one or more *policies*. A policy defines the rules or guardrails around the access to the access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time. An access package must be configured with a policy.
+Access packages also include one or more *policies*. A policy defines the rules or guardrails around the access to an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time. An access package must be configured with a policy.
 
 With an access package and policies, the access package manager defines:
 
