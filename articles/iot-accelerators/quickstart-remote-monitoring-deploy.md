@@ -36,7 +36,7 @@ Click the **Remote Monitoring** tile. On the **Remote Monitoring** page, click *
 A **Basic** version will be deployed using the web-based UI.
 Basic deployment is geared toward showcasing the solution and it minimizes the costs. 
 
-For more information about the basic deployment see [basic deployment.](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli#basic-and-standard-deployments)
+For more information see [basic deployment.](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli#basic-and-standard-deployments)
 
 
  To deploy a **Standard** version, you have to use the  [CLI.](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli)
