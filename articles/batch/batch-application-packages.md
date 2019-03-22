@@ -113,6 +113,8 @@ This window displays the ID of each application in your account and the followin
 * **Default version**: The application version installed if you do not indicate a version when you specify the application for a pool. This setting is optional.
 * **Allow updates**: The value that specifies whether package updates, deletions, and additions are allowed. If this is set to **No**, package updates and deletions are disabled for the application. Only new application package versions can be added. The default is **Yes**.
 
+Alternatively, [Batch Explorer](https://azure.github.io/BatchExplorer/) is another tool for viewing the details of application packages. Batch Explorer displays additional information like the folder structure of application package, where your files are located on a compute node, and additional functionality to help create and debug Batch applications.
+
 ### View application details
 To see the details for an application, select the application in the **Applications** window.
 
