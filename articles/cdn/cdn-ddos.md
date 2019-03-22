@@ -35,4 +35,4 @@ Azure CDN from Akamai is protected by Akamai's proprietary DDoS mitigation platf
 
 ## Next steps
 
-Learn more about [Azure DDoS](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview). 
+Learn more about [Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). 
