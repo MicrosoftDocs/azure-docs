@@ -1,30 +1,21 @@
 ---
 title: Creating and using resource files - Azure Batch | Microsoft Docs
-description: Learn how to create resource files from various input sources for Azure Batch.
+description: Learn how to create Azure Batch resource files from various input sources.
 services: batch
-documentationcenter: ''
 author: laurenhughes
 manager: jeconnoc
-editor: ''
 
-ms.assetid: 
 ms.service: batch
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/14/2019
 ms.author: lahugh
 ---
 
 # Creating and using resource files
 
-(// do we mention the destinations are constrained by the task type and base design/layout?  Tmi?)
-(// somewhere discuss the “shared directory hierarchy”)
-
 An Azure Batch task often requires some form of data to process. Resource files are the means to provide this data to your Batch virtual machine (VM) via a task. All types of tasks support resource files: tasks, start tasks, job preparation tasks, job release tasks, etc. This article covers a few common methods on how to create resource files and place them on a VM.  
 
-Resource files are a mechanism to put data onto a VM in Batch, but what type of data and how it is used is flexible. There are, however, some common use cases:
+Resource files are a mechanism to put data onto a VM in Batch, but the type of data and how it's used is flexible. There are, however, some common use cases:
 
 1. Provision common files on each VM using resource files on a start task
 1. Provision input data to be processed by tasks
@@ -78,9 +69,9 @@ An alternative to generating a SAS URL is to enable anonymous, public read acces
 
 ### Storage container name
 
-Instead of configuring and creating a SAS URL, you can use the name of your Azure storage container to access your blob data. The storage container used needs to in the Azure storage account that's linked to your Batch account, known as the auto-storage account. Using the storage container name of an auto-storage account allows you to bypass configuring and creating a SAS URL to access a storage container.
+Instead of configuring and creating a SAS URL, you can use the name of your Azure storage container to access your blob data. The storage container used needs to in the Azure storage account that's linked to your Batch account, known as the autostorage account. Using the storage container name of an autostorage account allows you to bypass configuring and creating a SAS URL to access a storage container.
 
-In this example, we assume that the data to be used for resource file creation is already in an Azure Storage account linked to your Batch account. If you don't have an auto-storage account, see the steps in [Create a Batch account](/create-a-batch-account.md) for details on how to create and link an account.
+In this example, we assume that the data to be used for resource file creation is already in an Azure Storage account linked to your Batch account. If you don't have an autostorage account, see the steps in [Create a Batch account](/create-a-batch-account.md) for details on how to create and link an account.
 
 By using a linked storage account, you don't need to create and configure a SAS URL to a storage container. Instead, provide the name of the storage container in your linked storage account.
 
@@ -92,42 +83,27 @@ ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 
 Data that isn't uploaded to Azure Storage can still be used to create resource files. You can specify any valid HTTP URL containing your input data. The URL is provided to the Batch API, and then the data is used to create a resource file.
 
-In the following C# example, the input data is hosted on fictitious GitHub endpoint. The API retrieves the file from the valid web endpoint and generates a resource file to be consumed by your task. No credentials are needed when using this option.
+In the following C# example, the input data is hosted on fictitious GitHub endpoint. The API retrieves the file from the valid web endpoint and generates a resource file to be consumed by your task. No credentials are needed for this scenario.
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt", filePath);
 ```
 
-## Tips and best practices
+## Tips and suggestions
 
-Depends on your scenario. Depends on how your tasks are organized and what the data for your tasks looks like.
+Each Azure Batch task uses files differently, which is why Batch has options available for managing files on tasks. The following scenarios aren't meant to be comprehensive, but instead cover a few common situations and provide recommendations.
 
 ### Many resource files
 
+Your Batch job may contain several tasks that all use the same, common files. If common task files are shared among many tasks, using an application package to contain the files instead of using resource files may be a better option. Application packages provide optimization for download speed. Also, data in application packages is cached between tasks, so if your task files don't change often, application packages may be a good fit for your solution. With application packages, you don't need to manually manage several resource files or generate SAS URLs to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
 
-
-1. If each task has many files unique to that task, it is likely you’ll want resource files, as it is difficult to change an application packages content.
-
-1. If the thing you are deploying is logically a “versioned application” then using applications makes a lot of sense, as it has optimizations in terms of download. This is doubly true if the content in the application changes very rarely, as it’s cached between tasks too.
-1. If files are shared between tasks but not all files are shared between tasks, then you might want an application for the shared files and resource files for the non-common files.
-
-1. The notion that they have to “specify a long list” of resource files is no longer true after Xings changes because they could specify one ResourceFile pointing at a container (which contains many blobs which will all be downloaded), so I am not sure that aspect of the tip above is correct.
-
-1. The zipping idea is nice, but I’d refer to it as a download speed optimization now, and not a “keeping the size of your task small” optimization, as you can now keep the size of your task small by just putting the files into a container and putting a single ResourceFile pointing at the whole container (or a subset of it).
-
-1. “.zip/app-packages that need to be unpacked increase the local storage impact… since the package needs to take up space to be unpacked.
-
-If your task has several resource files, it's more efficient to use [application package](batch-application-packages.md) rather than specify a long list of individual resource files.
-
-With application packages, you don't have to manually manage several resource files and you don't need to worry about generating SAS URLs with the correct permissions to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
-
-Another option is to create a zipped archive containing your resource files. Upload the archive as a blob to Azure Storage, and then unzip it from the command line of your start task. This will still allow you to have several resource files, while keeping the size of your task relatively small.
+If each task has many files unique to that task, resource files are mostly likely the best option. Tasks that use unique files often need to be updated or replaced, which is not as easy to do with application packages content. Resource files provide additional flexibility for updating, adding, or editing individual files.
 
 ### Number of resource files per task
 
-Although some tasks require several resource files, it's best to keep your tasks small by minimizing the number of resource files needed. Small tasks are generally more efficient than large tasks. For example, instead of using a large number of resource files, install task dependencies using a start task on the pool. Also consider using an [application package](batch-application-packages.md) or a [Docker container](batch-docker-container-workloads.md).
+If there are several hundred resource files specified on a task, Batch might reject the task for it being too large. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
 
-Also, if there are hundreds of resource files specified on a task, Batch may reject the task due to it being too large. To avoid this, put your resource files into an Azure Storage container and use the different “Container” modes of resource files to specify collections of files to be downloaded using the blob prefix options.
+If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different “Container” modes of resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
 
 ## Next steps
 
