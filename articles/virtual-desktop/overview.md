@@ -92,4 +92,4 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
 > [!div class="nextstepaction"]
-> [Create a host pool with Azure Marketplace](tenant-setup-azure-active-directory.md)
+> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
