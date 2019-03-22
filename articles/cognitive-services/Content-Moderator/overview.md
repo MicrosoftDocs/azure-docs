@@ -61,5 +61,3 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 ## Next steps
 
 Get started using the Content Moderator service by following the instructions in [Try Content Moderator on the web](quick-start.md).
-
-TBD: check all the topic titles

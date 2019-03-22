@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 # Content moderation reviews, workflows, and jobs
 
-Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you will about the core concepts of the Review tool: reviews, workflows, and jobs.
+Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you will learn about the core concepts of the Review tool: reviews, workflows, and jobs.
 
 ## Reviews
 
@@ -30,7 +30,7 @@ See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md)
 
 A workflow is a cloud-based customized filter for content. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. With the Content Moderator connector, a workflow can automatically apply moderation tags and create reviews with submitted content.
 
-## View workflows
+### View workflows
 
 To view your existing workflows, go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and select **Settings** > **Workflows**.
 
