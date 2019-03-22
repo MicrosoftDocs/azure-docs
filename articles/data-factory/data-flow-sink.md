@@ -61,7 +61,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 ## Database options
 
-* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
+* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or delete rows, you must first add an alter row transformation to tag rows for those specific actions. Turning off "Allow insert" will stop ADF from inserting new rows from your source.
 * Truncate table (removes all rows from your target table before completing the data flow)
 * Recreate table (performs drop/create of your target table before completing the data flow)
 * Batch size for large data loads. Enter a number to bucket writes into chunks
