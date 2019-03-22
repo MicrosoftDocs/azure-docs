@@ -36415,30 +36415,30 @@
       "source_path": "articles/hdinsight/hdinsight-use-oozie-coordinator-time.md",
       "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
       "redirect_document_id": false
-    },----
+    },
     {
-      "source_path": "articles/hdinsight/hdinsight-hadoop-windows-tools.md",
-      "redirect_url": "/azure/hdinsight/",
+      "source_path": "articles/hdinsight/hdinsight-apps-install-cask.md",
+      "redirect_url": "https://docs.cask.co/cdap/4.3.0-SNAPSHOT/en/admin-manual/installation/azure-hdinsight.html",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/storm/apache-storm-scp-programming-guide.md",
-      "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-java-topology",
+      "source_path": "articles/hdinsight/hdinsight-apps-install-dataiku.md",
+      "redirect_url": "https://doc.dataiku.com/dss/latest/hadoop/distributions/hdinsights.html",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology.md",
-      "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-java-topology",
+      "source_path": "articles/hdinsight/hdinsight-apps-install-h2o.md",
+      "redirect_url": "https://www.h2o.ai/blog/use-h2o-ai-on-azure-hdinsight/",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md",
-      "redirect_url": "https://azure.microsoft.com/en-us/resources/samples/hdinsight-java-storm-eventhub/",
+      "source_path": "articles/hdinsight/hdinsight-apps-install-streamsets.md",
+      "redirect_url": "https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Getting_Started/GettingStarted_Title.html",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
-      "redirect_url": "https://azure.microsoft.com/en-us/resources/samples/hdinsight-java-storm-eventhub/",
+      "source_path": "articles/hdinsight/hdinsight-apps-install-datameer.md",
+      "redirect_url": "https://documentation.datameer.com/documentation/display/DAS70/Home",
       "redirect_document_id": false
     }
   ]
