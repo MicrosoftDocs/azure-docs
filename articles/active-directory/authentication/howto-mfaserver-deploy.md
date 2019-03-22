@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 <center>
 
-![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
+![Getting started with MFA Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
 
@@ -94,7 +94,7 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
 3. Select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
-   ![Download MFA Server](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Keep this page open as we will refer to it after running the installer.
 
@@ -107,7 +107,7 @@ Now that you have downloaded the server you can install and configure it. Be sur
 3. Once the installation is complete, click **Finish**. The configuration wizard launches.
 4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**. The wizard closes and the server starts.
 
-   ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
+   ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
@@ -127,7 +127,7 @@ Click the email icon on the left to set up the settings for sending these emails
 
 On the Email Content tab, you can see the email templates that are available to choose from. Depending on how you have configured your users to perform two-step verification, choose the template that best suits you.
 
-![MFA Server Email templates](./media/howto-mfaserver-deploy/email2.png)
+![MFA Server Email templates in the console](./media/howto-mfaserver-deploy/email2.png)
 
 ## Import users from Active Directory
 
@@ -140,7 +140,7 @@ Now that the server is installed you want to add users. You can choose to create
 3. Now you can either search for individual users or search the AD directory for OUs with users in them. In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**. You should receive a pop-up telling you that you were successful. Close the import window.
 
-   ![MFA Server user import](./media/howto-mfaserver-deploy/import2.png)
+   ![MFA Server user import from Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### Automated synchronization with Active Directory
 
