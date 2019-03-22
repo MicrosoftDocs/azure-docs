@@ -114,12 +114,12 @@
         href: azure-stack-integrate-security.md
       - name: Device auditing
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Administration basics
-    href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
   - name: Manage Azure Stack
     items:
+    - name: Administration basics
+      href: azure-stack-manage-basics.md
     - name: Configure telemetry collection
       href: azure-stack-telemetry.md
     - name: Register Azure Stack
