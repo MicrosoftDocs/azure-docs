@@ -59,7 +59,7 @@ If you already have a VNet and subnet where you would like to deploy your manage
 
  If you have not created the network environment as described in the previous step, the Azure portal can do it for you – the only drawback is the fact that it configures it with some default parameters that you cannot change later. As an alternative you can use:
 
-- [PowerShell](sql-database-create-and-configure-managed-instance-powershell.md)
+- [PowerShell](scripts/sql-database-create-and-configure-managed-instance-powershell.md)
 - [PowerShell with Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
 - [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
 - [Resource Manager Template](sql-database-single-database-get-started-template.md)
