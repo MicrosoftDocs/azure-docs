@@ -28,12 +28,9 @@ There are a few different options available to generate resource files. The crea
 
 Options for creating a resource file:
 
-- [Storage container URL](#storage-container-url)
-   Generates a resource file from any storage container in Azure
-- [Storage container name](#storage-container-name)
-   Generates a resource file from the name of a container in an Azure storage account linked to Batch
-- [Web endpoint](#web-endpoint)
-   Generates a resource file from any valid HTTP URL
+- [Storage container URL](#storage-container-url): Generates a resource file from any storage container in Azure
+- [Storage container name](#storage-container-name): Generates a resource file from the name of a container in an Azure storage account linked to Batch
+- [Web endpoint](#web-endpoint): Generates a resource file from any valid HTTP URL
 
 ### Storage container URL
 
