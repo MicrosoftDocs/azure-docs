@@ -58,6 +58,10 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 ### How do I transfer ownership of a LUIS app?
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
+### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
+
+See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
 <a name="luis-collaborating"></a>
 
 ## Collaborating
