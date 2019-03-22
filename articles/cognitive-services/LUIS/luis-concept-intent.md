@@ -1,7 +1,7 @@
 ---
-title: User intentions
+title: Intents 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance.
+description: An single intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -25,7 +25,7 @@ Travel app intents   |   Example utterances   |
  CheckWeather | "What's the weather like in Boston?" <br/> "Show me the forecast for this weekend" |
  None         | "Get me a cookie recipe"<br>"Did the Lakers win?" |
 
-All applications come with the predefined intent, "[None](#none-intent-is-fallback-for-app)" which is the fallback intent. 
+All applications come with the predefined intent, "[None](#none-intent-is-fallback-for-app)", which is the fallback intent. 
 
 ## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. For more information, see [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
@@ -76,9 +76,9 @@ The **None** intent is a required intent and can't be deleted or renamed.
 ## Negative intentions 
 If you want to determine negative and positive intentions, such as "I **want** a car" and "I **don't** want a car", you can create two intents (one positive, and one negative) and add appropriate utterances for each. Or you can create a single intent and mark the two different positive and negative terms as an entity.  
 
-## Intents with example utterances that conform to a regular expression pattern
+## Intents and patterns
 
-If you would like your example utterances, which can be defined in part or all as a regular expression, consider using the [regular expression entity]() paired with a [pattern](). 
+If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regular-expression-entity) paired with a [pattern](luis-concept-patterns.md). 
 
 Using a regular expression entity guarantees the data extraction so that the pattern is matched. The pattern matching guarantees an exact intent is returned. 
 
