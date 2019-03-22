@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 On the **Basics** tab, provide the following information:
 
-1. Under **Project Details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type _SQLVM-RG_ for the name.  
+1. In the **Project Details** section, select your Azure subscription and then select **Create new** to create a new resource group. Type _SQLVM-RG_ for the name.
 
    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
