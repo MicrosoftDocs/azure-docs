@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/19/2019
 ms.author: nitinme 
 ---
 
@@ -89,6 +89,14 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 ## Container support
 
  Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
+
+## Certifications and compliance
+
+Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. 
+
+You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews. 
+
+To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/). 
 
 ## Support
 
