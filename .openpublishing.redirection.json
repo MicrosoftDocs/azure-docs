@@ -1,6 +1,16 @@
 {
     "redirections": [
       {
+        "source_path": "articles/machine-learning/service/quickstart-get-started.md",
+        "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/machine-learning/service/quickstart-create-workspace-with-python.md",
+        "redirect_url": "/azure/machine-learning/service/quickstart-run-local-notebook",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
         "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
         "redirect_document_id": false
@@ -35386,6 +35396,11 @@
     {
       "source_path":  "articles/azure-monitor/azure-monitor-rebrand.md",
       "redirect_url":  "/azure/azure-monitor/terminology",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path":  "articles/azure-monitor/platform/quick-audit-notify-action-subscription.md",
+      "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
       "redirect_document_id":  false
     },
     {
