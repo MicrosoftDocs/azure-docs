@@ -79,7 +79,7 @@ Here are the steps for a live streaming workflow:
 
 A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
 
-The following diagram demonstrates the "pass-through" flow.
+The following diagram shows the live streaming with dynamic packaging workflow.
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
