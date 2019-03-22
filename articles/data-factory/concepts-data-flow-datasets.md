@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Datasets
-description: Azure Data Factory Mapping Data Flow has sepecific dataset compatibility
+description: Azure Data Factory Mapping Data Flow has specific dataset compatibility
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -37,6 +37,12 @@ When creating a new Dataset, there is a checkbox labeled "Data Flow Compatible" 
 ## Import schemas
 
 When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have an existing schema file (Parquet file or CSV with headers), you can point to that local file and Data Factory will define the schema based upon that schema file.
+
+## Create new table
+
+In Data Flow, you can ask ADF to create a new table definition in your target database by setting a dataset in the Sink transformation that has a new table name. In the SQL dataset, click "Edit" below the table name and enter a new table name. Then, in the Sink Transformation, turn on "Allow Schema Drift". Seth the "Import Schema" setting to None.
+
+![Source Transformation schema](media/data-flow/dataset2.png "SQL Schema")
 
 ## Delimited text dataset
 
