@@ -41,7 +41,7 @@ The following facilities are supported with the Syslog collector:
 * ftp
 * local0-local7
 
-For any other facility, [configure Custom Logs data source](data-sources-custom-logs.md) in Azure Monitor.
+For any other facility, [configure a Custom Logs data source](data-sources-custom-logs.md) in Azure Monitor.
  
 ## Configuring Syslog
 The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
