@@ -139,6 +139,9 @@ The following steps show you how to create a new **Connected Air Conditioner** d
      ![Configure Temperature simulation](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. After a short while, the **Measurements** tab shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
+ 
+    > [!NOTE]
+    > For telemetry, **Average** is set as the default aggregation. 
 
     ![View temperature simulation](./media/tutorial-define-device-type/viewsimulation.png)
 

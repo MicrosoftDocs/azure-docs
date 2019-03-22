@@ -161,7 +161,7 @@ The following example shows how to create an API Management service in a VNET co
 Create an API Management Virtual Network object using the subnet $apimsubnetdata created above.
 
 ```powershell
-$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
 ### Step 2

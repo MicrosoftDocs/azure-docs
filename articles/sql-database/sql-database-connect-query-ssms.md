@@ -136,7 +136,8 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
    ```sql
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
-
+   ```
+   
 2. Select **Execute**. The following result appears. 
 
    ![result](./media/sql-database-connect-query-ssms/result.png)

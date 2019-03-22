@@ -287,17 +287,11 @@
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Customize using Script Action
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Access Apache Hadoop YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Manage clusters with Azure portal
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md
