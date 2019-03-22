@@ -11,7 +11,7 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# How to create an Azure premium file storage account
+# How to create an Azure premium file share
 
 The FileStorage (preview) storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
@@ -25,7 +25,7 @@ To access Azure Storage, you'll need an Azure subscription. If you don't already
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a storage account
+## Create a FileStorage (preview) storage account
 
 Now you're ready to create your storage account.
 
@@ -57,6 +57,9 @@ Once your storage account resource has been created, navigate to it.
 1. In the left menu for the storage account, scroll to the **File service** section, then select **Files (preview)**.
 1. Select **+File share** to create a premium file share.
 1. Enter a name and a desired quota for your file share, then select **Create**.
+
+> [!NOTE]
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the pricing page for more details.
 
     ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 

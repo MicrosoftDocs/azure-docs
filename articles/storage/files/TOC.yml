@@ -83,9 +83,9 @@
   items:
   - name: Create
     items:
-    - name: Create a file share
+    - name: Create a standard file share
       href: storage-how-to-create-file-share.md
-    - name: Create a premium file storage account
+    - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
   - name: Deploy
     items:

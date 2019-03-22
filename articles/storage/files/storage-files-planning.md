@@ -76,15 +76,25 @@ Azure Files offers two performance tiers: standard and premium.
 
 ### Provisioned shares
 
-Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased any time but can be decreased once every 24 hours since the last increase.
+Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased any time but can be decreased once every 24 hours since the last increase.
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
-All shares can burst up to at least 100 IOPS and target throughput of 100 MBPS. Shares must be provisioned in 1 GiB increments. Min size is 100 GiB, next size is 101 GIB and so on.
+All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s. Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
+
+Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS)
+
+Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS)
+
+Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s)
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
 
-|Capacity (GiB) | Baseline IOPS | Burst limit | Throughput (MB/s) |
+The following table illustrates a few examples of these formulae for the provisioned share sizes:
+
+Sizes larger than 5 TiB are in limited public preview, to request access to the preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
+
+|Capacity (GiB) | Baseline IOPS | Burst limit | Throughput (MiB/s) |
 |---------|---------|---------|---------|
 |100         | 100     | 300     | 110   |
 |500         | 500     | 1,500   | 150   |
@@ -99,9 +109,9 @@ Share size can be increased at any time and decreased anytime but can be decreas
 
 Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
 
-Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs, the formula is: (Baseline_IOPS * 2 * 3600).
+Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs, the size of the bucket = Baseline_IOPS * 2 * 3600.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though they will only stay at the burst limit for up to an hour. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 tiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the amount of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
 
 Share credits have three states:
 
@@ -109,7 +119,7 @@ Share credits have three states:
 - Declining, when the file share is bursting
 - Remaining at zero, when there are either no credits or baseline IOPS are in use.
 
-New file shares start with the full number of credits in its burst bucket. You can track how many credits you have as a metric in Azure monitor and setup alerts on them.
+New file shares start with the full number of credits in its burst bucket.
 
 ## File share redundancy
 

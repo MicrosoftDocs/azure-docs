@@ -29,13 +29,11 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 
 ## Azure Files scale targets
 
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
 ### Premium files scale targets
 
 There are three categories of limitations to consider for premium files: storage accounts, shares, and files.
 
-For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the max IOPs you can get from that share is 15,000.
+For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the maximum IOPs you can get from that share is 15,000.
 
 ### Premium filestorage account limits
 
@@ -43,34 +41,15 @@ Premium files use a unique storage account called **filestorage (preview)**, thi
 
 |Area  |Target  |
 |---------|---------|
-|Size     |500 TB     |
+|Size     |100 TiB     |
 |Shares   |Unlimited  |
 |IOPS     |100,000    |
 |Bandwidth|5 GB/s     |
 
-#### Premium file share limits
-
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
 
-|Area  |Target  |
-|---------|---------|
-|Min size                        |100 GiB      |
-|Max size                        |100 TiB      |
-|Minimum size increase/decrease    |1 GiB      |
-|Baseline IOPS    |1 IOPS per GiB up to 100,000|
-|IOPS bursting    |3x IOPS per GB up to 100,000|
-|Min bandwidth                     |100        |
-|Bandwidth |0.1 MB/s per GiB up to 5 GiB/s     |
-|Maximum number of snapshots        |200       |
-
-#### Premium file limits
-
-|Area  |Target  |
-|---------|---------|
-|Size                  |1 TiB         |
-|Max IOPS per file     |5,000         |
-|Concurrent handles    |2,000         |
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ## Azure File Sync scale targets
 
