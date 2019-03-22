@@ -212,7 +212,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### Storage configuration
 
-Under **Storage configuration** , select **Change configuration** to specify the storage requirements.
+Under **Storage configuration**, select **Change configuration** to specify the storage requirements.
 
 
 > [!NOTE]
@@ -268,7 +268,7 @@ You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/
 
 ## 5. Review + create
 
-On the **Review + create** tab, review the summary and select  **Create** to create SQL Server, resource group, and resources specified for this VM.
+On the **Review + create** tab, review the summary, and select  **Create** to create SQL Server, resource group, and resources specified for this VM.
 
 You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
