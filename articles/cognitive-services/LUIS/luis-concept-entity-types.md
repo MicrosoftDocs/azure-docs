@@ -1,7 +1,7 @@
 ---
 title: Entity types 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances.  
+description: "Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances."  
 services: cognitive-services
 author: diberry
 manager: nitinme
