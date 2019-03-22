@@ -34,7 +34,7 @@ For more information about SaaS app integration with Azure AD, see [What is appl
 To configure Azure AD integration with Signagelive, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* A Signagelive single sign-on enabled subscription.
+* A Signagelive single-sign-on-enabled subscription.
 
 ## Scenario description
 
@@ -172,7 +172,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog box, in the **Users** list, select **Britta Simon**. Then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion, then, in the **Select Role** dialog box, select the appropriate role for the user from the list. Next, click the **Select** button at the bottom of the screen.
+6. If you are expecting a role value in the SAML assertion, then, in the **Select Role** dialog box, select the appropriate role for the user from the list. Next, click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog box, select the **Assign** button.
 
@@ -182,11 +182,11 @@ In this section, you create a user called Britta Simon in Signagelive. Work with
 
 ### Test single sign-on 
 
-In this section, you test your Azure AD single sign-on configuration using the MyApps portal.
+In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
 When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-## Additional Resources
+## Additional resources
 
 - [ List of tutorials on how to integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

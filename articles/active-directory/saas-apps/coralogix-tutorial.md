@@ -34,8 +34,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Coralogix, you need the following items:
 
-- An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-- A Coralogix single sign-on enabled subscription. 
+- An Azure AD subscription. If you don't have an Azure AD environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- A Coralogix single-sign-on enabled subscription. 
 
 ## Scenario description
 
@@ -43,13 +43,13 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Coralogix supports SP-initiated SSO.
 
-## Adding Coralogix from the gallery
+## Add Coralogix from the gallery
 
 To configure the integration of Coralogix into Azure AD, first add Coralogix from the gallery to your list of managed SaaS apps.
 
 To add Coralogix from the gallery, take the following steps:
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left pane, select the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, in the left pane, select the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -73,7 +73,7 @@ For single sign-on to work, you need to establish a link  between an Azure AD us
 To configure and test Azure AD single sign-on with Coralogix, first complete the following building blocks:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-2. **[Configure Coralogix single sign-on](#configure-coralogix-single-sign-on)** to configure the single sign-on settings on application side.
+2. **[Configure Coralogix single sign-on](#configure-coralogix-single-sign-on)** to configure the single sign-on settings on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create a Coralogix test user](#create-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon, or add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
+6. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon. You can also add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
     
 	a. Select the **Edit icon** to open the **Manage user claims** dialog box.
 
@@ -147,9 +147,9 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
 	c. Logout URL
 
-### Configure Coralogix Single Sign-On
+### Configure Coralogix single sign-on
 
-To configure single sign-on on the **Coralogix** side, send the downloaded **Federation Metadata XML** and copied URLs from the Azure portal to [Coralogix support team](mailto:info@coralogix.com). They ensure that the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the **Coralogix** side, send the downloaded **Federation Metadata XML** and copied URLs from the Azure portal to the [Coralogix support team](mailto:info@coralogix.com). They ensure that the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, type **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **BrittaSimon@contoso.com**.
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **brittasimon@contoso.com**.
 
     c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box.
 
@@ -197,11 +197,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list. Then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion, then in the **Select Role** dialog box, select the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
+6. If you are expecting a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog box, select the **Assign** button.
 
-### Create Coralogix test user
+### Create a Coralogix test user
 
 In this section, you create a user called Britta Simon in Coralogix. Work with the [Coralogix support team](mailto:info@coralogix.com) to add the users in the Coralogix platform. You must create and activate users before you use single sign-on.
 
