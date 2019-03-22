@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge system requirements (preview)
+# Azure Data Box Edge system requirements
 
 This article describes the important system requirements for your Microsoft Azure Data Box Edge solution and for the clients connecting to Azure Data Box Edge. We recommend that you review the information carefully before you deploy your Data Box Edge. You can refer back to this information as necessary during the deployment and subsequent operation.
 
@@ -19,12 +19,9 @@ The system requirements for the Data Box Edge include:
 - **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the clients that access the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.
 
-> [!IMPORTANT]
-> Data Box Edge is in preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
 ## Supported OS for clients connected to device
 
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client             -os.md)]
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## Supported protocols for clients accessing device
 
