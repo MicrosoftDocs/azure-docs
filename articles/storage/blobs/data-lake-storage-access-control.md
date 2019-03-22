@@ -276,15 +276,16 @@ The owning user can change the permissions of the file to give themselves any RW
 
 A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
 
-### How do I set ACLs correctly for a Service Principal?
-When defining ACLs for service principals, it is important to use the Object Id (OID) of the *service principal* for the app registration that you have created. It is important to note that registered apps have a separate service principal in the specific AAD tenant. Registered Apps have an OID which is visible on the Azure Portal, but the *service principal* has another (different) OID.
+### How do I set ACLs correctly for a service principal?
 
-To get the OID for the service principal corresponding to an app registration, you can use the “az ad sp show” command, specifying the Application ID as the parameter. Here is an example on obtaining the OID for the service principal corresponding an App Registration with App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Using the Azure CLI you can execute the command below:
+When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Azure AD tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
 
-az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>
+To get the OID for the service principal that corresonds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
 
-Once you have the correct OID for the service principal from the above command, please use the Storage Explorer “Manage Access” screen to add that OID, assign appropriate permissions for the OID. Make sure you click Save.
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
