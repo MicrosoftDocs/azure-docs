@@ -71,7 +71,7 @@ For each account group, you are auto-provisioning users into you can configure a
 This section guides you through connecting your Azure AD to ThousandEyes's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ThousandEyes based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On (SSO) for ThousandEyes, following the [instructions provided in Azure knowledge base](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/thousandeyes-tutorial) to complete SSO. SSO can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On (SSO) for ThousandEyes, following the [instructions provided in Azure knowledge base](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/thousandeyes-tutorial) to complete SSO. SSO can be configured independently of automatic provisioning, though these two features complement each other.
 
 
 ### Configure automatic user account provisioning to ThousandEyes in Azure AD
