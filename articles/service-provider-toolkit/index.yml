@@ -23,6 +23,7 @@ sections:
     style: unordered
     items:
     - html: <a href="concepts/azure-delegated-resource-management">Azure Delegated Resource Management</a>
+    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experience</a>
     - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
 - title: How-to guides
   items:
