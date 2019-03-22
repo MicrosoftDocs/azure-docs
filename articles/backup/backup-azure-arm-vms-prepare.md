@@ -38,7 +38,7 @@ In this article, you learn how to:
 
 In some circumstances you might need to set up the Azure VM agent on Azure VMs, or explicitly allow outbound access on the VM.
 
-### Install the Azure VM agent
+### Install the VM agent 
 
 Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the table.
 
