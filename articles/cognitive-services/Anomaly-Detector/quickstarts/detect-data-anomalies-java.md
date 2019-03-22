@@ -145,7 +145,7 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 ## Detect the anomaly status of the latest data point
 
-Create a method called `detectAnomaliesLatest()` to detect the anomaly status of the last data point in the data set. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
+* Create a method called `detectAnomaliesLatest()` to detect the anomaly status of the last data point in the data set. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
 ```java
 static void detectAnomaliesLatest(String requestData) {

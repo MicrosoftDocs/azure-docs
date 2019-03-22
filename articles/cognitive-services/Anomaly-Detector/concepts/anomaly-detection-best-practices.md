@@ -45,19 +45,23 @@ Data points sent to the Anomaly Detector API must have a valid Coordinated Unive
 
 ### Missing data points
 
-Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every 5 minutes or less). If your data set is missing less than 10% of  the expected number of points, there should be no negative impact on your detection results. Consider filling gaps in your data based on its characteristics. For example, these can include substituting data points from an earlier period, linear interpolation, or a moving average.
+Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every few minutes). Missing less than 10% of the expected number of points in your data shouldn't have a negative impact on your detection results. Consider filling gaps in your data based on its characteristics. These can include techniques like substituting data points from an earlier period, linear interpolation, or a moving average.
 
 ### Aggregate distributed data
 
-The Anomaly Detector API works best on an evenly distributed time series. If your data is randomly distributed, you should aggregate it by a unit of time, per-minute, hourly, or daily for example.
+The Anomaly Detector API works best on an evenly distributed time series. If your data is randomly distributed, you should aggregate it by a unit of time, such as Per-minute, hourly, or daily for example.
 
 ## Anomaly detection on data with seasonal patterns
 
-If you know that your time series data has a seasonal pattern (one that occurs at regular intervals), you can improve the accuracy and time it takes to detect anomalies. 
+If you know that your time series data has a seasonal pattern (one that occurs at regular intervals), you can improve the accuracy and API response time. 
 
-Specifying a `period` when you construct your JSON request can reduce anomaly detection latency by up to 50%. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series with one point per day would have a `period` as `7`, and a time series with one point per hour (with the same weekly pattern) would have a `period` of  `7*24`. If you're unsure of your data's patterns, you don't have to specify this parameter.
+Specifying a `period` when you construct your JSON request can reduce anomaly detection latency by up to 50%. The `period` is an integer that specifies roughly how many data points the time series takes to repeat a pattern. For example, a time series with one data point per day would have a `period` as `7`, and a time series with one point per hour (with the same weekly pattern) would have a `period` of  `7*24`. If you're unsure of your data's patterns, you don't have to specify this parameter.
 
-For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`). If this amount of data points exceeds the maximum number allowed (8640 data points) and your data has a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval. Sampling your data in this way can also decrease the time it takes to detect anomalies. 
+For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`).
+
+### Sampling data for real-time monitoring
+
+If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended amount of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval. Sampling your data in this way can also noticeably improve the API response time. 
 
 ## Next Steps
 

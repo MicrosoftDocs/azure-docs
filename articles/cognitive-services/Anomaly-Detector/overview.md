@@ -36,7 +36,7 @@ To quickly begin using the Anomaly Detector API, try an [online demo](https://no
 
 To run the demo, complete the following steps:
 
-1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.  
+1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up. 
 2. Sign in, and click Clone, in the upper right corner.
 3. Click **Run on free compute**
 4. Select one of the notebooks for this sample.
@@ -45,15 +45,17 @@ To run the demo, complete the following steps:
 
 ## Workflow
 
-The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. Use [best practices](concepts/anomaly-detection-best-practices.md) when using the API for the best results for your data.
+The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Anomaly Detector API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/) for free.
-2. Send a request to the API, with your data.
-3. Process the API response by parsing the returned JSON message.
-
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+
+After signing up:
+
+1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
+1. Send a request to the Anomaly Detector API with your data.
+1. Process the API response by parsing the returned JSON message.
 
 ## Next steps
 
