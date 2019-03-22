@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/26/2019
 ms.author: aahi
 ---
 
@@ -28,11 +28,12 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 - The [Requests library](http://docs.python-requests.org) for python
 
+- A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
-- A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 ## Create a new application
 

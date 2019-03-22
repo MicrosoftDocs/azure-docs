@@ -7,7 +7,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/26/2019
 ms.author: aahi
 ---
 
@@ -40,8 +40,9 @@ To run the demo, complete the following steps:
 2. Sign in, and click Clone, in the upper right corner.
 3. Click **Run on free compute**
 4. Select one of the notebooks for this sample.
-5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable and update your endpoint to the `endpoint` variable.
-6. On the top menu bar, click **Cell**, then **Run All**.
+5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable. Change the `endpoint` variable to your endpoint. For example:
+    For example: `https://westus2.api.cognitive.microsoft.com`
+1. On the top menu bar, click **Cell**, then **Run All**.
 
 ## Workflow
 

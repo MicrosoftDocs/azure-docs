@@ -27,11 +27,11 @@
 - name: Reference
   items:
     - name: REST API Reference
-      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect
+      href: https://aka.ms/anomaly-detector-rest-api-ref
     - name: SDKs
       items:
         - name: .NET
-          href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector
+          href: https://aka.ms/anomaly-detector-dotnet-ref
 - name: Resources
   items:
     - name: Pricing
