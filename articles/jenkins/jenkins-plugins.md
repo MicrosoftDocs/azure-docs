@@ -24,5 +24,5 @@ The following Jenkins plugins support various features for use with Azure.
 | [Azure Function plugin](https://plugins.jenkins.io/azure-function)           | To use this plugin to deploy to Azure Function, first you need to have an Azure Service Principal in your Jenkins instance. | 
 | [Azure Service Fabric plugin](https://plugins.jenkins.io/service-fabric)     | A Jenkins Plugin for Linux Azure Service Fabric projects. |
 | [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)     | A plugin for uploading build artifacts to, or downloading build dependencies from, Microsoft Azure Blob storage. | 
-| [Azure VM agents plugin](https://plugins.jenkins.io/azure-vm-agents)         | A Jenkins Plugin to create Jenkins agents in Azure Virtual Machines (via Azure Resource Manager template). | 
-| [Azure VM scale set plugin](https://plugins.jenkins.io/azure-vmss)           | A Jenkins plugin to deploy VM images to Azure Virtual Machine Scale Sets (VMSS). | 
+| [Azure VM agents plugin](https://plugins.jenkins.io/azure-vm-agents)         | A Jenkins Plugin to create Jenkins agents in Azure virtual vachines (via Azure Resource Manager template). | 
+| [Azure VM scale set plugin](https://plugins.jenkins.io/azure-vmss)           | A Jenkins plugin to deploy VM images to Azure virtual machine scale sets (VMSS). | 
