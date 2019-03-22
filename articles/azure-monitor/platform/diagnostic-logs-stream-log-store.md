@@ -95,6 +95,39 @@ The `--resource-group` argument is only required if `--workspace` is not an obje
 
 In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
 
+### Known limitation: column limit in AzureDiagnostics
+Because many resources send data types are all sent to the same table (_AzureDiagnostics_), the schema of this table is the super-set of the schemas of all the different data types being collected. For example, if you have created diagnostic settings for the collection of the following data types, all being sent to the same workspace:
+- Audit logs of Resource 1 (having a schema consisting of columns A, B, and C)  
+- Error logs of Resource 2 (having a schema consisting of columns D, E, and F)  
+- Data flow logs of Resource 3 (having a schema consisting of columns G, H, and I)  
+ 
+The AzureDiagnostics table will look as follows, with some sample data:  
+ 
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+There is an explicit limit of any given Azure Log table not having more than 500 columns. Once reached, any rows containing data with any column outside of the first 500 will be dropped at ingestion-time. The AzureDiagnostics table is in particular susceptible to be impacted this limit. This typically happens either because a large variety of data sources are sent to the same workspace, or several very verbose data sources being sent to the same workspace. 
+ 
+#### Azure Data Factory  
+Azure Data Factory, due to a very detailed set of logs, is a resource that is known to be particularly impacted by this limit. In particular:  
+- *User parameters defined against any activity in your pipeline*: there will be a new column created for every uniquely-named user parameter against any activity. 
+- *Activity inputs and outputs*: these vary activity-to-activity and generate a large amount of columns due to their verbose nature. 
+ 
+As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available by mid-April 2019.
+ 
+#### Workarounds
+Short term, until the 500-column limit is redefined, it is recommended to separate verbose data types into separate workspaces to reduce the possibility of hitting the limit.
+ 
+Longer term, Azure Diagnostics will be moving away from a unified, sparse schema into individual tables per each data type; paired with support for dynamic types, this will greatly improve the usability of data coming into Azure Logs through the Azure Diagnostics mechanism. You can already see this for select Azure resource types, for example [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) or [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) logs. Please look for news about new resource types in Azure supporting these curated logs on the [Azure Updates](https://azure.microsoft.com/updates/) blog!
+
+
 ## Next steps
 
 * [Read more about Azure Diagnostic Logs](diagnostic-logs-overview.md)
