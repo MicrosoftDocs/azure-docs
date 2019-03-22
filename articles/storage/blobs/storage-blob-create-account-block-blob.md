@@ -50,7 +50,7 @@ To create a block blob storage account in the Azure portal, follow these steps:
 
 1. Select **Create**.
 
-### Create account using Azure PowerShell
+## Create account using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
