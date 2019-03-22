@@ -419,7 +419,7 @@ One of the nice features of Rattle is its ability to run several machine learnin
 Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it.
 
 > [!NOTE]
-> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log.
+> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ...* in the text of the log.
 >
 >
 

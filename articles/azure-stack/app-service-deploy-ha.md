@@ -203,7 +203,7 @@ To deploy App Service resource provider, follow these steps:
     ![Infrastructure role instance values](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Changing from the defualt values to those recommended in this tutoral increases the hardware requirements for installing App Service. A total of 26 cores and 46,592 MB of RAM is needed to support the recommended 21 VMs instead of the defualt 18 cores and 32,256 MB of RAM for 15 VMs.
+    > Changing from the default values to those recommended in this tutoral increases the hardware requirements for installing App Service. A total of 26 cores and 46,592 MB of RAM is needed to support the recommended 21 VMs instead of the default 18 cores and 32,256 MB of RAM for 15 VMs.
 
 14. Select the platform image to use for installing the App Service infrastructure VMs and click **Next**:
 

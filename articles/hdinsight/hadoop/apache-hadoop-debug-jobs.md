@@ -14,7 +14,7 @@ ms.author: ashishth
 ---
 # Analyze Apache Hadoop logs
 
-Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). The logs retain in the Storage account even after the cluster is deleted.
 
 ## Logs written to Azure Tables
 
