@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
    ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)

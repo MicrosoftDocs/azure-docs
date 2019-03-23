@@ -25,6 +25,8 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add sample data to the collection. You then build and deploy a [SQL .NET SDK](sql-api-sdk-dotnet.md) to-do list web app that queries and adds more data to the collection. 
 
+In this quickstart, you create the database and collection by using the Azure portal and add sample data by using the .NET sample. To learn how to create the database and the collection by using the .NET sample, see [Review the code[(#review-the-code). 
+
 ## Prerequisites
 
 Visual Studio 2017 with Azure development workflow installed:
@@ -40,10 +42,14 @@ An Azure subscription or free Cosmos DB trial account:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection-database"></a>
-## Add a collection and a database 
+## Use Data Explorer
 
-Use the Data Explorer in the Azure portal to create a database and collection. 
+Use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
+
+<a id="create-collection-database"></a>
+### Add a collection and a database 
+
+Use the Data Explorer to create a database and collection. 
 
 1. Select **Data Explorer** from the left menu on the Azure Cosmos DB account main page, and then select **New Collection**. 
    
@@ -68,7 +74,7 @@ Use the Data Explorer in the Azure portal to create a database and collection.
 
     ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
-## Add data to your database
+### Add data to your database
 
 Add data to your new database using Data Explorer.
 
@@ -92,35 +98,77 @@ Add data to your new database using Data Explorer.
 
     ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
 
-1. Select **New Document** again, and create and save another document with a unique `id`, and other properties as you see fit. Your documents can have any structure you want, because Azure Cosmos DB doesn't impose any schema on your data.
+1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 
 ## Query your data
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## Clone the sample application
+## Use the SQL API sample app
 
-Now let's switch to working with code. Let's clone a [SQL API app from GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app), set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now switch to working with C# code in Visual Studio, to see how easy it is to work with your data programmatically. Clone the sample SQL API web app from GitHub, update the connection string, and run the app. 
 
-1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+### Clone the sample app
+
+First, clone a [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) from GitHub. 
+
+1. Open a git terminal window, create a new folder named *git-samples*, and change to it:
 
     ```bash
     md "C:\git-samples"
-    ```
-
-2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
-
-    ```bash
     cd "C:\git-samples"
     ```
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+1. Run the following command to clone the sample repository and create a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-4. Then open the todo solution file in Visual Studio. 
+### Update the connection string 
+
+1. In Visual Studio, navigate to and open the *todo.sln* file in your cloned app. If you're interested in learning how the database resources are created in the code, 
+
+1. In Visual Studio **Solution Explorer**, open the *web.config* file. 
+
+1. Go back to the Azure portal to copy your connection string information and paste it into the *web.config*.
+
+   1. Select **Keys** > **Read-write Keys** in your Cosmos DB account left navigation.
+   
+   ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
+   
+   1. Using the copy button at the right, copy the **URI** value and paste it into the `endpoint` key in the *web.config*. For example: 
+
+    `<add key="endpoint" value="FILLME" />`
+
+   1. Copy the **PRIMARY KEY** value and paste it into the `authKey` in the *web.config*. For example:
+
+    `<add key="authKey" value="FILLME" />`
+    
+1. Update the database and collection values in the *web.config* to match the names you created earlier. 
+
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
+1. Save the *web.config.* You've now updated your app with all the information it needs to communicate with Azure Cosmos DB. 
+
+## Run the web app
+
+1. In Visual Studio, right-click on the project in **Solution Explorer** and then select **Manage NuGet Packages**. 
+
+2. In the NuGet **Browse** box, type *DocumentDB*.
+
+3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package and all dependencies.
+
+4. Select **Ctrl** + **F5** to run the app in your browser. 
+
+5. Select **Create New** in the browser, and create a few new tasks in your to-do app.
+
+   ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+
+You can now go back to Data Explorer and see, query, modify, and work with this new data. 
 
 ## Review the code
 
@@ -168,47 +216,6 @@ The following snippets are all taken from the DocumentDBRepository.cs file.
         }
     }
     ```
-
-## Update your connection string
-
-Now go back to the Azure portal to get your connection string information and copy it into the app.
-
-1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation select **Keys**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
-
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
-
-2. In Visual Studio 2017, open the web.config file. 
-
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
-
-    `<add key="endpoint" value="FILLME" />`
-
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. 
-
-    `<add key="authKey" value="FILLME" />`
-    
-5. Then update the database and collection values to match the name of the database you have created earlier. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-   ```csharp
-   <add key="database" value="ToDoList"/>
-   <add key="collection" value="Items"/>
-   ```
- 
-## Run the web app
-
-1. In Visual Studio, right-click on the project in **Solution Explorer** and then select **Manage NuGet Packages**. 
-
-2. In the NuGet **Browse** box, type *DocumentDB*.
-
-3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package as well as all dependencies.
-
-4. Select CTRL + F5 to run the application. Your app displays in your browser. 
-
-5. Select **Create New** in the browser and create a few new tasks in your to-do app.
-
-   ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
-
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
