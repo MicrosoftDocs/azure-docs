@@ -1,7 +1,5 @@
 # Microsoft Azure Documentation
 
-> Between March 5th and March 9th 2019, the MicrosoftDocs/azure-docs repo will be undergoing a Migration from it's current Markdown engine to the [Markdig](https://github.com/lunet-io/markdig) markdown engine. During this time, we will be suspending the ability to merge public pull requests in order to complete the migration.
-
 Welcome to the open source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
 
 ## Getting Started

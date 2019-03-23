@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Multi-Factor Authentication
+title: Configure Azure Multi-Factor Authentication - Azure Active Directory
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
 services: multi-factor-authentication
@@ -249,7 +249,7 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## Trusted IPs
 

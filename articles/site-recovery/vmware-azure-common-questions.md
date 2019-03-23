@@ -1,13 +1,13 @@
 ---
 title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
+ms.author: raynew
 ---
 # Common questions - VMware to Azure replication
 
@@ -160,6 +160,10 @@ No, switching from managed to unmanaged is not supported.
 ### Why can't I replicate over VPN?
 
 When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
+
+### Can I use Riverbed SteelHeads for replication?
+
+Our partner, Riverbed, provides a detailed guidance on working with Azure Site Recovery. Please refer their [solution guide](https://community.riverbed.com/s/article/DOC-4627).
 
 ### What are the replicated VM requirements?
 

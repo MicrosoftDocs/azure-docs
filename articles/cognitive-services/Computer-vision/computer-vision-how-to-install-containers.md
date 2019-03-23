@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -45,14 +45,14 @@ You must meet the following prerequisites before using Recognize Text containers
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
+| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|0.5, 1|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
-
 
 ## Get the container image with `docker pull`
 
