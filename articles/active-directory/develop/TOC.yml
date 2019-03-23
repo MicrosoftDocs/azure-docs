@@ -394,6 +394,8 @@
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Branding guidelines
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Publisher domain
+        href: howto-configure-publisher-domain.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
       - name: Java

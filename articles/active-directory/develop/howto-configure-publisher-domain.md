@@ -1,5 +1,5 @@
 ---
-title: Publisher domain | Azure
+title: Configure an application's publisher domain | Azure
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
 documentationcenter: dev-center-name
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Publisher domain (Preview)
+# How to: Configure an application's publisher domain (Preview)
 
 An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **Unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
@@ -99,11 +99,11 @@ Configuring the publisher domain has an impact on what users see on the app cons
 
 The following table describes the behavior for applications created before May 21, 2019.
 
-![Consent prompt for apps created before May 21, 2019](./media/publisher-domain/consent-prompt-apps-before-may21.png)
+![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/consent-prompt-apps-before-may21.png)
 
 The behavior for new applications created after May 21, 2019 will depend on the publisher domain and the type of application. The following table describes the changes you should expect to see with the different combinations of configurations.
 
-![Consent prompt for apps created after May 21, 2019](./media/publisher-domain/consent-prompt-apps-after-may21.png)
+![Consent prompt for apps created after May 21, 2019](./media/howto-configure-publisher-domain/consent-prompt-apps-after-may21.png)
 
 ## Implications on redirect URIs
 
