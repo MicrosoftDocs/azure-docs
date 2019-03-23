@@ -1,6 +1,6 @@
 ---
-title: Publisher domain | Microsoft Docs
-description: Provides an index of available Azure Active Directory (V2 endpoint) code samples, organized by scenario.
+title: Publisher domain | Azure
+description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: celested
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
@@ -54,18 +54,96 @@ To set your app's publisher domain, follow these steps.
    1. Select your profile from the menu on the top right corner of the page, and then **Switch directory**.
    1. Change your session to the Azure AD tenant where you want to create your application.
 
-1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register your app.
+1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
 
-1. Find and select the app you want to configure. Once you've selected the app, you'll see the app's **Overview** page.
+   Once you've selected the app, you'll see the app's **Overview** page.
 
 1. From the app's **Overview** page, select the **Branding** section.
 
-1. Find the **Publisher domain** field and select **Configure a domain** or **Update domain** if one has already been configured.
+1. Find the **Publisher domain** field and select one of the following options:
 
-   - If your app is registered in a tenant, you'll see two tabs to select from: **Select a verified domain** and **Verify a new domain**.
-   - If your app isn't registered in a tenant, you'll only see the option to verify a new domain for your application.
+   - Select **Configure a domain** if you haven't configured a domain already.
+   - Select **Update domain** if a domain has already been configured.
 
-Locate the Publisher domain field. Select Configure a domain or Update domain if one has already been configured. If your application is registered in a tenant you’ll see 2 tabs to select from: ‘Select a verified domain’ and ‘Verify a new domain’. Otherwise, you will only see the option to verify a new domain for your application.
+If your app is registered in a tenant, you'll see two tabs to select from: **Select a verified domain** and **Verify a new domain**.
 
+If your app isn't registered in a tenant, you'll only see the option to verify a new domain for your application.
 
-## See also
+### To verify a new domain for your app
+
+1. Create a file named `microsoft-identity-configuration.json` and paste the following JSON code snippet.
+
+   ```json
+   {
+      "associatedApplications": [
+        {
+           "applicationId": "{YOUR-APP-ID-HERE}"
+        }
+      ]
+    }
+   ```
+
+1. Replace the placeholder `YOUR-APP-ID-HERE` with the application (client) ID that corresponds to your app.
+
+1. Host the file at `https://{YOUR_DOMAIN_HERE}.COM/.well-known/microsoft-identity-configuration.json`.
+
+1. Click the **Verify and save domain** button.
+
+### To select a verified domain
+
+- If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+
+## Implications on the app consent prompt
+
+Configuring the publisher domain has an impact on what users see on the app consent prompt. To fully understand the components of the consent prompt, see [Understanding the application consent experiences](application-consent-experience.md).
+
+The following table describes the behavior for applications created before May 21, 2019.
+
+![Consent prompt for apps created before May 21, 2019](./media/publisher-domain/consent-prompt-apps-before-may21.png)
+
+The behavior for new applications created after May 21, 2019 will depend on the publisher domain and the type of application. The following table describes the changes you should expect to see with the different combinations of configurations.
+
+![Consent prompt for apps created after May 21, 2019](./media/publisher-domain/consent-prompt-apps-after-may21.png)
+
+## Implications on redirect URIs
+
+Applications that sign in users with any work or school account, or personal Microsoft accounts ([multi-tenant](single-and-multi-tenant-apps.md)) are subject to few restrictions when specifying redirect URIs.
+
+### Single root domain restriction
+
+When the publisher domain value for multi-tenant apps is set to null, apps are restricted to share a single root domain for the redirect URIs. For example, the following combination of values are not allowed because the root domain, contoso.com, does not match fabrikam.com.
+
+```
+"https://contoso.com",
+"https://fabrikam.com",
+```
+
+### Subdomain restrictions
+
+While subdomains are allowed, the root domain must be explicitly registered. For example, while the following URIs share a single root domain, the combination is not allowed.
+
+```
+"https://app1.contoso.com",
+"https://app2.contoso.com",
+```
+
+However, if the developer explicitly adds the root domain, the combination is allowed.
+
+```
+"https://contoso.com",
+"https://app1.contoso.com",
+"https://app2.contoso.com",
+```
+
+### Exceptions
+
+The following cases are not subject to the single root domain restriction:
+
+- Single tenant apps, or apps that target accounts in a single directory
+- Use of localhost as redirect URIs
+- Redirect URIs with custom schemes (non-HTTP or HTTPS)
+
+## Configure publisher domain programmatically
+
+Currently, there is no REST API or PowerShell support to configure publisher domain programmatically.
+
