@@ -1,6 +1,6 @@
 ---
-title: Build a .NET web app with Azure Cosmos DB using the SQL API
-description: In this quickstart, create and manage Azure Cosmos DB resources using SQL API in the Azure portal and a .NET web app.
+title: Build a .NET web app with Azure Cosmos DB using the SQL API 
+description: In this quickstart, create and manage Azure Cosmos DB resources using SQL API in the portal and a .NET web app.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/21/2019
 ---
-# Quickstart: Build a .NET web app using Azure Cosmos DB SQL API account
+# Quickstart: Build a .NET web app using SQL API with an Azure Cosmos DB account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -25,13 +25,12 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add sample data to the collection. You then build and deploy a [SQL .NET SDK](sql-api-sdk-dotnet.md) to-do list web app that queries and adds more data to the collection. 
 
-In this quickstart, you create the database and collection by using the Azure portal and add sample data by using the .NET sample. To learn how to create the database and the collection by using the .NET sample, see [Review the code[(#review-the-code). 
+In this quickstart, you create the database and collection by using the Azure portal. To learn how to create the database and the collection by using the .NET sample instead, see [Review the code[(#review-the-code). 
 
 ## Prerequisites
 
 Visual Studio 2017 with Azure development workflow installed:
 - You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
-- To install the Azure development workflow from Visual Studio 2017. ... 
 
 An Azure subscription or free Cosmos DB trial account:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -44,14 +43,14 @@ An Azure subscription or free Cosmos DB trial account:
 
 ## Use Data Explorer
 
-Use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
+You can use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
 
 <a id="create-collection-database"></a>
-### Add a collection and a database 
+### Add a database and a collection. 
 
 Use the Data Explorer to create a database and collection. 
 
-1. Select **Data Explorer** from the left menu on the Azure Cosmos DB account main page, and then select **New Collection**. 
+1. Select **Data Explorer** from the left navigation on the Azure Cosmos DB account page, and then select **New Collection**. 
    
    You may need to scroll right to see the **Add Collection** area.
 
@@ -127,7 +126,7 @@ First, clone a [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-
 
 ### Update the connection string 
 
-1. In Visual Studio, navigate to and open the *todo.sln* file in your cloned app. If you're interested in learning how the database resources are created in the code, 
+1. In Visual Studio, navigate to and open the *todo.sln* file in your cloned app. 
 
 1. In Visual Studio **Solution Explorer**, open the *web.config* file. 
 
