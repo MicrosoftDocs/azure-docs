@@ -15,10 +15,10 @@ You can use queries in Data Explorer to retrieve and filter your data.
 
     ![Default query in Data Explorer is `SELECT * FROM c`](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
 
-2. Stay on the **Documents** tab, and change the query by selecting the **Edit Filter** button, adding `ORDER BY c._ts DESC` to the query predicate box, and then selecting **Apply Filter**.
+2. On the **Documents** tab, select the **Edit Filter** button, replace the default query with `ORDER BY c._ts DESC`, and then select **Apply Filter**.
 
     ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
 
-This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any supported [SQL queries](../articles/cosmos-db/sql-api-sql-query.md) in this box. 
+This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any supported [SQL queries](../articles/cosmos-db/sql-api-sql-query.md) in the query predicate box. 
 
-Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data through the Azure portal. You can use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic. 
+You can also use Data Explorer to create stored procedures, UDFs, and triggers for server-side business logic. Data Explorer provides easy Azure portal access to all of the built-in programmatic data access features available in the APIs. You can also scale throughput and [review metrics](../cosmos-db/create-sql-api-dotnet.md#review-metrics-and-slas-in-the-portal) for your Cosmos DB account from the portal. 

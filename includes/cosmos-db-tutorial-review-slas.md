@@ -2,17 +2,18 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
 ---
-The throughput, storage, availability, latency, and consistency of the resources in your account are monitored in the Azure portal. Let's take a quick look at these metrics. 
+The  Azure portal monitors the throughput, storage, availability, latency, and consistency of the resources in your Cosmos DB account. Each chart that's associated with an [Azure Cosmos DB Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) shows whether performance met the SLA. Azure Cosmos DB makes monitoring your SLAs easy with this suite of metrics.
 
-1. Click **Metrics** in the navigation menu.
+To review the metrics and SLAs: 
 
-   ![Metrics in the Azure portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Click through each of the tabs so you're aware of the metrics Azure Cosmos DB provides. 
-
-    Each chart that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) provides a line that shows if any of the SLAs have been violated. Azure Cosmos DB makes monitoring your SLAs transparent with this suite of metrics. 
-
+1. Select **Metrics** in your Cosmos DB account's navigation menu.
+   
+2. Select the **Latency** tab, and select a timeframe on the right. Compare the **SLA** lines on each chart to the actual observed latencies.
+   
    ![Azure Cosmos DB metrics suite](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Review the metrics on the other tabs. 
+
