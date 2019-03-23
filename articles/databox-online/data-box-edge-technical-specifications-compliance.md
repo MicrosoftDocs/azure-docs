@@ -10,12 +10,9 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge technical specifications (preview)
+# Azure Data Box Edge technical specifications
 
 The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Power supply unit specifications
 
@@ -23,7 +20,7 @@ The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-p
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    |  750 W                     |
+| Maximum output power    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
