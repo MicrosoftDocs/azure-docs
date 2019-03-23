@@ -14,7 +14,7 @@ ms.date: 03/25/2019
 
 # Pricing model for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview) helps you create 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create 
 and run automated integration workflows that can scale in the cloud. 
 Here are the details about how billing and pricing work for Logic Apps. 
 For specific pricing information, see [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
