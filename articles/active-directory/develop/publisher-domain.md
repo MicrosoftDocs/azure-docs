@@ -26,19 +26,19 @@ An application’s publisher domain is displayed to users on the [application’
 
 ## New applications
 
-When you register a new app, the publisher domain of your app may be set to a default value. This depends on where the app is registered, particularly whether the app is registered in a tenant and whether the tenant has tenant verified domains.
+When you register a new app, the publisher domain of your app may be set to a default value. The value depends on where the app is registered, particularly whether the app is registered in a tenant and whether the tenant has tenant verified domains.
 
-If there are tenant verified domains, the app’s publisher domain will default to the primary verified domain of the tenant. If there are no tenant verified domains (which is the case when the application is not registered in a tenant), the app’s publisher domain will be set to null.
+If there are tenant-verified domains, the app’s publisher domain will default to the primary verified domain of the tenant. If there are no tenants verified domains (which is the case when the application is not registered in a tenant), the app’s publisher domain will be set to null.
 
 The following table summarizes the default behavior of the publisher domain value.  
 
-| Tenant verified domains | Default value of publisher domain |
+| Tenant-verified domains | Default value of publisher domain |
 |-------------------------|----------------------------|
 | null | null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>- domain1.com<br/>- domain2.com (primary) | domain2.com |
 
-If a multi-tenant application's publisher domain is not set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will inform users of this by showing **unverified** in place of the publisher domain.
+If a multi-tenant application's publisher domain isn't set, or if it's set to a domain that ends in .onmicrosoft.com, the app's consent prompt will show **unverified** in place of the publisher domain.
 
 ## Grandfathered applications
 
@@ -51,7 +51,7 @@ To set your app's publisher domain, follow these steps.
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 
 1. If your account is present in more than one Azure AD tenant:
-   1. Select your profile from the menu on the top right corner of the page, and then **Switch directory**.
+   1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
    1. Change your session to the Azure AD tenant where you want to create your application.
 
 1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
@@ -111,7 +111,7 @@ Applications that sign in users with any work or school account, or personal Mic
 
 ### Single root domain restriction
 
-When the publisher domain value for multi-tenant apps is set to null, apps are restricted to share a single root domain for the redirect URIs. For example, the following combination of values are not allowed because the root domain, contoso.com, does not match fabrikam.com.
+When the publisher domain value for multi-tenant apps is set to null, apps are restricted to share a single root domain for the redirect URIs. For example, the following combination of values isn't allowed because the root domain, contoso.com, doesn't match fabrikam.com.
 
 ```
 "https://contoso.com",
@@ -120,7 +120,7 @@ When the publisher domain value for multi-tenant apps is set to null, apps are r
 
 ### Subdomain restrictions
 
-While subdomains are allowed, the root domain must be explicitly registered. For example, while the following URIs share a single root domain, the combination is not allowed.
+Subdomains are allowed, but you must explicitly register the root domain. For example, while the following URIs share a single root domain, the combination isn't allowed.
 
 ```
 "https://app1.contoso.com",
@@ -137,7 +137,7 @@ However, if the developer explicitly adds the root domain, the combination is al
 
 ### Exceptions
 
-The following cases are not subject to the single root domain restriction:
+The following cases aren't subject to the single root domain restriction:
 
 - Single tenant apps, or apps that target accounts in a single directory
 - Use of localhost as redirect URIs
@@ -146,4 +146,3 @@ The following cases are not subject to the single root domain restriction:
 ## Configure publisher domain programmatically
 
 Currently, there is no REST API or PowerShell support to configure publisher domain programmatically.
-
