@@ -25,11 +25,11 @@
     API|Core(SQL)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core(SQL) and MongoDB for document databases, Gremlin for graph databases, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>Select **Core(SQL)** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../articles/cosmos-db/documentdb-introduction.md).|
     Location|Select the region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location closest to your users to give them the fastest access to the data.
 
-    Select **Review + create**. You can skip the **Network** and **Tags** sections. 
+1. Select **Review + create**. You can skip the **Network** and **Tags** sections. 
 
-    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
+   ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
-1. Review the account settings, and then select **Create**. Wait a few minutes until the account is created and the portal page displays **Your deployment is complete**. 
+1. Review the account settings, and then select **Create**. Wait a few minutes for the account to be created and the portal page to display **Your deployment is complete**. 
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
 

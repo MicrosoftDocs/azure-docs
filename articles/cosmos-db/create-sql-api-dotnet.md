@@ -21,11 +21,11 @@ ms.date: 03/21/2019
 >  
 > 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query document, graph, and key/value databases, which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value, document, and graph databases, which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add sample data to the collection. You then build and deploy a [SQL .NET SDK](sql-api-sdk-dotnet.md) to-do list web app that queries and adds more data to the collection. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add sample data to the collection. You then build and deploy a [SQL .NET SDK](sql-api-sdk-dotnet.md) to-do list web app that can add more data to the collection. 
 
-In this quickstart, you create the database and collection by using the Azure portal. To learn how to create the database and the collection by using the .NET sample instead, see [Review the code[(#review-the-code). 
+In this quickstart, you create the database and collection by using the Azure portal. To learn how to create the database and the collection by using the .NET sample instead, see [Review the code](#review-the-code). 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ An Azure subscription or free Cosmos DB trial account:
 You can use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
 
 <a id="create-collection-database"></a>
-### Add a database and a collection. 
+### Add a database and a collection 
 
 Use the Data Explorer to create a database and collection. 
 
@@ -56,20 +56,19 @@ Use the Data Explorer to create a database and collection.
 
     ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
 
-2. In the **Add collection** page, enter the settings for the new collection.
+1. In the **Add collection** page, enter the settings for the new collection.
 
-    Setting|Suggested value|Description
-    ---|---|---
-    **Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.
-    **Collection id**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
-    **Partition key**| /category| The sample described in this article uses */category* as the partition key.|
-    **Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
+    |Setting|Suggested value|Description
+    |---|---|---
+    |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
+    |**Collection id**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
+    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
+    |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
     
     Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
     
-    Select **OK**.
-
-    Data Explorer displays the new database and collection.
+1. Select **OK**. 
+   Data Explorer displays the new database and collection.
 
     ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
@@ -99,7 +98,7 @@ Add data to your new database using Data Explorer.
 
 1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 
-## Query your data
+### Query your data
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
@@ -137,12 +136,12 @@ First, clone a [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-
    ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
    
    1. Using the copy button at the right, copy the **URI** value and paste it into the `endpoint` key in the *web.config*. For example: 
-
-    `<add key="endpoint" value="FILLME" />`
-
+   
+   `<add key="endpoint" value="https://mysqlapicosmosdb.documents.azure.com:443/" />`
+   
    1. Copy the **PRIMARY KEY** value and paste it into the `authKey` in the *web.config*. For example:
-
-    `<add key="authKey" value="FILLME" />`
+   
+   `<add key="authKey" value="1234567890abcdefgabcdefgABCDEFG000000000000000000000000000000000000000000000000000==" />`
     
 1. Update the database and collection values in the *web.config* to match the names you created earlier. 
 
@@ -167,7 +166,7 @@ First, clone a [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-
 
    ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
-You can now go back to Data Explorer and see, query, modify, and work with this new data. 
+You can go back to Data Explorer to see, query, modify, and work with this new data. 
 
 ## Review the code
 
