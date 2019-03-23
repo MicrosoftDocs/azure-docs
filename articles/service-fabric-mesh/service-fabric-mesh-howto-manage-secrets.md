@@ -27,7 +27,7 @@ Managing Secrets consists of the following steps:
 5. Use Azure "az" CLI commands for Secure Store Service lifecycle management.
 
 ## Declare a Mesh Secrets resource
-A Mesh Secrets resource is declared in an Azure Resource Model JSON or YAML file using inlinedValue kind and SecretsStoreRef contentType definitions. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
+A Mesh Secrets resource is declared in an Azure Resource Model JSON or YAML file using inlinedValue kind definition. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
 >
 The following is an example of how to declare Mesh Secrets resources in a JSON file:
 
