@@ -101,13 +101,12 @@ you can set up a Recurrence trigger that runs every three days or on a more comp
 Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. 
 For example, built-in actions include HTTP calls, calls from Azure Functions 
 or API Management, and control flow steps such as conditions, loops, and 
-switch statements. Each action has their own action type.
-
-For example, actions that call [connectors](https://docs.microsoft.com/connectors) 
+switch statements. Each action has their own action type. For example, 
+actions that call [connectors](https://docs.microsoft.com/connectors) 
 have the "ApiConnection" type. These connectors are classified as 
 Standard or Enterprise connectors, which are metered based on their 
-respective [pricing][pricing]. Enterprise connectors in *Preview* are 
-charged as Standard connectors.
+respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). 
+Enterprise connectors in *Preview* are charged as Standard connectors.
 
 Azure Logic Apps meters all successful and unsuccessful actions as executions. 
 However, Logic Apps doesn't meter these actions:
@@ -115,37 +114,37 @@ However, Logic Apps doesn't meter these actions:
 * Actions that get skipped due to unmet conditions
 * Actions that don't run because the logic app stopped before finishing
 
-For actions that run inside loops, Logic Apps counts each action per cycle in the loop. 
-For example, suppose you have a "for each" loop that processes a list. 
-Logic Apps meters an action in that loop by multiplying the number of list items 
-with the number of actions in the loop, and adds the action that starts the loop. 
-The calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
+For actions that run inside loops, Azure Logic Apps counts each action 
+for each cycle in the loop. For example, suppose you have a "for each" 
+loop that processes a list. Logic Apps meters an action in that loop by 
+multiplying the number of list items with the number of actions in the loop, 
+and adds the action that starts the loop. So, the calculation for a 10-item 
+list is (10 * 1) + 1, which results in 11 action executions.
 
 ## Disabled logic apps
 
 Disabled logic apps aren't charged because they 
 can't create new instances while they're disabled.
-
-> [!NOTE]
-> After you disable a logic app, any currently running 
-> instances might take some time before they completely stop.
+After you disable a logic app, any currently running 
+instances might take some time before they completely stop.
 
 ## Integration accounts
 
-Consumption-based usage applies to 
+Consumption pricing applies to 
 [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
 where you can explore, develop, and test the 
 [B2B and EDI](logic-apps-enterprise-integration-b2b.md) 
 and [XML processing](logic-apps-enterprise-integration-xml.md) 
-features in Azure Logic Apps at no additional cost. 
-
-You can have one integration account in each region. Each integration 
-account can store up to specific [numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md), 
+features in Azure Logic Apps at no additional cost.
+You can have one integration account in each Azure region. 
+Each integration account can store up to specific 
+[numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md), 
 which include trading partners, agreements, maps, schemas, 
 assemblies, certificates, batch configurations, and so on.
 
 Azure Logic Apps also offers Basic and Standard integration 
-accounts with supported Logic Apps SLA. 
+accounts with supported Logic Apps SLA. Here are ways you 
+can choose whether to use a Basic or Standard integration account:
 
 * Use Basic integration accounts when you just want message 
 handling or act as a small business partner that has a 
@@ -162,8 +161,8 @@ For specific pricing information, see
 
 ## Data retention
 
-All input and output data that gets stored in your logic 
-app's run history gets billed based on the logic app's 
+All inputs and outputs that are stored in your logic 
+app's run history get billed based on a logic app's 
 [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). 
 For specific pricing information, see 
 [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
@@ -171,8 +170,9 @@ For specific pricing information, see
 To view and monitor your logic app's storage consumption, 
 follow these steps: 
 
-1. In the Azure portal, on your logic app's menu, 
-under **Monitoring**, select **Metrics**.
+1. In the Azure portal, find and open your logic app. 
+
+1. From your logic app's menu, under **Monitoring**, select **Metrics**.
 
 1. In the right-hand pane, under **Chart Title**, 
 from the **Metric** list, select 
