@@ -66,7 +66,7 @@ To mount an Azure file share as a volume in a container, specify the share and v
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image microsoft/aci-hellofiles \
+    --image mcr.microsoft.com/azuredocs/aci-hellofiles \
     --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
@@ -79,7 +79,7 @@ The `--dns-name-label` value must be unique within the Azure region you create t
 
 ## Manage files in mounted volume
 
-Once the container starts up, you can use the simple web app deployed via the [microsoft/aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
+Once the container starts up, you can use the simple web app deployed via the Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -136,7 +136,7 @@ Learn how to mount other volume types in Azure Container Instances:
 * [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

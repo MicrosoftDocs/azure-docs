@@ -21,6 +21,8 @@ While Windows-based HDInsight provides an easy way to use Apache Hadoop in the c
 > [!NOTE]  
 > HDInsight clusters use Ubuntu long-term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Migration tasks
 
 The general workflow for migration is as follows.
@@ -59,7 +61,7 @@ Use the following steps to copy data from the production cluster to the test clu
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -90,7 +92,7 @@ Use the following steps to copy data from the production cluster to the test clu
 
 #### Direct copy between blobs in Azure Storage
 
-Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
+Alternatively, you may want to use the `Start-AzStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
 ## Client-side technologies
 
