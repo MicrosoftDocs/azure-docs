@@ -16,19 +16,22 @@ ms.date: 03/25/2019
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create 
 and run automated integration workflows that can scale in the cloud. 
-Here are the details about how billing and pricing work for Logic Apps. 
+This article describes how billing and pricing work for Azure Logic Apps. 
 For specific pricing information, see [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="consumption-pricing"></a>
 
 ## Consumption pricing model
 
-For new logic apps that run in the public or "global" Logic 
-Apps service, you pay only for what you use. These logic apps 
-use a consumption-based plan and pricing model. In your logic app 
-definition, each step is an action. Actions include the trigger, 
-any control flow steps, built-in actions, and connector calls. 
-Logic Apps meters all actions that run in your logic app.
+For new logic apps that run in the public or "global" Azure 
+Logic Apps service, you pay only for what you use. These logic 
+apps use a consumption-based plan and pricing model. In your logic 
+app definition, each step is an action. For example, actions include 
+the trigger, which is a special kind of action and required as the 
+first step in any logic app, built-in actions, calls to connectors, 
+and any control flow steps. Azure Logic Apps meters all the actions 
+that run in your logic app. Learn more about how billing works for 
+[triggers](#triggers) and [actions](#actions).
 
 <a name="fixed-pricing"></a>
 
@@ -41,17 +44,17 @@ and standard connectors. An ISE provides a way for
 you to create and run isolated logic apps that can 
 access resources in an Azure virtual network.
 
+> [!NOTE]
+> The ISE is in [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> For specific pricing information, see 
+> [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+
 Your ISE base unit has fixed capacity, so if you need more throughput, 
 you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
 either during creation or afterwards. Your ISE includes one free 
 Enterprise connector, which includes as many connections as you want. 
 Usage for additional Enterprise connectors is charged based 
 on the Enterprise consumption price.
-
-> [!NOTE]
-> The ISE is in [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> For specific pricing information, see 
-> [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -68,7 +71,7 @@ for triggers and actions work.
 
 <a name="triggers"></a>
 
-### Triggers
+## Triggers
 
 Triggers are special actions that create a logic app instance 
 when a specific event happens. Triggers act in different ways, 
@@ -93,7 +96,7 @@ you can set up a Recurrence trigger that runs every three days or on a more comp
 
 <a name="actions"></a>
 
-### Actions
+## Actions
 
 Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. 
 For example, built-in actions include HTTP calls, calls from Azure Functions 
