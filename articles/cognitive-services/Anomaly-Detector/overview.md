@@ -41,7 +41,7 @@ To run the demo, complete the following steps:
 3. Click **Run on free compute**
 4. Select one of the notebooks for this sample.
 5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable. Change the `endpoint` variable to your endpoint. For example:
-    For example: `https://westus2.api.cognitive.microsoft.com`
+    `https://westus2.api.cognitive.microsoft.com`
 1. On the top menu bar, click **Cell**, then **Run All**.
 
 ## Workflow
