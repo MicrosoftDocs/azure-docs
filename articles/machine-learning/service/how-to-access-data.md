@@ -175,7 +175,7 @@ ds.path('./bar').as_download()
 
 ### Compute context and datastore type matrix
 
-The following matrix displays the compatible and available data access functionalities for each of the different compute context and datastore scenarios. The term pipeline in this case refers to the ability to directly use datastores as an input or output in the pipeline.
+The following matrix displays the available data access functionalities for the different compute context and datastore scenarios. The term pipeline in this matrix refers to the ability to use datastores as an input or output in machine learning pipelines.
 
 ||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
