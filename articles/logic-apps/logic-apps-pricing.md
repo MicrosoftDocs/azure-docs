@@ -45,7 +45,7 @@ Your ISE base unit has fixed capacity, so if you need more throughput,
 you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
 either during creation or afterwards. Your ISE includes one free 
 Enterprise connector, which includes as many connections as you want. 
-Usage for additional Enterprise connectors are charged based 
+Usage for additional Enterprise connectors is charged based 
 on the Enterprise consumption price.
 
 > [!NOTE]
