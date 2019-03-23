@@ -102,9 +102,13 @@ Add data to your new database using Data Explorer.
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
+### Review account metrics and SLAs
+
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
 ## Use the SQL API sample app
 
-Now see how easy it is to work with your Cosmos DB data programmatically. Clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
+To see how easy it is to work with your Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
 
 ### Clone the sample app
 
@@ -146,7 +150,8 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
       
    1. Copy the **PRIMARY KEY** value and paste it into the `authKey` key in the *web.config*. For example:
       
-      `<add key="authKey" value="1234567890abcdefgabcdefgABCDEFG000000000000000000000000000000000000000000000000000==" />`
+      `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
+
        
 1. Make sure the database and collection values in the *web.config* match the names you created earlier. 
 
@@ -157,13 +162,13 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
  
 1. Save the *web.config.* You've now updated your app with all the information it needs to communicate with Azure Cosmos DB. 
 
-## Run the web app
+### Run the web app
 
 1. In Visual Studio, right-click the **todo** project in **Solution Explorer**, and then select **Manage NuGet Packages**. 
 
 1. In the NuGet **Browse** box, type *DocumentDB*.
 
-1. From the results, install the **Microsoft.Azure.DocumentDB** library if it is not already installed. This installs the Microsoft.Azure.DocumentDB package and all dependencies.
+1. From the results, install the **Microsoft.Azure.DocumentDB** library if not already installed. This installs the Microsoft.Azure.DocumentDB package and all dependencies.
    
    If the NuGet Package Manager displays a message that some packages are missing from the solution, select **Restore** to install them from internal sources. 
 
@@ -175,7 +180,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 You can go back to Data Explorer in the Azure portal to see, query, modify, and work with your new data. 
 
-## Review the code
+### Review the code
 
 This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
@@ -220,19 +225,14 @@ This step is optional. In this quickstart, you created a database and a collecti
     }
     ```
 
-## Review metrics and SLAs in the portal
-
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
 ## Clean up resources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
-
 
