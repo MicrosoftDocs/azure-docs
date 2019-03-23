@@ -83,9 +83,9 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
     }
    ```
 
-1. Replace the placeholder `YOUR-APP-ID-HERE` with the application (client) ID that corresponds to your app.
+1. Replace the placeholder *{YOUR-APP-ID-HERE}* with the application (client) ID that corresponds to your app.
 
-1. Host the file at `https://{YOUR_DOMAIN_HERE}.COM/.well-known/microsoft-identity-configuration.json`.
+1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-configuration.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
 
 1. Click the **Verify and save domain** button.
 
