@@ -266,17 +266,17 @@ Apart from filtering logs on code as in the examples above, it is also possible 
 * This is possible if you have the older (now obsolete) version of `ApplicationInsightsLoggerProvider` enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your `Configure` method has
   the following, and remove it.
 
-```csharp
+   ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
         loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Warning);
         // ..other code.
     }
-```
+   ```
 
 * If you are experiencing double logging when debugging from Visual Studio, then modify the code used to enable ApplicationInsights as follows, by setting `EnableDebugLogger` to be false. This is only relevant when debugging the application.
 
-```csharp
+   ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         ApplicationInsightsServiceOptions options = new ApplicationInsightsServiceOptions();
@@ -284,7 +284,7 @@ Apart from filtering logs on code as in the examples above, it is also possible 
         services.AddApplicationInsightsTelemetry(options);
         // ..other code.
     }
-```
+   ```
 
 
 
