@@ -20,7 +20,7 @@ ms.author: monhaber
 # Use Azure Security Center recommendations to enhance security
 You can reduce the chances of a significant security event by configuring a security policy and then implementing the recommendations provided by Azure Security Center. This article shows you how to use security policies and recommendations in Security Center to help mitigate a security attack.
 
-Security Center runs continuos scans, automatically, to analyze the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed security controls. These recommendations are updated once every 24 hours.
+Security Center automatically runs continuos scans to analyze the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed security controls. Security Center updates the recommendations once every 24 hours.
 
 ## Scenario
 This scenario shows you how to use Security Center to help reduce the chances of a security incident by monitoring Security Center recommendations and taking action. The scenario uses the fictitious company, Contoso, and roles presented in the Security Center [planning and operations guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). In this scenario, we're focusing on the roles of the following personas:
