@@ -47,31 +47,13 @@ During push installation of mobility agent, following steps are performed
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, then agent installation will fail. To avoid failure of mobility agent installation, use [9.23 version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash consistent points and install VSS provider manually.
 
-## Install Mobility Agent manually through UI & command line
+
+## Install mobility agent through UI
 
 ### Prerequisite
 
-Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
-
-### Locate installer files
-
-Go to %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder on configuration server. Check which installer you need based on operating system. The following table summarizes the installer files for each VMware VM and physical server operating system. You can review [supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines) before you start.
-
-**Installer file** | **Operating system (64-bit only)** 
---- | ---
-Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1 
-Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.* 
-Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3 
-Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 
-Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 
-Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5
-Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
-Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server
-Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
-Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
-
-## Install mobility agent through UI
+1. Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
+2. [Locate the installer](#locate-installer-files) based on the operating system of the server.
 
 >[!IMPORTANT]
 > If you are replicating Azure IaaS VM from one Azure region to another, don't use this method. Use the command-line-based installation method instead.
@@ -94,9 +76,14 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
     ![Mobility Service registration final page](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
-### Install mobility agent through command prompt
+## Install mobility agent through command prompt
 
-#### On a Windows machine
+### Prerequisite
+
+1. Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
+2. [Locate the installer](#locate-installer-files) based on the operating system of the server.
+
+### On a Windows machine
 
 1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. 
 
@@ -119,7 +106,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
-##### Installation settings
+#### Installation settings
 **Setting** | **Details**
 --- | ---
 Usage | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
@@ -129,7 +116,7 @@ Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
-##### Registration settings
+#### Registration settings
 **Setting** | **Details**
 --- | ---
 Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -137,7 +124,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 /CSEndPoint | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 /PassphraseFilePath |  Mandatory. Location of the passphrase. Use any valid UNC or local file path.
 
-#### On a Linux machine
+### On a Linux machine
 
 1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
   ```
@@ -156,7 +143,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-##### Installation settings
+#### Installation settings
 **Setting** | **Details**
 --- | ---
 Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
@@ -165,7 +152,7 @@ Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
 -q | Optional. Specifies whether to run the installer in silent mode.
 
-##### Registration settings
+#### Registration settings
 **Setting** | **Details**
 --- | ---
 Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
@@ -176,6 +163,24 @@ Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP>
 
 - **Windows VMs**: From version 9.7.0.0 of the Mobility service, the [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent) is installed by the Mobility service installer. This ensures that when the machine fails over to Azure, the Azure VM meets the agent installation prerequisite for using any Vm extension.
 - **Linux VMs**: The  [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) must be installed manually on the Azure VM after failover.
+
+## Locate installer files
+
+Go to %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder on configuration server. Check which installer you need based on operating system. The following table summarizes the installer files for each VMware VM and physical server operating system. You can review [supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines) before you start.
+
+**Installer file** | **Operating system (64-bit only)** 
+--- | ---
+Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1 
+Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*
+Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.* 
+Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3 
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 
+Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5
+Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
+Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server
+Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
+Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## Next steps
 
