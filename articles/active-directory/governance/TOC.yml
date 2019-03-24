@@ -12,8 +12,8 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Get started with entitlement management
-      href: entitlement-management-get-started.md
+    - name: First access package in entitlement management
+      href: entitlement-management-first-access-package.md
 - name: Concepts
   expanded: true
   items:

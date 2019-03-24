@@ -46,7 +46,7 @@ sections:
       style: unordered
       items:
       - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is Azure AD entitlement management?</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-get-started">Tutorial - Get started with entitlement management</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-first-access-package">Tutorial - Create your first access package</a>
       - html: <a href="/azure/active-directory/governance/entitlement-management-create-access-package">Create and manage an access package</a>
   - title: Terms of use
     items:

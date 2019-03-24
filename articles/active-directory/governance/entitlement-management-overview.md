@@ -156,5 +156,5 @@ The following table lists the permissions for each of these roles.
 
 ## Next steps
 
-- [Tutorial: Get started with Azure AD entitlement management](entitlement-management-get-started.md)
+- [Tutorial: Create your first access package in Azure AD entitlement management](entitlement-management-first-access-package.md)
 - [Overview steps Azure AD entitlement management](entitlement-management-steps.md)
