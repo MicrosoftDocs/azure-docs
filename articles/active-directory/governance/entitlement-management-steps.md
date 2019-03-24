@@ -34,9 +34,10 @@ There are several ways that you can configure entitlement management for your or
 
 ### Share resources with users in your directory
 
-Users in your directory in specific groups can request access.<br/>
-Time-limited access.<br/>
-Groups, applications, and SharePoint Online sites in your directory.
+- Users in your directory in specific groups can request access
+- Time-limited access
+- Approval process
+- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
@@ -51,24 +52,25 @@ Groups, applications, and SharePoint Online sites in your directory.
 - Internal users in specific groups can request access
 - Another department will manage the resources that can be shared
 - Time-limited access
-- Groups, applications, and SharePoint Online sites in your directory
+- Approval process
+- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** If necessary, create a new catalog for the department |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
-> | **2.** Add catalog owners |  | User admin<br/>Catalog owner |
-> | **3.** Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
-> | **4.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
-> | **5.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **6.** Add a policy for users in your directory<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | # | Step | Example | Who can perform |
+> | ---: | --- | --- | --- |
+> | 1 | If necessary, create a new catalog for the department |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
+> | 2 | Add catalog owners |  | User admin<br/>Catalog owner |
+> | 3 | Add resources to catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
+> | 4 | Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
+> | 5 | Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | 6 | Add a policy for users in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Share resources with specific users from your business partners
 
 - Specific users from your business partners (including users not yet in your directory) can request access
 - Self-service request
 - Approval process
-- Groups, applications, and SharePoint Online sites in your directory
+- Resources include groups, applications, and SharePoint Online sites in your directory
 
 ### Share resources with any users from your business partners
 
@@ -76,15 +78,15 @@ Groups, applications, and SharePoint Online sites in your directory.
 - Self-service request
 - Colleagues can share request link with peers
 - Approval process
-- Groups, applications, and SharePoint Online sites in your directory
+- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Add resources to a catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
+> | **1.** Add resources to a catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
 > | **2.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
 > | **3.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **4.** Add a policy for users not in your directory<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **4.** Add a policy for users not in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 > | **5.** Send **My Access portal link** to access package to your business partner contact to share with their users |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Share resources with anyone
@@ -93,7 +95,7 @@ Groups, applications, and SharePoint Online sites in your directory.
 - Self-service request
 - Colleagues can share request link with peers
 - Approval process
-- Groups, applications, and SharePoint Online sites in your directory
+- Resources include groups, applications, and SharePoint Online sites in your directory
 
 ### Allow users from your business partners to sign up for an Azure AD account
 
