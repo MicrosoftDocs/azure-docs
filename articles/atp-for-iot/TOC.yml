@@ -4,6 +4,8 @@
   href: overview.md
 - name: Architecture
   href: architecture.md
+- name: Security agent 
+  href: security-agents.md 
 - name: Service prerequisites
   href: service-prerequisites.md
 - name: Device agent prerequisites

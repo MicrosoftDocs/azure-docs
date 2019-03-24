@@ -1,19 +1,19 @@
 ---
-title: Send your security messages to Azure IoT Security Preview| Microsoft Docs
-description: Learn how to send your security messages using Azure IoT Security.
-services: azureiotsecurity
+title: Send your security messages to ATP for IoT Preview| Microsoft Docs
+description: Learn how to send your security messages using ATP for IoT.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
@@ -21,22 +21,22 @@ ms.author: mlottner
 # Send security messages
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
+> ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains Azure IoT Security data analysis capabilities when choosing to collect and send your device security messages without using an Azure IoT Security agent, and explains how to do so.  
+This article explains ATP for IoT data analysis capabilities when choosing to collect and send your device security messages without using an ATP for IoT agent, and explains how to do so.  
 
-## Azure IoT Security 
-Azure IoT Security can process and analyze any kind of security message data as long as the data sent conforms to the [Azure IoT Security schema](https://github.com/Azure/Azure-Security-IoT-Schemas). 
+## ATP for IoT 
+ATP for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ATP for IoT schema](https://github.com/Azure/Azure-Security-IoT-Schemas). 
 
 ## Send security messages 
 
-Send security messages without using the Azure IoT Security agent, by using the [Azure IoT device SDK](https://github.com/Azure/azure-iot-sdk-csharp).
+Send security messages without using the ATP for IoT agent, by using the [Azure IoT device SDK](https://github.com/Azure/azure-iot-sdk-csharp).
 
-To send the device data from your devices for processing by Azure IoT Security, use one of the  following APIs to mark messages for correct routing to Azure IoT Security processing pipeline. Messages sent this way will be processed and displayed as security insights within Azure IoT Security within both IoT Hub or within Azure Security Center. 
+To send the device data from your devices for processing by ATP for IoT, use one of the  following APIs to mark messages for correct routing to ATP for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ATP for IoT within both IoT Hub or within Azure Security Center. 
 
-All data that is sent, even if marked with the correct header, must also comply with the [Azure IoT Security message schema](https://github.com/Azure/Azure-Security-IoT-Schemas). 
+All data that is sent, even if marked with the correct header, must also comply with the [ATP for IoT message schema](https://github.com/Azure/Azure-Security-IoT-Schemas). 
 
 > [!NOTE]
 > Sent messages that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
@@ -100,7 +100,7 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 ```
 
 ## See Also
-- [Azure IoT Security preview](overview.md)
+- [ATP for IoT preview](overview.md)
 - [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
+- [ATP for IoT alerts](concepts-security-alerts.md)
 

@@ -18,14 +18,14 @@ ms.author: mlottner
 
 ---
 
-# Data access
+# Security data access
 
 > [!IMPORTANT]
 > Azure IoT Security is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Security alert and recommendation data is accessible from the ASC IoT Hub portal, Security Module twins and using Microsoft Log Analytics.
+Security alert and recommendation data is accessible from the ASC IoT Hub portal, Security Module twins and using your Microsoft Log Analytics workspace.
 
 ## Log analytics
 

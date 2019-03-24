@@ -52,7 +52,8 @@ See [How to configure authentication methods](how-to-configure-authentication-me
 - CA-Signed certificate is not supported by **Device** authentication mode.  
 
 ## See also
-- [ATP for IoT Preview](preview.md)
-- [Installation for Windows](install-windows.md)
-- [ATP for IoT alerts](alerts.md)
-- [Data Access](dataaccess.md)
+- [Overview](overview.md)
+- [Architecture](architecture.md)
+- [Installation for Windows](quickstart-windows-installation.md)
+- [ATP for IoT alerts](concept-security-alerts.md)
+- [Data Access](how-to-security-data-access.md)

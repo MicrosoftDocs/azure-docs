@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
@@ -21,26 +21,22 @@ ms.author: mlottner
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article provides a list of frequently asked questions and answers about ATP for IoT. 
-
 
 ## Does Azure provide support for IoT security?
 
 Azure provides an integrated view for monitoring and managing your IoT security as part of your overall security solution through Azure Security Center. If you are an application developer, you can use IoT Hub view to manage your IoT application security.
 
-## What is ATP for IoT
-
-### What is Azure's unique value proposition for IoT security?
+## What is Azure's unique value proposition for IoT security?
 
 ATP for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central, and Azure Security Center enable you to create the solution you want with the security you need.
 
-### Who is ATP for IoT made for? 
+## Who is ATP for IoT made for? 
 
 ATP for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. ATP for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
-
 
 ## How does ATP for IoT compare to the competition?
 
@@ -64,7 +60,7 @@ Agent installation on your IoT devices isn't mandatory in order to enable the Mi
 
 3. No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities. 
 
-### What does the ATP for IoT agent do?
+## What does the ATP for IoT agent do?
 
 ATP for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The ATP for IoT security agent does not scan business-related data or activity.
 

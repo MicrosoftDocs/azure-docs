@@ -31,7 +31,7 @@ This article provides an explanation of how to perform initial configuration of 
 Azure IoT Security aims to enable Azure IoT customers to achieve more, by providing a comprehensive security service that provides end-to-end security for a complete IoT solution.
 Including the ability to monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms and backend resources in Azure.
 
-Once onboarded to your IoT Hub, Azure IoT Security automatically identifies other Azure services,  also connected to your IoT hub and related to your IoT solution.
+Once onboarded to your IoT Hub, Azure IoT Security automatically identifies other Azure services, also connected to your IoT hub and related to your IoT solution.
 
 In addition to automatic relationship detection, you can also pick and choose which other Azure resources to tag as part of your IoT solution. Your selections allow you to add entire subscriptions, resource groups, or single resources.
 

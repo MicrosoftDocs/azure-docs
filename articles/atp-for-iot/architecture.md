@@ -52,9 +52,9 @@ In this article, you learned about the basic architecture and workflow of ATP fo
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
 - [Device agent prerequisites](device-agent-prerequisites.md)
-- [Getting started](quickstart-getting-started.md)
+- [Getting started](getting-started.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-to-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT security alerts](concepts-security-alerts.md)
+- [ATP for IoT security alerts](concept-security-alerts.md)
 

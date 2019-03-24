@@ -76,5 +76,5 @@ To use **Security Module authentication mode**, edit LocalConfiguration.json wit
 ## See also
 - [Understanding ATP for IoT](overview.md)
 - [Installation for Windows](quickstart-windows-installation.md)
-- [ATP for IoT alerts](alerts.md)
-- [Data Access](data-access.md)
+- [ATP for IoT alerts](concepts-security-alerts.md)
+- [Data Access](how-to-security-data-access.md)

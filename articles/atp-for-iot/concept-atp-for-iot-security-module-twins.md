@@ -1,6 +1,6 @@
 ---
-title: Security alert guide for ATP for IoT Preview| Microsoft Docs
-description: Learn about security alerts and recommended remediation using ATP for IoT features and service.
+title: Understand ATP for IoT security module twins Preview| Microsoft Docs
+description: Learn about the concept of security module twins and how they are used in ATP for IoT.
 services: atpforiot
 documentationcenter: na
 author: mlottner
@@ -40,4 +40,4 @@ See [Create ATP for IoT module twin](quickstart-create-security-module.md) and [
 - [Device agent prerequisites](device-agent-prerequisites.md)
 - [Installation for Windows](quickstart-windows-installation.md)
 - [Authentication](concept-security-agent-authentication-methods.md)
-- [Access your IoT data](data-access.md)
+- [Access your IoT security data](how-to-security-data-access.md)
