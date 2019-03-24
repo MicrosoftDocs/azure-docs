@@ -1,19 +1,19 @@
 ---
-title: How to configure authentication methods for Azure IoT Security Preview| Microsoft Docs
-description: Learn about the different authentication methods available when using the Azure IoT Security service.
-services: azureiotsecurity
+title: How to configure authentication methods for ATP for IoT Preview| Microsoft Docs
+description: Learn about the different authentication methods available when using the ATP for IoT service.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
@@ -21,15 +21,15 @@ ms.author: mlottner
 # Configure authentication methods
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> ATP for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to configure authentication methods you can use with the Azure IoT Security agent to authenticate with the ASC IoT Hub.
+This article explains how to configure authentication methods you can use with the ATP for IoT agent to authenticate with the Azure IoT Hub.
 
-See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more about the different authentication methods and choose the best authentication method for your organization. 
+See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more about the different authentication methods you can use with ATP for IoT and choose the best authentication method to select for your for your organization. 
 
-## Security agent Configuration 
+## Security agent configuration 
 
 When using the install security agent script, the following configuration is performed automatically. To edit the security agent authentication manually, edit the config file. 
 
@@ -74,7 +74,7 @@ To use **Security Module authentication mode**, edit LocalConfiguration.json wit
 
 
 ## See also
-- [Understanding Azure IoT Security](overview.md)
+- [Understanding ATP for IoT](overview.md)
 - [Installation for Windows](quickstart-windows-installation.md)
-- [Azure IoT Security alerts](alerts.md)
+- [ATP for IoT alerts](alerts.md)
 - [Data Access](data-access.md)

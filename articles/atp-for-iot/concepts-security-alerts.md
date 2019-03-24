@@ -1,27 +1,27 @@
 ---
-title: Security alert guide for Azure IoT Security Preview| Microsoft Docs
-description: Learn about security alerts and recommended remediation using Azure IoT Security features and service.
-services: ascforiot
+title: Security alert guide for ATP for IoT Preview| Microsoft Docs
+description: Learn about security alerts and recommended remediation using ATP for IoT features and service.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2019
+ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-# Azure IoT Security security alerts
+# ATP for IoT security alerts
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> ATP for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Device alerts
@@ -61,7 +61,7 @@ ms.author: mlottner
 | Low      | Detected an attempt to add or edit a diagnostic setting of an IoT Hub  | An attempt to add or edit the diagnostic settings of an IoT hub was detected. Diagnostic setting enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. If this action was not made by an authorized party, it may indicate malicious activity.  |
 | Low      | Detected an attempt to delete a diagnostic setting from an IoT Hub  | An attempt to delete the diagnostic settings of an IoT Hub was detected. Diagnostic setting enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. If this action was not made by an authorized party, it may indicate malicious activity.       |
 ## See also
-- [Azure IoT Security Preview](preview.md)
+- [ATP for IoT Preview](preview.md)
 - [Installation for Windows](installation-windows.md)
 - [Authentication](authentication.md)
 - [Data Access](dataaccess.md)
