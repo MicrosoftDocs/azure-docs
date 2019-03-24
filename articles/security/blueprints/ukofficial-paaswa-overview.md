@@ -114,7 +114,7 @@ This template deploys the following App Service features:
 
 #### Azure SQL Database
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
 Azure SQL Database in this blueprint
 
@@ -214,7 +214,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 This blueprint has been reviewed by the UK National Cyber Security Centre (NCSC) and aligns to the NCSC 14 Cloud Security Principles
 
-The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](http://www.ampliphae.com/).
+The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## Deploy the solution

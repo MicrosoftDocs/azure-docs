@@ -25,6 +25,7 @@ robots: noindex
 This article provides information about functions and variables supported by Azure Data Factory.
 
 ## Data Factory system variables
+
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |

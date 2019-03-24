@@ -97,7 +97,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
     ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  On the **Create Policy** screen, enter the following values:
+3. On the **Create Policy** screen, enter the following values:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|

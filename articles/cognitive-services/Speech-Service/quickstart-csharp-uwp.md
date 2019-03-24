@@ -63,7 +63,7 @@ This quickstart requires:
 
     ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
-1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
+1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
     ![Screenshot of speech recognition user interface](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

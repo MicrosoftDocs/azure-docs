@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -50,7 +50,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources for the tutorial.
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal home page, click **Resource groups** > **Add**.
 3. For **Resource group name**, type **Test-FW-RG**.
 4. For **Subscription**, select your subscription.
@@ -164,7 +164,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 9. Click **Refresh**, and then click the **Firewall-route** route table.
 10. Click **Subnets** > **Associate**.
 11. Click **Virtual network** > **Test-FW-VN**.
-12. For **Subnet**, click **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall will not work correctly.
+12. For **Subnet**, click **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
 
 13. Click **OK**.
 14. Click **Routes** > **Add**.
@@ -214,7 +214,7 @@ This is the network rule that allows outbound access to two IP addresses at port
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
-For testing purposes in this tutorial, you configure the primary and secondary DNS addresses. This is not a general Azure Firewall requirement.
+For testing purposes in this tutorial, you configure the primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 1. From the Azure portal, open the **Test-FW-RG** resource group.
 2. Click the network interface for the **Srv-Work** virtual machine.
@@ -231,16 +231,16 @@ Now test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and from there open a remote desktop connection to the **Srv-Work** private IP address.
 
-3. Open Internet Explorer and browse to http://msn.com.
+3. Open Internet Explorer and browse to https://msn.com.
 4. Click **OK** > **Close** on the security alerts.
 
    You should see the MSN home page.
 
-5. Browse to http://www.msn.com.
+5. Browse to https://www.msn.com.
 
    You should be blocked by the firewall.
 
-So now you have verified that the firewall rules are working:
+So now you've verified that the firewall rules are working:
 
 - You can browse to the one allowed FQDN, but not to any others.
 - You can resolve DNS names using the configured external DNS server.

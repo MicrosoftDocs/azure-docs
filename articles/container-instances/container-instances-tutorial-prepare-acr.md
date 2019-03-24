@@ -213,7 +213,7 @@ Advance to the next tutorial to learn how to deploy the container to Azure using
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create

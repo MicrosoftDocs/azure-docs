@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -26,7 +26,7 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 
 ## How Cost Management uses scopes
 
-Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes don't.
+Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes do not.
 
 ## Azure RBAC scopes
 
@@ -142,6 +142,10 @@ Billing users don't have access to management groups because they don't explicit
 
 Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
+## Switch between scopes in Cost Management
+
+All Cost Management views in the Azure portal include a **Scope** pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
+
 ## Identify the resource ID for a scope
 
 When working with Cost Management APIs, knowing the scope is critical. Use the following information to build the proper scope URI for Cost Management APIs.
@@ -210,7 +214,7 @@ When working with Cost Management APIs, knowing the scope is critical. Use the f
 4. Copy the resource ID field value.
 5. Your scope is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is currently supported in Azure Global (https://management.azure.com) and Azure Government (https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Cost Management is currently supported in [Azure Global](https://management.azure.com) and [Azure Government](https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## Next steps
 

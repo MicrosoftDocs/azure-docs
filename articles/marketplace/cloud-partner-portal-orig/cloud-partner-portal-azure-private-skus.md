@@ -24,7 +24,7 @@ Private SKUs enable you to restrict the availability of SKUs to specific
 customers. When a SKU is marked private, it's not available in any
 public catalog including on [Azure
 Marketplace](https://azuremarketplace.microsoft.com) and the [Azure
-portal](http://portal.azure.com). On the Azure portal, only customers
+portal](https://portal.azure.com). On the Azure portal, only customers
 with access to the SKU can see it. Additionally, they would also be
 prompted that they have access to private offers.
 

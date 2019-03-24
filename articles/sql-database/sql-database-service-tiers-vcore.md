@@ -44,7 +44,7 @@ The following table helps you understand the differences between the three tiers
 |||
 
 > [!NOTE]
-> You can get a free Azure SQL database at the Basic service tier in conjunction with a Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
+> You can get a free Azure SQL database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
 - For more information, see [vCore resource limits in single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).

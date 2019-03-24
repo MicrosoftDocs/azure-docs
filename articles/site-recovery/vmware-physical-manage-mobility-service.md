@@ -53,10 +53,8 @@ Uninstall from the UI or from a command prompt.
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. Run the following command:
-
     ```
     uninstall.sh -Y
-    ```
 
 ## Install Site Recovery VSS provider on source machine
 
@@ -68,5 +66,6 @@ Azure Site Recovery VSS provider is required on the source machine to generate a
 4. Run the script InMageVSSProvider_Install.cmd to install the VSS provider manually.
 
 ## Next steps
+
 - [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
 - [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)

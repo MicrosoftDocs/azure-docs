@@ -43,6 +43,7 @@ The main publishing steps for adding a test Drive are:
 ## Setting up a test drive
 
 There are four different types of Test Drives available, each based on the type of product, scenario, and marketplace you’re on.
+
 |  **Type**          |  **Description**  |  **Setup instructions**  |
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    An Azure Resource Manager Test Drive is a deployment template that contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this type of Test Drive are ones that use only Azure resources.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |

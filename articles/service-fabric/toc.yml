@@ -64,12 +64,14 @@
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
-      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md      
-    - name: 2- Scale the cluster
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md     
+    - name: 2- Monitor a cluster 
+      href: service-fabric-tutorial-monitor-cluster.md
+    - name: 3- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
-    - name: 3- Upgrade the cluster runtime
+    - name: 4- Upgrade the cluster runtime
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- Delete a cluster
+    - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
   - name: Create a standalone cluster on AWS
     items:
@@ -828,7 +830,7 @@
   - name: Common Security Attributes
     href: service-fabric-security-attributes.md  
   - name: Sample code
-    href: http://aka.ms/servicefabricsamples
+    href: https://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
   - name: Service Fabric versions

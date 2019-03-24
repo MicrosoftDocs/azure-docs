@@ -124,28 +124,28 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
 - Dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
 - Currently, you can use the **FilterByRole** parameter to filter log collection by the following roles:
 
- |   |   |   |    |
- | - | - | - | -  |   
- |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
- |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
- |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
- |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
- |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
- |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
- |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
- |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
- |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
- |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
- |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |Gateway                        |NC                             |WAS|
- |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
- |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |HRP                            |OboService                     |   |
- |   |   |   |    |
+  |   |   |   |    |
+  | - | - | - | -  |   
+  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+  |AzureMonitor          |Gateway                        |NC                             |WAS|
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+  |BRP                   |HintingServiceV2               |NRP                            |   |
+  |CA                    |HRP                            |OboService                     |   |
+  |   |   |   |    |
 
 ### Additional considerations
 

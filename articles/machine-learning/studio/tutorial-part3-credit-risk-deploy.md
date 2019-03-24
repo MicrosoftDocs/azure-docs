@@ -66,12 +66,11 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulting experiment when the Support Vector Machine model is deleted](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 

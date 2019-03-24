@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Database servers and their management
 
@@ -77,6 +77,8 @@ To manage an existing database, navigate to the **SQL databases** page and click
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 

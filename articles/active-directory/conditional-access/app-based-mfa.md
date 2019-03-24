@@ -161,7 +161,7 @@ To initialize the what if policy evaluation tool, set:
 - **Isabella Simonsen** as user 
 - **Microsoft Azure Management** as cloud app
 
- Clicking **What If** creates a simulation report that shows:
+  Clicking **What If** creates a simulation report that shows:
 
 - **Require MFA for Azure portal access** under **Policies that will apply** 
 - **Require multi-factor authentication** as **Grant Controls**.

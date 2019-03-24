@@ -67,6 +67,7 @@ Parameters for *Set-SyslogServer* cmdlet:
 |*Remove*| Remove configuration of the server from the client and stop syslog forwarding| flag | no|
 
 Parameters for *Set-SyslogClient* cmdlet:
+
 | Parameter | Description | Type |
 |---------|---------| ---------|
 | *pfxBinary* | pfx file containing the certificate to be used by the client as identity to authenticate against the syslog server  | Byte[] |
@@ -282,6 +283,7 @@ Table of events for the recovery endpoint:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP Severity table:
+
 | Severity | Level | Numerical value |
 |----------|-------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -301,6 +303,7 @@ REP Severity table:
 ```
 
 Severity table for Windows events:
+
 | CEF severity value | Windows event level | Numerical value |
 |--------------------|---------------------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -311,6 +314,7 @@ Severity table for Windows events:
 |0|Verbose|Value: 5. Indicates logs at all levels|
 
 Custom extension table for Windows events in Azure Stack:
+
 | Custom extension name | Windows event example | 
 |-----------------------|---------|
 |MasChannel | System|
@@ -347,6 +351,7 @@ Custom extension table for Windows events in Azure Stack:
 ```
 
 Alerts severity table:
+
 | Severity | Level |
 |----------|-------|
 |0|Undefined|
@@ -354,6 +359,7 @@ Alerts severity table:
 |5|Warning|
 
 Custom Extension table for Alerts created in Azure Stack:
+
 | Custom extension name | Example | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Contact support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles |

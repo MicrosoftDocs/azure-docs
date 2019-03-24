@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,12 +102,14 @@ To configure Azure AD single sign-on with SAP Business Object Cloud, perform the
     ![SAP Business Object Cloud Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
+
     | |
 	|-|-|
 	| `https://<sub-domain>.sapanalytics.cloud/` |
 	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
     | |
 	|-|-|
 	| `<sub-domain>.sapbusinessobjects.cloud` |
@@ -174,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -233,7 +235,7 @@ To provision a user account:
 
 	d. In the **DISPLAY NAME** box, enter the full name of the user, like **Britta Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon@contoso.com**.
+	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon\@contoso.com**.
 
 	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 

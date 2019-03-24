@@ -112,7 +112,7 @@ To enable or disable telemetry after deployment, you need to have access to the 
 
 PARAMETER Detail:
 > .PARAMETER Enable - Turn On telemetry data upload
-
+> 
 > .PARAMETER Disable - Turn Off telemetry data upload  
 
 **Script to enable telemetry:**

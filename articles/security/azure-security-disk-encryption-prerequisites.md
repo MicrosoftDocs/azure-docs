@@ -1,12 +1,11 @@
 ---
 title: Prerequisites - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 
 ms.custom: seodec18
 ---
@@ -27,7 +26,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 Azure Disk Encryption is supported on the following operating systems:
 
 - Windows Server versions: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016.
-    - For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. Install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+  - For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. Install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Windows client versions: Windows 8 client and Windows 10 client.
 - Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions. For the list of currently supported versions, refer to the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription. Configuring the resources in separate regions causes a failure in enabling the Azure Disk Encryption feature.
@@ -35,11 +34,12 @@ Azure Disk Encryption is supported on the following operating systems:
 ## <a name="bkmk_LinuxPrereq"></a> Additional prerequisites for Linux IaaS VMs 
 
 - Azure Disk Encryption for Linux requires 7 GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
+- Azure Disk Encryption requires the vfat module to be present on the system.  Removing or disabling this module from the default image will prevent the system from being able to read the key volume and obtain the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system are not compatible with Azure Disk Encryption. 
 - Before enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format can't be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Make sure the /etc/fstab settings are configured properly for mounting. To configure these settings, run the mount -a command or reboot the VM and trigger the remount that way. Once that is complete, check the output of the lsblk command to verify that the drive is still mounted. 
-    - If the /etc/fstab file doesn't mount the drive properly before enabling encryption, Azure Disk Encryption won't be able to mount it properly.
-    - The Azure Disk Encryption process will move the mount information out of /etc/fstab and into its own configuration file as part of the encryption process. Don't be alarmed to see the entry missing from /etc/fstab after data drive encryption completes.
-    -  After reboot, it will take time for the Azure Disk Encryption process to mount the newly encrypted disks. They won't be immediately available after a reboot. The process needs time to start, unlock, and then mount the encrypted drives before being available for other processes to access. This process may take more than a minute after reboot depending on the system characteristics.
+  - If the /etc/fstab file doesn't mount the drive properly before enabling encryption, Azure Disk Encryption won't be able to mount it properly.
+  - The Azure Disk Encryption process will move the mount information out of /etc/fstab and into its own configuration file as part of the encryption process. Don't be alarmed to see the entry missing from /etc/fstab after data drive encryption completes.
+  -  After reboot, it will take time for the Azure Disk Encryption process to mount the newly encrypted disks. They won't be immediately available after a reboot. The process needs time to start, unlock, and then mount the encrypted drives before being available for other processes to access. This process may take more than a minute after reboot depending on the system characteristics.
 
 An example of commands that can be used to mount the data disks and create the necessary /etc/fstab entries can be found in [lines 244-248 of this script file](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
@@ -66,8 +66,8 @@ An example of commands that can be used to mount the data disks and create the n
 
 ### Install Azure PowerShell for use on your local machine (optional): 
 1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
-    - [Install and configure Azure PowerShell](/powershell/azure/install-az-ps). 
-        - Install PowerShellGet, Azure PowerShell, and load the Az module. 
+   - [Install and configure Azure PowerShell](/powershell/azure/install-az-ps). 
+     - Install PowerShellGet, Azure PowerShell, and load the Az module. 
 
 2. Verify the installed versions of the Az module. If needed, [update the Azure PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
     Using the latest Az module version is recommended.
@@ -282,12 +282,12 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
  #Step 2: Enable the vault for disk encryption.
      Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption;
 	  
- #Step 3: Create a new key in the key vault with the Add-AzureKeyVaultKey cmdlet.
+ #Step 3: Create a new key in the key vault with the Add-AzKeyVaultKey cmdlet.
 	 # Fill in 'MyKeyEncryptionKey' with your value.
 	 
 	 $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName -Destination 'Software';
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Add-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName -Destination 'Software';
+     $keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 	 
  #Step 4: Encrypt the disks of an existing IaaS VM
 	 # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values. 
