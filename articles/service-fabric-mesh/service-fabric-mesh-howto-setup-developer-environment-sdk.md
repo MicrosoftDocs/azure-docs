@@ -6,7 +6,7 @@ keywords:
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 #Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.

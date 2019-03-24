@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -203,7 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -247,9 +247,9 @@ In order to enable Azure AD users to log into Adobe Creative Cloud, they must be
 2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
-	* Web access: www.adobe.com > sign-in
-	* Within the desktop app utility > sign-in
-	* Within the application > help > sign-in
+   * Web access: www\.adobe.com > sign-in
+   * Within the desktop app utility > sign-in
+   * Within the application > help > sign-in
 
 ### Test single sign-on
 

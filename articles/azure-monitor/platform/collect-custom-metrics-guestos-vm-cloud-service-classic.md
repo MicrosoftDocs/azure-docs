@@ -4,7 +4,7 @@ description: Send Guest OS metrics to the Azure Monitor metric store Cloud Servi
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics

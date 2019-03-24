@@ -55,11 +55,10 @@ Uninstall from the UI or from a command prompt.
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. Run the following command:
-
     ```
     uninstall.sh -Y
-    ```
 
 ## Next steps
+
 - [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
 - [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)

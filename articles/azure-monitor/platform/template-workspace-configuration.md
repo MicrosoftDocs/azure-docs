@@ -38,7 +38,7 @@ This article provides template samples that illustrate some of the configuration
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
 | Data source | datasources   | 2015-11-01-preview |

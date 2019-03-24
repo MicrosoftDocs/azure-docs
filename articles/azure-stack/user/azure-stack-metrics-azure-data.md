@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
 
@@ -30,8 +30,8 @@ For an introduction, overview, and how to get started with Azure Monitor, see th
 
 Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and otherwise take action on the metrics and logs coming from resources in Azure. You can work with this data by using the Azure Stack admin portal, Monitor PowerShell Cmdlets, Cross-Platform CLI, or Azure Monitor REST APIs. For the specific connectivity supported by Azure Stack, see [How to consume monitoring data from Azure Stack](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Metrics and diagnostic logs are not available for the Azure Stack Development Kit.
+> [!Note]
+> Metrics and diagnostic logs are not available for the Azure Stack Development Kit.
 
 ## Prerequisites for Azure Monitor on Azure Stack
 

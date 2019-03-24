@@ -3,7 +3,7 @@ title: Web service logging - Azure Machine Learning Studio | Microsoft Docs
 description: Learn how to enable logging for Machine Learning Studio web services. Logging provides additional information to help troubleshoot the APIs.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 
@@ -52,7 +52,7 @@ You enable logging from the [Azure Machine Learning Studio Web Services](https:/
 
    3. If the container **ml-diagnostics** doesn't exist, click **+Container**, give the container the name "ml-diagnostics", and select the **Access type** as "Blob". Click **OK**.
 
-      ![Select logging level](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Create a new container to store your diagnostic logs](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

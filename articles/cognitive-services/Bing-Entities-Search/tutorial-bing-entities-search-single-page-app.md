@@ -91,7 +91,7 @@ CLIENT_ID_COOKIE      = "bing-search-client-id";
 
 // API endpoints
 SEARCH_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/entities";
-MAPS_ENDPOINT   = "http://dev.virtualearth.net/REST/v1/Locations";
+MAPS_ENDPOINT   = "https://dev.virtualearth.net/REST/v1/Locations";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 

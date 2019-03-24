@@ -1,13 +1,11 @@
 ---
 title: FAQ - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/01/2019
-
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
 ---
 
@@ -40,12 +38,14 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | --- | --- |--- |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.6 | OS and data disk* |
 | RHEL | 7.5 | OS and data disk* |
 | RHEL | 7.4 | OS and data disk* |
 | RHEL | 7.3 | OS and data disk* |
 | RHEL | 7.2 | OS and data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
+| CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
@@ -146,6 +146,9 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## Is XFS filesystem supported?
+XFS volumes are supported for data disk encryption only with the EncryptFormalAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

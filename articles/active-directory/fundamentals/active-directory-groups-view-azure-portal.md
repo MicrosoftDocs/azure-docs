@@ -56,7 +56,7 @@ Create a new user, named _Alain Charon_. A user must exist before being added as
 
     - **Name:** Type _Alain Charon_.
 
-    - **User name:** Type *alain@contoso.com*.
+    - **User name:** Type *alain\@contoso.com*.
 
 3. Copy the auto-generated password provided in the **Password** box, and then select **Create**.
 

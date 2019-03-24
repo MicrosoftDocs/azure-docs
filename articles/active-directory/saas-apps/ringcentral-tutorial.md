@@ -124,6 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
 	d. In the **Sign on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://service.ringcentral.com` |
@@ -137,6 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. If you don't have **Service Provider metadata file**, perform the following steps:
 
 	a. In the **Sign on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://service.ringcentral.com` |
@@ -145,12 +147,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://service.ringcentral.eu` |
 
 	b. In the **Identifier** textbox, type a URL:
+
 	| |
 	|--|
 	|  `https://sso.ringcentral.com` |
 	| `https://ssoeuro.ringcentral.com` |
 
 	c. In the **Reply URL** textbox, type a URL:
+	
 	| |
 	|--|
 	| `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -220,7 +224,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.

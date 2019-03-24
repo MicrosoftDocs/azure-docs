@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -51,7 +51,7 @@ The first step is to create a standard HTML page containing the **video** elemen
 ```
 
 ## Adding the DASH.js Player
-To add the dash.js reference implementation to the application, you need to grab the dash.all.js file from the 1.0 release of dash.js project. This should be saved in the JavaScript folder of your application. This file is a convenience file that pulls together all the necessary dash.js code into a single file. If you have a look around the dash.js repository, you find the individual files, test code and much more, but if all you want to do is use dash.js, then the dash.all.js file is what you need.
+To add the dash.js reference implementation to the application, you need to grab the dash.all.js file from the latest version of dash.js project. This should be saved in the JavaScript folder of your application. This file is a convenience file that pulls together all the necessary dash.js code into a single file. If you have a look around the dash.js repository, you find the individual files, test code and much more, but if all you want to do is use dash.js, then the dash.all.js file is what you need.
 
 To add the dash.js player to your applications, add a script tag to the head section of basicPlayer.html:
 

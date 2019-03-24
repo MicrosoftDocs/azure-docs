@@ -9,6 +9,14 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use LUIS portal
+    items: 
+    - name: 1. Create an app
+      href: get-started-portal-build-app.md
+      displayName: intent, entity, create app, test, example utterance
+    - name: 2. Deploy an app
+      href: get-started-portal-deploy-app.md
+      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use .NET SDK
     items: 
     - name: Query prediction endpoint
@@ -94,10 +102,11 @@
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
     - name: Collaboration
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
+      displayName: import
   - name: Design Model
     items:
     - name: Intents
@@ -141,10 +150,11 @@
     items:
     - name: Design strategies
       href: luis-concept-enterprise.md
+      displayName: import
   - name: Security
     items:
     - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Authoring and endpoint keys
       href: luis-concept-keys.md
@@ -152,6 +162,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
+    displayName: import
   - name: Build Model
     items:
     - name: Add an intent
@@ -160,6 +171,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entity without utterance
       href: luis-how-to-add-entities.md
+      displayName: import
     - name: Use prebuilt models
       items:
       - name: Use domains
@@ -217,6 +229,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
+      displayName: import
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
@@ -229,8 +242,9 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: Manage authors and collaborators
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md
@@ -241,7 +255,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
@@ -251,6 +265,7 @@
     href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
+    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
@@ -381,6 +396,7 @@
     href: luis-glossary.md
   - name: Troubleshooting
     href: troubleshooting.md
+    displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow

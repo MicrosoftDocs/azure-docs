@@ -32,6 +32,7 @@ The simplest use case for Application capacity is when an application instance n
 The following image shows an application instance with and without a maximum number of nodes defined:
 
 <center>
+
 ![Application Instance Defining Maximum Number of Nodes][Image1]
 </center>
 
@@ -113,6 +114,7 @@ Combining **MinimumNodes** and **NodeReservationCapacity** guarantees a minimum 
 Let's look at an example of capacity reservation:
 
 <center>
+
 ![Application Instances Defining Reserved Capacity][Image2]
 </center>
 

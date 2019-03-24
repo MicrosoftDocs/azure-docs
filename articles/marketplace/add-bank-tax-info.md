@@ -6,7 +6,7 @@ documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
 editor:
-
+ms.service: marketplace
 ms.assetid: 
 ms.workload: 
 ms.tgt_pltfrm: 

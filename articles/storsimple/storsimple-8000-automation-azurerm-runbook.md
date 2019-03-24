@@ -46,7 +46,7 @@ To create an automation module for the StorSimple 8000 series device management,
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+2. [Download NuGet CLI](https://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
     
@@ -178,22 +178,22 @@ To create an automation module for the StorSimple 8000 series device management,
 ### Import, publish, and run Automation runbook
 
 1. Create an Azure Run As automation account in the Azure portal. To do so, go
-to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
+   to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
     ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
 2. In the **Add Automation Account** blade:
 
-    1. Supply the **Name** of your Automation account.
-    2. Select the **Subscription** linked to your StorSimple Device Manager service.
-    3. Create a new resource group or select from an existing resource group.
-    4. Select a **Location** (if possible the same as where your service is running).
-    5. Leave the default **Create Run As account** option selected.
-    5. Optionally check **Pin to dashboard**. Click **Create**.
+   1. Supply the **Name** of your Automation account.
+   2. Select the **Subscription** linked to your StorSimple Device Manager service.
+   3. Create a new resource group or select from an existing resource group.
+   4. Select a **Location** (if possible the same as where your service is running).
+   5. Leave the default **Create Run As account** option selected.
+   5. Optionally check **Pin to dashboard**. Click **Create**.
 
-        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
 3. To ensure that the automation account created can access the StorSimple Device Manager service, you need to assign appropriate permissions to the automation account. Go to **Access control** in your StorSimple Device Manager service. Click **+ Add** and provide the name of your Azure Automation Account. **Save** the settings.
 

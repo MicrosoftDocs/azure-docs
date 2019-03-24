@@ -22,7 +22,7 @@ Log in to Azure at https://portal.azure.com
 
 In the Azure portal, navigate to **Virtual machines**.
 
-Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time.
+Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time. Azure VMs can exist in any region no matter the location of your Automation Account.
 
 ![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -62,14 +62,19 @@ The following table shows the supported mappings:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
+
+> [!NOTE]
+> Due to demand, a region may not be available when creating your Automation Account or Log Analytics workspace.  If that is the case, ensure you are using a region in the preceding table that you can create resources in.
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 

@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
 ---
 # Explore Java trace logs in Application Insights
@@ -152,7 +152,7 @@ Now that you've configured your project to send traces to Application Insights, 
 
 Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
 
-![In the Application Insights portal, open Search](./media/java-trace-logs/10-diagnostics.png)
+![In the Application Insights portal, open Search](./media/java-trace-logs/01-diagnostics.png)
 
 ## Next steps
 [Diagnostic search][diagnostic]
