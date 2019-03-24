@@ -87,7 +87,7 @@
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
     - name: Streaming Endpoints
-      displayName: Origins
+      displayName: origins, cdn 
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
       displayName: URLs
