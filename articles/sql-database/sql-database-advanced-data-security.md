@@ -6,11 +6,11 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: 
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: monhaber
+ms.author: monhaber
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 03/24/2019
 ---
 # Advanced data security for Azure SQL Database
 
