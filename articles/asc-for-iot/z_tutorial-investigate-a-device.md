@@ -7,7 +7,7 @@ author: mlottner
 manager: barbkess
 editor: ''
 
-ms.assetid: 96e2720a-b954-42e2-8bf7-d29aec813bfd
+ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
 ms.service: azureiotsecurity
 ms.devlang: na
 ms.topic: conceptual
@@ -17,7 +17,6 @@ ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-
 # Tutorial: Investigate a suspicious IoT device
 
 Azure IoT Security service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
@@ -153,8 +152,6 @@ Check and investigate the device data for the following details and activities u
   1. Are there any suspicious processes running on the device?
   2. Are processes executed by appropriate users?
   3. Do command line executions contain the correct expected arguments?
-
-
 
 
 ## See also
