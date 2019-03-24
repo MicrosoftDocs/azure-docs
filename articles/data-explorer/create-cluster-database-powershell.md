@@ -24,7 +24,7 @@ ms.date: 03/17/2019
 
 This quickstart describes how to create an Azure Data Explorer cluster and database by using PowerShell.
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure [Azure Data Explorer](https://docs.microsoft.com/azure/kusto/ ).
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Powershell. You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure [Azure Data Explorer](https://docs.microsoft.com/azure/kusto/ ).
 
 The [**Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ). With Azure PowerShell and **Az.Kusto**, you can perform the following tasks:
 
