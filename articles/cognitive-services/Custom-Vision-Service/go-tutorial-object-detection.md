@@ -244,7 +244,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_od_image.jpg"))
-    results, _ := predictor.DetectImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration_publish_name, "")
+    results, _ := predictor.DetectImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
     for _, prediction := range *results.Predictions	{
 		boundingBox := *prediction.BoundingBox
