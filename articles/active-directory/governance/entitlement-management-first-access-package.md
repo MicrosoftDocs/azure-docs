@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
-In this tutorial, you work for Woodgrove Bank as an IT administrator. You want to set up an Engineering Team group and allow internal users to request access to this group.
+In this tutorial, you work for Woodgrove Bank as an IT administrator. You want to set up an Engineering Group and allow internal users to request access to this group.
 
 ![Scenario overview](./media/entitlement-management-first-access-package/elm-scenario-overview.png)
 
@@ -51,7 +51,7 @@ In this tutorial, you'll learn how to:
 
 ## Step 1: Set up users and group
 
-The resource directory has one or more resources to share. In this step, you create a group named **Engineering Team** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal user.
+The resource directory has one or more resources to share. In this step, you create a group named **Engineering Group** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal user.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -70,7 +70,7 @@ The resource directory has one or more resources to share. In this step, you cre
 
     For this tutorial, the administrator and approver is the same person, but you typically designate one or more people to be approvers.
 
-1. Create an Azure AD security group named **Engineering Team** with a membership type of **Assigned**.
+1. Create an Azure AD security group named **Engineering Group** with a membership type of **Assigned**.
 
     This group will be the target resource for entitlement management. The group should be empty of members to start.
 
@@ -106,13 +106,13 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     Checking this box enables you to see groups outside the Default catalog.
 
-1. Find and select the **Engineering Team** group you created earlier.
+1. Find and select the **Engineering Group** group you created earlier.
 
     ![New access package - Resource roles tab](./media/entitlement-management-first-access-package/access-package-resource-roles-select-groups.png)
 
 1. Click **Select** to add the group to the list.
 
-    The Engineering Team group also gets added to the Default catalog.
+    The Engineering Group group also gets added to the Default catalog.
 
 1. In the **Role** drop-down list, select **Member**.
 
@@ -266,13 +266,13 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the left navigation, click **Azure Active Directory**.
 
-1. Click **Groups** and open the **Engineering Team** group.
+1. Click **Groups** and open the **Engineering Group** group.
 
 1. Click **Members**.
 
     You should see **User1** listed as a member.
 
-    ![Engineering Team group members](./media/entitlement-management-first-access-package/group-members.png)
+    ![Engineering group members](./media/entitlement-management-first-access-package/group-members.png)
 
 ## Step 7: Clean up resources
 
@@ -292,7 +292,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Click **Resource roles** and remove the resource roles.
 
-1. For **Engineering Team**, click the ellipsis (**...**) and then click **Remove resource role**.
+1. For **Engineering Group**, click the ellipsis (**...**) and then click **Remove resource role**.
 
 1. Open **Default catalog**.
 
@@ -300,7 +300,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In Azure Active Directory, delete any users you added such as **User1** and **Admin1**.
 
-1. Delete the **Engineering Team** group.
+1. Delete the **Engineering Group** group.
 
 ## Next steps
 
