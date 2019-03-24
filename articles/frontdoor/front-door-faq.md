@@ -23,7 +23,7 @@ Azure Front Door Service is an Application Delivery Network (ADN) as a service, 
 
 ### What features does Azure Front Door Service support?
 
-Azure Front Door Service supports dynamic site acceleration (DSA), SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door Service](.\front-door-overview.md).
+Azure Front Door Service supports dynamic site acceleration (DSA), SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door Service](front-door-overview.md).
 
 ### What is the difference between Azure Front Door Service and Azure Application Gateway?
 
@@ -60,7 +60,7 @@ Azure Front Door Service is a global service and is not tied to any specific Azu
 
 ### What are the POP locations for Azure Front Door Service?
 
-Azure Front Door Service has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](..\cdn\cdn-pop-locations.md).
+Azure Front Door Service has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
 ### Is Azure Front Door Service a dedicated deployment for my application or is it shared across customers?
 
@@ -72,7 +72,7 @@ Front Door currently doesn't support URL redirection. The feature is under devel
 
 ### In what order are routing rules processed?
 
-Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](.\front-door-route-matching.md).
+Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](front-door-route-matching.md).
 
 ### How do I lock down the access to my backend to only Azure Front Door Service?
 
@@ -96,7 +96,7 @@ No, Azure Front Door Service currently doesn't support static or dedicated front
 
 Yes, Azure Front Door Service supports the X-Forwarded-For, X-Forwarded-Host, and X-Forwarded-Proto headers. For X-Forwarded-For if the header was already present then Front Door appends the client socket IP to it. Else, it adds the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto, the value is overridden.
 
-Learn more about the [Front Door supported HTTP headers](.\front-door-http-headers-protocol.md).  
+Learn more about the [Front Door supported HTTP headers](front-door-http-headers-protocol.md).  
 
 ### How long does it take to deploy an Azure Front Door Service? Does my Front Door still work when being updated?
 
