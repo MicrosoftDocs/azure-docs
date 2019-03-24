@@ -1,5 +1,5 @@
 ---
-title: Basic steps in Azure AD entitlement management (Preview)
+title: Basic steps for common scenarios in Azure AD entitlement management (Preview)
 description: #Required; article description that is displayed in search results.
 services: active-directory
 documentationCenter: ''
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Basic steps in Azure AD entitlement management (Preview)
+# Basic steps for common scenarios in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-There are several ways that you can configure entitlement management for your organization. However, if you are just getting started, it's helpful to understand the basic steps for administrators, approvers, and users.
+There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the basic steps for administrators, approvers, and users.
 
 ## Administrator setup
 
