@@ -270,7 +270,7 @@ In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure*
 The installers are held in the **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** folder on the configuration server.
 
 ## How do I install the Mobility service?
-You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md), or [manual installation](vmware-physical-mobility-service-install-manual.md) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+You install on each VM you want to replicate, using a [push installation](vmware-physical-mobility-service-overview.md#push-installation), or [manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

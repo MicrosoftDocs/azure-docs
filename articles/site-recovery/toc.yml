@@ -283,7 +283,7 @@
       href: physical-to-azure-failover-failback.md
     - name: Manage
       items:
-      - name: Manage mobility agent for VMware 
+      - name: Manage mobility agent for physical server 
         href: vmware-physical-manage-mobility-service.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
