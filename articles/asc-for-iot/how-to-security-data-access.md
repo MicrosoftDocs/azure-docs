@@ -25,7 +25,7 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Security alert and recommendation data is accessible from the ASC IoT Hub portal, Device Security Module twins and using Microsoft Log Analytics.
+Security alert and recommendation data is accessible from the ASC IoT Hub portal, Security Module twins and using Microsoft Log Analytics.
 
 ## Log analytics
 

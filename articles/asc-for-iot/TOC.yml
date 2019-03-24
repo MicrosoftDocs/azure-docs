@@ -1,45 +1,67 @@
-- name: ASC for IoT Preview Documentation
+- name: Azure IoT Security Preview Documentation
   href: index.yml
 - name: Overview
   href: overview.md
+- name: Architecture
+  href: architecture.md
+- name: Service prerequisites
+  href: service-prerequisites.md
+- name: Device agent prerequisites
+  href: device-agent-prerequisites.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Onboarding IoT Hub to ASC for IoT
+  - name: Getting started with Azure IoT Security service
+    href: quickstart-getting-started.md
+  - name: Onboarding Azure IoT Security to IoT Hub
     href: quickstart-onboard-iot-hub.md
-  - name: Create a Microsoft.Security module twin
+  - name: Configure your solution
+    href: quickstart-configure-your-solution.md
+  - name: Create a security module
+    href: quickstart-create-security-module.md
+  - name: Create an Azure IoT Security module twin
     href: quickstart-security-twin.md
-  - name: Configure an ASC for IoT agent
+  - name: Configure an Azure IoT Security agent
     href: quickstart-agent-configuration.md
-  - name: Install the ASC for IoT agent on a Windows Device
+  - name: Create custom security alerts
+    href: quickstart-create-custom-alerts.md
+  - name: Install the Azure IoT Security agent on a Windows Device
     href: quickstart-windows-installation.md
-  - name: Install the ASC for IoT agent on a Linux 32bit device 
+  - name: Install the Azure IoT Security on a Linux 32-bit device 
     href: quickstart-linux-c#-installation.md
-  - name: Install the ASC for IoT agent on a Linux 64bit device 
+  - name: Install the Azure IoT Security on a Linux 64-bit device 
     href: quickstart-linux-c-installation.md
   
 - name: Tutorials
   items:
-  - name: Modify Microsoft.Security modules configuration objects 
-    href: tutorial-modify-module-configuration.md
-  - name: Send security messages SDK
-    href: tutorial-create-custom-agent.md 
+  - name: Azure IoT Security agent configuration 
+    href: tutorial-agent-configuration.md
+  - name: Send your own security messages
+    href: tutorial-send-security-messages.md 
+  - name: Investigate a device
+    href: tutorial-investigate-a-device.md 
+  
 
 - name: Concepts
   items:
-  - name: Microsoft.Security module twins
-    href: concept-microsoft-security-module.md
-  - name: Authentication Methods
-    href: authentication-methods.md
-  - name: ASC for IoT agent reccomendations
+  - name: Security agent authentication methods
+    href: concept-security-agent-authentication-methods.md
+  - name: Azure IoT Security module twins
+    href: concept-azure-iot-security-module-twins.md
+  - name: Security alerts 
+    href: concepts-security-alerts.md  
+  - name: Security recommendations
     href: concepts-recommendations.md
-  - name: ASC for IoT securty alerts 
-    href: concepts-security-alerts.md     
+   
 
 - name: How-to guides
   items:
   - name: Access your data
-    href: data-access.md
+    href: how-to-security-data-access.md
+  - name: Configure authentication methods
+    href: how-to-configure-authentication-methods.md
+  - name: Modify a security module twin
+    href: how-to-modify-a-security-module-twin.md
 
 
 - name: Resources
