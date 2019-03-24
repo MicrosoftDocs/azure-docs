@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/24/2019
 ms.author: alkohli
 ---
 
@@ -29,7 +29,7 @@ The GA release corresponds to the software versions:
 
 1. **New virtual disk images** - New VHDX and VMDK are now available in the Azure portal. Download these images to provision, configure, and deploy new Data Box Gateway GA devices. The Data Box Gateway devices created in the earlier preview releases cannot be updated to this version. For more information, go to [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 2. **NFS support** - NFS support is currently in preview and available for v3.0 and v4.1 clients that access the Data Box Edge and Data Box Gateway devices.
-3. **Storage resiliency** - Your Data Box Edge device can withstand the failure of one data disk with the Storage resiliency feature. This feature is currently in preview. You can enable storage resiliency by selecting the Resilient option in the Storage settings in the local web UI.
+3. **Storage resiliency** - Your Data Box Edge device can withstand the failure of one data disk with the Storage resiliency feature. This feature is currently in preview. You can enable storage resiliency by selecting the **Resilient** option in the **Storage settings** in the local web UI.
 
 
 ## Known issues in GA release
