@@ -15,7 +15,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: ./media/index/video.png
+      src: /media/index/video.png
       width: 250  
     title: An overview of Azure Data Explorer (ADX) (19:48)
     href: https://youtu.be/D_AJk2lAepw
