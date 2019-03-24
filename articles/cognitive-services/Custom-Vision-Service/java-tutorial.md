@@ -73,41 +73,13 @@ The previous code snippet makes use of two helper functions that retrieve the im
 
 This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(5000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-System.out.println("Training Status: "+ iteration.status());
-
-String publishName = "classifyModel";
-trainer.publishIteration(project.id(), iteration.id(), publishName, "<enter your prediction resource id here>");
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
 ### Use the prediction endpoint
 
 The prediction endpoint, represented by the `predictor` object here, is the reference that you use to submit an image to the current model and get a classification prediction. In this sample, `predictor` is defined elsewhere using the prediction key environment variable.
 
-```java
-// load test image
-byte[] testImage = GetImage("/Test", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().classifyImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .withPublishedName(publishName)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
 ## Run the application
 
