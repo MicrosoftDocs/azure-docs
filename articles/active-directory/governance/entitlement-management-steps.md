@@ -56,14 +56,14 @@ There are several ways that you can configure entitlement management for your or
 - Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
-> | # | Step | Example | Who can perform |
-> | ---: | --- | --- | --- |
-> | 1 | If necessary, create a new catalog for the department |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
-> | 2 | Add catalog owners |  | User admin<br/>Catalog owner |
-> | 3 | Add resources to catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
-> | 4 | Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
-> | 5 | Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | 6 | Add a policy for users in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | Step | Example | Who can perform |
+> | --- | --- | --- |
+> | **1.** If necessary, create a new catalog for the department |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
+> | **2.** Add catalog owners |  | User admin<br/>Catalog owner |
+> | **3.** Add resources to catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
+> | **4.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
+> | **5.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **6.** Add a policy for users in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Share resources with specific users from your business partners
 
@@ -134,7 +134,7 @@ There are several ways that you can configure entitlement management for your or
 
 ### Request an access package
 
-- View available access packages and makes requests
+- View available access packages and make requests
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
@@ -148,7 +148,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open the my access page link you received |  | User |
+> | **1.** Open the My Access page link you received |  | User |
 > | **2.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
 > | **3.** Request access | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
 
