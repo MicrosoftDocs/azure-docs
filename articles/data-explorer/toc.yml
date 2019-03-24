@@ -6,6 +6,7 @@
     href: data-explorer-overview.md
 - name: Quickstarts
   expanded: true
+  items:
   - name: Create cluster and database
     items:
     - name: Azure portal
