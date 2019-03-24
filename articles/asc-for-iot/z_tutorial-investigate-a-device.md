@@ -1,6 +1,6 @@
 ---
-title: How to investigate suspicious activity on a device after receiving an Azure IoT Security alert Preview| Microsoft Docs
-description: Learn about the different methods to use to investigate suspicious activity on an IoT device when using  Azure IoT Security services.
+title: Azure IoT Security IoT device investigation tutorial Preview| Microsoft Docs
+description: This article explains how to use Azure IoT Security to investigate a suspicious IoT device.
 services: azureiotsecurity
 documentationcenter: na
 author: mlottner
@@ -13,50 +13,43 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
 
----
-# required metadata
+# Tutorial: Investigate a suspicious IoT device
 
-title: Azure IoT Security IoT device investigation tutorial | Microsoft Docs
-d|Description: This article explains how to use Azure IoT Security to investigate a suspicious IoT device.
-keywords:
-author: mlottner
-ms.author: mlottner
-ms.date: 03/19/2019
-ms.topic: tutorial
-ms.service: azureiotsecurity
-
-# optional metadata
-
-
----
-
-
-# Tutorial: Investigate an IoT device
-
-Azure IoT Security alert evidence provides clear indications when IoT devices have been involved in suspicious activities or when indications exist that a device is compromised. In this tutorial you'll use the investigation suggestions to help determine the risk to your organization, decide how to remediate, and determine the best way to prevent similar attacks in the future.  
+Azure IoT Security service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
 > [!div class="checklist"]
-> * Check the computer for the logged in user.
-> * Verify if the user normally accesses the computers.
-> * Investigate suspicious activities from the computer.
-> * Where there other alerts around the same time?
+> * Find your device data
+> * Steps to take for suspicious IoT devices
+> * Remediation
+> * Prevention
 
 ## Where can I access my data?
 
-Azure IoT Security stores security alerts, recommendations and raw security data (if you choose to save it) in your Log Analytics (LA) workspace.
-To configure which LA workspace is used go to your IoT hub, click security -> settings and change your LA workspace configuration.
-Once configured, to access your LA workspace choose an alert in Azure IoT Security, and click further investigation - > "To see which devices have this alert click here and view the DeviceId column".
+By default, Azure IoT Security stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
+
+To change the configuration of your LA workspace for data storage:
+
+1. Open your IoT hub, 
+1. Click **Security**, then select **Settings**
+1. Change your LA workspace configuration details. 
+1. Click **Save**. 
+
+Following configuration, do the following to access your LA workspace stored data:
+
+1. Select and click on an Azure IoT Security alert in your IoT Hub. 
+1. Click **further investigation**. 
+1. Select **To see which devices have this alert click here and view the DeviceId column**.
 
 ## Investigation steps for suspicious IoT devices
 
-To access insights and raw data about your IoT devices, go to your Log Analytics workspace ([Where can I access my data?](#Where-can-I-access-my-data)).
+To access insights and raw data about your IoT devices, go to your Log Analytics workspace [Where can I access my data?](#where-can-I-access-my-data).
 
-Check and investigate the device data for the following details and activities:
+Check and investigate the device data for the following details and activities using the following scripts:
 
 - Were other alerts triggered around the same time?
   ~~~
@@ -67,7 +60,7 @@ Check and investigate the device data for the following details and activities:
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
   ~~~
 
-- Who has access the device?
+- Who has access to this device?
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -82,7 +75,7 @@ Check and investigate the device data for the following details and activities:
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
   ~~~
   1. Which users have access to the device?
-  2. Do users have the expected permissions level?
+  2. Do users have the permission levels expected? 
 
 - How can users access the device?
   ~~~
@@ -102,8 +95,8 @@ Check and investigate the device data for the following details and activities:
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
   ~~~
-  1. Which listening sockets are active on the device?
-  2. Should they be active?
+  1. Which listening sockets are currently active on the device?
+  2. Should the listening sockets be active?
 
 - Who logged in to the device? 
   ~~~
@@ -128,7 +121,7 @@ Check and investigate the device data for the following details and activities:
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
   ~~~
   1. Which users have logged in to the device?
-  2. Do users connect from expected IP addresses?
+  2. Did the users that logged in connect from expected IP addresses?
   
 - Is the device behaving as expected?
   ~~~
@@ -158,10 +151,10 @@ Check and investigate the device data for the following details and activities:
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
   ~~~
   1. Are there any suspicious processes running on the device?
-  2. Are processes executed by the right users?
-  3. Do command line executions contain expected arguments?
+  2. Are processes executed by appropriate users?
+  3. Do command line executions contain the correct expected arguments?
 
-## Next steps
+
 
 
 ## See also
