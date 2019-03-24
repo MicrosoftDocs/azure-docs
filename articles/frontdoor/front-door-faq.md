@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Frequently Asked Questions for AFD | Microsoft Docs
+title: Azure Front Door Service - Frequently Asked Questions for Front Door | Microsoft Docs
 description: This page provides answers to frequently asked questions about Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
@@ -33,14 +33,14 @@ While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load bala
 
 The key scenarios why one should use Application Gateway behind Front Door are:
 
-- Front Door can perform path based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
+- Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
 - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
 - With an Application Gateway behind AFD, one can achieve 100% SSL offload and route only HTTP requests within their virtual network (VNET).
 - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
 
 ### Can we deploy Azure Load Balancer behind Front Door?
 
-Azure Front Door Service needs a public VIP or a publicly available DNS name to route the traffic to. Deploying an Azure Load Balancer behind Front Door is a very common use case.
+Azure Front Door Service needs a public VIP or a publicly available DNS name to route the traffic to. Deploying an Azure Load Balancer behind Front Door is a common use case.
 
 ### What protocols does Azure Front Door Service support?
 
@@ -52,19 +52,19 @@ HTTP/2 protocol support is available to clients connecting to Azure Front Door S
 
 ### What resources are supported today as part of backend pool?
 
-Backend pools can be composed of Storage, Web App, Kubernetes instances or any other custom hostname that has a public connectivity. Azure Front Door Service requires that the backends are defined either via a public IP or a publicly resolvable DNS hostname. Members of backend pools can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+Backend pools can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door Service requires that the backends are defined either via a public IP or a publicly resolvable DNS hostname. Members of backend pools can be across zones, regions, or even outside of Azure as long as they have public connectivity.
 
 ### What regions is the service available in?
 
-Azure Front Door Service is a global service and is not tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location which is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door Service is a global service and is not tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location, which is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
 
 ### What are the POP locations for Azure Front Door Service?
 
 Azure Front Door Service has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](..\cdn\cdn-pop-locations.md).
 
-### Is this a dedicated deployment for my subscription or is it shared across customers?
+### Is Azure Front Door Service a dedicated deployment for my application or is it shared across customers?
 
-Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers.
+Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door you define the specific configuration required for your application and 
 
 ### Is HTTP->HTTPS redirection supported?
 
@@ -72,7 +72,7 @@ Front Door currently doesn't support URL redirection. The feature is under devel
 
 ### In what order are routing rules processed?
 
-Routes for your Front Door are not ordered and the way a particular route is picked is based on the best match. Learn more about [How Front Door matches requests to a routing rule](.\front-door-route-matching.md).
+Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](.\front-door-route-matching.md).
 
 ### How do I lock down the access to my backend to only Azure Front Door Service?
 
@@ -86,7 +86,7 @@ You can configure IP ACLing for your backends to accept traffic from Azure Front
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 
-While the frontend anycast IP for your Front Door would usually not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.  
+The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.  
 
 ### Does Azure Front Door Service support static or dedicated IPs?
 
@@ -94,21 +94,21 @@ No, Azure Front Door Service currently doesn't support static or dedicated front
 
 ### Does Azure Front Door Service support x-forwarded-for headers?
 
-Yes, Azure Front Door Service supports the X-Forwarded-For, X-Forwarded-Host and X-Forwarded-Proto headers. For X-Forwarded-For if the header was already present then Front Door appends the client socket IP to it. Else, it adds the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto the value is overridden.
+Yes, Azure Front Door Service supports the X-Forwarded-For, X-Forwarded-Host, and X-Forwarded-Proto headers. For X-Forwarded-For if the header was already present then Front Door appends the client socket IP to it. Else, it adds the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto, the value is overridden.
 
 Learn more about the [Front Door supported HTTP headers](.\front-door-http-headers-protocol.md).  
 
 ### How long does it take to deploy an Azure Front Door Service? Does my Front Door still work when being updated?
 
-A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will deployed across all of our POPs globally.
+A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
 
-Please note - Custom SSL certificate updates take about 30 minutes to be deployed globally.
+Note - Custom SSL certificate updates take about 30 minutes to be deployed globally.
 
 ## Configuration
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
 
-Azure Front Door (AFD) requires a public IP or publicy resolvable DNS name to route traffic. So, the answer is no AFD directly cannot route within a virtual network, but using an Applicaiton Gateway or Azure Load Balancer in between will solve this scenario.
+Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to route traffic. So, the answer is no AFD directly cannot route within a virtual network, but using an Application Gateway or Azure Load Balancer in between will solve this scenario.
 
 ### What are the various timeouts and limits for Azure Front Door Service?
 
@@ -118,7 +118,7 @@ Learn about all the documented [timeouts and limits for Azure Front Door Service
 
 ### How does Azure Front Door Service support high availability and scalability?
 
-Azure Front Door Service is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides a global load balancing capabilities which allows you to fail-over your entire application or even at individual microservice level across regions or different clouds.
+Azure Front Door Service is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
 
 ## SSL Configuration
 
@@ -129,7 +129,7 @@ Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported.
 ### What certificates are supported on Azure Front Door Service?
 
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
-The Front Door managed option provisions a standard SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard SSL, extended validation certificate or even a wildcard certificate. Self-signed certificates are not supported. Learn [how to enable HTTPS for a custom domain](https://aka.ms/FrontDoorCustomDomainHTTPS).
+The Front Door managed option provisions a standard SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard SSL, extended validation certificate, or even a wildcard certificate. Self-signed certificates are not supported. Learn [how to enable HTTPS for a custom domain](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
 ### What are the current cipher suites supported by Azure Front Door Service?
 
@@ -156,7 +156,7 @@ The following are the current cipher suites supported by Azure Front Door Servic
 
 ### Does Azure Front Door Service also support re-encryption of traffic to the backend?
 
-Yes, Azure Front Door Service supports SSL offload, and end to end SSL, which re-encrypts the traffic to the backend. In fact, since the connections to the backedn happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
+Yes, Azure Front Door Service supports SSL offload, and end to end SSL, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
 
 ### Can I configure SSL policy to control SSL Protocol versions?
 
@@ -164,7 +164,7 @@ No, currently Front Door doesn't support to deny specific TLS versions nor can y
 
 ### Can I configure Front Door to only support specific cipher suites?
 
-No, this is not supported. 
+No, configuring Front Door for specific cipher suites is not supported. 
 
 ## Diagnostics and Logging
 
@@ -174,7 +174,7 @@ For information on logs and other diagnostic capabilities, see [Monitoring metri
 
 ### What is the retention policy on the diagnostics logs?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. See [Azure Front Door Service Diagnostics](front-door-diagnostics.md) for more details.
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Service Diagnostics](front-door-diagnostics.md).
 
 ### How do I get audit logs for Azure Front Door Service?
 
