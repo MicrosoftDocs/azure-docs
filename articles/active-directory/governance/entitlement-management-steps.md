@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Common steps in Azure AD entitlement management? (Preview)
+# Common steps in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -37,7 +37,6 @@ There are several ways that you can configure entitlement management for your or
 - Users in your directory in specific groups can request access
 - Time-limited access
 - Approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
@@ -46,7 +45,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** Add resources to a catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
 > | **3.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
 > | **4.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **5.** Create a policy for users in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **5.** Create a policy<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Allow users in your directory to request resources managed by another department
 
@@ -54,7 +53,6 @@ There are several ways that you can configure entitlement management for your or
 - Another department will manage the resources that can be shared
 - Time-limited access
 - Approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
@@ -65,21 +63,20 @@ There are several ways that you can configure entitlement management for your or
 > | **4.** Add resources to catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
 > | **5.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
 > | **6.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **7.** Create a policy for users in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **7.** Create a policy<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Directly assign users in your directory to resources
 
-- Users in your directory cannot request access
+- No users in your directory can request access
 - Time-limited access
 - No approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
 > | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
 > | **2.** Open the access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** Create a policy that no users can request access<ul><li>None (admin direct assignments only)</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **3.** Create a policy<ul><li>None (admin direct assignments only)</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 > | **4.** Create an assignment to add the users to the access package<ul><li>Start and end dates</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Allow specific users from your business partners to request resources
@@ -87,7 +84,6 @@ There are several ways that you can configure entitlement management for your or
 - Specific users from your business partners (including users not yet in your directory) can request access
 - Self-service request
 - Approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 ### Allow users from your business partners to request resources
 
@@ -95,7 +91,6 @@ There are several ways that you can configure entitlement management for your or
 - Self-service request
 - Colleagues can share request link with peers
 - Approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
@@ -104,7 +99,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** Add resources to a catalog<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
 > | **3.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
 > | **4.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **5.** Create a policy for users not in your directory<ul><li>Who can request access</li><li>Who can approve</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **5.** Create a policy<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 > | **6.** Send **My Access portal link** to access package to your business partner contact to share with their users |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Allow anyone to request resources
@@ -113,7 +108,6 @@ There are several ways that you can configure entitlement management for your or
 - Self-service request
 - Colleagues can share request link with peers
 - Approval process
-- Resources include groups, applications, and SharePoint Online sites in your directory
 
 ### Allow users from your business partners to sign up for an Azure AD account
 
