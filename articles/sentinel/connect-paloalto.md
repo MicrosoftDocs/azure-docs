@@ -27,7 +27,7 @@ ms.author: rkarlin
 You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto Networks. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 
 > [!NOTE]
-> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Step 1: Connect your Palo Alto Networks appliance using an agent
 
@@ -43,7 +43,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP

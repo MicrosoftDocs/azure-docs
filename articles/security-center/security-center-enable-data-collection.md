@@ -18,15 +18,14 @@ ms.author: monhaber
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets (VMSS), IaaS containers and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Microsoft Monitoring Agent agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Microsoft Monitoring Agent agent also copies crash dump files to your workspace.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection enablement, and health and threat detections. 
 
 This article provides guidance on how to install a Microsoft Monitoring Agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. 
 
 > [!NOTE]
-
-> - Data collection is only needed for Compute resources (VMs, Virtual Machine Scale Sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
+> - Data collection is only needed for Compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
 > - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
 > - Data collection for Virtual machine scale set is not currently supported.
 > - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage, see the pricing page for more details.
@@ -210,9 +209,9 @@ If the configured workspace is a user workspace (not Security Center's default w
 For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
 
   
-- SCOM agent is installed on the machine<br>
-Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing SCOM. The existing SCOM agent will continue to report to the SCOM server normally. Note that the SCOM agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the lastest version during this proccess.
-Note - If SCOM agent version 2012 is installed, **do not** turn automatic provisioning On.<br>
+- System Center Operations Manager agent is installed on the machine<br>
+Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing Operations Manager. The existing Operations Manager agent will continue to report to the Operations Manager server normally. Note that the Operations Manager agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the latest version during this process.
+Note - If Operations Manager agent version 2012 is installed, **do not** turn automatic provisioning On.<br>
 
 - A pre-existing VM extension is present<br>
     - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from the VM in the workspace already connected, provided that the "security" or "securityFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.  
@@ -271,7 +270,8 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
    > The section **Collect event and performance data** is optional.
    >
 6. To use PowerShell to deploy the extension, use the following PowerShell example:
-    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   
+   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
    1. Go to **Log Analytics** and click on **Advanced settings**.
     

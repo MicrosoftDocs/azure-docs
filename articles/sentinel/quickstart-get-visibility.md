@@ -124,11 +124,9 @@ Generate detections on the [data sources that you connected to Azure Sentinel](c
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
 1. [In the GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) go to the **Detections** folder and select the relevant folders.
- 
    ![relevant folders](./media/qs-get-visibility/detection-folders.png)
  
 3.	Go to the **Analytics** tab and select **add**.
-    
    ![create rule in Log Analytics](./media/qs-get-visibility/query-params.png)
 
 3.	Copy all parameters to the rule and click **Create**.
