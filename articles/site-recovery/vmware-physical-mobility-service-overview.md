@@ -14,7 +14,7 @@ ms.author: ramamill
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server. You can deploy the Mobility Service using the following methods:
 
 1. [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
-2. [Install manually](vmware-physical-mobility-service-install-manual.md): You can install the Mobility service manually on each machine using the UI or command prompt.
+2. [Install manually](#install-mobility-agent-manually-through-ui--command-line): You can install the Mobility service manually on each machine using the UI or command prompt.
 3. [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
 
 ## Anti-virus on replicated machines
@@ -38,14 +38,14 @@ During push installation of mobility agent, following steps are performed
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, this step will be skipped and agent installation will continue.
 4. If agent installation succeeds but VSS provider installation fails,then job status is marked as "Warning". This does not impact crash consistency points generation.
-    a. To generate application consistent points, refer to our guidance to complete installation of Site Recovery VSS provider.
+    a. To generate application consistent points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete installation of Site Recovery VSS provider manually.
     b.  If you do not wish application consistent points to be generated, [modify the replication policy](vmware-azure-set-up-replication.md#create-a-policy) to turn off application consistent points.
 
 ### Before 9.22 versions
 
 1. Pushes agent on to the source machine. Copying the agent on to source machine can fail due to multiple environmental errors. To troubleshoot push installation failure, click [here](vmware-azure-troubleshoot-push-install.md).
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
-3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, then agent installation will fail.
+3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, then agent installation will fail. To avoid failure of mobility agent installation, use [9.23 version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash consistent points and install VSS provider manually.
 
 ## Install Mobility Agent manually through UI & command line
 

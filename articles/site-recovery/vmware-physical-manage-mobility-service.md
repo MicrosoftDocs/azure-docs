@@ -9,8 +9,6 @@ ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-
-
 # Manage mobility service on servers
 
 ## Update mobility service from Azure portal
@@ -51,7 +49,7 @@ Uninstall from the UI or from a command prompt.
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
 
-## On a Linux machine
+### On a Linux machine
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. Run the following command:
@@ -59,6 +57,15 @@ Uninstall from the UI or from a command prompt.
     ```
     uninstall.sh -Y
     ```
+
+## Install Site Recovery VSS provider on source machine
+
+Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.
+
+1. Open admin cmd window.
+2. Navigate to the mobility service installation location. (Eg - C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
+3. Run the script InMageVSSProvider_Uninstall.cmd . This will uninstall the service if it already exists.
+4. Run the script InMageVSSProvider_Install.cmd to install the VSS provider manually.
 
 ## Next steps
 - [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)

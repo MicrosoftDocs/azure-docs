@@ -43,11 +43,11 @@ The source machine registers with the configuration server when you install the 
     3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.  
     4. After you resolve the issues, retry the registration by following guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
-    1. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
-    2. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
-    3. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
-    4. [Uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
+7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-manage-mobility-service.md#uninstall-the-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
+    a. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
+    b. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
+    c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
+    d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-the-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
 ## Installation failure: Failed to load accounts
 
