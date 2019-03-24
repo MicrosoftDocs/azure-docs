@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2019
+ms.date: 03/23/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -33,6 +33,18 @@ With Azure AD entitlement management, you can configure policies to require appr
 ## Prerequisites
 
 - Approver of an access request
+
+## Approval process
+
+A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
+
+The access package approvers are notified of the user's access request. There may be a single approver, multiple approvers, or a group of approvers defined in the policy. Only one approver needs to review the access request, and submit the approve or deny decision.
+
+If the access request is approved, the request is in the **approved** state. Entitlement management starts the process of provisioning the user's access to each resource in the access package. This moves the request to the **provisioning** state. When the user is provisioned access to all the resources in the access packages, they are notified of their access to the access package.
+
+If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
+
+![Approval process diagram](./media/entitlement-management-approve-requests/approval-process.png)
 
 ## Open the access request
 

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/21/2019
+ms.date: 03/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -98,21 +98,6 @@ With an access package and policies, the access package manager defines:
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
 
-## Basic steps
-
-There are several ways that you can configure entitlement management for your organization. However, if you are just getting started, it's helpful to understand the basic steps to make resources available to users.
-
-| # | Step | Example | Who can perform |
-| ---: | --- | --- | --- |
-| 1 | Create a catalog<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
-| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
-| 3 | Create an access package in catalog<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
-| 4 | Add resource roles to access package<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 6 | Request access<br/><br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
-| 7 | Approve access request<br/><br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Approve access](./media/entitlement-management-overview/icon-approve-access.png) | Approver |
-| 8 | Use resources in access package |  | User |
-
 ## Terminology
 
 To better understand entitlement management and its documentation, you should review the following terms.
@@ -169,18 +154,7 @@ The following table lists the permissions for each of these roles.
 | Approve an access request |  |  |  |  | :heavy_check_mark: |  |
 | Request an access package |  |  |  |  |  | :heavy_check_mark: |
 
-## Approval process
-
-A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
-
-The access package approvers are notified of the user's access request. There may be a single approver, multiple approvers, or a group of approvers defined in the policy. Only one approver needs to review the access request, and submit the approve or deny decision.
-
-If the access request is approved, the request is in the **approved** state. Entitlement management starts the process of provisioning the user's access to each resource in the access package. This moves the request to the **provisioning** state. When the user is provisioned access to all the resources in the access packages, they are notified of their access to the access package.
-
-If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
-
-![Approval process diagram](./media/entitlement-management-overview/approval-process.png)
-
 ## Next steps
 
 - [Tutorial: Get started with Azure AD entitlement management](entitlement-management-get-started.md)
+- [Overview steps Azure AD entitlement management](entitlement-management-steps.md)
