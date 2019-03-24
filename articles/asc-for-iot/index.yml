@@ -1,35 +1,35 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: ASC for IoT Preview Documentation
+title: Azure IoT Security Preview Documentation
 metadata:
-  title: ASC for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
-  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across hybrid cloud workloads and your IoT solution.
-  services: ascforiot
+  title: Azure IoT Security Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  meta.description: Azure IoT Security unifies your security management and enables advanced threat protection across your IoT solution.
+  services: azureiotsecurity
   author: mlottner
   manager: barbkess
-  ms.service: ascforiot
+  ms.service: azureiotsecurity
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/28/19
+  ms.date: 03/24/19
   ms.author: barbkess
 abstract:
-  description: ASC for IoT Preview is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale. Get limitless cloud speed and scale to help focus on what really matters. Easily collect data from all your cloud or on-premises assets, Office 365, Azure resources, and other clouds. Effectively detect threats with built-in machine learning from Microsoft’s security analytics experts. Automate threat response, using built-in orchestration and automation playbooks.
+  description: Azure IoT Security Preview enables you to extend your existing cyber security view to your entire IoT solution. Gain a true panoramic view across the security of all of your Azure related resources. Fast deployment options and full integration with IoT Hub module twins enable a wide range of customization options and easy integration with your existing device management tools. 
 sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Learn how to onboard your IoT Hub to ASC for IoT, install ASC for IoT agents and and get visibility into your data, and potential threats.
+    text: Learn how to onboard your IoT Hub to Azure IoT Security, install Azure IoT Security agents and and get visibility into your data, and potential threats.
   - type: list
     style: icon48
     items: 
     - image: 
         src: media/index/deploy.svg
-      text: Onboard ASC for IoT
+      text: Onboard Azure IoT Security
       href: /azure/ascforiot/quickstart-onboard-iot-hub
     - image: 
         src: media/index/get-started.svg
-      text: Get started with ASC for IoT
+      text: Get started with Azure IoT Security
       href: /azure/ascforiot/quickstart-getting-started
 - title: Step-by-Step Tutorials
   items:
@@ -38,7 +38,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-send-security-messages-sdk">Detect threats with ASC for IoT</a>
+    - html: <a href="/azure/ascforiot/tutorial-investigate-a-device">Detect threats with Azure IoT Security</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
@@ -60,4 +60,4 @@ sections:
     style: cards
     className: cardsD
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=ascforiot">Service updates</a>
+    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Service updates</a>
