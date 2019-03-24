@@ -91,6 +91,8 @@
       href: data-box-edge-manage-access-power-connectivity-mode.md
     - name: Manage via PowerShell
       href: data-box-edge-connect-powershell-interface.md
+    - name: Troubleshoot 
+      href: data-box-edge-troubleshoot.md
 - name: Resources
   items:
   - name: Data Box Edge C# module samples (.NET)
