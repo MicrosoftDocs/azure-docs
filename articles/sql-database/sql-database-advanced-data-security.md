@@ -36,37 +36,30 @@ The following steps get you started with ADS.
 
 Enable ADS by navigating to **Advanced Data Security** under the **Security** heading for your SQL Database server or manged instance. To enable ADS for all databases on the database server or managed instance, click **Enable Advanced Data Security on the server**.
 
-![Enable ADS](./media/sql-advanced-protection/enable_atp.png) 
+> [!NOTE]
+> A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled ADS for another server in the same resource group and region, then the existing storage account is used.
+
+![Enable ADS](./media/sql-advanced-protection/enable_ads.png) 
 
 > [!NOTE]
 > The cost of ADS is aligned with Azure Security Center standard tier pricing per node, where a node is the entire SQL Database server or managed instance. You are thus paying only once for protecting all databases on the database server or managed instance with ADS. You can try ADS out initially with a free trial.
 
-## 2. Configure vulnerability assessment
-
-To start using vulnerability assessment, you need to configure a storage account where scan results are saved. To do so, click on the vulnerability assessment card.
-
-![Configure VA](./media/sql-advanced-protection/configure_va.png) 
-
-Select or create a storage account for saving scan results. You can also turn on periodic recurring scans to configure vulnerability assessment to run automatic scans once per week. A scan result summary is sent to the email address(es) you provide.
-
-![VA settings](./media/sql-advanced-protection/va_settings.png) 
-
-## 3. Start classifying data, tracking vulnerabilities, and investigating threat alerts
+## 2. Start classifying data, tracking vulnerabilities, and investigating threat alerts
 
 Click the **Data Discovery & Classification** card to see recommended sensitive columns to classify and to classify your data with persistent sensitivity labels. Click the **Vulnerability Assessment** card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Threat Detection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
 
-## 4. Manage ADS settings on your SQL Database server or managed instance
+## 3. Manage ADS settings on your SQL Database server or managed instance
 
-To view and manage ADS settings, navigate to **Advanced Data Security** under the **Security** heading for your SQL Database server or managed instance. On this page, you can enable or disable ADS, and modify threat detection settings for your entire SQL Database server or managed instance.
+To view and manage ADS settings, navigate to **Advanced Data Security** under the **Security** heading for your SQL Database server or managed instance. On this page, you can enable or disable ADS, and modify vulnerability assessment and threat detection settings for your entire SQL Database server or managed instance.
 
 ![Server settings](./media/sql-advanced-protection/server_settings.png) 
 
-## 5. Manage ADS settings for a SQL database
+## 4. Manage ADS settings for a SQL database
 
-To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts for the individual database, in place of or in addition to the alerts received for all databases on the database server or managed instance. 
+To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the database server or managed instance.
 
-Once the checkbox is selected, click **Threat Detection settings for this database** and then configure the relevant settings for this database.
-
+Once the checkbox is selected, you can then configure the relevant settings for this database.
+ 
 ![Database and threat detection settings](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
 Advanced data security settings for your database server or managed instance can also be reached from the ADS database pane. Click **Settings** in the main ADS pane, and then click **View Advanced Data Security server settings**. 
