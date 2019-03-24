@@ -130,7 +130,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.classifyImage(sampleProject.id, testFile, publishIterationName);
+    const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
 
     // Step 6. Show results
     console.log("Results:");
