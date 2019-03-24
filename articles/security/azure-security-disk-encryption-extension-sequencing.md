@@ -10,9 +10,9 @@ ms.date: 03/21/2019
 
 ---
 
-# Use Azure Disk Encryption with VMSS extension sequencing
+# Use Azure Disk Encryption with virtual machine scale set extension sequencing
 
-Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set (VMSS) in a specified order. To do so, use [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). 
+Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set in a specified order. To do so, use [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). 
 
 In general, encryption should be applied to a disk:
 
