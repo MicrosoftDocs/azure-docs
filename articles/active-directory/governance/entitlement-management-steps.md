@@ -100,7 +100,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
 > | **4.** Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
 > | **5.** Create a policy<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **6.** Send **My Access portal link** to access package to your business partner contact to share with their users |  | User admin<br/>Catalog owner<br/>Access package manager |
+> | **6.** Send **My Access portal link** to request access package to your business partner<ul><li>Business partner can share link with their users</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### Allow anyone to request resources
 
@@ -163,7 +163,7 @@ There are several ways that you can configure entitlement management for your or
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
 > | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
-> | **2.** Find access package in the list of pending approvals |  | Approver |
+> | **2.** Find access package in pending approvals |  | Approver |
 > | **3.** Approve access request | ![Approve access](./media/entitlement-management-overview/icon-approve-access.png) | Approver |
 
 
@@ -177,7 +177,7 @@ There are several ways that you can configure entitlement management for your or
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
 > | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
-> | **2.** Find access package in the list |  | User |
+> | **2.** Find access package |  | User |
 > | **3.** Request access | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
 
 ### Request resources with a direct link
@@ -185,7 +185,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open the My Access page link you received |  | User |
+> | **1.** Open the access package link you received |  | User |
 > | **2.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
 > | **3.** Request access | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
 
