@@ -86,7 +86,6 @@ The following list provides a general summary of Azure services that can be move
 * Iot Central
 * IoT Hubs
 * Key Vault - Key Vaults used for disk encryption can't be moved to resource groups in the same subscription or across subscriptions.
-* Lab Services - Classroom Labs can be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Load Balancers - Basic SKU Load Balancer can be moved. Standard SKU Load Balancer can't be moved.
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
@@ -140,6 +139,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
+* Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Microsoft Genomics
 * SAP HANA on Azure
