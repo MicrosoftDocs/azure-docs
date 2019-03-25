@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -200,11 +200,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Teamphoria test user
 
-In order to enable Azure AD users to log into Teamphoria, they must be provisioned into Teamphoria. In the case of Teamphoria, provisioning is a manual task.
+In order to enable Azure AD users to sign in to Teamphoria, they must be provisioned into Teamphoria. In the case of Teamphoria, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Teamphoria company site as an administrator.
+1. Sign in to your Teamphoria company site as an administrator.
 
 1. Click on **ADMIN** settings on the left toolbar and under the **MANAGE** tab Click on **USERS** to open the admin page for users.
 
