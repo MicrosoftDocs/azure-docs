@@ -19,7 +19,9 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 ## What you do
 
-Connect the DevKit to an Azure IoT hub that you create. Then collect the temperature and humidity data from sensors, and send the data to the IoT hub.
+In this article, you will use [Visual Studio Code](https://code.visualstudio.com/), a cross platform source code editor, along with the [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack.
+
+You will connect the DevKit to an Azure IoT hub that you create. Then collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
 Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
 
