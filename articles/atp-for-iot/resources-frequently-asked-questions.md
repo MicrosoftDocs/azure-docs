@@ -74,7 +74,7 @@ Detailed installation and agent deployment information can be found in GitHub: h
 
 ## What are the dependencies and prerequisites of the agent?
 
-ATP for IoT supports a wide variety of platforms. See [Device agent prerequisites](device-agent-prerequisites.md) to verify support for your specific devices. 
+ATP for IoT supports a wide variety of platforms. See [Supported Device platforms](tutorial-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 
@@ -96,7 +96,7 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 1. Check the [agent type fits the designated OS platform of your device](device-agent-prerequisites.md)
 
-1. Confirm the [agent is running on the device](quickstart-agent-configuration.md).
+1. Confirm the [agent is running on the device](tutorial-agent-configuration.md).
 
 2. Check the [service was onboarded successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 

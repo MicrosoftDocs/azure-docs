@@ -125,5 +125,4 @@ SecurityAlert
 ## See Also
 - [Overview](overview.md)
 - [Architecture](architecture.md)
-- [Configure authentication methods](how-to-configure-authentication-methods.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)
