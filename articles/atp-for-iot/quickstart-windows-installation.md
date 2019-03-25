@@ -1,6 +1,6 @@
 ---
-title: Windows installation of Azure IoT Security agent Preview| Microsoft Docs
-description: Learn about how to install Azure IoT Security agent on 32bit or 64bit Windows devices.
+title: Windows installation of ATP for IoT agent Preview| Microsoft Docs
+description: Learn about how to install ATP for IoT agent on 32bit or 64bit Windows devices.
 services: azureiotsecurity
 documentationcenter: na
 author: mlottner
@@ -18,16 +18,16 @@ ms.author: mlottner
 
 ---
 
-# Azure IoT Security installation for Windows
+# ATP for IoT installation for Windows
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
+> ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to install the Azure IoT Security service agent on 32bit or 64bit Windows. 
+This article explains how to install the ATP for IoT service agent on 32bit or 64bit Windows. 
 
-Azure IoT Security offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
+ATP for IoT offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
 | 32 or 64bit | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
@@ -42,7 +42,7 @@ To deploy the security agent, local admin rights are required on the machine you
 
 To install the security agent, do the following:
 
-1. To install the Azure IoT Security agent on the device, download the most recent version to your machine from the [Azure IoT Security repository](../../releases) folder.
+1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the [ATP for IoT repository](../../releases) folder.
 
 2. Extract the contents of the package, and navigate to the /Install folder.
 
@@ -114,7 +114,7 @@ To turn on logging:
 
 
 ## See Also
-- [Azure IoT Security preview](overview.md)
-- [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
+- [Overview](overview.md)
+- [Configure authentication](how-to-configure-authentication-methods.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)
+- [How to access security data](how-to-security-data-access.md)

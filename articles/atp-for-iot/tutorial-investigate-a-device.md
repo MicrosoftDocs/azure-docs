@@ -163,5 +163,5 @@ Check and investigate the device data for the following details and activities u
 ## See also
 - [Understanding ATP for IoT](overview.md)
 - [Installation for Windows](quickstart-windows-installation.md)
-- [ATP for IoT alerts](alerts.md)
-- [Data Access](data-access.md)
+- [Understanding ATP for IoT security alerts](concept-security-alerts.md)
+- [Access your security data](how-to-security-data-access.md)
