@@ -61,17 +61,12 @@ Next, complete the following sections in the **Plan Details** section:
 
 Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management.
 
-First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
-
-Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers’ resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
-
-Finally, add one or more **Authorization** to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must provide this info in order to access resources on behalf of the customer using Azure Delegated Resource Management.
-
-For each authorization, provide the following: 
-- **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers’ resources.
-- **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers’ resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-
-You can select New authorization to add as many users/roles as you’d like.
+- First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
+- Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers’ resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
+- Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must provide this info in order to access resources on behalf of the customer using Azure Delegated Resource Management.
+  For each authorization, provide the following. You can then select **New authorization** as many times as needed to add more users/role definitions.
+    - **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers’ resources.
+    - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers’ resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 > [!TIP]
 > In most cases, you’ll want to assign permissions to an Azure AD user group rather than a series of individual user or application accounts. This lets you add or remove individual users to that group without having to update and republish the plan when your access requirements change.
@@ -80,7 +75,7 @@ When you're done adding plans, select **Save**, then continue to the **Marketpla
 
 ## Marketplace
 
-The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal. For examples of how some of these fields appear, see [Marketplace form](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app#azure-marketplace). 
+The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal. For examples of how some of these fields appear, see [Marketplace form](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app#azure-marketplace).
 
 Provide info for the following fields in the **Overview** section:
 
@@ -96,7 +91,7 @@ Provide info for the following fields in the **Overview** section:
 |**Useful Links**     | URLs related to your offer, such as documentation, release notes, FAQs, etc.        |
 |**Suggested Categories (Max 5)**     | One or more categories (up to five) which apply to your offer. These categories help customers discover your offer in Azure Marketplace and the Azure portal.        |
 
-In the **Marketing Artifacts**, you can upload logos and other assets to be shown with your offer. You can optionally upload screenshots or links to videos that can help customers understand your offer.
+In the **Marketing Artifacts** section, you can upload logos and other assets to be shown with your offer. You can optionally upload screenshots or links to videos that can help customers understand your offer.
 
 Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x155)**. Follow these guidelines for your logos:
 
