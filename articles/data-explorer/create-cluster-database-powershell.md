@@ -21,7 +21,7 @@ ms.date: 03/25/2019
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Powershell. You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) with [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) to create and configure Azure Data Explorer clusters and databases. 
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Powershell. You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) along with [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) to create and configure Azure Data Explorer clusters and databases.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The following steps are not required if you're running commands in Azure Cloud S
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. You need to install Az.Kusto if you are running Azure CLI locally or in the Azure Cloud Shell. Install Az.Kusto module on your device:
+3. When running Azure CLI locally or in the Azure Cloud Shell, you need to install the Az.Kusto module on your device:
 	
 	```azurepowershell-interactive
      Install-Module -Name Az.Kusto	
