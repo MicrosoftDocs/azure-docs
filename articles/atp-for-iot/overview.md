@@ -55,7 +55,7 @@ In this article, you learned about the features and service of ATP for IoT. To l
 - [Architecture](architecture.md)
 - [Service prerequisites](service-prerequisites.md)
 - [Device agent prerequisites](device-agent-prerequisites.md)
-- [Getting started](getting-started.md)
+- [Getting started](quickstart-getting-started.md)
 - [Define your solution](quickstart-configure your-solution.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
 - [ATP for IoT alerts](concept-security-alerts.md)
