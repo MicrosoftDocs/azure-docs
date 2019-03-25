@@ -74,7 +74,7 @@ Detailed installation and agent deployment information can be found in GitHub: h
 
 ## What are the dependencies and prerequisites of the agent?
 
-ATP for IoT supports a wide variety of platforms. See [Device agent prerequisites](device-agent-prerequisites.md) to verify support for your specific devices. 
+ATP for IoT supports a wide variety of platforms. See [Supported Device platforms](tutorial-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 

@@ -60,7 +60,6 @@ To get started deploying agents on your devices, see [Deploy a security agent](t
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Device agent prerequisites](device-agent-prerequisites.md)
 - [Linux C# installation](tutorial-deploy-linux-cs.md)
 - [Linux C installation](tutorial-deploy-linux-c.md)
 - [Windows installation](tutorial-deploy-windows-cs.md)
