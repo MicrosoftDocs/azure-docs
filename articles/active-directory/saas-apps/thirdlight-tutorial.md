@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with ThirdLight, perform the following step
 
 ### Configure ThirdLight Single Sign-On
 
-1. In a different web browser window, log in to your ThirdLight company site as an administrator.
+1. In a different web browser window, sign in to your ThirdLight company site as an administrator.
 
 1. Go to **Configuration \> System Administration**, and then click **SAML2**.
 
@@ -197,12 +197,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create ThirdLight test user
 
-To enable Azure AD users to log in to ThirdLight, they must be provisioned into ThirdLight.  
+To enable Azure AD users to sign in to ThirdLight, they must be provisioned into ThirdLight.  
 In the case of ThirdLight, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **ThirdLight** company site as an administrator.
+1. Sign in to your **ThirdLight** company site as an administrator.
 
 1. Go to **Users** tab.
 
