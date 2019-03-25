@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Create an Azure DNS private zone using Azure PowerShell
+title: Create an Azure DNS private zone using Azure PowerShell
 description: In this tutorial, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 3/25/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Tutorial: Create an Azure DNS private zone using Azure PowerShell
+# Create an Azure DNS private zone using Azure PowerShell
 
 This tutorial walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
@@ -20,7 +20,7 @@ This tutorial walks you through the steps to create your first private DNS zone 
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *resolution virtual networks*. You may also specify a virtual network for which Azure DNS maintains hostname records whenever a VM is created, changes IP, or is deleted.  This is called a *registration virtual network*.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a DNS private zone
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you prefer, you can complete this tutorial using [Azure CLI](private-dns-getstarted-cli.md).
+If you prefer, you can complete this task using the [Azure portal](private-dns-portal.md) or [Azure CLI](private-dns-getstarted-cli.md).
 
 <!--- ## Get the Preview PowerShell modules
 These instructions assume you have already installed and signed in to Azure PowerShell, including ensuring you have the required modules for the Private Zone feature. -->
