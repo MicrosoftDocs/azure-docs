@@ -56,7 +56,7 @@ ATP for IoT will now monitor you'r newly added resources, and surface relevant s
 
 1. [Create security modules](quickstart-create-security-twin.md).
 1. Configure [custom alerts](quickstart-create-custom-alerts.md).
-1. Deploy a security agent for [Windows](tutorial-deploy-windows-cs.md) or [Linux](tutorial-deploy-linux-cs.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
+1. [Deploy a security agent](tutorial-deploy-agent.md).
 
 
 ## See Also

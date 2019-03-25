@@ -55,7 +55,8 @@ ATP for IoT offers different installer agents for 32bit and 64bit Windows, and t
 
 
 ## Next steps
-In this article, you learned about ATP for IoT security agent architecture, and the available installers. To get started installing agents on your devices, see the following articles:
+In this article, you learned about ATP for IoT security agent architecture, and the available installers.
+To get started deploying agents on your devices, see [Deploy a security agent](tutorial-deploy-agent.md).
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)

@@ -82,7 +82,7 @@ The following table provides a summary of alerts available for customization.
 
 ## Next steps
 
-Deploy a security agent for [Windows](tutorial-deploy-windows-cs.md) or [Linux](tutorial-deploy-linux-cs.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
+[Deploy a security agent](tutorial-deploy-agent.md).
 
 
 ## See Also
