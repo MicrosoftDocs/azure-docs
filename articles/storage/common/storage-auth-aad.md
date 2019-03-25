@@ -19,8 +19,6 @@ Authenticating users or applications using Azure AD credentials provides superio
 
 Authentication and authorization with Azure AD credentials is available for all general-purpose v2, general-purpose v1, and Blob storage accounts in all public regions. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## Overview of Azure AD for blobs and queues
 
 The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or managed identities for Azure resources. RBAC roles encompass common sets of permissions for containers and queues. To learn more about assigning RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).

@@ -19,8 +19,6 @@ To grant permissions to a managed identity to a blob container or queue, you ass
 
 This article shows how to authenticate to Azure Blob or Queue storage with a managed identity from an Azure VM.  
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## Enable managed identities on a VM
 
 Before you can use managed identities for Azure Resources to authenticate access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
