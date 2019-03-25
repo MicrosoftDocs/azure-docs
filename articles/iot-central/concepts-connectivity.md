@@ -30,7 +30,7 @@ This how-to article describes the following four use cases:
 1. [Quickly connect a single device using SAS](#connect-a-single-device)
 1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
-1. Connect without first registering devices(#connect-without-registering-devices) 
+1. [Connect without first registering devices](#connect-without-registering-devices)
 
 ## Connect a single device
 
