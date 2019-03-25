@@ -43,7 +43,7 @@ If you have an existing DevOps account or project you would like to use instead,
 
 To get started, create a free account in Azure DevOps. Visit https://www.visualstudio.com/ and select **Get started for free** right under **Azure DevOps** (formerly VSTS). You’ll need to choose a unique account name and make sure to choose to manage code using Git. Once this is created, save the URL to your team project. Here is a sample URL: https://<accountname>.visualstudio.com/MyFirstProject.
 
-## Check in the image factory to the Git Repo
+## Check in the image factory to Git
 All the PowerShell, templates and configuration for the image factory are located in the [public DevTest Labs GitHub repo](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). The fastest way to get the code into your new team project is to import a repository. This pulls in the whole DevTest Labs repository (so you’ll get extra docs, and samples). 
 
 1. Visit the Azure DevOps project that you created in the previous step (URL looks like **https://<accountname>.visualstudio.com/MyFirstProject**).

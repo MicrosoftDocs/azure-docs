@@ -29,7 +29,7 @@ The following items should already be in place:
 
 If needed, follow steps in the [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md) to create or set up these items. 
 
-## Save the virtual machines as generalized VHDs
+## Save VMs as generalized VHDs
 Save the existing VMs as generalized VHDs.  There's a sample PowerShell script to save the existing VMs as generalized VHDs. To use it, first, add another **Azure Powershell** task to the build definition as shown in the following image:
 
 ![Add Azure PowerShell step](./media/save-distribute-custom-images/powershell-step.png)
@@ -39,7 +39,7 @@ Once you have the new task in the list, select the item so we can fill in all th
 ![PowerShell settings](./media/save-distribute-custom-images/powershell-settings.png)
 
 
-## Generalized versus specialized custom images
+## Generalized vs. specialized custom images
 In the [Azure portal](https://portal.azure.com), when creating a custom image from a virtual machine, you can choose to have a generalized or a specialized custom image.
 
 - **Specialized custom image:** Sysprep/Deprovision was NOT run on the machine. It means that the image is an exact copy of the OS Disk on the existing virtual machine (a snapshot).  The same files, applications, user accounts, computer name, and so on, are all present when we create a new machine from this custom image.
@@ -47,7 +47,7 @@ In the [Azure portal](https://portal.azure.com), when creating a custom image fr
 
 The script for snapping custom images in the Image Factory will save VHDs for any virtual machines created in the prior step (identified based on a tag on the resource in Azure).
 
-## Update configuration for distributing the custom Images
+## Update configuration for distributing images
 The next step in the process is to push the custom images from the image factory lab out to any other labs that need them. The core part of this process is the **labs.json** configuration file. You can find this file in the **Configuration** folder included in the image factory.
 
 There are two key things listed in the labs.json configuration file:
@@ -79,7 +79,7 @@ Here is an example labs.json file with two labs listed. In this case, you are di
 }
 ```
 
-## Create a build Task to distribute images
+## Create a build task
 Using the same steps you have seen earlier in this article, add an additional **Azure Powershell** build task to you  build definition. Fill in the details as shown in the following image: 
 
 ![Build task to distribute images](./media/save-distribute-custom-images/second-build-task-powershell.png)

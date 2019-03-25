@@ -34,7 +34,7 @@ The following items should already be in place:
 - Source code location containing the scripts and configuration (in our example, in the same DevOps Project used above)
 - A build definition to orchestrate the Azure Powershell tasks
  
-## Setting the retention policy for distributed images
+## Setting the retention policy
 Before you configure the clean Up steps, define how many historic images you wish to retain in the DevTest Labs. When you followed the [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md) article, you configured various build Variables. One of them was **ImageRetention**. You set this variable to `1`, which means that the DevTest Labs will not maintain a history of custom images. Only the latest distributed images will be available. If you change this variable to `2`,  the latest distributed image plus the previous ones will be maintained. You can set this value to define the number of historic images you wish to maintain in your DevTest Labs.
 
 ## Cleaning Up the factory
@@ -48,7 +48,7 @@ Once you have the new task in the list, select the item, and fill in all the det
 
 The script parameters are: `-DevTestLabName $(devTestLabName)`.
 
-## Retire old images from DevTest Labs
+## Retire old images 
 This task removes any old images, keeping only a history matching the **ImageRetention** build variable. Add an additional **Azure Powershell** build task to our build definition. Once it's added, select the task, and fill in the details as shown in the following image: 
 
 ![Retire old images PowerShell task](./media/set-retention-policy-cleanup/retire-old-image-task.png)
