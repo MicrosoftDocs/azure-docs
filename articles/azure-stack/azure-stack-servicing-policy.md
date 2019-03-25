@@ -31,7 +31,7 @@ Monthly update packages are hosted in a secure Azure endpoint. You can download 
 
 Hotfix update packages are hosted in the same secure Azure endpoint. You can download them manually using the embedded links in each of the respective hotfix KB articles; for example, [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Similar to the full, monthly update packages, Azure Stack operators can download the .xml, .bin and .exe files and import them using the procedure in [Apply updates in Azure Stack](azure-stack-apply-updates.md). Azure Stack operators with connected scale units will see the hotfixes automatically appear in the Administrator portal with the message **Update available**.
 
-If your scale unit is not connected and you would like to be notified about each hotfix release, subscribe to the [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) or [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed noted in each release.  
+If your scale unit is not connected and you would like to be notified about each hotfix release, subscribe to the [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) or [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) feed noted in each release.  
 
 ## Update package types
 

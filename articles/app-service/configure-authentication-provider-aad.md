@@ -20,6 +20,10 @@ ms.custom: seodec18
 ---
 # Configure your App Service app to use Azure Active Directory sign-in
 
+> [!NOTE]
+> At this time, AAD V2 (including MSAL) is not supported for Azure App Services and Azure Functions. Please check back for updates.
+>
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This article shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.
