@@ -1,19 +1,21 @@
 ---
-title: 'Example for adding autocomplete to your search box - Azure Search'
-description: Examples of how to improve the end user experience of your data-centric applications using Azure Search autocomplete and suggestions APIs. 
+title: 'Autocomplete example for adding typeahead to a search box - Azure Search'
+description: Enable typeahead query actions in Azure Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
 ---
 
-# Example: Add autocomplete to your search box using Azure Search
+# Example: Add autocomplete to partial term inputs in Azure Search
+
+This preview feature "finishes" a partial term input by supplying a completed term from documents in an Azure Search index. You might have noticed this capability in commercial search engines. You can now add this feature, currently in public preview, to an Azure Search solution to simplify a query intake.
 
 In this example, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. 
 
