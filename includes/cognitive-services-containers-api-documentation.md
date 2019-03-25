@@ -3,7 +3,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ---
 
 ## Validate container is running 
@@ -14,7 +14,7 @@ There are several ways to validate the container is running: visually verifying 
 
 The container provides a homepage at `\` as a visual validation that the container is running. 
 
-![Container's homepage](./media/container-webpage.png)
+![Container's homepage](./media/cognitive-services-containers-api-documentation/container-webpage.png)
 
 ### Container's Status API documentation
 
