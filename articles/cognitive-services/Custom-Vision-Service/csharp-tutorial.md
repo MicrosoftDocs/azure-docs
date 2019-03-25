@@ -85,7 +85,7 @@ Console.WriteLine("Done!\n");
 ### Set the prediction endpoint
 
 The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
- 
+
 ```csharp
 // Create a prediction endpoint, passing in obtained prediction key
 CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()

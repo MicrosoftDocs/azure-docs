@@ -142,7 +142,7 @@ This code creates the first iteration in the project and then publishes that ite
     }
     fmt.Println("Training status: " + *iteration.Status)
 
-	trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
 ### Get and use the published iteration on the prediction endpoint
