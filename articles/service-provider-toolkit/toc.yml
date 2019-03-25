@@ -10,6 +10,9 @@
   - name: Azure Delegated Resource Management
     displayName: delegation
     href: ./concepts/azure-delegated-resource-management.md
+  - name: Cross-tenant management experience
+    displayName: scenarios
+    href: ./concepts/cross-tenant-management-experience.md
   - name: Managed services offers in Azure Marketplace
     displayName: managed services offer, azure marketplace
     href: ./concepts/managed-services-offers.md
