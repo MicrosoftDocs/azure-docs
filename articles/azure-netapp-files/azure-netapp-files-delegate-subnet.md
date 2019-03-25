@@ -22,10 +22,10 @@ You must delegate a subnet to Azure NetApp Files.   When you create a volume, yo
 
 ## Considerations
 * The wizard for creating a new subnet defaults to a /24 network mask, which provides for 251 available IP addresses. Using a /28 network mask, which provides for 16 usable IP addresses, is sufficient for the service.
-* You cannot designate a network security group or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail.
 * In each Azure Virtual Network (Vnet), only one subnet can be delegated to Azure NetApp Files.
+* You cannot designate a network security group or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail.
 * Access to a volume from a peered virtual network is not currently supported.
-* [User-defined custom routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) are currently unsupported for NetApp delegated subnets. Creating a user-defined route on VM subnets in a virtual network with address prefix (destination) to NetApp delegated subnet, next hop as "Virtual Network" and associating that to the VM subnet impacts the VM connectivity and is unsupported.
+* Creating [user-defined custom routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) on VM subnets with address prefix (destination) to a subnet delegated to Azure NetApp files is unsupported and impacts VM connectivity.
 
 ## Steps 
 1.	Go to the **Virtual networks** blade from the Azure portal and select the virtual network that you want to use for Azure NetApp Files.    
