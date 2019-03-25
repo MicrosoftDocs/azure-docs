@@ -31,9 +31,10 @@ actions include:
 
 * Triggers, which are special actions. 
 All logic apps require a trigger as the first step.
-* Built-in or native actions such as HTTP
-* Calls to connectors such as Outlook 365, Dropbox, and so on.
-* Control flow steps, such as loops, conditional statements, and so on. 
+* "Built-in" or native actions such as HTTP, 
+calls to Azure Functions and API Management, and so on
+* Calls to connectors such as Outlook 365, Dropbox, and so on
+* Control flow steps, such as loops, conditional statements, and so on
 
 Azure Logic Apps meters all the actions that run in your logic app. 
 Learn more about how billing works for [triggers](#triggers) and [actions](#actions).
@@ -65,12 +66,11 @@ on the Enterprise consumption price.
 
 ## Connectors
 
-Connectors in Azure Logic Apps provide access to apps, services, 
-and systems in the cloud or on premises, and are categorized as 
-either Standard or Enterprise. Connectors can provide [triggers](#triggers), 
-[actions](#actions), or both for communicating between your logic app 
-and other apps, services, and systems. For an overview about these 
-connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). 
+Azure Logic Apps connectors help your logic app access apps, 
+services, and systems in the cloud or on premises by providing 
+[triggers](#triggers), [actions](#actions), or both. Connectors 
+are classified as either Standard or Enterprise. For an overview 
+about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). 
 The following sections provide more information about how billing 
 for triggers and actions work.
 
