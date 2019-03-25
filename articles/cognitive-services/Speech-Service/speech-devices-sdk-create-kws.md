@@ -64,7 +64,4 @@ Before you can use a custom wake word with your device, you must create the wake
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/) and sign up for the Speech Devices SDK.
-
-> [!div class="nextstepaction"]
-> [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
+To get started, get a [free Azure account](https://azure.microsoft.com/free/ai/) .
