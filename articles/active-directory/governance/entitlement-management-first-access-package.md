@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/24/2019
+ms.date: 03/25/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
-In this tutorial, you work for Woodgrove Bank as an IT administrator. You want to set up an Engineering Group and allow internal users to request access to this group.
+In this tutorial, you work for Woodgrove Bank as an IT administrator. You want to set up an Engineering Group and allow internal users to request access to this group. Requests require approval and their access expires after 30 days.
 
 ![Scenario overview](./media/entitlement-management-first-access-package/elm-scenario-overview.png)
 
