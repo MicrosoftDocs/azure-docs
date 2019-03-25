@@ -16,7 +16,7 @@
 - name: Tutorials
   items:
   - name: Host single site
-    href: tutorial-manage-web-traffic-cli.md
+    href: quick-create-portal.md
   - name: Enable web application firewall
     href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
@@ -88,9 +88,11 @@
 - name: How-to guides
   items:
   - name: Host single site
-    items:
-    - name: Azure portal
+    items:   
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md       
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer

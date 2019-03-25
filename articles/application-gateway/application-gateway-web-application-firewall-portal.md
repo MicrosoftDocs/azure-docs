@@ -38,9 +38,9 @@ In this article, you learn how to:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
