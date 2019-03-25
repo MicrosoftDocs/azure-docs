@@ -14,7 +14,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### Make a code change
-Go to the VS Code window for `mywebapi` and make a code edit to the default GET `/` handler, for example:
+Go to the VS Code window for `mywebapi` and make a code edit to the default GET `/` handler in `server.js`, for example:
 
 ```javascript
 app.get('/', function (req, res) {
