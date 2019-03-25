@@ -17,10 +17,6 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
-  - name: Postman
-    href: search-fiddler.md
-  - name: PowerShell
-    href: search-create-index-rest-api.md
   - name: C#
     items:
     - name: 1 - Create an index
@@ -29,6 +25,10 @@
       href: search-import-data-dotnet.md
     - name: 3 - Search an index
       href: search-query-dotnet.md
+  - name: Postman
+    href: search-fiddler.md
+  - name: PowerShell
+    href: search-create-index-rest-api.md
 - name: Tutorials
   items:
   - name: Index Azure SQL Database
