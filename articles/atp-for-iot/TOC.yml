@@ -20,7 +20,7 @@
   - name: Configure your solution
     href: quickstart-configure-your-solution.md
   - name: Create an ATP for IoT module twin
-    href: quickstart-security-twin.md
+    href: quickstart-create-security-twin.md
   - name: Configure an ATP for IoT agent
     href: quickstart-agent-configuration.md
   - name: Create custom security alerts
@@ -28,7 +28,7 @@
   - name: Install the ATP for IoT agent on a Windows Device
     href: quickstart-windows-installation.md
   - name: Install the ATP for IoT on a Linux 32-bit device 
-    href: quickstart-linux-c#-installation.md
+    href: quickstart-linux-cs-installation.md
   - name: Install the ATP for IoT on a Linux 64-bit device 
     href: quickstart-linux-c-installation.md
   

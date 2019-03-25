@@ -27,7 +27,7 @@ ms.author: mlottner
 
 This article explains how to modify the configuration of an existing **AzureIoTSecurity module twin** for an existing device. 
 
-See [Create an ATPforIoT module](quickstart-security-twinmodule.md) to learn how to make a new security module for a new device.  
+See [Create an ATP for IoT module](quickstart-security-twin.md) to learn how to make a new security module for a new device.  
 
 ## Modification considerations
 
@@ -37,7 +37,7 @@ See [Create an ATPforIoT module](quickstart-security-twinmodule.md) to learn how
 
 ## Configuration schema and validation 
 
-Make sure to validate your agent configuration against this [schema](https://github.com/Azure/Azure-Security-IoT-Preview/tree/master/schemas/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://github.com/Azure/atp-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
 
  
  
