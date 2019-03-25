@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cerner Central
 
@@ -115,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
 	
     b. In the **Reply URL** textbox, type a URL using the following patterns:
+	
 	| |
 	|--|
 	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |

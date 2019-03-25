@@ -5,7 +5,7 @@ services: security-center
 cloud: na
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 
 ms.assetid:
 ms.service: security-center

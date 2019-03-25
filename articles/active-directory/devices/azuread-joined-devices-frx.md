@@ -20,6 +20,7 @@ ms.reviewer: jairoc
 
 #Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Join a new Windows 10 device with Azure AD during a first run
 

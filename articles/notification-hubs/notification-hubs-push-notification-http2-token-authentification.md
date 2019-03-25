@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 02/13/2019
 ms.author: jowargo
 ---
 
@@ -64,7 +64,7 @@ The application identifier is available via the membership details page in the D
 
 ### Authentication token
 
-The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
+The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
 
 ## Configuring your notification hub to use token-based authentication
 
@@ -114,7 +114,7 @@ You can configure your hub to use token based authentication using our [latest c
 
 Here’s a code sample illustrating the correct usage:
 
-```text
+```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
 string token = "YOUR TOKEN HERE";
 string keyId = "YOUR KEY ID HERE";

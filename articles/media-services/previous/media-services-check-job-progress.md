@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
-# Monitor Job Progress using .NET
+
+# Monitor Job Progress using .NET 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)

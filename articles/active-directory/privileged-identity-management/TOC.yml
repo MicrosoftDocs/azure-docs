@@ -23,6 +23,8 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Deploy PIM
+    href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
   - name: Activate my roles

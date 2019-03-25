@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Use this article to configure and integrate a hosted UI for Bing Custom Search.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: aahi
 ---
 
@@ -39,10 +39,10 @@ To configure a hosted UI for your web applications, follow these steps. As you m
     
 5. Select a color theme. You can customize the colors to fit your application by clicking **Customize theme**. To change a color, either enter the color's RGB HEX value (for example, `#366eb8`), or click on the color preview.
 
-  You can preview your changes on the right side of the portal. Clicking **Reset to default** will revert your changes to the default colors for the selected theme.
+   You can preview your changes on the right side of the portal. Clicking **Reset to default** will revert your changes to the default colors for the selected theme.
 
-  > [!NOTE]
-  > Consider accessibility when choosing colors.
+   > [!NOTE]
+   > Consider accessibility when choosing colors.
 
 6. Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right. Available configuration options are:  
 

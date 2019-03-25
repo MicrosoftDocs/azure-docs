@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to assign Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: Assign Azure AD administrator roles - Privileged Identity Management | Microsoft Docs
+description: Learn how to assign Azure Active Directory administrator roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
-# Assign Azure AD directory roles in PIM
+# Assign Azure AD administrator roles in PIM
 
-With Azure Active Directory (Azure AD), a Global Administrator can make **permanent** directory role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
+With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) service also allows Privileged Role Administrators to make permanent directory role assignments. Additionally, Privileged Role Administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
+The Azure AD Privileged Identity Management (PIM) service also allows Privileged Role Administrators to make permanent admin role assignments. Additionally, Privileged Role Administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 ## Make a user eligible for a role
 
-Follow these steps to make a user eligible for an Azure AD directory role.
+Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
@@ -62,7 +63,7 @@ Follow these steps to make a user eligible for an Azure AD directory role.
 
 ## Make a role assignment permanent
 
-By default, new users are only eligible for a directory role. Follow these steps if you want to make a role assignment permanent.
+By default, new users are only Eligible for an Azure AD admin role. Follow these steps if you want to make a role assignment permanent.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -86,7 +87,7 @@ By default, new users are only eligible for a directory role. Follow these steps
 
 You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
 
-Follow these steps to remove a specific user from a directory role.
+Follow these steps to remove a specific user from an Azure AD admin role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -110,7 +111,7 @@ Follow these steps to remove a specific user from a directory role.
 
 ## Authorization error when assigning roles
 
-If you recently enabled PIM for a subscription and you get an authorization error when you try to make a user eligible for a directory role, it might be because the MS-PIM service principle does not yet have the appropriate permissions. The MS-PIM service principle must have the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role to assign roles to others. Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
+If you recently enabled PIM for a subscription and you get an authorization error when you try to make a user eligible for an Azure AD admin role, it might be because the MS-PIM service principle does not yet have the appropriate permissions. The MS-PIM service principle must have the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role to assign roles to others. Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
 
 Follow these steps to assign the User Access Administrator role to the MS-PIM service principal for a subscription.
 
@@ -145,5 +146,5 @@ Follow these steps to assign the User Access Administrator role to the MS-PIM se
 
 ## Next steps
 
-- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Configure Azure AD admin role settings in PIM](pim-how-to-change-default-settings.md)
 - [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

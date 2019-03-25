@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Resize and crop the thumbnail images included in responses from the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ---

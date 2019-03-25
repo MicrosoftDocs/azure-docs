@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web portal or the LUIS Programmatic APIs.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -25,7 +25,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
 - User account content collected at registration
 - Training data required to build the models (i.e. intent & entities)
 - User queries logged at runtime to help improve the user models
-  - Users can turn off query logging by appending `&log=false` to the request, details [here](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## Deleting customer data
 LUIS users have full control to delete any user content, either through the LUIS web portal or the LUIS Programmatic APIs. The following table displays links assisting with both:

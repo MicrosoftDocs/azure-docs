@@ -102,7 +102,7 @@ get your storage account's access key:
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
    To get your storage account's access key, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Create a blob storage container for your email attachments.
@@ -124,7 +124,7 @@ get your storage account's access key:
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
    To create a storage container, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer), 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Next, connect Storage Explorer to your storage account.
@@ -235,24 +235,29 @@ set to **Function**, and choose **Create**.
 which removes the HTML and returns results to the caller:
 
    ``` CSharp
-   using System.Net;
-   using System.Text.RegularExpressions;
+    #r "Newtonsoft.Json"
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"HttpWebhook triggered");
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    using System.Text.RegularExpressions;
 
-      // Parse query parameter
-      string emailBodyContent = await req.Content.ReadAsStringAsync();
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("HttpWebhook triggered");
 
-      // Replace HTML with other characters
-      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-      updatedBody = updatedBody.Replace("\\r\\n", " ");
-      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+        // Parse query parameter
+        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-      // Return cleaned text
-      return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-   }
+         // Replace HTML with other characters
+        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+        updatedBody = updatedBody.Replace("\\r\\n", " ");
+        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+
+        // Return cleaned text
+        return (ActionResult) new OkObjectResult(new { updatedBody });
+    }
    ```
 
 6. When you're done, choose **Save**. To test your function, 

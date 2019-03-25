@@ -11,16 +11,22 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: magoedte
 ---
 
-# Application Insights Connector management solution (Preview)
+# Application Insights Connector management solution (Deprecated)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) and [viewing multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md), the Application Insights connector management solution will not be required. The Application Insights Connector will be deprecated and removed from Azure Marketplace along with OMS portal deprecation officially retiring on January 15, 2019 for Azure commercial cloud and for Azure US Government cloud, it will be officially retired on March 30, 2019. Existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). For more information, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
+> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights Connector management solution is no longer required. It has been deprecated and removed from Azure Marketplace, along with the OMS portal that was officially deprecated on January 15, 2019 for Azure commercial cloud. It will be retired on March 30, 2019 for Azure US Government cloud.
+>
+>Existing connections will continue to work until June 30, 2019.  With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. See [Removing the connector with PowerShell](#removing-the-connector-with-powershell) below for a script on using PowerShell to remove existing connections.
+>
+>For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>
+> 
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../../azure-monitor/app/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
@@ -116,7 +122,7 @@ When you click anywhere in the **Exceptions** blade, you see a visualization tha
 
 Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **&#42;** query also shows the perspective tab like the following image:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspective components are updated depending on the search query. This means that you can filter the results by using any search field that gives you the ability to see the data from:
 
@@ -257,6 +263,57 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 ## Sample log searches
 
 This solution does not have a set of sample log searches shown on the dashboard. However, sample log search queries with descriptions are shown in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
+
+## Removing the connector with PowerShell
+With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script. You must be the owner or contributor of the workspace and reader of Application Insights resource to perform this operation.
+
+```PowerShell
+$Subscription_app = "App Subscription Name"
+$ResourceGroup_app = "App ResourceGroup"
+$Application = "Application Name"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+
+Connect-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. 
+
+```PowerShell
+Connect-AzureRmAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+This script requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
+
+
+![Bearer token](media/app-insights-connector/bearer-token.png)
+
+
+You can also retrieve a list of applications use a log query:
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
+```
 
 ## Next steps
 

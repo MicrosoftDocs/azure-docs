@@ -3,8 +3,8 @@ title: Problems signing in to an custom-developed application | Microsoft Docs
 description: Common rrors that could be causing you to not be able to sign into an application you have developed with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an custom-developed application
@@ -35,7 +36,7 @@ There are several errors that could be causing you to not be able to sign into a
 
 [Azure AD Developer Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Consent and Integrating Apps to Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Consent and Integrating Apps to Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
 [Consent and Permissioning for Azure AD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 

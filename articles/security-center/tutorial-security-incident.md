@@ -4,7 +4,7 @@ description: Azure Security Center Tutorial - Respond to security incidents
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
@@ -41,28 +41,28 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 1. On the Security Center main menu under **DETECTION**, select **Security alerts**:
 
-  ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 
-  ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click on the alert that you want to investigate further to obtain more information.
 
-  ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
+   The type of alert can vary, read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) for more details about the type of alert, and potential remediation steps. For alerts that can be safely dismissed, you can right click on the alert and select the option **Dismiss**:
 
-  ![Alert](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Alert](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. If the root cause and scope of the malicious activity is unknown, proceed to the next step to investigate further.
 
 ## Investigate an alert or incident
 1. On the **Security alert** page, click **Start investigation** button (if you already started, the name changes to **Continue investigation**).
 
-  ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  The investigation map is a graphical representation of the entities that are connected to this security alert or incident. By clicking on an entity in the map, the information about that entity will show new entities, and the map expands. The entity that is selected in the map has its properties highlighted in the pane on the right side of the page. The information available on each tab will vary according to the selected entity. During the investigation process, review all relevant information to better understand the attacker’s movement.
+   The investigation map is a graphical representation of the entities that are connected to this security alert or incident. By clicking on an entity in the map, the information about that entity will show new entities, and the map expands. The entity that is selected in the map has its properties highlighted in the pane on the right side of the page. The information available on each tab will vary according to the selected entity. During the investigation process, review all relevant information to better understand the attacker’s movement.
 
 2. If you need more evidence, or must further investigate entities that were found during the investigation, proceed to the next step.
 

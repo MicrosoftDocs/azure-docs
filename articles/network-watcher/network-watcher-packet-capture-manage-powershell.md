@@ -262,7 +262,7 @@ Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -Packe
 
 ## Download a packet capture
 
-Once your packet capture session has completed, the capture file can be uploaded to blob storage or to a local file on the VM. The storage location of the packet capture is defined at creation of the session. A convenient tool to access these capture files saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/
+Once your packet capture session has completed, the capture file can be uploaded to blob storage or to a local file on the VM. The storage location of the packet capture is defined at creation of the session. A convenient tool to access these capture files saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 
@@ -274,7 +274,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in orr out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 

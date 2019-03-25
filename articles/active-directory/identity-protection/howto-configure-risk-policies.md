@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Configure risk policies in Azure Active Directory identity protection (refreshed)
 
@@ -25,6 +26,8 @@ Azure AD detects risk events that are indicators for potentially compromised ide
 
 - With the sign-in risk policy, you can configure a response to real-time risk events that were detected during a user's sign-in. 
 - With the user risk policy, you can configure a response to all active user risks that have been detected for a user over time.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## What is the sign-in risk policy?
@@ -76,7 +79,7 @@ However, for security reasons, this setting only works for users that have alrea
 
 If you want to require MFA for risky sign-ins, you should:
 
-1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
+1. Enable the multi-factor authentication registration policy for the affected users.
 
 2. Require the affected users to login in a non-risky session to perform an MFA registration.
 

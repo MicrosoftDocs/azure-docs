@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.lastreviewed: 01/22/2019s
+ms.lastreviewed: 01/22/2019
 
 ---
 
@@ -36,7 +36,7 @@ When a disk fails, you receive an alert that tells you that connectivity has bee
 
 If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
 
- ## Replace the disk
+## Replace the disk
 
 Follow your OEM hardware vendor’s FRU instructions for actual disk replacement.
 
@@ -47,7 +47,7 @@ To prevent the use of an unsupported disk in an integrated system, the system bl
 
 After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.
  
- ## Check the status of virtual disk repair
+## Check the status of virtual disk repair
  
  After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
 

@@ -38,7 +38,7 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
 ## Before you begin
 
@@ -51,10 +51,10 @@ To complete the example in this article, you must have an existing managed image
 
 ## Create a scale set from the shared image version
 
-Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). The following example creates a scale set from the new image version in the West US datacenter. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, set your own administrative credentials for the VM instances in the scale set:
+Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set from the new image version in the West US datacenter. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myVMSSRG `
   -Location 'South Central US' `
   -VMScaleSetName 'myScaleSet' `
@@ -73,11 +73,11 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
-Remove-AzureRmResourceGroup -Name myVMSSRG
+Remove-AzResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myVMSSRG
 ```
 
 

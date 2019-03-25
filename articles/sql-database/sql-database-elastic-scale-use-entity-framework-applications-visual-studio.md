@@ -81,36 +81,38 @@ To integrate **DbContexts** with data-dependent routing for scale-out:
 
 The following code example illustrates this approach. (This code is also in the accompanying Visual Studio project)
 
-    public class ElasticScaleContext<T> : DbContext
+```csharp
+public class ElasticScaleContext<T> : DbContext
+{
+public DbSet<Blog> Blogs { get; set; }
+...
+
+    // C'tor for data-dependent routing. This call opens a validated connection 
+    // routed to the proper shard by the shard map manager. 
+    // Note that the base class c'tor call fails for an open connection
+    // if migrations need to be done and SQL credentials are used. This is the reason for the 
+    // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
+    public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
+        : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
+        true /* contextOwnsConnection */)
     {
-    public DbSet<Blog> Blogs { get; set; }
-    …
+    }
 
-        // C'tor for data-dependent routing. This call opens a validated connection 
-        // routed to the proper shard by the shard map manager. 
-        // Note that the base class c'tor call fails for an open connection
-        // if migrations need to be done and SQL credentials are used. This is the reason for the 
-        // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
-        public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-            : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
-            true /* contextOwnsConnection */)
-        {
-        }
+    // Only static methods are allowed in calls into base class c'tors.
+    private static DbConnection CreateDDRConnection(
+    ShardMap shardMap, 
+    T shardingKey, 
+    string connectionStr)
+    {
+        // No initialization
+        Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-        // Only static methods are allowed in calls into base class c'tors.
-        private static DbConnection CreateDDRConnection(
-        ShardMap shardMap, 
-        T shardingKey, 
-        string connectionStr)
-        {
-            // No initialization
-            Database.SetInitializer<ElasticScaleContext<T>>(null);
-
-            // Ask shard map to broker a validated connection for the given key
-            SqlConnection conn = shardMap.OpenConnectionForKey<T>
-                                (shardingKey, connectionStr, ConnectionOptions.Validate);
-            return conn;
-        }    
+        // Ask shard map to broker a validated connection for the given key
+        SqlConnection conn = shardMap.OpenConnectionForKey<T>
+                            (shardingKey, connectionStr, ConnectionOptions.Validate);
+        return conn;
+    }
+```
 
 ## Main points
 
@@ -128,26 +130,28 @@ The following code example illustrates this approach. (This code is also in the 
 
 Use the new constructor for your DbContext subclass instead of the default constructor in your code. Here is an example: 
 
-    // Create and save a new blog.
+```csharp
+// Create and save a new blog.
 
-    Console.Write("Enter a name for a new blog: "); 
-    var name = Console.ReadLine(); 
+Console.Write("Enter a name for a new blog: "); 
+var name = Console.ReadLine(); 
 
-    using (var db = new ElasticScaleContext<int>( 
-                            sharding.ShardMap,  
-                            tenantId1,  
-                            connStrBldr.ConnectionString)) 
-    { 
-        var blog = new Blog { Name = name }; 
-        db.Blogs.Add(blog); 
-        db.SaveChanges(); 
+using (var db = new ElasticScaleContext<int>( 
+                        sharding.ShardMap,  
+                        tenantId1,  
+                        connStrBldr.ConnectionString)) 
+{ 
+    var blog = new Blog { Name = name }; 
+    db.Blogs.Add(blog); 
+    db.SaveChanges(); 
 
-        // Display all Blogs for tenant 1 
-        var query = from b in db.Blogs 
-                    orderby b.Name 
-                    select b; 
-     … 
-    }
+    // Display all Blogs for tenant 1 
+    var query = from b in db.Blogs 
+                orderby b.Name 
+                select b; 
+    … 
+}
+```
 
 The new constructor opens the connection to the shard that holds the data for the shardlet identified by the value of **tenantid1**. The code in the **using** block stays unchanged to access the **DbSet** for blogs using EF on the shard for **tenantid1**. This changes semantics for the code in the using block such that all database operations are now scoped to the one shard where **tenantid1** is kept. For instance, a LINQ query over the blogs **DbSet** would only return blogs stored on the current shard, but not the ones stored on other shards.  
 
@@ -157,19 +161,21 @@ The Microsoft Patterns & Practices team published the [The Transient Fault Handl
 
 The following code sample illustrates how a SQL retry policy can be used around the new **DbContext** subclass constructors: 
 
-    SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-    { 
-        using (var db = new ElasticScaleContext<int>( 
-                                sharding.ShardMap,  
-                                tenantId1,  
-                                connStrBldr.ConnectionString)) 
-            { 
-                    var blog = new Blog { Name = name }; 
-                    db.Blogs.Add(blog); 
-                    db.SaveChanges(); 
-            … 
-            } 
-        }); 
+```csharp
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
+{ 
+    using (var db = new ElasticScaleContext<int>( 
+                            sharding.ShardMap,  
+                            tenantId1,  
+                            connStrBldr.ConnectionString)) 
+        { 
+                var blog = new Blog { Name = name }; 
+                db.Blogs.Add(blog); 
+                db.SaveChanges(); 
+        … 
+        } 
+    }); 
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** in the code above is defined as a **SqlDatabaseTransientErrorDetectionStrategy** with a retry count of 10, and 5 seconds wait time between retries. This approach is similar to the guidance for EF and user-initiated transactions (see [Limitations with Retrying Execution Strategies (EF6 onwards)](https://msdn.microsoft.com/data/dn307226). Both situations require that the application program controls the scope to which the transient exception returns: to either reopen the transaction, or (as shown) recreate the context from the proper constructor that uses the elastic database client library.
 
@@ -203,51 +209,54 @@ This leads to an approach where schema deployment through EF migrations is tight
 
 With these prerequisites in place, you can create a regular un-opened **SqlConnection** to kick off EF migrations for schema deployment. The following code sample illustrates this approach. 
 
-        // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
-        // and kick off EF intialization of the database to deploy schema 
+```csharp
+// Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
+// and kick off EF initialization of the database to deploy schema 
 
-        public void RegisterNewShard(string server, string database, string connStr, int key) 
-        { 
+public void RegisterNewShard(string server, string database, string connStr, int key) 
+{ 
 
-            Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
+    Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
 
-            SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
-            connStrBldr.DataSource = server; 
-            connStrBldr.InitialCatalog = database; 
+    SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
+    connStrBldr.DataSource = server; 
+    connStrBldr.InitialCatalog = database; 
 
-            // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
-            // This requires an un-opened connection. 
-            using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
-            { 
-                // Run a query to engage EF migrations 
-                (from b in db.Blogs 
-                    select b).Count(); 
-            } 
+    // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
+    // This requires an un-opened connection. 
+    using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
+    { 
+        // Run a query to engage EF migrations 
+        (from b in db.Blogs 
+            select b).Count(); 
+    } 
 
-            // Register the mapping of the tenant to the shard in the shard map. 
-            // After this step, data-dependent routing on the shard map can be used 
+    // Register the mapping of the tenant to the shard in the shard map. 
+    // After this step, data-dependent routing on the shard map can be used 
 
-            this.ShardMap.CreatePointMapping(key, shard); 
-        } 
-
+    this.ShardMap.CreatePointMapping(key, shard); 
+} 
+```
 
 This sample shows the method **RegisterNewShard** that registers the shard in the shard map, deploys the schema through EF migrations, and stores a mapping of a sharding key to the shard. It relies on a constructor of the **DbContext** subclass (**ElasticScaleContext** in the sample) that takes a SQL connection string as input. The code of this constructor is straight-forward, as the following example shows: 
 
-        // C'tor to deploy schema and migrations to a new shard 
-        protected internal ElasticScaleContext(string connectionString) 
-            : base(SetInitializerForConnection(connectionString)) 
-        { 
-        } 
+```csharp
+// C'tor to deploy schema and migrations to a new shard 
+protected internal ElasticScaleContext(string connectionString) 
+    : base(SetInitializerForConnection(connectionString)) 
+{ 
+} 
 
-        // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connectionString) 
-        { 
-            // You want existence checks so that the schema can get deployed 
-            Database.SetInitializer<ElasticScaleContext<T>>( 
-        new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
+// Only static methods are allowed in calls into base class c'tors 
+private static string SetInitializerForConnection(string connectionString) 
+{ 
+    // You want existence checks so that the schema can get deployed 
+    Database.SetInitializer<ElasticScaleContext<T>>( 
+new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connectionString; 
-        } 
+    return connectionString; 
+} 
+```
 
 One might have used the version of the constructor inherited from the base class. But the code needs to ensure that the default initializer for EF is used when connecting. Hence the short detour into the static method before calling into the base class constructor with the connection string. Note that the registration of shards should run in a different app domain or process to ensure that the initializer settings for EF do not conflict. 
 

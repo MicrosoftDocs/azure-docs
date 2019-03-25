@@ -19,6 +19,7 @@ ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Asana for automatic user provisioning

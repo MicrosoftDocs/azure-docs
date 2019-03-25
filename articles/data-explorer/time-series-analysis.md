@@ -99,7 +99,7 @@ Example of `series_fit_line()` and  `series_fit_2lines()` functions in a time se
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Time series regression](media/time-series-analysis/time-series-regression.png)
@@ -202,7 +202,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Time series at scale](media/time-series-analysis/time-series-at-scale.png)
@@ -213,25 +213,25 @@ How many time series can we create?
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
 |   |   |
 | --- | --- |
 |   | Count |
-|   | 23115 |
+|   | 18339 |
 
-Now, we're going to create a set of 23115 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
+Now, we're going to create a set of 18339 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Time series top two](media/time-series-analysis/time-series-top-2.png)
@@ -242,18 +242,18 @@ Display the instances:
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | slope |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | slope |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-In less than two minutes, ADX analyzed over 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
+In less than two minutes, ADX analyzed close to 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.

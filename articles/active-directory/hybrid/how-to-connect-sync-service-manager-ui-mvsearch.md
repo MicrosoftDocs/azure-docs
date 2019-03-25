@@ -16,6 +16,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Sync Service Manager Metaverse Search
 

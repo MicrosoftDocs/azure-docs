@@ -15,7 +15,7 @@
 A Marketplace image in Azure has the following attributes:
 
 * **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
-* **Offer**: The name of a group of related images created by a publisher. Examples: Ubuntu Server, WindowsServer
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
 * **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
 * **Version**: The version number of an image SKU. 
 

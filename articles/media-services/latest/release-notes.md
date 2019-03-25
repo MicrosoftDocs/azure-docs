@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 03/21/2019
 ms.author: juliako
 ---
 
@@ -31,11 +31,21 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## March 2019
+
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
+## February 2019
+
+Media Services v3 is now supported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
+
+[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
+
 ## January 2019
 
 ### Media Encoder Standard and MPI files 
 
-When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for dynamic packaging and streaming scenarios.
+When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
 
 You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
 
@@ -43,7 +53,7 @@ You should not modify or remove the MPI file, or take any dependency in your ser
 
 Updates from the GA release of the V3 API include:
        
-* The **PresentationTimeRange** properties are no longer 'required' for **AssetFilters** and **AccountFilters**. 
+* The **PresentationTimeRange** properties are no longer 'required' for **Asset Filters** and **Account Filters**. 
 * The $top and $skip query options for **Jobs** and **Transforms** have been removed and $orderby was added. As part of adding the new ordering functionality, it was discovered that the $top and $skip options had accidentally been exposed previously even though they are not implemented.
 * Enumeration extensibility was re-enabled. This feature was enabled in the preview versions of the SDK and got accidentally disabled in the GA version.
 * Two predefined streaming policies have been renamed. **SecureStreaming** is now **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** is now **Predefined_MultiDrmStreaming**.
@@ -64,7 +74,7 @@ The CLI 2.0 module is now available for [Azure Media Services v3 GA](https://doc
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - enables you to manage Media Reserved Units
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
 
 ### New features and breaking changes
 
@@ -138,7 +148,7 @@ The following live encoding updates are introduced:
 - Improved RTMP support (increased stability and more source encoder support).
 - RTMPS secure ingest.
 
-    When you create a LiveEvent, you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS. 
+    When you create a Live Event, you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS. 
 - 24-hour transcoding support. 
 - Improved ad-signaling support in RTMP via SCTE35.
 
@@ -146,7 +156,7 @@ The following live encoding updates are introduced:
 
 You can see the following Event Grid support improvements:
 
-- Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
+- Azure Event Grid integration for easier development with Logic Apps and Azure Functions. 
 - Subscribe for events on Encoding, Live Channels, and more.
 
 ### CMAF support
@@ -171,16 +181,16 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 ## May 2018 - Preview
 
-### .Net SDK
+### .NET SDK
 
-The following features are present in the .Net SDK:
+The following features are present in the .NET SDK:
 
 * **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** for publishing and streaming content to end-user devices
-* **StreamingPolicies** and **ContentKeyPolicies** to configure key delivery and content protection (DRM) when delivering content.
-* **LiveEvents** and **LiveOutputs** to configure the ingest and archiving of live streaming content.
+* **Streaming Locators** for publishing and streaming content to end-user devices
+* **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
+* **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.
 * **Assets** to store and publish media content in Azure Storage. 
-* **StreamingEndpoints** to configure and scale dynamic packaging, encryption, and streaming for both live and on-demand media content.
+* **Streaming Endpoints** to configure and scale dynamic packaging, encryption, and streaming for both live and on-demand media content.
 
 ### Known issues
 

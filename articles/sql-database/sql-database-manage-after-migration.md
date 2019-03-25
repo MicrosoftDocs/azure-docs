@@ -1,5 +1,5 @@
 ---
-title: Manage after migration - Azure SQL Database | Microsoft Docs
+title: Manage single and pooled databases after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,25 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/13/2019
 ---
-# New DBA in the cloud – Managing your database in Azure SQL Database
+# New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
-- Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
+- Are evaluating migration of their application(s) to Azure SQL Database – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
 
-This article discusses some of the core characteristics of Azure SQL DB as a platform that you can readily leverage. They are the following:
+This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
+
+> [!NOTE]
+> This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
 
 ## Business continuity and disaster recovery (BCDR)
 
@@ -102,7 +105,7 @@ There are multiple techniques at your disposal that you could use to attain opti
 
 A firewall prevents access to your server from an external entity by allowing only specific entities access to your SQL Database server. By default, all connections and databases inside the SQL Database server are disallowed, except connections coming in from other Azure Services. With a firewall rule you can open access to your server only to entities (for example, a developer machine) that you approve of, by allowing that computer’s IP address through the firewall. It also allows you to specify a range of IPs that you would want to allow access to the SQL Database server. For example, developer machine IP addresses in your organization can be added at once by specifying a range in the Firewall settings page.
 
-You can create firewall rules at the server level or at the database level. Server level firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server and database level firewall rule, see: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+You can create firewall rules at the server level or at the database level. Server level IP firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server-level and database-level firewall rule, see: [Create IP firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### Service endpoints
 
@@ -126,9 +129,9 @@ Port 1433. SQL Database communicates over this port. To connect from within a co
 
 With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](sql-database-auditing.md) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
-#### Threat Detection
+#### Threat detection
 
-With [threat detection](sql-database-threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. SQL Database Threat Detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable SQL Database Threat Detection](sql-database-security-tutorial.md#enable-security-features).
+With [threat detection](sql-database-threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. Threat detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features).
 
 ### How do I protect my data in general on SQL Database
 
@@ -214,7 +217,7 @@ With Query Performance Insights, you can get tailored recommendations for your d
 
 ### Security optimization
 
-SQL Database provides actionable security recommendations to help you secure your data and Threat Detection for identifying and investigating suspicious database activities that may pose a potential thread to the database. [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) is a database scanning and reporting service that allows you to monitor the security state of your databases at scale and identify security risks and drift from a security baseline defined by you. After every scan, a customized list of actionable steps and remediation scripts is provided, as well as an assessment report that can be used to help meet compliance requirements.
+SQL Database provides actionable security recommendations to help you secure your data and threat detection for identifying and investigating suspicious database activities that may pose a potential thread to the database. [Vulnerability assessment](sql-vulnerability-assessment.md) is a database scanning and reporting service that allows you to monitor the security state of your databases at scale and identify security risks and drift from a security baseline defined by you. After every scan, a customized list of actionable steps and remediation scripts is provided, as well as an assessment report that can be used to help meet compliance requirements.
 
 With Azure Security Center, you identify the security recommendations across the board and apply them with a single click.
 
@@ -252,9 +255,9 @@ You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### Azure SQL Analytics (Preview) in Log Analytics
+#### Azure SQL Analytics (Preview) in Azure Monitor logs
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
+[Azure Monitor logs](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
 
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server
 
@@ -293,18 +296,18 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 - **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
 
-   ![database export](./media/sql-database-export/database-export.png)
+   ![database export](./media/sql-database-export/database-export1.png)
 
 - **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
 
-   ![database import](./media/sql-database-import/import.png)
+   ![database import](./media/sql-database-import/import1.png)
 
 ### How do I synchronize data between SQL Database and SQL Server
 
 You have several ways to achieve this:
 
 - **[Data Sync](sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 

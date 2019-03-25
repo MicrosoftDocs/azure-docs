@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using C#.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
@@ -22,7 +22,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 ## Prerequisites
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -48,7 +48,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ### Create a struct to format the Bing Video Search API response
 
-3. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 
     ```csharp
     struct SearchResult

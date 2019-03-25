@@ -183,7 +183,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/az.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET Standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
     - title: REST

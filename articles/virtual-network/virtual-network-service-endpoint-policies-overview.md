@@ -6,7 +6,7 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
@@ -152,15 +152,15 @@ No centralized logging is available for service endpoint policies. For service d
 ### Troubleshooting scenarios
 - Access allowed to storage accounts not listed in the endpoint policies
   - Network security groups may be allowing access to the Internet or Azure Storage accounts in other regions.
-  - Network security groups should be configured to deny all outbound Internet traffic and allow only traffic to specific Azure Storage regions. For details, see [Network security groups](#network-security-groups).
+  - Network security groups should be configured to deny all outbound Internet traffic and allow only traffic to specific Azure Storage regions. For details, see Network security groups.
 - Access is denied for accounts listed in the endpoint policies
   - Network security groups or firewall filtering could be blocking access
   - If removing/re-applying the policy results in connectivity loss:
-   - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
+    - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
       > [!NOTE]      
       > Service resources need not be secured to virtual networks to get access over endpoint policies. However, as a security best practice, we recommend that the service resources are secured to your trusted networks, such as your Azure virtual networks, via service endpoints, and on-premises, via an IP firewall.
   
-   - Validate that the service diagnostics show the traffic over endpoints.
+    - Validate that the service diagnostics show the traffic over endpoints.
     - Check whether network security group flow logs show the access and that storage logs show the access, as expected, over service endpoints.
     - Contact Azure support.
 - Access is denied for accounts not listed in the service endpoint policies

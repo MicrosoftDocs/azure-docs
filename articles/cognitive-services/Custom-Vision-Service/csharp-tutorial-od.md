@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the .NET SDK with C#.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
@@ -22,10 +22,11 @@ This article provides information and sample code to help you get started using 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
 ## Get the Custom Vision SDK and sample code
+
 To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These are included in the sample project you will download, but you can access them individually here.
 
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
 Clone or download the [Cognitive Services .NET Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) project. Navigate to the **CustomVision/ObjectDetection** folder and open _ObjectDetection.csproj_ in Visual Studio.
 
@@ -100,6 +101,7 @@ Making a prediction:
         fork: 98.2% [ 0.111609578, 0.184719115, 0.6607002, 0.6637112 ]
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
+
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately and that the region of detection is correct. At this point, you can press any key to exit the application.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]

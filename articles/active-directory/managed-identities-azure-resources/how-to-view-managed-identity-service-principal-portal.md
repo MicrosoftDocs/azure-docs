@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # View the service principal of a managed identity in the Azure portal

@@ -7,15 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Manage web traffic - Portal
+  - name: Create Application Gateway - Portal
     href: quick-create-portal.md
-  - name: Manage web traffic - PowerShell
+  - name: Create Application Gateway - PowerShell
     href: quick-create-powershell.md
-  - name: Manage web traffic - Azure CLI
+  - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Manage web traffic
+  - name: Host single site
     href: tutorial-manage-web-traffic-cli.md
   - name: Enable web application firewall
     href: tutorial-restrict-web-traffic-cli.md
@@ -39,63 +39,97 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: End to end SSL
-    href: ssl-overview.md
-  - name: SSL policy overview
-    href: application-gateway-ssl-policy-overview.md
-  - name: Web application firewall
-    href: waf-overview.md
-  - name: WAF configuration
-    href: application-gateway-waf-configuration.md 
-  - name: URL routing
-    href: url-route-overview.md
-  - name: Multiple site hosting
-    href: multiple-site-overview.md
+  - name: Basics
+    items:
+    - name: How Application Gateway works
+      href: how-application-gateway-works.md
+    - name: Application Gateway components
+      href: application-gateway-components.md
+    - name: Configuration overview
+      href: configuration-overview.md  
+  - name: Routing
+    items:
+    - name: Multiple site hosting
+      href: multiple-site-overview.md
+    - name: URL routing
+      href: url-route-overview.md
+    - name: Redirection
+      href: redirect-overview.md
+    - name: Rewrite HTTP headers
+      href: rewrite-http-headers.md
+    - name: Custom error pages
+      href: custom-error.md      
+  - name: SSL
+    items:
+    - name: SSL termination and end to end SSL
+      href: ssl-overview.md
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
+  - name: WAF
+    items:
+    - name: Web application firewall
+      href: waf-overview.md
+    - name: WAF configuration
+      href: application-gateway-waf-configuration.md
+  - name: Health monitoring
+    items: 
+    - name: Health probe
+      href: application-gateway-probe-overview.md
+    - name: Diagnostics
+      href: application-gateway-diagnostics.md 
   - name: Autoscaling and zone-redundancy
     href: application-gateway-autoscaling-zone-redundant.md
-  - name: Redirection support
-    href: redirect-overview.md
-  - name: Rewrite HTTP headers
-    href: rewrite-http-headers.md
-  - name: Multi-tenant support
+  - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
-  - name: Health monitoring
-    href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
   - name: FAQ
     href: application-gateway-faq.md
 - name: How-to guides
   items:
-  - name: Manage web traffic
+  - name: Host single site
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
+    - name: Azure portal
+      href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
-  - name: Configure SSL termination
+      href: application-gateway-ilb-arm.md      
+  - name: Configure SSL
     items:
-    - name: SSL termination - portal
-      href: create-ssl-portal.md
-    - name: SSL termination - PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: End to end SSL - PowerShell
-      href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Renew certificates
-      href: renew-certificates.md
-    - name: Configure SSL policy
-      href: application-gateway-configure-ssl-policy-powershell.md
+    - name: SSL termination
+      items:
+      - name: SSL termination - portal
+        href: create-ssl-portal.md
+      - name: SSL termination - PowerShell
+        href: tutorial-ssl-powershell.md
+    - name: End-to-end SSL
+      items:        
+      - name: End-to-end SSL - Portal
+        href: end-to-end-ssl-portal.md      
+      - name: End-to-end SSL - PowerShell
+        href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Manage certificates
+      items:             
+      - name: Create certificates for whitelisting backend
+        href: certificates-for-backend-authentication.md        
+      - name: Renew certificates
+        href: renew-certificates.md
+    - name: SSL policy
+      items:           
+      - name: Configure SSL policy
+        href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
     items:
     - name: Azure portal
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Customize WAF rules
+  - name: Configure WAF rule sets
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -143,11 +177,13 @@
     items:
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
-  - name: Multi-tenant support
+  - name: Configure App service webapp and multi-tenant service
     items:
-    - name: Configure multi-tenant support
+    - name: Portal
+      href: configure-web-app-portal.md    
+    - name: Azure PowerShell
       href: create-web-app.md
-  - name: Custom probes
+  - name: Configure custom probes
     items:
       - name: Portal
         href: application-gateway-create-probe-portal.md
@@ -157,14 +193,14 @@
         href: application-gateway-create-probe-ps.md
   - name: Troubleshoot
     items:
-      - name: Troubleshoot an Application Gateway – ILB ASE
+      - name: ILB with an App Service Environment
         href: create-gateway-internal-load-balancer-app-service-environment.md
-      - name: Troubleshoot Bad Gateway (502) errors
+      - name: Redirection to App Service’s URL
+        href: troubleshoot-app-service-redirection-app-service-url.md
+      - name: Session affinity issues
+        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
+      - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
-      - name: Diagnostics
-        href: application-gateway-diagnostics.md
-  - name: Custom error pages
-    href: custom-error.md
 - name: Reference
   items:
   - name: CRS rules

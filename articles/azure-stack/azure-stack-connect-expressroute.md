@@ -10,8 +10,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/22/2018
+ms.topic: conceptual
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
@@ -22,7 +22,7 @@ ms.lastreviewed: 10/22/2018
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article shows you how to connect an Azure Stack virtual network to an Azure virtual network by using a [Microsoft Azure ExpressRoute](/azure/expressroute/) direct connection.
+This article describes how to connect an Azure Stack virtual network to an Azure virtual network by using a [Microsoft Azure ExpressRoute](/azure/expressroute/) direct connection.
 
 You can use this article as a tutorial and use the examples to set up the same test environment. Or, you can use the article as a walkthrough that guides you through setting up your own ExpressRoute environment.
 
@@ -101,7 +101,7 @@ Use the following procedures to create the required network resources in Azure S
 
 4. Under **Featured**, select **Virtual network**.
 
-5. Under **Create virtual network**, enter the values shown in the following table in the appropriate fields:
+5. Under **Create virtual network**, enter the values shown in the following table into the appropriate fields:
 
    |Field  |Value  |
    |---------|---------|
@@ -122,7 +122,7 @@ Use the following procedures to create the required network resources in Azure S
 1. Under **Virtual network**, select **Tenant1VNet1**.
 1. Under **SETTINGS**, select **Subnets**.
 1. Select **+ Gateway subnet** to add a gateway subnet to the virtual network.
-1. The name of the subnet is set to **GatewaySubnet** by default. Gateway subnets are a special case and must use this name to function properly.
+1. The name of the subnet is set to **GatewaySubnet** by default. Gateway subnets are a special case and must use this name to function correctly.
 1. Verify that the **Address range** is **10.1.0.0/24**.
 1. Click **OK** to create the gateway subnet.
 
@@ -141,13 +141,13 @@ Use the following procedures to create the required network resources in Azure S
 
 #### Create the local network gateway
 
-The local network gateway resource identifies the remote gateway at the other end of the VPN connection. For this example, the remote end of the connection is the LAN subinterface of the ExpressRoute router. For Tenant 1, shown in figure 2, the remote address is 10.60.3.255.
+The local network gateway resource identifies the remote gateway at the other end of the VPN connection. For this example, the remote end of the connection is the LAN sub-interface of the ExpressRoute router. For Tenant 1, shown in figure 2, the remote address is 10.60.3.255.
 
 1. Sign in to the Azure Stack user portal with your user account and select **+ Create a resource**.
 1. Under **Azure Marketplace**, select **Networking**.
 1. Select **local network gateway** from the list of resources.
 1. In the **Name** field, type **ER-Router-GW**.
-1. For the **IP address** field, see figure 2. The IP address of the ExpressRoute router LAN subinterface for Tenant 1 is 10.60.3.255. For your own environment, enter the IP address of your router's corresponding interface.
+1. For the **IP address** field, see figure 2. The IP address of the ExpressRoute router LAN sub-interface for Tenant 1 is 10.60.3.255. For your own environment, enter the IP address of your router's corresponding interface.
 1. In the **Address Space** field, enter the address space of the VNets that you want to connect to in Azure. The subnets for Tenant 1 in *Figure 2* are as follows:
 
    * 192.168.2.0/24 is the hub VNet in Azure.
@@ -156,7 +156,7 @@ The local network gateway resource identifies the remote gateway at the other en
    > [!IMPORTANT]
    > This example assumes that you are using static routes for the Site-to-Site VPN connection between the Azure Stack gateway and the ExpressRoute router.
 
-1. Verify that your **Subscription**, **Resource Group**, and **Location** are correct. Then click **Create**.
+1. Verify that your **Subscription**, **Resource Group**, and **Location** are correct. Then select **Create**.
 
 #### Create the connection
 
@@ -171,9 +171,9 @@ The local network gateway resource identifies the remote gateway at the other en
 1. In the **Shared key (PSK)** field, enter **abc123** and then select **OK**.
 1. Under **Summary**, select **OK**.
 
-#### Get the Virtual network gateway public IP address
+#### Get the virtual network gateway public IP address
 
-After you create the virtual network gateway you can get the gateway's public IP address. Make note of this address in case you need it later for your deployment. Depending on your deployment, this address is used as the **Internal IP address**.
+After you create the virtual network gateway you can get the gateway's public IP address. Make a note of this address in case you need it later for your deployment. Depending on your deployment, this address is used as the **Internal IP address**.
 
 1. In the Azure Stack user portal, select **All resources**.
 1. Under **All resources**, select the virtual network gateway, which is **GW1** in the example.
@@ -220,14 +220,14 @@ If you are using Tenant 2 as an example, remember to change the IP addresses to 
 > [!IMPORTANT]
 > This section is for Azure Stack Development Kit (ASDK) deployments only. The NAT is not needed for multi-node deployments.
 
-The Azure Stack Development Kit is self-contained and isolated from the network where the physical host is deployed. The VIP network that the gateways are connected to is not external, it's hidden behind a router doing Network Address Translation (NAT).
+The Azure Stack Development Kit is self-contained and isolated from the network where the physical host is deployed. The VIP network that the gateways are connected to is not external; it is hidden behind a router performing Network Address Translation (NAT).
 
 The router is a Windows Server virtual machine (AzS-BGPNAT01) running the Routing and Remote Access Services (RRAS) role. You must configure NAT on the AzS-BGPNAT01 virtual machine to enable the site-to-site VPN connection to connect on both ends.
 
 #### Configure the NAT
 
 1. Sign in to the Azure Stack host computer with your administrator account.
-1. Copy and edit the following PowerShell script. Replace `"your administrator password"` with your administrator password, and then run the script in an elevated PowerShell ISE. This script returns your **External BGPNAT address**.
+1. Copy and edit the following PowerShell script. Replace `your administrator password` with your administrator password, and then run the script in an elevated PowerShell ISE. This script returns your **External BGPNAT address**.
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
@@ -240,7 +240,7 @@ The router is a Windows Server virtual machine (AzS-BGPNAT01) running the Routin
     -Password $Password
    ```
 
-1. To configure the NAT, copy and edit the following PowerShell script. Edit the script to replace the `'External BGPNAT address'` and `'Internal IP address'` with the following example values:
+1. To configure the NAT, copy and edit the following PowerShell script. Edit the script to replace the `External BGPNAT address` and `Internal IP address` with the following example values:
 
    * For *External BGPNAT address* use 10.10.0.62
    * For *Internal IP address* use 192.168.102.1
@@ -286,18 +286,17 @@ The router is a Windows Server virtual machine (AzS-BGPNAT01) running the Routin
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
-
    ```
 
 ## Configure Azure
 
-After you finish configuring Azure Stack, you can deploy the Azure resources. The following figure shows an example of a tenant virtual network in Azure. You can use any name and addressing scheme for your VNet in Azure. However, the address range of the VNets in Azure and Azure Stack must be unique and must not overlap.
+After you finish configuring Azure Stack, you can deploy the Azure resources. The following figure shows an example of a tenant virtual network in Azure. You can use any name and addressing scheme for your VNet in Azure. However, the address range of the VNets in Azure and Azure Stack must be unique and must not overlap:
 
 *Figure 3. Azure VNets*
 
 ![Azure VNets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
-The resources you deploy in Azure are similar to the resources you deployed in Azure Stack. You'll deploy the following components:
+The resources you deploy in Azure are similar to the resources you deployed in Azure Stack. You deploy the following components:
 
 * Virtual networks and subnets
 * A gateway subnet
@@ -307,7 +306,7 @@ The resources you deploy in Azure are similar to the resources you deployed in A
 
 The example Azure network infrastructure is configured as follows:
 
-* A standard hub (192.168.2.0/24) and spoke (10.100.0.0./16) VNet model. For more information about a hub-spoke network topology, see [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* A standard hub (192.168.2.0/24) and spoke (10.100.0.0./16) VNet model. For more information about hub-spoke network topology, see [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * The workloads are deployed in the spoke VNet and the ExpressRoute circuit is connected to the hub VNet.
 * The two VNets are connected using VNet peering.
 
@@ -364,7 +363,7 @@ You can use any router that supports IKEv2 VPN and BGP to terminate the site-to-
 
 The following Cisco ASR 1000 Series Aggregation Services Router configuration example supports the network infrastructure shown in the *ExpressRoute router configuration* diagram.
 
-```
+```shell
 ip vrf Tenant 1
  description Routing Domain for PRIVATE peering to Azure for Tenant 1
  rd 1:1
@@ -625,7 +624,7 @@ If you want to know how much traffic is passing through your connection, you can
 1. Sign in to the Azure Stack user portal using your tenant account and select **All resources**.
 1. Navigate to the resource group for your VPN Gateway and select the **Connection** object type.
 1. Select the **ConnectToAzure** connection from the list.
-1. Under **Connections**>**Overview**, you can see statistics for **Data in** and **Data out**. You should see some non-zero values.
+1. Under **Connections** > **Overview**, you can see statistics for **Data in** and **Data out**. You should see some non-zero values.
 
    ![Data In and Data Out](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

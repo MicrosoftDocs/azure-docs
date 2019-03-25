@@ -4,19 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 08/22/2018 
+ms.date: 03/04/2019 
 ms.author: pafarley
 ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
+
 # What is Computer Vision?
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and returning information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or it can find all of the human faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or it can find all of the human faces in an image.
 
 You can use Computer Vision in your application by using either a native SDK or invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
 
@@ -38,20 +39,19 @@ You can analyze images to detect and provide insights about their visual feature
 |**[Generate a thumbnail](concept-generating-thumbnails.md)**|Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.|
 |**[Get the area of interest](concept-generating-thumbnails.md#area-of-interest)**|Analyze the contents of an image to return the coordinates of the *area of interest*. This is the same function that is used to generate a thumbnail, but instead of cropping the image, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired.|
 
-
 ## Extract text from images
 
-You can use Computer Vision to [extract text using OCR](concept-extracting-text-ocr.md) from an image into a machine-readable character stream. If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis, and provides the frame coordinates of each word. OCR supports 25 languages, and automatically detects the language of extracted text.
+You can use Computer Vision to extract text from an image into a machine-readable character stream using [optical character recognition (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
 
-You can also [recognize printed and handwritten text](concept-recognizing-text.md) from an image. Computer Vision can detect and extract both printed and handwritten text from images of various objects with different surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. Currently, recognizing printed and handwritten text is in preview, and English is the only supported language.  
+You can also use the [Read API](concept-recognizing-text.md#read-api) to extract both printed and handwritten text from images and text-heavy documents. The Read API uses updated models and works for a variety objects with different surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. Currently, the Read API is in preview, and English is the only supported language.
 
 ## Moderate content in images
 
-You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image, rating the likelihood that the image contains either adult or racy content and generating a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
+You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image and return a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
 
 ## Use containers
 
-[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally, by installing a standardized Docker container closer to your data.
+[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally by installing a standardized Docker container closer to your data.
 
 ## Image requirements
 

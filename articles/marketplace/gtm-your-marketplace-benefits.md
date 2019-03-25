@@ -58,11 +58,11 @@ Your GTM support includes templates, web content, training, and tools to promote
 To access these benefits, you will need to:
 
 1. Publish an offer in either Azure Marketplace or AppSource.
-2. Ensure you have entered a marketing contact in the **contact information** portion of your offer. This should be a dedicated marketing resource, as opposed to a catch-all alias. (i.e, avoid using “support@”, “info@”, “marketing@”, etc.)
+2. Ensure you have entered a marketing contact in the **contact information** portion of your offer. This should be a dedicated marketing resource, as opposed to a catch-all alias. (i.e, avoid using “support\@”, “info\@”, “marketing\@”, etc.)
 
-Based on your solution status, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Based on your solution status, offer being List, Trial, or Transact, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status, chosen marketplace, and Microsoft Partner Competency achievement. 
+The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact), chosen marketplace, and Microsoft Partner Competency achievement.
 
 The table below summarize the eligibility requirements:
 

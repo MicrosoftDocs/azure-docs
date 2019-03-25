@@ -11,14 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ---
+
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
 Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a SQL Database server or all databases in a Managed Instance to another region (currently in public preview for Managed Instance). It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
-> When working with standalone or pooled databases on a SQL Database server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
+> When working with single or pooled databases on a SQL Database server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
 
 When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
@@ -54,14 +55,18 @@ To achieve real business continuity, adding database redundancy between datacent
 
   The SQL Database server or Managed Instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary.
 
-- **Adding databases to failover group on a SQL Database server**
+- **Adding single databases to failover group**
 
-  You can put several single databases or databases within an elastic pool on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+  You can put several single databases on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server.  You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
   
 > [!IMPORTANT]
   > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
 
-- **Failover group read-write listener**
+- **Adding databases in elastic pool to failover group**
+
+  You can put all or several databases within an elastic pool into the same failover group. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name (secondary pool). You must ensure that the secondary server contains an elastic pool with the same exact name and enough free capacity to host the secondary databases that will be created by the failover group. If you add a database in the pool that already has a secondary database in the secondary pool, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary pool.
+  
+  - **Failover group read-write listener**
 
   A DNS CNAME record formed that points to the current primary's URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover.
 
@@ -119,6 +124,18 @@ To achieve real business continuity, adding database redundancy between datacent
 
   > [!IMPORTANT]
   > Managed Instance does not support multiple failover groups.
+  
+## Permissions
+Permissions for a failover group are managed via [role-based access control (RBAC)](../role-based-access-control/overview.md). The [SQL Server Contributor](../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups. 
+
+### Create failover group
+To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a managed instance, you need RBAC write access to both the primary and secondary managed instance, but permissions on individual databases are not relevant since individual managed instance databases cannot be added to or removed from a failover group. 
+
+### Update a failover group
+To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
+
+### Failover a failover group
+To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance. 
 
 ## Best practices of using failover groups with single databases and elastic pools
 
@@ -193,7 +210,7 @@ If your application uses Managed Instance as the data tier, follow these general
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
   > - To connect to a read-only replica in the primary location, use `failover-group-name.zone_id.database.windows.net`.
-  > - To connect to a read-only replica in the primary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the secondary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Be prepared for perf degradation**
 
@@ -260,7 +277,9 @@ When you set up a failover groups between primary and secondary managed instance
 
 ## Upgrading or downgrading a primary database
 
-You can upgrade or downgrade a primary database to a different compute size (within the same service tier, not between General Purpose and Business Critical) without disconnecting any secondary databases. When upgrading, we recommend that you upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: downgrade the primary first, and then downgrade the secondary. When you upgrade or downgrade the database to a different service tier, this recommendation is enforced.
+You can upgrade or downgrade a primary database to a different compute size (within the same service tier, not between General Purpose and Business Critical) without disconnecting any secondary databases. When upgrading, we recommend that you upgrade all of the secondary databases first, and then upgrade the primary. When downgrading, reverse the order: downgrade the primary first, and then downgrade all of the secondary databases. When you upgrade or downgrade the database to a different service tier, this recommendation is enforced.
+
+This sequence is recommended specifically to avoid the problem where the secondary at a lower SKU gets overloaded and must be re-seeded during an upgrade or downgrade process. You could also avoid the problem by making the primary read-only, at the expense of impacting all read-write workloads against the primary. 
 
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
@@ -284,12 +303,12 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | Cmdlet | Description |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Retrieves the failover group configuration |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifies the configuration of the failover group |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Retrieves the failover group configuration |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifies the configuration of the failover group |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
 |  | |
 
 > [!IMPORTANT]
@@ -298,34 +317,34 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ### PowerShell: Managing failover groups with Managed Instances (preview)
 
-#### Install the newest pre-release version of Powershell
+#### Install the newest pre-release version of PowerShell
 
 1. Update the PowerShellGet module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In a new PowerShell window, execute the following commands:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
 
-#### Powershell commandlets to create an instance failover group
+#### PowerShell commandlets to create an instance failover group
 
 | API | Description |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Removes a failover group|
+| New-AzSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Removes a failover group|
 
-### REST API: Manage SQL database failover groups with standalone and pooled databases
+### REST API: Manage SQL database failover groups with single and pooled databases
 
 | API | Description |
 | --- | --- |

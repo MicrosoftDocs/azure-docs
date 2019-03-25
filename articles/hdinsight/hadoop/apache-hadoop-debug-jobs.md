@@ -14,7 +14,7 @@ ms.author: ashishth
 ---
 # Analyze Apache Hadoop logs
 
-Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). The logs retain in the Storage account even after the cluster is deleted.
 
 ## Logs written to Azure Tables
 
@@ -95,7 +95,7 @@ You can now use Excel to filter and sort as necessary. You may want to include o
     For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## Logs Written to Azure Blob Storage
-[The logs written to Azure Tables](#log-written-to-azure-tables) provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Microsoft Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
+The logs written to Azure Tables provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Microsoft Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
 
 To view the logs, see [Access Apache Hadoop YARN application logs on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 

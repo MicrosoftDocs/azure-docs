@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
+ms.lastreviewed: 02/28/2019
 
 ---
 # Add Public IP Addresses
@@ -49,11 +49,6 @@ The first thing you’ll need to do is to obtain the address block you want to a
 8.	 Enter the Address block you want to add in CIDR notation.  For example: 192.168.203.0/24
 9.	When you provide a valid CIDR range in the Address range (CIDR block) field the Start IP address, End IP address and Available IP addresses fields will automatically be populated.  They are read only and automatically generated so you can’t change these without modifying the value in the Address range field.
 10.	After reviewing the information on the blade and confirming everything looks correct, Click Ok to commit the change and add the address range to Azure Stack.
-
-## Update the ACLs on your Top-of-Rack switches
-The last thing you need to do in order to enable the newly added IP range to work is to update the Access Control Lists (ACLs) on your Top-of-Rack (ToR) switches.  The ACLs on the ToR switches are locked down in such a way that connectivity from outside of Azure Stack to the newly added IP range will not work until the new range is added to the ACLs on the switch.  
-
-You need to contact your OEM and work with them to update the ACLs on ToR switches.  They have the tools needed to do this in a supported fashion.
 
 
 ## Next steps 

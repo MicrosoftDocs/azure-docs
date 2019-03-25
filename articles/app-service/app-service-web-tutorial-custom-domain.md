@@ -142,7 +142,7 @@ Select **Validate**.
 
 The **Add hostname** page is shown. 
 
-Make sure that **Hostname record type** is set to **CNAME (www.example.com or any subdomain)**.
+Make sure that **Hostname record type** is set to **CNAME (www\.example.com or any subdomain)**.
 
 Select **Add hostname**.
 
@@ -196,6 +196,15 @@ For the `contoso.com` domain example, create the A and TXT records according to 
 | - | - | - |
 | A | `@` | IP address from [Copy the app's IP address](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> To add a subdomain (like `www.contoso.com`) using an A record instead of a recommended [CNAME record](#map-a-cname-record), your A record and TXT record should look like the following table instead:
+>
+> | Record type | Host | Value |
+> | - | - | - |
+> | A | `www` | IP address from [Copy the app's IP address](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 When the records are added, the DNS records page looks like the following example:
 
@@ -270,7 +279,7 @@ Type a fully qualified domain name that matches the wildcard domain (for example
 
 The **Add hostname** button is activated. 
 
-Make sure that **Hostname record type** is set to **CNAME record (www.example.com or any subdomain)**.
+Make sure that **Hostname record type** is set to **CNAME record (www\.example.com or any subdomain)**.
 
 Select **Add hostname**.
 
@@ -335,10 +344,12 @@ For more information, see [Map a custom domain to a web app](scripts/cli-configu
 
 ### Azure PowerShell 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```PowerShell  
-Set-AzureRmWebApp `
+Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 

@@ -13,25 +13,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 
 ---
 # Azure Stack firewall integration
-It's recommended that you use a firewall device to help secure Azure Stack. Although firewalls can help with things like distributed denial-of-service (DDOS) attacks, intrusion detection and content inspection, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
+It's recommended that you use a firewall device to help secure Azure Stack. Firewalls can help defend against things like distributed denial-of-service (DDOS) attacks, intrusion detection, and content inspection. However, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
 
-Based on the identity model Azure Active Directory (Azure AD) or Windows Server Active Directory Federation Services (AD FS), you might be required to publish the AD FS endpoint. If a disconnected deployment mode is used, you must publish the AD FS endpoint. For more information, see the [datacenter integration identity article](azure-stack-integrate-identity.md).
+ If a disconnected deployment mode is used, you must publish the AD FS endpoint. For more information, see the [datacenter integration identity article](azure-stack-integrate-identity.md).
 
-The Azure Resource Manager (administrator), administrator portal, and Key Vault (administrator) endpoints do not necessarily require external publishing. For example, as a service provider, you might want to limit the attack surface and only administer Azure Stack from inside your network, and not from the internet.
+The Azure Resource Manager (administrator), administrator portal, and Key Vault (administrator) endpoints do not necessarily require external publishing. For example, as a service provider, you could limit the attack surface by only administering Azure Stack from inside your network, and not from the internet.
 
-For enterprise organizations, the external network can be the existing corporate network. In such a scenario, you must publish those endpoints to operate Azure Stack from the corporate network.
+For enterprise organizations, the external network can be the existing corporate network. In this scenario, you must publish endpoints to operate Azure Stack from the corporate network.
 
 ### Network Address Translation
-Network Address Translation (NAT) is the recommended method to allow the deployment virtual machine (DVM) to access the external resources and the internet during deployment as well as the Emergency Recovery Console (ERCS) VMs or Privileged End Point (PEP) during registration and troubleshooting.
+Network Address Translation (NAT) is the recommended method to allow the deployment virtual machine (DVM) to access external resources and the internet during deployment as well as the Emergency Recovery Console (ERCS) VMs or Privileged End Point (PEP) during registration and troubleshooting.
 
-NAT can also be an alternative to Public IP addresses on the external network or public VIPs. However, it is not recommended to do so because it limits the tenant user experience and increases complexity. The two options would be a 1:1 NAT that still requires one public IP per user IP on the pool or many: 1 NAT that requires a NAT rule per user VIP that contains associations to all ports a user might use.
+NAT can also be an alternative to Public IP addresses on the external network or public VIPs. However, it is not recommended to do so because it limits the tenant user experience and increases complexity. One option would be a one to one NAT that still requires one public IP per user IP on the pool. Another option is a many to one NAT that requires a NAT rule per user VIP for all ports a user might use.
 
 Some of the downsides of using NAT for Public VIP are:
 - NAT adds overhead when managing firewall rules because users control their own endpoints and their own publishing rules in the software-defined networking (SDN) stack. Users must contact the Azure Stack operator to get their VIPs published, and to update the port list.
@@ -44,7 +44,7 @@ It is currently recommended to disable SSL decryption on all Azure Stack traffic
 ## Edge firewall scenario
 In an edge deployment, Azure Stack is deployed directly behind the edge router or the firewall. In these scenarios, it is supported for the firewall to be above the border (Scenario 1) where it supports both active-active and active-passive firewall configurations or acting as the border device (Scenario 2) where it only supports active-active firewall configuration relying on Equal Cost Multi Path (ECMP) with either BGP or static routing for failover.
 
-Typically, public routable IP addresses are specified for the public VIP pool from the external network at deployment time. In an edge scenario, it is not recommended to use public routable IPs on any other network for security purposes. This scenario enables a user to experience the full self-controlled cloud experience as in a public cloud like Azure.  
+Public routable IP addresses are specified for the public VIP pool from the external network at deployment time. In an edge scenario, it is not recommended to use public routable IPs on any other network for security purposes. This scenario enables a user to experience the full self-controlled cloud experience as in a public cloud like Azure.  
 
 ![Azure Stack edge firewall example](./media/azure-stack-firewall/firewallScenarios.png)
 

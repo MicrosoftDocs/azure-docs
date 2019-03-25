@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure database security fe
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -48,7 +48,7 @@ SQL Database helps secure your data by providing encryption:
 For other ways to encrypt your data, consider:
 
 -	[Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
--	[Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), if you need a hardware security module or central management of your encryption key hierarchy.
+-	[Azure Key Vault with SQL Server in an Azure VM](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), if you need a hardware security module or central management of your encryption key hierarchy.
 
 ### Encryption in motion
 

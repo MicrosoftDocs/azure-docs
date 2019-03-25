@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Plan your conditional access deployment in Azure Active Directory

@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Azure PowerShell samples for virtual machine scale sets
+# Azure PowerShell samples for virtual machine scale sets.
 
 The following table includes links to bash scripts built using Azure PowerShell.
 
@@ -37,3 +37,6 @@ The following table includes links to bash scripts built using Azure PowerShell.
 | [Create a single-zone scale set](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale that uses a single Availability Zone. |
 | [Create a zone-redundant scale set](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates a virtual machine scale across multiple Availability Zones. |
 | | |
+
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    

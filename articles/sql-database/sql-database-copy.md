@@ -1,19 +1,19 @@
 ---
 title: Copy an Azure SQL database | Microsoft Docs
-description: Create transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
+description: Create a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ---
-# Copy an transactionally consistent copy of an Azure SQL database
+# Copy a transactionally consistent copy of an Azure SQL database
 
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
 
@@ -42,10 +42,14 @@ To copy a database by using the Azure portal, open the page for your database, a
 
 ## Copy a database by using PowerShell
 
-To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+To copy a database by using PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 
 ```PowerShell
-New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
+New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `
     -CopyResourceGroupName "myResourceGroup" `
@@ -62,6 +66,7 @@ Log in to the master database with the server-level principal login or the login
 Start copying the source database with the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. Executing this statement initiates the database copying process. Because copying a database is an asynchronous process, the CREATE DATABASE statement returns before the database copying is complete.
 
 ### Copy a SQL database to the same server
+
 Log in to the master database with the server-level principal login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server-level principal must be members of the dbmanager role.
 
 This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
@@ -80,6 +85,9 @@ This command copies Database1 on server1 to a new database named Database2 on se
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## To move a database between subscriptions
+
+In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
 
 ### Monitor the progress of the copying operation
 
@@ -90,7 +98,6 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 
 > [!NOTE]
 > If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) statement on the new database. Alternatively, executing the DROP DATABASE statement on the source database also cancels the copying process.
-> 
 
 ## Resolve logins
 

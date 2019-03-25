@@ -18,6 +18,7 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Plan your Azure AD join implementation
@@ -36,7 +37,7 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 ## Plan your implementation
 
-To plan your hybrid Azure AD implementation, you should familiarize yourself with:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|

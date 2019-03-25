@@ -16,6 +16,7 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
 
@@ -132,7 +133,7 @@ You must have sufficient permissions to register an application with your Azure 
 
    ![View app registrations](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-If the app registrations setting is set to **No**, only [global administrators](../users-groups-roles/directory-assign-admin-roles.md) can register apps. If your account is assigned to the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
+If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) and [role permissions](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned to the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you to one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
 
 ### Check Azure subscription permissions
 

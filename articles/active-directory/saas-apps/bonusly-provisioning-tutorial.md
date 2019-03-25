@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Bonusly for automatic user provisioning

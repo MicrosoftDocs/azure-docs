@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure security technical ove
 services: azure-security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid:

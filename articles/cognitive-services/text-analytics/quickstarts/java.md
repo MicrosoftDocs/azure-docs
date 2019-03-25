@@ -3,14 +3,14 @@ title: 'Quickstart: Using Java to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: nolachar
+ms.date: 02/15/2019
+ms.author: aahi
 ---
 # Quickstart: Using Java to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
+You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up.
 
 <a name="Detect"></a>
 
@@ -31,11 +31,12 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class named `DetectLanguage.java`.
+1. Add the code provided below to your class.
+1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
+1. Replace the location in `host` (currently `westus`) to the region you signed up for.
+1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
+1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
 ```java
 import java.io.*;
@@ -54,6 +55,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (DetectLanguage.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac DetectLanguage.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar DetectLanguage
  */
@@ -72,14 +74,14 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String text) {
-	    this.documents.add (new Document (id, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String text) {
+        this.documents.add (new Document (id, text));
+    }
 }
 
 public class DetectLanguage {
@@ -89,7 +91,7 @@ public class DetectLanguage {
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-	static String accessKey = "enter key here";
+    static String accessKey = "enter key here";
 
 // Replace or verify the region.
 
@@ -99,11 +101,11 @@ public class DetectLanguage {
 
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
-	static String host = "https://westus.api.cognitive.microsoft.com";
+    static String host = "https://westus.api.cognitive.microsoft.com";
 
-	static String path = "/text/analytics/v2.0/languages";
-    
-	public static String GetLanguage (Documents documents) throws Exception {
+    static String path = "/text/analytics/v2.0/languages";
+
+    public static String GetLanguage (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
 		byte[] encoded_text = text.getBytes("UTF-8");
 
@@ -155,7 +157,7 @@ public class DetectLanguage {
 }
 ```
 
-**Language detection response**
+### Language detection response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -203,13 +205,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Analyze sentiment
 
-The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Sentiment analysis can be used to find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. The following example provides scores for two documents, one in English and another in Spanish.
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class  in it named `GetSentiment.java`.
+1. Add the code provided below to your class.
+1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
+1. Replace the location in `host` (currently `westus`) to the region you signed up for.
+1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
+1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
 ```java
 import java.io.*;
@@ -228,6 +231,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetSentiment.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetSentiment.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetSentiment
  */
@@ -278,7 +282,7 @@ public class GetSentiment {
 
 	static String path = "/text/analytics/v2.0/sentiment";
     
-	public static String GetSentiment (Documents documents) throws Exception {
+	public static String getTheSentiment (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
 		byte[] encoded_text = text.getBytes("UTF-8");
 
@@ -319,7 +323,7 @@ public class GetSentiment {
 			documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
 			documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
 
-			String response = GetSentiment (documents);
+			String response = getTheSentiment (documents);
 			System.out.println (prettify (response));
 		}
 		catch (Exception e) {
@@ -328,9 +332,11 @@ public class GetSentiment {
 	}
 }
 ```
-**Sentiment analysis response**
 
-A successful response is returned in JSON, as shown in the following example: 
+### Sentiment analysis response
+
+The result is measured as positive if it's scored closer to 1.0 and negative if it's scored closer to 0.0.
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
@@ -352,13 +358,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Extract key phrases
 
-The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts Key phrases for both English and Spanish documents.
+The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Key phrase extraction is used to quickly identify the main points of a document or text. The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it called `GetKeyPhrases.java`.
+1. Add the code provided below to your class.
+1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
+1. Replace the location in `host` (currently `westus`) to the region you signed up for.
+1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
+1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
 ```java
 import java.io.*;
@@ -377,6 +384,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetKeyPhrases.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetKeyPhrases.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetKeyPhrases
  */
@@ -478,9 +486,10 @@ public class GetKeyPhrases {
 	}
 }
 ```
-**Key phrase extraction response**
 
-A successful response is returned in JSON, as shown in the following example: 
+### Key phrase extraction response
+
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
@@ -521,13 +530,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Identify entities
 
-The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it named `GetEntities.java`.
+1. Add the code provided below to your class.
+1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
+1. Replace the location in `host` (currently `westus`) to the region you signed up for.
+1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
+1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
 ```java
 import java.io.*;
@@ -546,6 +556,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetEntities.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetEntities.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetEntities
  */
@@ -646,9 +657,10 @@ public class GetEntities {
 	}
 }
 ```
-**Entity extraction response**
 
-A successful response is returned in JSON, as shown in the following example: 
+### Entity extraction response
+
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
@@ -811,7 +823,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also 
+## See also
 
  [Text Analytics overview](../overview.md)  
  [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)

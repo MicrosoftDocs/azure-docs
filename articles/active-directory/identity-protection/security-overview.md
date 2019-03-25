@@ -14,14 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection - Security overview
 
-The ‘Security overview’ gives you an insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
+The [Security overview](https://aka.ms/IdentityProtectionRefresh) gives you an insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
 
 The ‘Security overview’ is broadly divided into two sections:
 

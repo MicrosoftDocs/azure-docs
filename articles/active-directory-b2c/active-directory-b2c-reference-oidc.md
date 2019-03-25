@@ -1,5 +1,5 @@
 ---
-title: Web sign-in with OpenID Connect in Azure Active Directory B2C | Microsoft Docs
+title: Web sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Building web applications by using the Azure Active Directory implementation of the OpenID Connect authentication protocol.
 services: active-directory-b2c
 author: davidmu1
@@ -8,24 +8,24 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C: Web sign-in with OpenID Connect
-OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+# Web sign-in with OpenID Connect in Azure Active Directory B2C
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-Because it extends OAuth 2.0, it also enables apps to securely acquire *access tokens*. You can use access_tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics). We recommend OpenID Connect if you're building a web application that is hosted on a server and accessed through a browser. If you want to add identity management to your mobile or desktop applications by using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect.
+OpenID Connect extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
+
+Because it extends OAuth 2.0, it also enables apps to securely acquire *access tokens*. You can use access tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics). We recommend OpenID Connect if you're building a web application that is hosted on a server and accessed through a browser. If you want to add identity management to your mobile or desktop applications by using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect.
 
 Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [user flow parameter](active-directory-b2c-reference-policies.md),
-which enables you to use OpenID Connect to add user experiences--such as sign-up, sign-in, and profile management--to your app. Here, we show you how to use OpenID Connect and user flows to implement each of these experiences
-in your web applications. We'll also show you how to get access tokens for accessing web APIs.
+which enables you to use OpenID Connect to add user experiences, such as sign-up, sign-in, and profile management to your app. Identity providers that use the OpenID Connect protocol include [Microsoft account](active-directory-b2c-setup-msa-app.md) and other [OpenID Connect providers](active-directory-b2c-setup-oidc-idp.md).
 
 The example HTTP requests in the next section use our sample B2C directory, fabrikamb2c.onmicrosoft.com, as well as our sample application, https://aadb2cplayground.azurewebsites.net, and user flows. You're free to try out the requests yourself by using these values, or you can replace them with your own.
-Learn how to [get your own B2C tenant, application, and user flows](#use-your-own-b2c-directory).
+Learn how to [get your own B2C tenant, application, and user flows](#use-your-own-b2c-tenant).
 
 ## Send authentication requests
 When your web app needs to authenticate the user and execute a user flow, it can direct the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user takes action, depending on the user flow.

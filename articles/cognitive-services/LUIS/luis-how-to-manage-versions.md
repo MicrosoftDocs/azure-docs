@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
 ---
 
@@ -34,7 +34,7 @@ The list of versions show which versions are published, where they are published
      > [!NOTE]
      > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and set as the active version.
+   A new version with the specified name is created and set as the active version.
 
 ## Set active version
 
@@ -51,6 +51,10 @@ Select a version from the list, then select **Make Active** from the toolbar.
     ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Once you import a version, the new version becomes the active version.
+
+### Import errors
+
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, you have two choices. See [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions) for more information.
 
 <a name = "export-version"></a>
 

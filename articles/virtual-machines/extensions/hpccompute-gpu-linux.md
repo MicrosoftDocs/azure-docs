@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
 
 ---
@@ -21,7 +21,7 @@ ms.author: roiyz
 
 ## Overview
 
-This extension installs NVIDIA GPU drivers on Linux N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
+This extension installs NVIDIA GPU drivers on Linux N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). During the installation process, the VM may reboot to complete the driver setup.
 
 An extension is also available to install NVIDIA GPU drivers on [Windows N-series VMs](hpccompute-gpu-windows.md).
 
@@ -81,7 +81,7 @@ All settings are optional. The default behavior is to not update the kernel if n
 | Name | Description | Default Value | Valid Values | Data Type |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Update the kernel even if not required for driver installation | false | true, false | boolean |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Install CUDA toolkit. Only relevant for NC/ND series VMs. | true | true, false | boolean |
 
 
@@ -119,7 +119,7 @@ The following example assumes the extension is nested inside the virtual machine
 ### PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -155,7 +155,7 @@ az vm extension set `
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

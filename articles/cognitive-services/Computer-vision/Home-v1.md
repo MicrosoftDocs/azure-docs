@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: The Computer Vision API provides developers with access to advanced algorithms for processing images and returning information.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -22,17 +22,17 @@ ms.custom: seodec18
 >- [Computer Vision API Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. With the Computer Vision API users can analyze images to:
-* [Tag images based on content.](#Tagging)
-* [Categorize images.](#Categorizing)
-* [Identify the type and quality of images.](#Identifying)
-* [Detect human faces and return their coordinates. ](#Faces)
-* [Recognize domain-specific content.](#Domain-Specific)
-* [Generate descriptions of the content.](#Descriptions)
-* [Use optical character recognition to identify printed text found in images.](#OCR)
-* [Recognize handwritten text.](#RecognizeText)
-* [Distinguish color schemes.](#Color)
-* [Flag adult content.](#Adult)
-* [Crop photos to be used as thumbnails.](#Thumbnails)
+* Tag images based on content.
+* Categorize images.
+* Identify the type and quality of images.
+* [Detect human faces and return their coordinates.](#Faces)
+* Recognize domain-specific content.
+* Generate descriptions of the content.
+* Use optical character recognition to identify printed text found in images.
+* Recognize handwritten text.
+* Distinguish color schemes.
+* Flag adult content.
+* Crop photos to be used as thumbnails.
 
 ## Requirements
 * Supported input methods: Raw image binary in the form of an application/octet stream or image URL.

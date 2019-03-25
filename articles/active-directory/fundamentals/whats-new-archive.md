@@ -9,9 +9,11 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Archive for What's new? in Azure Active Directory
@@ -25,6 +27,208 @@ The What's new release notes provide you with information about:
 - Bug fixes
 - Deprecated functionality
 - Plans for changes
+
+---
+
+## July 2018
+
+### Improvements to Azure Active Directory email notifications
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Identity lifecycle management
+ 
+Azure Active Directory (Azure AD) emails now feature an updated design, as well as changes to the sender email address and sender display name, when sent from the following services:
+ 
+- Azure AD Access Reviews
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD Privileged Identity Management
+- Enterprise App Expiring Certificate Notifications
+- Enterprise App Provisioning Service Notifications
+ 
+The email notifications will be sent from the following email address and display name:
+
+- Email address: azure-noreply@microsoft.com
+- Display name: Microsoft Azure
+ 
+For an example of some of the new e-mail designs and more information, see [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
+
+### Azure AD Activity Logs are now available through Azure Monitor
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+The Azure AD Activity Logs are now available in public preview for the Azure Monitor (Azure's platform-wide monitoring service). Azure Monitor offers you long-term retention and seamless integration, in addition to these improvements:
+
+- Long-term retention by routing your log files to your own Azure storage account.
+
+- Seamless SIEM integration, without requiring you to write or maintain custom scripts.
+
+- Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
+
+For more information about these new capabilities, see our blog [Azure AD activity logs in Azure Monitor diagnostics is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) and our documentation, [Azure Active Directory activity logs in Azure Monitor (preview)](https://docs.microsoft.com/azure/active-directory/reporting-azure-monitor-diagnostics-overview).
+
+---
+
+### Conditional access information added to the Azure AD sign-ins report
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Identity Security & Protection
+ 
+This update lets you see which policies are evaluated when a user signs in along with the policy outcome. In addition, the report now includes the type of client app used by the user, so you can identify legacy protocol traffic. Report entries can also now be searched for a correlation ID, which can be found in the user-facing error message and can be used to identify and troubleshoot the matching sign-in request.
+
+---
+
+### View legacy authentications through Sign-ins activity logs
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
+
+---
+
+### New Federated Apps available in Azure AD app gallery - July 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In July 2018, we've added these 16 new apps with Federation support to the app gallery:
+
+[Innovation Hub](https://docs.microsoft.com/azure/active-directory/saas-apps/innovationhub-tutorial), [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-tutorial), [Certain Admin SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/certainadminsso-tutorial), PSUC Staging, [iPass SmartConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/ipasssmartconnect-tutorial), [Screencast-O-Matic](https://docs.microsoft.com/azure/active-directory/saas-apps/screencast-tutorial), PowerSchool Unified Classroom, [Eli Onboarding](https://docs.microsoft.com/azure/active-directory/saas-apps/elionboarding-tutorial), [Bomgar Remote Support](https://docs.microsoft.com/azure/active-directory/saas-apps/bomgarremotesupport-tutorial), [Nimblex](https://docs.microsoft.com/azure/active-directory/saas-apps/nimblex-tutorial), [Imagineer WebVision](https://docs.microsoft.com/azure/active-directory/saas-apps/imagineerwebvision-tutorial), [Insight4GRC](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial), [SecureW2 JoinNow Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/securejoinnow-tutorial), [Kanbanize](https://review.docs.microsoft.com/azure/active-directory/saas-apps/kanbanize-tutorial), [SmartLPA](https://review.docs.microsoft.com/azure/active-directory/saas-apps/smartlpa-tutorial), [Skills Base](https://docs.microsoft.com/azure/active-directory/saas-apps/skillsbase-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+ 
+### New user provisioning SaaS app integrations - July 2018
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more. For July 2018, we have added user provisioning support for the following applications in the Azure AD app gallery:
+
+- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
+
+- [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
+
+- [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
+
+For a list of all applications that support user provisioning in the Azure AD gallery, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial).
+
+---
+
+### Connect Health for Sync - An easier way to fix orphaned and duplicate attribute sync errors
+
+**Type:** New feature  
+**Service category:** AD Connect  
+**Product capability:** Monitoring & Reporting
+ 
+Azure AD Connect Health introduces self-service remediation to help you highlight and fix sync errors. This feature troubleshoots duplicated attribute sync errors and fixes objects that are orphaned from Azure AD. This diagnosis has the following benefits:
+
+- Narrows down duplicated attribute sync errors, providing specific fixes
+
+- Applies a fix for dedicated Azure AD scenarios, resolving errors in a single step
+
+- No upgrade or configuration is required to turn on and use this feature
+
+For more information, see [Diagnose and remediate duplicated attribute sync errors](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors)
+
+---
+
+### Visual updates to the Azure AD and MSA sign-in experiences
+
+**Type:** Changed feature  
+**Service category:** Azure AD  
+**Product capability:** User Authentication
+
+We've updated the UI for Microsoft's online services sign-in experience, such as for Office 365 and Azure. This change makes the screens less cluttered and more straightforward. For more information about this change, see the [Upcoming improvements to the Azure AD sign-in experience](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/) blog.
+
+---
+
+### New release of Azure AD Connect - July 2018
+
+**Type:** Changed feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+
+The latest release of Azure AD Connect includes: 
+
+- Bug fixes and supportability updates 
+
+- General Availability of the Ping-Federate integration
+
+- Updates to the latest SQL 2012 client 
+
+For more information about this update, see [Azure AD Connect: Version release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+
+---
+
+### Updates to the Terms of Use (ToU) end-user UI
+
+**Type:** Changed feature  
+**Service category:** Terms of Use  
+**Product capability:** Governance
+
+We're updating the acceptance string in the TOU end-user UI.
+
+**Current text.** In order to access [tenantName] resources, you must accept the terms of use.<br>**New text.** In order to access [tenantName] resource, you must read the terms of use.
+
+**Current text:** Choosing to accept means that you agree to all of the above terms of use.<br>**New text:** Please click Accept to confirm that you have read and understood the terms of use.
+
+---
+ 
+### Pass-through Authentication supports legacy protocols and applications
+
+**Type:** Changed feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Pass-through Authentication now supports legacy protocols and apps. The following limitations are now fully supported:
+
+- User sign-ins to legacy Office client applications, Office 2010 and Office 2013, without requiring modern authentication.
+
+- Access to calendar sharing and free/busy information in Exchange hybrid environments on Office 2010 only.
+
+- User sign-ins to Skype for Business client applications without requiring modern authentication.
+
+- User sign-ins to PowerShell version 1.0.
+
+- The Apple Device Enrollment Program (Apple DEP), using the iOS Setup Assistant. 
+
+---
+ 
+### Converged security info management for self-service password reset and Multi-Factor Authentication
+
+**Type:** New feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and Multi-Factor Authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and MFA in two different experiences. This new experience also applies to users who have either SSPR or MFA.
+
+If an organization isn't enforcing MFA or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for MFA or SSPR. 
+
+This is an opt-in public preview. Admins can turn on the new experience (if desired) for a selected group of users or all users in a tenant.
+
+---
+ 
+### Use the Microsoft Authenticator app to verify your identity when you reset your password
+
+**Type:** Changed feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn on this self-service password reset method, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
+
+Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
 
 ---
 
@@ -711,7 +915,7 @@ For more information, see: [Customizing the list of Workday user attributes](htt
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 We've updated the Azure AD Admin center to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
 
-For more information, see [Changing dynamic membership to static and vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)
+For more information, see [Dynamic membership rules for groups in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
 
 ---
 
@@ -1238,7 +1442,7 @@ For more information, see [Conditional access in Azure AD](https://docs.microsof
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
-- [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
+- Microsoft StaffHub
 
 For more information, see:
 

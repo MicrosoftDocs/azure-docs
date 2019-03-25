@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 01/22/2019
+ms.date: 02/27/2019
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -28,14 +28,14 @@ Managed Instance has characteristics and resource limits that depends on the und
 
 Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
 
-|   | **Gen 4** | **Gen 5** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
 | In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
-| Max storage (General Purpose) |  8 TB | 1 TB |
-| Max storage (Business Critical) | 8 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
+| Max storage (General Purpose) |  8 TB | 8 TB |
+| Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
 
@@ -44,17 +44,19 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memory | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores | Gen4: 56GB-156GB <br/> Gen5: 41GB-408GB<br/>\*Proportional to the number of vCores |
-| Max storage size | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+| Memory | Gen4: 56 GB - 168 GB<br/>Gen5: 40.8 GB - 408 GB<br/>\*Proportional to the number of vCores | Gen4: 56 GB - 168 GB <br/> Gen5: 40.8 GB - 408 GB<br/>\*Proportional to the number of vCores |
+| Max storage size | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
-| Data/Log IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines ce Log throughput | 22MB/s per instance | 3MB/s per vCore<br/>Max 48MB/s |
-| Data throughput (approximate) | 100-250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s per vCore |
+| Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1,375 per vCore) |
+| Log throughput | 22 MB/s per instance | 3 MB/s per vCore<br/>Max 48 MB/s per instance|
+| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s per vCore |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
-| Max tempDB size | 192-1920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
+| Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
 
 **Notes**:
+
 - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 - Throughput and IOPS also depend on the page size that is not explicitly limited by Managed Instance.
 
@@ -82,6 +84,9 @@ Supported subscription types can contain a limited number of resources per regio
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
 - **Instance number limit**: The maximum number of instances that can be deployed in a single region.
 
+> [!Note]
+> These limits are default settings and not technical limitations. The limits can be increased on-demand by creating special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more Managed Instances in the current region. As an alternative, you can create new Managed Instances in another Azure region without sending support requests.
+
 In the following table are shown default regional limits for supported subscriptions:
 
 |Subscription type| Max number of Managed Instance subnets | Max number of instances |Max number of GP managed instances*|Max number of BC managed instances*|
@@ -96,7 +101,7 @@ In the following table are shown default regional limits for supported subscript
 
 ** Maximum number of instances in one service tier applies if there are no instances in another service tier. In case you plan to mix GP and BC instances within same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
 
-These limits can be increased by creating special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more Managed Instances in the current region. As an alternative, you can create new Managed Instances in another Azure region without sending support requests.
+
 
 > [!IMPORTANT]
 > When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.

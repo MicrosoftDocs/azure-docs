@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -26,20 +26,20 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Learn how to use the Validation as a Service (VaaS) local agent to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
+Learn how to use the Validation as a Service (VaaS) local agent to run validation tests. The local agent must be deployed before running validation tests.
 
 > [!Note]  
-> You must make sure that the machine on which the local agent is running doesn't lose out-bound access to the internet. This machine must be accessible only to users who you have authorized to use VaaS on behalf of your tenant.
+> Make sure that the machine on which the local agent is running doesn't lose outbound access to the internet. This machine should be accessible only to users who are authorized to use VaaS on behalf of your tenant.
 
 To deploy the local agent:
 
-1. Install the local agent
-2. Perform sanity checks
-3. Run the local agent
+1. Install the local agent.
+2. Perform sanity checks.
+3. Run the local agent.
 
 ## Download and start the local agent
 
-Download the agent to a machine that meets the prerequisites in your datacenter that is not part of the Azure Stack system, but one that has access to all the Azure Stack endpoints.
+Download the agent to a machine that meets the prerequisites in your datacenter and has access to all the Azure Stack endpoints. This machine should not be part of the Azure Stack system or hosted in the Azure Stack cloud.
 
 ### Machine prerequisites
 
@@ -51,8 +51,6 @@ Check that your machine meets the following criteria:
 - Minimum 8 core processors
 - Minimum 200-GB disk space
 - Stable network connectivity to the internet
-
-Azure Stack is the system under test. The machine should not be part of Azure Stack or hosted in the Azure Stack cloud.
 
 ### Download and install the agent
 
@@ -95,7 +93,7 @@ The command downloads a public image repository (PIR) image (OS VHD) and copy fr
 
 ## Checks before starting the tests
 
-The tests run remote actions. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can check that your machine has access to the Azure Stack endpoints by running the following checks:
+The tests run remote operations. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can check that your machine has access to the Azure Stack endpoints by running the following checks:
 
 1. Check that the Base URI can be reached. Open a CMD prompt or bash shell, and run the following command, replacing `<EXTERNALFQDN>` with the External FQDN of your environment:
 
@@ -120,9 +118,10 @@ The tests run remote actions. The machine that runs the tests must have access t
     ```
 
       **Parameters**  
+
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName@Contoso.com) |
+    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName\@Contoso.com) |
     | VaaSTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
 
     > [!Note]  

@@ -4,7 +4,7 @@ description: This topic shows how to start developing Azure Functions with Media
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -30,7 +30,7 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 	
 ## Create a function app
 
-1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
+1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]

@@ -17,7 +17,7 @@ You back up a SharePoint farm to Microsoft Azure by using Microsoft Azure Backup
 Azure Backup for DPM supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint deployed as a physical server or Hyper-V/VMware virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
@@ -217,7 +217,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 4. Click the SharePoint object shown in the MABS **Recovery** tab to get the content database structure. Right-click the item, and then click **Recover**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. At this point, follow the [recovery steps earlier in this article](#restore-a-sharepoint-item-from-disk-using-dpm) to recover a SharePoint content database from disk.
+5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
 ## FAQs
 Q: Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?<br>

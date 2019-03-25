@@ -1,6 +1,6 @@
 ---
 title: Sample - Billing tags policy initiative
-description: This sample policy set requires specified tag values for cost center and product name.
+description: This sample policy definition set requires specified tag values for cost center and product name.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Billing tags policy initiative
+# Sample - Billing tags policy initiative
 
 This policy set requires specified tag values for cost center and product name. Uses built-in policies to apply and enforce required tags. You specify the required values for the tags.
 
@@ -23,11 +23,11 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal) o
 
 ## Deploy with the portal
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.definitions.json"

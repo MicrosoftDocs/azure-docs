@@ -18,6 +18,7 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # What is Azure Active Directory Identity Protection (refreshed)?
 
@@ -53,6 +54,7 @@ To respond to these threats, Azure AD Identity Protection empowers you to:
 
 Azure AD Identity Protection is a feature of Azure Active Directory Premium P2 that enables you to configure policies to automatically respond when a user’s identity is compromised or when someone other than the account owner is attempting to sign in using their identity. These policies, in addition to other conditional access controls provided by Azure AD, can either automatically block access or initiate mitigation actions, such as password reset or multi-factor authentication enforcement. Additionally, Identity Protection provides monitoring and reporting capabilities to gain deeper insight into risk and potential compromises in your organization. 
 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## Risk events

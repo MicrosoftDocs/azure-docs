@@ -138,9 +138,9 @@ Your CNAME record should be in the following format, where *Name* is your custom
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azurefd.net |
+| <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 

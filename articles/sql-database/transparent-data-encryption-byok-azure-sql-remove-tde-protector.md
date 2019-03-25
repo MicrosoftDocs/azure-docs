@@ -11,19 +11,23 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
+ms.date: 03/12/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
 - You must have an Azure subscription and be an administrator on that subscription
-- You must have Azure PowerShell version 4.2.0 or newer installed and running. 
+- You must have Azure PowerShell installed and running. 
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) to learn more.
 
 ## Overview
 
-This how-to guide describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse that is using TDE with Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md). 
+This how-to guide describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md). 
 
 The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault can result in **data loss**. 
 
@@ -38,56 +42,56 @@ This how-to guide goes over two approaches depending on the desired result after
 
 ## To keep the encrypted resources accessible
 
-1. Create a [new key in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level. 
-2. Add the new key to the server using the [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) and [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
+1. Create a [new key in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
+2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
 
    ```powershell
    # Add the key from Key Vault to the server  
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    # Set the key as the TDE protector for all resources under the server
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault -KeyId <KeyVaultKeyId> 
    ```
 
-3. Make sure the server and any replicas have updated to the new TDE protector using the [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) cmdlet. 
+3. Make sure the server and any replicas have updated to the new TDE protector using the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet. 
 
    >[!NOTE]
    > It may take a few minutes for the new TDE protector to propagate to all databases and secondary databases under the server.
 
    ```powershell
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Take a [backup of the new key](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey) in Key Vault.
+4. Take a [backup of the new key](/powershell/module/az.keyvault/backup-azkeyvaultkey) in Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
-
-5. Delete the compromised key from Key Vault using the [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
+ 
+5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
-   Remove-AzureKeyVaultKey `
+   Remove-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
-
-6. To restore a key to Key Vault in the future using the [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey) cmdlet:
+ 
+6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
-   Restore-AzureKeyVaultKey `
+   Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```

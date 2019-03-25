@@ -52,8 +52,6 @@ Stateful microservices simplify application designs because they remove the need
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* Listen to [customer case studies](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
-)
 * Read about [customer case studies](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 * Learn more about [patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 

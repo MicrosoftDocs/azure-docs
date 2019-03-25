@@ -20,11 +20,12 @@ ms.author: ryanwi
 The following are examples of the application and service manifests for a Service Fabric application with an ASP.NET Core web front-end and a stateful back-end. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Service Fabric .NET Quickstart](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
 |[Application manifest](#application-manifest)| [resource governance](service-fabric-resource-governance.md), [run a service as a local admin account](service-fabric-application-runas-security.md), [apply a default policy to all service code packages](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [create user and group principals](service-fabric-application-runas-security.md), share a data package between service instances, [override service endpoints](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService service manifest](#frontendservice-service-manifest)| [Run a script at service startup](service-fabric-run-script-at-service-startup.md), [define an HTTPS endpoint](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService service manifest](#backendservice-service-manifest)| [Declare a config package](service-fabric-application-and-service-manifests.md), [declare a data package](service-fabric-application-and-service-manifests.md), [configure an endpoint](service-fabric-service-manifest-resources.md)| 
+|FrontEndService service manifest| [Run a script at service startup](service-fabric-run-script-at-service-startup.md), [define an HTTPS endpoint](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService service manifest| [Declare a config package](service-fabric-application-and-service-manifests.md), [declare a data package](service-fabric-application-and-service-manifests.md), [configure an endpoint](service-fabric-service-manifest-resources.md)| 
 
 See [Application manifest elements](#application-manifest-elements), [VotingWeb service manifest elements](#votingweb-service-manifest-elements), and [VotingData service manifest elements](#votingdata-service-manifest-elements) for more information on specific XML elements.
 
@@ -32,7 +33,7 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -169,8 +170,8 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -233,8 +234,8 @@ See [Application manifest elements](#application-manifest-elements), [VotingWeb 
 <ServiceManifest Name="VotingDataPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->

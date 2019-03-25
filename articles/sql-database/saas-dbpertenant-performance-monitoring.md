@@ -17,12 +17,12 @@ ms.date: 01/25/2019
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
-The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Simulate usage on the tenant databases by running a provided load generator
 > * Monitor the tenant databases as they respond to the increase in load
 > * Scale up the Elastic pool in response to the increased database load
@@ -51,7 +51,7 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Log Analytics](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
@@ -77,10 +77,10 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script is provided that simula
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generate normal intensity load (approx. 40 DTU) |
+| 2 | Generate normal intensity load (approximately 40 DTU) |
 | 3 | Generate load with longer and more frequent bursts per database|
-| 4 | Generate load with higher DTU bursts per database (approx. 80 DTU)|
-| 5 | Generate a normal load plus a high load on a single tenant (approx. 95 DTU)|
+| 4 | Generate load with higher DTU bursts per database (approximately 80 DTU)|
+| 5 | Generate a normal load plus a high load on a single tenant (approximately 95 DTU)|
 | 6 | Generate unbalanced load across multiple pools|
 
 The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
@@ -165,17 +165,17 @@ As an alternative to scaling up the pool, create a second pool and move database
 1. Click **+ New pool** to create a pool on the current server.
 1. On the **Elastic pool** template:
 
-    1. Set **Name** to *Pool2*.
-    1. Leave the pricing tier as **Standard Pool**.
-    1. Click **Configure pool**,
-    1. Set **Pool eDTU** to *50 eDTU*.
-    1. Click **Add databases** to see a list of databases on the server that can be added to *Pool2*.
-    1. Select any 10 databases to move these to the new pool, and then click **Select**. If you've been running the load generator, the service already knows that your performance profile requires a larger pool than the default 50 eDTU size and recommends starting with a 100 eDTU setting.
+   1. Set **Name** to *Pool2*.
+   1. Leave the pricing tier as **Standard Pool**.
+   1. Click **Configure pool**,
+   1. Set **Pool eDTU** to *50 eDTU*.
+   1. Click **Add databases** to see a list of databases on the server that can be added to *Pool2*.
+   1. Select any 10 databases to move these to the new pool, and then click **Select**. If you've been running the load generator, the service already knows that your performance profile requires a larger pool than the default 50 eDTU size and recommends starting with a 100 eDTU setting.
 
-    ![recommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![recommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. For this tutorial, leave the default at 50 eDTUs, and click **Select** again.
-    1. Select **OK** to create the new pool and to move the selected databases into it.
+   1. For this tutorial, leave the default at 50 eDTUs, and click **Select** again.
+   1. Select **OK** to create the new pool and to move the selected databases into it.
 
 Creating the pool and moving the databases takes a few minutes. As databases are moved they remain online and fully accessible until the very last moment, at which point any open connections are closed. As long as you have some retry logic, clients will then connect to the database in the new pool.
 
@@ -190,7 +190,7 @@ If an individual database in a pool experiences a sustained high load, depending
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
 1. In the **PowerShell ISE**, open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx. 95 DTU).**
+1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approximately 95 DTU).**
 1. Set **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute the script using **F5**.
 
@@ -243,4 +243,4 @@ In this tutorial you learn how to:
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Database Per Tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL Elastic pools](sql-database-elastic-pool.md)
 * [Azure automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) - Setting up and using Log Analytics tutorial
+* [Azure Monitor logs](saas-dbpertenant-log-analytics.md) - Setting up and using Azure Monitor logs tutorial

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about how constituency parsing, also known as "phrase structure parsing," identifies phrases in text.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual

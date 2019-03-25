@@ -12,9 +12,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Terms of use feature
@@ -185,11 +186,15 @@ Once a Terms of use is created and enforced, users, who are in scope, will see t
 
 ![User web sign-in](./media/active-directory-tou/user-tou.png)
 
+Users can view the Terms of use and, if necessary, use buttons to zoom in and out.
+
+![View Terms of use with zoom buttons](./media/active-directory-tou/zoom-buttons.png)
+
 The following screen shows how Terms of use looks on mobile devices.
 
 ![User mobile sign-in](./media/active-directory-tou/mobile-tou.png)
 
-Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign ins.
+Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign-ins.
 
 ### How users can review their Terms of use
 Users can review and see the Terms of use that they have accepted by using the following procedure.
@@ -262,7 +267,7 @@ Per-device Terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune enrollment app is not supported.
+- The Intune Enrollment app is not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
@@ -310,7 +315,7 @@ Conditional access policies take effect immediately. When this happens, the admi
 
 Most organizations have a process in place for their employees to consent to their organization's Terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using conditional access and Terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the Terms of use. This support is currently in preview.
 
-Terms of use will only be displayed when the user has a guest account in Azure AD. SharePoint Online currently has an [ad-hoc external sharing recipient experience](/sharepoint/what-s-new-in-sharing-in-targeted-release) to share a document or a folder that does not require the user to have a guest account. In this case, a Terms of use is not displayed.
+Terms of use will only be displayed when the user has a guest account in Azure AD. SharePoint Online currently has an [ad hoc external sharing recipient experience](/sharepoint/what-s-new-in-sharing-in-targeted-release) to share a document or a folder that does not require the user to have a guest account. In this case, a Terms of use is not displayed.
 
 ![All guest users](./media/active-directory-tou/b2b-guests.png)
 
@@ -330,10 +335,13 @@ You can configure a conditional access policy for the Microsoft Intune Enrollmen
 
 ![Microsoft Intune cloud app](./media/active-directory-tou/cloud-app-intune.png)
 
+> [!NOTE]
+> The Intune Enrollment app is not supported for [Per-device Terms of use](#per-device-terms-of-use).
+
 ## Frequently asked questions
 
 **Q: How do I see when/if a user has accepted a Terms of use?**<br />
-A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
+A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see View report of who has accepted and declined and [View Azure AD audit logs](#view-azure-ad-audit-logs).
 
 **Q: How long is information stored?**<br />
 A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.

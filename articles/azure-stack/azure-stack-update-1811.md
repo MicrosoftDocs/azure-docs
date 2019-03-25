@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed:  01/25/2019
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -84,6 +84,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     During the installation of this update, the Azure Stack user portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 1.0.3.11 before applying 1811.
+
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
@@ -115,6 +117,18 @@ This update includes the following new features and improvements for Azure Stack
 - Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. See the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
+- Updates to the update experience in Azure Stack. The update enhancements include: 
+  - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
+  - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
+  - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
+  - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
+  - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
+  - Azure Stack scale units that are not connected can import the updates just like before. 
+  - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
+
+    For more information, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## Fixed issues
 
@@ -150,6 +164,9 @@ This update includes the following new features and improvements for Azure Stack
 
 <!-- 3190553 - IS ASDK -->
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed an issue in which the VM overview page cannot correctly show the VM metrics chart. 
 
 ## Changes
 
@@ -236,17 +253,17 @@ The following are post-installation known issues for this build version.
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 
-    - Alert #1:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+  - Alert #1:
+     - NAME:  Infrastructure role unhealthy
+     - SEVERITY: Warning
+     - COMPONENT: Health controller
+     - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-    - Alert #2:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+  - Alert #2:
+     - NAME:  Infrastructure role unhealthy
+     - SEVERITY: Warning
+     - COMPONENT: Health controller
+     - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
     Both alerts can be safely ignored. They will close automatically over time.  
 
@@ -295,11 +312,6 @@ The following are post-installation known issues for this build version.
 <!-- 1662991 IS ASDK --> 
 - Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
-<!-- 2724961- IS ASDK --> 
-- When you register the **Microsoft.Insight** resource provider in the subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page does not show metrics data.
-
-   To find metrics data, such as the CPU Percentage chart for the VM, go to the **Metrics** window and show all the supported Windows VM guest metrics.
-
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
 
@@ -331,7 +343,7 @@ The following are post-installation known issues for this build version.
 - During Azure Stack *Secret Rotation*, there is a period in which public IP addresses are unreachable for two to five minutes.
 
 <!-- 2664148 - IS ASDK --> 
--	In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
+- In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
 
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
@@ -343,9 +355,9 @@ The following are post-installation known issues for this build version.
 
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 

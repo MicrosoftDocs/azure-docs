@@ -14,20 +14,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
 ---
 
 # Tutorial: create and test a subscription
 
-This tutorial shows you how to create a subscription containing an offer and then test it. For the test, you sign in to the Azure Stack user portal as a cloud administrator, subscribe to the offer, and then create a virtual machine.
+This tutorial shows how to create a subscription containing an offer and then test it. For the test, you sign in to the Azure Stack user portal as a cloud administrator, subscribe to the offer, and then create a virtual machine.
 
 > [!TIP]
-> For more a more advanced evaluation experience, you can [create a subscription for a particular user](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) and then sign in as that user in the user portal. 
+> For more a more advanced evaluation experience, you can [create a subscription for a particular user](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) and then sign in as that user in the user portal.
 
-This tutorial shows you how to subscribe to an Azure Stack offer.
+This tutorial shows how to subscribe to an Azure Stack offer.
 
 What you will learn:
 
@@ -56,10 +56,10 @@ To subscribe to an offer as a user, you sign in to the Azure Stack user portal t
 
 ## Test the offer
 
-While signed in to the user portal, you can test the offer by provisioning a virtual machine using the new subscription capabilities. 
+While signed in to the user portal, you can test the offer by provisioning a virtual machine using the new subscription capabilities.
 
 > [!NOTE]
-> This test requires that a Windows Server 2016 Datacenter VM has first been added to the Azure Stack marketplace. 
+> This test requires that a Windows Server 2016 Datacenter VM has first been added to the Azure Stack marketplace.
 
 1. Sign in to the user portal.
 
@@ -80,7 +80,6 @@ While signed in to the user portal, you can test the offer by provisioning a vir
 > [!NOTE]
 > The virtual machine deployment takes a few minutes to complete.
 
-
 ## Next steps
 
 What you learned in this tutorial:
@@ -88,7 +87,6 @@ What you learned in this tutorial:
 > [!div class="checklist"]
 > * Subscribe to an offer 
 > * Test the offer
-
 
 > [!div class="nextstepaction"]
 > [Create a VM from a community template](azure-stack-create-vm-template.md)

@@ -15,6 +15,7 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Pass-through Authentication security deep dive
 
@@ -189,8 +190,8 @@ To auto-update an Authentication Agent:
 3. The Updater verifies that the MSI is signed by Microsoft.
 4. The Updater runs the MSI. This action involves the following steps:
 
- > [!NOTE]
- > The Updater runs with [Local System](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
+   > [!NOTE]
+   > The Updater runs with [Local System](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
 
     - Stops the Authentication Agent service
     - Installs the new version of the Authentication Agent on the server

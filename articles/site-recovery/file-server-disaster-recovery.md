@@ -52,11 +52,12 @@ The following diagram helps you determine what strategy to use for your file ser
 |---------|---------|---------|
 |File server environment with or without DFSR|   [Use Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery doesn't support shared disk clusters or network attached storage (NAS). If your environment uses these configurations, use any of the other approaches, as appropriate. <br> Site Recovery doesn't support SMB 3.0. The replicated VM incorporates changes only when changes made to the files are updated in the original location of the files.
 |File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth-crunched environments. This approach requires an Azure VM that is up and running all the time. You need to account for the cost of the VM in your planning.         |
-|Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
+|Azure IaaS VM     |     File Sync    |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
 
 
 ### Site Recovery support
 Because Site Recovery replication is application agnostic, these recommendations are expected to hold true for the following scenarios.
+
 | Source	|To a secondary site	|To Azure
 |---------|---------|---------|
 |Azure|	-|Yes|

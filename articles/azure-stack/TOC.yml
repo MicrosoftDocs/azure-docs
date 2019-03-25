@@ -4,18 +4,20 @@
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
+  - name: Key features and concepts
+    href: azure-stack-key-features.md
   - name: Release notes
     items:
     - name: Recent updates
-      href: azure-stack-servicing-policy.md#update-package-release-cadence 
+      href: azure-stack-servicing-policy.md
+    - name: 1902 update
+      href: azure-stack-update-1902.md      
+    - name: 1901 update 
+      href: azure-stack-update-1901.md      
     - name: 1811 update 
-      href: azure-stack-update-1811.md      
+      href: azure-stack-update-1811.md
     - name: 1809 update 
-      href: azure-stack-update-1809.md
-    - name: 1808 update 
-      href: azure-stack-update-1808.md 
-    - name: 1807 update 
-      href: azure-stack-update-1807.md 
+      href: azure-stack-update-1809.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -112,16 +114,12 @@
         href: azure-stack-integrate-security.md
       - name: Device auditing
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Servicing policy
-    href: azure-stack-servicing-policy.md
-  - name: Key features and concepts
-    href: azure-stack-key-features.md
-  - name: Administration basics
-    href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
   - name: Manage Azure Stack
     items:
+    - name: Administration basics
+      href: azure-stack-manage-basics.md
     - name: Configure telemetry collection
       href: azure-stack-telemetry.md
     - name: Register Azure Stack
@@ -164,6 +162,8 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Manage storage capacity
           href: azure-stack-manage-storage-shares.md
+        - name: Manage storage infrastructure
+          href: azure-stack-storage-infrastructure-overview.md
         - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Add scale unit nodes
@@ -206,6 +206,8 @@
       href: azure-stack-rotate-secrets.md
     - name: Update antivirus
       href: azure-stack-security-av.md
+    - name: Log collection and data handling
+      href: azure-stack-data-collection.md
   - name: Populate the marketplace
     items:
     - name: Marketplace overview
@@ -281,20 +283,24 @@
       href: azure-stack-app-service-capacity-planning.md
     - name: Before you get started
       href: azure-stack-app-service-before-you-get-started.md
-    - name: How to redistribute Azure App Service on Azure Stack across fault domains
-      href: azure-stack-app-service-fault-domain-update.md
-    - name: Deploy App Service resource provider
+    - name: Deploy App Service
       href: azure-stack-app-service-deploy.md
+    - name: Deploy App Service for high availability
+      href: app-service-deploy-ha.md
     - name: Deploy App Service offline
       href: azure-stack-app-service-deploy-offline.md
     - name: Update App Service
       href: azure-stack-app-service-update.md
     - name: Update App Service Offline
       href: azure-stack-app-service-update-offline.md
-    - name: Add more web worker roles
+    - name: Add App Service infrastructure roles
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configure deployment sources
       href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Back up App Service
+      href: app-service-back-up.md
+    - name: Recover App Service
+      href: app-service-recover.md
     - name: App Service on Azure Stack release notes
       items:
       - name: App Service on Azure Stack update 1 release notes
@@ -305,6 +311,8 @@
         href: azure-stack-app-service-release-notes-update-three.md
       - name: App Service on Azure Stack update 4 release notes
         href: azure-stack-app-service-release-notes-update-four.md
+      - name: App Service on Azure Stack update 5 release notes
+        href: azure-stack-app-service-release-notes-update-five.md
   - name: Create plans, offers, and quotas
     items:
     - name: Plan, offer, quota, and subscription overview

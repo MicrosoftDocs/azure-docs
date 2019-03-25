@@ -3,8 +3,8 @@ title: Header-based authentication with PingAccess for Azure AD Application Prox
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
@@ -71,8 +72,8 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 5. Fill out the required fields with information about your new app. Use the following guidance for the settings:
    - **Internal URL**: Normally you provide the URL that takes you to the app’s sign in page when you’re on the corporate network. For this scenario the connector needs to treat the PingAccess proxy as the front page of the app. Use this format: `https://<host name of your PA server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
-    > [!WARNING]
-    > For this type of SSO, the internal URL must use https and cannot use http.
+     > [!WARNING]
+     > For this type of SSO, the internal URL must use https and cannot use http.
 
    - **Pre-authentication method**: Azure Active Directory
    - **Translate URL in Headers**: No
@@ -82,54 +83,54 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 
 6. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens.
 7. In the quick start menu,
-select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application.
+   select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application.
 8. Select **Assign** to save the test user assignment.
 9. On the app management blade, select **Single sign-on**.
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
 
-   >[!TIP]
-   >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
+    >[!TIP]
+    >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
 
-   ![Select header-based sign-on](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Select header-based sign-on](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu.
 12. Select **App registrations**.
 
-   ![Select App registrations](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![Select App registrations](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Select the app you just added, then **Reply URLs**.
 
-   ![Select Reply URLs](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Select Reply URLs](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now.
 15. On the app settings blade, select **Required permissions**.
 
-  ![Select Required permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Select Required permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications** and **Sign in and read user profile**, then **Select** and **Done**.  
 
-  ![Select permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Select permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Grant permissions before you close the permissions screen. 
-![Grant Permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Grant Permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### Collect information for the PingAccess steps
 
 1. On your app settings blade, select **Properties**. 
 
-  ![Select Properties](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Select Properties](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Save the **Application Id** value. This is used for the client ID when you configure PingAccess.
 3. On the app settings blade, select **Keys**.
 
-  ![Select Keys](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Select Keys](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Create a key by entering a key description and choosing an expiration date from the drop-down menu.
 5. Select **Save**. A GUID appears in the **Value** field.
 
-  Save this value now, as you won’t be able to see it again after you close this window.
+   Save this value now, as you won’t be able to see it again after you close this window.
 
-  ![Create a new key](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Create a new key](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Close the App registrations blade or scroll all the way to the left to return to the Azure Active Directory menu.
 7. Select **Properties**.

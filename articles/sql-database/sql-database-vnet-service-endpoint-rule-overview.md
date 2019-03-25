@@ -1,9 +1,9 @@
 ---
-title: "Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse | Microsoft Docs"
+title: "VNet endpoints and rules for single and pooled databases in Azure SQL | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL
+# Use virtual network service endpoints and rules for database servers
 
-*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
+*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in Azure [SQL Database](sql-database-technical-overview.md) or for your databases in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
 
 > [!IMPORTANT]
-> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to **Azure SQL Database Managed Instance**.
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 
@@ -169,57 +169,61 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 
 #### Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
 1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
  
 #### Steps
-1.	In PowerShell, **register your SQL Database server** with Azure Active Directory (AAD):
+1. In PowerShell, **register your SQL Database server** with Azure Active Directory (AAD):
 
-    ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1.	Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your SQL Database server.
+1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your SQL Database server.
 
-    > [!NOTE] 
-    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.	**Polybase connectivity to the Azure Storage account:**
+1. **Polybase connectivity to the Azure Storage account:**
 
-    1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** if you haven't created one earlier:
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
+   1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
-        > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+       > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
     
-    1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
+   1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with abfss:// scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) to generate create-scripts for all the external tables for ease.
-        > - For more information on abfss:// scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with abfss:// scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
+       > - For more information on abfss:// scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
@@ -268,7 +272,7 @@ This section illustrates how you can use the [Azure portal][http-azure-portal-li
 
 ## PowerShell alternative
 
-A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## REST API alternative
 

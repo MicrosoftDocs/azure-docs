@@ -3,8 +3,8 @@ title: Azure AD v2.0 ASP.NET web server getting started | Microsoft Docs
 description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev 
+ms.collection: M365-identity-device-management
 ---
 
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-introduction.md)]

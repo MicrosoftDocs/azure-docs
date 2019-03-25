@@ -64,7 +64,9 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-      - name: Appendix for disk encryption
+        - name: Disk encryption with VMSS extension sequencing
+          href: azure-security-disk-encryption-extension-sequencing.md
+        - name: Appendix for disk encryption
         href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
@@ -241,17 +243,6 @@
       href: ./blueprints/ffiec-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
-  - name: GDPR
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Data analytics
-      href: ./blueprints/gdpr-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/gdpr-datawarehouse-overview.md
-    - name: IaaS web application
-      href: ./blueprints/gdpr-iaaswa-overview.md
-    - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
     items:

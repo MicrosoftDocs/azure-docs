@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the Face API to add faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

@@ -78,6 +78,8 @@ This tutorial walks you through a base image update scenario. The [code sample][
 
 In the following sections, you create a task, update the `NODE_VERSION` value in the base image Dockerfile, then use ACR Tasks to build the base image. When the ACR task pushes the new base image to your registry, it automatically triggers a build of the application image. Optionally, you run the application container image locally to see the different version strings in the built images.
 
+In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md) (currently in preview), using a YAML file to define steps to build, push, and optionally test multiple containers.
+
 ## Build the base image
 
 Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-task.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
@@ -143,7 +145,7 @@ Now, run the container locally with `docker run`. Replace **\<run-id\>** with th
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
+Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
 ![Screenshot of sample application rendered in browser][base-update-01]
 
@@ -256,10 +258,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
 [az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
+[az-acr-task-run]: /cli/azure/acr#az-acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 
 <!-- IMAGES -->
 [base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png

@@ -23,7 +23,7 @@ The following list are the three readiness states a machine can be in:
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a Non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -34,7 +34,7 @@ On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the tr
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-When complete, the results are returned in the window. The [check sections](#pre-requisistes-checks) provide information on what each check is looking for.
+When complete, the results are returned in the window. The check sections provide information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues-linux/update-agent-checks.png)
 

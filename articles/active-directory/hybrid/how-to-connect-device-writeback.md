@@ -17,6 +17,7 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Enabling device writeback
 > [!NOTE]

@@ -30,7 +30,7 @@ You can manage Key Vault in Azure Stack using PowerShell. Learn how to use Key V
 * Authorize users or applications to invoke operations in the vault.
 
 >[!NOTE]
->The Key Vault PowerShell cmdlets descibed in this article are provided in the Azure PowerShell SDK.
+>The Key Vault PowerShell cmdlets described in this article are provided in the Azure PowerShell SDK.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 If the registration is successful, the following output is returned:
 
 ![Register](media/azure-stack-key-vault-manage-powershell/image2.png)
-When you invoke the key vault commands, you might get an error, such as "The subscription is not registered to use namespace 'Microsoft.KeyVault'." If you get an error, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant-subscription-for-vault-operations) by following the instructions that were mentioned previously.
+When you invoke the key vault commands, you might get an error, such as "The subscription is not registered to use namespace 'Microsoft.KeyVault'." If you get an error, confirm that you have enabled the Key Vault resource provider by following the instructions that were mentioned previously.
 
 ## Create a key vault
 
@@ -90,7 +90,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![New key vault](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it must use the **Vault URI** property, which is "https://vault01.vault.local.azurestack.external" in this example.
+The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it must use the **Vault URI** property, which is "https:\//vault01.vault.local.azurestack.external" in this example.
 
 ### Active Directory Federation Services (AD FS) deployment
 
@@ -125,8 +125,8 @@ The **Destination** parameter is used to specify that the key is software protec
 
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key. You can access the previous version by using the version-specific URI of the key. For example:
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" to always get the current version.
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" to get this specific version.
+* Use "https:\//vault10.vault.local.azurestack.external:443/keys/key01" to always get the current version.
+* Use "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" to get this specific version.
 
 ### Get a key
 

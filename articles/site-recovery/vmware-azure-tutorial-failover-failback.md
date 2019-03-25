@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -58,7 +58,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 
 3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and
-   [managed disk settings](#managed-disk-considerations)
+   managed disk settings
 
 4. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.
@@ -108,7 +108,7 @@ Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.m
 > [!IMPORTANT]
 > If you have a VPN connection between your on-premises environment and Azure, you must set up an Azure VM as a process server for reprotection and failback. To set up a process server in Azure, follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md).
 
-For more information on the prerequisites for reprotect and failback refer to this [section] ](vmware-azure-reprotect.md##before-you-begin). 
+For more information on the prerequisites for reprotect and failback refer to this [section](vmware-azure-reprotect.md##before-you-begin). 
 
 ### Configure the master target server
 

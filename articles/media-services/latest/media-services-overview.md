@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -23,6 +23,9 @@ ms.custom: mvc
 # What is Azure Media Services v3?
 
 Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ## What can I do with Media Services?
 
@@ -46,9 +49,9 @@ This version provides the following capabilities:
 
 * **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage. Currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
-* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
-* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
-* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
+* **Notifications** that monitor job progress or states, or Live Events start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
+* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Live Events, and more.
+* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Live Events, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
 
 ## Naming conventions
@@ -59,7 +62,7 @@ Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## Media Services v3 API design principles
+## v3 API design principles
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -71,27 +74,11 @@ Examples of this include
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
 
-## How can I get started with v3?
-
-As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows.  
-
-Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
-
-Microsoft generates and supports the following client libraries: 
-
-|API references|SDKs/Tools|Examples|
-|---|---|---|---|
-|[REST ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI examples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET examples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (Choose the **.NET CLI** tab)|[.NET Core examples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python ref](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
-
 ## Next steps
 
-To see how easy it is to start encoding and streaming video files, check out [Stream files](stream-files-dotnet-quickstart.md). 
+How can I get started with v3? 
+
+> [!div class="nextstepaction"]
+> [Learn about fundamental concepts](concepts-overview.md)<br/>
+> [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
 

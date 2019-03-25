@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -29,12 +29,12 @@ IP firewall rules grant access to databases based on the originating IP address 
 
 ### Virtual network firewall rules
 
-[Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../virtual-network/security-overview.md) to allow outbound traffic through Network Security Groups.
+[Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../virtual-network/security-overview.md) to allow outbound traffic through Network Security Groups.
 
-[Virtual Network rules](sql-database-vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
+[Virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. For more information about the networking configuration needed, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md)
+> Controlling access with firewall rules does *not* apply to **a managed instance**. For more information about the networking configuration needed, see [connecting to a managed instance](sql-database-managed-instance-connect-app.md)
 
 ## Access management
 
@@ -45,11 +45,11 @@ IP firewall rules grant access to databases based on the originating IP address 
 
 Authentication is the process of proving the user is who they claim to be. Azure SQL Database supports two types of authentication:
 
-- **SQL Authentication**:
+- **SQL authentication**:
 
     SQL database authentication refers to the authentication of a user when connecting to [Azure SQL Database](sql-database-technical-overview.md) using username and password. During the database server creation for the database, a "Server admin" login with a username and password must be specified. Using these credentials, a “server admin” can authenticate to any database on that database server as the database owner. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
 
-- **Azure Active Directory Authentication**:
+- **Azure Active Directory authentication**:
 
     Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
@@ -58,7 +58,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a managed instance**. Please see the following article on [connecting to a managed instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
 Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
@@ -78,13 +78,13 @@ For an overview of permissions in Azure SQL Database, see [Logins and users](sql
 
 SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### SQL auditing in Log Analytics and Event Hubs
+### SQL auditing in Azure Monitor logs and Event Hubs
 
-SQL Database Auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure Storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
+SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
-### SQL Threat Detection
+### Threat detection
 
-Threat Detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat Detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat Detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
+Threat detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat detection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -92,7 +92,7 @@ Threat Detection enhances auditing by analyzing audit logs for unusual behavior 
 
 ### Transport Layer Security TLS (Encryption-in-transit)
 
-SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Azure SQL Database enforces encryption (SSL/TLS) at all times for all connections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
@@ -131,19 +131,19 @@ SQL Database dynamic data masking limits sensitive data exposure by masking it t
 
 ## Security management
 
-### SQL Vulnerability Assessment
+### Vulnerability assessment
 
-[SQL Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability Assessment (VA) is part of the SQL Advanced Data Security (ADS) offering, which is a unified package for advanced SQL security capabilities. Vulnerability Assessment can be accessed and managed via the central SQL ADS portal.
+[Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability assessment (VA) is part of the advanced data security (ADS) offering, which is a unified package for advanced SQL security capabilities. Vulnerability assessment can be accessed and managed via the central SQL ADS portal.
 
-### Data Discovery & Classification
+### Data discovery & classification
 
-Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
+Data discovery & classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to, and hardening the security of, databases containing highly sensitive data.
 - Helping meet data privacy standards and regulatory compliance requirements.
 
-For more information, see [Get started with SQL DB Data Discovery & Classification](sql-database-data-discovery-and-classification.md).
+For more information, see [Get started with data discovery & classification](sql-database-data-discovery-and-classification.md).
 
 ### Compliance
 

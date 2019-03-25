@@ -108,8 +108,8 @@ This article provides step-by-step instructions for moving data into Azure SQL D
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
-	```
-With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
+    ```
+  With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
 
 ## Launch Copy Wizard
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -199,7 +199,7 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 	You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 
-	As you can see from the following screen shot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
+	As you can see from the following screenshot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
 
 	![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

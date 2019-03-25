@@ -50,7 +50,7 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ## Create and Authorize a managed identity
 
-A **user-assigned managed identity** is used to simplify and secure domain services operations. When you assign the HDInsight Domain Services Contributor role to the managed identity, it can read, create, modify, and delete domain services operations. Certain domain services operations such as creating OUs and service principles are needed for the HDInsight Enterprise Security Package. Managed identities can be created in any subscription. For more information, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+A **user-assigned managed identity** is used to simplify and secure domain services operations. When you assign the HDInsight Domain Services Contributor role to the managed identity, it can read, create, modify, and delete domain services operations. Certain domain services operations such as creating OUs and service principles are needed for the HDInsight Enterprise Security Package. Managed identities can be created in any subscription. For more information on managed identities in general, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](../hdinsight-managed-identities.md).
 
 To set up ESP clusters, create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. Next, assign the **HDInsight Domain Services Contributor** role to the managed identity in Azure AD-DS Access control (AAD-DS admin privileges are required to make this role assignment).
 
@@ -89,6 +89,10 @@ You should make sure that all of the [required ports](https://docs.microsoft.com
 ## Create a HDInsight cluster with ESP
 
 After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the last "Summary" page for future reuse.
+
+> [!NOTE]  
+> The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different VNETs, you should choose a naming convension that ensures the first six characters on the cluster names are unique.
+
 
 ![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 

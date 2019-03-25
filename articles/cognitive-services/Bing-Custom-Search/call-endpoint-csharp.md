@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
@@ -20,9 +20,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+- If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
     - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
         - Microsoft.Rest.ClientRuntime
@@ -98,7 +98,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-## Process and view the results
+   ## Process and view the results
 
 1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
+title: B2B collaboration FAQs - Azure Active Directory | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 
 services: active-directory
@@ -11,8 +11,9 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
-
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration FAQs
@@ -56,12 +57,12 @@ Unless a user is assigned the role of limited administrator or global administra
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
 To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
-  ![modify the group screenshot](media/faq/modify-all-users-group.png)
+   ![Screenshot showing All Users group where UserType is not equal Guest ](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
-  ![create group screenshot](media/faq/group-with-guest-users.png)
+   ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### Does Azure AD B2B collaboration support multi-factor authentication and consumer email accounts?
 Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
@@ -91,7 +92,7 @@ A guest user can use any identity provider to authenticate. For more information
 
 ### Where can I find a B2B collaboration community to share solutions and to submit ideas?
 We're constantly listening to your feedback, to improve B2B collaboration. Please share your user scenarios, best practices, and what you like about Azure AD B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 We also invite you to submit your ideas and vote for future features at [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### Can we send an invitation that is automatically redeemed, so that the user is just “ready to go”? Or does the user always have to click through to the redemption URL?
@@ -104,7 +105,7 @@ If the partner has an Azure AD tenant that is federated to the on-premises authe
 We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](compare-with-b2c.md).
 
 ### What applications and services support Azure B2B guest users?
-All Azure AD-integrated applications can support Azure B2B guest users, but they must use a tenanted endpoint to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
+All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
 
 ### Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
 Yes. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).

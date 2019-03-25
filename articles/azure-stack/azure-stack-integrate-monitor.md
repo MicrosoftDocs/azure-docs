@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 02/06/2019
 
 ---
 # Integrate external monitoring solution with Azure Stack
@@ -34,6 +34,9 @@ Each Azure Stack solution ships with a hardware lifecycle host. This host runs t
 The following diagram shows traffic flow between an Azure Stack integrated system, the hardware lifecycle host, an external monitoring solution, and an external ticketing/data collection system.
 
 ![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> External Monitoring Integration directly with physical servers and network devices is not allowed and actively blocked by Access Control Lists (ACLs). 
 
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
 
@@ -74,8 +77,8 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 | Parameter | Description | Example |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https:\//adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https:\//adminmanagement.local.azurestack.external |
 | *Tenant_id* | Admin subscription ID | Retrieve via the administrator portal or PowerShell |
 | *User_name* | Operator subscription username | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator subscription password | mypassword |
@@ -89,12 +92,12 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack.
 
-1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
+1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https:\//adminmanagement.[region].[External_FQDN]).
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
    ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```

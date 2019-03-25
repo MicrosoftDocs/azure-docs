@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
@@ -25,7 +25,7 @@ ms.lastreviewed: 10/25/2018
 To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK by using the following connection options:
 
 * [Remote Desktop Connection (RDP)](#connect-with-rdp). When you connect by using Remote Desktop Connection, a single user can quickly connect to the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
+* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect to the Azure Stack portals from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
 
 <a name="connect-with-rdp"></a>
 ## Connect to Azure Stack using RDP

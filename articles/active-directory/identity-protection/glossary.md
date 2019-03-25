@@ -18,6 +18,7 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection Glossary
 ### At risk (User)

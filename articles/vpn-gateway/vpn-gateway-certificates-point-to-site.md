@@ -26,12 +26,12 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
 1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
-  ```powershell
-  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-  ```
+   ```powershell
+   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+   -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+   ```
 
 ## <a name="clientcert"></a>2. Generate a client certificate
 
@@ -43,7 +43,7 @@ The examples use the New-SelfSignedCertificate cmdlet to generate a client certi
 
 ### Example 1
 
-This example uses the declared '$cert' variable from the previous section. If you closed the PowerShell console after creating the self-signed root certificate, or are creating additional client certificates in a new PowerShell console session, use the steps in [Example 2](#ex2).
+Use this example if you have not closed your PowerShell console after creating the self-signed root certificate. This example continues from the previous section and uses the declared '$cert' variable. If you closed the PowerShell console after creating the self-signed root certificate, or are creating additional client certificates in a new PowerShell console session, use the steps in [Example 2](#ex2).
 
 Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'.  If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
@@ -61,37 +61,37 @@ If you are creating additional client certificates, or are not using the same Po
 
 1. Identify the self-signed root certificate that is installed on the computer. This cmdlet returns a list of certificates that are installed on your computer.
 
-  ```powershell
-  Get-ChildItem -Path “Cert:\CurrentUser\My”
-  ```
+   ```powershell
+   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   ```
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 
-  ```
-  Thumbprint                                Subject
+   ```
+   Thumbprint                                Subject
   
-  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-  ```
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
 3. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
-  ```
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   ```
 
-  For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:
+   For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```
-4.  Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+4. Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
-  ```powershell
-  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
-  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" `
-  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-  ```
+   ```powershell
+   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" `
+   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+   ```
 
 ## <a name="cer"></a>3. Export the root certificate public key (.cer)
 

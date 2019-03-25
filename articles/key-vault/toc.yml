@@ -5,6 +5,7 @@
   - name: About Key Vault
     href: key-vault-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md
@@ -16,6 +17,9 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
+  - name: Set and retrieve a secret - Resource Manager Template
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Azure Web Apps
@@ -36,10 +40,12 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
-  - name: Azure Storage Key Vault Integration - Managed storage account keys - Azure CLI
-    href: key-vault-ovw-storage-keys.md
-  - name: Azure Storage Key Vault Integration - Managed storage account keys - PowerShell
-    href: key-vault-overview-storage-keys-powershell.md
+  - name: Storage Account Keys 
+    items:
+      - name: Managed storage account keys using Azure CLI
+        href: key-vault-ovw-storage-keys.md
+      - name: Managed storage account keys using PowerShell
+        href: key-vault-overview-storage-keys-powershell.md
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
@@ -104,7 +110,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.keyvault
+    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
@@ -117,6 +123,8 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Best Practices
+    href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Authentication, requests and responses
@@ -164,7 +172,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: http://blogs.technet.com/b/kv/
-- name: Product Feedback
-  href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://blogs.technet.com/b/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
 

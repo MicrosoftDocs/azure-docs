@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Custom installation of Azure AD Connect
@@ -22,7 +23,7 @@ Azure AD Connect **Custom settings** is used when you want more options for the 
 
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Also make sure you have required accounts available as described in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
 
-If customized settings does not match your topology, for example to upgrade DirSync, see [related documentation](#related-documentation) for other scenarios.
+If customized settings does not match your topology, for example to upgrade DirSync, see related documentation for other scenarios.
 
 ## Custom settings installation of Azure AD Connect
 ### Express Settings
@@ -215,7 +216,7 @@ For each forest that has been added in Azure AD Connect, you will need to supply
 >You can skip a particular forest if you do not wish to use Single sign on with that forest.
 
 #### Configure the Intranet Zone for client machines
-To ensure that the client sign-ins automatically in the intranet zone you need to ensure that two URLs are part of the intranet zone. This ensures that the domain joined computer automatically sends a Kerberos ticket to Azure AD when it is connected to the corporate network.
+To ensure that the client sign-ins automatically in the intranet zone you need to ensure that the URL is part of the intranet zone. This ensures that the domain joined computer automatically sends a Kerberos ticket to Azure AD when it is connected to the corporate network.
 On a computer that has the Group Policy management tools.
 
 1.	Open the Group Policy Management tools
@@ -360,7 +361,7 @@ It is possible to setup a new sync server in parallel with staging mode. It is o
 
 While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. Data is now exported to Azure AD from this server. Make sure to disable the other server at the same time so only one server is actively exporting.
 
-For more information, see [Staging mode](how-to-connect-sync-operations.md#staging-mode).
+For more information, see [Staging mode](how-to-connect-sync-staging-server.md).
 
 ### Verify your federation configuration
 Azure AD Connect verifies the DNS settings for you when you click the Verify button.

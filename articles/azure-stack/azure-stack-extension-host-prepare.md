@@ -1,21 +1,21 @@
 ---
 title: Prepare for extension host for Azure Stack | Microsoft Docs
-description: Learn to prepare for extension host, which is automatically enabled via a future Azure Stack Update package.
+description: Learn to prepare for extension host, automatically enabled with a future Azure Stack update package.
 services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/25/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
+ms.lastreviewed: 03/07/2019
 ---
 
 # Prepare for extension host for Azure Stack
 
-The Extension host secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update. This article applies to Azure Stack updates 1808, 1809, and 1811.
+The Extension host secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host that is automatically enabled through an Azure Stack update package after the 1808 update. This article applies to Azure Stack updates 1808, 1809, and 1811.
 
 ## Certificate requirements
 
@@ -61,15 +61,14 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
     > [!Note]  
     > If you deploy with Azure Active Directory Federated Services (AD FS) the following directories must be added to **$directories** in the script: `ADFS`, `Graph`.
 
-4. Run the following cmdlets to start the certificate check:
+4. Place the existing certificates, which you are currently using in Azure Stack, in appropriate directories. For example, put the **Admin ARM** certificate in the `Arm Admin` folder. And then put the newly created hosting certificates in the `Admin extension host` and `Public extension host` directories.
+5. Run the following cmdlet to start the certificate check:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Place your certificate(s) in the appropriate directories.
 
 6. Check the output and all certificates pass all tests.
 
@@ -136,7 +135,7 @@ The article, [Azure Stack datacenter integration - Publish endpoints](azure-stac
 
 ### Publish new endpoints
 
-There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code that must be run from your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session
@@ -182,7 +181,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Endpoint (VIP) | Protocol | Ports |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Admin Hosting | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### Update existing publishing Rules (Post enablement of extension host)

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 12/18/2018
@@ -58,7 +58,7 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
   * [Start task](#start-task)
   * [Job manager task](#job-manager-task)
   * [Job preparation and release tasks](#job-preparation-and-release-tasks)
-  * [Multi-instance task (MPI)](#multi-instance-tasks)
+  * Multi-instance task (MPI)
   * [Task dependencies](#task-dependencies)
 * [Application packages](#application-packages)
 
@@ -211,7 +211,7 @@ You can specify [application packages](#application-packages) to deploy to the c
 
 ### Network configuration
 
-You can specify the subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. See the [Pool network configuration](#pool-network-configuration) section for more information.
+You can specify the subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. See the Pool network configuration section for more information.
 
 
 ## Job
@@ -267,7 +267,7 @@ In addition to tasks you define to perform computation on a node, the following 
 * [Start task](#start-task)
 * [Job manager task](#job-manager-task)
 * [Job preparation and release tasks](#job-preparation-and-release-tasks)
-* [Multi-instance tasks (MPI)](#multi-instance-tasks)
+* Multi-instance tasks (MPI)
 * [Task dependencies](#task-dependencies)
 
 ### Start task

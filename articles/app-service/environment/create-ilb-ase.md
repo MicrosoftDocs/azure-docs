@@ -76,11 +76,11 @@ To create an ILB ASE:
 
    You can [map an existing DNS name to your app][customdomain]. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
-	* www.contoso.com
+   * www\.contoso.com
 
-	* abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-	* abcd.contoso.com
+   * abcd.contoso.com
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
@@ -219,7 +219,8 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 ## Get started ##
 
 * To get started with ASEs, see [Introduction to App Service environments][Intro].
- 
+ 
+
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
 [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png

@@ -3,8 +3,8 @@ title: Just-in-time virtual machine access in Azure Security Center | Microsoft 
 description: This document demonstrates how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
+ms.date: 3/18/2019
+ms.author: monhaber
 
 ---
 # Manage virtual machine access using just-in-time
@@ -25,6 +25,8 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 > The just-in-time feature is available on the Standard tier of Security Center.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Attack scenario
 
@@ -76,26 +78,26 @@ To select the VMs that you want to enable:
 
 1. Under **Just-in-time VM access**, select the **Recommended** tab.
 
-  ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Under **VIRTUAL MACHINE**, select the VMs that you want to enable. This puts a checkmark next to a VM.
 3. Select **Enable JIT on VMs**.
-  1. This blade displays the default ports recommended by Azure Security Center:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. You can also configure custom ports. To do this, select **Add**. 
-  3. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
-    - **Protocol type**- The protocol that is allowed on this port when a request is approved.
-    - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
-    - **Maximum request time**- The maximum time window during which a specific port can be opened.
+   1. This blade displays the default ports recommended by Azure Security Center:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. You can also configure custom ports. To do this, select **Add**. 
+   3. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
+      - **Protocol type**- The protocol that is allowed on this port when a request is approved.
+      - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
+      - **Maximum request time**- The maximum time window during which a specific port can be opened.
 
 4. Select **Save**.
 
 
 > [!NOTE]
->When JIT VM Access is enabled for a VM, Azure Security Center creates deny all inbound traffic rules for the selected ports in the network security groups associated with it. The rules will either be the top priority of your Network Security Groups, or lower priority than existing rules that are already there. This depends on an analysis performed by Azure Security Center that determines whether a rule is secure or not.
+>When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups.
 >
 
 ### Request JIT access to a VM
@@ -138,11 +140,11 @@ This enables just-in-time access for the VM using the following settings:
 - Windows servers:
     - RDP port 3389
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
 - Linux servers:
     - SSH port 22
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
      
 If a VM already has just-in-time enabled, when you go to its configuration page you will be able to see that just-in-time is enabled and you can use the link to open the policy in Azure Security Center to view and change the settings.
 
@@ -168,9 +170,9 @@ You can gain insights into VM activities using log search. To view logs:
 2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM. This opens a menu.
 3. Select **Activity Log** in the menu. This opens **Activity log**.
 
-  ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
+   ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
+   **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
 You can download the log information by selecting **Click here to download all the items as CSV**.
 
@@ -182,17 +184,17 @@ Modify the filters and select **Apply** to create a search and log.
 Set these required privileges to enable a user to configure or edit a JIT policy for a VM.
 
 Assign these *actions* to the role: 
--	On the scope of a subscription or Resource Group that is associated with the VM:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--	 On the scope of a subscription or Resource Group or VM:
-   - Microsoft.Compute/virtualMachines/write 
+- On the scope of a subscription or Resource Group that is associated with the VM:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- On the scope of a subscription or Resource Group or VM:
+  - Microsoft.Compute/virtualMachines/write 
 
 Set these privileges to enable a user to successfully request JIT access to a VM:
 Assign these *actions* to the user:
--	On the scope of a subscription or Resource Group that is associated with the VM:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--	 On the scope of a Subscription or Resource Group or VM:
-   - Microsoft.Compute/virtualMachines/read
+- On the scope of a subscription or Resource Group that is associated with the VM:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- On the scope of a Subscription or Resource Group or VM:
+  - Microsoft.Compute/virtualMachines/read
 
 
 
@@ -205,7 +207,7 @@ The just-in-time VM access feature can be used via the Azure Security Center API
 
 ### Using JIT VM access via PowerShell 
 
-To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzureRmJitNetworkAccessPolicy`.
+To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
 The following example sets a just-in-time VM access policy on a specific VM, and sets the following:
 1.	Close ports 22 and 3389.
@@ -235,7 +237,7 @@ Run the following in PowerShell to accomplish this:
 
 3.	Configure the just-in-time VM access policy on the selected VM:
 	
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### Requesting access to a VM
 
@@ -255,7 +257,7 @@ Run the following in PowerShell:
         $JitPolicyArr=@($JitPolicyVm1)
 3.	Send the request access (use the resource ID you got in step 1)
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 For more information, see the PowerShell cmdlet documentation.
 

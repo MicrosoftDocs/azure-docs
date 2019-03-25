@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: About SQL Data Warehouse
+  - name: What is SQL Data Warehouse?
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL Data Warehouse architecture
     href: massively-parallel-processing-mpp-architecture.md
@@ -19,14 +19,12 @@
 - name: Release Notes
   href: release-notes.md
   items:
-    - name: Version 10.0.10106.0
+    - name: Recent Release
       href: release-notes-10-0-10106-0.md  
+    - name: Gen2 region upgrade schedule
+      href: gen2-migration-schedule.md
     - name: Archived Release Notes
-      items:
-      - name: December 2018 
-        href: release-notes-december-2018.md  
-      - name: October 2018 
-        href: release-notes-october-2018.md
+      items:   
       - name: September 2018 
         href: release-notes-september-2018.md
       - name: August 2018 
@@ -62,6 +60,12 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Workload Management
+    items: 
+    - name: Create workload classifier (Preview)
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
 - name: Concepts
   items:
   - name: Security
@@ -152,6 +156,10 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Workload Classification (Preview)
+      href: sql-data-warehouse-workload-classification.md
+    - name: Workload Importance (Preview)
+      href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
@@ -166,8 +174,6 @@
       href: backup-and-restore.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules
@@ -234,16 +240,18 @@
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md    
-  - name: Monitor and tune
+  - name: Manage and monitor
     items:
-    - name: Monitor your workload
-      href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
-    - name: Monitor Gen2 cache
-      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
+    - name: Monitor your workload - Portal 
+      href: sql-data-warehouse-monitor-workload-portal.md
+    - name: Monitor your workload - DMVs 
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
   - name: Integrate
     items:
     - name: Use machine learning
@@ -299,7 +307,7 @@
   - name: Support
     href: sql-data-warehouse-get-started-create-support-ticket.md
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+    href: sql-data-warehouse-videos.md
   - name: Partners
     items:
     - name: Business intelligence

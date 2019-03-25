@@ -4,11 +4,11 @@ description: Use this quickstart to make your first image search using the Bing 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -63,7 +63,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## Send a query and handle the response
+   ## Send a query and handle the response
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 

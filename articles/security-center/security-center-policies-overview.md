@@ -4,7 +4,7 @@ description: Configure Azure Security Center settings.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
@@ -47,6 +47,6 @@ In this article, you learned about security policies in Azure Security Center. T
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data.
+* [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/): Get the latest Azure security news and information.

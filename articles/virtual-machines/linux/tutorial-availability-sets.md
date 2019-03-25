@@ -47,7 +47,7 @@ Use Availability Sets when you want to deploy reliable VM-based solutions within
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 First, create a resource group with [az group create](/cli/azure/group#az-group-create), then create the availability set:
 

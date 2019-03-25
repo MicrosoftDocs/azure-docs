@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application with the Bot Framework 3.x and the Azure Web app bot.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -39,17 +39,17 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
     ![Select web app bot to begin the resource creation process](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
-    * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
-    * For **Bot template**, select:
-        * **SDK v3**
-        * **Node.js**
-        * **Language understanding**
-    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
-    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
+3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
+   * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
+   * For **Bot template**, select:
+       * **SDK v3**
+       * **Node.js**
+       * **Language understanding**
+   * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
+   * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
-    ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Confirm that the bot service has been deployed.

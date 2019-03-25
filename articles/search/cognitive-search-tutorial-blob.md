@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial for calling cognitive search APIs - Azure Search'
+title: 'Tutorial for calling Cognitive Services APIs in an indexing pipeline - Azure Search'
 description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
 manager: pablocas
 author: luiscabrer
@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
-# Tutorial: Learn how to call cognitive search APIs (Preview)
+# Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline (Preview)
 
-In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline. 
+In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by an AI-powered indexing pipeline. 
 
 In this tutorial, you make REST API calls to perform following tasks:
 
@@ -52,27 +52,27 @@ First, sign up for the Azure Search service.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
+   ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For Location, choose one of the [supported regions](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) for Cognitive Search.
+1. For Location, choose a region that is close to your data and other cloud apps.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
+   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
+   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
 
  
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
+   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
 
 1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page.
 
-  ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Endpoint and key information in the portal")
+   ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Endpoint and key information in the portal")
 
 ### Set up Azure Blob service and load sample data
 
@@ -86,7 +86,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
-  The connection string should be a URL similar to the following example:
+   The connection string should be a URL similar to the following example:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -103,21 +103,21 @@ For this tutorial, use the REST API and a tool that can formulate and send HTTP 
 ### Sample Request
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### Request Body Syntax
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
-    "type" : "azureblob",
-    "credentials" :
-    { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
-    "container" : { "name" : "<your blob container name>" }
-}  
+{
+  "name" : "demodata",
+  "description" : "Demo files to demonstrate cognitive search capabilities.",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" :
+    "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+  },
+  "container" : { "name" : "<your blob container name>" }
+}
 ```
 Send the request. The web test tool should return a status code of 201 confirming success. 
 
@@ -155,7 +155,7 @@ Content-Type: application/json
 #### Request Body Syntax
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -190,26 +190,26 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      },
-      { 
-        "name": "languageCode",
-        "source": "/document/languageCode"
-      }
-    ],
-    "outputs": [
-      {
-            "name": "textItems",
-            "targetName": "pages"
-      }
-    ]
-  },
-  {
+        {
+          "name": "text",
+          "source": "/document/content"
+        },
+        {
+          "name": "languageCode",
+          "source": "/document/languageCode"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
       "inputs": [
@@ -253,7 +253,7 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | id       | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -348,41 +348,41 @@ Content-Type: application/json
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
-        {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : 
-            { "name" : "base64Encode" }
-        },
-        {
-          "sourceFieldName" : "content",
-          "targetFieldName" : "content"
-        }
-   ],
-  "outputFieldMappings" : 
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
   [
-        {
-          "sourceFieldName" : "/document/organizations", 
-          "targetFieldName" : "organizations"
-        },
-        {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyPhrases"
-        },
-        {
-            "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "languageCode"
-        }      
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
   ],
   "parameters":
   {
-  	"maxFailedItems":-1,
-  	"maxFailedItemsPerBatch":-1,
-  	"configuration": 
+    "maxFailedItems":-1,
+    "maxFailedItemsPerBatch":-1,
+    "configuration":
     {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -400,9 +400,7 @@ The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engi
 
 Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file. 
 
-When content is extracted, you can set ```ImageAction``` to extract text from images found in the data source. The ```"ImageAction":"generateNormalizedImages"``` tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
-
-In this preview, ```"generateNormalizedImages"``` is the only valid value for ```"ImageAction"```.
+When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
 ## Check indexer status
 
@@ -442,7 +440,7 @@ Content-Type: application/json
 
 Repeat for additional fields: content, language, keyphrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
-You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
+You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="access-enriched-document"></a>
 

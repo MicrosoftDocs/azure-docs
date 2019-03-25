@@ -229,7 +229,7 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ

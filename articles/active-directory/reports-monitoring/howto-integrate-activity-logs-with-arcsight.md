@@ -18,6 +18,7 @@ ms.date: 12/03/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)

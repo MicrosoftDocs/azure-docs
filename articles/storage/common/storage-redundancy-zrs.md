@@ -25,6 +25,7 @@ ZRS is generally available in the following regions:
 - Europe North
 - France Central
 - Japan East
+- UK South
 - US East
 - US East 2
 - US West 2
@@ -58,7 +59,7 @@ To perform a manual migration, you have options:
 
 A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration. 
 
-During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you do normally.
+During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
 Keep in mind the following restrictions on live migration:
 
@@ -82,7 +83,33 @@ You can request live migration through the [Azure Support portal](https://ms.por
 6. Verify that the contact information is correct on the **Contact information** blade.
 7. Select **Create**.
 
-A support person will contact you and provide any assistance you need. 
+A support person will contact you and provide any assistance you need.
+
+## Live migration to ZRS FAQ
+
+**Should I plan for any downtime during the migration?**
+
+There is no downtime caused by the migration. During a live migration, you can continue  your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
+
+**Is there any data loss associated with the migration?**
+
+There is no data loss associated with the migration. During the migration process, you have the same level of durability and availability SLA as you normally do.
+
+**Are any updates required to the application(s) once the migration is complete?**
+
+Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS and any other account configuration options remain unchanged and intact.
+
+**Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
+
+ZRS only supports general-purpose v2 accounts so before submitting a request for a live migration to ZRS make sure to upgrade your account(s) to general-purpose v2. See [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) for more details.
+
+**Can I request a live migration of my read-access geo-redundant storage (RA-GRS) account(s) to ZRS?**
+
+Before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to geo-redundant storage (GRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
+
+**Can I request a live migration of my storage account(s) to ZRS  to another region?**
+
+If you want to migrate your data into a ZRS account located in a region different from the region of the source account, then you must perform a manual migration.
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
@@ -95,6 +122,8 @@ ZRS Classic asynchronously replicates data across data centers within one to two
 ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
 To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use one of the following tools: AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
+
+You can also upgrade your ZRS Classic account(s) to ZRS in the Portal or using Azure PowerShell or Azure CLI.
 
 ## See also
 - [Azure Storage replication](storage-redundancy.md)

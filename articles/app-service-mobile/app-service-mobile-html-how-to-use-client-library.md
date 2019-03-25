@@ -44,10 +44,10 @@ npm install azure-mobile-apps-client --save
 The library can also be used as an ES2015 module, within CommonJS environments such as Browserify and
 Webpack and as an AMD library.  For example:
 
-```
-# For ECMAScript 5.1 CommonJS
+```javascript
+// For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
-# For ES2015 modules
+// For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Search queries in Log Analytics | Microsoft Docs
-description: This article provides a tutorial for getting started writing search queries in Log Analytics.
+title: Search queries in Azure Monitor logs | Microsoft Docs
+description: This article provides a tutorial for getting started using search in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,14 @@ ms.date: 08/06/2018
 ms.author: bwren
 ---
 
-# Search queries in Log Analytics
+# Search queries in Azure Monitor logs
 
 > [!NOTE]
-> You should complete [Get started with queries in Log Analytics](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor log queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
+Azure Monitor log queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
 
 Table-based queries start by scoping the query and therefore tend to be more efficient than search queries. Search queries are less structured which makes them the better choice when searching for a specific value across columns or tables. **search** can scan all columns in a given table, or in all tables, for the specified value. The amount of data being processed could be enormous, which is 
 why these queries could take longer to complete and might return very large result sets.
@@ -140,4 +140,4 @@ search in (Event) "win"
 
 ## Next steps
 
-- See further tutorials on the [Log Analytics query language site](https://aka.ms/LogAnalyticsLanguage).
+- See further tutorials on the [Kusto query language site](/azure/kusto/query/).

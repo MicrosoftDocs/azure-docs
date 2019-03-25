@@ -212,6 +212,8 @@
       href: how-to-connect-fed-ssl-update.md
     - name: Manage the AD FS trust with Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Configure group claims for applications
+      href: how-to-connect-fed-group-claims.md
     - name: Change hash algorithm for O365 RP
       href: how-to-connect-fed-sha256-guidance.md
     - name: Use a SAML 2.0 server as your Idp
@@ -232,6 +234,8 @@
       href: how-to-connect-health-operations.md
     - name: Use Azure AD Connect Health with AD FS
       href: how-to-connect-health-adfs.md
+    - name: Risky IP report for Azure AD Connect Health with AD FS
+      href: how-to-connect-health-adfs-risky-ip.md
     - name: Use Azure AD Connect Health for sync
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
@@ -244,8 +248,8 @@
       href: how-to-connect-health-alert-catalog.md
   - name: Manage Azure AD Connect Sync  
     items:
-    - name: Manage operational task
-      href: how-to-connect-sync-operations.md
+    - name: Staging server and disaster recovery
+      href: how-to-connect-sync-staging-server.md
     - name: Best practices for changing the default configuration
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: Change the default configuration
@@ -258,6 +262,8 @@
       href: how-to-connect-sync-configure-filtering.md
     - name: Manage the scheduler
       href: how-to-connect-sync-feature-scheduler.md
+    - name: Create and customize a synchronization rule
+      href: how-to-connect-create-custom-sync-rule.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab
@@ -292,6 +298,10 @@
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
       href: tshoot-connect-tshoot-sql-connectivity.md
+    - name: Attribute synchronization
+      href: tshoot-connect-attribute-not-syncing.md
+    - name: Installation issues
+      href: tshoot-connect-install-issues.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols

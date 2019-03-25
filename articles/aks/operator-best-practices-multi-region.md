@@ -17,11 +17,11 @@ As you manage clusters in Azure Kubernetes Service (AKS), application uptime bec
 This best practices article focuses on considerations that help you plan for business continuity and disaster recovery in AKS. You learn how to:
 
 > [!div class="checklist"]
-* [Plan for AKS clusters in multiple regions](#region-planning)
-* [Route traffic across multiple clusters with Azure Traffic Manager](#ingress-traffic)
-* [Use geo-replication for your container image registries](#container-registry)
-* [Plan for application state across multiple clusters](#managing-application-state)
-* [Replicate storage across multiple regions](#storage)
+> * Plan for AKS clusters in multiple regions
+> * Route traffic across multiple clusters with Azure Traffic Manager
+> * Use geo-replication for your container image registries
+> * Plan for application state across multiple clusters
+> * Replicate storage across multiple regions
 
 ## Plan for multi-region deployment
 
@@ -58,7 +58,7 @@ For steps on how to set up these endpoints and routing, see [Configure the geogr
 
 ### Layer 7 application routing with Azure Front Door
 
-Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
+Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (currently in preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
 
 Review the needs of your application traffic to understand which solution is the most suitable.
 

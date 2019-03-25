@@ -61,7 +61,6 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
-        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -75,6 +74,9 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Azure App Configuration
+    tocHref: /azure/azure-app-configuration/
+    topicHref: /azure/azure-app-configuration/
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
@@ -106,18 +108,15 @@
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
-  - name: Application Insights
+  - name: Azure Digital Twins
+    tocHref: /azure/digital-twins/
+    topicHref: /azure/digital-twins/
+  - name: Azure Monitor
     tocHref: /azure/azure-monitor/
-    topicHref: /azure/application-insights/
-  - name: Log Analytics
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/log-analytics/
-  - name: Monitoring
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/monitoring/
-  - name: Monitoring and Diagnostics
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Spatial Anchors
+    tocHref: /azure/spatial-anchors/
+    topicHref: /azure/spatial-anchors/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -145,7 +144,35 @@
     topicHref: /azure/azure-netapp-files/
   - name: Azure portal customization
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+      - name: IoT Hub
+        tocHref: /azure/iot-hub/
+        topicHref: /azure/iot-hub/
+      - name: IoT Central
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/
+      - name: IoT Edge
+        tocHref: /azure/iot-edge/
+        topicHref: /azure/iot-edge/
+      - name: Azure Digital Twins
+        tocHref: /azure/digital-twins/
+        topicHref: /azure/digital-twins/
+      - name: IoT Solution Accelerators
+        tocHref: /azure/iot-accelerators/
+        topicHref: /azure/iot-accelerators/
+      - name: IoT Hub Device Provisioning Service
+        tocHref: /azure/iot-dps/
+        topicHref: /azure/iot-dps/
+      - name: Time Series Insights
+        tocHref: /azure/time-series-insights/
+        topicHref: /azure/time-series-insights/
+      - name: Azure Maps
+        tocHref: /azure/azure-maps/
+        topicHref: /azure/azure-maps/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -179,6 +206,9 @@
   - name: Blockchain Workbench
     tocHref: /azure/blockchain-workbench/
     topicHref: /azure/blockchain-workbench/
+  - name: Bot Service
+    tocHref: /azure/bot-service/
+    topicHref: /azure/bot-service/    
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -231,18 +261,12 @@
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Custom Speech Service
-      tocHref: /azure/cognitive-services/custom-speech-service/
-      topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
     - name: Speaker Recognition
       tocHref: /azure/cognitive-services/speaker-recognition/
       topicHref: /azure/cognitive-services/speaker-recognition/home
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Emotion
-      tocHref: /azure/cognitive-services/emotion/
-      topicHref: /azure/cognitive-services/emotion/home
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
@@ -368,6 +392,9 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: Genomics
+    tocHref: /azure/genomics/
+    topicHref: /azure/genomics/    
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -415,34 +442,37 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:  
-    - name: IoT Fundamentals
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/ 
-    - name: IoT Hub Device Provisioning Service
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT solution accelerators
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/         
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/                     
+  - name: Azure API for FHIR
+    tocHref: /azure/healthcare-apis
+    topicHref: /azure/healthcare-apis
+#  - name: Internet of Things
+#    tocHref: /azure/iot-fundamentals/
+#    topicHref: /azure/iot-fundamentals/
+#    items:  
+#    - name: IoT Fundamentals
+#      tocHref: /azure/iot-fundamentals/
+#      topicHref: /azure/iot-fundamentals/
+#    - name: IoT Edge
+#      tocHref: /azure/iot-edge/
+#      topicHref: /azure/iot-edge/
+#    - name: IoT Hub
+#      tocHref: /azure/iot-hub/
+#      topicHref: /azure/iot-hub/ 
+#    - name: IoT Hub Device Provisioning Service
+#      tocHref: /azure/iot-dps/
+#      topicHref: /azure/iot-dps/
+#    - name: IoT solution accelerators
+#     tocHref: /azure/iot-accelerators/
+#      topicHref: /azure/iot-accelerators/
+#    - name: IoT Central
+#      tocHref: /azure/iot-central/
+#      topicHref: /azure/iot-central/         
+#    - name: Maps
+#      tocHref: /azure/azure-maps/
+#      topicHref: /azure/azure-maps/
+#    - name: Time Series Insights
+#      tocHref: /azure/time-series-insights/
+#      topicHref: /azure/time-series-insights/                     
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -557,6 +587,9 @@
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
+  - name: Azure Sentinel
+    tocHref: /azure/sentinel/
+    topicHref: /azure/sentinel/
   - name: Service Bus
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/
@@ -621,11 +654,17 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/sap/get-started
+        topicHref: /azure/virtual-machines/workloads/workloads
         items:
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
+          - name: Oracle
+            tocHref: /azure/virtual-machines/workloads/oracle/
+            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+          - name: Mainframe rehosting
+            tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
+            topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
       - name: Linux
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
@@ -649,3 +688,6 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/

@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: zhiweiw
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Connect Health Alert Catalog 

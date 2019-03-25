@@ -2,14 +2,14 @@
 title: What is the Face API?
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Face service to detect and analyze faces in images.
-author: SteveMSFT
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
+ms.date: 02/20/2019
+ms.author: pafarley
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face API does so I can determine if I should use its features.
 ---
 
@@ -17,15 +17,18 @@ ms.author: sbowles
 
 The Azure Face API is a cognitive service that provides algorithms for detecting, recognizing, and analyzing human faces in images. The ability to process human face information is important in many different software scenarios, such as security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The Face API provides several different functions, each outlined in the following sections. Read on to learn more about each one and determine if it suits your needs.
+The Face API provides several different functions, each outlined in the following sections. Read on to learn more about each.
 
 ## Face detection
 
-The Face API can detect human faces in an image and return the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes such as pose, gender, age, head pose, facial hair, and glasses.
+The Face API can detect human faces in an image and return the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes such as pose, head pose, gender, age, emotion, facial hair, and glasses.
+
+> [!NOTE] 
+> The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), but if you wish to do further operations with face data, you should use the Face API (this service).
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and sex displayed](./Images/Face.detection.jpg)
 
-The face detection feature is also available through the [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), but if you wish to do further operations with face data, you should use the Face API (this service). For more information on face detection, see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+For more information on face detection, see the [Face Detection how-to guide](face-api-how-to-topics/howtodetectfacesinimage.md), or browse the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
 ## Face verification
 
