@@ -15,6 +15,12 @@ ms.author: sharadag
 
 # Frequently asked questions for Azure Front Door Service
 
+This article answers common questions about Azure Front Door Service features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
+
+1. The comments section of this article.
+2. [Azure Front Door Service UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+3. **Microsoft Support:** To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+
 ## General
 
 ### What is Azure Front Door Service?
@@ -68,7 +74,7 @@ Azure Front Door Service is a globally distributed multi-tenant service. So, the
 
 ### Is HTTP->HTTPS redirection supported?
 
-Front Door currently doesn't support URL redirection. The feature is under development and will be made available soon.
+Front Door currently doesn't support URL redirection.
 
 ### In what order are routing rules processed?
 
@@ -120,7 +126,7 @@ Learn about all the documented [timeouts and limits for Azure Front Door Service
 
 Azure Front Door Service is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
 
-## SSL Configuration
+## SSL configuration
 
 ### What TLS versions are supported by Azure Front Door Service?
 
@@ -166,7 +172,7 @@ No, currently Front Door doesn't support to deny specific TLS versions nor can y
 
 No, configuring Front Door for specific cipher suites is not supported. 
 
-## Diagnostics and Logging
+## Diagnostics and logging
 
 ### What types of metrics and logs are available with Azure Front Door Service?
 
