@@ -60,12 +60,12 @@ A user can claim any VM from the list of "Claimable virtual machines" by doing o
 
 * From the list of "Claimable virtual machines" at the bottom of the lab's "Overview" pane, right-click on one of the VMs in the list and choose **Claim machine**.
 
- ![Request a specific claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![Request a specific claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * At the top of the "Overview" pane, choose **Claim any**. A random virtual machine is assigned from the list of claimable VMs.
 
- ![Request any claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![Request any claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 After a user claims a VM, it is moved up into their list of "My virtual machines" and is no longer claimable by any other user.

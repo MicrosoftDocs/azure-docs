@@ -44,6 +44,10 @@ ms.author: sngun
 * Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
+### <a name="2.2.3"/>2.2.3
+
+* Diagnostics improvements
+
 ### <a name="2.2.2"/>2.2.2
 
 * Added environment variable setting “POCOSerializationOnly”.
@@ -353,6 +357,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |February 11, 2019 |--- |
 | [2.2.2](#2.2.2) |February 06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |

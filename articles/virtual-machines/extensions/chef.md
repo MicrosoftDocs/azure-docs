@@ -65,7 +65,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 ### Core property values
 
 | Name | Value / Example | Data Type
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
@@ -66,7 +66,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### Create tags in the project
 
-To create classification tags to your project, add the following code to the end of *sample.py*:
+To create object tags in your project, add the following code to the end of *sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -127,6 +127,7 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
 
 ```Python

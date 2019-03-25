@@ -61,8 +61,8 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## Add code to query database
@@ -78,8 +78,13 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.windows.net', // update me
         options:
         {

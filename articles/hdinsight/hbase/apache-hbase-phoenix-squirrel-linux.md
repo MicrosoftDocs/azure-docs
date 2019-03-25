@@ -43,7 +43,7 @@ When you connect to an HBase cluster, you need to connect to one of the [Apache 
 
 2. In SSH, use the following commands to run SQLLine:
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
+        cd /usr/hdp/current/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. To create an HBase table, and insert some data, run the following commands:
 
@@ -72,7 +72,6 @@ In this article, you learned how to use Apache Phoenix in HDInsight. To learn mo
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 

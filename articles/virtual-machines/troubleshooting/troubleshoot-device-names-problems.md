@@ -63,10 +63,10 @@ Applications use LUNs to find all of the attached disks and to construct symboli
         ├── lun1-part1 -> ../../../sdd1
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
-                                 
+
 LUN information from the Linux guest account is retrieved by using `lsscsi` or a similar tool:
 
-       $ sudo lsscsi
+      $ sudo lsscsi
 
       [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 

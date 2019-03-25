@@ -134,3 +134,25 @@ The link between the partner ID and the account is done for each customer tenant
 **Can other partners or customers edit or remove the link to the partner ID?**
 
 The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID. 
+
+
+**Which MPN ID should I use if my company has multiple?**
+
+You can use any valid MPN ID except virual orgnization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
+
+**Where can I find influenced revenue reporting for linked partner ID?**
+
+You can find influenced revenue reporting at [My Insights dashboard](https://partner.microsoft.com/membership/reports/myinsights). You need to select Partner Admin Link as the partner association type.
+
+**Why can't I see my customer in the reports?**
+
+You can't see the customer in the reports due to following reasons
+
+1. The linked user account doesn't have [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+
+2. The Azure subscription where the user has [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+
+**Does link partner ID works with Azure Stack?**
+
+Yes, You can link your partner ID for Azure Stack.
+

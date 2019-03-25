@@ -5,7 +5,7 @@ description: Using C#, build a chat bot integrated with language understanding (
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial

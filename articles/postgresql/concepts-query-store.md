@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 03/12/2019
 ---
 # Monitor performance with the Query Store
 
@@ -26,12 +26,18 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 ### Enable Query Store using the Azure portal
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
-3. Search for the **pg_qs.query_capture_mode** parameter.
-4. Update the value from NONE to TOP and save.
+3. Search for the `pg_qs.query_capture_mode` parameter.
+4. Set the value to `TOP` and **Save**.
 
-Alternatively you can set this parameter using the Azure CLI.
+To enable wait statistics in your Query Store: 
+1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+1. Set the value to `ALL` and **Save**.
+
+
+Alternatively you can set these parameters using the Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
@@ -75,6 +81,7 @@ Here are some examples of how you can gain more insights into your workload usin
 When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window. 
 
 The following options are available for configuring Query Store parameters.
+
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
@@ -83,6 +90,7 @@ The following options are available for configuring Query Store parameters.
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
 
 The following options apply specifically to wait statistics.
+
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|

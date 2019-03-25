@@ -140,7 +140,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Save the Program.cs file.
     
-## Run the .Net app
+## Run the .NET app
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
