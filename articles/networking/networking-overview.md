@@ -31,7 +31,7 @@ Azure provides a variety of networking capabilities that can be used together or
 - [Manageability](#manageability): Monitor and manage your Azure networking resources.
 - [Deployment and configuration tools](#tools): Use a web-based portal or cross-platform command-line tools to deploy and configure network resources.
 
-## <a name="Connectivity"></a>Connectivity between Azure resources
+## <a name="connectivity"></a>Connectivity between Azure resources
 
 Azure resources such as Virtual Machines, Cloud Services, Virtual Machines Scale Sets, and Azure App Service Environments can communicate privately with each other through an Azure Virtual Network (VNet). A VNet is a logical isolation of the Azure cloud dedicated to your [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). You can implement multiple VNets within each Azure subscription and Azure [region](https://azure.microsoft.com/regions). Each VNet is isolated from other VNets. For each VNet you can:
 
