@@ -1,14 +1,14 @@
 ---
-title: Create custom alerts for Azure IoT Security Preview| Microsoft Docs
-description: Create and assign custom device alerts for Azure IoT Security.
-services: ascforiot
+title: Create custom alerts for ATP for IoT Preview| Microsoft Docs
+description: Create and assign custom device alerts for ATP for IoT.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 # Quickstart: Create custom alerts
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
+> ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -29,30 +29,29 @@ ms.author: mlottner
 ## Overview
 
 You know your devices best.
-For customers who fully understand their device’s wanted behavior, Azure IoT Security security allows translating this understanding into a device behavior policy and alert on any deviation from it.
+For customers who fully understand their expected device behavior, ATP for IoT allows translating this understanding into a device behavior policy and alert on any deviation from the expected normal behavior.
 
-XYZ-add explanation of what custom alerts allow you to do and where this fits into the process. 
+Using custom groups and alerts, you can take full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
 
 ## Security Groups
 
 Security groups enable customers to define logical groups of devices, and manage their security state in a centralized way.
 These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to the customer’s needs.
 
-Security groups are defined by a security module twin tag property named _securityGroup_. 
-Customers can change the value of this property to change the device’s security group. 
+Security groups are defined by a security module twin tag property named **SecurityGroup**. Change the value of this property to change the device’s security group. 
 
-By default, an IoT solution has one security group named _default_.
+By default, each IoT solution on IoT Hub has one security group named **default**.
 
 ## Customize an alert
 
 1. Open your IoT Hub. 
-2. Security, Custom alerts
+2. Select **Security**, then select **Custom alerts**. 
 3. Choose the security groups you wish to apply the customization to. 
 4. Click **Add a custom alert**
 5. Enter an alert name (note that alert names cannot be changed after creation). 
-6. Select custom alert behavior from the dropdown list. 
-7. Edit the required properties, click OK
-8. Select SAVE. Without Saving the new alert, the alert will be deleted when you close IoT Hub. 
+6. Select a custom alert behavior from the dropdown list. 
+7. Edit the required properties, click **OK**.
+8. Make sure to click**SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
  
 ## Alerts available to customize
@@ -80,11 +79,11 @@ The following table provides a summary of alerts available for customization.
 | Low      | Custom Alert - number of failed local logins is not in the allowed range                                | Agent       | The amount of failed local logins in a time window is not in the configured allowed range                                                       |
 | Low      | Custom Alert - login of a user that is not allowed                                                      | Agent       | A local user that is not allowed logged in to the device                                                                                        |
 | Low      | Custom Alert - execution of a process that is not allowed                                               | Agent       | A process that is not allowed was executed on the device |          |
+|
 
 
 ## See Also
-- [Azure IoT Security preview](overview.md)
-- [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
-- - [Azure IoT Security FAQ](resources-frequently-asked-questions.md)
+- [Overview](overview.md)
+- [Understanding security alerts](concept-security-alerts.md)
+- [Access your security data](how-to-security-data-access.md)
+- [ATP for IoT FAQ](resources-frequently-asked-questions.md)

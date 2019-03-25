@@ -25,9 +25,6 @@ ms.author: mlottner
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-
-Clarify agent-less option. If you choose agents  -hybrid model (agent/agent-less) Onboard devices and send out security information. 
-
 This article provides an explanation of the possible device agent building blocks to use with the ATP for IoT service, what you need to begin, and basic concepts to help understand the service. 
 
 ## Minimum requirements
@@ -47,7 +44,7 @@ Security analytics and best practices are provided for the following resources:
 - Related non-IoT Azure resources, powered by Azure Security Center
 
 ## Feature access
-ATP for IoT insights and reporting features are available using Azure IoT Hub and Azure Security Center. To [onboard ATP for IoT into your Azure IoT Hub](quickstart-onboard-iot-hub), an account with Owner level privileges is required. After onboarding ATP for IoT into your IoT Hub, ATP for IoT insights are displayed as the **Security** menu in Azure IoT Hub and as  **Device** alerts in ATP for IoT. 
+ATP for IoT insights and reporting features are available using Azure IoT Hub and Azure Security Center. To [onboard ATP for IoT into your Azure IoT Hub](quickstart-onboard-iot-hub), an account with Owner level privileges is required. After onboarding ATP for IoT into your IoT Hub, ATP for IoT insights are displayed as the **Security** menu in Azure IoT Hub and as  **Device** alerts in ASC for IoT. 
 
 ## Supported service regions 
 ATP for IoT is currently supported in the following Azure regions:
@@ -92,8 +89,9 @@ The following list includes all supported platforms as of public preview. Suppor
 
 
 ## See Also
-- [ATP for IoT preview](overview.md)
-- [Prerequisites](prerequisites.md)
+- [Overview](overview.md)
+- [service prerequisites](service-prerequisites.md)
 - [Onboarding](quickstart-onboard-iot-hub.md)
+- [Configure a agent](quickstart-agent-configuration.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT alerts](concepts-security-alerts.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)

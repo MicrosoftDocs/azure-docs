@@ -1,44 +1,44 @@
 ---
-title: Configure an Azure IoT Security agent Preview| Microsoft Docs
-description: Learn how to configure agents for use with Azure IoT Security.
-services: azureiotsecurity
+title: Configure an ATP for IoT agent Preview| Microsoft Docs
+description: Learn how to configure agents for use with ATP for IoT.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
 # Quickstart: Agent configuration
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> ATP for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to configure an agent for use with Azure IoT Security.
+This article provides an explanation of how to configure an agent for use with ATP for IoT.
 
 ## Agents
 
-Azure IoT Security security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
+ATP for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
 
-Azure IoT Security’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+ATP for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the Azure IoT Security security agent configuration [schema](https://github.com/Azure/Azure-Security-IoT-Preview/tree/master/schemas/security_module_twin) to make changes.  
+Use the ATP for IoT security agent configuration [schema](https://github.com/azure/atp-for-iot-schemas/security/module/twin) to make changes.  
 
 ## Configuration objects 
 
-Each Azure IoT Security security agent related property is located inside the agent configuration object,within the desired properties section, of the Microsoft.Security module. 
+Each ATP for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the Microsoft.Security module. 
 
 To modify the configuration, create and modify this object inside the Microsoft.Security module twin identity. 
 If the agent configuration object does not exist in the Microsoft.Security module twin, all security agent property values are set to default. 
@@ -62,7 +62,7 @@ To use a default property value, remove the property from the configuration obje
 
 ```json
 "desired": { //Microsoft.Security Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //Azure IoT Security Agent 
+  "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
       // configuration section  
     "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
     "lowPriorityMessageFrequency": "PT1H",     
@@ -74,7 +74,7 @@ To use a default property value, remove the property from the configuration obje
 ```
 
 ## Default properties 
-Set of controllable properties that control the Azure IoT Security security agents. 
+Set of controllable properties that control the ATP for IoT security agents. 
           
 
 | Name| Status | Valid values| Default values| Description |
@@ -106,13 +106,11 @@ Configuration error |eventPriorityConfigurationError |Low |False |Agent failed t
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.| 
 |
 
-Make sure to validate your agent configuration changes against this [schema](https://github.com/Azure/Azure-Security-IoT-Preview/tree/master/schemas/security_module_twin). The agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration changes against this [schema](https://github.com/azure/atp-for-iot-schemas/security_module_twin). The agent will not launch if the configuration object does not match the schema.
  
 
-
-
 ## See Also
-- [Azure IoT Security preview](overview.md)
-- [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
+- [Overview](overview.md)
+- [Configure authentication methods](how-to-configure-authentication-methods.md)
+- [Understand ATP for IoT alerts](concept-security-alerts.md)
+- [Access your security data](how-to-security-data-access.md)

@@ -1,27 +1,27 @@
 ---
-title: How-to modify a AzureIoTSecurity module twin for Azure IoT Security Preview| Microsoft Docs
-description: Learn how to modify a AzureIoTSecurity module twin for Azure IoT Security.
-services: azureiotsecurity
+title: How-to modify a ATP for IoT module twin for ATP for IoT Preview| Microsoft Docs
+description: Learn how to modify a ATP for IoT security module twin for ATP for IoT.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 1bc5dc86-0f33-4625-b3d3-f9b6c1a54e14
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
 
-# Modify an AzureIoTSecurity module twin
+# Modify an ATP for IoT module twin
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
+> ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -51,7 +51,7 @@ To set a property, add the property key to the configuration object with the des
 
 ```json
 "desired": { //AzureIoTSecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //Azure IoT Security Agent 
+  "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
       // configuration section  
     "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
     "lowPriorityMessageFrequency": "PT1H",     
@@ -63,7 +63,7 @@ To set a property, add the property key to the configuration object with the des
 ```
 
 ## Properties 
-The following table contains all of the configurable properties that control Azure IoT Security agents. 
+The following table contains all of the configurable properties that control ATP for IoT agents. 
           
 
 | Name| Status | Valid values| Default values| Description |
@@ -78,7 +78,7 @@ The following table contains all of the configurable properties that control Azu
 
 ### Events
 
-The following list of events are all of the events the Azure IoT Security agent can collect from your devices. Use the AzureIotSecurity module twin to configure which of these events are collected and decide their priority in your solution. 
+The following list of events are all of the events the ATP for IoT agent can collect from your devices. Use the AzureIotSecurity module twin to configure which of these events are collected and decide their priority in your solution. 
  
 |Event name| PropertyName | Default value| Snapshot event| Detail status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -100,7 +100,7 @@ Configuration error |eventPriorityConfigurationError |Low |False |Agent failed t
 
 
 ## See Also
-- [Azure IoT Security preview](overview.md)
+- [ATP for IoT preview](overview.md)
 - [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
+- [ATP for IoT alerts](concepts-security-alerts.md)
 - [Data access](data-access.md)

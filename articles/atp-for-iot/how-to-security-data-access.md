@@ -1,45 +1,46 @@
 ---
-title: Accessing data using Azure IoT Security Preview| Microsoft Docs
-description: Learn about how to access your security alert and recommendation data when using Azure IoT Security.
-services: azureiotsecurity
+title: Accessing data using ATP for IoT Preview| Microsoft Docs
+description: Learn about how to access your security alert and recommendation data when using ATP for IoT.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
 
-# Security data access
+# Access your security data 
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
+> ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Security alert and recommendation data is accessible from the ASC IoT Hub portal, Security Module twins and using your Microsoft Log Analytics workspace.
+ATP for IoT stores security alerts, recommendations and raw security data (if you choose to save it) in your Log Analytics (LA) workspace.
 
-## Log analytics
+## Log Analytics
 
-Log analytics are used by the Azure IoT Security service to store your security alerts.
+To configure which LA workspace is used, go to your IoT hub, click security -> settings and change your LA workspace configuration.
+Once configured, to access your LA workspace choose an alert in ATP for IoT, and click further investigation - > "To see which devices have this alert click here and view the DeviceId column".
 
-In future versions, security recommendations and raw events will also be collected in a **log analytics** workspace.
+For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
-For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/query-language/get-started-queries).
+## Security alerts
 
-## Security alert table
+Security alerts are stored in the **_AzureSecurityOfThings.SecurityAlert_** table within the Log Analytics workspace configured for your ATP for IoT solution.
 
-Security alerts are stored in within the _Security.SecurityAlert_ table in your Log Analytics workspace after you have configured it with the Azure IoT Security solution.
+Bellow are a few useful queries to start exploring security alerts.
 
-## Sample records
+### Sample records
 
 Select a few random records
 
@@ -64,7 +65,7 @@ SecurityAlert
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | High          | Successful local login on device      | A successful local login to the device was detected     | { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "28207", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | High          | Failed local login attempt on device  | A failed local login attempt to the device was detected |	{ "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id": "22644", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 
-## Device summary
+### Device summary
 
 Select the number of distinct security alerts detected last week by IoT hub, device, alert severity, alert type.
 
@@ -74,7 +75,7 @@ Select the number of distinct security alerts detected last week by IoT hub, dev
 //
 SecurityAlert
 | where TimeGenerated > ago(7d)
-| summarize Cnt=dcount(TimeGenerated) by
+| summarize Cnt=dcount(SystemAlertId) by
     IoTHubId=ResourceId, 
     DeviceId=tostring(parse_json(ExtendedProperties)["DeviceId"]),
     AlertSeverity,
@@ -88,7 +89,7 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | High          | Successful local login on device      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium        | Crypto Coin Miner                     | 4   |
 
-## IoT hub summary
+### IoT hub summary
 
 Select a number of distinct devices which had alerts in the last week, by IoT hub, alert severity, alert type
 
@@ -112,55 +113,64 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | High          | Successful local login on device      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medium        | Crypto Coin Miner                     | 1          |
 
-## Security module twins
+## Security recommendations
 
-Device $security module twins are used by the service to store last occurrences of security recommendation and alerts.
+Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the ATP for IoT solution.
 
-For details on querying data from device twins, see [Device and module twin queries](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language#device-and-module-twin-queries).
+To start exploring security recommendations, use one of the following basic queries:
 
-### Recommendation details
+### Sample records
 
-Query all devices with a _Listening Ports_ recommendation, and their details (which endpoint is being listened to).
+Use this query to select a few random records.
 
-```sql
-SELECT
-    deviceId,
-    tags.recommendations.IoT_OpenPorts.severity,
-    tags.recommendations.IoT_OpenPorts.discoveredAtUtc,
-    tags.recommendations.IoT_OpenPorts.details.Endpoints
-FROM devices.modules 
-WHERE 
-    moduleId = 'Microsoft.Security' AND 
-    IS_DEFINED(tags.recommendations.IoT_OpenPorts)
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+	
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 |	/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+|
+
+### Device summary
+
+Use this query to select the number of distinct active security recommendations by IoT hub, device, recommendation severity and type.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| DeviceId       | severity | discoveredAtUtc                | Endpoints             |
-|----------------|----------|--------------------------------|-----------------------|
-| <device_name>  | Medium   | "2018-11-19T09:11:51.0657343Z" | "[\"0.0.0.0:25324\"]" |
-| <device_name>  | Medium   | "2018-11-19T09:11:51.0657343Z" | "[\"0.0.0.0:80\"]"    |
-
-### Alert details
-
-Query all devices with a _Successful BruteForce_ alert.
-
-```sql
-SELECT
-    deviceId,
-    tags.alerts.IoT_Bruteforce_Success
-FROM devices.modules 
-WHERE 
-    moduleId = 'Microsoft.Security' AND 
-    IS_DEFINED(tags.alerts.IoT_Bruteforce_Success)
-```
-
-| DeviceId       | severity | lastDetectionUtc              |
-|----------------|----------|-------------------------------|
-| <device_name1> | High     |"2018-11-19T09:11:51.0657343Z" |
-| <device_name2> | High     |"2018-11-19T09:11:51.0657343Z" |
+| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Cnt |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | High          | 2   |	
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium        | 1 |	
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | High          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium        | 4   |
+|
 
 
 ## See Also
-- [Azure IoT Security Preview](preview.md)
-- [Installation for Windows](install-windows.md)
-- [Authentication](authentication.md)
-- [Azure IoT Security alerts](alerts.md)
+- [Overview](preview.md)
+- [Architecture](architecture.md)
+- [Configure authentication methods](authentication.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)

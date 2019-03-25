@@ -1,19 +1,19 @@
 ---
 title: Get started using ATP for IoT Preview| Microsoft Docs
 description: Getting started by understanding the basic workflow of ATP for IoT features and service.
-services: ascforiot
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
-ms.service: ascforiot
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
@@ -26,7 +26,7 @@ ms.author: mlottner
 
 This article provides an explanation of the different building blocks of the ATP for IoT service and how to get started with [testing and onboarding](quickstart-onboard-iot-hub.md). 
 
-One of the many benefits of the ATP for IoT solution is the ability to either quickly onboard in a bring-your-own-agent mode, or choose additional security capabilities in our ATP for IoT agent driven model. 
+One of the many benefits of the ATP for IoT solution is the ability to either quickly onboard in a bring-your-own-agent mode, or choose additional enhanced security capabilities in our ATP for IoT agent driven model. 
 
 ## ATP for IoT working with device agents
 
@@ -46,7 +46,7 @@ For fast service onboarding to monitoring your device identity management, devic
 
 1. Onboard ATP for IoT service to your IoT Hub
 1. Add a device.
-1. Create a AzureIoTSecurity module for the device. 
+1. Create a ATPforIoT security module for the device. 
 1. Create custom alerts. 
 1. Define normal device and system behavior. 
 1. Perform system testing to verify service and device status. 
@@ -57,9 +57,9 @@ For fast service onboarding to monitoring your device identity management, devic
 
 To make use of ATP for IoT agents and additional security capabilities, such as; monitoring remote connections, active applications, login events and OS configuration best practices, use the following basic workflow for testing and eventual service onboarding. 
 
-1. Onboard ATP for IoT service in IoT Hub
-2. In IoT Hub, create a new device identity. 
-3. Create an AzureIoTSecurity module for the new identity. 
+1. [Onboard ATP for IoT service in IoT Hub](quickstart-onboard-iot-hub.md)
+2. In IoT Hub, [create a new device identity](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal). 
+3. [Create an ATPforIoT security module](quickstart-create-security-module.md) for the new identity. 
 4. [Spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
 5. Install the ATP for IoT agent on the new VM using the [credentials](how-to-configure-authentication-methods.md) defined in the ATP for IoT  module.
 6. Run [sample script](sample-script.md) to simulate an attack.

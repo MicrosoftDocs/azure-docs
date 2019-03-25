@@ -36,7 +36,7 @@ Security agents support the following solution features:
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through _azureiotsecurity_ module twin. To learn more, see [Configure an Azure IoT Security agent]().
+- Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](quickstart-agent-configuration.md).
 
 ATP for IoT Security agents are developed as open source projects, and are available from Github: 
 
@@ -45,7 +45,7 @@ ATP for IoT Security agents are developed as open source projects, and are avail
 
 ## Agent supported platforms
 
-Azure IoT Security offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
+ATP for IoT offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
 | 32 or 64bit | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
@@ -60,9 +60,9 @@ In this article, you learned about ATP for IoT security agent architecture, and 
 - [Device agent prerequisites](device-agent-prerequisites.md)
 - [Linux C# installation](quickstart-linux-c#-installation.md)
 - [Linux C installation](quickstart-linux-c-installation.md)
-- [Windows installation]quickstart-windows-installation.md)
+- [Windows installation](quickstart-windows-installation.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-to-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT security alerts](concepts-security-alerts.md)
+- [Understand ATP for IoT security alerts](concept-security-alerts.md)
 

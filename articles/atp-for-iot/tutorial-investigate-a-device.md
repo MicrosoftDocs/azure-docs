@@ -1,25 +1,25 @@
 ---
-title: Azure IoT Security IoT device investigation tutorial Preview| Microsoft Docs
-description: This article explains how to use Azure IoT Security to investigate a suspicious IoT device.
-services: azureiotsecurity
+title: ATP for IoT device investigation tutorial Preview| Microsoft Docs
+description: This article explains how to use ATP for IoT to investigate a suspicious IoT device.
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
-ms.service: azureiotsecurity
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
 # Tutorial: Investigate a suspicious IoT device
 
-Azure IoT Security service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
+ATP for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
 > [!div class="checklist"]
 > * Find your device data
@@ -29,7 +29,7 @@ Azure IoT Security service alerts and evidence provide clear indications when Io
 
 ## Where can I access my data?
 
-By default, Azure IoT Security stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
+By default, ATP for IoT stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
 
 To locate the your LA workspace for data storage:
 
@@ -42,7 +42,7 @@ To locate the your LA workspace for data storage:
 
 Following configuration, do the following to access your LA workspace stored data:
 
-1. Select and click on an Azure IoT Security alert in your IoT Hub. 
+1. Select and click on an ATP for IoT alert in your IoT Hub. 
 1. Click **Further investigation**. 
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 
@@ -157,11 +157,11 @@ Check and investigate the device data for the following details and activities u
 
 ## Next steps
 
-If you don't already have a device agent, install or change the configuration of an existing device agent (more alerts/change frequency etc.)
-Configure custom alerts 
+[Configure custom alerts](quickstart-create-custom-alerts.md), or if you don't already have a device agent, [install a device agent](device-agent-prerequisites.md) or [change the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
+ 
 
 ## See also
-- [Understanding Azure IoT Security](overview.md)
+- [Understanding ATP for IoT](overview.md)
 - [Installation for Windows](quickstart-windows-installation.md)
-- [Azure IoT Security alerts](alerts.md)
+- [ATP for IoT alerts](alerts.md)
 - [Data Access](data-access.md)

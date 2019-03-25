@@ -2,19 +2,19 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: Architecture
+- name: Solution architecture
   href: architecture.md
-- name: Security agent 
-  href: security-agents.md 
-- name: Service prerequisites
-  href: service-prerequisites.md
-- name: Device agent prerequisites
-  href: device-agent-prerequisites.md
+- name: Security agents
+  href: security-agent-architecture.md 
 - name: Quickstarts
   expanded: true
   items:
   - name: Getting started with Azure IoT Security service
     href: quickstart-getting-started.md
+    - name: Service prerequisites
+      href: service-prerequisites.md
+    - name: Device agent prerequisites
+      href: device-agent-prerequisites.md
   - name: Onboarding Azure IoT Security to IoT Hub
     href: quickstart-onboard-iot-hub.md
   - name: Configure your solution
@@ -51,9 +51,9 @@
   - name: Azure IoT Security module twins
     href: concept-azure-iot-security-module-twins.md
   - name: Security alerts 
-    href: concepts-security-alerts.md  
+    href: concept-security-alerts.md  
   - name: Security recommendations
-    href: concepts-recommendations.md
+    href: concept-recommendations.md
    
 
 - name: How-to guides

@@ -1,14 +1,14 @@
 ---
-title: Linux installation of Azure IoT Security agent Preview| Microsoft Docs
-description: Learn how to install the Azure IoT Security agent on both 32bit and 64bit Linux. 
-services: ascforiot
+title: Linux C installation of ATP for IoT agent Preview| Microsoft Docs
+description: Learn how to install the ATP for IoT agent on both 32bit and 64bit Linux. 
+services: atpforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 3ccf2aec-106a-4d2c-8079-5f3e8f2afdcb
-ms.service: ascforiot
+ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,18 +17,23 @@ ms.date: 03/07/2019
 ms.author: mlottner
 
 ---
-# Azure IoT Security installation for Linux C
+# ATP for IoT installation for Linux C
 
 > [!IMPORTANT]
-> Azure IoT Security is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> ATP for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to install the Azure IoT Security service on Linux using the Azure IoT Security C installer. 
+This article explains how to install the ATP for IoT service on Linux using the ATP for IoT C installer. 
 
-The C installer is the only installer that supports 32bit Linux. If you are running 64 bit Linux, you can choose between using the C and C# installer. The C# Azure IoT Security agent requires more system resources, but includes the same functionality.   
+The C installer is the only installer that supports 32bit Linux. If you are running 64 bit Linux, you can choose between using the C and C# installer. The C# ATP for IoT agent requires more system resources, but includes the same functionality.   
 
-Azure IoT Security offers different installer agents for Windows, 32bit Linux and 64bit Linux . Make sure you have the correct agent installer for each of your devices. 
+ATP for IoT offers different installer agents for Windows, 32bit Linux and 64bit Linux . Make sure you have the correct agent installer for each of your devices. 
+
+| 32 or 64bit | Linux | Windows |    Details|
+|----------|----------------------------------------------|-------------|-------------------------------------------|
+| 32bit  | C  | C#  ||
+| 64bit  | C# or C           | C#      | Use the C agent for devices with minimal resources|
 
 ## Prerequisites
 
@@ -38,7 +43,7 @@ To deploy the security agent, local admin rights are required on the machine you
 
 To install deploy the security agent, do the following:
 
-1. To install the Azure IoT Security agent on the device, download the most recent version to your machine from the [releases](../../releases) folder.
+1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the [releases](../../releases) folder.
 
 2. Extract the contents of the package, and navigate to the /installation folder.
 
@@ -64,7 +69,7 @@ To install deploy the security agent, do the following:
 ### Check deployment status
 - Check the deployment status by running:
     ```
-    sc.exe query "ASC IoT Agent" 
+    sc.exe query "ATP for IoT" 
     ```
 
 ### Uninstall the agent
@@ -87,7 +92,7 @@ To turn on logging:
   <add key="logLevel" value="Debug" />
   <add key="fileLogLevel" value="Debug"/> 
   <add key="diagnosticVerbosityLevel" value="Some" /> 
-  <add key="logFilePath" value="IotAgentLog.log" />
+  <add key="logFilePath" value="IoIAgentLog.log" />
 ```
 
 > [!NOTE]
@@ -97,22 +102,22 @@ To turn on logging:
 
     - Powershell:
     ```
-    Restart-Service "ASC IoT Agent" //ml
+    Restart-Service "ATP for IoT" //ml
     ```
     -OR-
 
     - CMD:
     ```
-    sc.exe stop "ASC IoT Agent" 
-    sc.exe start "ASC IoT Agent" 
+    sc.exe stop "ATP for IoT" 
+    sc.exe start "ATP for IoT" 
     ```
 4. Review the log file for more information about the failure.
 
-    - The log file is located at: \<wherever you unpacked your agent>/IotAgentLog.log
+    - The log file is located at: \<wherever you unpacked your agent>/IoTAgentLog.log
 
 
 ## See Also
-- [Azure IoT Security FAQ](resources-frequently-asked-questions.md)
-- [Authentication](authentication-methods.md)
-- [Azure IoT Security alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
+- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
+- [Security agent authentication methods](concept-security-agent-authentication-methods.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)
+- [Access your security data](how-to-security-data-access.md)
