@@ -58,7 +58,7 @@ private static async Task SendSecurityMessageAsync()
 ```
 C API
 ```c
-bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data) {
+bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data, size_t dataSize) {
  
     bool success = true;
     IOTHUB_MESSAGE_HANDLE messageHandle = NULL;
