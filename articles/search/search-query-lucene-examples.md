@@ -150,6 +150,13 @@ To do a fuzzy search, append the tilde `~` symbol at the end of a single word wi
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
 
+Phrases aren't supported directly but you can specify a fuzzy match on component parts of a phrase.
+
+```http
+searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
+```
+
+
 ### Full URL
 
 This query searches for jobs with the term "associate" (deliberately misspelled):
@@ -159,7 +166,6 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```
   ![Fuzzy search response](media/search-query-lucene-examples/fuzzysearch.png)
 
-Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 > [!Note]
 > Fuzzy queries are not [analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
