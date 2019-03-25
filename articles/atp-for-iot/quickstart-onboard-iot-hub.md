@@ -46,7 +46,8 @@ To enable security on your IoT Hub, do the following:
 2. Select and open **Security** from the left menu. 
 3. Choose **Enable IoT Security**. 
 4. Provide your Log Analytics Workspace details. 
-   - Elect to store **raw events** in addition to the default information types of storage by moving the **raw event** toggle **On**. 
+   - Elect to store **raw events** in addition to the default information types of storage by leaving the **raw event** toggle **On**. 
+   - Elect to enable **twin collection** by leaving the **twin collection** toggle **On**. 
 5. Click **OK**. 
 6. Click **Save**. 
 
@@ -54,10 +55,10 @@ Congratulations! You've completed onboarding ATP for IoT to your IoT Hub.
 
 ## Next steps
 
-After onboarding ATP for IoT to IoT Hub, continue configuring your solution by:
-- Adding devices to your IoT Hub
-- Deploying a device agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly
-- Create [custom alerts](quickstart-create-custom-alerts.md)
+1. Configure your [solution](quickstart-configure-your-solution.md).
+1. [Create security modules](quickstart-create-security-twin.md).
+1. Configure [custom alerts](quickstart-create-custom-alerts.md).
+1. Deploy a security agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
 
 
 ## See Also

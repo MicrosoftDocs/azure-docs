@@ -51,10 +51,10 @@ By default, each IoT solution on IoT Hub has one security group named **default*
 5. Enter an alert name (note that alert names cannot be changed after creation). 
 6. Select a custom alert behavior from the dropdown list. 
 7. Edit the required properties, click **OK**.
-8. Make sure to click**SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
+8. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
  
-## Alerts available to customize
+## Alerts available for customization
 
 The following table provides a summary of alerts available for customization.
 
@@ -74,12 +74,16 @@ The following table provides a summary of alerts available for customization.
 | Low      | Custom Alert - number of command queue purges is not in the allowed range                               | IoT Hub     | The amount of command queue purges in a time window is not in the configured allowed range                                                      |
 | Low      | Custom Alert - number of twin updates is not in the allowed range                                       | IoT Hub     | The amount of twin updates in a time window is not in the configured allowed range                                                              |
 | Low      | Custom Alert - number of unauthorized operations is not in the allowed range                            | IoT Hub     | The amount of unauthorized operations in a time window is not in the configured allowed range                                                   |
-| Low      | Custom Alert - number of active connections not in allowed range                                        | Agent       | The amount of active connections in a time window is not in the configured allowed range                                                        |
-| Low      | Custom Alert - outbound connection to an ip that isn't allowed was created                              | Agent       | An outbound connection to an ip that isn't allowed was created                                                                                  |
-| Low      | Custom Alert - number of failed local logins is not in the allowed range                                | Agent       | The amount of failed local logins in a time window is not in the configured allowed range                                                       |
-| Low      | Custom Alert - login of a user that is not allowed                                                      | Agent       | A local user that is not allowed logged in to the device                                                                                        |
-| Low      | Custom Alert - execution of a process that is not allowed                                               | Agent       | A process that is not allowed was executed on the device |          |
-|
+| Low      | Custom Alert - number of active connections not in allowed range                                        | Security agent | The amount of active connections in a time window is not in the configured allowed range                                                        |
+| Low      | Custom Alert - outbound connection to an ip that isn't allowed was created                              | Security agent | An outbound connection to an ip that isn't allowed was created                                                                                  |
+| Low      | Custom Alert - number of failed local logins is not in the allowed range                                | Security agent | The amount of failed local logins in a time window is not in the configured allowed range                                                       |
+| Low      | Custom Alert - login of a user that is not allowed                                                      | Security agent | A local user that is not allowed logged in to the device                                                                                        |
+| Low      | Custom Alert - execution of a process that is not allowed                                               | Security agent | A process that is not allowed was executed on the device |          |
+
+
+## Next steps
+
+Deploy a security agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
 
 
 ## See Also

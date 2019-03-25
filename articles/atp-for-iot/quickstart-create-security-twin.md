@@ -38,7 +38,7 @@ To make full use of ATP for IoT features, you'll need to create, configure and u
 
 ## Create ATP for IoT module twin 
 
-ATP for IoT module twins can be created in batch mode using the default configuration, or individually with specific configurations for each device. To batch create for new devices or devices without a module twin, use the [Module batch script](https://aka.ms/iot-security-scripts-create-module). 
+ATP for IoT module twins can be created in batch mode using the default configuration, or individually with specific configurations for each device. To batch create for new devices or devices without a module twin, use the [Module batch script](https://aka.ms/iot-security-github-create-module). 
 
 >[!NOTE] 
 > Using the batch method will not >overwrite existing module twins. Using the batch method ONLY creates new module twins for devices that do not already have a module twin. 
@@ -48,7 +48,7 @@ See [Modify a security module twin](how-to-modify-a-security-module-twin.md) to 
 To create a new ATP for IoT module twin for a device use the following instructions: 
 
 1. In your IoT Hub, locate and select the device you wish to create a security module twin for in your IoT Hub. 
-1. In the **Microsoft Identity Name** field, enter **ATP for IoT**.
+1. In the **Microsoft Identity Name** field, enter **azureiotsecurity**.
 1. Click **Save**. 
 
 ## Verify creation of a module twin
@@ -59,12 +59,16 @@ To verify if a security module twin exists for a specific device:
 1. Enter the device ID, or select an option in the **Query device field** and click **Query devices**. 
     ![Query devices](./media/quickstart/verify-security-module-twin.png)
 1. Select the device or double click it to open the Device details page. 
-1. Select the **Module identities** menu, and confirm existence of the **ATP for IoT module** and a **Connection State** of **Connected** in the list of module identities associated with the device. 
+1. Select the **Module identities** menu, and confirm existence of the **azureiotsecurity** module and a **Connection State** of **Connected** in the list of module identities associated with the device. 
     ![Modules associated with a device](./media/quickstart/verify-security-module-twin-2.png)
 
 
 To learn more about customizing properties of ATP for IoT module twins, see [Agent configuration](tutorial-agent-configuration.md).
 
+## Next steps
+
+1. Configure [custom alerts](quickstart-create-custom-alerts.md).
+1. Deploy a security agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
 
 ## See Also
 - [ATP for IoT overview](overview.md)

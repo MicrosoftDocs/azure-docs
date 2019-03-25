@@ -24,11 +24,12 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of the different building blocks of the ATP for IoT service and how to get started with [testing and onboarding](quickstart-onboard-iot-hub.md). 
+This article provides an explanation of the different building blocks of the ATP for IoT service and how to get started with [onboarding](quickstart-onboard-iot-hub.md). 
 
-One of the many benefits of the ATP for IoT solution is the ability to either quickly onboard in a bring-your-own-agent mode, or choose additional enhanced security capabilities in our ATP for IoT agent driven model. 
+ATP for IoT can be seamlessly integrated into your IoT Hub to provide security analysis of IoT hub configuration, device identity and hub-device communication patterns.
+For enhanced security capabilities, ATP for IoT provides agent-based collection of security data from your IoT devices.
 
-## ATP for IoT working with device agents
+## ATP for IoT seamless IoT hub integration
 
 When attempting to protect your individual IoT devices, the ability to collect data directly from the devices, or from their network is required. To support this effort, ATP for IoT offers an arsenal of low-footprint security agents to provide device monitoring and hardening.
 
@@ -38,50 +39,41 @@ Security messages are sent through your IoT hub, into ATP for IoT analytics serv
 
 ## ATP for IoT 
 
-Choose the testing and onboarding scenario that best meets your device and environment requirements:
+Choose the onboarding scenario that best meets your device and environment requirements:
 
-## Get started without ATP for IoT agents 
+### Get started with ATP for IoT seamless IoT Hub integration 
 
-For fast service onboarding to monitoring your device identity management, device to cloud, and cloud to device communication patterns, use  following basic workflow for testing and eventual service onboarding. This workflow enables you to use the service without using ATP for IoT security agents:
+For fast service onboarding to monitoring your device identity management, device to cloud, and cloud to device communication patterns, use following basic workflow for testing and eventual service onboarding. This workflow enables you to use the service without using ATP for IoT security agents:
 
-1. Onboard ATP for IoT service to your IoT Hub
-1. Add a device.
-1. Create a ATPforIoT security module for the device. 
-1. Create custom alerts. 
-1. Define normal device and system behavior. 
+1. [Onboard ATP for IoT service to your IoT Hub](quickstart-onboard-iot-hub.md)
+1. In case your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/en-us/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. [Create an azureiotsecurity security module](quickstart-create-security-twin.md) for your devices. 
+1. Define normal device and system behavior through [custom alerts](quickstart-create-custom-alerts.md). 
 1. Perform system testing to verify service and device status. 
-1. Explore alerts and deep dive using log analytics using IoT Hub. 
+1. Explore [alerts](concept-security-alerts.md) and [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub. 
 
 
-## Get started with ATP for IoT agents
+### Get started with ATP for IoT security agents
 
-To make use of ATP for IoT agents and additional security capabilities, such as; monitoring remote connections, active applications, login events and OS configuration best practices, use the following basic workflow for testing and eventual service onboarding. 
+To make use of ATP for IoT enhanced security capabilities, such as; monitoring remote connections, active applications, login events and OS configuration best practices, use the following basic workflow for testing and eventual service onboarding. 
 
-1. [Onboard ATP for IoT service in IoT Hub](quickstart-onboard-iot-hub.md)
-2. In IoT Hub, [create a new device identity](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal). 
-3. [Create an ATP for IoT security module](quickstart-create-security-twin.md) for the new identity. 
-4. [Spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
-5. Install the ATP for IoT agent on the new VM using the [credentials](how-to-configure-authentication-methods.md) defined in the ATP for IoT  module.
-6. Run **sample script** to simulate a harmless attack.
-7. Verify alerts in IoT Hub up to 5 minutes after running the script. 
-8. Explore alert and remediation recommendations along with deeper investigation using log analytics in IoT Hub. 
+1. [Onboard ATP for IoT service to your IoT Hub](quickstart-onboard-iot-hub.md)
+1. In case your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/en-us/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. [Create an azureiotsecurity security module](quickstart-create-security-twin.md) for your devices.
+1. In case you would like to install the agent on a simulated device on Azure and not an actual IoT device, [spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
+1. [Deploy an ATP for IoT security agent](quickstart-linux-cs-installation.md) on your IoT device, or new VM.
+1. Following the instructions on [trigger_events](https://aka.ms/iot-security-github-trigger-events) to run a simulation of a harmless attack.
+1. Verify alerts in IoT Hub up to 5 minutes after running the script. 
+1. Explore [alerts](concept-security-alerts.md) and [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub. 
 
-
-## Get started with ATP for IoT with a hybrid agent model
-
-In certain scenarios, you may decide to run certain devices in your IoT solution with Microsoft ATP for IoT agents, and other devices with your own custom agents. 
-
-In that type of hybrid scenario, follow the previous instructions for onboarding each type of device and required agent. 
- 
 
 ## Next steps
 
-1. Add devices to IoT Hub. 
-2. Identify device groups with shared attributes or commonality. 
-3. Define a security group in IoT Hub
-    1. Select **Security**
-    1. Select **Custom Alert**. 
-    1. Define the **group behavior** and related **custom alerts**.
+1. Onboard [ATP for IoT](quickstart-onboard-iot-hub.md).
+1. Configure your [solution](quickstart-configure-your-solution.md).
+1. [Create security modules](quickstart-create-security-twin.md).
+1. Configure [custom alerts](quickstart-create-custom-alerts.md).
+1. Deploy a security agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly.
 
 
 ## See Also
@@ -89,4 +81,3 @@ In that type of hybrid scenario, follow the previous instructions for onboarding
 - [Architecture](architecture.md)
 - [Onboarding](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ATP for IoT alerts](concept-security-alerts.md)
