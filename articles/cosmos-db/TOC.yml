@@ -282,6 +282,9 @@
           href: mongodb-time-to-live.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: mongodb-ru-charge.md
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
           maintainContext: true
@@ -316,6 +319,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: graph-ru-charge.md
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
@@ -351,6 +357,9 @@
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
           maintainContext: true
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: cassandra-ru-charge.md
         - name: Cassandra & Spark
           items:
           - name: Introduction
@@ -422,6 +431,9 @@
           href: table-support.md
         - name: Table storage design guide
           href: table-storage-design-guide.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: table-ru-charge.md
       - name: Reference
         items:
           - name: .NET
@@ -459,6 +471,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Find request unit charge
+        displayName: request units, RUs, RU, charge, consumption
+        href: how-to-find-ru-charge.md
     - name: Working with containers and items
       items:
       - name: Create a container
