@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -41,7 +41,9 @@ To configure Azure AD integration with Iris Intranet, you need the following ite
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* HRworks Single Sign-On supports **SP** initiated SSO
+* Iris Intranet supports **SP** initiated SSO
+
+* Iris Intranet supports **just-in-time** user provisioning
 
 ## Adding Iris Intranet from the gallery
 
