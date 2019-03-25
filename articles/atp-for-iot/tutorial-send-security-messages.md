@@ -48,17 +48,17 @@ All data that is sent, even if marked with the correct header, must also comply 
 C# API
 ```cs
 private static async Task SendSecurityMessageAsync()
-        {
-            string messageContent = "Security Data";
-            ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-            Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-            securityMessage.SetAsSecurityMessage();
-            await client.SendEventAsync(securityMessage);
-        }
+{
+    string messageContent = "Security Data";
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
 ```
 C API
 ```c
-bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data) {
+bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data, size_t dataSize) {
  
     bool success = true;
     IOTHUB_MESSAGE_HANDLE messageHandle = NULL;

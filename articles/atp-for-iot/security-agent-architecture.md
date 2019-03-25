@@ -42,15 +42,16 @@ Security agents support the following IoT solution features:
 ATP for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
 - [IoT-ATP-Agent-C](https://github.com/Azure/IoT-ATP-Agent-C) 
-- [IoT-ATP-Agent-CS]([https://github.com/Azure/IoT-ATP-Agent-CS)
+- [IoT-ATP-Agent-CS](https://github.com/Azure/IoT-ATP-Agent-CS)
 
 ## Agent supported platforms
 
 ATP for IoT offers different installer agents for 32bit and 64bit Windows, and the same for 32bit and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
-| 32bit or 64bit | Linux | Windows |    Details|
+| 32 or 64bit | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32 bit  | C  | C#  ||
+| 32bit  | C  | C#  ||
+| 64bit  | C# or C           | C#      | Use the C agent for devices with minimal resources|
 
 
 ## Next steps

@@ -91,20 +91,19 @@ Set of controllable properties that control the ATP for IoT security agents.
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Diagnostic event|eventPriorityDiagnostic| Off| False| Agent related diagnostic events. Use this event for verbose logging.| 
-Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
+|Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
 |Dropped events statistics |eventPriorityDroppedEventsStatistics |Low |True|Agent related event statistics. |
 |Message statistics|eventPriorityMessageStatistics |Low |True |Agent related message statistics. |
 |Connected hardware|eventPriorityConnectedHardware |Low |True |Snapshot of all hardware connected to the device.|
 |Listening ports|eventPriorityListeningPorts |High |True |Snapshot of all open listening ports on the device.|
-| Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|
-| Process terminate|eventPriorityProcessTerminate |Low |False |Audits process termination on the device.| 
- System information |eventPrioritySystemInformation |Low |True |A snapshot of system information (for example: OS or CPU).| 
+|Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|
+|Process terminate|eventPriorityProcessTerminate |Low |False |Audits process termination on the device.| 
+|System information |eventPrioritySystemInformation |Low |True |A snapshot of system information (for example: OS or CPU).| 
 |Local users| eventPriorityLocalUsers |High |True|A snapshot of the registered local users within the system. |
 |Login|  eventPriorityLogin |High|False|Audit the login events to the device (local and remote logins).|
 |Connection create |eventPriorityConnectionCreate|Low|False|Audits TCP connections created to and from the device. |
 |Firewall configuration| eventPriorityFirewallConfiguration|Low|True|Snapshot of device firewall configuration (firewall rules). |
-|OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.| 
-|
+|OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
 
 Make sure to validate your agent configuration changes against this [schema](https://github.com/azure/atp-for-iot-schemas/security_module_twin). The agent will not launch if the configuration object does not match the schema.
  

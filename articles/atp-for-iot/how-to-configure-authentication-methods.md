@@ -37,38 +37,40 @@ When using the install security agent script, the following configuration is per
 
 To use **Security Module authentication mode**, edit (Authentication.config) with the following parameters:
 
-```json
-  <Authentication>
-    <add key="deviceId" value=""/>
-    <add key="gatewayHostname" value=""/>
-    <add key="filePath" value=""/>
-    <add key="type" value=""/>
-    <add key="identity" value=""/>
-    <add key="certificateLocationKind" value="" />
-  </Authentication>
+```xml
+<Authentication>
+  <add key="deviceId" value=""/>
+  <add key="gatewayHostname" value=""/>
+  <add key="filePath" value=""/>
+  <add key="type" value=""/>
+  <add key="identity" value=""/>
+  <add key="certificateLocationKind" value="" />
+</Authentication>
 ```
 
 |Parameter|Description|Options|
 |---------|---------------|---------------|
-|**identity**|Authentication mode| **SecurityModule** or **Device**|
+|**identity**|Authentication mode| **Module** or **Device**|
 |**type**|Authentication type|**SymmetricKey** or **SelfSignedCertificate**|
 |**filePath**|Absolute full path for the file containing the certificate or the symmetric key| |
-|**gatewayHostname**|FQDN of the IoT Hub|Note - this field is only required when identity=Device|
-|**deviceId**|Device ID|Note -  this field is only required when identity=Device|
-|**certificateLocationKind**|Certificate storage location|Local file or certificate store|
-|
+|**gatewayHostname**|FQDN of the IoT Hub||
+|**deviceId**|Device ID||
+|**certificateLocationKind**|Certificate storage location|**LocalFile** or **Store**|
+
 
 ### C Configuration
 
 To use **Security Module authentication mode**, edit LocalConfiguration.json with the following parameters:
 
+```json
 "Authentication" : {
-"Identity" : "",
-"AuthenticationMethod" : "",
-"FilePath" : "",
-"DeviceId" : "",
-"HostName" : ""
+	"Identity" : "",
+	"AuthenticationMethod" : "",
+	"FilePath" : "",
+	"DeviceId" : "",
+	"HostName" : ""
 }
+```
 					
 ## IoT Hub authentication configuration 
 

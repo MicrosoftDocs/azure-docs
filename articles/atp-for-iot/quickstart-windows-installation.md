@@ -51,12 +51,13 @@ To install the security agent, do the following:
     
     and run:
 
-    ```.\InstallSecurityAgent.ps1 -Install -authenticationIdentity <authentication identity> -authenticationMethod <authentication method> -filePath <file path> -hostName <host name> -deviceId <device id> certificateLocationKind <certificate location kind>```
+    ```
+	.\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
+	```
     
     The PowerShell script does the following:
-    - Installs prerequisites
-    - Installs the agent as a System Service
-
+    - Installs prerequisites.
+    - Installs the agent as a System Service.
     - Configures the agent with the authentication parameters provided.
 
     See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.  
@@ -67,7 +68,7 @@ To install the security agent, do the following:
 ### Check deployment status
 
 - Check the deployment status by running:
-    ```sc.exe query "AzureIoTSecurity" ```
+    ```sc.exe query "ASC IoT Agent" ```
 
 ### Uninstall the agent
 
@@ -87,27 +88,29 @@ To turn on logging:
 
 2. Edit the following values:
 
-```<add key="logLevel" value="Debug" />
-  <add key="fileLogLevel" value="Debug"/> 
-  <add key="diagnosticVerbosityLevel" value="Some" /> 
-  <add key="logFilePath" value="IoTAgentLog.log" />```
+```xml
+<add key="logLevel" value="Debug" />
+<add key="fileLogLevel" value="Debug"/> 
+<add key="diagnosticVerbosityLevel" value="Some" /> 
+<add key="logFilePath" value="IoTAgentLog.log" />
+```
 
 > [!NOTE]
 > We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage. 
 
 3. Restart the agent by running the following PowerShell or command line:
 
-    - Powershell:
-    ```
-    Restart-Service "AzureIoTSecurity"
-    ```
-    -OR-
+- Powershell:
+	```
+	Restart-Service "ASC IoT Agent"
+	```
+-OR-
 
-    - CMD:
-    ```
-    sc.exe stop "AzureIoTSecurity" 
-    sc.exe start "AzureIoTSecurity" 
- ```
+- CMD:
+	```
+	sc.exe stop "ASC IoT Agent" 
+	sc.exe start "ASC IoT Agent" 
+	```
 4. Review the log file for more information about the failure.
 
     - The log file is located at: \<wherever you unpacked your agent>/IoTAgentLog.log
