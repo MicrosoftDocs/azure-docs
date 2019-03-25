@@ -5,12 +5,12 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/22/2019
+ms.date: 3/25/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Create an Azure DNS private zone using the Azure portal
+# Tutorial: Create an Azure DNS private zone using the Azure portal
 
 This tutorial walks you through the steps to create your first private DNS zone and record using the Azure portal.
 
@@ -30,35 +30,80 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](private-dns-getstarted-powershell.md) or [Azure CLI](private-dns-getstarted-cli.md).
 
-## Create the resource group
-
-First, create a resource group to contain the DNS zone: 
-
-
-
 ## Create a DNS private zone
 
-A DNS zone is created by using the `az network dns zone create` command with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
+The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyAzureResourceGroup**.
 
-If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone.
+A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name. 
 
-### List DNS private zones
+1. On the portal page upper left, select **Create a resource**, then **Networking**. Type **Private DNS zone** in the search text box and press **Enter**.
+1. Select **Private DNS zone**.
+2. Select **Create**.
+
+1. On the **Create Private DNS zone** page, type or select the following values:
+
+   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
+   -  **Name**: Type *private.contoso.com* for this example.
+1. For **Resource group location**, select **West Central US**.
+
+1. Select **Review + Create**.
+
+1. Select **Create**.
+
+It may take a few minutes to create the zone.
+
+## Create a virtual network
+
+1. On the portal page upper left, select **Create a resource**, then **Networking**, then select **Virtual network**.
+2. For **Name**, type **myAzureVNet**.
+3. For **Resource group**, select **MyAzureResourceGroup**.
+4. For **Location**, select **West Central US**.
+5. Accept the other default values and select **Create**.
+
+## Link the virtual network
+
+To link the private DNS zone to a virtual network, you create a virtual network link.
+
+1. Open the **MyAzureResourceGroup** resource group and select the **private.contoso.com** private zone.
+2. On the left pane, select **Virtual network links**.
+3. Select **Add**.
+4. Type **myLink** for the **Link name**.
+5. For **Virtual network**, select **myAzureVNet**.
+6. Select the **Enable auto registration** check box.
+7. Select **OK**.
 
 ## Create the test virtual machines
 
 Now, create two virtual machines so you can test your private DNS zone:
 
-This will take a few minutes to complete.
+1. On the portal page upper left, select **Create a resource**, and then select **Windows Server 2016 Datacenter**.
+1. Select **MyAzureResourceGroup** for the resource group.
+1. Type **myVM01** - for the name of the virtual machine.
+1. Select **West Central US** for the **Region**.
+1. Type **azureadmin** for the administrator user name.
+2. Type **Azure12345678** for the password and confirm the password.
+
+5. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
+10. Accept the other defaults for the page and then click **Next: Disks >**.
+11. Accept the defaults on the **Disks** page, then click **Next: Networking >**.
+1. Make sure that **myAzureVNet** is selected for the virtual network.
+1. Accept the other defaults for the page, and then click **Next: Management >**.
+2. For **Boot diagnostics**, select **Off**, accept the other defaults, and then select **Review + create**.
+1. Review the settings and then click **Create**.
+
+Repeat these steps and create another virtual machine named **myVM02**.
+
+It will take a few minutes for both virtual machines to complete.
 
 ## Create an additional DNS record
 
-To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help with adding A records for example, see `azure network dns record-set A add-record --help`.
+ The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with the IP address of **myVM01**.
 
- The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4".
-
-
-### View DNS records
-
+1. Open the **MyAzureResourceGroup** resource group and select the **private.contoso.com** private zone.
+2. Select **+ Record set**.
+3. For **Name**, type **db**.
+4. For **IP Address**, type the IP address you see for **myVM01**. This should be auto registered when the virtual machine started.
+5. Select **OK**.
 
 ## Test the private zone
 
