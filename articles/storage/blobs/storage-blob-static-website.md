@@ -44,7 +44,7 @@ https://contoso.z4.web.core.windows.net/image.png
 The selected default file name is used at the root and any subdirectories when a file name is not provided. If the server returns a 404 and you do not provide an error document path, then a default 404 page is returned to the user.
 
 > [!NOTE]
-> The default public access level for files is Private. Since the files are served through anonymous access requests this setting is ignored. There is public access to all files and RBAC permissions are ignored.
+> The default public access level for files is Private. Because the files are served through anonymous access requests, this setting is ignored. There's public access to all files, and RBAC permissions are ignored.
 
 ## CDN and SSL support
 
