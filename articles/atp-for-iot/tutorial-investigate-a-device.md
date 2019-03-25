@@ -27,7 +27,7 @@ ATP for IoT service alerts and evidence provide clear indications when IoT devic
 > * Remediation
 > * Prevention
 
-## Where can I access my data?
+## Where can I access my data
 
 By default, ATP for IoT stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
 
@@ -48,7 +48,7 @@ Following configuration, do the following to access your LA workspace stored dat
 
 ## Investigation steps for suspicious IoT devices
 
-To access insights and raw data about your IoT devices, go to your Log Analytics workspace [Where can I access my data?](#where-can-I-access-my-data).
+To access insights and raw data about your IoT devices, go to your Log Analytics workspace [Where can I access my data](#where-can-i-access-my-data).
 
 Check and investigate the device data for the following details and activities using the following kql queries:
 
