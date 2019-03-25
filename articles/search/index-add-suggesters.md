@@ -23,13 +23,13 @@ translation.priority.mt:
 ---
 # Add suggesters to an index for typeahead in Azure Search
 
-A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. There are two typeahead variants: [*autocomplete*](search-autocomplete-tutorial.md) completes the term or phrase you are typing, [*Suggestions*](search-autosuggest-example.md) provides a short list of terms or phrases that you can select as a query input. You have undoubtedly seen these behaviors before in commercial search engines.
+A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. There are two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions provides a short list of terms or phrases that you can select as a query input. You have undoubtedly seen these behaviors before in commercial search engines.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual comparison of autocomplete and suggested queries")
 
 To implement these behaviors in Azure Search, there is an index and query component. 
 
-+ In an index, add a suggester. You can use the portal, REST API or .NET SDK to create a suggester. 
++ In an index, add a suggester. You can use the portal, REST API, or .NET SDK to create a suggester. 
 
 + On a query, specify either a suggestion or sutocomplete action. 
 
@@ -112,27 +112,23 @@ If you add a suggester to an existing index, where existing fields are included 
 
 ## How to use a suggester
 
-As previously noted, you can use a suggester for autosuggest, autocomplete, or both. 
+As previously noted, you can use a suggester for suggested queries, autocomplete, or both. 
 
 A suggester is referenced on the request along with the operation. For example, on a GET REST call, specify either `suggest` or `autocomplete` on the documents collection. For REST, after a suggester is created, use the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) or the [Autocomplete API (preview)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in your query logic.
 
 For .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) or [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 
-Examples demonstrating each request:
-
-+ [Add autosuggest for dropdown query selections](search-autosuggest-example.md)
-
-+ [Add autocomplete to partial term inputs in Azure Search](search-autocomplete-tutorial.md) (in preview) 
+For an example demonstrating both requests, see [Example for adding autocomplete and suggestions in Azure Search](search-autocomplete-tutorial.md).
 
 ## Sample code
 
-The [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) sample contains both C# and Java code, and demonstrates a suggester construction, autosuggest, autocomplete, and facet navigation. 
+The [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) sample contains both C# and Java code, and demonstrates a suggester construction, suggested queries, autocomplete, and facet navigation. 
 
 It uses a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run it. No subscription or sign in necessary.
 
 ## Next steps
 
-We recommend the following examples to see how the requests are formulated:
+We recommend the following example to see how the requests are formulated.
 
-+ [Autosuggested query example](search-autosuggest-example.md) 
-+ [Autocompleted query example (preview)](search-autocomplete-tutorial.md) 
+> [!div class="nextstepaction"]
+> [Autocompleted query example (preview)](search-autocomplete-tutorial.md) 
