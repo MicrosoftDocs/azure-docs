@@ -157,11 +157,25 @@ You can disable Automatic Updates manually.
 
 To disable Automatic Updates:
 
-1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Disable Windows Auto Update Service on the local VM.
-4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
-5. Right-click **Configure Automatic Update** and set it to **Disabled**.
+- [Prepare and customize a master VHD image](#prepare-and-customize-a-master-vhd-image)
+  - [Create a VM](#create-a-vm)
+    - [Local image creation](#local-image-creation)
+    - [Fixed disk](#fixed-disk)
+  - [Software preparation and installation](#software-preparation-and-installation)
+    - [Install Office in shared computer activation mode](#install-office-in-shared-computer-activation-mode)
+      - [Sample configuration.xml](#sample-configurationxml)
+    - [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode)
+    - [Teams and Skype](#teams-and-skype)
+    - [Set up user profile container (FSLogix)](#set-up-user-profile-container-fslogix)
+    - [Configure Windows Defender](#configure-windows-defender)
+    - [Configure session timeout policies](#configure-session-timeout-policies)
+    - [Set up time zone redirection](#set-up-time-zone-redirection)
+    - [Disable Storage Sense](#disable-storage-sense)
+    - [Include additional language support](#include-additional-language-support)
+    - [Other applications and registry configuration](#other-applications-and-registry-configuration)
+  - [Prepare the image for upload to Azure](#prepare-the-image-for-upload-to-azure)
+  - [Upload master image to a storage account in Azure](#upload-master-image-to-a-storage-account-in-azure)
+  - [Next steps](#next-steps)
 
 You can also run the following command on a command prompt to disable Automatic Updates.
 
