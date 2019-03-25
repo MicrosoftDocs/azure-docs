@@ -39,13 +39,13 @@ Configuring a managed instance to function as a publisher or a distributor requi
 Supports:
 
 - Transactional and snapshot replication mix of SQL Server on-premises and managed instances in Azure SQL Database.
-- Subscribers can be in on-premises SQL Server databases, single databases in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
+- Subscribers can be in on-premises SQL Server databases, single databases/managed instances in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
 - One-way or bidirectional replication.
 
 The following features are not supported in a managed instance in Azure SQL Database:
 
 - Updateable subscriptions.
-- Active geo replication.
+- [Active geo replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md) should not be used if the Transactional Replication is configured.
 
 ## Configure publishing and distribution example
 
