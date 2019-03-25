@@ -34,7 +34,7 @@ Click the **Remote Monitoring** tile. On the **Remote Monitoring** page, click *
 ![Choose Remote Monitoring](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
 A **Basic** version will be deployed using the web-based UI.
-Basic deployment is geared toward showcasing the solution and it minimizes the costs. 
+Basic deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine and it minimizes the costs. 
 
 For more information see [basic deployment.](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli#basic-and-standard-deployments)
 
