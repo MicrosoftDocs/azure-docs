@@ -299,9 +299,9 @@ This is a UI shortcut that selects the two required settings for the Azure App S
 This setting associates a [custom probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) with an HTTP setting. You can associate only one custom probe with an HTTP setting. If you don't explicitly associate a custom probe, the [default probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) is used to monitor the health of the back end. We recommend that you create a custom probe to have greater control over the health monitoring of your back ends.
 
 > [!NOTE]
-> The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.<a id="pick"/></a>
+> The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
 
-### Pick host name from back-end address
+### <a id="pick"/></a>Pick host name from back-end address
 
 This capability dynamically sets the *host* header in the request to the host name of the back-end pool. It uses an IP address or fully qualified domain name (FQDN).
 
