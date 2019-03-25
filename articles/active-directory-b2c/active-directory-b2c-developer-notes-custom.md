@@ -1,5 +1,5 @@
 ---
-title: Release notes for custom policies - Azure Active Directory B2C | Microsoft Docs
+title: Developer notes for custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
 author: davidmu1
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Release notes for custom policies in Azure Active Directory B2C
+# Developer notes for custom policies in Azure Active Directory B2C
 
 Custom policy configuration in Azure Active Directory B2C is now generally available. This method of configuration is targeted at advanced identity developers building complex identity solutions. Custom policies make the power of the Identity Experience Framework available in Azure AD B2C tenants. 
 Advanced identity developers using custom policies should plan to invest some time completing walk-throughs and reading reference documents.
