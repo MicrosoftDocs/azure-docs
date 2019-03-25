@@ -21,7 +21,7 @@ ms.date: 03/21/2019
 >  
 > 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, which all benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add data to the collection. You then use a [SQL .NET SDK](sql-api-sdk-dotnet.md) web app to add more data to the collection. 
 
