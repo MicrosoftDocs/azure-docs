@@ -95,7 +95,7 @@ Add a subnet to the virtual network you created by following these steps:
 
 2. Select **Subnets** from the left menu and then select **+ Subnet**. 
 
-   ![Create subnet](C:/Users/absha/Documents/GitHub/azure-docs-pr/articles/application-gateway/media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
+   ![Create subnet](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
 3. From the **Add subnet** page, enter *myBackendSubnet* for the **Name** of the subnet, and then select **OK**.
 
@@ -121,7 +121,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
 
 1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-   ![Install custom extension](C:/Users/absha/Documents/GitHub/azure-docs-pr/articles/application-gateway/media/application-gateway-create-gateway-portal/application-gateway-extension.png)
+   ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Run the following command to install IIS on the virtual machine: 
 
@@ -151,7 +151,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
 
 5. Under **VIRTUAL MACHINE** and **NETWORK INTERFACES**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
 
-   ![Add backend servers](C:/Users/absha/Documents/GitHub/azure-docs-pr/articles/application-gateway/media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+   ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Select **Save**.
 
@@ -183,9 +183,9 @@ Configure diagnostics to record data into the ApplicationGatewayAccessLog, Appli
 
 Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](C:/Users/absha/Documents/GitHub/azure-docs-pr/articles/application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 2. Copy the public IP address, and then paste it into the address bar of your browser.
-3. Check the response. A valid response verifies that the application gateway was successfully created and it is able to successfully connect with the backend.![Test application gateway](C:/Users/absha/Documents/GitHub/azure-docs-pr/articles/application-gateway/media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. Check the response. A valid response verifies that the application gateway was successfully created and it is able to successfully connect with the backend.![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## Clean up resources
 
