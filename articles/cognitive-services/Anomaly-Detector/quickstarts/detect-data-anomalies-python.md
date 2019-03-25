@@ -94,11 +94,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
-3. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+3. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the index of anomalous data points, if any were found.
 
 ```python
 def detect_batch(request_data):
-
+    print("Detecting anomalies as a batch")
     result = send_request(endpoint, batch_detection_url, subscription_key, request_data)
     print(json.dumps(result, indent=4))
 
