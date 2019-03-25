@@ -281,6 +281,10 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### Shell script for Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+if ! echo "AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C InstallDependencyAgent-Linux64.bin"  | sha256sum -c -; then
+    echo "Checksum failed" >&2
+    exit 1
+fi
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 ## Desired State Configuration
