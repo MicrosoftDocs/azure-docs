@@ -1,7 +1,7 @@
 ---
-title: Pricing and quotas - Custom Vision Service
+title: Limits and quotas - Custom Vision Service
 titlesuffix: Azure Cognitive Services
-description: Learn about the quotas and quotas for the Custom Vision Service.
+description: Learn about the limits and quotas for the Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/25/2019
 ms.author: anroth
 ---
 
-# Pricing and quotas
+# Limits and quotas
 
 There are two tiers of keys for the Custom Vision service. You can sign up for a F0 (free) or S0 (standard) subscription through the Azure portal. See the corresponding [Cognitive Services Pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for details on pricing and transactions.
 
