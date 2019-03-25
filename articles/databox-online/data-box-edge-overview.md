@@ -85,7 +85,7 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 Data Box Edge physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For this release, the Data Box Edge resource is available in the following regions:
-    - **United States** - West US2 and East US
+    - **United States** - East US
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
     

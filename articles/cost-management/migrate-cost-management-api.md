@@ -458,7 +458,7 @@ The following fields are either not available in Microsoft Customer Agreement Pr
 | offerId | Not applicable. Corresponds to productOrderName in MCA. |
 | meterCategory  | Not applicable. Corresponds to Service in MCA. |
 | unit | Not applicable. Can be parsed from unitOfMeasure. |
-| currencyCode | Same as the the pricingCurrency in MCA. |
+| currencyCode | Same as the pricingCurrency in MCA. |
 | meterLocation | Same as the meterRegion in MCA. |
 | partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of partnumber, use the meterId and productOrderName combination to uniquely identify prices. |
 | totalIncludedQuantity | Not applicable. |
