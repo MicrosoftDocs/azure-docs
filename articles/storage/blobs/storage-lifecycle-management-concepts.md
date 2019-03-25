@@ -302,7 +302,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 ```
 ## FAQ - I created a new policy, why are the actions not run immediately? 
 
-The platform runs the lifecycle policy once a day. Once you set a new policy, it can take up to 24 hours for some actions (such as tiering and deletion) to start and run.  
+The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions (such as tiering and deletion) to run for the first time.  
 
 ## Next steps
 
