@@ -47,13 +47,13 @@ Memory pressure on the client machine leads to all kinds of performance problems
 
 To detect memory pressure on the client:
 
-1. Monitor memory usage on machine to make sure that it doesn't exceed available memory.
-2. Monitor the client's `Page Faults/Sec` performance counter. During normal operation, most systems have some page faults. Spikes in page faults corresponding with request timeouts can indicate memory pressure.
+- Monitor memory usage on machine to make sure that it doesn't exceed available memory.
+- Monitor the client's `Page Faults/Sec` performance counter. During normal operation, most systems have some page faults. Spikes in page faults corresponding with request timeouts can indicate memory pressure.
 
 High memory pressure on the client can be mitigated several ways:
 
-1. Dig into your memory usage patterns to reduce memory consumption on the client.
-1. Upgrade your client VM to a larger size with more memory.
+- Dig into your memory usage patterns to reduce memory consumption on the client.
+- Upgrade your client VM to a larger size with more memory.
 
 ### Burst of traffic
 
@@ -66,8 +66,8 @@ Monitor how your `ThreadPool` statistics change over time using [an example `Thr
 
 In the preceding exception, there are several issues that are interesting:
 
-1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
-1. You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
+- Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
+- You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
 You can [configure your `ThreadPool` Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
 
@@ -84,8 +84,8 @@ Monitor the client's system-wide CPU usage using metrics available in the Azure 
 
 To mitigate a client's high CPU usage:
 
-1. Investigate what is causing CPU spikes.
-1. Upgrade your client to a larger VM size with more CPU capacity.
+- Investigate what is causing CPU spikes.
+- Upgrade your client to a larger VM size with more CPU capacity.
 
 ### Client-side bandwidth exceeded
 
@@ -133,18 +133,18 @@ This section discusses troubleshooting issues that occur because of a condition 
 
 Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system may page data to disk. This _page faulting_ causes the system to slow down significantly. There are several possible causes of this memory pressure:
 
-1. The cache is filled with data near its maximum capacity.
-1. Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
+- The cache is filled with data near its maximum capacity.
+- Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
 
 Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) using the portal.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-1. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
-1. Break up your large cached objects into smaller related objects.
-1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
-1. [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
+- [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+- [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
+- Break up your large cached objects into smaller related objects.
+- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
+- [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
 
 #### Considerations for Memory Reservations
 
@@ -158,9 +158,9 @@ A high server load or CPU usage means the server can't process requests in a tim
 
 There are several changes you can make to mitigate high server load:
 
-1. Investigate what is causing CPU spikes such as running [expensive commands](#expensive-commands) or page faulting because of high memory pressure.
-1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
-1. [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
+- Investigate what is causing CPU spikes such as running [expensive commands](#expensive-commands) or page faulting because of high memory pressure.
+- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+- [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
 
 #### Expensive commands
 
@@ -176,9 +176,9 @@ The "Cache Read" and "Cache Write" metrics can be used to see how much server-si
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
-1. Change client call behavior to reduce network demand.
-1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
-1. [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
+- Change client call behavior to reduce network demand.
+- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+- [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
 
 ## Data-loss troubleshooting
 
