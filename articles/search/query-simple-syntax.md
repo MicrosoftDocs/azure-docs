@@ -69,7 +69,7 @@ The phrase operator encloses a phrase in quotation marks `" "`. For example, whi
 
 ## Precedence operator
 
-The precedence operator encloses the string in parentheses `( )`. For example, `motel+(wifi | luxury)` will search for documents containing the motel term and either `wifi` or `luxury` (or both).|  
+The precedence operator encloses the string in parentheses `( )`. For example, `motel+(wifi | luxury)` will search for documents containing the motel term and either `wifi` or `luxury` (or both).  
 
 ## Escaping search operators  
 
