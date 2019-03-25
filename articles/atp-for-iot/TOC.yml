@@ -11,10 +11,10 @@
   items:
   - name: Getting started with ATP for IoT service
     href: quickstart-getting-started.md
-    - name: Service prerequisites
-      href: service-prerequisites.md
-    - name: Device agent prerequisites
-      href: device-agent-prerequisites.md
+  - name: Service prerequisites
+    href: service-prerequisites.md
+  - name: Device agent prerequisites
+    href: device-agent-prerequisites.md
   - name: Onboarding ATP for IoT to IoT Hub
     href: quickstart-onboard-iot-hub.md
   - name: Configure your solution
