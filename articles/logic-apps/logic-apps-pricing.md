@@ -23,15 +23,20 @@ For specific pricing information, see [Azure Logic Apps Pricing](https://azure.m
 
 ## Consumption pricing model
 
-For new logic apps that run in the public or "global" Azure 
-Logic Apps service, you pay only for what you use. These logic 
-apps use a consumption-based plan and pricing model. In your logic 
-app definition, each step is an action. For example, actions include 
-the trigger, which is a special kind of action and required as the 
-first step in any logic app, built-in actions, calls to connectors, 
-and any control flow steps. Azure Logic Apps meters all the actions 
-that run in your logic app. Learn more about how billing works for 
-[triggers](#triggers) and [actions](#actions).
+For new logic apps that run in the public or "global" 
+Azure Logic Apps service, you pay only for what you use. 
+These logic apps use a consumption-based plan and pricing model. 
+In your logic app definition, each step is an action. For example, 
+actions include: 
+
+* Triggers, which are special actions. 
+All logic apps require a trigger as the first step.
+* Built-in or native actions such as HTTP
+* Calls to connectors such as Outlook 365, Dropbox, and so on.
+* Control flow steps, such as loops, conditional statements, and so on. 
+
+Azure Logic Apps meters all the actions that run in your logic app. 
+Learn more about how billing works for [triggers](#triggers) and [actions](#actions).
 
 <a name="fixed-pricing"></a>
 
