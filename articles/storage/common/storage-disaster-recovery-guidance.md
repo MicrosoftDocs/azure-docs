@@ -160,6 +160,7 @@ The following features or services are not supported for account failover for th
 - Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- After the failover is complete the following features will stop working if originally enabled: [Event subscriptions](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview), [Lifecycle policies](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts),  [Storage Analytics Logging](https://docs.microsoft.com/en-us/rest/api/storageservices/about-storage-analytics-logging).
 
 ## Copying data as an alternative to failover
 
