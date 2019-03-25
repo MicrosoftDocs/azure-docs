@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
@@ -127,6 +127,7 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
 
 ```Python

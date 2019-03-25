@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
@@ -59,6 +59,9 @@ After registration, Azure Active Directory global administrator permission is no
 The user who registers Azure Stack is the owner of the service principal in Azure Active Directory. Only the user who registered Azure Stack can modify the Azure Stack registration. If a non-admin user that is not an owner of the registration service principal attempts to register or re-register Azure Stack, they may encounter a 403 response. A 403 response indicates the user has insufficient permissions to complete the operation.
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
+
+> [!NOTE]
+> If you have more than one Azure Stack, a best practice is to register each Azure Stack to its own subscription. This will make it easier for you to track usage.
 
 ### PowerShell language mode
 
