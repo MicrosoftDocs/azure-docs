@@ -14,7 +14,7 @@ ms.author: ramamill
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server. You can deploy the Mobility Service using the following methods:
 
 - [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
-- [Install manually](#install-mobility-agent-manually-through-ui--command-line): You can install the Mobility service manually on each machine using the UI or command prompt.
+- Install manually: You can install the Mobility service manually on each machine through [UI](#install-mobility-agent-through-ui) or [command prompt](#install-mobility-agent-through-command-prompt).
 - [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
 
 ## Anti-virus on replicated machines
