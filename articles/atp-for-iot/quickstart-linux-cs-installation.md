@@ -44,7 +44,9 @@ To deploy the security agent, do the following:
 1. Add running permissions to the **InstallSecurityAgent script** by running `chmod +x InstallSecurityAgent.sh` 
     1. Next, run: 
 
-    `./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind> `
+    ```
+	./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
+	```
 
 This script does the following:
 
@@ -73,7 +75,7 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
 1. Check the deployment status by running:
 
-    `systemctl status AzureIoTSecurityAgent.service`
+    `systemctl status ASCIoTAgent.service`
 
 2. Enable logging.  
 If the agent fails to start, turn on logging to get more information.
@@ -82,7 +84,7 @@ If the agent fails to start, turn on logging to get more information.
 
     1. Open the configuration file for editing in any Linux editor:
 
-   `vi /var/AzureIoTSecurityAgent/General.config`
+   `vi /var/ASCIoTAgent/General.config`
 
     2. Edit the following values: 
 
@@ -90,7 +92,7 @@ If the agent fails to start, turn on logging to get more information.
         <add key="logLevel" value="Debug"/>
         <add key="fileLogLevel" value="Debug"/>
         <add key="diagnosticVerbosityLevel" value="Some" /> 
-        <add key="logFilePath" value="AzureIoTSecurityAgentLog.log"/>
+        <add key="logFilePath" value="IotAgentLog.log"/>
     ```
    - The **logFilePath** value is configurable. 
 
@@ -99,12 +101,12 @@ If the agent fails to start, turn on logging to get more information.
 
     3. Restart the agent by running:
 
-   `systemctl restart AzureIoTSecurityAgent.service`
+   `systemctl restart ASCIoTAgent.service`
 
     4. View the log file for more information about the failure.  
 
     Log file location is:
-`/var/AzureIoTSecurityAgent/IotAgentLog.log`
+`/var/ASCIoTAgent/IotAgentLog.log`
 
 - Change the file location path according to the name you chose for the logFilePath in step 2. 
 
