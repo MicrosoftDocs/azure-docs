@@ -26,7 +26,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
-![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-request-charge/portal-sql-query.png)
+![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-ru-charge/portal-sql-query.png)
 
 # Finding the request unit charge from the .NET SDK v2
 
