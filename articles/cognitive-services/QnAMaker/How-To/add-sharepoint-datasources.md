@@ -26,7 +26,9 @@ You can add all QnA Maker-supported [file types](../Concepts/data-sources-suppor
 
 1. From the Sharepoint server, select the file's ellipsis menu, `...`.
 1. Copy the file's URL.
+
     ![Get the Sharepoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+
 1. In the QnA Maker portal, add the URL to the knowledge base. 
 
 ## Permissions
