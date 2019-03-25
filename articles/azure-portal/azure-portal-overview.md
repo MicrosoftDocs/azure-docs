@@ -13,7 +13,7 @@ manager:  mtillman
 ---
 # Azure portal overview
 
-This article introduces the Azure portal, identifies portal page elements, and helps you get familiar with the Azure portal management experience. To learn how to use individual services in the portal, see [Azure documentation](https://docs.microsoft.com/azure/index).
+This article introduces the Azure portal, identifies portal page elements, and helps you get familiar with the Azure portal management experience.
 
 ## What is the Azure portal?
 
