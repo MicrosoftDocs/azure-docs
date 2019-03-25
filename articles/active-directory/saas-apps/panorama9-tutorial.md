@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with Panorama9, perform the following steps
 
 ### Configure Panorama9 Single Sign-On
 
-1. In a different web browser window, log into your Panorama9 company site as an administrator.
+1. In a different web browser window, sign in to your Panorama9 company site as an administrator.
 
 2. In the toolbar on the top, click **Manage**, and then click **Extensions**.
    
@@ -203,13 +203,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Panorama9 test user
 
-In order to enable Azure AD users to log into Panorama9, they must be provisioned into Panorama9.  
+In order to enable Azure AD users to sign in to Panorama9, they must be provisioned into Panorama9.  
 
 In the case of Panorama9, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
 
-1. Log in to your **Panorama9** company site as an administrator.
+1. Sign in to your **Panorama9** company site as an administrator.
 
 2. In the menu on the top, click **Manage**, and then click **Users**.
    
