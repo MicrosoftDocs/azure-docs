@@ -29,17 +29,13 @@ An application gateway is a dedicated deployment in your virtual network. Within
 
 #### Size of the subnet
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private front-end IP is configured.
+Application Gateway consumes 1 private IP address per instance, plus another private IP address if a private front-end IP is configured.
 
 Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 instances of application gateway with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the gateway instances. So, you need a /27 subnet size or larger.
 
 Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the gateway instances, 1 for the private front end, and 5 for internal use. So, you need a /26 subnet size or larger.
 
 We recommend that you use a subnet size of at least /28. This size gives you 11 usable IP addresses. If your application load requires more than 10 IP addresses, consider a /27 or /26 subnet size.
-
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. In addition, Azure reserves five IP addresses - the first four and last IP address - in each subnet for internal usage. For example, if an application gateway is set to 15 instances and no private frontend IP, then at least 20 IP addresses will be required in the subnet - five IP addresses for internal usage and 15 IP addresses for the 15 instances of the application gateway. Therefore, in this case a /27 subnet size or greater is needed. If you have 27 instances and an IP address for the private frontend IP configuration, then 33 IP addresses will be required - 27 IP addresses for the 27 instances of the application gateway, one IP address for private frontend IP and five IP addresses for internal usage. Therefore, in this case a /26 subnet size or greater is needed.
-
-It is recommended to use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, you should consider a /27 or /26 subnet size.
 
 #### Network security groups supported on the application gateway subnet
 
