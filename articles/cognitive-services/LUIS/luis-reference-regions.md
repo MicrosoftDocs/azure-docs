@@ -27,6 +27,10 @@ There are three LUIS websites, based on region. You must author and publish in t
 |[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai]|Europe|`westeurope`|
 
+You can use the authoring region for interacting with deployed LUIS service in a different Azure publishing region.  
+
+Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+
 ## Regions and Azure resources
 The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS resource in **westus** and add it to the app as a resource, the app is published in that region. 
 
