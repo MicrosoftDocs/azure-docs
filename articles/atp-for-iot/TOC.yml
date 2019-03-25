@@ -1,4 +1,4 @@
-- name: Azure IoT Security Preview Documentation
+- name: ATP for IoT Preview Documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -9,34 +9,32 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Getting started with Azure IoT Security service
+  - name: Getting started with ATP for IoT service
     href: quickstart-getting-started.md
     - name: Service prerequisites
       href: service-prerequisites.md
     - name: Device agent prerequisites
       href: device-agent-prerequisites.md
-  - name: Onboarding Azure IoT Security to IoT Hub
+  - name: Onboarding ATP for IoT to IoT Hub
     href: quickstart-onboard-iot-hub.md
   - name: Configure your solution
     href: quickstart-configure-your-solution.md
-  - name: Create a security module
-    href: quickstart-create-security-module.md
-  - name: Create an Azure IoT Security module twin
+  - name: Create an ATP for IoT module twin
     href: quickstart-security-twin.md
-  - name: Configure an Azure IoT Security agent
+  - name: Configure an ATP for IoT agent
     href: quickstart-agent-configuration.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
-  - name: Install the Azure IoT Security agent on a Windows Device
+  - name: Install the ATP for IoT agent on a Windows Device
     href: quickstart-windows-installation.md
-  - name: Install the Azure IoT Security on a Linux 32-bit device 
+  - name: Install the ATP for IoT on a Linux 32-bit device 
     href: quickstart-linux-c#-installation.md
-  - name: Install the Azure IoT Security on a Linux 64-bit device 
+  - name: Install the ATP for IoT on a Linux 64-bit device 
     href: quickstart-linux-c-installation.md
   
 - name: Tutorials
   items:
-  - name: Azure IoT Security agent configuration 
+  - name: ATP for IoT agent configuration 
     href: tutorial-agent-configuration.md
   - name: Send your own security messages
     href: tutorial-send-security-messages.md 
@@ -48,8 +46,8 @@
   items:
   - name: Security agent authentication methods
     href: concept-security-agent-authentication-methods.md
-  - name: Azure IoT Security module twins
-    href: concept-azure-iot-security-module-twins.md
+  - name: ATP for IoT module twins
+    href: concept-atp-for-iot-security-module-twins.md
   - name: Security alerts 
     href: concept-security-alerts.md  
   - name: Security recommendations
@@ -58,7 +56,7 @@
 
 - name: How-to guides
   items:
-  - name: Access your data
+  - name: Access your security data
     href: how-to-security-data-access.md
   - name: Configure authentication methods
     href: how-to-configure-authentication-methods.md
