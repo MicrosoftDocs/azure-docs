@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: sngun
 ---
-The Azure portal monitors the throughput, storage, availability, latency, and consistency of the resources in your Cosmos DB account. Each metrics chart that's associated with an [Azure Cosmos DB Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) has a line showing the SLA value and a line showing actual performance. This metrics suite makes monitoring Azure Cosmos DB performance easy.
+The Azure portal monitors the throughput, storage, availability, latency, and consistency of the resources in your Cosmos DB account. Each metrics chart that's associated with an [Azure Cosmos DB Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) has lines showing the SLA value and the actual performance. This metrics suite makes monitoring Azure Cosmos DB performance easy.
 
 To review metrics and SLAs: 
 

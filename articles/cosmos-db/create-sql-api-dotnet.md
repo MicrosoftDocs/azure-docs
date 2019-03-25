@@ -21,11 +21,11 @@ ms.date: 03/21/2019
 >  
 > 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. All these databases benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, which all benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add sample data to the collection. You then use a sample [SQL .NET SDK](sql-api-sdk-dotnet.md) to-do list web app to add more data to the collection. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add data to the collection. You then use a [SQL .NET SDK](sql-api-sdk-dotnet.md) web app to add more data to the collection. 
 
-In this quickstart, you create the database and collection in the Azure portal. To learn how to create the database and collection by using the .NET sample instead, see [Review the code](#review-the-code). 
+In this quickstart, you use Data Explorer in the Azure portal to create the database and collection. You can also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the-code). 
 
 ## Prerequisites
 
@@ -168,7 +168,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 1. In the NuGet **Browse** box, type *DocumentDB*.
 
-1. From the results, install the **Microsoft.Azure.DocumentDB** library if not already installed. This installs the Microsoft.Azure.DocumentDB package and all dependencies.
+1. From the results, install the **Microsoft.Azure.DocumentDB** library if not already installed. This installs the [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package and all dependencies.
    
    If the NuGet Package Manager displays a message that some packages are missing from the solution, select **Restore** to install them from internal sources. 
 
@@ -184,19 +184,19 @@ You can go back to Data Explorer in the Azure portal to see, query, modify, and 
 
 This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
-* The following code initializes theDocumentClient: 
+* This code initializes the <microsoft.azure.documents.client.documentclient>: 
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]):
     ```
 
-* The following code creates the new database by using the `CreateDatabaseAsync` method:
+* This code creates the new database by using the <microsoft.azure.documents.client.documentclient.createdatabaseasync> method:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* The following code creates the new collection by using `CreateDocumentCollectionAsync`:
+* The following code creates the new collection by using the <microsoft.azure.documents.client.documentclient.createdocumentcollectionasync> method:
 
     ```csharp
     private static async Task CreateCollectionIfNotExistsAsync()
