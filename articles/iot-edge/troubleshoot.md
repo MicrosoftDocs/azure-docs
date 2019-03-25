@@ -341,7 +341,7 @@ The device has trouble starting modules defined in the deployment. Only the edge
 By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
 ### Resolution
-Specify the DNS server for your environment in the container engine settings. Create a file named `daemon.json` with  content:
+Specify the DNS server for your environment in the container engine settings. Create a file named `daemon.json` specifying the DNS server to use. For example:
 
 ```
 {
@@ -349,15 +349,16 @@ Specify the DNS server for your environment in the container engine settings. Cr
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access to this IP from its environment, replace it with DNS server address that is accessible.
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
 
 Place `daemon.json` in the right location for your platform: 
+
 | Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
 
-If the location already contains `daemon.json` file, add the **dns** key and save the file.
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 
 *Restart the container engine for the updates to take effect*
 
