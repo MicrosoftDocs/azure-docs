@@ -4,7 +4,7 @@ description: Reference for the simple query syntax used for full text search que
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: "brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
@@ -24,7 +24,7 @@ translation.priority.mt:
 Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.  
 
 > [!NOTE]  
->  Azure Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Azure Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](search-lucene-query-architecture.md).
 
 ## How to invoke simple parsing
 
@@ -38,38 +38,38 @@ As straightforward as this sounds, there is one aspect of query execution in Azu
 
 Typically, you're more likely to see these behaviors in user interaction patterns for applications that search over content, where users are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. For more information, see [NOT operator](#not-operator). 
 
-## Operators in simple search
+## Boolean operators (AND, OR, NOT) 
 
 You can embed operators in a query string to build a rich set of criteria against which matching documents are found. 
 
-## AND operator `+`
+### AND operator `+`
 
 The AND operator is a plus sign. For example, `wifi+luxury` will search for documents containing both `wifi` and `luxury`.
 
-## OR operator `|`
+### OR operator `|`
 
 The OR operator is a vertical bar or pipe character. For example, `wifi | luxury` will search for documents containing either `wifi` or `luxury` or both.
 
 <a name="not-operator"></a>
 
-## NOT operator `-`
+### NOT operator `-`
 
 The NOT operator is a minus sign. For example, `wifi –luxury` will search for documents that have the `wifi` term and/or do not have `luxury` (and/or is controlled by `searchMode`).
 
 > [!NOTE]  
 >  The `searchMode` option controls whether a term with the NOT operator is ANDed or ORed with the other terms in the query in the absence of a `+` or `|` operator. Recall that `searchMode` can be set to either `any` (default) or `all`. If you use `any`, it will increase the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`. If you use `all`, it will increase the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if You want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.
 
-## Suffix operator `*`
+## Suffix operator
 
-The suffix operator is an asterisk. For example, `lux*` will search for documents that have a term that starts with `lux`, ignoring case.  
+The suffix operator is an asterisk `*`. For example, `lux*` will search for documents that have a term that starts with `lux`, ignoring case.  
 
-## Phrase search operator `" "`
+## Phrase search operator
 
-The phrase operator encloses a phrase in quotation marks. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
+The phrase operator encloses a phrase in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
 
-## Precedence operator `( )`
+## Precedence operator
 
-The precedence operator encloses the string in parentheses. For example, `motel+(wifi | luxury)` will search for documents containing the motel term and either `wifi` or `luxury` (or both).|  
+The precedence operator encloses the string in parentheses `( )`. For example, `motel+(wifi | luxury)` will search for documents containing the motel term and either `wifi` or `luxury` (or both).|  
 
 ## Escaping search operators  
 
