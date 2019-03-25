@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
 
 ---
@@ -30,9 +30,6 @@ In Media Services, Dynamic Packaging is used whether you are streaming live or o
 
 ![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
-
 ## Delivery protocols
 
 |Protocol|Example|
@@ -48,7 +45,7 @@ In Media Services, Dynamic Packaging is used whether you are streaming live or o
 
 The following is a common Media Services streaming workflow where Dynamic Packaging is used.
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+1. Upload an input file (called a mezzanine file). For example, MP4, MOV, or MXF (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
 2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
 4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
@@ -191,6 +188,10 @@ Here is an example of a Smooth Streaming manifest:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+
 ## Next steps
 
 [Upload, encode, stream videos](stream-files-tutorial-with-api.md)
