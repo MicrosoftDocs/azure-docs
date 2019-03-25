@@ -39,6 +39,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Direct methods<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | Twin (device and module) reads<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Twin updates (device and module)<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
+| Queries | 20/Sec/unit | 20/Sec/unit | 500/sec/unit |
 | Jobs operations<sup>1,3</sup> <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs device operations<sup>1</sup> <br/> (update twin, invoke direct method) | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
