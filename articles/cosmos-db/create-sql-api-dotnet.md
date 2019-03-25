@@ -41,7 +41,7 @@ An Azure subscription or free Cosmos DB trial account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Use Data Explorer
+## Work with Data Explorer
 
 You can use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
 
@@ -50,7 +50,7 @@ You can use the Data Explorer in the Azure portal to create a database and colle
 
 Use the Data Explorer to create a database and collection. 
 
-1. Select **Data Explorer** from the left navigation on the Azure Cosmos DB account page, and then select **New Collection**. 
+1. Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
    
    You may need to scroll right to see the **Add Collection** area.
 
@@ -108,7 +108,9 @@ Add data to your new database using Data Explorer.
 
 ## Use the SQL API sample app
 
-To see how easy it is to work with your Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
+To see how easy it is to work with your Cosmos DB data programmatically, you can clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
+
+You could also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the-code).
 
 ### Clone the sample app
 
@@ -184,19 +186,19 @@ You can go back to Data Explorer in the Azure portal to see, query, modify, and 
 
 This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
-* This code initializes the <microsoft.azure.documents.client.documentclient>: 
+* This code initializes the <xref:microsoft.azure.documents.client.documentclient>: 
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]):
     ```
 
-* This code creates the new database by using the <microsoft.azure.documents.client.documentclient.createdatabaseasync> method:
+* This code creates the new database by using the <xref:microsoft.azure.documents.client.documentclient.createdatabaseasync> method:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* The following code creates the new collection by using the <microsoft.azure.documents.client.documentclient.createdocumentcollectionasync> method:
+* The following code creates the new collection by using the <xref:microsoft.azure.documents.client.documentclient.createdocumentcollectionasync> method:
 
     ```csharp
     private static async Task CreateCollectionIfNotExistsAsync()
