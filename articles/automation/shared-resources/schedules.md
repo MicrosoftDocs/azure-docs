@@ -37,7 +37,7 @@ You can create a new schedule for runbooks in the Azure portal or with PowerShel
 
 > [!NOTE]
 > Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.  To avoid impacting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing.  This validates your scheduled runbooks continue to work correctly and if not, you can further troubleshoot and apply any changes required before migrating the updated runbook version to production.
-> Your Automation account does not automatically get any new versions of modules unless you have updated them manually by selecting the [Update Azure Modules](automation-update-azure-modules.md) option from the **Modules**.
+> Your Automation account does not automatically get any new versions of modules unless you have updated them manually by selecting the [Update Azure Modules](../automation-update-azure-modules.md) option from the **Modules**.
 
 ### To create a new schedule in the Azure portal
 
@@ -47,7 +47,7 @@ You can create a new schedule for runbooks in the Azure portal or with PowerShel
 4. Select whether the schedule runs one time, or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once** specify a **Start time**, and then click **Create**. If you select **Recurring**, specify a **Start time** and for **Recur every**, select the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.
     1. If you select **week**, you're provided a list of the days of the week to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, choose **Saturday** and **Sunday**.
 
-       ![Setting weekend recurring schedule](media/schedules/week-end-weekly-recurrence.png)
+       ![Setting weekend recurring schedule](../media/schedules/week-end-weekly-recurrence.png)
 
     2. If you select **month**, you're given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you choose **Month days**, a calendar is shown that allows you to choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule won't run. If you want the schedule to run on the last day, choose **Yes** under **Run on last day of month**. If you choose **Week days**, the **Recur every** option is presented. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally choose a day to repeat on.
 
@@ -121,7 +121,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 ### To link a schedule to a runbook with PowerShell
 
 You can use the [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on specifying parameter values,
-see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
+see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
 The following sample commands show how to link a schedule to a runbook using an Azure Resource Manager cmdlet with parameters.
 
 ```azurepowershell-interactive
@@ -138,7 +138,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 The most frequent interval a schedule in Azure Automation can be configured for is one hour. If you require schedules to execute more frequently than that, there are two options:
 
-* Create a [webhook](automation-webhooks.md) for the runbook and use [Azure Scheduler](../scheduler/scheduler-get-started-portal.md) to call the webhook. Azure Scheduler provides more fine-grained granularity when defining a schedule.
+* Create a [webhook](../automation-webhooks.md) for the runbook and use [Azure Scheduler](../../scheduler/scheduler-get-started-portal.md) to call the webhook. Azure Scheduler provides more fine-grained granularity when defining a schedule.
 
 * Create four schedules all starting within 15 minutes of each other running once every hour. This scenario allows the runbook to run every 15 minutes with the different schedules.
 
@@ -167,5 +167,5 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## Next steps
 
-* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
+* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md)
 
