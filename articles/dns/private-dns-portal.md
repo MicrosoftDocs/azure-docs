@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a DNS private zone
+> * Create a virtual network
+> * Link the virtual network
 > * Create test virtual machines
 > * Create an additional DNS record
 > * Test the private zone
