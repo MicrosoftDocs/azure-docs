@@ -15,7 +15,7 @@ manager: "mmontwil"
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### Make a code change
-Go to the VS Code window for `mywebapi` and make a code edit to the `String index()` method, for example:
+Go to the VS Code window for `mywebapi` and make a code edit to the `String index()` method in `src/main/java/com/ms/sample/mywebapi/Application.java`, for example:
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")

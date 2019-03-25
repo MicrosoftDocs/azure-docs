@@ -162,6 +162,8 @@
             href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
+    - name: Customize CoreDNS
+      href: coredns-custom.md
   - name: Security and authentication
     items:
     - name: Create service principal
