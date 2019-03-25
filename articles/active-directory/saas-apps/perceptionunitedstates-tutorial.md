@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -107,10 +107,7 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-	> [!NOTE]
-	> The value is not real. You will update the value with the actual Reply URL, which is explained later steps in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
+	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link: **http://www.url-encode-decode.com/**.
 
 	d. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
 
