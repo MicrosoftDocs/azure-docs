@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ---
 
@@ -28,6 +28,8 @@ The table below summarizes the types of content and file formats that are suppor
 ## Data source locations
 
 Only public URLs are valid for all data sources. Don't submit data sources that require authentication. You can download the file from the authenticated site, then use the file-upload option to extract questions and answers.
+
+Sharepoint resources must be files. Sharepoint web pages are not supported. 
 
 ## FAQ URLs
 

@@ -1,5 +1,5 @@
 ---
-title: Business continuity plan - QnA Maker
+title: Sharepoint files - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Add secured Sharepoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ---
 
@@ -20,7 +20,25 @@ When you add a secured Sharepoint document to your knowledge base, as the QnA Ma
 
 If the QnA Maker knowledge base manager is not the Active Directory manager, you will need to communicate with the Active Directory manager to finish this process.
 
-## Knowledge base manager: add Sharepoint data source in QnA Maker portal
+## Add supported file types to knowledge base
+
+You can add all QnA Maker-supported [file types](#data-sources-supported) from a Sharepoint server to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
+
+1. From the Sharepoint server, select the file's ellipsis menu, `...`.
+1. Copy the file's URL.
+    ![Get the Sharepoint file URL by selecting the file's ellipsis menu then copying the URL.](./media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+1. In the QnA Maker portal, add the URL to the knowledge base. 
+
+## Permissions
+
+Granting permissions happens when a secured file from a Sharepoint server is added to a knowledge base. Depending on how the Sharepoint is set up and the permissions of the person adding the file, this could require:
+
+* no additional steps - the person adding the file has all the permissions needed.
+* steps by both [knowledge base manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) and [Active Directory manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
+
+See the steps listed below. 
+
+### Knowledge base manager: add Sharepoint data source in QnA Maker portal
 
 When the **QnA Maker manager** adds a secured Sharepoint document to a knowledge base, the knowledge base manager initiates a request for permission that the Active Directory manager needs to complete.
 
@@ -30,7 +48,7 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that he needs to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
 
-## Active directory manager: grant file read access to QnA Maker
+### Active directory manager: grant file read access to QnA Maker
 
 The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal Sharepoint enterprise app to have file read permissions. 
 
