@@ -175,16 +175,16 @@ ds.path('./bar').as_download()
 
 ### Compute context and datastore type matrix
 
-The following matrix displays the available data access functionalities for the different compute context and datastore scenarios. The term pipeline in this matrix refers to the ability to use datastores as an input or output in machine learning pipelines.
+The following matrix displays the available data access functionalities for the different compute context and datastore scenarios. The term "Pipeline" in this matrix refers to the ability to use datastores as an input or output in [Azure Machine Learning Pipelines](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
 
 ||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
-|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> pipeline|pipeline|pipeline|[`as_download()`] <br> [`as_upload()`]|pipeline||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
-|AzureDataLakeDatastore|||pipeline|pipeline|||pipeline||
-|AzureDataLakeGen2Datastore|||pipeline||||||
-|AzureDataPostgresSqlDatastore|||pipeline||||||
-|AzureSqlDatabaseDataDatastore|||pipeline||||||
+|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureDataLakeDatastore|||Pipeline|Pipeline|||Pipeline||
+|AzureDataLakeGen2Datastore|||Pipeline||||||
+|AzureDataPostgresSqlDatastore|||Pipeline||||||
+|AzureSqlDatabaseDataDatastore|||Pipeline||||||
 
 
 > [!NOTE]
