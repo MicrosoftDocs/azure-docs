@@ -100,7 +100,7 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 2. Check the [service was onboarded successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 
-3. Check that the device is [configured in IoT hub with the ATP for IoT module](quickstart-create-security-module.md).  
+3. Check that the device is [configured in IoT hub with the ATP for IoT module](quickstart-create-security-twin.md).  
 
 If the activities or logs are still unavailable, contact your ATP for IoT partner for additional help.
 

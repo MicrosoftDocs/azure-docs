@@ -59,7 +59,7 @@ To install the security agent, do the following:
 
     - Configures the agent with the authentication parameters provided.
 
-    For more information, see [Authentication parameters](authentication.md).  
+    See [How to configure authentication](how-to-configure-authentication-methods.md).  
 
     For additional help, use the Get-Help command in PowerShell <br>Get-Help example:  
     ```Get-Help .\InstallSecurityAgent.ps1```

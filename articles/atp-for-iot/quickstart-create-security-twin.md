@@ -1,4 +1,5 @@
 ---
+
 title: Create a security module twin for ATP for IoT Preview| Microsoft Docs
 description: Learn how to create a ATP for IoT module twin for use with ATP for IoT.
 services: atpforiot
@@ -17,6 +18,7 @@ ms.date: 03/20/2019
 ms.author: mlottner
 
 ---
+
 # Quickstart: Create a ATP for IoT module twin
 
 > [!IMPORTANT]
@@ -42,7 +44,9 @@ To make full use of ATP for IoT features, you'll need to create, configure and u
 
 ATP for IoT module twins can be created in batch mode using the default configuration, or individually with specific configurations for each device. To batch create for new devices or devices without a module twin, use the [Module batch script](https://aka.ms/iot-security-scripts-create-module). 
 
->[!NOTE] Using the batch method will not overwrite existing module twins. Using the batch method ONLY creates new module twins for devices that do not already have a module twin. See [Modify a security module twin](how-to-modify-a-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
+>[!NOTE] Using the batch method will not >overwrite existing module twins. Using the batch method ONLY creates new module twins for devices that do not already have a module twin. 
+
+See [Modify a security module twin](how-to-modify-a-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
 
 To create a new ATP for IoT module twin for a device use the following instructions: 
 

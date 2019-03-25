@@ -43,7 +43,7 @@ To deploy the security agent, local admin rights are required on the machine you
 
 To install deploy the security agent, do the following:
 
-1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the [releases](../../releases) folder.
+1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the GitHub releases (../../releases) folder.
 
 2. Extract the contents of the package, and navigate to the /installation folder.
 
@@ -61,7 +61,7 @@ To install deploy the security agent, do the following:
 
     - Configures the agent with the authentication parameters provided
 
-    For more information, see [Authentication parameters](Authentication.md).  
+    See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.  
 
     For additional help, use the Get-Help command in PowerShell <br>Get-Help example:  
     `Get-Help .\InstallSecurityAgent.sh –help / -h`

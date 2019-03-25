@@ -58,7 +58,7 @@ This script does the following:
 
 - Configures the agent with the provided authentication parameters.
 
-See [Authentication](authentication-methods.md) to learn more about authentication parameters.
+See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.  
 
 For additional help, run the script with the –help parameter: `./InstallSecurityAgent.sh --help`
 
