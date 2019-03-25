@@ -60,33 +60,14 @@ The following list includes all supported platforms as of public preview. Suppor
 
 |ATP for IoT agent |Operating System |Architecture |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 LTS|	X64|
-|C|	Ubuntu 18.04 LTS|	X64|
-|C|	Ubuntu 18.04 LTS|	X64|
-|C|	OSX 10.13.4|	x64|
-|C|	Windows Server 2016|	x64|
-|C|	Windows Server 2016|	x86|
-|C|	Debian 9 Stretch|	x64|
-|C|	Windows CE 2013	 
-|C#|Ubuntu 16.04 LTS	|X64|
-|C#|	Windows Server 2016|	X64
-|C#|	Ubuntu Server 18.04	|Amd64
-|C#|	Windows Server 2016	|X64
-|C#|	Windows Server 2016	|X64
-|C#|	Windows 10 IoT Core build 17763	|Amd64
-|C#|	Windows 10 IoT Enterprise build 17763	|Amd64
-|C#|	Windows Server 2019	|Amd64
-|C#|	CentOS 7.5	|AMD64 + ARM32v7
-|C#| Debian 8	|AMD64 + ARM32v7
-|C#|	Debian 9	|AMD64 + ARM32v7
-|C#|	RHEL 7.5|	AMD64 + ARM32v7
-|C#|	Ubuntu 18.04	|AMD64 + ARM32v7
-|C#| Ubuntu 16.04	|AMD64 + ARM32v7
-|C#|	Wind River 8|	AMD64 + ARM32v7
-|C#|	Yocto	|AMD64 + ARM32v7|
-|
-
-
+|C|Ubuntu 16.04 |	x64|
+|C|Ubuntu 18.04 |	x64|
+|C|Debian 9 |	x64, x86|
+|C#|Ubuntu 16.04 	|x64|
+|C#|Ubuntu 18.04	|x64|
+|C#|Debian 9	|x64|
+|C#|Windows Server 2016|	X64|
+|C#|Windows 10 IoT Core build 17763	|x64|
 
 ## See Also
 - [Overview](overview.md)
