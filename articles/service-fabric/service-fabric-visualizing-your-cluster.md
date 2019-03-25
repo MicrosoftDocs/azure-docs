@@ -42,7 +42,7 @@ Use the following links to download Service Fabric Explorer as a desktop applica
 
 ### Running Service Fabric Explorer from the cluster
 
-Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP management endpoint. To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https://clusterFQDN:19080.
+Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP management endpoint. To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https:\//clusterFQDN:19080.
 
 For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to https://localhost:19080/Explorer. Look at this article to [prepare your development environment](service-fabric-get-started.md).
 

@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
-![Reporting][Reporting]
+![Reporting on SSPR using the audit logs in Azure AD][Reporting]
 
 The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
@@ -171,7 +171,6 @@ The following list explains this activity in detail:
 
      >[!NOTE]
      >Failure doesn't mean a user is unable to reset their own password. It means that they didn't finish the registration process. If there is unverified data on their account that's correct, such as a phone number that's not validated, even though they have not verified this phone number, they can still use it to reset their password.
-     >
 
 ## Next steps
 

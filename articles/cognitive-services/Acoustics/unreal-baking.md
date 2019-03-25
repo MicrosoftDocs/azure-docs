@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
 ---
 # Project Acoustics Unreal Bake Tutorial
@@ -27,7 +27,7 @@ There are five steps to doing a bake:
 
 Import the Project Acoustics plugin package to your project. For help with this, see the [Unreal Integration](unreal-integration.md) topic. Once the plugin is integrated, open the Acoustics UI by clicking the new Acoustics Mode icon.
 
-![Open Acoustics Mode](media/acoustics-mode.png)
+![Screenshot of Unreal Editor Acoustics Mode option](media/acoustics-mode.png)
 
 ## Tag actors for acoustics
 
@@ -37,7 +37,7 @@ Select one or more objects in the World Outliner, or use the **Bulk Selection** 
 
 ### For reference: The Objects tab parts
 
-![Unreal Objects Tab Details](media/unreal-objects-tab-details.png)
+![Screenshot of Acoustics Objects tab in Unreal](media/unreal-objects-tab-details.png)
 
 1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of doing an acoustics bake, from top to bottom.
 2. A brief description of what you need to do using this page.
@@ -70,11 +70,11 @@ The acoustic materials control the amount of sound energy reflected back from ea
 
 The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Materials with absorption coefficients above this range are very absorbent. For example, if a room sounds too reverberant, change the acoustic material of the walls, floor, or ceiling to something of higher absorptivity. The acoustic material assignment applies to all actors that use that scene material.
 
-![Reverb Time Graph](media/reverb-time-graph.png)
+![Graph showing negative correlation of reverberation time with absorption coefficient](media/reverb-time-graph.png)
 
 ### For reference: Parts of the Materials tab
 
-![Unreal Objects Tab Details](media/unreal-materials-tab-details.png)
+![Screenshot of Acoustics Objects tab in Unreal](media/unreal-materials-tab-details.png)
 
 1. The **Materials** tab button, used to bring up this page.
 2. A brief description of what you need to do using this page.
@@ -89,7 +89,7 @@ After assigning the materials, switch to the **Probes** tab.
 
 ### For reference: Parts of the Probes tab
 
-![Probes Tab Detail](media/unreal-probes-tab-details.png)
+![Screenshot of Acoustics Probes tab in Unreal](media/unreal-probes-tab-details.png)
 
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
@@ -119,11 +119,11 @@ Once these calculations are complete, you can preview both the voxel data and th
 
 After probe calculation is completed, a new actor will appear in the World Outliner called **AcousticsDebugRenderer**. Checking the **Render Probes** and **Render Voxels** checkboxes will enable the debug display inside the editor viewport.
 
-![Acoustics Debug Renderer](media/acoustics-debug-renderer.png)
+![Screenshot showing Acoustics Debug Renderer actor in Unreal Editor](media/acoustics-debug-renderer.png)
 
 If you don't see any voxels or probes overlaid on your level, make sure real-time rendering is enabled in the viewport.
 
-![Enable real-time rendering](media/unreal-real-time-rendering.png)
+![Screenshot of real-time rendering option in Unreal](media/unreal-real-time-rendering.png)
 
 ### Voxels
 
@@ -132,7 +132,7 @@ Move around your scene and verify that the acoustically-occluding geometry has v
 
 If you compare the voxels created with coarse resolution vs fine resolution, you will see that the coarse voxels are twice as large.
 
-![Voxel Preview](media/unreal-voxel-preview.png)
+![Screenshot of Acoustics voxels preview in Unreal editor](media/unreal-voxel-preview.png)
 
 ### Probe points
 
@@ -140,7 +140,7 @@ Probe points are synonymous with possible player (listener) locations. When baki
 
 It's important to check that probe points exist anywhere the player is expected to travel in the scene. Probe points are placed on the navigation mesh by the Project Acoustics engine and can't be moved or edited, so ensure the navigation mesh covers all possible player locations by inspecting the probe points.
 
-![Probes Preview](media/unreal-probes-preview.png)
+![SCreenshot of Acoustics probes preview in Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs fine resolution
 
@@ -154,9 +154,9 @@ While this may seem simple, it has a number of implications on the acoustic simu
 * Sound sources cannot be located inside "filled" voxels, that is voxels that contain geometry - this results in no sound. It is more difficult to place sound sources so they are not inside the larger voxels of coarse than it is when using the fine setting.
 * The larger voxels will intrude more into portals, as shown below. The first image was created using coarse, while the second is the same doorway using fine resolution. As indicated by the red markings, there is much less intrusion into the doorway using the fine setting. The blue line is the doorway as defined by the geometry, while the red line is the effective acoustic portal defined by the voxel size. How this intrusion plays out in a given situation depends completely on how the voxels line up with the geometry of the portal, which is determined by the size and locations of your objects in the scene.
 
-![Coarse Doorway](media/unreal-coarse-bake.png)
+![Screenshot of coarse voxels filling a doorway in Unreal](media/unreal-coarse-bake.png)
 
-![Fine Doorway](media/unreal-fine-bake.png)
+![Screenshot of fine voxels in a doorway in Unreal](media/unreal-fine-bake.png)
 
 ## Bake your level using Azure Batch
 
@@ -164,7 +164,7 @@ You can bake your scene with a compute cluster in the cloud using the Azure Batc
 
 ### For reference: Parts of the bake tab
 
-![Bake Tab Detail](media/unreal-bake-tab-details.png)
+![Screenshot of Acoustics Bake tab in Unreal](media/unreal-bake-tab-details.png)
 
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.

@@ -322,7 +322,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Open a web browser to the address that you recorded for the VM. For example, *http://13.72.77.9:3300*. You should see something like the following page:
+2. Open a web browser to the address that you recorded for the VM. For example, *http:\//13.72.77.9:3300*. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 

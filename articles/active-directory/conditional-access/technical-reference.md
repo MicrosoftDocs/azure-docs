@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -142,20 +142,25 @@ In your conditional access policy, you can select **Browsers** as client app.
 This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
-| OS                     | Browsers                            | Support     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Check][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Check][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Check][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Check][1] |
-| Windows Server 2016    | Chrome                              | Coming soon |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| macOS                  | Chrome, Safari                      | ![Check][1] |
+| OS                     | Browsers                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### Why do I see a certificate prompt in the browser
+
+On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.
 
 
 #### Chrome support
