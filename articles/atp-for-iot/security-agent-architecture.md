@@ -1,6 +1,6 @@
 ---
 title: Understanding ATP for IoT security agent architecture Preview| Microsoft Docs
-description: Learn about the security agent architecture of the security agents used in the ATP for IoT service.
+description: Understand security agent architecture for the agents used in the ATP for IoT service.
 services: atpforiot
 documentationcenter: na
 author: mlottner
@@ -17,7 +17,7 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# Security agents reference architecture
+# Security agent reference architecture
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
@@ -25,10 +25,10 @@ ms.author: mlottner
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-ATP for IoT provides reference architecture for security agents that log, process, aggregate and send security data through IoT hub.
-These security agents are aimed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
+ATP for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT hub.
+Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
-Security agents support the following solution features:
+Security agents support the following IoT solution features:
 
 - Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ATP for IoT agent configuration](tutorial-agent-configuration.md).
 
@@ -38,18 +38,18 @@ Security agents support the following solution features:
 
 - Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](quickstart-agent-configuration.md).
 
-ATP for IoT Security agents are developed as open source projects, and are available from Github: 
+ATP for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
-- [IoT-ATP-Agent-C](https://github.com/Azure/IoT-ATP-Agent-C), 
-- [IoT-ATP-Agent-CS]([https://github.com/Azure/IoT-ATP-Agent-CS).
+- [IoT-ATP-Agent-C](https://github.com/Azure/IoT-ATP-Agent-C) 
+- [IoT-ATP-Agent-CS]([https://github.com/Azure/IoT-ATP-Agent-CS)
 
 ## Agent supported platforms
 
-ATP for IoT offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
+ATP for IoT offers different installer agents for 32bit and 64bit Windows, and the same for 32bit and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
-| 32 or 64bit | Linux | Windows |    Details|
+| 32bit or 64bit | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
+| 32 bit  | C  | C#  ||
 
 
 ## Next steps
