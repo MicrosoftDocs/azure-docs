@@ -21,7 +21,7 @@ Azure Service Provider Management Toolkit helps you to profitably and efficientl
 - **Management at scale**: Customer engagement and management experiences are easier and more scalable.
 - **Greater visibility and enhanced security for customers**: Customers whose resources you’re managing will have greater visibility, enhanced security, and IP protection.
 - **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models.
-- **Flexibility and consistency**: The new experiences work with existing tools, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Service Provider Management Toolkit options you choose are ready to be integrated into your existing workflows.
+- **Flexibility and consistency**: The new experiences work with existing tools, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Service Provider Management Toolkit options you choose are ready to be integrated into your existing workflows, and you can track your impact on customer engagements by [linking your partner ID](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 ## Features
 

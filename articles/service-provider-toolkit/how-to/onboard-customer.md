@@ -17,7 +17,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
-You can [associate your Microsoft Partner Network (MPN) ID] with your onboarded subscriptions to track your impact across customer engagements. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 > [!NOTE]
 > Customers can be onboarded automatically when they purchase a managed services offer that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md).
