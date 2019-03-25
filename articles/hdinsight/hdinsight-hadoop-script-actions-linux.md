@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -138,7 +138,7 @@ For most operations, you do not need to specify the file system. For example, th
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Storage or `wasb:///example/jars` for Azure Storage.
+In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Azure Data Lake Storage Gen1, `abfs:///example/jars` for Data Lake Storage Gen2 or `wasb:///example/jars` for Azure Storage.
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 
@@ -328,7 +328,6 @@ For more information on using each method, see [How to use script action](hdinsi
 Microsoft provides sample scripts to install components on an HDInsight cluster. See the following links for more example script actions.
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Install or upgrade Mono on HDInsight clusters](hdinsight-hadoop-install-mono.md)
 

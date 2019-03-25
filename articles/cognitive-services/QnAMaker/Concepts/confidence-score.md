@@ -4,11 +4,11 @@ titleSuffix: Azure
 description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -66,9 +66,9 @@ If you have a knowledge base in different regions, each region uses its own Azur
 
 
 ## No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this default response in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
+When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](#change-default-answer) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
 
-### Change Default Answer
+## Change Default Answer
 
 1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
 
@@ -88,5 +88,4 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 ## Next steps
 > [!div class="nextstepaction"]
 > [Data sources supported](./data-sources-supported.md)
-## See also 
-[QnA Maker overview](../Overview/overview.md)
+

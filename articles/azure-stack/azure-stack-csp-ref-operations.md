@@ -57,7 +57,7 @@ For more information about Azure Stack and API Profiles, see [Manage API version
 
 ### PowerShell
 
-Use the New-AzureRmResource cmdlet to add a tenant. [Connect to Azure Stack](/azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
+Use the New-AzureRmResource cmdlet to add a tenant. [Connect to Azure Stack](azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -88,7 +88,7 @@ Get a list of all tenants that have been added to a registration.
 
 ### PowerShell
 
-Use the Get-AzureRmResource cmdlet to list all registered tenants. [Connect to Azure Stack](/azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
+Use the Get-AzureRmResource cmdlet to list all registered tenants. [Connect to Azure Stack](azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -139,7 +139,7 @@ You can remove a tenant that has been added to a registration. If that tenant is
 
 ### PowerShell
 
-Use the Remove-AzureRmResource cmdlet to remove a tenant. [Connect to Azure Stack](/azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
+Use the Remove-AzureRmResource cmdlet to remove a tenant. [Connect to Azure Stack](azure-stack-powershell-configure-admin.md), and then from an elevated prompt use the following cmdlet:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

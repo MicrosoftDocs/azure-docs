@@ -103,5 +103,5 @@ In Partition Manager, notice the **Last Processed** column for each of the new p
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## What's next?
+## What's next?
 Go to the next lesson: [Lesson 11: Create Roles](../tutorials/aas-lesson-11-create-roles.md). 

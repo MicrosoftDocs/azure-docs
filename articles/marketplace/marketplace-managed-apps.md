@@ -1,4 +1,4 @@
----  
+---
 title: Azure Applications Managed Application Offer Publishing Guide
 description: This article describes the requirements to publish a managed application in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Applications: Managed Application Offer Publishing Guide
 
@@ -43,6 +43,8 @@ In the case of bring-your-own-license, while Microsoft will bill infrastructure 
 >[!NOTE]
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
 If you haven't already done so, 

@@ -70,8 +70,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-In an upcoming release, you'll be able to use your personally defined **-Publisher**, **-Offer** and **-Sku** values to find and specify an image definition, then create a VM using latest image version from the matching image definition. For example, here are three image definitions and their values:
+### Using publisher, offer and SKU 
+For customers planning on implementing shared images, **in an upcoming release**, you'll be able to use your personally defined **-Publisher**, **-Offer** and **-Sku** values to find and specify an image definition, then create a VM using latest image version from the matching image definition. For example, here are three image definitions and their values:
 
 |Image Definition|Publisher|Offer|Sku|
 |---|---|---|---|
@@ -79,10 +79,9 @@ In an upcoming release, you'll be able to use your personally defined **-Publish
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Testing|standardOffer|testSku|
 
-All three of these have unique sets of values. In an upcoming release, you will be able to combine these values in order to request the latest version of a specific image. 
+All three of these have unique sets of values. You can have image versions that share one or two, but not all three values. **In an upcoming release**, you will be able to combine these values in order to request the latest version of a specific image. **This doesn't work in the current release**, but will be available in the future. When released, using the following syntax should be used to set the source image as *myImage1* from the table above.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -90,9 +89,9 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-This is similar to how you can currently specify these for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to create a VM. With this in mind, each image definition needs to have a unique set of these values. You can have image versions that share one or two, but not all three values. 
+This is similar to how you can currently specify use publisher, offer and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to get the latest version of a Marketplace image. With this in mind, each image definition needs to have a unique set of these values.  
 
-##Create an image version
+## Create an image version
 
 Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters.
 

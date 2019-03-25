@@ -10,7 +10,7 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
---- 
+---
 The example utterances file, **utterances.json**, follows a specific format. 
 
 The `text` field contains the text of the example utterance. The `intentName` field must correspond to the name of an existing intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty array.

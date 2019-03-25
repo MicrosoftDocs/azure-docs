@@ -55,28 +55,6 @@ For an explanation of API profiles and version release cadence for Azure Stack, 
 
 For more a list of the versions for each resource type for the providers in the API profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
 
-## Overview of 2018-03-01-hybrid
-
-| Resource provider | Api-version |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (Data Plane) | 2015-04-05  |
-| Microsoft.Storage (Control Plane) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Not changing) |
-| Microsoft.Resources<br>(Azure Resource Manager itself) | 2016-02-01 |
-| Microsoft.Authorization<Br>(policy operations) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Policy | 2015-10-01-preview |
-| Resources | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Subscriptions | 2016-06-1 |
-
-For a list of the versions of each resource type for the providers in the API profile, see the next section.
-
 ## Details for the 2018-03-01-hybrid
 
 ### Microsoft.Authorization

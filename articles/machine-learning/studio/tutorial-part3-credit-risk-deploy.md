@@ -17,7 +17,7 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution. 
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution. 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -66,12 +66,11 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulting experiment when the Support Vector Machine model is deleted](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -229,7 +228,7 @@ The quickest and easiest way to access a Classic web service is through the [Azu
 
 These web app templates can build a custom web app that knows your web service's input data and what it will return. All you need to do is provide access to your web service and data, and the template does the rest.
 
-For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](consume-web-service-with-web-app-template.md).
+For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services).
 
 
 

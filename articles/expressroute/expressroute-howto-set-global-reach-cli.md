@@ -2,25 +2,20 @@
 title: 'Configure ExpressRoute Global Reach: Azure CLI | Microsoft Docs'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 services: expressroute
-author: cherylmc
+author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
 
 ---
 
-# Configure ExpressRoute Global Reach by using the Azure CLI (Preview)
+# Configure ExpressRoute Global Reach by using the Azure CLI
 
 This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
  
-## Before you begin
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
-
 Before you start configuration, complete the following requirements:
 
 * Install the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).

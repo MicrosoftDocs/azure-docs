@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -13,7 +13,7 @@ ms.subservice: common
 
 Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. 
 
-Supply you own disk drives and transfer data with the Azure Import/Export service. You can also use disk drives supplied by Microsoft. 
+Supply your own disk drives and transfer data with the Azure Import/Export service. You can also use disk drives supplied by Microsoft. 
 
 If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../../databox/data-box-disk-overview.md).
 
@@ -70,7 +70,7 @@ At a high level, an import job involves the following steps:
 > [!NOTE]
 > For local (within data center country) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For abroad (outside data center country) shipments, please share an international carrier account
 
  ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
@@ -100,7 +100,7 @@ At a high level, an export job involves the following steps:
 > [!NOTE]
 > For local (within data center country) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For abroad (outside data center country) shipments, please share an international carrier account
   
  ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 

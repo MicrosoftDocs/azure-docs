@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -27,7 +27,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `translate-text.py`.
+Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `translate-text.py`. Be sure your IDE's interpreter references the correct version of Python to avoid libraries not being recognized.
 
 ```python
 # -*- coding: utf-8 -*-

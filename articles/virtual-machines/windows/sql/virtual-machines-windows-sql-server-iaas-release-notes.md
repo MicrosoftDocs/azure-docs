@@ -12,46 +12,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/5/2019
+ms.date: 2/13/2019
 ---
 # SQL Server on Azure Virtual Machine release notes
 
 Azure allows you to deploy a virtual machine with an image of SQL Server built in. This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
-## December 2018
+
+## February 2019
 
 ### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
+|**AG deployment simplification with Azure SQL VM CLI** | It is now easier than ever to deploy an availability group to a SQL Server VM in Azure. Azure SQL VM CLI allows you to create the WSFC, ILB and AG listener all from the command line, and in record time! For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
+| &nbsp; | &nbsp; |
+
+### Documentation improvements
+
+| Documentation improvements | Details |
+| --- | --- |
+|none | |
+| | |
+
+## December 2018
 
 | Service improvements | Details |
 | --- | --- |
 | **New SQL cluster group resource provider** | A new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) that defines the metadata of the Windows Failover Cluster. Joining a SQL Server VM to the *SqlVirtualMachineGroups* bootstraps the Windows Failover Cluster service and joins the VM to the cluster.  |
-|**Automate setting up an availability group deployment with Azure Quickstart Templates** |It is now possible to create the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer with two Azure Quickstart Templates. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month still need to be manually registered. For more information, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
+|**Automate setting up an availability group deployment with Azure Quickstart Templates** |It is now possible to create the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer with two Azure Quickstart Templates. For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month still need to be manually registered. For more information, see [Register existing SQL VM with SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).|
 | &nbsp; | &nbsp; |
 
-### Documentation improvements
-
-| Documentation improvements | Details |
-| --- | --- |
-|none | |
-| | |
 
 ## November 2018
 
-### Service improvements
-
 | Service improvements | Details |
 | --- | --- |
-| **New SQL VM resource provider** |  A new resource provider for SQL Server VMs (Microsoft.SqlVirtualMachine) that provides better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
+| **New SQL VM resource provider** |  A new resource provider for SQL Server VMs (Microsoft.SqlVirtualMachine) that provides better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). |
 |**Switch licensing model** |You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
-### Documentation improvements
-
-| Documentation improvements | Details |
-| --- | --- |
-|none | |
-| | |
 
 ## Additional resources
 

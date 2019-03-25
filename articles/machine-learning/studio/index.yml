@@ -13,24 +13,12 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 01/24/2019
+  ms.date: 02/24/2019
   
 abstract:
   description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
 
 sections:
-        
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to get started using Machine Learning Studio:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="create-experiment">Create your first Studio experiment</a>
-    - html: <a href="algorithm-choice">Choose the best algorithm</a>
-    - html: <a href="deploy-consume-web-service-guide">Deploy models as web services</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Read about "Data Science for beginners"</a>
 
 - title: Step-by-Step Tutorials
   items:
@@ -39,9 +27,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-part1-credit-risk">Create and deploy a predictive solution</a>
-    - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
-
+    - html: <a href="create-experiment">Create your first Studio experiment</a>
+    - html: <a href="tutorial-part1-credit-risk">Create and deploy a predictive solution for credit risk</a>
 
 - title: Reference
   items:

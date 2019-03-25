@@ -16,7 +16,7 @@ ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Marketplace Documentation
 

@@ -10,7 +10,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
@@ -26,7 +26,7 @@ In this article, you'll learn how to connect to your Azure Stack subscriptions a
 > [!NOTE]  
 > There are several tools available to move data to and from Azure Stack storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
 
-If you haven't installed storage explorer yet, [download storage explorer](http://www.storageexplorer.com/) and install it.
+If you haven't installed storage explorer yet, [download storage explorer](https://www.storageexplorer.com/) and install it.
 
 After you connect to an Azure Stack subscription or a storage account, you can use the [Azure storage explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 

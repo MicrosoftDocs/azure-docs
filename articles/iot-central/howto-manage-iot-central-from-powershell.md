@@ -12,6 +12,8 @@ manager: philmea
 
 # Manage IoT Central from Azure PowerShell
 
+[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
+
 Instead of creating and managing IoT Central applications from the IoT Central [Application Manager](https://aka.ms/iotcentral) page, you can use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to manage your applications.
 
 ## Prerequisites

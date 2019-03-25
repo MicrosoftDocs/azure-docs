@@ -28,6 +28,8 @@ In this article, you learn how to:
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
@@ -40,27 +42,27 @@ A virtual network is needed for communication between the resources that you cre
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter these values for the application gateway:
 
-    - *myAppGateway* - for the name of the application gateway.
-    - *myResourceGroupAG* - for the new resource group.
-    - Select *WAF* for the tier of the application gateway.
+   - *myAppGateway* - for the name of the application gateway.
+   - *myResourceGroupAG* - for the new resource group.
+   - Select *WAF* for the tier of the application gateway.
 
-    ![Create new application gateway](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
 8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
 9. Review the settings on the summary page, and then click **OK** to create network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
-the deployment finishes successfully before moving on to the next section.
+   the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
 
@@ -101,7 +103,7 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -112,7 +114,7 @@ In this example, you create two virtual machines to be used as backend servers f
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers
 
@@ -128,7 +130,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ## Create a storage account
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data.
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
 1. Click **New** found on the upper left-hand corner of the Azure portal.
 2. Select **Storage**, and then select **Storage account - blob, file, table, queue**.

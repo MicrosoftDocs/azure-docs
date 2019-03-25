@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
@@ -35,7 +35,7 @@ Next, if any Virtual Machine Scale Sets refer to a specific version, you should 
 
 Microsoft offers two versions of Windows Server images through the Azure Stack Marketplace:
 
-- **Pay as you use**: These images run the full price Windows meters. 
+- **Pay as you use**: These images run the full price Windows meters.
    Who should use: Enterprise Agreement (EA) customers who use the *Consumption billing model*; CSPs who do not want to use SPLA licensing.
 - **Bring Your Own License (BYOL)**: These images run basic meters.
    Who should use: EA customers with a Windows Server license; CSPs who use SPLA licensing.
@@ -71,23 +71,23 @@ To activate a Windows Server virtual machine on Azure Stack, the following condi
 
 ### How can I verify that my virtual machine is activated?
 
-Run the following command from an elevated command prompt: 
+Run the following command from an elevated command prompt:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 If it is correctly activated, you will see this clearly indicated and the host name displayed in the `slmgr` output. Do not depend on watermarks on the display as they might not be up-to-date, or are showing from a different virtual machine behind yours.
 
 ### My VM is not set up to use AVMA, how can I fix it?
 
-Run the following command from an elevated command prompt: 
+Run the following command from an elevated command prompt:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-See the article [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) for the keys to use for your image.
+See the [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) article for the keys to use for your image.
 
 ### I create my own Windows Server images, how can I make sure they use AVMA?
 

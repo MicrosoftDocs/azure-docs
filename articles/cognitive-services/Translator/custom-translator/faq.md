@@ -5,8 +5,8 @@ description: Provides answers to frequently asked questions about the Custom Tra
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
@@ -21,7 +21,6 @@ This article contains answers to frequently asked questions about [Custom Transl
 There are restrictions and limits with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
 
 - Submitted files must be less than 100 MB in size.
-
 - Monolingual data is not supported.
 
 ## When should I request deployment for a translation system that has been trained?

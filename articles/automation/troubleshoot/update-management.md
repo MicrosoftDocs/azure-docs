@@ -37,7 +37,11 @@ This error can be caused by the following reasons:
 #### Resolution
 
 1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
-2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
+2. If using a cloned image:
+   1. In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates` if it is shown. Saved searches can be found under **General** in your workspace.
+   2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Run `Restart-Service HealthService` to restart the `HealthService`. This will recreate the key and generate a new UUID.
+   4. If this doesnt work, sysprep the image first and install the MMA agent after the fact.
 
 ### <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
 
@@ -68,11 +72,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
+### <a name="nologs"></a>Scenario: Update Management data not showing in Azure Monitor logs for a machine
 
 #### Issue
 
-You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
+You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not Update Management.
 
 #### Cause
 

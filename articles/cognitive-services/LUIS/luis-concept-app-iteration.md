@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/04/2019
 ms.author: diberry 
 ---
 # Authoring cycle for your LUIS app

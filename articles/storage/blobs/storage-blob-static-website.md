@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -43,10 +43,14 @@ https://contoso.z4.web.core.windows.net/image.png
 
 The selected default file name is used at the root and any subdirectories when a file name is not provided. If the server returns a 404 and you do not provide an error document path, then a default 404 page is returned to the user.
 
+> [!NOTE]
+> The default public access level for files is Private. Because the files are served through anonymous access requests, this setting is ignored. There's public access to all files, and RBAC permissions are ignored.
+
 ## CDN and SSL support
 
 To make your static website files available over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You may need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
 
+When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
 
 ## Custom domain names
 
@@ -105,7 +109,7 @@ Methods available for deploying content to a storage container include the follo
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 In all cases, make sure you copy files to the *$web* container.

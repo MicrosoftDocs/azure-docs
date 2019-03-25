@@ -3,7 +3,7 @@ title: Interactive map search with Azure Maps | Microsoft Docs
 description: Azure quickstart - Create a demo interactive map search by using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -29,20 +29,20 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the **Search the Marketplace** box, enter **Maps**.
 3. From the **Results**, select **Maps**. Select the **Create** button that appears below the map.
 4. On the **Create Azure Maps Account** page, enter the following values:
-    - The **Name** of your new account.
-    - The **Subscription** that you want to use for this account.
-    - The **Resource group** for this account. You might choose to **Create new** or **Use existing** resource group.
-    - Select the **Pricing Tier** of your choice.
-    - Read the **License** and **Privacy Statement**. Select the check box to accept the terms.
-    - Finally, select the **Create** button.
+   - The **Name** of your new account.
+   - The **Subscription** that you want to use for this account.
+   - The **Resource group** for this account. You might choose to **Create new** or **Use existing** resource group.
+   - Select the **Pricing Tier** of your choice.
+   - Read the **License** and **Privacy Statement**. Select the check box to accept the terms.
+   - Finally, select the **Create** button.
 
-    ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
+     ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
 
 5. After your account is successfully created, open it and find the settings section of the account menu. Select **Keys** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section.
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value from the preceding section.
 

@@ -30,6 +30,9 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 > [!Note]  
 > User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
 
+> [!Note]
+> As of the 1811 update, ports in the range of 12495-30015 are no longer required to be open due to the addition of the [Extension Host](azure-stack-extension-host-prepare.md).
+
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
@@ -65,12 +68,12 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 
 |Purpose|Destination URL|Protocol|Ports|Source Network|
 |---------|---------|---------|---------|---------|
-|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
-|Marketplace syndication|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Public VIP - /27|
+|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
+|Marketplace syndication|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Public VIP - /27|
 |Patch & Update|https://&#42;.azureedge.net|HTTPS|443|Public VIP - /27|
-|Registration|https://management.azure.com|HTTPS|443|Public VIP - /27|
+|Registration|https:\//management.azure.com|HTTPS|443|Public VIP - /27|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Public VIP - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https:\//msdl.microsoft.com/download/symbols<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
 |NTP|(IP of NTP server provided for deployment)|UDP|123|Public VIP - /27|
 |DNS|(IP of DNS server provided for deployment)|TCP<br>UDP|53|Public VIP - /27|
 |CRL|(URL under CRL Distribution Points on your certificate)|HTTP|80|Public VIP - /27|

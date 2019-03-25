@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals 
-  href: /azure/iot-fundamentals
 - name: Azure IoT Central Documentation
   href: index.yml
 - name: Overview
@@ -80,7 +78,6 @@
       - name: Trigger Azure Functions
         href: howto-trigger-azure-functions.md
       - name: Export your data
-        href: howto-export-data.md
         items:
         - name: Export to Event Hubs and Service Bus
           href: howto-export-data-event-hubs-service-bus.md
@@ -97,18 +94,22 @@
         href: howto-administer.md  
       - name: Prepare and upload image
         href: howto-prepare-images.md
-      - name: Manage IoT Central from the Azure Management Portal
+      - name: Manage from the Azure portal
         href: howto-manage-iot-central-from-portal.md
-      - name: Manage IoT Central from Azure PowerShell
+      - name: Manage from Azure CLI
+        href: howto-manage-iot-central-from-cli.md
+      - name: Manage from Azure PowerShell
         href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
-      - name: Configure homepage
-        href: howto-configure-homepage.md     
+      - name: Configure application dashboard
+        href: howto-configure-homepage.md
   - name : Personalization
     items:
+      - name: Create personal dashboards
+        href: howto-personalize-dashboard.md
       - name: Manage your preferences
-        href: howto-manage-preferences.md      
+        href: howto-manage-preferences.md
 - name: Related
   items:
   - name: Solutions

@@ -364,7 +364,7 @@ You can log in to your Azure account (Azure Resource Manager mode) by running:
 Login-AzAccount
 ```
 
-Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
+Click [**HERE**](../../azure-resource-manager/manage-resources-powershell.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
 
 You can deploy DSCForLinux Extension by running:
 

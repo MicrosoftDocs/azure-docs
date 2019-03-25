@@ -1,6 +1,6 @@
 ---
 
-title: Compare B2B collaboration and B2C in Azure Active Directory | Microsoft Docs
+title: Compare B2B collaboration and B2C - Azure Active Directory | Microsoft Docs
 description: What is the difference between Azure Active Directory B2B collaboration and Azure AD B2C?
 
 services: active-directory

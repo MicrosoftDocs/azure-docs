@@ -62,7 +62,7 @@ This document also uses Windows PowerShell and [Jq](https://stedolan.github.io/j
 3. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
     
     ```powershell
@@ -198,7 +198,6 @@ For more information on the REST API used in this document, see the [WebHCat ref
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 

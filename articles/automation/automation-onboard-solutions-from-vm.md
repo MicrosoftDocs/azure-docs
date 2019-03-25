@@ -21,7 +21,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable the solutions
 
-Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**.
+Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account.
 
 To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
@@ -29,7 +29,7 @@ Select the Azure Log Analytics workspace and Automation account, and then select
 
 ![Onboard the Update Management solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Go to the other solutions, and then select **Enable**. The Log Analytics and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
+Go to the other solutions, and then select **Enable**. The Log Analytics workspace and Automation account drop-down lists are disabled because these solutions use the same workspace and Automation account as the previously enabled solution.
 
 > [!NOTE]
 > **Change tracking** and **Inventory** use the same solution. When one of these solutions is enabled, the other is also enabled.
@@ -71,7 +71,7 @@ The following solutions are dependent on a Log Analytics workspace:
 * [Change Tracking](automation-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
 
-If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
 
 After you remove these solutions, you can perform the following steps to unlink your Automation account.
 

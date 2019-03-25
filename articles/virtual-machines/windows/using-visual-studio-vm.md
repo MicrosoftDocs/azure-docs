@@ -1,4 +1,4 @@
---- 
+---
 title: Using Visual Studio on an Azure virtual machine | Microsoft Docs
 description: Using Visual Studio on an Azure virtual machine.
 services: virtual-machines-windows
@@ -14,14 +14,13 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.prod: vs-devops-alm 
-ms.date: 09/12/2018
+ms.date: 03/15/2019
 ms.author: phillee
 keywords: visualstudio
 ---
 
 # Visual Studio images on Azure
-Using Visual Studio in a preconfigured Azure virtual machine (VM) is a quick, easy way to go from nothing to an up-and-running development environment. System images with different Visual Studio configurations are available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
+Using Visual Studio in a preconfigured Azure virtual machine (VM) is a quick, easy way to go from nothing to an up-and-running development environment. System images with different Visual Studio configurations are available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
 
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
@@ -30,9 +29,9 @@ Images for the most recent major versions, Visual Studio 2017 and Visual Studio 
 
 | Release version                                              | Editions                     |     Product version      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Preview (Preview 2)                   |           Enterprise         | Version 16.0.0 Preview 2 |
-| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.4      |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.20     |
+|     Visual Studio 2019: Preview (RC3)                        |           Enterprise         |    Version 16.0.0 RC3    |
+| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.9      |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.22     |
 |   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             None             | (Expired for servicing)  |
 

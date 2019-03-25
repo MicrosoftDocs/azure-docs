@@ -21,8 +21,8 @@ ms.author: pbutlerm
 
 This article describes how to use the SKUs tab to create SKUs for your Azure application. 
 
->[!IMPORTANT] 
-The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
+> [!IMPORTANT]
+> The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
 
 ## Configure Azure application SKUs
 
@@ -135,7 +135,7 @@ Add the Azure Active Directory Identifier of user, group or application to which
 
 #### Policy Settings
 
-Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](../../../governance/policy/overview.md)
 
 
    ![Authorization and policy settings for a managed application](./media/azureapp-sku-details-managedapp-auth-policy.png)

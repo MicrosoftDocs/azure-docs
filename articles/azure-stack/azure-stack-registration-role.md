@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
+ms.lastreviewed: 02/13/2019
 
 ---
 # Create a registration role for Azure Stack
@@ -29,7 +29,7 @@ For scenarios where you don’t want to give owner permissions in the Azure subs
 
 When registering Azure Stack, the registration account requires the following Azure Active Directory permissions and Azure Subscription permissions:
 
-* **Application registration permissions in your Azure Active Directory tenant:** Administrators have application registration permissions. The permission for users is a global setting for all users in the tenant. To view or change the setting see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+* **Application registration permissions in your Azure Active Directory tenant:** Administrators have application registration permissions. The permission for users is a global setting for all users in the tenant. To view or change the setting, see [create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
     The *user can register applications* setting must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account and must use a global administrator account to register Azure Stack.
 

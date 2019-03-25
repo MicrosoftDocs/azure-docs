@@ -34,7 +34,7 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. From the list of vaults, click a vault to open its **Overview** dashboard. 
+4. From the list of vaults, click a vault to open its **Overview** dashboard.
 
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -69,7 +69,7 @@ To access the Backup Alerts menu, in the Recovery Services vault menu, click **B
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-The Backup Alerts report lists the alerts for the vault. 
+The Backup Alerts report lists the alerts for the vault.
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -118,7 +118,7 @@ By default, all details, except **Latest Occurrence Time**, appear in the report
 
 ### Change the filter in alerts report
 
-Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts. 
+Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts.
 
 > [!NOTE]
 > Editing the Backup Alerts filter doesn't change the Critical or Warning alerts in the vault Overview dashboard.
@@ -178,7 +178,7 @@ To see additional details about the jobs, click **In Progress** or **Failed** to
 
 The **Backup Jobs** menu displays information about the Item type, Operation, Status, Start Time, and Duration.  
 
-To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**. 
+To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -257,17 +257,14 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 
 ## Frequently asked questions
 
-**Q1. How long does it take for the Azure backup agent job status to reflect in the portal?**
+### How long does it take for the Azure backup agent job status to reflect in the portal?
+The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
 
-A1. The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
+### When a backup job fails, how long does it take to raise an alert?
+An alert is raised within 20 mins of the Azure backup failure.
 
-**Q2. When a backup job fails, how long does it take to raise an alert?**
-
-A2. An alert is raised within 20 mins of the Azure backup failure.
-
-**Q3. Is there a case where an email won’t be sent if notifications are configured?**
-
-A3. Yes. In the following situations, notifications are not sent.
+### Is there a case where an email won’t be sent if notifications are configured?
+Yes. In the following situations, notifications are not sent.
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
 * When a job is canceled

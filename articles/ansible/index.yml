@@ -4,7 +4,7 @@ title: Ansible on Azure documentation
 metadata:
   title: Ansible on Azure documentation - Tutorials, samples, reference, and resources
   description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
-  ms.service: ansible
+  ms.service: azure
   keywords: ansible, azure, devops, tutorials, samples, reference
   author: tomarchermsft
   manager: jeconnoc
