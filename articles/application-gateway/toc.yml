@@ -61,10 +61,10 @@
       href: custom-error.md      
   - name: SSL
     items:
-    - name: SSL policy overview
-      href: application-gateway-ssl-policy-overview.md
     - name: SSL termination and end to end SSL
       href: ssl-overview.md
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -87,7 +87,7 @@
     href: application-gateway-faq.md
 - name: How-to guides
   items:
-  - name: Manage web traffic
+  - name: Host single site
     items:
     - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
@@ -99,29 +99,37 @@
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md      
-  - name: Configure SSL termination
+  - name: Configure SSL
     items:
-    - name: SSL termination - portal
-      href: create-ssl-portal.md
-    - name: SSL termination - PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: End-to-end SSL - Portal
-      href: end-to-end-ssl-portal.md      
-    - name: End-to-end SSL - PowerShell
-      href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Create certificates for whitelisting backend
-      href: certificates-for-backend-authentication.md        
-    - name: Renew certificates
-      href: renew-certificates.md
-    - name: Configure SSL policy
-      href: application-gateway-configure-ssl-policy-powershell.md
+    - name: SSL termination
+      items:
+      - name: SSL termination - portal
+        href: create-ssl-portal.md
+      - name: SSL termination - PowerShell
+        href: tutorial-ssl-powershell.md
+    - name: End-to-end SSL
+      items:        
+      - name: End-to-end SSL - Portal
+        href: end-to-end-ssl-portal.md      
+      - name: End-to-end SSL - PowerShell
+        href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Manage certificates
+      items:             
+      - name: Create certificates for whitelisting backend
+        href: certificates-for-backend-authentication.md        
+      - name: Renew certificates
+        href: renew-certificates.md
+    - name: SSL policy
+      items:           
+      - name: Configure SSL policy
+        href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
     items:
     - name: Azure portal
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Customize WAF rules
+  - name: Configure WAF rule sets
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -175,7 +183,7 @@
       href: configure-web-app-portal.md    
     - name: Azure PowerShell
       href: create-web-app.md
-  - name: Custom probes
+  - name: Configure custom probes
     items:
       - name: Portal
         href: application-gateway-create-probe-portal.md
