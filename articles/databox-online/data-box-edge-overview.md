@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -60,22 +60,6 @@ Data Box Edge has the following capabilities:
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.       |
 |Resiliency     | Built-in network resiliency.        |
 
-
-## Features and specifications
-
-The Data Box Edge physical device has the following features:
-
-| Features/specifications                                          | Description              |
-|---------------------------------------------------------|--------------------------|
-| Dimensions   | Width: 17.25” Depth: 27.25” Height: 1.75”<br>(excludes ears and PSU handles)  |            
-| Rack space|1U when placed in the rack|
-| Cables| 2 X Power cable<br>2 X 1 Gbps RJ45 cables<br>2 X 10 Gbps SFP+ copper cables|
-| Components|2 built-in Power Supply Units (PSUs)|
-| CPU|2 Intel Xeon processors with 10 cores each  |
-| Memory| 64 GB RAM|
-| Disks| 8 NVMe SSDs, each disk is 1.6 TB <br> The system fails if one NVMe SSD fails. |
-| Local storage capacity| 12.8 TB total capacity|
-| Network interfaces| 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.|
 
 ## Components
 

@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
 ---
 
@@ -417,7 +417,7 @@ To get the same data as a file of comma-separated values, download [move-support
 ## Microsoft.LabServices
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| labaccounts | Yes | Yes |
+| labaccounts | No | No |
 
 ## Microsoft.LocationBasedServices
 | Resource type | Resource group | Subscription |
