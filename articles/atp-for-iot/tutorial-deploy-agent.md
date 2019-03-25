@@ -59,4 +59,5 @@ Both flavours have the same set of features, and support the similar configurati
 ## See Also
 - [Overview](overview.md)
 - [Security agents](security-agent-architecture.md)
+- [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)

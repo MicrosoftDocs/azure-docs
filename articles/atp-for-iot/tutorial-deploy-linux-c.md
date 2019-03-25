@@ -49,7 +49,7 @@ To install deploy the security agent, do the following:
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.
+   See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
 
 This script does the following:
 

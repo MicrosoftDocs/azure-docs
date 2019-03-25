@@ -60,11 +60,8 @@ To get started deploying agents on your devices, see [Deploy a security agent](t
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Linux C# installation](tutorial-deploy-linux-cs.md)
-- [Linux C installation](tutorial-deploy-linux-c.md)
-- [Windows installation](tutorial-deploy-windows-cs.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
+- [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understand ATP for IoT security alerts](concept-security-alerts.md)
-

@@ -37,23 +37,75 @@ For each device onboarded to ATP for IoT in the IoT Hub, a security module is re
 
 The two methods for the AzureIoTSecurity agent to perform authentication:
 
- - **Security Module** authentication mode<br>
-   The Security Module is authenticated independently of the device twin.
+ - **Module** authentication mode<br>
+   The Module is authenticated independently of the device twin.
    The information required for this type of authentication is defined in by the Authentication.config file for C# and the LocalConfiguration.json for C.
 		
  - **Device** authentication mode<br>
     In this method, the Security agent first authenticates against the device. After the initial authentication, the ATP for IoT agent performs **Rest** call to the IoT Hub using the Rest API with the authentication data of the device. The ATP for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ATP for IoT agent performs an authentication against the ATP for IoT module.	
 
-See [How to configure authentication methods](how-to-configure-authentication-methods.md) to learn how to configure.
+See [Security agent installation parameters](#security-agent-installation-parameters) to learn how to configure.
 								
 ## Authentication methods known limitations
 
-- **Security Module** authentication mode only supports symmetric key authentication.
+- **Module** authentication mode only supports symmetric key authentication.
 - CA-Signed certificate is not supported by **Device** authentication mode.  
 
+## Security agent installation parameters
+
+When [deploying a security agent](tutorial-deploy-agent.md), authentication details must be provided as arguments.
+These arguments are documented in the following table.
+
+
+|Parameter|Description|Options|
+|---------|---------------|---------------|
+|**identity**|Authentication mode| **Module** or **Device**|
+|**type**|Authentication type|**SymmetricKey** or **SelfSignedCertificate**|
+|**filePath**|Absolute full path for the file containing the certificate or the symmetric key| |
+|**gatewayHostname**|FQDN of the IoT Hub|Example: ContosoIotHub.azure-devices.net|
+|**deviceId**|Device ID|Example: MyDevice1|
+|**certificateLocationKind**|Certificate storage location|**LocalFile** or **Store**|
+
+
+When using the install security agent script, the following configuration is performed automatically.
+To edit the security agent authentication manually, edit the config file. 
+
+## Change authentication method after deployment
+
+When deploying a security agent with an installation script, a configuration file is automatically created.
+To change authentication method after deployment, you must manually edit the configuration file.
+
+
+### C#-based security agent
+
+Edit _Authentication.config_ with the following parameters:
+
+```xml
+<Authentication>
+  <add key="deviceId" value=""/>
+  <add key="gatewayHostname" value=""/>
+  <add key="filePath" value=""/>
+  <add key="type" value=""/>
+  <add key="identity" value=""/>
+  <add key="certificateLocationKind" value="" />
+</Authentication>
+```
+
+### C-based security agent
+
+Edit _LocalConfiguration.json_ with the following parameters:
+
+```json
+"Authentication" : {
+	"Identity" : "",
+	"AuthenticationMethod" : "",
+	"FilePath" : "",
+	"DeviceId" : "",
+	"HostName" : ""
+}
+```
+
 ## See also
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Installation for Windows](tutorial-deploy-windows-cs.md)
-- [ATP for IoT alerts](concept-security-alerts.md)
-- [Data Access](how-to-security-data-access.md)
+- [Security agents overview](security-agent-architecture.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
+- [Access raw security data](how-to-security-data-access.md)

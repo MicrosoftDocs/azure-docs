@@ -44,7 +44,7 @@
 
 - name: Concepts
   items:
-  - name: Security agent authentication methods
+  - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: ATP for IoT module twins
     href: concept-atp-for-iot-security-module-twins.md
@@ -58,8 +58,6 @@
   items:
   - name: Access raw security data
     href: how-to-security-data-access.md
-  - name: Configure authentication methods
-    href: how-to-configure-authentication-methods.md
   - name: Modify a security module twin
     href: how-to-modify-a-security-module-twin.md
 

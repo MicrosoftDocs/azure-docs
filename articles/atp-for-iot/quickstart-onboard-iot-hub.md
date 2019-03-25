@@ -63,7 +63,6 @@ Congratulations! You've completed onboarding ATP for IoT to your IoT Hub.
 
 ## See Also
 - [Overview](overview.md)
-- [Configure authentication methods](how-to-configure-authentication-methods.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)
 - [Access your security-data](how-to-security-data-access.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
