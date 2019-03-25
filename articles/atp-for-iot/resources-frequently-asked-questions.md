@@ -146,7 +146,7 @@ To learn more about how to get started with ATP for IoT, see the following artic
 ## See Also
 
 - [ATP for IoT overview](overview.md)
-- [Prerequisites](system-prerequisites.md)
-- [Getting started](getting-started.md)
-- [Security alerts](concepts-security-alerts.md)
+- [Service prerequisites](service-prerequisites.md)
+- [Getting started](quickstart-getting-started.md)
+- [Understanding security alerts](concept-security-alerts.md)
 

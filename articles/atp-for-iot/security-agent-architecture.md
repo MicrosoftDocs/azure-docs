@@ -26,6 +26,7 @@ ms.author: mlottner
 
 
 ATP for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT hub.
+
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
 Security agents support the following IoT solution features:
@@ -58,11 +59,11 @@ In this article, you learned about ATP for IoT security agent architecture, and 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
 - [Device agent prerequisites](device-agent-prerequisites.md)
-- [Linux C# installation](quickstart-linux-c#-installation.md)
+- [Linux C# installation](quickstart-linux-cs-installation.md)
 - [Linux C installation](quickstart-linux-c-installation.md)
 - [Windows installation](quickstart-windows-installation.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
-- [Onboard to IoT hub](quickstart-onboard-to-iot-hub.md)
+- [Onboard to IoT hub](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
 - [Understand ATP for IoT security alerts](concept-security-alerts.md)
 

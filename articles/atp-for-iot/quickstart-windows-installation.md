@@ -42,7 +42,7 @@ To deploy the security agent, local admin rights are required on the machine you
 
 To install the security agent, do the following:
 
-1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the [ATP for IoT repository](../../releases) folder.
+1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the ATP for IoT GitHub repository(../../releases) folder.
 
 2. Extract the contents of the package, and navigate to the /Install folder.
 
@@ -115,6 +115,7 @@ To turn on logging:
 
 ## See Also
 - [Overview](overview.md)
-- [Configure authentication](how-to-configure-authentication-methods.md)
+- [Architecture](architecture.md)
+- [Onboarding](quickstart-onboard-iot-hub.md)
+- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)
-- [How to access security data](how-to-security-data-access.md)

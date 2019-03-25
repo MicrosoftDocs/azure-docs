@@ -55,8 +55,8 @@ Congratulations! You've completed onboarding ATP for IoT to your IoT Hub.
 ## Next steps
 
 After onboarding ATP for IoT to IoT Hub, continue configuring your solution by:
-- [Adding devices to your IoT Hub](quickstart-add-a-device.md)
-- Deploying a device agent for [Windows](z_quickstart-windows-installation.md) or [Linux](z_quickstart-linux-c%23-installation.md), or [Send security messages using the SDK](z_tutorial-send-security-messages%20.md) directly
+- Adding devices to your IoT Hub
+- Deploying a device agent for [Windows](quickstart-windows-installation.md) or [Linux](quickstart-linux-cs-installation.md), or [Send security messages using the SDK](tutorial-send-security-messages.md) directly
 - Create [custom alerts](quickstart-create-custom-alerts.md)
 
 

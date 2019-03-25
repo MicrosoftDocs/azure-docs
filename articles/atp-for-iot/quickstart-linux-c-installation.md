@@ -117,7 +117,8 @@ To turn on logging:
 
 
 ## See Also
+- [Overview](overview.md)
+- [Architecture](architecture.md)
+- [Onboarding](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)

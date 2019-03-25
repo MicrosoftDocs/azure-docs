@@ -66,8 +66,7 @@ To learn more about customizing properties of ATP for IoT module twins, see [Age
 
 
 ## See Also
-- [ATP for IoT preview](overview.md)
-- [Authentication](authentication-methods.md)
-- [ATP for IoT alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
+- [ATP for IoT overview](overview.md)
+- [Service prerequisites](service-prerequisites.md)
+- [Getting started](quickstart-getting-started.md)
+- [Understanding security alerts](concept-security-alerts.md)

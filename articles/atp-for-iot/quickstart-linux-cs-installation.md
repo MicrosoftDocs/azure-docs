@@ -109,8 +109,8 @@ If the agent fails to start, turn on logging to get more information.
 - Change the file location path according to the name you chose for the logFilePath in step 2. 
 
 ## See Also
-- [ATP for IoT overview](overview.md)
+- [Overview](overview.md)
+- [Architecture](architecture.md)
+- [Onboarding](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Authentication](authentication-methods.md)
-- [ATP for IoT alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)

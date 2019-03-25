@@ -83,7 +83,7 @@ The following table provides a summary of alerts available for customization.
 
 
 ## See Also
-- [Overview](overview.md)
+- [ATP for IoT overview](overview.md)
+- [Service prerequisites](service-prerequisites.md)
+- [Getting started](quickstart-getting-started.md)
 - [Understanding security alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
