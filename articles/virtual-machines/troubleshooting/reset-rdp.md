@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
 ---
 # Reset Remote Desktop Services or its administrator password in a Windows VM
@@ -34,18 +34,19 @@ First, sign in to the [Azure portal](https://portal.azure.com) and then select *
 
 1. Select your Windows VM and then select **Reset password** under **Support + Troubleshooting**. The **Reset password** window is displayed.
 
-1. Select **Reset password**, enter a username and a password, and then select **Update**. 
+2. Select **Reset password**, enter a username and a password, and then select **Update**. 
 
-1. Try connecting to your VM again.
+3. Try connecting to your VM again.
 
 ### **Reset the Remote Desktop Services configuration**
 
+This process will enable Remote Desktop service in the VM, and create a firewall rule for the default RDP port 3389.
+
 1. Select your Windows VM and then select **Reset password** under **Support + Troubleshooting**. The **Reset password** window is displayed. 
 
-1. Select **Reset configuration only** and then select **Update**. 
+2. Select **Reset configuration only** and then select **Update**. 
 
-1. Try connecting to your VM again.
-
+3. Try connecting to your VM again.
 
 ## Reset by using the VMAccess extension and PowerShell
 
