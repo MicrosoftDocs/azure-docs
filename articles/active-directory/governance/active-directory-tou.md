@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 
 ms.collection: M365-identity-device-management
@@ -185,6 +185,10 @@ To get started with Azure AD audit logs, use the following procedure:
 Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign-in.
 
 ![User web sign-in](./media/active-directory-tou/user-tou.png)
+
+Users can view the Terms of use and, if necessary, use buttons to zoom in and out.
+
+![View Terms of use with zoom buttons](./media/active-directory-tou/zoom-buttons.png)
 
 The following screen shows how Terms of use looks on mobile devices.
 
