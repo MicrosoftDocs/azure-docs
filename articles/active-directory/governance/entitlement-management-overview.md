@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/23/2019
+ms.date: 03/25/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 Managing access to all the resources a user needs to be productive is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of all the resources needed, the scope of the project, the individuals involved in the project, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with individuals or companies outside your organization.
 
-Azure Active Directory (Azure AD) entitlement management enables organizations to efficiently manage user's access to groups, enterprise applications, and SharePoint Online sites.
+Azure Active Directory (Azure AD) entitlement management enables organizations to manage access to packages of groups, applications, and SharePoint Online sites for internal users and users from external partners.
 
 ## Why use entitlement management?
 
@@ -51,7 +51,7 @@ Azure AD entitlement management can help address these challenges.
 
 Here are some of capabilities of entitlement management:
 
-- Define bundles of resources a user needs
+- Define packages of resources users need
 - Define rules for how to request resources and when access expires
 - Delegate managers to manage resources and approve requests
 - Govern the lifecycle of access for both internal and guest users
