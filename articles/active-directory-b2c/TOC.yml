@@ -237,7 +237,7 @@
           href: relyingparty.md
       - name: JavaScript samples
         href: javascript-samples.md
-      - name: Release notes
+      - name: Developer notes
         href: active-directory-b2c-developer-notes-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md

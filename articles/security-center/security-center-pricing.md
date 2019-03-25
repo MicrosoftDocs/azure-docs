@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 03/17/2019
 ms.author: monhaber
 ---
 # Upgrade to Security Center's Standard tier for enhanced security

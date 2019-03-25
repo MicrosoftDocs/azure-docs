@@ -29,7 +29,7 @@ This how-to shows examples for the following tasks:
 
 To use datastores, you need a [workspace](concept-azure-machine-learning-architecture.md#workspace) first. 
 
-Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
+Start by either [creating a new workspace](setup-create-workspace.md#sdk) or retrieving an existing one:
 
 ```Python
 import azureml.core
@@ -37,8 +37,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Or, [follow this Python quickstart](quickstart-create-workspace-with-python.md) to use the SDK to create your workspace and get started.
 
 <a name="access"></a>
 
@@ -148,7 +146,7 @@ Once you make your datastore available on the remote compute, you can access it 
 
 The following table lists the common [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) method(s) that make datastores available on the remote compute.
 
-##
+# #
 
 Way|Method|Description
 ----|-----|--------

@@ -152,7 +152,7 @@ Contoso admins run the TFS Migration Tool against the ContosoDev collection data
 
 2. They run the tool to perform the validation, by specifying the URL of the project collection:
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. The tool shows an error.
@@ -171,7 +171,7 @@ Contoso admins run the TFS Migration Tool against the ContosoDev collection data
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. They run the validation command again, and include this value, along with their Azure AD name: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. They run the validation command again, and include this value, along with their Azure AD name: **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -191,7 +191,7 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
 
 1. They run the prepare step in the tool.
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator prepare /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Prepare](./media/contoso-migration-tfs-vsts/prep1.png)
 
