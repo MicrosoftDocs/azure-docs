@@ -35,7 +35,7 @@ To list available built-in RBAC roles with Azure CLI, use the [az role definitio
 az role definition list --out table
 ```
 
-You'll see the built-in Azure Storage roles listed, together with other built-in roles for Azure:
+You'll see the built-in Azure Storage data roles listed, together with other built-in roles for Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -76,11 +76,11 @@ To assign a role scoped to a queue, specify a string containing the scope of the
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-The following example assigns the **Storage Queue Data Reader** role to a user, scoped to a queue named *sample-queue*. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
+The following example assigns the **Storage Queue Data Contributor** role to a user, scoped to a queue named *sample-queue*. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
 
 ```azurecli-interactive
 az role assignment create \
-    --role "Storage Queue Data Reader" \
+    --role "Storage Queue Data Contributor" \
     --assignee <email> \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
@@ -93,27 +93,28 @@ To assign a role scoped to the storage account, specify the scope of the storage
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-The following example shows how to assign the **Storage Queue Data Contributor** role to a user at the level of the storage account. Make sure to replace the sample values with your own values: 
+The following example shows how to assign the **Storage Blob Data Reader** role to a user at the level of the storage account. Make sure to replace the sample values with your own values: 
 
 ```azurecli-interactive
 az role assignment create \
-    --role "Storage Queue Data Contributor" \
+    --role "Storage Blob Data Reader" \
     --assignee <email> \
     --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
 ```
 
 ### Resource group scope
 
-To assign a role scoped to the resource group, specify the resource group name or ID for the `--resource-group` parameter. The following example assigns the **Storage Blob Data Reader** role to a user at the level of the resource group. Make sure to replace the sample values and placeholder values in brackets with your own values: 
+To assign a role scoped to the resource group, specify the resource group name or ID for the `--resource-group` parameter. The following example assigns the **Storage Queue Data Reader** role to a user at the level of the resource group. Make sure to replace the sample values and placeholder values in brackets with your own values: 
 
 ```azurecli-interactive
 az role assignment create \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Queue Data Reader" \
     --assignee <email> \
     --resource-group sample-resource-group
 ```
 
 ## Next steps
 
-- [Manage access to Azure resources using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Grant access to Azure containers and queues with RBAC using Azure PowerShell](storage-auth-aad-rbac-powershell.md)
 - [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)

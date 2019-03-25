@@ -37,7 +37,11 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-To learn how to assign a built-in role in the Azure portal, see [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac.md).
+To learn how to assign a built-in RBAC for Azure Storage resources, see one of the following topics:
+
+- [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Grant access to Azure containers and queues with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Grant access to Azure containers and queues with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### Access permissions granted by RBAC roles 
 
@@ -45,7 +49,6 @@ For details on the permissions required to call Azure Storage operations, see [P
 
 ## Next steps
 
-- [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac.md)
 - [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
 - [Authenticate access to blobs and queues with managed identities for Azure Resources](storage-auth-aad-msi.md)
-- [Use an Azure AD identity to access Azure Storage with CLI or PowerShell](storage-auth-aad-script.md)
+- Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../articles/storage/files/storage-files-active-directory-overview.md).
