@@ -16,15 +16,17 @@ ms.custom: seodec18
 
 Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 
-This setup deploys a few Azure resources. Together, these resources manage the knowledge base content and provide question-answering capabilities though an endpoint.
+## Create a new service
 
-1. Log in to the [Azure portal](<https://portal.azure.com>).
+This procedure deploys a few Azure resources. Together, these resources manage the knowledge base content and provide question-answering capabilities though an endpoint.
 
-1. Click on **Add new resource**, and type "qna maker" in search, and select the QnA Maker resource
+1. Sign in to the [Azure portal](<https://portal.azure.com>).
+
+1. Select **Add new resource**, and type "qna maker" in search, and select the QnA Maker resource
 
     ![Create a new QnA Maker service - Add new resource](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
-1.  Click on **Create** after reading the terms and conditions.
+1. Select **Create** after reading the terms and conditions.
 
     ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
@@ -49,7 +51,7 @@ This setup deploys a few Azure resources. Together, these resources manage the k
     * Choose the **App insights location** where Application Insights resource will be deployed.
     * For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker. 
 
-1. Once all the fields are validated, you can click on **Create** to start deployment of these services in your subscription. It will take a few minutes to complete.
+1. Once all the fields are validated, you can select **Create** to start deployment of these services in your subscription. It will take a few minutes to complete.
 
 1. Once the deployment is done, you will see the following resources created in your subscription.
 
