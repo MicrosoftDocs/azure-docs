@@ -7,22 +7,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/22/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Data Box Edge (Preview)? 
+# What is Azure Data Box Edge? 
 
 Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure. This article provides you an overview of the Data Box Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 
 Data Box Edge uses a physical device supplied by Microsoft to accelerate the secure data transfer. The physical device resides in your premises and you write data to it using the NFS and SMB protocols. 
 
 Data Box Edge has all the gateway capabilities of Data Box Gateway. Data Box is additionally equipped with AI-enabled edge computing capabilities that help analyze, process, or filter data as it moves to Azure block blob, page blob, or Azure Files.  
-
-> [!IMPORTANT]
-> - Data Box Edge is in Preview. [Sign up](#sign-up) for this service!
-> - Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
 
 ## Use cases
 
