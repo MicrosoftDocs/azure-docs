@@ -21,6 +21,7 @@ ms.author: anroth
 - Replaced “Default Iterations” with Publish/Unpublish in the 3.0 APIs. 
 - New model export targets have been added. Dockerfile export has been upgraded to support ARM for Raspberry Pi 3. Export support has been added to the [Vision AI Dev Kit.](https://visionaidevkit.com/) 
 - Increased limit of Tags per project to 500 for S0 tier. Increased limit of Images per project to 100,000 for S0 tier.
+- Removed Adult domain. General domain is reccomended instead.
 - Announced [pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) for General Availability.  
 
 
