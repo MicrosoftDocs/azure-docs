@@ -53,7 +53,7 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
-- Updates **Azure Functions runtime** to **v1.0.11820**.
+- Updates **Azure Functions runtime** to **v1.0.11388**.
 
 - **Updates to the following application frameworks and tools**:
     - Added **.NET Core 2.0** support
