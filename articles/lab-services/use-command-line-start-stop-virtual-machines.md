@@ -28,7 +28,7 @@ However, in some scenarios, you may want to automate starting and stopping of VM
 - Turn off a VM when a custom criteria is met to save money. 
 - Use it as a task within a CI/CD workflow to start at the beginning of the flow, use the VMs as build machines, test machines, or infrastructure, then stop the VMs when the process is complete. An example of this would be the custom image factory with Azure DevTest Labs.  
 
-## Use Azure PowerShell
+## Azure PowerShell
 The following PowerShell script starts a VM in a lab. [Invoke-AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0) is the primary focus for this script. The **ResourceId** parameter is the fully qualified resource ID for the VM in the lab. The **Action** parameter is where the **Start** or **Stop** options are set depending on what is needed.
 
 ```powershell
