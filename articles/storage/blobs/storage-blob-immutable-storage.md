@@ -6,7 +6,7 @@ author: xyh1
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
 ---
@@ -110,17 +110,17 @@ The most recent releases of the [Azure portal](https://portal.azure.com), [Azure
 
     !["Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Select **Lock Policy**. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed.
+6. Select **Lock Policy**. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed.
 
-6. To enable legal holds, select **+ Add Policy**. Select **Legal hold** from the drop-down menu.
+7. To enable legal holds, select **+ Add Policy**. Select **Legal hold** from the drop-down menu.
 
     !["Legal hold" on the menu under "Policy type"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Create a legal hold with one or more tags.
+8. Create a legal hold with one or more tags.
 
     !["Tag name" box under the policy type](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. To clear a legal hold, simply remove the applied legal hold identifier tag.
+9. To clear a legal hold, simply remove the applied legal hold identifier tag.
 
 ### Azure CLI
 
