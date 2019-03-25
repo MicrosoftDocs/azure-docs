@@ -33,7 +33,7 @@ In both collection modes, additional data collection folders can be specified by
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Have a storage account for extension to save generated zip files.
 * Azure PowerShell. See [Install Azure PowerShell](/powershell/azure/install-az-ps)] for install instructions.

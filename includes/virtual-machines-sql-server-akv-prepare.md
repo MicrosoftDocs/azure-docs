@@ -23,7 +23,7 @@ To use Azure Key Vault Integration to configure your SQL Server VM, there are se
 
 The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
 
-[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Install Azure PowerShell
 Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).

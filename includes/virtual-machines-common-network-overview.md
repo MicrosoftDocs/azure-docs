@@ -27,7 +27,7 @@ In addition to those basic resources, you should also consider these optional re
 - Network security groups
 - Load balancers 
 
-[!INCLUDE [updated-for-az](./includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## Network interfaces
 
