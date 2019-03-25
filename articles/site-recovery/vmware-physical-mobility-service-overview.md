@@ -34,7 +34,7 @@ Details of push installation workflow has been described in the following sectio
 
 During push installation of mobility agent, following steps are performed
 
-1. Pushes agent on to the source machine. Copying the agent on to source machine can fail due to multiple environmental errors. To troubleshoot push installation failure, click [here](vmware-azure-troubleshoot-push-install.md).
+1. Pushes agent on to the source machine. Copying the agent on to source machine can fail due to multiple environmental errors. Visit [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, this step will be skipped and agent installation will continue.
 4. If agent installation succeeds but VSS provider installation fails,then job status is marked as "Warning". This does not impact crash consistency points generation.
@@ -43,10 +43,9 @@ During push installation of mobility agent, following steps are performed
 
 ### Before 9.22 versions
 
-1. Pushes agent on to the source machine. Copying the agent on to source machine can fail due to multiple environmental errors. To troubleshoot push installation failure, click [here](vmware-azure-troubleshoot-push-install.md).
+1. Pushes agent on to the source machine. Copying the agent on to source machine can fail due to multiple environmental errors. Visit [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, then agent installation will fail. To avoid failure of mobility agent installation, use [9.23 version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash consistent points and install VSS provider manually.
-
 
 ## Install mobility agent through UI
 
@@ -85,26 +84,27 @@ During push installation of mobility agent, following steps are performed
 
 ### On a Windows machine
 
-1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. 
+- Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect.
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
-2. Install as follows:
+    ```
+    cd C:\Temp
+    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+    cd C:\Temp\Extracted
+    ```
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+- Install as follows:
 
-3. Register the agent with the configuration server.
+    ``` 
+    UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+    ```
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+- Register the agent with the configuration server.
+
+    ``` 
+    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+    UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+    ```
 
 #### Installation settings
 **Setting** | **Details**
@@ -127,21 +127,23 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 ### On a Linux machine
 
 1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
-  ```
-  cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+    ```
+    cd /tmp ;
+    tar -xvzf Microsoft-ASR_UA*release.tar.gz
+    ```
+
 2. Install as follows:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+    ```
+    sudo ./install -d <Install Location> -r MS -v VmWare -q
+    ```
+
 3. After installation is finished, Mobility Service must be registered to the configuration server. Run the following command to register Mobility Service with the configuration server:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+    ```
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+    ```
 
 #### Installation settings
 **Setting** | **Details**
