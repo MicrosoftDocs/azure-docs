@@ -352,7 +352,8 @@ Specify the DNS server for your environment in the container engine settings. Cr
 The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access to this IP from its environment, replace it with DNS server address that is accessible.
 
 Place `daemon.json` in the right location for your platform: 
-
+| Platform | Location |
+| --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
 
@@ -360,14 +361,10 @@ If the location already contains `daemon.json` file, add the **dns** key and sav
 
 *Restart the container engine for the updates to take effect*
 
+| Platform | Command |
+| --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
-
-
-
-
-
-
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
