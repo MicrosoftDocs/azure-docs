@@ -157,8 +157,8 @@ You can disable Automatic Updates manually.
 
 To disable Automatic Updates:
 
-1. Install Office365 by following the instructions in [Software preparation and installation](#software-preparation-and-installation).
-2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](#set-up-user-profile-container-fslogix), [Configure Windows Defender](#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Disable Windows Auto Update Service on the local VM.
 4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
 5. Right-click **Configure Automatic Update** and set it to **Disabled**.
@@ -227,9 +227,7 @@ Windows Virtual Desktop does not officially support Skype for Business and Teams
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-When configuring the file share registry key, use the file share you created in [Prepare the virtual machine to act as a file share for user profiles](create-host-pools-user-profile.md#prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles) where you plan to store the profile containers. You can also test the functionality of the FSLogix container using this [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### Configure Windows Defender
 

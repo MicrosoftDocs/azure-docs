@@ -90,6 +90,15 @@
       href: personal-data-delete-export.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Create an image factory
+      href: image-factory-create.md
+      items:
+      - name: Run an image factory from AzureDevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Save custom images and distribute to multiple labs
+        href: image-factory-save-distribute-custom-images.md
+      - name: Set retention policy and run cleanup scripts
+        href: image-factory-set-retention-policy-cleanup.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
