@@ -39,7 +39,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 ``` 
 
 ### Create a Front Door profile
-Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md).
+Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md).
 
 ## Define geo-filtering match condition
 
@@ -67,7 +67,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 -Priority 1
 ```
 
-## Add Rules to a Policy
+## Add rules to a policy
 Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile. You must provide a unique name for the geo policy. 
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.

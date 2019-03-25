@@ -20,11 +20,11 @@ By default, Azure Front Door Service responds to user requests regardless of the
 
 A WAF policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
-You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](front-door-tutorial-geo-filtering.md) or by using our [quick-start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](front-door-tutorial-geo-filtering.md) or by using our [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## Country Code Reference
+## Country code reference
 
-|Country Code | Country Name |
+|Country code | Country name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|
