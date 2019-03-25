@@ -27,7 +27,7 @@ ms.author: mlottner
 
 This article explains how to modify the configuration of an existing **AzureIoTSecurity module twin** for an existing device. 
 
-See [Create an AzureIoTSecurity module](quickstart-security-module.md) to learn how to make a new security module for a new device.  
+See [Create an ATPforIoT module](quickstart-security-twinmodule.md) to learn how to make a new security module for a new device.  
 
 ## Modification considerations
 
@@ -100,7 +100,7 @@ Configuration error |eventPriorityConfigurationError |Low |False |Agent failed t
 
 
 ## See Also
-- [ATP for IoT preview](overview.md)
-- [Authentication](authentication-methods.md)
-- [ATP for IoT alerts](concepts-security-alerts.md)
-- [Data access](data-access.md)
+
+- [Overview](overview.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)
+- [Access your security data](how-to-security-data-access.md)

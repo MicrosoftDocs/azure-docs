@@ -44,7 +44,7 @@ Security analytics and best practices are provided for the following resources:
 - Related non-IoT Azure resources, powered by Azure Security Center
 
 ## Feature access
-ATP for IoT insights and reporting features are available using Azure IoT Hub and Azure Security Center. To [onboard ATP for IoT into your Azure IoT Hub](quickstart-onboard-iot-hub), an account with Owner level privileges is required. After onboarding ATP for IoT into your IoT Hub, ATP for IoT insights are displayed as the **Security** menu in Azure IoT Hub and as  **Device** alerts in ASC for IoT. 
+ATP for IoT insights and reporting features are available using Azure IoT Hub and Azure Security Center. To [onboard ATP for IoT into your Azure IoT Hub](quickstart-onboard-iot-hub.md), an account with Owner level privileges is required. After onboarding ATP for IoT into your IoT Hub, ATP for IoT insights are displayed as the **Security** menu in Azure IoT Hub and as  **Device** alerts in ASC for IoT. 
 
 ## Supported service regions 
 ATP for IoT is currently supported in the following Azure regions:

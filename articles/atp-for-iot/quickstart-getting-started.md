@@ -59,10 +59,10 @@ To make use of ATP for IoT agents and additional security capabilities, such as;
 
 1. [Onboard ATP for IoT service in IoT Hub](quickstart-onboard-iot-hub.md)
 2. In IoT Hub, [create a new device identity](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal). 
-3. [Create an ATPforIoT security module](quickstart-create-security-module.md) for the new identity. 
+3. [Create an ATP for IoT security module](quickstart-create-security-twin.md) for the new identity. 
 4. [Spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
 5. Install the ATP for IoT agent on the new VM using the [credentials](how-to-configure-authentication-methods.md) defined in the ATP for IoT  module.
-6. Run [sample script](sample-script.md) to simulate an attack.
+6. Run **sample script** to simulate a harmless attack.
 7. Verify alerts in IoT Hub up to 5 minutes after running the script. 
 8. Explore alert and remediation recommendations along with deeper investigation using log analytics in IoT Hub. 
 
@@ -71,18 +71,22 @@ To make use of ATP for IoT agents and additional security capabilities, such as;
 
 In certain scenarios, you may decide to run certain devices in your IoT solution with Microsoft ATP for IoT agents, and other devices with your own custom agents. 
 
-In that type of hybrid  scenario, follow the previous instructions for onboarding each type of device and required agent. 
+In that type of hybrid scenario, follow the previous instructions for onboarding each type of device and required agent. 
  
 
 ## Next steps
-Add devices to IoT Hub. (Use IoT Hub docs for this)
-IoT Identify device group with shared attributes or commonality. 
-Define a security group in IoT Hub, Security, Custom Alert. Define group behavior/custom alerts. Add a new groups Group devices Define custom alerts 
+
+1. Add devices to IoT Hub. 
+2. Identify device groups with shared attributes or commonality. 
+3. Define a security group in IoT Hub
+    1. Select **Security**
+    1. Select **Custom Alert**. 
+    1. Define the **group behavior** and related **custom alerts**.
 
 
 ## See Also
-- [ATP for IoT preview](overview.md)
-- [Prerequisites](prerequisites.md)
+- [Overview](overview.md)
+- [Architecture](architecture.md)
 - [Onboarding](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT alerts](concepts-security-alerts.md)
+- [Understanding ATP for IoT alerts](concept-security-alerts.md)

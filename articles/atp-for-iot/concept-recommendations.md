@@ -8,7 +8,7 @@ author: mlottner
 manager: barbkess
 editor: ''
 
-ms.assetid:02ced504-d3aa-4770-9d10-b79f80af366c
+ms.assetid: 02ced504-d3aa-4770-9d10-b79f80af366c
 ms.service: atpforiot
 ms.devlang: na
 ms.topic: conceptual
