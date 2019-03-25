@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ---
 
