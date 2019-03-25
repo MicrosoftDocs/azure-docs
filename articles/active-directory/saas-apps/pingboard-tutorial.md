@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Pingboard, perform the following steps
 
 ### Configure Pingboard Single Sign-On
 
-1. To configure SSO on Pingboard side, open a new browser window and log in to your Pingboard Account. You must be a Pingboard admin to set up single sign on.
+1. To configure SSO on Pingboard side, open a new browser window and sign in to your Pingboard Account. You must be a Pingboard admin to set up single sign on.
 
 2. From the top menu,, select **Apps > Integrations**
 
@@ -212,7 +212,7 @@ The objective of this section is to create a user called Britta Simon in Pingboa
 
 **If you need to create user manually, perform following steps:**
 
-1. Log in to your Pingboard company site as an administrator.
+1. Sign in to your Pingboard company site as an administrator.
 
 2. Click **“Add Employee”** button on **Directory** page.
 
