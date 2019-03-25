@@ -20,9 +20,7 @@ ms.author: mlottner
 # Quickstart: Create a ATP for IoT module twin
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> ATP for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article provides an explanation of how to create individual ATP for IoT module twins for new devices, or batch create module twins for all devices in an IoT Hub for use with the ATP for IoT preview.
 
