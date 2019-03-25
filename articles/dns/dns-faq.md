@@ -248,22 +248,17 @@ Yes. Private Zones doesn't replace the default DNS resolutions by using the Azur
 
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
 
-### Are there any limitations for private zones during this preview?
+### Are there any limitations for private zones?
 
 Yes. During the public preview, the following limitations exist.
-* One Registration virtual network per private zone.
-* Up to 10 Resolution virtual networks per private zone.
-* A given virtual network links to only one private zone as a Registration virtual network.
-* A given virtual network links to up to 10 private zones as a Resolution virtual network.
-* If a Registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the private zone can't be viewed or retrieved from PowerShell, the CLI, or APIs. The VM records are registered and resolve successfully.
+
 * Reverse DNS works only for private IP space in the Registration virtual network.
 * Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
-* A virtual network must be empty when it links for the first time to a private zone as a Registration or Resolution virtual network. The virtual network then can be non-empty for future linking as a Registration or Resolution virtual network to other private zones.
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### Are there any quotas or limits on zones or records for private zones?
 
-There are no limits on the number of zones allowed per subscription for private zones. There are no limits on the number of record sets per zone for private zones. Both public and private zones count toward the overall DNS limits. For more information, see the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits)
+See the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits).
 
 ### Is there portal support for private zones?
 
