@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: spelluru
 
 ---
@@ -26,8 +26,9 @@ The significant accelerator to get a developer desktop to a ready state in DevTe
 
 The solution enables the speed of creating virtual machines from custom images while eliminating additional ongoing maintenance costs. With this solution, you can automatically create custom images, distribute them to other DevTest Labs, and retire the old images. In the following video, you learn about the image factory, and how it's implemented with DevTest Labs.  All the Azure Powershell scripts are freely available and located here:  [http://aka.ms/dtlimagefactory](http://aka.ms/dtlimagefactory).
 
-
+<p>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Custom-Image-Factory-with-Azure-DevTest-Labs/player]
+</p>
 
 
 ## High-level view of the solution

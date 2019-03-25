@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: spelluru
 
 ---
@@ -25,7 +25,7 @@ This article covers all the preparations needed to run the image factory from Az
 ## Create a lab for the image factory
 The first step in setting up the image factory is to create a lab in Azure DevTest Labs. This lab is the image factory lab where we create the virtual machines and save custom images. This lab is considered as part of the overall image factory process. Once you create a lab, make sure to save the name since you’ll need it later.
 
-## The Scripts and templates
+## Scripts and templates
 The next step in adopting the image factory for your team is to understand what’s available. The image factory scripts and templates are available publicly in the [DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). Here is an outline of the pieces:
 
 - Image Factory. It's the root folder. 
@@ -51,7 +51,7 @@ All the PowerShell, templates and configuration for the image factory are locate
 3. Enter the **clone URL** for the DevTest Labs Repo: `https://github.com/Azure/azure-devtestlab`.
 4. Select **Import**.
 
-![Import Git repo](./media/set-up-devops-lab/import-git-repo.png)
+    ![Import Git repo](./media/set-up-devops-lab/import-git-repo.png)
 
 If you decide to only check in exactly what’s needed (the image factory files), follow the steps [here](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) to clone the Git repo and push only the files located in the **scripts/ImageFactory** directory.
 

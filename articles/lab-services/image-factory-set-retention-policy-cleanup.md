@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: spelluru
 
 ---
@@ -53,7 +53,7 @@ This task removes any old images, keeping only a history matching the **ImageRet
 
 ![Retire old images PowerShell task](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-The script parameters are: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`.
+The script parameters are: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## Queue the build
 Now that you have completed the build definition, queue up a new build to make sure that everything is working. After the build completes successfully the new custom images show up in the destination lab and if you check the image factory lab, you see no provisioned VMs. Furthermore if you queue up further builds, you see the cleanup tasks retiring out old custom images from the DevTest Labs in accordance to the retention value set in the build variables.
