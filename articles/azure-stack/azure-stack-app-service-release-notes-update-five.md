@@ -55,6 +55,8 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
+- Updates **Azure Functions runtime** to **v1.0.12205**.
+
 - Updates to **Kudu tools** to resolve issues with styling and functionality for customers operating **disconnected** Azure Stack. 
 
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
