@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
 ---
@@ -29,12 +29,10 @@ Then, create an Azure SQL Data Warehouse database
 
 ## Specify job output: Azure SQL Data Warehouse database
 ### Step 1
-In your Stream Analytics job click **OUTPUT** from the top of the page, and then click **ADD OUTPUT**.
+In your Stream Analytics job click **OUTPUT** from the top of the page, and then click **ADD**.
 
 ### Step 2
-Select SQL Database and click next.
-
-![][add-output]
+Select SQL Database.
 
 ### Step 3
 Enter the following values on the next page:
@@ -57,9 +55,7 @@ Enter the following values on the next page:
 ### Step 4
 Click the check button to add this job output and to verify that Stream Analytics can successfully connect to the database.
 
-![][test-connection]
-
-When the connection to the database succeeds, you will see a notification at the bottom of the portal. You can click Test Connection at the bottom to test the connection to the database.
+When the connection to the database succeeds, you will see a notification in the portal. You can click Test to test the connection to the database.
 
 ## Next steps
 For an overview of integration, see [SQL Data Warehouse integration overview][SQL Data Warehouse integration overview].

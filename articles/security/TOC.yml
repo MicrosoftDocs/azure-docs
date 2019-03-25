@@ -64,7 +64,9 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-      - name: Appendix for disk encryption
+        - name: Disk encryption with VMSS extension sequencing
+          href: azure-security-disk-encryption-extension-sequencing.md
+        - name: Appendix for disk encryption
         href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
