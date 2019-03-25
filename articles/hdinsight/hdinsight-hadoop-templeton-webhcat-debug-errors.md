@@ -66,7 +66,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | Job details have been cleaned up by the job history cleaner |The default retention period for job history is 7 days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
 | Job has been killed due to a failover |Retry job submission for up to two minutes |
-| An Invalid job id was used |Check if the job id is correct |
+| An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway
 
@@ -76,7 +76,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | Internal garbage collection is occurring within the WebHCat process |Wait for garbage collection to finish or restart the WebHCat service |
 | Time out waiting on a response from the ResourceManager service. This error can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. For more information, see the [Modifying configuration](#modifying-configuration) section. |
-| Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Do not retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job id. Or, do not use `Fields` |
+| Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Do not retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job ID. Or, do not use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |
 
