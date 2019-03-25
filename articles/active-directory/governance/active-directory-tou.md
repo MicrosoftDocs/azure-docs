@@ -194,7 +194,7 @@ The following screen shows how Terms of use looks on mobile devices.
 
 ![User mobile sign-in](./media/active-directory-tou/mobile-tou.png)
 
-Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign ins.
+Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign-ins.
 
 ### How users can review their Terms of use
 Users can review and see the Terms of use that they have accepted by using the following procedure.
