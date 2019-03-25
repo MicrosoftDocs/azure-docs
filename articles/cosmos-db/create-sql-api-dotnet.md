@@ -186,19 +186,19 @@ You can go back to Data Explorer in the Azure portal to see, query, modify, and 
 
 This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
-* This code initializes the <xref:Microsoft.Azure.Documents.Client>: 
+* This code initializes the `DocumentClient`: 
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]):
     ```
 
-* This code creates the new database by using the <xref:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync> method:
+* This code creates the new database by using the `CreateDatabaseAsync` method:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* The following code creates the new collection by using the <xref:Microsoft.Azure.Documents.Client.DocumentClient.CreateDocumentCollectionAsync> method:
+* The following code creates the new collection by using the `CreateDocumentCollectionAsync` method:
 
     ```csharp
     private static async Task CreateCollectionIfNotExistsAsync()
