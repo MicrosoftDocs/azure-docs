@@ -142,7 +142,6 @@ Login-AzureRMAccount
 
 Alternatively, sign in to the [Azure portal](https://portal.azure.com) as the account owner, and the user will be forced to change the password.
 
-Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.
 ### Unknown user type 
  
 ```powershell
