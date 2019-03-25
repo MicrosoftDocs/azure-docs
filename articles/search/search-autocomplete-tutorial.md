@@ -230,7 +230,7 @@ If you compare this to the example above that calls the Home controller, you'll 
 
 The significant change here is the source. Instead of calling the Suggest method in the home controller, a REST request is created in a JavaScript function and executed using Ajax. The response is then processed in "success" and used as the source.
 
-REST calls use URIs to specify whether an [Autocomplete]() or [Suggestions]() API call is being made. The following URIs are on lines 9 and 10, respectively.
+REST calls use URIs to specify whether an [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) or [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) API call is being made. The following URIs are on lines 9 and 10, respectively.
 
 ```javascript
 var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
