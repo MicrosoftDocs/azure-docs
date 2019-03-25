@@ -38,8 +38,8 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create an access package with a group as a resource
-> * Designate a user as an approver
-> * Demonstrate how an internal user in your organization can request the access package
+> * Designate an approver
+> * Demonstrate how an internal user can request the access package
 > * Approve the access request
 
 ## Prerequisites
@@ -304,5 +304,5 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 ## Next steps
 
-- [Create and manage a catalog](entitlement-management-create-catalog.md)
+- [Basic steps for common scenarios](entitlement-management-steps.md)
 - [Create and manage an access package](entitlement-management-create-access-package.md)

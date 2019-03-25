@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -31,6 +31,14 @@ ms.collection: M365-identity-device-management
 An access package enables an access package manager to do a one-time setup or resources and policies that automatically administers access and the access lifecycle. The access package manager can change the resources without worrying about provisioning the user's access to the new resources, or removing their access from the previous resources. Policies can also be updated at any time, however, the policy changes only affect new accesses.
 
 ## Create an access package
+
+All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the Default catalog. Currently, you can't move an existing access package to a different catalog.
+
+All access packages must have at least one policy. Policies define who can request the access package and other settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, or you can choose to create the policy later.
+
+The following diagram shows the high-level process to create a new access package.
+
+![Create an access package process](./media/entitlement-management-create-access-package/access-package-process.png)
 
 **Prerequisite role:** User administrator or Catalog owner
 
@@ -167,6 +175,10 @@ Any users with existing assignments to the access package will automatically hav
 ## Specify who can request an access package
 
 The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval and expiration settings. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
+
+The following diagram shows the high-level process to create a policy for an existing access package.
+
+![Create a policy process](./media/entitlement-management-create-access-package/policy-process.png)
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
