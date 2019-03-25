@@ -88,7 +88,9 @@ Data Box Edge physical device, Azure resource, and target storage account to whi
     - **United States** - West US2 and East US
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
-
+    
+    Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. 
 
     The regions where the storage accounts store Data Box data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance. 
