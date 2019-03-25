@@ -201,7 +201,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-To use this snapshot to create a VM that needs to be high-performing, add the parameter `-AccountType Premium_LRS` to the New-AzSnapshot command. This parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard, so be sure you'll need Premium before using this parameter.
+To use this snapshot to create a VM that needs to be high-performing, add the parameter `-AccountType Premium_LRS` to the New-AzSnapshotConfig command. This parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard, so be sure you'll need Premium before using this parameter.
 
 ### Create a new disk from the snapshot
 

@@ -21,12 +21,12 @@ This tutorial walks you through creating and publishing a knowledge base, then a
 In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
-* Create a knowledge base in the QnA Maker portal
-* Review, save, and train the knowledge base
-* Publish the knowledge base
-* Use Curl to query the knowledge base
-
-> [!NOTE] 
+> * Create a knowledge base in the QnA Maker portal
+> * Review, save, and train the knowledge base
+> * Publish the knowledge base
+> * Use Curl to query the knowledge base
+> 
+> [!NOTE]
 > The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Prerequisites

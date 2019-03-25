@@ -5,16 +5,16 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/19/2019
+ ms.date: 03/18/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute and point-to-site connectivity functionality is currently under Preview. CPE branch devices auto-provision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Parner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute and point-to-site connectivity functionality is currently under Preview. CPE branch devices autoprovision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
-### Which device providers (Virtual WAN partners) are supported at launch time? 
+### Which device providers (Virtual WAN partners) are supported at launch time?
 
 At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
 
@@ -64,7 +64,7 @@ No. The NVA VNet cannot have a virtual network gateway if it is connected to the
 
 ### Is there support for BGP?
 
-Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet, which in turn, is connected to a virtual hub. Additionally, connect the spoke VNets to the virtual hub to ensure spoke VNet routes are propagated to on-premises systems.
+Yes, BGP is supported. When you create a VPN site, you can provide the BGP parameters in it. This will imply that any connections created in Azure for that site will be enabled for BGP. Additionally, if you had a VNet with an NVA, and if this NVA VNet was attached to a Virtual WAN hub, in order to ensure that routes from an NVA VNet are advertised appropriately, spokes that are attached to NVA VNet must disable BGP. Additionally, connect these spoke VNets to the virtual hub VNet to ensure spoke VNet routes are propagated to on-premises systems.
 
 ### Can I direct traffic using UDR in the virtual hub?
 
@@ -74,13 +74,21 @@ Yes, you can direct traffic to a VNet using Virtual Hub Route Table.
  
 Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
+### How do I calculate price of a hub?
+ 
+You would pay for the service in the hub. For example, 10 branches or on-premise devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving azure apply. 
+
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
 Send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
 
+### What if a device i am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
+
+Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity. 
+
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 
-A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [Azure Quick Start Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or Portal driven service.
+A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [Azure quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or Portal driven service.
 
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
@@ -94,6 +102,10 @@ Yes.
 
 Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
 
+### How is Virtual WAN supporting SD-WAN devices?
+
+Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is an SD-WAN provider, then it is implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure VNet and coexist with Azure Virtual WAN.
+
 ### Does this Virtual WAN require ExpressRoute from each site?
 
 No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in Virtual Hub (Under Preview), sites can have branch to branch traffic flow between VPN and ExpressRoute. 
@@ -104,12 +116,12 @@ Number of branches is limited to 1000 connections per hub/region and a total of 
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 
-Yes, you can have active-active tunnels (2 tunnels = 1 Azure Virtual WAN connection) from a single branch depending on the branch device.
+A connection coming into Virtual WAN VPN is always an active-active tunnel (for resiliency within the same hub/region) using a link available at the branch. This link may be an ISP link at the on-premises branch. Virtual WAN does not provide any special logic to set up multiple ISP in parallel; managing failover across ISP at the branch is completely a branch-centric network operation. You can use your favorite SD-WAN solution to do path selection at the branch.
 
 ### How is traffic routed on the Azure backbone?
 
-The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device
+The traffic follows the pattern: branch device ->ISP->Microsoft edge->Microsoft DC (hub VNet)->Microsoft edge->ISP->branch device
 
 ### In this model, what do you need at each site? Just an internet connection?
 
-Yes. An Internet connection and physical device, preferably from our integrated [partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). You can optionally, manually manage the configuration and connectivity to Azure from your preferred device.
+Yes. An Internet connection and physical device that supports IPsec, preferably from our integrated [partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). You can optionally, manually manage the configuration and connectivity to Azure from your preferred device.

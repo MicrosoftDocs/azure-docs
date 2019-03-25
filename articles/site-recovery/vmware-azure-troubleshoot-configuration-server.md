@@ -20,9 +20,9 @@ The source machine registers with the configuration server when you install the 
 1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues.
 
 2. Search for the string **No Valid IP Address found**. If the string is found:
-    1. Verify that the requested host ID is the same as the host ID of the source machine.
-    2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
-    3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
+   1. Verify that the requested host ID is the same as the host ID of the source machine.
+   2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
+   3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
       - For Windows: `> ipconfig /all`
       - For Linux: `# ifconfig -a`
 
@@ -43,11 +43,11 @@ The source machine registers with the configuration server when you install the 
     3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.  
     4. After you resolve the issues, retry the registration by following guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
-    1. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
-    2. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
-    3. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
-    4. [Uninstall](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
+7. On Linux, if the value of the platform in <INSTALLATION_DIR\>/etc/drscout.conf is corrupted, registration fails. To identify this issue, open the /var/log/ua_install.log file. Search for the string **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. The platform should be set to either **VmWare** or **Azure**. If the drscout.conf file is corrupted, we recommend that you [uninstall the mobility agent](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) and then reinstall the mobility agent. If uninstallation fails, complete the following steps:
+    a. Open the Installation_Directory/uninstall.sh file and comment out the call to the **StopServices** function.
+    b. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
+    c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
+    d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
 ## Installation failure: Failed to load accounts
 
@@ -77,9 +77,9 @@ To avoid this error, ensure that the time on your system clock isn't different f
 
 A certificate that's required to authenticate Site Recovery can't be created. Rerun setup after you ensure that you're running setup as a local administrator.
 
-## Failure to activate Windows Licence from Server Standard EVALUATION to Server Standard
+## Failure to activate Windows License from Server Standard EVALUATION to Server Standard
 
-1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hindrance to replication activities.
 2. If you are unable to activate Windows license, reach out to [Windows support team](https://aka.ms/Windows_Support) to resolve the issue.
 
 ## Register source machine with configuration server
@@ -143,7 +143,7 @@ To remove stale protected machine on the configuration server, use the following
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    If you have a source server entry of "OnPrem-VM01" with an ipaddress of 10.0.0.4 then use the following command instead.
+    If you have a source server entry of "OnPrem-VM01" with an ip-address of 10.0.0.4 then use the following command instead.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

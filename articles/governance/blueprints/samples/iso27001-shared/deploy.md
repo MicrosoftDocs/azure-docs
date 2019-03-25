@@ -130,7 +130,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
+   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
@@ -203,8 +205,8 @@ the following articles to learn about the architecture and control mapping:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](../../concepts/parameters.md)
-- Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md)
-- Learn how to [update existing assignments](../../how-to/update-existing-assignments.md)
+- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).
+- Learn how to [update existing assignments](../../how-to/update-existing-assignments.md).

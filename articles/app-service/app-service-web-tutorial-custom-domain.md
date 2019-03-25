@@ -142,7 +142,7 @@ Select **Validate**.
 
 The **Add hostname** page is shown. 
 
-Make sure that **Hostname record type** is set to **CNAME (www.example.com or any subdomain)**.
+Make sure that **Hostname record type** is set to **CNAME (www\.example.com or any subdomain)**.
 
 Select **Add hostname**.
 
@@ -279,7 +279,7 @@ Type a fully qualified domain name that matches the wildcard domain (for example
 
 The **Add hostname** button is activated. 
 
-Make sure that **Hostname record type** is set to **CNAME record (www.example.com or any subdomain)**.
+Make sure that **Hostname record type** is set to **CNAME record (www\.example.com or any subdomain)**.
 
 Select **Add hostname**.
 

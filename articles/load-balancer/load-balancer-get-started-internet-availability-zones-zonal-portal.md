@@ -41,8 +41,8 @@ Log in to the Azure portal at https://portal.azure.com.
 >[!NOTE] 
 > The public IP created in this step is of Standard SKU by default.
 
-7. For **Resource group**, click **Create new**, and then type **myResourceGroupZLB** as the name of the resource group.
-8. For **Location**, select **West Europe**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
+1. For **Resource group**, click **Create new**, and then type **myResourceGroupZLB** as the name of the resource group.
+1. For **Location**, select **West Europe**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![create zone-redundant Standard Load Balancer with the Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

@@ -170,7 +170,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 For deployments using Azure AD, you need to [enable multi-tenancy](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) for your ASDK installation.
 
-> [!NOTE]  
+> [!NOTE]
 > When administrator or user accounts from domains other than the one used to register Azure Stack are used to log in to an Azure Stack portal, the domain name used to register Azure Stack must be appended to the portal url. For example, if Azure Stack has been registered with fabrikam.onmicrosoft.com and the user account logging in is admin@contoso.com, the url to use to log into the user portal would be: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## Next steps

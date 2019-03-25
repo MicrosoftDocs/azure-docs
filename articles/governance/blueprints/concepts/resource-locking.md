@@ -74,9 +74,9 @@ lock outside Blueprints.
 
 ## Next steps
 
-- Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial
-- Learn about the [blueprint life-cycle](lifecycle.md)
-- Understand how to use [static and dynamic parameters](parameters.md)
-- Learn to customize the [blueprint sequencing order](sequencing-order.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
+- Learn about the [blueprint life-cycle](lifecycle.md).
+- Understand how to use [static and dynamic parameters](parameters.md).
+- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

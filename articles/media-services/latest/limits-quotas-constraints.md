@@ -33,7 +33,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Media Services accounts in a single subscription | 25 (fixed) |
 | Live Outputs in running state per LiveEvent |3|
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
-| Streaming Endpoints (stopped or running) per Media Services account|2|
+| Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
 | Streaming Policies | 100 <sup>(3)</sup> |
 | Transforms per Media Services account | 100  (fixed)|
 | Unique Streaming Locators associated with an Asset at one time | 100<sup>(5)</sup> (fixed) |

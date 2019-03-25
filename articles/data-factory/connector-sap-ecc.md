@@ -157,7 +157,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 When copying data from SAP ECC, the following mappings are used from OData data types for SAP ECC data to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | OData data type | Data factory interim data type |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
 | Edm.Boolean | Bool |
 | Edm.Byte | String |

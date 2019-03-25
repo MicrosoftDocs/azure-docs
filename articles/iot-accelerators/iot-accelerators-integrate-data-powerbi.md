@@ -37,10 +37,10 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 5. On the panel to the left, click the "Keys" section and take note of the following values to be used in Power BI:
 
-    - URI
-    - Primary Key
+   - URI
+   - Primary Key
 
-    ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## Setting up the Stream in Power BI
   

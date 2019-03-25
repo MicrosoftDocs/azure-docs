@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # SAP HANA (Large Instances) storage architecture
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
 The HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. For the Type II class of HANA Large Instance units, the storage isn't four times more. The units come with a volume that is intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -96,10 +96,10 @@ The storage used in HANA Large Instances has a file size limitation. The [size l
 > [!IMPORTANT]
 > In order to prevent HANA trying to grow data files beyond the 16 TB file size limit of HANA Large Instance storage, you need to set the following parameters in the global.ini configuration file of HANA
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- See also SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Be aware of SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - See also SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Be aware of SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

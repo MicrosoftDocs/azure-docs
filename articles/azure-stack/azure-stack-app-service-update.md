@@ -12,10 +12,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
+ms.lastreviewed: 03/18/2019
 
 ---
 # Update Azure App Service on Azure Stack
@@ -48,7 +48,7 @@ During this process, the upgrade will:
 
 To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
-1. Download the [App Service Installer](https://aka.ms/appsvcupdate4installer)
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate5installer)
 
 2. Run appservice.exe as an administrator
 
@@ -74,7 +74,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
    4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.
    5. Click **Next** to review the upgrade summary.
 
-    ![App Service Installation Detected][3]
+      ![App Service Installation Detected][3]
 
 8. On the summary page:
    1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.

@@ -275,15 +275,15 @@ The environment file stores the credentials for your container registry and shar
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
+    ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
 
 11. Save the deployment.template.json file.
 

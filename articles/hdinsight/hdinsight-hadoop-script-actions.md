@@ -11,7 +11,7 @@ ms.author: hrasheed
 ROBOTS: NOINDEX
 ---
 # Develop Script Action scripts for HDInsight Windows-based clusters
-Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -26,6 +26,8 @@ Script Action can be used to install additional software running on an Apache Ha
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > 
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Sample scripts
 For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script. The following script is a sample for configuring the site configuration files:
@@ -89,7 +91,6 @@ HDInsight provides several scripts to install additional components on HDInsight
 | --- | --- |
 | **Install Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]. |
 | **Install R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. See [Install and use R on HDInsight clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Install Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. See [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
 | **Install Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
 | **Pre-load Hive libraries** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Apache Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
@@ -186,8 +187,8 @@ Scripts used to customize a cluster needs to either be in the default storage ac
 
 In this example, you must ensure that the container `somecontainer` in storage account `somestorageaccount` is publicly accessible. Otherwise, the script throws a ‘Not Found’ exception and fail.
 
-### Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
-To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
+### Pass parameters to the Add-AzHDInsightScriptAction cmdlet
+To pass multiple parameters to the Add-AzHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
@@ -287,11 +288,9 @@ In the event that an execution failure occurs, the output describing it is also 
 ## See also
 * [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize]
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

@@ -29,7 +29,7 @@ When using DapperExtensions, you no longer need to provide the SQL statements. E
 
 Another benefit of Dapper and also DapperExtensions is that the application controls the creation of the database connection. This helps interact with the elastic database client library which brokers database connections based on the mapping of shardlets to databases.
 
-To get the Dapper assemblies, see [Dapper dot net](http://www.nuget.org/packages/Dapper/). For the Dapper extensions, see [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+To get the Dapper assemblies, see [Dapper dot net](https://www.nuget.org/packages/Dapper/). For the Dapper extensions, see [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## A quick Look at the elastic database client library
 With the elastic database client library, you define partitions of your application data called *shardlets*, map them to databases, and identify them by *sharding keys*. You can have as many databases as you need and distribute your shardlets across these databases. The mapping of sharding key values to the databases is stored by a shard map provided by the library’s APIs. This capability is called **shard map management**. The shard map also serves as the broker of database connections for requests that carry a sharding key. This capability is referred to as **data-dependent routing**.

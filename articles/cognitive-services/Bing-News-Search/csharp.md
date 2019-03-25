@@ -48,7 +48,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## Create a struct to format the Bing News Search response
+   ## Create a struct to format the Bing News Search response
 
 1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 

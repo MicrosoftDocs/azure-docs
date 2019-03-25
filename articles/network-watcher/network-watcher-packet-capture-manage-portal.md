@@ -58,8 +58,8 @@ If a network security group is associated to the network interface, or subnet th
      - **Remote IP address**: Filters the packet capture for packets where the remote IP address matches this value.
      - **Remote port**: Filters the packet capture for packets where the remote port matches this value.
     
-    > [!NOTE]
-    > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
+     > [!NOTE]
+     > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
 
 4. Select **OK**.
 

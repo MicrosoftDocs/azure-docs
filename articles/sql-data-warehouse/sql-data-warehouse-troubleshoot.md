@@ -124,6 +124,6 @@ For more help in finding solution to your issue, here are some other resources y
 [CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
