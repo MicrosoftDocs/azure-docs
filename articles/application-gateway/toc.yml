@@ -18,7 +18,7 @@
   - name: Host single site
     href: tutorial-manage-web-traffic-cli.md
   - name: Enable web application firewall
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
     href: tutorial-ssl-cli.md
   - name: Host multiple sites
@@ -125,10 +125,10 @@
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
     items:
-    - name: Azure portal
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md      
   - name: Configure WAF rule sets
     items:
     - name: Azure portal
