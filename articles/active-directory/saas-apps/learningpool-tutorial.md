@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with Learningpool Act, perform the followin
     `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<subdomain>.Learningpool.com/shibboleth` |

@@ -70,11 +70,11 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 
     ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. On the **Repositories** page, specify the following information:
-  1. **Name**. Enter a name for the repository.
-  2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
-  3. **Branch**. To get your definitions, enter the branch.
-  4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
-  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
+   1. **Name**. Enter a name for the repository.
+   2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
+   3. **Branch**. To get your definitions, enter the branch.
+   4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
+   5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
         ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Select **Save**.

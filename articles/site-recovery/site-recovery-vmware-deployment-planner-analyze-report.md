@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 3/14/2019
 ms.author: mayg
 
 ---
@@ -36,6 +36,9 @@ The On-premises summary worksheet provides an overview of the profiled VMware en
 **Observed typical data churn per day (GB)**: The average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
 
 ## Recommendations
+
+>[!Note]
+>When replicating directly to managed disks, ignore the recommendation for number of storage accounts.
 
 The recommendations sheet of the VMware to Azure report has the following details as per the selected desired RPO:
 
@@ -153,6 +156,9 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 ![Achievable RPO for 500 Mbps bandwidth](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## VM-storage placement
+
+>[!Note]
+>When replicating directly to managed disks, you do not need to worry about number of storage accounts. For storage, use only the recommendation on type of storage (Standard or Premium). The same type is applicable for managed disks.
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

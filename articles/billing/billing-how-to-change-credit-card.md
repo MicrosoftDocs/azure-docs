@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 3/13/2019
 ms.author: banders
 
 ---
@@ -94,7 +94,7 @@ If more than one of your subscriptions have the same active payment method, then
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Select **Cost Management + Billing** on the left side of the page.
 
-[Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Under **Billing**, select **Payment methods**.
 
@@ -185,4 +185,4 @@ To add or update tax ID, visit [**Profile** in Azure Account Center](https://acc
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

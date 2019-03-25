@@ -47,12 +47,12 @@ Keep the following in mind when you're going through the tutorial:
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
 
-    * Make sure the **Reply URL** root matches or is a path under the **External URL** for the on-premises application that you added for remote access through Application Proxy in Azure AD.
+   * Make sure the **Reply URL** root matches or is a path under the **External URL** for the on-premises application that you added for remote access through Application Proxy in Azure AD.
 
-    ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-    > [!NOTE]
-    > If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+     > [!NOTE]
+     > If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## Test your app
 

@@ -29,7 +29,7 @@ API Management currently provides three built-in roles and will add two more rol
 The following table provides brief descriptions of the built-in roles. You can assign these roles by using the Azure portal or other tools, including Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). For details about how to assign built-in roles, see [Use role assignments to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Role          | Read access<sup>[1]</sup> | Write access<sup>[2]</sup> | Service creation, deletion, scaling, VPN, and custom domain configuration | Access to the legacy publisher portal | Description
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Azure API Management Service Contributor | ✓ | ✓ | ✓ | ✓ | Super user. Has full CRUD access to API Management services and entities (for example, APIs and policies). Has access to the legacy publisher portal. |
 | Azure API Management Service Reader | ✓ | | || Has read-only access to API Management services and entities. |
 | Azure API Management Service Operator | ✓ | | ✓ | | Can manage API Management services, but not entities.|

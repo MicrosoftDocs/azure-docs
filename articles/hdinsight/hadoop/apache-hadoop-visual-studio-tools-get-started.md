@@ -241,12 +241,12 @@ To view Hive jobs:
 1. Right-click an HDInsight cluster, and select **View Jobs**. A list of the Hive jobs that ran on the cluster appears.  
 
 2. Select a job. In the **Hive Job Summary** window, select one of the following:
-    - **Job Query**
-    - **Job Output**
-    - **Job Log**  
-    - **Yarn log**
+   - **Job Query**
+   - **Job Output**
+   - **Job Log**  
+   - **Yarn log**
 
-    ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
+     ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
 
 
 ## Run Apache Pig scripts

@@ -11,13 +11,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 02/18/2019
+ms.date: 03/13/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 
 This quickstart walks through how to create an Azure SQL Database [managed instance](sql-database-managed-instance.md) in the Azure portal.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+> [!IMPORTANT]
+> For limitations, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions) and [supported subscription types](sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 ## Sign in to the Azure portal
 

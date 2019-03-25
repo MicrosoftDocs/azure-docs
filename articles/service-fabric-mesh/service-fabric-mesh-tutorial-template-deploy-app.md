@@ -340,6 +340,7 @@ Refer to the [mesh_rp.windows.json deployment template](https://github.com/Azure
 Create the application and related resources using the following command, and provide the credentials from the previous [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry) step.
 
 In the parameters file, update the following parameter values:
+
 |Parameter|Value|
 |---|---|
 |location|The region to deploy the application to.  For example, "eastus".|

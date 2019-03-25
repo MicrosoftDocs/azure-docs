@@ -83,9 +83,9 @@ After you register your custom domain name, you need to make sure it's valid in 
 
 ## Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:
-    - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
+  - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
 
-    - **Make sure the DNS record is correct.** Go back to the domain name registrar site and make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
+  - **Make sure the DNS record is correct.** Go back to the domain name registrar site and make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
 
     If you can't update the record on the registrar site, you must share the entry with someone that has the right permissions to add the entry and verify it's accurate.
 

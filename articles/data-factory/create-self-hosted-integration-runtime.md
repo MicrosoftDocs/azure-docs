@@ -139,7 +139,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - Certificates that use CNG keys are not supported.  
 
 > [!NOTE]
-> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization which includes linked services' credentials synchronization across nodes) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
 > Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
 
 ## Sharing the self-hosted integration runtime with multiple data factories

@@ -51,7 +51,7 @@ Before using this template, ensure that the following [Azure Stack marketplace i
 Use the steps in this section to create a custom deployment using the **appservice-fileshare-sqlserver-ha** Azure Stack Quickstart template.
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Select **\+** **Create a resource** > **Custom**, and then **Template deployment**.
 
@@ -91,7 +91,7 @@ Ensure you record each of these output values:
 Follow these steps to discover the template output values:
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. In the administration portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (**app-service-ha** in this example). 
 
@@ -169,15 +169,15 @@ To deploy App Service resource provider, follow these steps:
     ![Expected error dialog](media/app-service-deploy-ha/08.png)
 
 10. Provide the Identity Application ID and the path and passwords to the identity certificates and click **Next**:
-  - Identity application certificate (in the format of **sso.appservice.local.azurestack.external.pfx**)
-  - Azure Resource Manager root certificate (**AzureStackCertificationAuthority.cer**)
+    - Identity application certificate (in the format of **sso.appservice.local.azurestack.external.pfx**)
+    - Azure Resource Manager root certificate (**AzureStackCertificationAuthority.cer**)
 
     ![ID application certificate and root certificate](media/app-service-deploy-ha/008.png)
 
 10. Next, provide the remaining required information for the following certificates and click **Next**:
-   - Default Azure Stack SSL certificate (in the format of **_.appservice.local.azurestack.external.pfx**)
-  - API SSL certificate (in the format of **api.appservice.local.azurestack.external.pfx**)
-  - Publisher certificate (in the form of **ftp.appservice.local.azurestack.external.pfx**) 
+    - Default Azure Stack SSL certificate (in the format of **_.appservice.local.azurestack.external.pfx**)
+    - API SSL certificate (in the format of **api.appservice.local.azurestack.external.pfx**)
+    - Publisher certificate (in the form of **ftp.appservice.local.azurestack.external.pfx**) 
 
     ![Additional configuration certificates](media/app-service-deploy-ha/09.png)
 

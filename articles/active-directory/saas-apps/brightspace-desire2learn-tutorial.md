@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Brightspace by Desire2Learn, perform t
     ![Brightspace by Desire2Learn Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.tenants.brightspace.com/samlLogin`|

@@ -118,9 +118,10 @@ The tests run remote operations. The machine that runs the tests must have acces
     ```
 
       **Parameters**  
+
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName@Contoso.com) |
+    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName\@Contoso.com) |
     | VaaSTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
 
     > [!Note]  

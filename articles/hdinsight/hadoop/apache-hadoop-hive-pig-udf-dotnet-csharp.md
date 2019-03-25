@@ -167,13 +167,13 @@ For more information on the version of the .NET framework and Mono included with
 
 6. To upload the .exe files, use one of the following methods:
 
-    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
+   * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
 
-        ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
+   * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
 
-    Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
+     Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
 
 ## Run an Apache Hive query
 

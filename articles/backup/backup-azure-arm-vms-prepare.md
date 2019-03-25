@@ -104,22 +104,22 @@ If you don't have a system account proxy, set one up as follows:
 2. Run **PsExec.exe -i -s cmd.exe** to run the command prompt under a system account.
 3. Run the browser in system context. For example: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
 4. Define the proxy settings.
-    - On Linux machines:
-        - Add this line to the **/etc/environment** file:
-            - **http_proxy=http://proxy IP address:proxy port**
-        - Add these lines to the **/etc/waagent.conf** file:
-            - **HttpProxy.Host=proxy IP address**
-            - **HttpProxy.Port=proxy port**
-    - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
-        ```powershell
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+   - On Linux machines:
+     - Add this line to the **/etc/environment** file:
+       - **http_proxy=<http://proxy> IP address:proxy port**
+     - Add these lines to the **/etc/waagent.conf** file:
+         - **HttpProxy.Host=proxy IP address**
+         - **HttpProxy.Port=proxy port**
+   - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
+       ```powershell
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 
-        ```
+       ```
 
 ##### Allow incoming connections on the proxy
 
@@ -150,32 +150,6 @@ You can set up the Azure Firewall to allow outbound access for network traffic t
 
 - [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
 - [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
-
-## Create a vault
-
-A vault stores backups and recovery points created over time, and stores backup policies associated with backed up machines. Create a vault as follows:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the **Hub** menu, select **Browse**, and type **Recovery Services**. Select **Recovery Services vaults**.
-
-    ![Typing in the box and selecting "Recovery Services vaults" in the results](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
-
-3. On the **Recovery Services vaults** menu, select **Add**.
-
-    ![Create Recovery Services Vault step 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
-
-    !["Recovery Services vaults" pane](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. In **Recovery Services vaults** >  **Name**, enter a friendly name to identify the vault.
-    - The name needs to be unique for the Azure subscription.
-    - It can contain 2 to 50 characters.
-    - It must start with a letter, and it can contain only letters, numbers, and hyphens.
-5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
-    - It can take a while for the vault to be created.
-    - Monitor the status notifications in the upper-right area of the portal.
-
-    ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
-
-After your vault is created, it appears in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
 
 ## Set up storage replication
 
@@ -216,17 +190,17 @@ Discover VMs in the subscription, and configure backup.
 
 4. In **Select virtual machines** pane, select the VMs that will use the specified backup policy > **OK**.
 
-    - The selected VM is validated.
-    - You can only select VMs in the same region as the vault. VMs can only be backed up in a single vault.
+   - The selected VM is validated.
+   - You can only select VMs in the same region as the vault. VMs can only be backed up in a single vault.
 
-    !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+     !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. In **Backup**, select **Enable backup**.
 
    - This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
    - This step doesn't create the initial recovery point for the VM.
 
-    !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+     !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 After enabling backup:
 

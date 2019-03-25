@@ -176,7 +176,7 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | `range` | Filters to the specified range of values| [range step](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Repeats the step for the specified number of times. Used for looping | [repeat step](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Used to sample results from the traversal | [sample step](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Used to project results from the traversal |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Used to project results from the traversal |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Used for non-blocking aggregates from the traversal | [store step](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Aggregate paths from a vertex into a tree | [tree step](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Unroll an iterator as a step| [unfold step](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

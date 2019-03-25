@@ -129,7 +129,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the default listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to a backend pool. In this tutorial, you create multiple listeners. The first basic listener expects traffic at the root URL. The other listeners expect traffic at specific URLs, such as *http://52.168.55.24:8080/images/* or *http://52.168.55.24:8081/video/*.
+A listener is required to enable the application gateway to route traffic appropriately to a backend pool. In this tutorial, you create multiple listeners. The first basic listener expects traffic at the root URL. The other listeners expect traffic at specific URLs, such as `http://52.168.55.24:8080/images/` or `http://52.168.55.24:8081/video/`.
 
 Create a listener named *defaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -491,7 +491,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## Test the application gateway
 
-You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm*, or *http://52.168.55.24:8081/images/test.htm*.
+You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://52.168.55.24`, `http://52.168.55.24:8080/images/test.htm`, `http://52.168.55.24:8080/video/test.htm`, or `http://52.168.55.24:8081/images/test.htm`.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

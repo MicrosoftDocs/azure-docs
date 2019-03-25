@@ -54,6 +54,7 @@ On both POC1 and POC2, prepare an offer so that a user can subscribe to the offe
 The following table summarizes the network configuration for both Azure Stack Development Kit environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
 
 **Network configuration table**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Virtual network name     |VNET-01|VNET-02 |

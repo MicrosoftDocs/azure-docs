@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with BeeLine, perform the following steps:
     `https://projects.beeline.net/<instancename>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://projects.beeline.net/<instancename>/SSO_External.ashx`|

@@ -144,10 +144,10 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
-  > [!NOTE]  
-  > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
-  >
-  > Dropping an external table does **not** delete the data, only the table definition.
+   > [!NOTE]  
+   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
+   >
+   > Dropping an external table does **not** delete the data, only the table definition.
 
     The output of this command is similar to the following text:
 
@@ -194,12 +194,12 @@ Use the following steps to create a file, then run it using Beeline.
 
     These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - If the table does not already exist, it is created. Since the **EXTERNAL** keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
-    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
-    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
+   * **CREATE TABLE IF NOT EXISTS** - If the table does not already exist, it is created. Since the **EXTERNAL** keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed completely by Hive.
+   * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
+   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-    > [!NOTE]  
-    > Unlike external tables, dropping an internal table deletes the underlying data as well.
+     > [!NOTE]  
+     > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
 

@@ -16,7 +16,7 @@ ms.custom: seodec2018
 > * [Overview](search-query-overview.md)
 > * [Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
+> * [REST](search-create-index-rest-api.md)
 > 
 > 
 

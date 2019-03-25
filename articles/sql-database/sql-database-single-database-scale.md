@@ -11,7 +11,7 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/14/2019
 ---
 # Scale single database resources in Azure SQL Database
 
@@ -29,6 +29,9 @@ The following video shows dynamically changing the service tier and compute size
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ### Impact of changing service tier or rescaling compute size
 

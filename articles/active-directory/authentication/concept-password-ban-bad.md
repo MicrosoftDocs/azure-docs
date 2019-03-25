@@ -57,7 +57,7 @@ Normalization has two parts.  First, all uppercase letters are changed to lower 
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 Example: assume that the password “blank” is banned, and a user tries to change their password to “Bl@nK”. Even though “Bl@nk” is not specifically banned, the normalization process converts this password to “blank”, which is a banned password.
 

@@ -99,7 +99,7 @@ The _access mode_ refers to how a user accesses a Log Analytics workspace and de
 > - Containers
 > - Custom logs created by HTTP Data collector API
 >
-> You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#resourceid) property, then data is available to resource-centric queries.
+> You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
 ### Comparing access modes
 

@@ -53,6 +53,7 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
+
 | Field | Mandatory? | Description |
 | --- | --- | --- |
 | operation |yes |value must be "Scale" |

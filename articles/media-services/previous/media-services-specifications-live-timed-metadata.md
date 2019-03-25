@@ -124,6 +124,7 @@ The ‘moov’ box SHOULD contain a **TrackHeaderBox (‘tkhd’)** box as defin
 | **Field Name** | **Field Type**          | **Required?** | **Description**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | 64-bit unsigned integer | Required      | SHOULD be 0, since the track box has zero samples and the total duration of the samples in the track box is 0. |
+
 -------------------------------------
 
 The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
@@ -132,6 +133,7 @@ The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 | **Field Name** | **Field Type**          | **Required?** | **Description**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | 32-bit unsigned integer | Required      | SHOULD be ‘meta’. |
+
 -------------------------------------
 
 The ‘stsd’ box SHOULD contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name SHOULD be 'scte'.

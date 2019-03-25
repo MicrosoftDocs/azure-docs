@@ -143,12 +143,12 @@ In this section, you'll create a file system and a folder in your storage accoun
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-    > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > [!NOTE]
+   > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-    Keep this notebook open as you will add commands to it later.
+   Keep this notebook open as you will add commands to it later.
 
 ## Ingest data
 

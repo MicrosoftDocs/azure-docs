@@ -58,6 +58,9 @@
   - name: Lifecycle of a blueprint
     displayName: publish, edit, delete, assignments
     href: ./concepts/lifecycle.md
+  - name: Stages of a blueprint deployment
+    displayName: assign, managed identity
+    href: ./concepts/deployment-stages.md
   - name: Dynamic parameters in a blueprint
     displayName: secureString, secureObject, static
     href: ./concepts/parameters.md
@@ -70,7 +73,10 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Update existing assignments
+  - name: Manage assignments with PowerShell
+    displayName: create, update, remove
+    href: ./how-to/manage-assignments-ps.md
+  - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
 - name: Troubleshoot
@@ -79,9 +85,11 @@
 - name: References
   expanded: true
   items:
-  - name: REST API
+  - name: REST
     href: /rest/api/blueprints/
-  - name: PowerShell (community)
+  - name: PSGallery (Az.Blueprint module)
+    href: https://www.powershellgallery.com/packages/Az.Blueprint
+  - name: PSGallery (community module)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
 - name: Resources
   items:

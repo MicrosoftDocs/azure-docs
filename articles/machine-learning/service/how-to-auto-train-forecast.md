@@ -53,7 +53,7 @@ In this case the data is already sorted ascending by the time field `week_starti
 
 ```python
 X_train = data.iloc[:950]
-X_test = data.iloc[50:]
+X_test = data.iloc[-50:]
 
 y_train = X_train.pop("sales_quantity").values
 y_test = X_test.pop("sales_quantity").values

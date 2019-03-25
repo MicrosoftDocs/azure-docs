@@ -58,7 +58,7 @@ Currently, you can change the following parameters:
 The following table describes the default duration, when **maxMotionThumbnailInSecs** is not used.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Video duration |d < 3 min |3 min < d < 15 min |
 | Thumbnail duration |15 sec (2-3 scenes) |30 sec (3-5 scenes) |
 

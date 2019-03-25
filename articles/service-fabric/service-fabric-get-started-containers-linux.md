@@ -187,7 +187,7 @@ Specify the port mapping in the appropriate format. For this article, you need t
 	    </ContainerHostPolicies>
 	</Policies>
    </ServiceManifestImport>
-```	
+``` 
 
 We recommend that you encrypt the repository password. Refer to [
 Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.

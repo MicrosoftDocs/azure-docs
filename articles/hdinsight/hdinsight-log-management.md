@@ -72,7 +72,7 @@ A typical HDInsight cluster uses several services and open-source software packa
 
 ### View cluster configuration settings with the Ambari UI
 
-Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the**'Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You are prompted for your cluster login credentials.
+Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the**Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You are prompted for your cluster login credentials.
 
 To open a list of service views, select the **Ambari Views** pane on the Azure portal page for HDInsight.  This list varies, depending on which libraries you've installed.  For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select any service link to see configuration and service information.  The Ambari UI **Stack and Version** page provides information about the cluster services' configuration and service version history. To navigate to this section of the Ambari UI, select the **Admin** menu and then **Stacks and Versions**.  Select the **Versions** tab to see service version information.
 

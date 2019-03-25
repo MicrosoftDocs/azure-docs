@@ -36,11 +36,11 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  Capacity data is recorded daily for a storage account’s Blob service, and two table entities are written. One entity provides statistics for user data, and the other provides statistics about the `$logs` blob container used by Storage Analytics. The *$MetricsCapacityBlob* table includes the following statistics:  
 
--   **Capacity**: The amount of storage used by the storage account’s Blob service, in bytes.  
--   **ContainerCount**: The number of blob containers in the storage account’s Blob service.  
--   **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.  
+- **Capacity**: The amount of storage used by the storage account’s Blob service, in bytes.  
+- **ContainerCount**: The number of blob containers in the storage account’s Blob service.  
+- **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.  
 
- For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
 
 ## How metrics are stored  
 
@@ -221,7 +221,7 @@ The capacity used by the metrics tables is also billable. You can use the follow
 -   The capacity table for blobs has two rows added each day, provided you have opted-in for logs. This implies that every day, the size of this table increases by up to approximately 300 bytes.
 
 ## Next steps
-* [How To Monitor a Storage Account](http://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
+* [How To Monitor a Storage Account](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
 * [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
 * [Storage Analytics Logging](storage-analytics-logging.md)
