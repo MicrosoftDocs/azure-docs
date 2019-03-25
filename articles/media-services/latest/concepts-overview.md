@@ -100,6 +100,8 @@ To see the progress of the job, you should use **Event Grid**. Media Services al
 
 - [Handling Event Grid events](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+- [Metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+- [Diagnostic logs schemas](media-services-diagnostic-logs-schema.md)
 
 ## Player clients
 
