@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a network operator, I want to manage members in the consortium so that I can control access to a private blockchain.
 ---
 
-# Managing members in Azure Blockchain Service
+# Manage members in Azure Blockchain Service
 
 As a consortium administrator, you can invite, add, remove, and change roles for all participants in the blockchain consortium.
 
