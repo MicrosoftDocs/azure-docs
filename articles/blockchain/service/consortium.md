@@ -15,7 +15,7 @@ manager: femila
 
 # Azure Blockchain Service consortium
 
-Azure Blockchain Service uses an Ethereum consortium blockchain. Consortium members can be individuals or organizations participating in the blockchain.
+Azure Blockchain Service uses an Ethereum-based consortium blockchain. Using a consortium, You can secure your blockchain networks by limiting members participating in the network. Consortium members can be individuals or organizations participating in the blockchain.
 
 Consortium management in Azure Blockchain Service is a centralized decision model. There is no consensus in the centralized model. Any participant with an administrator role can manage consortium participants and roles.
 
