@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with Sugar CRM, perform the following steps
 
 ### Configure Sugar CRM Single Sign-On
 
-1. In a different web browser window, log in to your Sugar CRM company site as an administrator.
+1. In a different web browser window, sign in to your Sugar CRM company site as an administrator.
 
 1. Go to **Admin**.
 
@@ -206,11 +206,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Sugar CRM test user
 
-In order to enable Azure AD users to log in to Sugar CRM, they must be provisioned to Sugar CRM. In the case of Sugar CRM, provisioning is a manual task.
+In order to enable Azure AD users to sign in to Sugar CRM, they must be provisioned to Sugar CRM. In the case of Sugar CRM, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **Sugar CRM** company site as administrator.
+1. Sign in to your **Sugar CRM** company site as administrator.
 
 1. Go to **Admin**.
 
