@@ -17,7 +17,7 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# Quickstart: Agent configuration
+# Configure security agents
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
@@ -46,10 +46,14 @@ If the agent configuration object does not exist in the azureiotsecurity module 
 ```json
 "desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //Agent configuration object 
-… 
+  … 
 } 
 }
 ```
+
+Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
+The agent will not launch if the configuration object does not match the schema.
+
 
 ## Editing a property 
 
@@ -64,18 +68,18 @@ To use a default property value, remove the property from the configuration obje
 "desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
       // configuration section  
-    "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
     "lowPriorityMessageFrequency": "PT1H",     
     "highPriorityMessageFrequency": "PT7M",    
     "eventPriorityFirewallConfiguration": "High",     
-    "eventPriorityConnectionCreate": "Off" 
+    "eventPriorityConnectionCreate": "High" 
   } 
 }, 
 ```
 
 ## Default properties 
-Set of controllable properties that control the ATP for IoT security agents. 
-          
+Set of controllable properties that control the ATP for IoT security agents.
+
+Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -104,12 +108,9 @@ Set of controllable properties that control the ATP for IoT security agents.
 |Connection create |eventPriorityConnectionCreate|Low|False|Audits TCP connections created to and from the device. |
 |Firewall configuration| eventPriorityFirewallConfiguration|Low|True|Snapshot of device firewall configuration (firewall rules). |
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
-
-Make sure to validate your agent configuration changes against this [schema](https://github.com/azure/atp-for-iot-schemas/security_module_twin). The agent will not launch if the configuration object does not match the schema.
  
 
 ## See Also
-- [Overview](overview.md)
-- [Configure authentication methods](how-to-configure-authentication-methods.md)
-- [Understand ATP for IoT alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)
+- [Understand ATP for IoT recommendations](concept-recommendations.md)
+- [Explore ATP for IoT alerts](concept-security-alerts.md)
+- [Access raw security data](how-to-security-data-access.md)

@@ -101,7 +101,7 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 ```
 
 ## See Also
-- [ATP for IoT preview](overview.md)
-- [Configure authentication methods](how-to-configure-authentication-methods.md)
-- [Understand ATP for IoT alerts](concept-security-alerts.md)
-
+- [Overview](overview.md)
+- [Understand ATP for IoT recommendations](concept-recommendations.md)
+- [Explore ATP for IoT alerts](concept-security-alerts.md)
+- [Access raw security data](how-to-security-data-access.md)
