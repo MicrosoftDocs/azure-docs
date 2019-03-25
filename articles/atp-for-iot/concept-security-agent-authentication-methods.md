@@ -54,6 +54,6 @@ See [How to configure authentication methods](how-to-configure-authentication-me
 ## See also
 - [Overview](overview.md)
 - [Architecture](architecture.md)
-- [Installation for Windows](quickstart-windows-cs-installation.md)
+- [Installation for Windows](tutorial-deploy-windows-cs.md)
 - [ATP for IoT alerts](concept-security-alerts.md)
 - [Data Access](how-to-security-data-access.md)

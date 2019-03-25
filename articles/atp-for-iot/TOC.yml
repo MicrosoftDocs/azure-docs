@@ -22,17 +22,22 @@
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
 
-  - name: Install the ATP for IoT agent on a Windows Device
-    href: quickstart-windows-cs-installation.md
-  - name: Install the ATP for IoT on a Linux 32-bit device
-    href: quickstart-linux-cs-installation.md
-  - name: Install the ATP for IoT on a Linux 64-bit device
-    href: quickstart-linux-c-installation.md
-
 - name: Tutorials
   items:
+  - name: Deploy security agents
+    items:
+    - name: Which agent should I deploy?
+      href: tutorial-deploy-agent.md
+    - name: Deploy a C#-based security agent on a Windows Device
+      href: tutorial-deploy-windows-cs.md
+    - name: Deploy a C#-based security agent on a Linux Device
+      href: tutorial-deploy-linux-cs.md
+    - name: Deploy a C-based security agent on a Linux Device
+      href: tutorial-linux-c-installation.md
   - name: Configure security agents
     href: tutorial-agent-configuration.md
+  - name: Investigate a device
+    href: tutorial-investigate-a-device.md
   - name: Send your own security messages
     href: tutorial-send-security-messages.md
 
