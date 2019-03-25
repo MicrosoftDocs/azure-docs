@@ -162,6 +162,6 @@ If the virtual network includes a custom DNS, add an entry for the Azure recursi
 - [Calculate the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you want to deploy the managed instances.
 - Learn how to create a managed instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
-  - By using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - By using [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://portal.azure.com/).

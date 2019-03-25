@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ---
 # Getting started with Azure SQL Database managed instance
 
