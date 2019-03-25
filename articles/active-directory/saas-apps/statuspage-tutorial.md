@@ -213,7 +213,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to create a user called Britta Simon in StatusPage.
 
-StatusPage supports just-in-time provisioning. You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+StatusPage supports just-in-time provisioning. You have already enabled it in [Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on).
 
 **To create a user called Britta Simon in StatusPage, perform the following steps:**
 
