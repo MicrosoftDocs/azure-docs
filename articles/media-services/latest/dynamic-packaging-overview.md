@@ -26,9 +26,7 @@ To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
-In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. The following diagram shows the on-demand streaming with dynamic packaging workflow.
-
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
 
 ## Common on-demand workflow
 
@@ -38,6 +36,10 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
 4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
+
+The following diagram shows the on-demand streaming with dynamic packaging workflow.
+
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### Encode to adaptive bitrate MP4s
 
