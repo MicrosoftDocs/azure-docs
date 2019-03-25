@@ -35,12 +35,13 @@ The add-in license categories used by AppSource are based on how or whether you 
     > SharePoint 2013 does not support subscription licensing.
      
 SharePoint maps the license categories used by AppSource to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by AppSource.
+
 |**SharePoint license type**|**AppSource license category**|**License applies to**|**Duration**|**Users**|**Cost**|
 |:-----|:-----|:-----|:-----|:-----|:-----|
-|Perpetual all user|Free PaidSite|All users of a SharePoint deployment,<br/>with no expiration.|Perpetual|Unlimited|Free or paid|
+|Perpetual all user|Free PaidSite|All users of a SharePoint deployment, with no expiration.|Perpetual|Unlimited|Free or paid|
 |Perpetual multiuser|Paid|Per user, with no expiration.|Perpetual|N (per user)|Paid|
-|Trial all user|Trial|All users of a SharePoint deployment.<br/>Can have a set expiration date.|15, 30, 60 days,<br/>or unlimited|Unlimited|Free|
-|Trial multiuser|Trial|Per user. Can have a set expiration date.|15, 30, 60 days,<br/>or unlimited|N (per user)|Free|
+|Trial all user|Trial|All users of a SharePoint deployment. Can have a set expiration date.|15, 30, 60 days, or unlimited|Unlimited|Free|
+|Trial multiuser|Trial|Per user. Can have a set expiration date.|15, 30, 60 days, or unlimited|N (per user)|Free|
 
 <a name="bk_users"> </a>
 ## How users acquire add-in licenses
