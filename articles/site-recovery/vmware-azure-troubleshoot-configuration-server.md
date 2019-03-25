@@ -77,9 +77,9 @@ To avoid this error, ensure that the time on your system clock isn't different f
 
 A certificate that's required to authenticate Site Recovery can't be created. Rerun setup after you ensure that you're running setup as a local administrator.
 
-## Failure to activate Windows Licence from Server Standard EVALUATION to Server Standard
+## Failure to activate Windows License from Server Standard EVALUATION to Server Standard
 
-1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hindrance to replication activities.
 2. If you are unable to activate Windows license, reach out to [Windows support team](https://aka.ms/Windows_Support) to resolve the issue.
 
 ## Register source machine with configuration server
@@ -143,7 +143,7 @@ To remove stale protected machine on the configuration server, use the following
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    If you have a source server entry of "OnPrem-VM01" with an ipaddress of 10.0.0.4 then use the following command instead.
+    If you have a source server entry of "OnPrem-VM01" with an ip-address of 10.0.0.4 then use the following command instead.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

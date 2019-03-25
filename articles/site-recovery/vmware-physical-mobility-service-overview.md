@@ -13,9 +13,9 @@ ms.author: ramamill
 
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server. You can deploy the Mobility Service using the following methods:
 
-1. [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
-2. [Install manually](#install-mobility-agent-manually-through-ui--command-line): You can install the Mobility service manually on each machine using the UI or command prompt.
-3. [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
+- [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
+- [Install manually](#install-mobility-agent-manually-through-ui--command-line): You can install the Mobility service manually on each machine using the UI or command prompt.
+- [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
 
 ## Anti-virus on replicated machines
 
@@ -25,8 +25,8 @@ If machines you want to replicate have active anti-virus software running, make 
 
 Push installation is an integral part of "[Enable Replication](vmware-azure-enable-replication.md#enable-replication)" job triggered in the portal. After choosing the set of virtual machines you wish to protect and trigger "Enable Replication", configuration server pushes mobility agent on to the servers, installs the agent and complete registration of agent with configuration server. For successful completion of this operation,
 
-1. Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
-2. Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
+- Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
+- Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
 
 Details of push installation workflow has been described in the following sections.
 
@@ -52,8 +52,8 @@ During push installation of mobility agent, following steps are performed
 
 ### Prerequisite
 
-1. Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
-2. [Locate the installer](#locate-installer-files) based on the operating system of the server.
+- Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
+- [Locate the installer](#locate-installer-files) based on the operating system of the server.
 
 >[!IMPORTANT]
 > If you are replicating Azure IaaS VM from one Azure region to another, don't use this method. Use the command-line-based installation method instead.
@@ -80,8 +80,8 @@ During push installation of mobility agent, following steps are performed
 
 ### Prerequisite
 
-1. Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
-2. [Locate the installer](#locate-installer-files) based on the operating system of the server.
+- Ensure that all configurations of servers fall under [support matrix of VMware to Azure DR scenario](vmware-physical-azure-support-matrix.md).
+- [Locate the installer](#locate-installer-files) based on the operating system of the server.
 
 ### On a Windows machine
 

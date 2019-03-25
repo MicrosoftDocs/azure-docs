@@ -9,7 +9,9 @@ ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-# Manage mobility service on servers
+# Manage mobility agent on protected machines
+
+You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
 ## Update mobility service from Azure portal
 
@@ -33,11 +35,11 @@ Use following script to upgrade mobility service on a server through power shell
 Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
-## Update the account used for push installation of the Mobility service
+## Update account used for push installation of Mobility service
 
-When you deployed Site Recovery, to enable push installation of the Mobility service, you specified an account that the Site Recovery process server uses to access the machines and install the service when replication is enabled for the machine. If you want to update the credentials for this account, follow [these instructions](vmware-azure-manage-configuration-server.md).
+When you deployed Site Recovery, to enable push installation of the Mobility service, you specified an account that the Site Recovery process server uses to access the machines and install the service when replication is enabled for the machine. If you want to update the credentials for this account, follow [these instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Uninstall the Mobility service
+## Uninstall Mobility service
 
 ### On a Windows machine
 
