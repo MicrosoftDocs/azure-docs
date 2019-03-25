@@ -113,6 +113,10 @@
       href: notification-hubs-php-push-notification-tutorial.md
     - name: Create notification hub - Python
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: Configure Platform Notification Service settings
+    items:
+    - name: Configure Apple Push Notification Service settings
+      href: configure-apple-push-notification-service.md
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
