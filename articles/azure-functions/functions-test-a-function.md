@@ -284,10 +284,10 @@ Next, add a new file, name it **defaultTimer.js**, and add the following code:
 
 ```javascript
 module.exports = {
-    isPastDue: false
+    IsPastDue: false
 };
 ```
-This module implements the `isPastDue` property to stand is as a fake timer instance.
+This module implements the `IsPastDue` property to stand is as a fake timer instance.
 
 Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](https://code.visualstudio.com/tutorials/functions-extension/getting-started) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 

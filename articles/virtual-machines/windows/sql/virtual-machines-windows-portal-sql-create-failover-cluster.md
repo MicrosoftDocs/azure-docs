@@ -3,7 +3,7 @@ title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
 description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -70,7 +70,7 @@ You should have an operational understanding of the following technologies:
 - [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-One important difference is that on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+One important difference is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
 
 Additionally, you should have a general understanding of the following technologies:
 
@@ -97,7 +97,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 ## Step 1: Create virtual machines
 
-1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
+1. Log in to the [Azure portal](https://portal.azure.com) with your subscription.
 
 1. [Create an Azure availability set](../tutorial-availability-sets.md).
 

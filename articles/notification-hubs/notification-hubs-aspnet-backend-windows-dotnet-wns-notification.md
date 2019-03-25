@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
 ---
 
@@ -49,13 +49,13 @@ This tutorial builds on the notification hub and Visual Studio project that you 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## Update the code for the client project
+## Update the code for the UWP client
 
 In this section, you update the code in the project you completed for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. The project should already be associated with the Windows store. It also should be configured to use your notification hub. In this section, you add code to call the new WebAPI backend and use it for registering and sending notifications.
 
 1. In Visual Studio, open the solution you created for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. In Solution Explorer, right-click the **WindowsApp** project and then click **Manage NuGet Packages**.
-3. On the left-hand side, click **Online**.
+2. In Solution Explorer, right-click the Universal Windows Platform (UWP) project and then click **Manage NuGet Packages**.
+3. On the left-hand side, select **Browse**.
 4. In the **Search** box, type **Http Client**.
 5. In the results list, click **System.Net.Http**, and click **Install**. Complete the installation.
 6. Back in the NuGet **Search** box, type **Json.net**. Install the **Newtonsoft.json** package, and then close the NuGet Package Manager window.
@@ -218,7 +218,7 @@ In this section, you update the code in the project you completed for the [Tutor
     ```
 13. Right-click the **WindowsApp** project, click **Add**, and then click **Class**. Name the class `RegisterClient.cs`, then click **OK** to generate the class.
 
-   This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](https://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
+    This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](https://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
 14. Add the following `using` statements at the top of the RegisterClient.cs file:
 
     ```csharp
@@ -351,4 +351,4 @@ In this tutorial, you learned how to push notifications to specific users that h
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx

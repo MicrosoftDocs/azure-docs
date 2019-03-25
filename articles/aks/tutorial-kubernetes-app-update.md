@@ -63,7 +63,7 @@ docker-compose up --build -d
 
 ## Test the application locally
 
-To verify that the updated container image shows your changes, open a local web browser to http://localhost:8080.
+To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

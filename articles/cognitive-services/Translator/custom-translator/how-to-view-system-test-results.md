@@ -5,7 +5,7 @@ description: When your training is successful, review system tests to analyze yo
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
@@ -22,7 +22,7 @@ Select a project, then select the models tab of that project, locate the model y
 
 The test tab shows you:
 
-1.  **System Test Results:**The result of the test process in the trainings. The test process produces the BLEU score.
+1.  **System Test Results:** The result of the test process in the trainings. The test process produces the BLEU score.
 
     **Sentence Count:** How many parallel sentences were used in the test set.
 

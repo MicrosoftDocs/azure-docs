@@ -38,6 +38,8 @@ Nowadays, many people choose Apache Hive and Apache Pig over MapReduce.  For mor
 
 **Prerequisites**:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **A workstation with Azure PowerShell**.
@@ -64,35 +66,35 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
     $resourceGroupName = "<Resource Group Name>"
     $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 
-    Select-AzureRmSubscription -SubscriptionName $subscriptionName
+    Select-AzSubscription -SubscriptionName $subscriptionName
 
     # Define the MapReduce job
-    $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
-    $mrJob = Start-AzureRmHDInsightJob `
+    $mrJob = Start-AzHDInsightJob `
                         -ResourceGroupName $resourceGroupName `
                         -ClusterName $clusterName `
                         -HttpCredential $cred `
                         -JobDefinition $mrJobDefinition
 
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
         -JobId $mrJob.JobId
 
     # Get the job output
-    $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    $cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
 
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
@@ -103,8 +105,8 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
         -DisplayOutputType StandardError
 
     # Download the job output to the workstation
-    $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
-    Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+    $storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
+    Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
     # Display the output file
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
@@ -134,7 +136,7 @@ In the meantime, the reducer collects the line-oriented output from the [stdout]
 * Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
-    $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightStreamingMapReduceJobDefinition `
                             -Files "/example/apps/cat.exe","/example/apps/wc.exe" `
                             -Mapper "cat.exe" `
                             -Reducer "wc.exe" `
@@ -156,7 +158,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 * Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
-    $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
@@ -184,17 +186,17 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 * Follow the procedure in Word count - Java, and use the following job definitions:
 
     ```powershell
-    $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teragen = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teragen" `
                                 -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
-    $terasort = New-AzureRmHDInsightMapReduceJobDefinition `
+    $terasort = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "terasort" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
-    $teravalidate = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teravalidate = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teravalidate" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"

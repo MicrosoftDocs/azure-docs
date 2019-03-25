@@ -113,13 +113,13 @@ create and build your logic app starting
 from the **Blank Logic App** template.
 
 1. In Solution Explorer, open the shortcut menu for the **LogicApp.json** file. 
-Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+   Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
 
    ![Open logic app .json file with Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
 2. For **Subscription**, select the Azure subscription that you to use. 
-For **Resource Group**, select **Create New...**, 
-which creates a new Azure resource group. 
+   For **Resource Group**, select **Create New...**, 
+   which creates a new Azure resource group. 
 
    ![Select Azure subscription, resource group, and resource location](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -136,9 +136,9 @@ which creates a new Azure resource group.
    ||||
 
 3. The Logic Apps Designer opens and shows a page with 
-an introduction video and commonly used triggers. 
-Scroll past the video and triggers. Under **Templates**, 
-select **Blank Logic App**.
+   an introduction video and commonly used triggers. 
+   Scroll past the video and triggers. Under **Templates**, 
+   select **Blank Logic App**.
 
    ![Select "Blank Logic App"](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 

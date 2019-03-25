@@ -1,21 +1,15 @@
-﻿---
+---
 title: What are Azure Reservations? | Microsoft Docs
 description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB and other resource costs.
-services: 'billing'
-documentationcenter: ''
+services: billing
 author: yashesvi
 manager: yashar
-editor: ''
-
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-
 ---
+
 # What are Azure Reservations?
 
 Azure Reservations help you save money by pre-paying for one-year or three-years of virtual machines, SQL Database compute capacity, Azure Cosmos DB throughput, or other Azure resources. Pre-paying allows you to get a discount on the resources you use. Reservations can significantly reduce your virtual machine, SQL database compute, Azure Cosmos DB, or other resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources.
@@ -40,17 +34,11 @@ For Windows virtual machines and SQL Database, you can cover the licensing costs
 
 ## Who's eligible to purchase a reservation?
 
-Azure customers with the following subscription types can buy a reservation:
+To buy a plan, you must have a subscription owner role in an Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go subscription (MS-AZR-003P or MS-AZR-0023P). Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
 
-- Enterprise agreement subscription offer type (MS-AZR-0017P or MS-AZR-0148P).
-- Pay-As-You-Go subscription offer type (MS-AZR-003P or MS-AZR-0023P).
-- Cloud Solution Provider (CSP) partners can use the Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase Azure Reservations.
+EA customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
-
- To buy a plan:
-
-- You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
 
 ## How is a reservation billed?
 
@@ -84,7 +72,7 @@ When you buy a reservation, the discount can apply to other instances with attri
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

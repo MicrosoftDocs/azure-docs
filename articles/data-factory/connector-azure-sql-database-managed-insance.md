@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
 
 ---
@@ -484,7 +484,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -494,14 +494,11 @@ In your database, define the table type with the same name as sqlWriterTableType
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->If you write to the **Money/Smallmoney** data type by invoking a stored procedure, values might be rounded. Specify the corresponding data type in the table-valued parameters as **Decimal** instead of **Money/Smallmoney** to mitigate this issue. 
 
 ## Data type mapping for Azure SQL Database Managed Instance
 

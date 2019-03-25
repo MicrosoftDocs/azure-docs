@@ -18,6 +18,7 @@
   - name: Utilize template reference
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple instances
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Move resources
     href: resource-manager-tutorial-move-resources.md
@@ -51,33 +52,15 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Templates
-    items:
-    - name: Template file structure
-      href: resource-group-authoring-templates.md
-    - name: Parameters
-      href: resource-manager-templates-parameters.md
-    - name: Variables
-      href: resource-manager-templates-variables.md
-    - name: Functions
-      href: resource-group-authoring-templates.md#functions
-    - name: Resources
-      href: resource-manager-templates-resources.md
-    - name: Outputs
-      href: resource-manager-templates-outputs.md
-  - name: Guidance
-    items:
-    - name: Template best practices
-      href: template-best-practices.md
-    - name: Subscription governance
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
-      maintainContext: true
-    - name: Templates for cloud consistency
-      href: templates-cloud-consistency.md
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
+  - name: Template best practices
+    href: template-best-practices.md
+  - name: Templates for cloud consistency
+    href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
-  - name: Management groups
-    href: management-groups-overview.md
   - name: Deployment Manager
     href: deployment-manager-overview.md
   - name: Deployment modes
@@ -97,6 +80,7 @@
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Manage secrets
       displayname: key vault
@@ -249,7 +233,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html
+    href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap

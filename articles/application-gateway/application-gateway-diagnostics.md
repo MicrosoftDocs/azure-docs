@@ -19,6 +19,8 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Back-end health
 
 Application Gateway provides the capability to monitor the health of individual members of the back-end pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of back-end pools through the performance diagnostic logs. 
@@ -42,10 +44,10 @@ Each member in the back-end pool is listed on this page (whether it's a NIC, IP,
 
 ### View back-end health through PowerShell
 
-The following PowerShell code shows how to view back-end health by using the `Get-AzureRmApplicationGatewayBackendHealth` cmdlet:
+The following PowerShell code shows how to view back-end health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### View back-end health through Azure CLI
@@ -116,7 +118,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 

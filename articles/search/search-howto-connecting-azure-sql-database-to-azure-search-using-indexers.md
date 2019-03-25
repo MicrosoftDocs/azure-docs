@@ -2,7 +2,7 @@
 title: Connect and index Azure SQL Database content using indexers - Azure Search
 description: Learn how to crawl data in Azure SQL Database using indexers for full text search in Azure Search. This article covers connections, indexer configuration, and data ingestion.
 
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei

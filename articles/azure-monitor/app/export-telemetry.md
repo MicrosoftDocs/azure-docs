@@ -23,7 +23,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](../../azure-monitor/app/export-power-bi.md ), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
-* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
 

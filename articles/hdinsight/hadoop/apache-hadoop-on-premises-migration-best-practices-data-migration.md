@@ -28,9 +28,9 @@ There are two main options to migrate data from on-premises to Azure environment
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
-|**Data Qty**|**Network Bandwidth**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**Data Qty**|**Network Bandwidth**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 days|1 day| 2 hours|14 minutes|
 |10 TB|22 days|10 days|1 day|2 hours|
 |35 TB|76 days|34 days|3 days|8 hours|
@@ -88,7 +88,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 #### Hive metastore migration using scripts
 
-1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Generate the Hive DDLs from on premises Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs.
 1. Run the updated DDL on the metastore from the HDInsight cluster.
 1. Make sure that the Hive metastore version is compatible between on-premises and cloud.
@@ -105,7 +105,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 ### Apache Ranger
 
 - Export on-premises Ranger policies to xml files.
-- Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
+- Transform on premises specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
 - Import the policies on to Ranger running on HDInsight.
 
 ## Next steps

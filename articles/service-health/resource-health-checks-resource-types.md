@@ -5,7 +5,7 @@ author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.topic: how-to 
+ms.topic: conceptual 
 ms.date: 01/29/2019
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory
@@ -15,12 +15,7 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Azure AD Password Protection on-premises - Frequently asked questions
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection on-premises - Frequently asked questions
 
 ## General questions
 
@@ -83,6 +78,10 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 **Q: Is it okay to deploy the Azure AD Password Protection Proxy service side by side with other services such as Azure AD Connect?**
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
+
+**Q: In what order should the DC agents and proxies be installed and registered?**
+
+Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
 
 **Q: Should I be concerned about the performance hit on my domain controllers from deploying this feature?**
 

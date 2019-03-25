@@ -5,13 +5,15 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/25/2019
+ms.date: 3/1/2019
 ms.author: victorh
 ---
 
 # Use Azure DNS for private domains
 
 The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. A hosting service for DNS domains, Azure DNS provides name resolution by using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS now also supports private DNS domains as a preview feature.
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without your needing to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
 
@@ -21,7 +23,8 @@ If you specify a registration virtual network, the DNS records for the VMs from 
 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> As a best practice, do not use a .local domain for your private DNS zone. Not all operating systems support this.
 
 ## Benefits
 

@@ -38,10 +38,12 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 
 ## Archive the Activity Log via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your storage account belongs to>"
@@ -50,13 +52,13 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
 | Property | Required | Description |
 | --- | --- | --- |
 | StorageAccountId |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `(Get-AzureRmLocation).Location`. |
+| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `(Get-AzLocation).Location`. |
 | RetentionInDays |No |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
 | Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.  If not provided, then all possible values are assumed |
 

@@ -1,6 +1,6 @@
 ---
-title: Publish a Azure Management Solution to Azure Marketplace 
-description: Publish a Azure Management Solution to Azure Marketplace 
+title: Publish an Azure Management Solution to Azure Marketplace 
+description: Publish an Azure Management Solution to Azure Marketplace 
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: qianw211
@@ -18,7 +18,7 @@ ms.author: pbutlerm
 ---
 
 
-Publish a Azure Management Solution to Azure Marketplace 
+Publish an Azure Management Solution to Azure Marketplace 
 ========================================================
 
 > [!IMPORTANT]
