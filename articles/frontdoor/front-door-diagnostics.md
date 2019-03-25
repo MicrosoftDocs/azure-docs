@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.author: sharadag
 ---
 
-# Monitoring metrics for Front Door
+# Monitoring metrics and logs for Front Door
 
 By using Azure Front Door Service, you can monitor resources in the following ways:
-* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 * [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
+* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 ## Metrics
 
@@ -54,7 +54,7 @@ To view activity logs:
 3. Select desired filtering scope and click **Apply**.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
-Diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed. Learn more about [Azure Monitor diagnostic logs](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed. Learn more about [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 To configure diagnostic logs for your Front Door:
 

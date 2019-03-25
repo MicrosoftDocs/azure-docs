@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.lastreviewed: 01/11/2019
+ms.date: 03/18/2019
+ms.lastreviewed: 03/18/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ---
@@ -85,7 +85,7 @@ You can specify the following parameters from the command line. If you don't, or
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | The Azure environment of the service admin account used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |
@@ -101,10 +101,7 @@ Change the default account information and passwords as needed for your Azure St
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

@@ -28,8 +28,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models.
 
-[![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
-(./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are PyTorch, TensorFlow, and scikit-learn.
 Support for rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
@@ -84,16 +83,16 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- Create a Machine Learning service workspace to get started [by using the Azure portal](quickstart-get-started.md) (no-install approach) or [in Python](quickstart-create-workspace-with-python.md) (SDK install approach).
+- [Create a Machine Learning service workspace](setup-create-workspace.md) to get started.
 
 - Follow the full-length tutorials: 
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
   + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
-  
+
 - Use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to prepare your data.
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
 
-- For more information, see [other machine learning products from Microsoft](./overview-more-machine-learning.md).
+- For more information, see [other machine learning products from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).

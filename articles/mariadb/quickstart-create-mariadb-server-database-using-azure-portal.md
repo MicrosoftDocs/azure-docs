@@ -67,11 +67,11 @@ The Azure Database for MariaDB service creates a firewall at the server level. T
 
 To create a server-level firewall rule:
 
-1.	 When deployment is finished, locate your server. If necessary, you can search for it. For example, in the left menu, select **All Resources**. Then, enter the server name. For example, enter **mydemoserver** to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens. You can change additional settings on this page.
+1. When deployment is finished, locate your server. If necessary, you can search for it. For example, in the left menu, select **All Resources**. Then, enter the server name. For example, enter **mydemoserver** to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens. You can change additional settings on this page.
 
 2. On the server overview page, select **Connection security**.
 
-3.	Under **Firewall rules**, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will connect to this server.
+3. Under **Firewall rules**, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will connect to this server.
    
    ![Connection security - Firewall rules](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -98,9 +98,9 @@ You can use a variety of applications to connect to your Azure Database for Mari
 First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell without installing software. If you have the mysql utility installed locally, you also can connect from there.
 
 1. Start Azure Cloud Shell via the terminal icon (**>_**) on the upper right toolbar in the Azure portal.
-![Azure Cloud Shell terminal symbol](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
+   ![Azure Cloud Shell terminal symbol](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  Azure Cloud Shell opens in your browser. You can use bash shell commands in Cloud Shell.
+2. Azure Cloud Shell opens in your browser. You can use bash shell commands in Cloud Shell.
 
    ![Command prompt - mysql command-line example](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
@@ -160,14 +160,14 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
    > [!TIP]
    > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Create a blank database at the `mysql>` prompt by entering the following command:
+5. Create a blank database at the `mysql>` prompt by entering the following command:
 
-    ```sql
-    CREATE DATABASE quickstartdb;
-    ```
-    The command might take a few minutes to finish. 
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+   The command might take a few minutes to finish. 
 
-    You can create one or more databases on an Azure Database for MariaDB server. You can create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
+   You can create one or more databases on an Azure Database for MariaDB server. You can create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
 
 6. To list the databases, at the `mysql>` prompt, enter the following command:
 
@@ -175,7 +175,7 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
     SHOW DATABASES;
     ```
 
-7.  Enter **\q**, and then press Enter to close the mysql tool. Then, you can close Azure Cloud Shell.
+7. Enter **\q**, and then press Enter to close the mysql tool. Then, you can close Azure Cloud Shell.
 
 You have connected to the Azure Database for MariaDB server and created a blank user database. In the next section, you connect to the same server by using another common tool, MySQL Workbench.
 
@@ -222,13 +222,13 @@ To delete the entire resource group, including the newly created server:
 
 To delete only the newly created server:
 
-1.	In the Azure portal, locate your server if you don't already have it open. In the left menu, select **All resources**. Then, search for the server you created.
+1. In the Azure portal, locate your server if you don't already have it open. In the left menu, select **All resources**. Then, search for the server you created.
 
-2.	On the **Overview** page, select **Delete**. 
+2. On the **Overview** page, select **Delete**. 
 
    ![Azure Database for MariaDB - Delete server](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.	Confirm the name of the server you want to delete. Show the databases under it that will be affected by the deletion. Enter your server name (in our example, **mydemoserver**) to confirm deletion. Select **Delete**.
+3. Confirm the name of the server you want to delete. Show the databases under it that will be affected by the deletion. Enter your server name (in our example, **mydemoserver**) to confirm deletion. Select **Delete**.
 
 ## Next steps
 

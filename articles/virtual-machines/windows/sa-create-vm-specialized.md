@@ -208,10 +208,10 @@ Create the vNet and subNet of the [virtual network](../../virtual-network/virtua
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
-This needs to be completed prior to creating the network interface it will be associated with.  
-This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
+   ### Create the network security group and an RDP rule
+   To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
+   This needs to be completed prior to creating the network interface it will be associated with.  
+   This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -243,7 +243,7 @@ To enable communication with the virtual machine in the virtual network, you nee
     $nicName = "myNicName"
     $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-	```
+    ```
 
 ### Set the VM name and size
 

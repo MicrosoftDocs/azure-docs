@@ -519,6 +519,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -809,6 +810,7 @@ The following table explains the binding configuration properties that you set i
 #### File output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -958,6 +960,7 @@ The following table explains the binding configuration properties that you set i
 ### Outlook output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Send mail as user|

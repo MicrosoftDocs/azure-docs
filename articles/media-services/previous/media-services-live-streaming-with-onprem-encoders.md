@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
 
 ---
-# Live streaming with on-premises encoders that create multi-bitrate streams
+# Working with Channels that receive multi-bitrate live stream from on-premises encoders
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -181,7 +181,7 @@ Possible values for the current state of a channel include:
 The following table shows how channel states map to the billing mode.
 
 | Channel state | Portal UI indicators | Billed? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starting** |**Starting** |No (transient state) |
 | **Running** |**Ready** (no running programs)<p><p>or<p>**Streaming** (at least one running program) |Yes |
 | **Stopping** |**Stopping** |No (transient state) |

@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
-# Data Box Edge security and data protection (preview)
+# Data Box Edge security and data protection
 
 Security is a major concern when adopting a new technology, especially if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
 
@@ -22,9 +22,6 @@ The Azure Data Box Edge solution consists of four main components that interact 
 - **Data Box Edge device** – The transfer device that is shipped to you to import your on-premises data into Azure.
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box Edge device and contain data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored. This location is typically the storage account linked to the Data Box Edge resource that you created.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## Data Box Edge/Data Box Gateway service protection
@@ -39,7 +36,7 @@ The Data Box Edge/Data Box Gateway service is a management service hosted in Mic
 The Data Box Edge device is an on-premises device that helps transform the data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Data Box Edge/Data Box Gateway service.
-- Is protected at all times by a device administrator password.
+- Is protected at all times by a device password.
 - Is a locked-down device. The device BMC and BIOS are password-protected with limited user-access for the BIOS.
 - Has secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies. 
@@ -63,14 +60,14 @@ Passwords ensure that your data is accessible to authorized users only. Data Box
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign into the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device administrator password to sign into the device. For more information, go to [Connect remotely to your Data Box Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign into the device. For more information, go to [Connect remotely to your Data Box Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Keep the following best practices in mind:
 
 - The Data Box Edge service cannot retrieve existing passwords: it can only reset them via the Azure portal. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you reset a password, be sure to notify all the users before you reset it.
 - Use the local web UI to [change the password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so that they do not experience a sign in failure.
 - You can access the Windows PowerShell interface of your device remotely over HTTP. As a security best practice, you should use HTTP only on trusted networks.
-- Ensure that device administrator passwords are strong and well-protected. Follow the [Password best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Ensure that device passwords are strong and well-protected. Follow the [Password best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## Protect the data
 
@@ -117,15 +114,15 @@ For security reasons, many datacenters require key rotation. We recommend that y
 The Data Box Edge/ Data Box Gateway service collects personal information in the following key instances:
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Shipping tracking number
 
     The order details are encrypted and stored in the service. The service retains the information until you delete the resource or order explicitly. Moreover, the deletion of resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
 

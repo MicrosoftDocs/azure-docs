@@ -169,9 +169,6 @@
       - name: Use Hue
         href: ../hdinsight-hadoop-hue-linux.md
         maintainContext: true
-      - name: Use Apache Solr
-        href: ../hdinsight-hadoop-solr-install-linux.md
-        maintainContext: true
       - name: Use empty edge nodes
         href: ../hdinsight-apps-use-edge-node.md
         maintainContext: true
@@ -423,7 +420,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK

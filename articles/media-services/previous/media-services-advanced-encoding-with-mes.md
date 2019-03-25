@@ -579,8 +579,7 @@ If you are using .NET, add the following two functions to the .NET example defin
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -654,12 +653,10 @@ If you are using .NET, add the following two functions to the .NET example defin
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>

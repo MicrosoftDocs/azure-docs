@@ -53,7 +53,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-If the VM is not in the same resource group as that of vault, then myResourceGroup refers to the resource group where vault was created. Instead of VM name, provide the VM ID as indicated below.
+> If the VM is not in the same resource group as that of vault, then myResourceGroup refers to the resource group where vault was created. Instead of VM name, provide the VM ID as indicated below.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

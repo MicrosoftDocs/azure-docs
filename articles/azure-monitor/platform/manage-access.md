@@ -99,7 +99,7 @@ The _access mode_ refers to how a user accesses a Log Analytics workspace and de
 > - Containers
 > - Custom logs created by HTTP Data collector API
 >
-> You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#resourceid) property, then data is available to resource-centric queries.
+> You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
 ### Comparing access modes
 
@@ -131,15 +131,6 @@ This is the default setting for all workspaces created after March 2019.
 > [!NOTE]
 > If a user has only resource permissions to the workspace, they will only be able to access the workspace using [Resource-centric mode](#access-modes).
 
-
-### Define access control mode in Azure portal
-You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
-
-![View workspace access control mode](media/manage-access/view-access-control-mode.png)
-
-You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
-
-![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
 ### Define access control mode in Azure portal
 You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.

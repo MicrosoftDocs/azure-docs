@@ -59,7 +59,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 1. Create a new application by doing the following:
    - For **Name**, use **B2CUserMigration** or any other name you want.
    - For **Application type**, use **Web app/API**.
-   - For **Sign-on URL**, use **https://localhost** (as it's not relevant for this application).
+   - For **Sign-on URL**, use `https://localhost` (as it's not relevant for this application).
    - Select **Create**.
    
 1. After the application is created, in the **Applications** list, select the newly created **B2CUserMigration** application.

@@ -87,7 +87,7 @@ To connect to the Azure portal from Visual Studio:
 
 1. From Server Explorer, navigate to **Azure** > **HDInsight** and select your cluster.
 
-2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure Portal**.
+2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure portal**.
 
 To ask questions and/or provide feedback from Visual Studio:
 
@@ -241,12 +241,12 @@ To view Hive jobs:
 1. Right-click an HDInsight cluster, and select **View Jobs**. A list of the Hive jobs that ran on the cluster appears.  
 
 2. Select a job. In the **Hive Job Summary** window, select one of the following:
-    - **Job Query**
-    - **Job Output**
-    - **Job Log**  
-    - **Yarn log**
+   - **Job Query**
+   - **Job Output**
+   - **Job Log**  
+   - **Yarn log**
 
-    ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
+     ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
 
 
 ## Run Apache Pig scripts
@@ -270,5 +270,5 @@ In this article, you learned how to use the Data Lake Tools for Visual Studio pa
 * [Use Hadoop Hive in HDInsight](hdinsight-use-hive.md)
 * [Get started using Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Apache Hadoop jobs in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 

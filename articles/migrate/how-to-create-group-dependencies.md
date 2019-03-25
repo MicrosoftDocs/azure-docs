@@ -59,7 +59,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as Azure Automation DSC, System Center Configuration Manager, or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as System Center Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
 
 #### Install the agent on a Linux machine
 
@@ -90,18 +90,18 @@ Once you have installed agents on all the machines of the group, you can visuali
 1. In the Azure Migrate project, under **Manage**, click **Groups**, and select the group.
 2. On the group page, click **View Dependencies**, to open the group dependency map.
 3. The dependency map for the group shows the following details:
-    - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
-        - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
-        - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
-    - Processes running inside the machine, you can expand each machine box to view the processes
-    - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
+   - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
+       - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
+       - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
+   - Processes running inside the machine, you can expand each machine box to view the processes
+   - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
      ![View group dependencies](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
-    > [!NOTE]
-      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
+   > [!NOTE]
+   >    Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
 
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
 5. Use Ctrl+Click to select machines on the map to add or remove them from the group.

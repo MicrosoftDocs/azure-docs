@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 experimental: false
-experiment_id: c80d19c3-428d-4b
+experiment_id: 80e4ff38-5174-43
 ---
 
 # Work with Azure Functions Core Tools
@@ -225,12 +225,12 @@ Even when using the storage emulator for development, you may want to test with 
 
 + Use Core Tools to download the connection string from Azure with one of the following commands:
 
-    + Download all settings from an existing function app:
+  + Download all settings from an existing function app:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Get the Connection string for a specific storage account:
+  + Get the Connection string for a specific storage account:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -411,10 +411,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>Publish to Azure
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
@@ -490,5 +486,5 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
-[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functionsworkerruntime
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

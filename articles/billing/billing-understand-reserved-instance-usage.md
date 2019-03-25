@@ -89,6 +89,10 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
 3. The **Meter Id** is the reservation meter. The cost of this meter is $0. Any SQL Database resources that qualify for the reservation discount shows this meter ID in the CSV file.
 
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
@@ -100,7 +104,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## Need help? Contact us
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

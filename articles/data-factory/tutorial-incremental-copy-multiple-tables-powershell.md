@@ -124,7 +124,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
@@ -695,7 +695,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 	```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-	``` 
+    ``` 
 
 ## Monitor the pipeline
 
