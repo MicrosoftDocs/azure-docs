@@ -3107,6 +3107,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-explorer">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>Fast and highly scalable data exploration service for log and telemetry data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3257,26 +3276,7 @@ featureFlags:
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-explorer">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Data Explorer</h3>
-                                                    <p>Fast and highly scalable data exploration service for log and telemetry data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
