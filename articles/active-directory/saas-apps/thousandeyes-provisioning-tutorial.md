@@ -59,11 +59,11 @@ For each account group, you are auto-provisioning users into you can configure a
 
 1. To specify a new set of roles for auto-provisioned users log-into ThousandEyes and navigate to the SCIM Settings section **> your user icon in the top right corner > Account Settings > Organization > Security & Authentication.** 
 
-![Navigate to SCIM API Settings](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+   ![Navigate to SCIM API Settings](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
 
 2. Add an entry for each account group, assign a set of roles then *save* your changes.
 
-![Set default roles and account groups for users created via SCIM API](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
+   ![Set default roles and account groups for users created via SCIM API](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## Configuring user provisioning to ThousandEyes 
@@ -71,7 +71,7 @@ For each account group, you are auto-provisioning users into you can configure a
 This section guides you through connecting your Azure AD to ThousandEyes's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ThousandEyes based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On (SSO) for ThousandEyes, following the [instructions provided in Azure knowledge base](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/thousandeyes-tutorial) to complete SSO. SSO can be configured independently of automatic provisioning, though these two features complement each other.
+> You may also choose to enabled SAML-based Single Sign-On (SSO) for ThousandEyes, following the [instructions provided in Azure knowledge base](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) to complete SSO. SSO can be configured independently of automatic provisioning, though these two features complement each other.
 
 
 ### Configure automatic user account provisioning to ThousandEyes in Azure AD
