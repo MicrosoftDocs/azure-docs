@@ -51,7 +51,6 @@ In this article, you learned about the basic architecture and workflow of ATP fo
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Device agent prerequisites](device-agent-prerequisites.md)
 - [Getting started](quickstart-getting-started.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-iot-hub.md)

@@ -157,11 +157,10 @@ Check and investigate the device data for the following details and activities u
 
 ## Next steps
 
-[Configure custom alerts](quickstart-create-custom-alerts.md), or if you don't already have a device agent, [install a device agent](device-agent-prerequisites.md) or [change the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
+[Configure custom alerts](quickstart-create-custom-alerts.md), or if you don't already have a device agent, [Deploy a security agent](tutorial-deploy-agent.md) or [change the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
  
 
 ## See also
-- [Understanding ATP for IoT](overview.md)
-- [Installation for Windows](quickstart-windows-installation.md)
-- [Understanding ATP for IoT security alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)
+- [Understand ATP for IoT recommendations](concept-recommendations.md)
+- [Explore ATP for IoT alerts](concept-security-alerts.md)
+- [Access raw security data](how-to-security-data-access.md)

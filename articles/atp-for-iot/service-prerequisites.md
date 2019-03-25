@@ -61,7 +61,6 @@ ATP for IoT agent supports a growing list of devices and platforms. See the [sup
 
 ## See Also
 - [Overview](overview.md)
-- [Device agent prerequisites](device-agent-prerequisites.md)
 - [Service onboarding](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)

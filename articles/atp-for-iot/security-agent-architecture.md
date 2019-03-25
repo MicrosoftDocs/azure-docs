@@ -37,33 +37,31 @@ Security agents support the following IoT solution features:
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](quickstart-agent-configuration.md).
+- Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](tutorial-agent-configuration.md).
 
 ATP for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
 - [IoT-ATP-Agent-C](https://github.com/Azure/IoT-ATP-Agent-C) 
-- [IoT-ATP-Agent-CS]([https://github.com/Azure/IoT-ATP-Agent-CS)
+- [IoT-ATP-Agent-CS](https://github.com/Azure/IoT-ATP-Agent-CS)
 
 ## Agent supported platforms
 
 ATP for IoT offers different installer agents for 32bit and 64bit Windows, and the same for 32bit and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
-| 32bit or 64bit | Linux | Windows |    Details|
+| 32 or 64bit | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32 bit  | C  | C#  ||
+| 32bit  | C  | C#  ||
+| 64bit  | C# or C           | C#      | Use the C agent for devices with minimal resources|
 
 
 ## Next steps
-In this article, you learned about ATP for IoT security agent architecture, and the available installers. To get started installing agents on your devices, see the following articles:
+In this article, you learned about ATP for IoT security agent architecture, and the available installers.
+To get started deploying agents on your devices, see [Deploy a security agent](tutorial-deploy-agent.md).
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Device agent prerequisites](device-agent-prerequisites.md)
-- [Linux C# installation](quickstart-linux-cs-installation.md)
-- [Linux C installation](quickstart-linux-c-installation.md)
-- [Windows installation](quickstart-windows-installation.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
+- [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understand ATP for IoT security alerts](concept-security-alerts.md)
-

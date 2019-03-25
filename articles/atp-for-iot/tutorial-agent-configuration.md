@@ -17,7 +17,7 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# Quickstart: Agent configuration
+# Configure security agents
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
@@ -38,22 +38,26 @@ Use the ATP for IoT security agent configuration [schema](https://github.com/azu
 
 ## Configuration objects 
 
-Each ATP for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the Microsoft.Security module. 
+Each ATP for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the azureiotsecurity module. 
 
-To modify the configuration, create and modify this object inside the Microsoft.Security module twin identity. 
-If the agent configuration object does not exist in the Microsoft.Security module twin, all security agent property values are set to default. 
+To modify the configuration, create and modify this object inside the azureiotsecurity module twin identity. 
+If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
 
 ```json
-"desired": { //Microsoft.Security Module Identity Twin – desired properties section  
+"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //Agent configuration object 
-… 
+  … 
 } 
 }
 ```
 
+Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
+The agent will not launch if the configuration object does not match the schema.
+
+
 ## Editing a property 
 
-All custom properties must be set inside the agent configuration object within the Microsoft.Security module twin. 
+All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin. 
 
 Setting a property overrides the default value. 
 To set a property, add the property key to the configuration object with the desired value. 
@@ -61,21 +65,21 @@ To set a property, add the property key to the configuration object with the des
 To use a default property value, remove the property from the configuration object. 
 
 ```json
-"desired": { //Microsoft.Security Module Identity Twin – desired properties section  
+"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
       // configuration section  
-    "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
     "lowPriorityMessageFrequency": "PT1H",     
     "highPriorityMessageFrequency": "PT7M",    
     "eventPriorityFirewallConfiguration": "High",     
-    "eventPriorityConnectionCreate": "Off" 
+    "eventPriorityConnectionCreate": "High" 
   } 
 }, 
 ```
 
 ## Default properties 
-Set of controllable properties that control the ATP for IoT security agents. 
-          
+Set of controllable properties that control the ATP for IoT security agents.
+
+Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -91,26 +95,22 @@ Set of controllable properties that control the ATP for IoT security agents.
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Diagnostic event|eventPriorityDiagnostic| Off| False| Agent related diagnostic events. Use this event for verbose logging.| 
-Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
+|Configuration error |eventPriorityConfigurationError |Low |False |Agent failed to parse the configuration. Verify the configuration against the schema.| 
 |Dropped events statistics |eventPriorityDroppedEventsStatistics |Low |True|Agent related event statistics. |
 |Message statistics|eventPriorityMessageStatistics |Low |True |Agent related message statistics. |
 |Connected hardware|eventPriorityConnectedHardware |Low |True |Snapshot of all hardware connected to the device.|
 |Listening ports|eventPriorityListeningPorts |High |True |Snapshot of all open listening ports on the device.|
-| Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|
-| Process terminate|eventPriorityProcessTerminate |Low |False |Audits process termination on the device.| 
- System information |eventPrioritySystemInformation |Low |True |A snapshot of system information (for example: OS or CPU).| 
+|Process create |eventPriorityProcessCreate |Low |False |Audits process creation on the device.|
+|Process terminate|eventPriorityProcessTerminate |Low |False |Audits process termination on the device.| 
+|System information |eventPrioritySystemInformation |Low |True |A snapshot of system information (for example: OS or CPU).| 
 |Local users| eventPriorityLocalUsers |High |True|A snapshot of the registered local users within the system. |
 |Login|  eventPriorityLogin |High|False|Audit the login events to the device (local and remote logins).|
 |Connection create |eventPriorityConnectionCreate|Low|False|Audits TCP connections created to and from the device. |
 |Firewall configuration| eventPriorityFirewallConfiguration|Low|True|Snapshot of device firewall configuration (firewall rules). |
-|OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.| 
-|
-
-Make sure to validate your agent configuration changes against this [schema](https://github.com/azure/atp-for-iot-schemas/security_module_twin). The agent will not launch if the configuration object does not match the schema.
+|OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
  
 
 ## See Also
-- [Overview](overview.md)
-- [Configure authentication methods](how-to-configure-authentication-methods.md)
-- [Understand ATP for IoT alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)
+- [Understand ATP for IoT recommendations](concept-recommendations.md)
+- [Explore ATP for IoT alerts](concept-security-alerts.md)
+- [Access raw security data](how-to-security-data-access.md)
