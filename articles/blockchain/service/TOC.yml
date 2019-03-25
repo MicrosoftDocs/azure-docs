@@ -33,7 +33,7 @@
   - name: Limits
     href: limits.md
   - name: Patch, update, version
-  - name: Ethereum accounts
+    href: ledger-versions.md
 - name: How-to guides
   items: 
   - name: Configure transaction nodes
