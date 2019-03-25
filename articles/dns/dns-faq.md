@@ -210,11 +210,11 @@ Yes. Private Zones is supported for DNS resolution between virtual networks acro
 
 ### Is connectivity to the Internet from virtual networks required for private zones?
 
-No. Private zones work along with virtual networks. Customers use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution. 
+No. Private zones work along with virtual networks. Customers use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution.
 
 ### Can the same private zone be used for several virtual networks for resolution?
 
-Yes. Customers can associate up to 10 Resolution virtual networks with a single private zone.
+Yes. You can associate up to 1000 virtual networks with a single private zone.
 
 ### Can a virtual network that belongs to a different subscription be added as a Resolution virtual network to a private zone?
 
@@ -222,7 +222,7 @@ Yes. You must have write operation permission on the virtual networks and the pr
 
 ### Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when the virtual machines are deleted by the customer?
 
-Yes. If you delete a virtual machine within a Registration virtual network, the DNS records that were registered into the zone are automatically deleted. 
+Yes. If you delete a virtual machine within a Registration virtual network, the DNS records that were registered into the zone are automatically deleted.
 
 ### Can an automatically registered virtual machine record in a private zone from a Registration virtual network be deleted manually?
 
@@ -250,7 +250,7 @@ No. The DNS suffix on the virtual machines in your linked virtual network stays 
 
 ### Are there any limitations for private zones?
 
-Yes. During the public preview, the following limitations exist.
+Yes. During the public preview, the following limitations exist:
 
 * Reverse DNS works only for private IP space in the Registration virtual network.
 * Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
