@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 03/25/2019
 ms.author: spelluru
 
 ---
@@ -22,7 +22,7 @@ While creating a VM, you can add existing artifacts to it. These artifacts can b
 
 Azure DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is provisioned, such as running Windows PowerShell scripts, running Bash commands, and installing software. Artifact *parameters* let you customize the artifact for your particular scenario.
 
-To learn about how to create custom artifacts, see the article, [Create custom artifacts](devtest-lab-artifact-author.md).
+To learn about how to create custom artifacts, see the article: [Create custom artifacts](devtest-lab-artifact-author.md).
 
 ## Use Azure portal 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -160,6 +160,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## Next steps
-* Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's pane.
-* Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+See the following articles on artifacts:
+
+- [Specify mandatory artifacts for your lab](devtest-lab-mandatory-artifacts.md)
+- [Create custom artifacts](devtest-lab-artifact-author.md)
+- [Add an artifact repository to a lab](devtest-lab-artifact-author.md)
+- [Diagnose artifact failures](devtest-lab-troubleshoot-artifact-failure.md)

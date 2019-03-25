@@ -187,6 +187,8 @@
       items: 
       - name: Specify mandatory artifacts 
         href: devtest-lab-mandatory-artifacts.md
+      - name: Add artifacts to a VM
+        href: add-artifact-vm.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
       - name: Add an artifact repository to a lab
