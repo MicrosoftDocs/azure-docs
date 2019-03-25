@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
@@ -51,6 +51,8 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 - Added new Environment parameter to the Create-AADIdentityApp helper script to assist targeting different AAD regions.
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates **Azure Functions runtime** to **v1.0.11820**.
 
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
