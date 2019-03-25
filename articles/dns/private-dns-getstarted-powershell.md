@@ -1,10 +1,9 @@
 ---
 title: Create an Azure DNS private zone using Azure PowerShell
-description: In this tutorial, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure PowerShell.
+description: In this article, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: tutorial
 ms.date: 3/25/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
@@ -12,7 +11,7 @@ ms.author: victorh
 
 # Create an Azure DNS private zone using Azure PowerShell
 
-This tutorial walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
+This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -193,7 +192,7 @@ Repeat for myVM02.
 
 ## Delete all resources
 
-When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this tutorial.
+When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this article.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -201,7 +200,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## Next steps
 
-In this tutorial, you deployed a private DNS zone, created a DNS record, and tested the zone.
+In this article, you deployed a private DNS zone, created a DNS record, and tested the zone.
 Next, you can learn more about private DNS zones.
 
 > [!div class="nextstepaction"]
