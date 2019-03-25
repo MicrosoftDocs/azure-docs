@@ -167,10 +167,16 @@ app's run history get billed based on a logic app's
 For specific pricing information, see 
 [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
-To view and monitor your logic app's storage consumption, 
-follow these steps: 
+To help you monitor your logic app's storage consumption, you can:
 
-1. In the Azure portal, find and open your logic app. 
+* View the number of storage units in GB that your logic app uses monthly.
+* View the sizes for a specific action's inputs and outputs in your logic app's run history.
+
+<a name="storage-consumption"></a>
+
+### View logic app storage consumption
+
+1. In the Azure portal, find and open your logic app.
 
 1. From your logic app's menu, under **Monitoring**, select **Metrics**.
 
@@ -178,8 +184,29 @@ follow these steps:
 from the **Metric** list, select 
 **Billing Usage for Storage Consumption Executions**.
 
-   This metric gives you the number of storage 
-   consumption executions that are getting billed.
+   This metric gives you the number of storage consumption 
+   units in GB per month that are getting billed.
+
+<a name="input-output-sizes"></a>
+
+### View action input and output sizes
+
+1. In the Azure portal, find and open your logic app.
+
+1. On your logic app's menu, select **Overview**.
+
+1. In the right-hand pane, under **Runs history**, 
+select the run that has the inputs and outputs you want to check.
+
+1. Under **Logic app run**, choose **Run Details**.
+
+1. In the **Logic app run details** pane, in the actions 
+table, which lists each action's status and duration, 
+select the action you want to view.
+
+1. In the **Logic app action** pane, find the sizes for 
+that action's inputs and outputs appear respectively 
+under **Inputs link** and **Outputs link**.
 
 ## Next steps
 
