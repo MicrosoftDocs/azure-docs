@@ -1,5 +1,4 @@
 ---
-
 title: Create a security module twin for ATP for IoT Preview| Microsoft Docs
 description: Learn how to create a ATP for IoT module twin for use with ATP for IoT.
 services: atpforiot
@@ -18,7 +17,6 @@ ms.date: 03/20/2019
 ms.author: mlottner
 
 ---
-
 # Quickstart: Create a ATP for IoT module twin
 
 > [!IMPORTANT]
