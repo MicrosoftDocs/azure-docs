@@ -24,7 +24,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run-As Account](manage-runas-account.md)
-* Ensure you have the [latest Azure modules](shared-resources/modules.md) in your Automation Account
+* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -57,7 +57,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 ## Configure source control - PowerShell
 
-You can also use PowerShell to configure source control in Azure Automation. To configure source control with the PowerShell cmdlets, a [personal access token (PAT)](#personal-access-token) is needed. You use the [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) to create the source control connection. The cmdlet requires a secure string of the Personal Access Token, to learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+You can also use PowerShell to configure source control in Azure Automation. To configure source control with the PowerShell cmdlets, a personal access token (PAT) is needed. You use the [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) to create the source control connection. The cmdlet requires a secure string of the Personal Access Token, to learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### Azure Repos (Git)
 
