@@ -55,7 +55,7 @@ The maximum polling delay is configurable via the `maxQueuePollingInterval` prop
 
 ## Storage account selection
 
-The queues, tables, and blobs used by Durable Functions are created by in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
+The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
 
 ### Functions 1.x
 

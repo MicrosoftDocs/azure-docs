@@ -9,14 +9,19 @@
   - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
+- name: Setup
+  items:
+  - name: Create a workspace
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Get started - Portal
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: Get started - Python
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: Experiment with a cloud notebook
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experiment with a local notebook
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
@@ -93,8 +98,8 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Access data
-    displayName: blob get fileshare
+  - name: Get data in datastore
+    displayName: blob get fileshare access storage
     href: how-to-access-data.md
   - name: Train models
     items:
@@ -110,7 +115,7 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Track experiments and metrics
+    - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
@@ -190,4 +195,5 @@
   - name: Get support
     href: support-for-aml-services.md
   - name: Compare our ML products
-    href: overview-more-machine-learning.md
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+    maintainContext: true

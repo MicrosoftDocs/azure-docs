@@ -40,7 +40,7 @@ Arriving at the right index design is typically achieved through multiple iterat
 
 6. Continue using code to iterate over your design.  
 
-Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to ab existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
+Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to an existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
 
 Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 

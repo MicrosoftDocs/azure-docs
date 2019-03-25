@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
 # Customer intent: As a sound designer, I want an occlusion, reverb, and portaling system to manage the mix and anchor sounds in a virtual world.
 ---
@@ -17,14 +17,14 @@ ms.author: kegodin
 # What is Project Acoustics?
 Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like diffraction, portaling and reverb effects in complex scenes without requiring manual zone markup. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals.
 
-![Design View](media/gears-with-voxels.jpg)
+![Screenshot from Gears of War 4 showing acoustics voxels](media/gears-with-voxels.jpg)
 
 ## Using wave physics for interactive acoustics
 Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The result is more predictable and reliable.
 
 Project Acoustics' key innovation is to couple acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-![Design View](media/wave-simulation.gif)
+![Animation showing a horizontal 2D slice of wave propagation through a scene](media/wave-simulation.gif)
 
 ## Setup
 [Project Acoustics Unity integration](unity-integration.md) is drag-and-drop and includes a Unity audio engine plugin. Augment the Unity audio source controls by attaching a Project Acoustics C# controls component to each audio object.
@@ -43,8 +43,11 @@ The Project Acoustics runtime plugins can currently be deployed to the following
 * Xbox One
 
 ## Download
-* [Project Acoustics plugins and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project Acoustics Unreal & Wwise plugins and samples](https://www.microsoft.com/download/details.aspx?id=58090)
   * For Xbox binaries and support, contact us via the Sign Up form below
+
+## Contact us
 * [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
 * [Sign up to receive updates on Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 

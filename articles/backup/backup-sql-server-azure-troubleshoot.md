@@ -16,7 +16,7 @@ This article provides troubleshooting information for protecting SQL Server VMs 
 
 ## Feature consideration and limitations
 
-To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
@@ -75,7 +75,7 @@ The following tables are organized by error code.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## Restore failures
 

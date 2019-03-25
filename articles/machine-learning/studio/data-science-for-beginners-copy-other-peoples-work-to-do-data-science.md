@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/05/2018
+ms.date: 03/22/2019
 ---
 # Copy other people's work to do data science
 ## Video 5: Data Science for Beginners series

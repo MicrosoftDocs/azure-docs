@@ -115,8 +115,8 @@ For further information about recommendations, see [Managing security recommenda
 
    ![disable policy](./media/tutorial-security-policy/disable-policy.png)
 1. Click **Save**.
-> [!Note]
-> The disable policy changes can take up to 12 hours to take effect.
+   > [!Note]
+   > The disable policy changes can take up to 12 hours to take effect.
 
 
 ### Configure a security policy using the REST API
