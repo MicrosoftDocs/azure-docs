@@ -62,7 +62,7 @@ In this article, you learned about ATP for IoT security agent architecture, and 
 - [Device agent prerequisites](device-agent-prerequisites.md)
 - [Linux C# installation](quickstart-linux-cs-installation.md)
 - [Linux C installation](quickstart-linux-c-installation.md)
-- [Windows installation](quickstart-windows-installation.md)
+- [Windows installation](quickstart-windows-cs-installation.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Onboard to IoT hub](quickstart-onboard-iot-hub.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)

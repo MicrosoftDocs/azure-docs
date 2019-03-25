@@ -23,7 +23,7 @@
     href: quickstart-create-custom-alerts.md
 
   - name: Install the ATP for IoT agent on a Windows Device
-    href: quickstart-windows-installation.md
+    href: quickstart-windows-cs-installation.md
   - name: Install the ATP for IoT on a Linux 32-bit device
     href: quickstart-linux-cs-installation.md
   - name: Install the ATP for IoT on a Linux 64-bit device
@@ -35,8 +35,6 @@
     href: tutorial-agent-configuration.md
   - name: Send your own security messages
     href: tutorial-send-security-messages.md
-  - name: Investigate a device
-    href: tutorial-investigate-a-device.md
 
 
 - name: Concepts
