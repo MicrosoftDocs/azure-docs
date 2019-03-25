@@ -46,8 +46,8 @@
   items:
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
-  - name: ATP for IoT module twins
-    href: concept-atp-for-iot-security-module-twins.md
+  - name: Security module
+    href: concept-security-module
   - name: Security alerts
     href: concept-security-alerts.md
   - name: Security recommendations
