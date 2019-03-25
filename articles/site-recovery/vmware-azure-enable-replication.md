@@ -20,7 +20,7 @@ This article assumes that you have:
 - [Set up your target environment in Azure](vmware-azure-set-up-target.md).
 
 ## Before you start
-When replicating VMware virtual machines, keep this information in mind:
+When you're replicating VMware virtual machines, keep this information in mind:
 
 * Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 * VMware VMs are discovered every 15 minutes. It can take 15 minutes or longer for VMs to appear in the Azure portal after discovery. Likewise, discovery can take 15 minutes or longer when you add a new vCenter server or vSphere host.
@@ -53,8 +53,7 @@ Before you follow the steps in this section, note the following information:
    
    ![Enable replication target window](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-1. For **Virtual machines** > **Select virtual machines**, select each virtual machine that you want to replicate. You can only select virtual machines for which replication can be enabled. Then select **OK**. If you can't see or select any particular virtual machine, see [Source machine isn't listed in the Azure portal
-](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
+1. For **Virtual machines** > **Select virtual machines**, select each virtual machine that you want to replicate. You can only select virtual machines for which replication can be enabled. Then select **OK**. If you can't see or select any particular virtual machine, see [Source machine isn't listed in the Azure portal](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication Select virtual machines window](./media/vmware-azure-enable-replication/enable-replication5.png)
 
@@ -98,12 +97,13 @@ Next, verify the properties of the source virtual machine. Remember that the Azu
 
 ### Configure networks and IP addresses
 
-- You can set the target IP address. If you don't provide an address, the failed-over virtual machine uses DHCP. If you set an address that isn't available at failover, the failover doesn't work. If the address is available in the test failover network, you can use the same target IP address for test failover.
-- The number of network adapters is dictated by the size that you specify for the target virtual machine, as follows:
-    - If the number of network adapters on the source virtual machine is less than or equal to the number of adapters that are allowed for the target VM's size, the target has the same number of adapters as the source.
-    - If the number of adapters for the source virtual machine exceeds the number that's allowed for the target VM's size, the target size maximum is used.
-    For example, if a source virtual machine has two network adapters and the target VM's size supports four, the target virtual machine has two adapters. If the source VM has two adapters but the target size only supports one, the target VM has only one adapter.
-    - If the virtual machine has multiple network adapters, they all connect to the same network. Also, the first adapter that's shown in the list becomes the *default* network adapter in the Azure virtual machine. 
+You can set the target IP address. If you don't provide an address, the failed-over virtual machine uses DHCP. If you set an address that isn't available at failover, the failover doesn't work. If the address is available in the test failover network, you can use the same target IP address for test failover.
+
+The number of network adapters is dictated by the size that you specify for the target virtual machine, as follows:
+
+- If the number of network adapters on the source virtual machine is less than or equal to the number of adapters that are allowed for the target VM's size, the target has the same number of adapters as the source.
+- If the number of adapters for the source virtual machine exceeds the number that's allowed for the target VM's size, the target size maximum is used. For example, if a source virtual machine has two network adapters and the target VM's size supports four, the target virtual machine has two adapters. If the source VM has two adapters but the target size only supports one, the target VM has only one adapter.
+- If the virtual machine has multiple network adapters, they all connect to the same network. Also, the first adapter that's shown in the list becomes the *default* network adapter in the Azure virtual machine. 
 
 ### Azure Hybrid Benefit
 
