@@ -25,11 +25,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 ## Prerequisites
 
 - Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Json.NET](https://www.newtonsoft.com/json)
-    - To install Json.NET as a NuGet package in Visual studio:
+- [Newtonsoft.Json](https://www.newtonsoft.com/json)
+    - To install Newtonsoft.Json as a NuGet package in Visual studio:
         1. Right click on the **Solution Manager**
         2. Click **Manage NuGet Packages...**
-        3. Search for `Json.NET` and install the package
+        3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
@@ -139,7 +139,7 @@ static void detectAnomaliesBatch(string requestData){
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
-    
+    System.Console.WriteLine("\n\n Determining if latest data point is an anomaly");
     var result = Request(
         endpoint,
         latestPointDetectionUrl,
