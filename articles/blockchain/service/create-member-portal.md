@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Blockchain Service using Azure Portal
+title: Create an Azure Blockchain Service using the Azure portal
 description: Use Azure Blockchain service to create a consortium member.
 services: azure-blockchain
 keywords: 
@@ -23,13 +23,13 @@ Azure Blockchain Service is a blockchain platform that you can execute your busi
 
 Azure Blockchain Service is created with a defined set of compute and storage resources.
 
-1. Log in to the [Azure portal](https://portal.azure.com).
-2. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-3. Select **Blockchain** > **Managed Ledger Service**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Blockchain** > **Managed Ledger Service**.
 
     ![Azure Blockchain Service option](./media/create-member-portal/managed-ledger.png)
 
-4. Fill out the new service details form with the following information:
+1. Fill out the new service details form with the following information:
 
     ![Create Service](./media/create-member-portal/create-service.png)
 
@@ -49,10 +49,10 @@ Azure Blockchain Service is created with a defined set of compute and storage re
 
     ![Node type](./media/create-member-portal/node-type.png)
 
-5. Select **Create** to provision the service. Provisioning takes about 10 minutes.
-6. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
-7. After deployment is successful, you can find the recourse in the **Notifications**, or by typing the blockchain member name in the search box.
-8. Click **Overview**, you can check the basic information about your service.(Image here to be added)
+1. Select **Create** to provision the service. Provisioning takes about 10 minutes.
+1. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
+1. After deployment is successful, you can find the recourse in the **Notifications**, or by typing the blockchain member name in the search box.
+1. Click **Overview**, you can check the basic information about your service.(Image here to be added)
 
     **Name** | **Explanation**
     --- | ---

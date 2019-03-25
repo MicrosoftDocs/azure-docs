@@ -26,7 +26,7 @@ manager: femila
 
 ## Get node details
 
-You can find the username and endpoint address and change your password in Node Security in Azure portal.
+You can find the username and endpoint address and change your password in Node Security in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to one of your Azure Blockchain managed ledger member transaction nodes.
