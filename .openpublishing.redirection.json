@@ -33374,6 +33374,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-use-action-groups.md",
+      "redirect_url": "/azure/iot-central/howto-create-webhooks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
       "redirect_document_id": false
@@ -36353,6 +36358,16 @@
     {
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-december-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#december-2018",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-october-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#october-2018",
       "redirect_document_id": false
     },
     {
