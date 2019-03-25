@@ -51,7 +51,7 @@ In this tutorial, you'll learn how to:
 
 ## Step 1: Set up users and group
 
-The resource directory has one or more resources to share. In this step, you create a group named **Engineering Group** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal user.
+A resource directory has one or more resources to share. In this step, you create a group named **Engineering Group** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal user.
 
 **Prerequisite role:** Global administrator or User administrator
 
