@@ -5,7 +5,7 @@
 - name: Solution architecture
   href: architecture.md
 - name: Security agents
-  href: security-agent-architecture.md 
+  href: security-agent-architecture.md
 - name: Quickstarts
   expanded: true
   items:
@@ -21,26 +21,24 @@
     href: quickstart-configure-your-solution.md
   - name: Create an ATP for IoT module twin
     href: quickstart-create-security-twin.md
-  - name: Configure an ATP for IoT agent
-    href: quickstart-agent-configuration.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
   - name: Install the ATP for IoT agent on a Windows Device
     href: quickstart-windows-installation.md
-  - name: Install the ATP for IoT on a Linux 32-bit device 
+  - name: Install the ATP for IoT on a Linux 32-bit device
     href: quickstart-linux-cs-installation.md
-  - name: Install the ATP for IoT on a Linux 64-bit device 
+  - name: Install the ATP for IoT on a Linux 64-bit device
     href: quickstart-linux-c-installation.md
-  
+
 - name: Tutorials
   items:
-  - name: ATP for IoT agent configuration 
+  - name: ATP for IoT agent configuration
     href: tutorial-agent-configuration.md
   - name: Send your own security messages
-    href: tutorial-send-security-messages.md 
+    href: tutorial-send-security-messages.md
   - name: Investigate a device
-    href: tutorial-investigate-a-device.md 
-  
+    href: tutorial-investigate-a-device.md
+
 
 - name: Concepts
   items:
@@ -48,11 +46,11 @@
     href: concept-security-agent-authentication-methods.md
   - name: ATP for IoT module twins
     href: concept-atp-for-iot-security-module-twins.md
-  - name: Security alerts 
-    href: concept-security-alerts.md  
+  - name: Security alerts
+    href: concept-security-alerts.md
   - name: Security recommendations
     href: concept-recommendations.md
-   
+
 
 - name: How-to guides
   items:

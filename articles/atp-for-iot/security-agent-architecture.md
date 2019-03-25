@@ -37,7 +37,7 @@ Security agents support the following IoT solution features:
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](quickstart-agent-configuration.md).
+- Configure remotely through use of the **atpforiot** module twin. To learn more, see [Configure an ATP for IoT agent](tutorial-agent-configuration.md).
 
 ATP for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 

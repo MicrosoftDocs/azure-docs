@@ -92,6 +92,6 @@ The following list includes all supported platforms as of public preview. Suppor
 - [Overview](overview.md)
 - [service prerequisites](service-prerequisites.md)
 - [Onboarding](quickstart-onboard-iot-hub.md)
-- [Configure a agent](quickstart-agent-configuration.md)
+- [Configure a agent](tutorial-agent-configuration.md)
 - [ATP for IoT FAQ](resources-frequently-asked-questions.md)
 - [Understanding ATP for IoT alerts](concept-security-alerts.md)

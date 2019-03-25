@@ -63,7 +63,7 @@ To verify if a security module twin exists for a specific device:
     ![Modules associated with a device](./media/quickstart/verify-security-module-twin-2.png)
 
 
-To learn more about customizing properties of ATP for IoT module twins, see [Agent configuration](quickstart-agent-configuration.md).
+To learn more about customizing properties of ATP for IoT module twins, see [Agent configuration](tutorial-agent-configuration.md).
 
 
 ## See Also

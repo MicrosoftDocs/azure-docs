@@ -96,7 +96,7 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 1. Check the [agent type fits the designated OS platform of your device](device-agent-prerequisites.md)
 
-1. Confirm the [agent is running on the device](quickstart-agent-configuration.md).
+1. Confirm the [agent is running on the device](tutorial-agent-configuration.md).
 
 2. Check the [service was onboarded successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 

@@ -29,19 +29,19 @@ This article provides an explanation of how to configure an agent for use with A
 ## Agents
 ATP for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of customer defined twin properties. In general, secondary updates to these properties are infrequent.  
 
-ATP for IoT’s security agent twin configuration object is a .json format object you’ll create inside the Microsoft.Security module twin. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+ATP for IoT’s security agent twin configuration object is a .json format object you’ll create inside the azureiotsecurity module twin. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 These configurations help you customize the agent to each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 Use the ATP for IoT security agent configuration schema to make changes.  here 
 
 ## Configuration objects 
 
-Each ATP for IoT security agent related property is located inside the agent configuration object, within the desired properties section of the Microsoft.Security module. 
+Each ATP for IoT security agent related property is located inside the agent configuration object, within the desired properties section of the azureiotsecurity module. 
 
-To modify the configuration, create this object inside the Microsoft.Security module twin identity. 
-If the agent configuration object does not exist in the Microsoft.Security module twin, all security agent property values are set to default. 
+To modify the configuration, create this object inside the azureiotsecurity module twin identity. 
+If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
 
 ```json
-"desired": { //Microsoft.Security Module Identity Twin – desired properties section  
+"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //Agent configuration object 
 … 
 } 
@@ -50,14 +50,14 @@ If the agent configuration object does not exist in the Microsoft.Security modul
 
 ## Editing a property 
 
-All custom properties must be set inside the agent configuration object within the Microsoft.Security module twin. 
+All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin. 
 
 Setting a property overrides the default value. 
 To set a property, add the property key to the configuration object with the desired value. 
 
 To use a default property value, remove the property from the configuration object 
 ```json
-"desired": { //Microsoft.Security Module Identity Twin – desired properties section  
+"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
   "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
       // configuration section  
     "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
