@@ -45,7 +45,7 @@
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
     items:
-    - name: Preview
+    - name: General availability
       href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
@@ -93,6 +93,10 @@
       href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
+  - name: Release notes
+    items:
+    - name: General availability
+      href: data-box-gateway-release-notes.md
 - name: Resources
   items:
   - name: Data Box Edge C# module samples (.NET)
