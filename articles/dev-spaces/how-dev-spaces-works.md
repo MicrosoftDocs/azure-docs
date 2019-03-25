@@ -163,6 +163,8 @@ install:
         kubernetes.io/ingress.class: traefik-azds
       hosts:
         # This expands to [space.s.][rootSpace.]webfrontend.<random suffix>.<region>.azds.io
+        # Customize the public URL by changing the 'webfrontend' text between the $(rootSpacePrefix) and $(hostSuffix) tokens
+        # For more information see https://aka.ms/devspaces/routing
         - $(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)
 configurations:
   develop:
@@ -311,6 +313,8 @@ install:
         kubernetes.io/ingress.class: traefik-azds
       hosts:
       # This expands to [space.s.][rootSpace.]webfrontend.<random suffix>.<region>.azds.io
+      # Customize the public URL by changing the 'webfrontend' text between the $(rootSpacePrefix) and $(hostSuffix) tokens
+      # For more information see https://aka.ms/devspaces/routing
       - $(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)
 ...
 ```
