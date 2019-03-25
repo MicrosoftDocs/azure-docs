@@ -198,13 +198,11 @@ To configure IDNs in Azure DNS, convert the zone name or record set name to puny
 
 Support for private domains is implemented by using the Private Zones feature. This feature is currently available in public preview. Private zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
 
-Currently, private zones aren't supported on the Azure portal.
-
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### What's the difference between Registration virtual network and Resolution virtual network in the context of private zones?
 
-You can link virtual networks to a DNS private zone as a Registration virtual network or as a Resolution virtual network. In either case, virtual machines in the virtual network successfully resolve against records in the private zone. With a Registration virtual network, DNS records are automatically registered into the zone for the virtual machines in the virtual network. When a virtual machine in a Registration virtual network is deleted, the corresponding DNS record from the linked private zone is automatically removed. 
+You can link virtual networks to a DNS private zone as a Registration virtual network or as a Resolution virtual network. In either case, virtual machines in the virtual network successfully resolve against records in the private zone. With a Registration virtual network, DNS records are automatically registered into the zone for the virtual machines in the virtual network. When a virtual machine in a Registration virtual network is deleted, the corresponding DNS record from the linked private zone is automatically removed.
 
 ### Will Azure DNS Private Zones work across Azure regions?
 
@@ -228,7 +226,7 @@ Yes. If you delete a virtual machine within a Registration virtual network, the 
 
 ### Can an automatically registered virtual machine record in a private zone from a Registration virtual network be deleted manually?
 
-No. The virtual machine DNS records that are automatically registered in a private zone from a Registration virtual network aren't visible or editable by customers. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
+Yes. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
 
 ### What happens when we try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a Registration virtual network?
 
@@ -236,7 +234,7 @@ You try to manually create a new DNS record into a private zone that has the sam
 
 ### What happens when we unlink a Registration virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
 
-Yes. To unlink a Registration virtual network from a private zone, you update the DNS zone to remove the associated Registration virtual network. In this process, virtual machine records that were automatically registered are removed from the zone. 
+Yes. To unlink a Registration virtual network from a private zone, you update the DNS zone to remove the associated virtual network link. In this process, virtual machine records that were automatically registered are removed from the zone. 
 
 ### What happens when we delete a Registration or Resolution virtual network that's linked to a private zone? Do we have to manually update the private zone to unlink the virtual network as a Registration or Resolution  virtual network from the zone?
 
@@ -244,11 +242,11 @@ Yes. When you delete a Registration or Resolution virtual network without unlink
 
 ### Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, private.contoso.com) is linked to a virtual network?
 
-Yes. Private Zones doesn't replace the default DNS resolutions by using the Azure-provided internal.cloudapp.net zone. It's offered as an additional feature or enhancement. Whether you rely on the Azure-provided internal.cloudapp.net or on your own private zone, use the FQDN of the zone you want to resolve against. 
+Yes. Private Zones doesn't replace the default DNS resolutions by using the Azure-provided internal.cloudapp.net zone. It's offered as an additional feature or enhancement. Whether you rely on the Azure-provided internal.cloudapp.net or on your own private zone, use the FQDN of the zone you want to resolve against.
 
 ### Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
 
-No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone. 
+No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
 
 ### Are there any limitations for private zones during this preview?
 
@@ -269,7 +267,7 @@ There are no limits on the number of zones allowed per subscription for private 
 
 ### Is there portal support for private zones?
 
-Private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal. But customers can't create new private zones or manage associations with virtual networks. For virtual networks associated as Registration virtual networks, automatically registered VM records aren't visible from the portal. 
+Yes, and private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal.
 
 ## Next steps
 
