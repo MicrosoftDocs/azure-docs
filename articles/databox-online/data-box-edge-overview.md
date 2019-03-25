@@ -85,10 +85,12 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 Data Box Edge physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For this release, the Data Box Edge resource is available in the following regions:
-    - **United States** - West US2 and East US
+    - **United States** - East US
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
-
+    
+    Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. 
 
     The regions where the storage accounts store Data Box data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance. 
