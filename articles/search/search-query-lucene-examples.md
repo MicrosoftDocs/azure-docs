@@ -150,7 +150,7 @@ To do a fuzzy search, append the tilde `~` symbol at the end of a single word wi
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
 
-Here is the same query with multiple terms in one field. This example returns documents fuzzy match on both terms.
+Phrases aren't supported directly but you can specify a fuzzy match on component parts of a phrase.
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
