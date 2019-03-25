@@ -119,6 +119,10 @@ Yes, you can use Azure Firewall in a hub virtual network to route and filter tra
 
 Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
 
+### Is forced tunneling/chaining to a Network Virtual Appliance supported?
+
+Azure Firewall must have direct Internet connectivity. By default, AzureFirewallSubnet should only allow a 0.0.0.0/0 user defined route with the NextHopType value set to **Internet**. If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly configure a 0.0.0.0/0 UDR  with the NextHopType value set as Internet and associate it with your AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact Support so that we can whitelist your subscription to ensure the required firewall Internet connectivity is maintained.
+
 ### Are there any firewall resource group restrictions?
 
 Yes. The firewall, subnet, VNet, and the public IP address all must be in the same resource group.
