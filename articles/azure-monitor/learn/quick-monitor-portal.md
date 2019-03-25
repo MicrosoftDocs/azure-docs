@@ -103,6 +103,10 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 To learn more, visit the GitHub repository for our [open-source JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS).
 
+## Video
+
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
 ## Next steps
 In this quick start, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.
 

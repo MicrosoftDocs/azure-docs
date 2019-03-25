@@ -210,11 +210,20 @@ If the prebuilt entity is tagged with more text or tokens than your custom entit
 
 #### Remove example utterance to fix tagging 
 
-Your first choice is to delete the example utterance and retrain the app. Add back just the word or phrase that is the entity as an example utterance, then mark the entity and train. Now add back the prebuilt entity and the original example utterance. The custom entity should continue to be marked instead of the prebuilt entity. 
+Your first choice is to remove the example utterance. 
+
+1. Delete the example utterance.
+1. Retrain the app. 
+1. Add back just the word or phrase that is the entity, which is marked as a prebuilt entity, as a complete example utterance. The word or phrase will still have the prebuilt entity marked. 
+1. Select the entity in the example utterance on the **Intent** page, and change to your custom entity and train again. This should prevent LUIS from marking this exact text as the prebuilt entity in any example utterances that use that text. 
+1. Add the entire original example utterance back to the Intent. The custom entity should continue to be marked instead of the prebuilt entity. If the custom entity is not marked, you need to add more examples of that text in utterances.
 
 #### Remove prebuilt entity to fix tagging
 
-Your second choice is to remove the prebuilt entity from the app, then tag the custom entity in the example utterance, then add the prebuilt entity back to the app. This fix assumes the prebuilt entity isn't part of a composite entity. 
+1. Remove the prebuilt entity from the app. 
+1. On the **Intent** page, mark the custom entity in the example utterance.
+1. Train the app.
+1. Add the prebuilt entity back to the app and train the app. This fix assumes the prebuilt entity isn't part of a composite entity.
 
 ## Regular expression entity 
 
