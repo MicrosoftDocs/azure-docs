@@ -7,7 +7,7 @@ author: alexkarcher-msft
 manager: cfowler
 editor: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
