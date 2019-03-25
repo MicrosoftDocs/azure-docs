@@ -23,7 +23,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 ### Azure Machine Learning SDK for Python v1.0.21
 
 + **New features**
-  + The *azureml.core.Run.create_children* method allows creation of multiple child runs with single call.
+  + The *azureml.core.Run.create_children* method allows low-latency creation of multiple child runs with single call.
 
 ## 2019-03-11
 
