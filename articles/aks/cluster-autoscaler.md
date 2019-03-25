@@ -34,7 +34,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> If you have previously installed the *aks-preview* extension, install any available updates using the the `az extension update --name aks-preview` command.
+> If you have previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
 
 ### Register scale set feature provider
 

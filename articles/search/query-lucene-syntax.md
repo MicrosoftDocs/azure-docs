@@ -128,11 +128,12 @@ Using `searchMode=all` increases the precision of queries by including fewer res
   The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy search  
- A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  
+ A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy searches can expand a term up to the maximum of 50 terms that meet the distance criteria. 
 
  To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a number between 0 and 2 (default), that specifies the edit distance. For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
- Fuzzy search can only be applied to terms, not phrases. Fuzzy searches can expand a term up to the maximum of 50 terms that meet the distance criteria.
+ Fuzzy search can only be applied to terms, not phrases, but you can append the tilde to each term individually in a multi-part name or phrase. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
+ 
 
 ##  <a name="bkmk_proximity"></a> Proximity search  
  Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, `"hotel airport"~5` will find the terms "hotel" and "airport" within 5 words of each other in a document.  
