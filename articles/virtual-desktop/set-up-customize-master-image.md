@@ -166,7 +166,7 @@ To disable Automatic Updates:
 You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Run this command to specify a Start layout for Windows 10 PCs.
