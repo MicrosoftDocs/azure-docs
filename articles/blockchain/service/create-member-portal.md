@@ -35,14 +35,14 @@ Azure Blockchain Service is created with a defined set of compute and storage re
 
     **Setting** | **Suggested value** | **Field description**
     ------------|---------------------|----------------------
-    Blockchain Member | mymanagedledger | Choose an unique name that identifies your Azure Managed Ledger Service. For example, myblockchain. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
+    Blockchain Member | mymanagedledger | Choose a unique name that identifies your Azure Managed Ledger Service. For example, `myblockchain`. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
     Subscription | Your subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource. 
     Resource group | myresourcegroup | A new resource group name or an existing one from your subscription.
     Location | US West | Choose the location that is closest to your users or your other Azure applications.
     Public endpoint password | password123 | Provide a new password for the public endpoint.
     Confirm password | password123 | Confirm the public endpoint password.
     Do you want to create a new consortium? | Yes | Select whether you want to create a new consortium. 
-    Consortium name| Food tracking chain | Choose an unique name for the consortium. 
+    Consortium name| Food tracking chain | Choose a unique name for the consortium. 
     Description | This is to track the source, transportation, selling of organic food from manufacturer | Description of the consortium. 
     Protocol | Parity POA | Select which protocol you want to use to connect to your blockchain.
     Node type | **Standard, 3 Nodes** | The node configuration for your new service. Select **Standard**. 2 validator nodes is the default setting. Select **OK**.
@@ -58,7 +58,7 @@ Azure Blockchain Service is created with a defined set of compute and storage re
     --- | ---
     Status | The status of the service shows whether if it is deployed successfully
     Node Credential | The public key of the transaction node
-    Service DNS | The RPC endpoint address of your service. You may use it to connect your service to third party application such as MetaMask
+    Service DNS | The RPC endpoint address of your service. You may use it to connect your service to third-party application such as MetaMask
 
 ## Clean up resources
 

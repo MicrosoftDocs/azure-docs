@@ -24,7 +24,7 @@ Versioning in Quorum is done through a major release, major point release, and a
 
 ## Availability of new ledger versions
 
-Azure Blockchain Service provides the latest versions of the ledger within 60 days of being available from the ledger manufacturer. A maximum of four major point releases are provided for consortiums to choose from when provisioning a new member and consortium.
+Azure Blockchain Service provides the latest versions of the ledger within 60 days of being available from the ledger manufacturer. A maximum of four major point releases are provided for consortia to choose from when provisioning a new member and consortium.
 
 ## Next steps
 

@@ -15,7 +15,7 @@ manager: femila
 
 # Quickstart: Use MetaMask to connect to a consortium network
 
-MetaMask is an easy way to interact with blockchain. It provides a browser extension to manage a Ether wallet and perform smart contract actions.
+MetaMask is an easy way to interact with blockchain. It provides a browser extension to manage an Ether wallet and perform smart contract actions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ MetaMask is an easy way to interact with blockchain. It provides a browser exten
 You can find the username and endpoint address and change your password in Node Security in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to one of your Azure Blockchain managed ledger member transaction nodes.
+1. Navigate to one of your Azure Blockchain Service managed ledger member transaction nodes.
 1. Select **Connection security > Access keys**.
 1. Copy the endpoint address from **Access key > HTTPS**. You need the address for the next section.
 

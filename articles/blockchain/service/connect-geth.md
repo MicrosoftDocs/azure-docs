@@ -1,6 +1,6 @@
 ---
-title: Connect Using GETH
-description: Connect to an Azure Blockchain Service network using GETH
+title: Connect Using Geth
+description: Connect to an Azure Blockchain Service network using Geth
 services: azure-blockchain
 keywords: 
 author: PatAltimore
@@ -13,15 +13,15 @@ manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use geth to connect to a consortium network
+# Quickstart: Use Geth to connect to a consortium network
 
-`geth` is a command-line interface you can use to connect to an Azure Blockchain Service node.
+Geth is a Go Ethereum client you can use to connect to an Azure Blockchain Service node.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* Install [geth](https://github.com/ethereum/go-ethereum/wiki/geth)
+* Install [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
 * [Create an Azure Blockchain member](create-member-portal.md)
 
 ## Get node details
@@ -33,7 +33,7 @@ You can find the username and endpoint address and change your password in Node 
 1. Select **Connection security > Access keys**.
 1. Copy the endpoint address from **Access key > HTTPS**. You need the address for the next section.
 
-## Connect to geth
+## Connect to Geth
 
 Using a command prompt, run:
 

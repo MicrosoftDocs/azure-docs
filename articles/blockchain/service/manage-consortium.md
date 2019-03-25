@@ -20,7 +20,7 @@ As a consortium administrator, you can invite, add, remove, and change roles for
 ## Prerequisites
 
 * [Create a blockchain member using Azure portal](create-member-portal.md)
-* For more information about consortiums, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)
+* For more information about consortia, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)
 
 ## Blockchain members
 
