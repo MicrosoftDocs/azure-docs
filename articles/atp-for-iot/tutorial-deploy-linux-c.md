@@ -17,50 +17,51 @@ ms.date: 03/07/2019
 ms.author: mlottner
 
 ---
-# ATP for IoT installation for Linux C
+# ATP for IoT C-based security agent deployment for Linux
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to install the ATP for IoT service on Linux using the ATP for IoT C installer. 
-
-The C installer is the only installer that supports 32bit Linux. If you are running 64 bit Linux, you can choose between using the C and C# installer. The C# ATP for IoT agent requires more system resources, but includes the same functionality.   
-
-ATP for IoT offers different installer agents for Windows, 32bit Linux and 64bit Linux . Make sure you have the correct agent installer for each of your devices. 
-
-| 32 or 64bit | Linux | Windows |    Details|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
-| 64bit  | C# or C           | C#      | Use the C agent for devices with minimal resources|
+This article explains how to install the ATP for IoT C-based security agent on Linux.
+For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
 
 ## Prerequisites
 
-To deploy the security agent, local admin rights are required on the machine you wish to install on. 
+1. To deploy the security agent, local admin rights are required on the machine you wish to install on.
+
+1. [Create a security module](quickstart-create-security-twin.md) for the device.
 
 ## Installation 
 
 To install deploy the security agent, do the following:
 
-1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the GitHub releases (../../releases) folder.
+1. Download the most recent version to your machine from [Github](https://aka.ms/iot-security-github-cs).
 
-2. Extract the contents of the package, and navigate to the /installation folder.
+1. Extract the contents of the package and navigate to the _/installation_ folder.
 
-3. Add running permissions to the **InstallSecurityAgent script** by running `chmod +x InstallSecurityAgent.sh`
-	1. Next, run:
+1. Add running permissions to the **InstallSecurityAgent script** by running `chmod +x InstallSecurityAgent.sh` 
 
-	```
-	.\InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication type> -f <file path> -hn <host name> -di <device id> -i
-	```
+1. Next, run: 
 
-The script does the following:
+   ```
+   ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
+   ```
+   
+   See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.
+
+This script does the following:
 
 - Installs prerequisites.
-- Installs the agent as a daemon.
-- Configures the agent with the authentication parameters provided.
 
-See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.  
+- Adds a service user (with interactive login disabled).
+
+- Installs the agent as a **Daemon** - this assumes the device uses **systemd** for service management.
+
+- Configures **sudoers** to allow the agent to perform certain tasks as root.
+
+- Configures the agent with the provided authentication parameters.
 
 For additional help, run the script with the –help parameter: `./InstallSecurityAgent.sh --help`
 
@@ -72,10 +73,10 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 ``` 
 
 ## Troubleshooting
-1. Check the deployment status by running:
-	```
-	systemctl status ASCIoTAgent.service
-	```
+Check the deployment status by running:
+```
+systemctl status ASCIoTAgent.service
+```
 
 
 ## See Also

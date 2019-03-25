@@ -18,25 +18,21 @@ ms.author: mlottner
 
 ---
 
-# ATP for IoT installation for Windows
+# ATP for IoT C#-based security agent deployment for Windows
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to install the ATP for IoT service agent on 32bit or 64bit Windows. 
-
-ATP for IoT offers different installer agents for 32 and 64bit Windows, and the same for 32 and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
-
-| 32 or 64bit | Linux | Windows |    Details|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
-| 64bit  | C# or C           | C#      | We recommend using the C agent for devices with limited resources|
+This article explains how to install the ATP for IoT C#-based security agent on Windows.
+For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
 
 ## Prerequisites
 
-To deploy the security agent, local admin rights are required on the machine you wish to install on. 
+1. To deploy the security agent, local admin rights are required on the machine you wish to install on. 
+
+1. [Create a security module](quickstart-create-security-twin.md) for the device.
 
 ## Installation 
 
@@ -54,21 +50,27 @@ To install the security agent, do the following:
     ```
 	.\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
 	```
-    
-    The PowerShell script does the following:
-    - Installs prerequisites.
-    - Installs the agent as a System Service.
-    - Configures the agent with the authentication parameters provided.
+	
+	See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.
 
-    See [How to configure authentication](how-to-configure-authentication-methods.md) for more information about authentication parameters.  
+This script does the following:
 
-    For additional help, use the Get-Help command in PowerShell <br>Get-Help example:  
-    ```Get-Help .\InstallSecurityAgent.ps1```
+- Installs prerequisites.
+
+- Adds a service user (with interactive login disabled).
+
+- Installs the agent as a **System Service**.
+
+- Configures the agent with the provided authentication parameters.
+
+
+For additional help, use the Get-Help command in PowerShell <br>Get-Help example:  
+```Get-Help .\InstallSecurityAgent.ps1```
 
 ### Check deployment status
 
-- Check the deployment status by running:
-    ```sc.exe query "ASC IoT Agent" ```
+Check the deployment status by running:
+```sc.exe query "ASC IoT Agent" ```
 
 ### Uninstall the agent
 
@@ -80,40 +82,42 @@ To uninstall the agent, run the PowerShell script with the **-mode** parameter s
 
 ## Troubleshooting
 
-- If the agent fails to start, turn on logging (logging is *off* by default) to get more information.
+If the agent fails to start, turn on logging (logging is *off* by default) to get more information.
 
 To turn on logging:
 
 1. Open the configuration file for editing using a standard file editor.
 
-2. Edit the following values:
+1. Edit the following values:
 
-```xml
-<add key="logLevel" value="Debug" />
-<add key="fileLogLevel" value="Debug"/> 
-<add key="diagnosticVerbosityLevel" value="Some" /> 
-<add key="logFilePath" value="IoTAgentLog.log" />
-```
+   ```xml
+   <add key="logLevel" value="Debug" />
+   <add key="fileLogLevel" value="Debug"/> 
+   <add key="diagnosticVerbosityLevel" value="Some" /> 
+   <add key="logFilePath" value="IoTAgentLog.log" />
+   ```
 
 > [!NOTE]
 > We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage. 
 
-3. Restart the agent by running the following PowerShell or command line:
+1. Restart the agent by running the following PowerShell or command line:
 
-- Powershell:
-	```
-	Restart-Service "ASC IoT Agent"
-	```
--OR-
+   - Powershell:
+	 ```
+	 Restart-Service "ASC IoT Agent"
+	 ```
+	 
+   OR
 
-- CMD:
-	```
-	sc.exe stop "ASC IoT Agent" 
-	sc.exe start "ASC IoT Agent" 
-	```
-4. Review the log file for more information about the failure.
+   - CMD:
+	 ```
+	 sc.exe stop "ASC IoT Agent" 
+	 sc.exe start "ASC IoT Agent" 
+	 ```
 
-    - The log file is located at: \<wherever you unpacked your agent>/IoTAgentLog.log
+1. Review the log file for more information about the failure.
+
+   The log file is located at: `<unpacked_agent_location>/IoTAgentLog.log`
 
 
 ## See Also
