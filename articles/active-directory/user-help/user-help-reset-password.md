@@ -109,7 +109,7 @@ If you just want to change your password, you can do it through the Office 365 p
 
 Use this method if you typically access your apps through the Office portal:
 
-1. Sign in to your [Office 365 account](https://www.office.com), using your existing password.
+1. Sign in to your [Office 365 account](https://portal.office.com), using your existing password.
 
 2. Select your profile on the upper-right side, and then select **View account**.
 

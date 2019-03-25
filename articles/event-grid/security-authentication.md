@@ -83,7 +83,7 @@ For an example of handling the subscription validation handshake, see a [C# samp
 
 ### Checklist
 
-During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
+During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https:\//your-endpoint-here failed. For more details, visit https:\//aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
 * Do you have control of the application code in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
 * If you have access to the application code, implement the ValidationCode based handshake mechanism as shown in the sample above.

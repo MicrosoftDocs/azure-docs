@@ -45,7 +45,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
+8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 9. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key".
 
    ```
@@ -105,7 +105,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
+8. Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 
 9. Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key".
 

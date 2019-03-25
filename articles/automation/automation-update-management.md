@@ -166,7 +166,7 @@ If the agent can't communicate with Azure Monitor logs and the agent is configur
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## Data collection
 
@@ -561,7 +561,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
 
-Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. When defining your query, the following items can be used together to populate the dynamic group
+Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
 
 * Subscription
 * Resource groups
