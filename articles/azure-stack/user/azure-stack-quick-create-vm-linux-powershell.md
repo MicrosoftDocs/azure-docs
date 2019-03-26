@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
@@ -380,13 +380,13 @@ New-AzureRmVM `
 
 ## Connect to the virtual machine
 
-After the virtual machine is deployed, configure an SSH connection for the virtual machine. Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) command to return the public IP address of the virtual machine.
+After the virtual machine is deployed, configure an SSH connection for the virtual machine. Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a client system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](http://www.putty.org/) to create the connection.
+From a client system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](https://www.putty.org/) to create the connection.
 
 ```
 ssh <Public IP Address>
@@ -416,7 +416,7 @@ With NGINX installed, and port 80 open on your virtual machine, you can access t
 
 ## Clean up resources
 
-Clean up the resources that you don't need any longer. You can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) command to remove these resources. To delete the resource group and all its resources, run the following command:
+Clean up the resources that you don't need any longer. You can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove these resources. To delete the resource group and all its resources, run the following command:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

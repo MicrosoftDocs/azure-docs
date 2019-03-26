@@ -8,7 +8,7 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 
@@ -40,29 +40,60 @@ Image building failure when deploying web service. Workaround is to add "pynacl=
 If you observe `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, change the SKU for VMs used in your deployment to one that has more memory.
 
 ## FPGAs
+
 You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
 
 ## Databricks
 
 Databricks and Azure Machine Learning issues.
 
-1. Azure Machine Learning SDK installation failures on Databricks when more packages are installed.
+### Failure when installing packages
 
-   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning service SDK. You might experience this issue with other libraries, too. Example:
+
+```python
+psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+Alternatively, you can use init scripts if you keep facing install issues with Python libraries. This approach isn't officially supported. For more information, see [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+### Cancel an automated machine learning run
+
+When you use automated machine learning capabilities on Azure Databricks, to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
+
+### >10 iterations for automated machine learning
+
+In automated machine learning settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
+
+### Widget for the Azure Machine Learning SDK/automated machine learning
+
+The Azure Machine Learning SDK widget isn't supported in a Databricks notebook because the notebooks can't parse HTML widgets. You can view the widget in the portal by using this Python code in your Azure Databricks notebook cell:
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### Import error: No module named 'pandas.core.indexes'
+
+If you see this error when you use automated machine learning:
+
+1. Run this command to install two packages in your Azure Databricks cluster: 
+
    ```
-   Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-2. When using Automated Machine Learning on Databricks, if you want to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
+1. Detach and then reattach the cluster to your notebook. 
 
-3. In Automated ml settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
-
+If this doesnt solve the issue, try restarting the cluster.
 
 ## Azure portal
+
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
+
 Sometimes it can be helpful if you can provide diagnostic information when asking for help.
 Here is where the log files live:
 

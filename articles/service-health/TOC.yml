@@ -1,0 +1,38 @@
+- name: Azure Service Health
+  href: index.md
+- name: Overview
+  items:
+  - name: What is Azure status?
+    href: azure-status-overview.md
+  - name: What is Service Health?
+    href: service-health-overview.md
+  - name: What is Resource Health?
+    href: resource-health-overview.md
+- name: How To
+  items:
+  - name: Configure alerts for service health events
+    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    items:
+    - name: View service health notifications by using the Azure portal
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+  - name: Configure service health notifications using a webhook
+    href: service-health-alert-webhook-guide.md
+    items:
+    - name: Configure with ServiceNow
+      href: service-health-alert-webhook-servicenow.md
+    - name: Configure with PagerDuty
+      href: service-health-alert-webhook-pagerduty.md
+    - name: Configure with OpsGenie
+      href: service-health-alert-webhook-opsgenie.md
+    - name: Retrieve health events with REST
+      href: service-health-rest.md
+  - name: Configure alerts for resource health events
+    href: resource-health-alert-arm-template-guide.md
+- name: Resources
+  items:
+  - name: Frequently Asked Questions
+    href: resource-health-faq.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resource types and health checks available through Azure Resource Health
+    href: resource-health-checks-resource-types.md

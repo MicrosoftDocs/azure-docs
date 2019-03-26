@@ -53,6 +53,7 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
+
 | Field | Mandatory? | Description |
 | --- | --- | --- |
 | operation |yes |value must be "Scale" |
@@ -64,7 +65,7 @@ When using the REST API or Resource Manager template, include the notifications 
 | properties |yes |value must be empty {} or can contain key-value pairs |
 
 ## Authentication in webhooks
-The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:

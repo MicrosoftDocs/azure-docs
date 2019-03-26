@@ -25,7 +25,7 @@ This article covers basic commands you will want to use with Azure classic CLI t
 > 
 
 | Task | Resource Manager |
-| --- | --- | --- |
+| --- | --- |
 | Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for examples.) |
 | Create a Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Create a Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

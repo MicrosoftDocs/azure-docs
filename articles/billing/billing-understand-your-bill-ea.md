@@ -1,6 +1,6 @@
 ---
 title: Understand your bill for Azure Enterprise | Microsoft Docs
-description: Learn how to read and understand your usage and bill for Azure customers with a Enterprise Agreement
+description: Learn how to read and understand your usage and bill for Azure customers with an Enterprise Agreement
 services: ''
 documentationcenter: ''
 author: adpick
@@ -88,4 +88,4 @@ Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the E
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

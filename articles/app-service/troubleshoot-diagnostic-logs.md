@@ -30,8 +30,8 @@ App Service provides diagnostic functionality for logging information from both 
 ### Web server diagnostics
 You can enable or disable the following kinds of logs:
 
-* **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
-* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error.
+* **Detailed Error Logging** - Detailed information for any request that results in HTTP status code 400 or greater. It may contain information that can help determine why the server returned the error code. One HTML file is generated for each error in the app's file system, and up to 50 errors (files) are retained. When the number of HTML files exceed 50, the oldest 26 files are automatically deleted.
+* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error. One folder is generated for each error in the app's file system. File retention policies are the same as the detailed error logging above.
 * **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It's useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### Application diagnostics
@@ -111,7 +111,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-This command saves the logs for the app named 'appname' to a file named **diagnostics.zip** in the current directory.
+This command saves the logs for the app named 'appname' to a file named **webapp_logs.zip** in the current directory.
 
 > [!NOTE]
 > If you haven't installed Azure CLI, or haven't configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -209,6 +209,10 @@ The data stored in a blob would look similar to the following example:
 Failed request traces are stored in XML files named **fr######.xml**. To make it easier to view the logged information, an XSL stylesheet named **freb.xsl** is provided in the same directory as the XML files. If you open one of the XML files in Internet Explorer, Internet Explorer uses the XSL stylesheet to provide a formatted display of the trace information, similar to the following example:
 
 ![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> An easy way to view the formatted failed request traces is to navigate to your app's page in the portal. From the left menu, select **Diagnose and solve problems**, then search for **Failed Request Tracing Logs**, then click the icon to browse and view the trace you want.
+>
 
 ### Detailed error logs
 Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred. Since they are simply HTML documents, they can be viewed using a web browser.

@@ -23,7 +23,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [PHP 5.6.x or later](http://php.net/downloads.php).
+* [PHP 5.6.x or later](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -43,7 +43,7 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## Construct and perform an HTTP request
+   ## Construct and perform an HTTP request
 
 1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 

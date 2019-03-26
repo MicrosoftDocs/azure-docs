@@ -37,7 +37,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
 ### Outbound connectivity to the Azure service endpoints
- During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, make sure that the following URLs are not blocked by default. Do not disable security monitoring or inspection of these URLs, but allow them as you would other internet traffic. They permit communication with Azure AD Connect Health service endpoints. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Domain Environment | Required Azure service endpoints |
 | --- | --- |
@@ -114,7 +114,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
@@ -127,7 +127,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
@@ -139,7 +139,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add the AD FS service account to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
@@ -230,6 +230,28 @@ If you completed the configuration, these services should already be running. Ot
 
 ![Verify Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### Quick agent installation in multiple servers
+1. Create a user account in Azure AD with a password.
+2. Assign the **Owner** role for this local AAD account in Azure AD Connect Health via the portal. Follow the steps [here](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Assign the role to all service instances. 
+3. Download the .exe MSI file in local domain controller for installation.
+4. Run the following script to registration. Replace the parameters with the new user account created and its password. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Once you are done, you can remove access for the local account by doing one or more of the following: 
+    * Remove the role assignment for the local account for AAD Connect Health
+    * Rotate the password for the local account. 
+    * Disable the AAD local account
+    * Delete the AAD local account  
 
 ## Agent Registration using PowerShell
 After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:

@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
---- 
+---
 
-# Data Factory Data Flow Move Nodes
+# Mapping Data Flow Move Nodes
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

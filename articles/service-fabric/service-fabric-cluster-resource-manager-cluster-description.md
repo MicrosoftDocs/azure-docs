@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -43,6 +43,7 @@ It is important that Fault Domains are set up correctly since Service Fabric use
 In the graphic below we color all the entities that contribute to Fault Domains and list all the different Fault Domains that result. In this example, we have datacenters ("DC"), racks ("R"), and blades ("B"). Conceivably, if each blade holds more than one virtual machine, there could be another layer in the Fault Domain hierarchy.
 
 <center>
+
 ![Nodes organized via Fault Domains][Image1]
 </center>
 
@@ -55,6 +56,7 @@ It is best if there are the same number of nodes at each level of depth in the F
 What do imbalanced domains look like? In the diagram below, we show two different cluster layouts. In the first example, the nodes are distributed evenly across the Fault Domains. In the second example, one Fault Domain has many more nodes than the other Fault Domains. 
 
 <center>
+
 ![Two different cluster layouts][Image2]
 </center>
 
@@ -68,6 +70,7 @@ Upgrade Domains are a lot like Fault Domains, but with a couple key differences.
 The following diagram shows three Upgrade Domains are striped across three Fault Domains. It also shows one possible placement for three different replicas of a stateful service, where each ends up in different Fault and Upgrade Domains. This placement allows the loss of a Fault Domain while in the middle of a service upgrade and still have one copy of the code and data.  
 
 <center>
+
 ![Placement With Fault and Upgrade Domains][Image3]
 </center>
 
@@ -84,6 +87,7 @@ There’s no real limit to the total number of fault or Upgrade Domains in an en
 - A “striped” or “matrix” model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonals
 
 <center>
+
 ![Fault and Upgrade Domain Layouts][Image4]
 </center>
 
@@ -189,9 +193,9 @@ The “quorum safe” approach provides more flexibility than the “maximum dif
 Because both of the approaches have strengths and weaknesses, we've introduced an adaptive approach that combines these two strategies.
 
 > [!NOTE]
->This will be the default behavior starting with Service Fabric Version 6.2. 
->
-The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
+> This will be the default behavior starting with Service Fabric Version 6.2. 
+> 
+> The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
 
 Let’s go back to the previous example and assume that a cluster now has 8 nodes (the cluster is still configured with five Fault Domains and five Upgrade Domains and the TargetReplicaSetSize of a service hosted on that cluster remains five). 
 
@@ -343,6 +347,7 @@ Sometimes (in fact, most of the time) you’re going to want to ensure that cert
 To support these sorts of configurations, Service Fabric has a first class notion of tags that can be applied to nodes. These tags are called **node properties**. **Placement constraints** are the statements attached to individual services that select for one or more node properties. Placement constraints define where services should run. The set of constraints is extensible - any key/value pair can work. 
 
 <center>
+
 ![Cluster Layout Different Workloads][Image5]
 </center>
 
@@ -350,6 +355,7 @@ To support these sorts of configurations, Service Fabric has a first class notio
 Service Fabric defines some default node properties that can be used automatically without the user having to define them. The default properties defined at each node are the **NodeType** and the **NodeName**. So for example you could write a placement constraint as `"(NodeType == NodeType03)"`. Generally we have found NodeType to be one of the most commonly used properties. It is useful since it corresponds 1:1 with a type of a machine. Each type of machine corresponds to a type of workload in a traditional n-tier application.
 
 <center>
+
 ![Placement Constraints and Node Properties][Image6]
 </center>
 
@@ -473,6 +479,7 @@ If you turned off all resource *balancing*, Service Fabric’s Cluster Resource 
 During runtime, the Cluster Resource Manager tracks remaining capacity in the cluster and on nodes. In order to track capacity the Cluster Resource Manager subtracts each service's usage from node's capacity where the service runs. With this information, the Service Fabric Cluster Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
 
 <center>
+
 ![Cluster nodes and capacity][Image7]
 </center>
 
@@ -602,7 +609,7 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article](service-fabric-cluster-resource-manager-architecture.md)
 * Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)

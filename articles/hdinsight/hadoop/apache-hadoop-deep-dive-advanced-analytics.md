@@ -128,6 +128,5 @@ Apache Spark and MLLib
 
 Deep Learning, Cognitive Toolkit, and others
 
-* [Embarrassingly parallel image classification, using Cognitive Toolkit and TensorFlow on Azure HDInsight Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Data Science Azure Virtual Machine](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

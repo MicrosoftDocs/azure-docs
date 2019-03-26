@@ -1,6 +1,6 @@
 ---
-title: Azure CLI sample - Create an Azure VM running Log Analytics monitoring | Microsoft Docs
-description: Azure CLI sample - Create an Azure VM running Windows Server 2016 VM and Log Analytics monitoring.
+title: Azure CLI sample - Create an Azure VM running Azure Monitor | Microsoft Docs
+description: Azure CLI sample - Create an Azure VM running Windows Server 2016 VM and Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -9,7 +9,7 @@ editor: tysonn
 tags: 
 
 ms.assetid:
-ms.service: virtual-machines-Windows
+ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
@@ -19,9 +19,9 @@ ms.author: rclaus
 ms.custom: "mvc,seodec18"
 ---
 
-# Monitor a VM with Log Analytics
+# Monitor a VM with Azure Monitor logs
 
-This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitoring.
+This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitoring.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -80,23 +80,23 @@ are:
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
-in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
-backwards compatibility.
+in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
+support backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While not
-required, it prevents resources that don't support tags and locations from showing up as
-non-compliant in the compliance results. The exception is **resource groups**. Policies that
-enforce location or tags on a resource group should set **mode** to `all` and specifically target
-the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource
-group tags](../samples/enforce-tag-rg.md).
+`indexed` should be used when creating policies that enforce tags or locations. While not required,
+it prevents resources that don't support tags and locations from showing up as non-compliant in the
+compliance results. The exception is **resource groups**. Policies that enforce location or tags on
+a resource group should set **mode** to `all` and specifically target the
+`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
+tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
 
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
-Parameters work the same way when building policies. By including parameters in a policy
-definition, you can reuse that policy for different scenarios by using different values.
+Parameters work the same way when building policies. By including parameters in a policy definition,
+you can reuse that policy for different scenarios by using different values.
 
 > [!NOTE]
 > Parameters may be added to an existing and assigned definition. The new parameter must include the
@@ -114,7 +114,7 @@ A parameter has the following properties that are used in the policy definition:
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
-- `allowedValues`: (Optional) Provides the list of values that the parameter accepts during assignment.
+- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
@@ -245,7 +245,9 @@ supported conditions are:
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -258,8 +260,9 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match all characters, and any other character to match that actual character. For
-examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match all characters, and any other character to match that actual character.
+**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
+**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
@@ -278,21 +281,55 @@ The following fields are supported:
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
-  - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
-- `tags[<tagName>]`
-  - This bracket syntax supports tag names that have a period.
-  - Where **\<tagName\>** is the name of the tag to validate the condition for.
-  - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
-
+  - Examples: `tags['Acct.CostCenter']` where **Acct.CostCenter** is the name of the tag.
+- `tags['''<tagName>''']`
+  - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
+  - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
+  - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of declaring a tags field.
+> However, the preferred expressions are those listed above.
+
+#### Use tags with parameters
+
+A parameter value can be passed to a tag field. Passing a parameter to a tag field increases the
+flexibility of the policy definition during policy assignment.
+
+In the following example, `concat` is used to create a tags field lookup for the tag named the
+value of the **tagName** parameter. If that tag doesn't exist, the **append** effect is used to add
+the tag using the value of the same named tag set on the audited resources parent resource group by
+using the `resourcegroup()` lookup function.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### Value
 
 Conditions can also be formed using **value**. **value** checks conditions against
 [parameters](#parameters), [supported template functions](#policy-functions), or literals.
 **value** is paired with any supported [condition](#conditions).
+
+> [!WARNING]
+> If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
+> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
 
 #### Value examples
 
@@ -336,6 +373,55 @@ This policy rule example uses **value** to check if the result of multiple neste
     }
 }
 ```
+
+#### Avoiding template failures
+
+The use of _template functions_ in **value** allows for many complex nested functions. If the result
+of a _template function_ is an error, policy evaluation fails. A failed evaluation is an implicit
+**deny**. An example of a **value** that fails in certain scenarios:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+The example policy rule above uses [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)
+to compare the first three characters of **name** to **abc**. If **name** is shorter than three
+characters, the `substring()` function results in an error. This error causes the policy to become a
+**deny** effect.
+
+Instead, use the [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)
+function to check if the first three characters of **name** equal **abc** without allowing a
+**name** shorter than three characters to cause an error:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+With the revised policy rule, `if()` checks the length of **name** before trying to get a
+`substring()` on a value with fewer than three characters. If **name** is too short, the value "not
+starting with abc" is returned instead and compared to **abc**. A resource with a short name that
+doesn't begin with **abc** still fails the policy rule, but no longer causes an error during
+evaluation.
 
 ### Effect
 
@@ -401,7 +487,7 @@ Additionally, the `field` function is available to policy rules. `field` is prim
 evaluated. An example of this use can be seen in the [DeployIfNotExists
 example](effects.md#deployifnotexists-example).
 
-#### Policy function examples
+#### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
 combined with the `concat` array and object function to build a `like` condition that enforces the
@@ -417,26 +503,6 @@ resource name to start with the resource group name.
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-This policy rule example uses the `resourceGroup` resource function to get the **tags** property
-array value of the **CostCenter** tag on the resource group and append it to the **CostCenter** tag
-on the new resource.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```
@@ -489,72 +555,69 @@ another that has **[\*]** attached to it. For example:
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-The first example is used to evaluate the entire array, where the **[\*]** alias evaluates each
-element of the array.
-
-Let's look at a policy rule as an example. This policy will **Deny** a storage account that has
-ipRules configured and if **none** of the ipRules has a value of "127.0.0.1".
+The 'normal' alias represents the field as a single value. This field is for exact match comparison
+scenarios when the entire set of values must be exactly as defined, no more and no less. Using
+**ipRules**, an example would be validating that an exact set of rules exists including the number
+of rules and makeup of each rule. This sample rule checks for exactly both **192.168.1.1** and
+**10.0.4.1** with _action_ of **Allow** in **ipRules** to apply the **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+The **[\*]** alias makes it possible to compare against the value of each element in the array and
+specific properties of each element. This approach makes it possible to compare element properties
+for 'if none of', 'if any of', or 'if all of' scenarios. Using **ipRules[\*]**, an example would be
+validating that every _action_ is _Deny_, but not worrying about how many rules exist or what the
+IP _value_ is. This sample rule checks for any matches of **ipRules[\*].value** to **10.0.4.1** and
+applies the **effectType** only if it doesn't find at least one match:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-The **ipRules** array is as follows for the example:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Here's how this example is processed:
-
-- `networkAcls.ipRules` - Check that the array is non-null. It evaluates true, so evaluation continues.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` - Checks each _value_ property in the **ipRules** array.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - As an array, each element will be processed.
-
-    - "127.0.0.1" != "127.0.0.1" evaluates as false.
-    - "127.0.0.1" != "192.168.1.1" evaluates as true.
-    - At least one _value_ property in the **ipRules** array evaluated as false, so the evaluation will stop.
-
-As a condition evaluated to false, the **Deny** effect isn't triggered.
+For more information, see [evaluating the [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## Initiatives
 

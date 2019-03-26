@@ -6,10 +6,10 @@ manager: jpconnock
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
@@ -33,7 +33,7 @@ to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/releas
 > * Configure Jenkins for Azure DevOps Services integration.
 > * Create a Jenkins service endpoint.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a Azure Pipelines release pipeline.
+> * Create an Azure Pipelines release pipeline.
 > * Execute manual and CI-triggered deployments.
 
 ## Before you begin
@@ -59,7 +59,7 @@ For this tutorial, we recommend that you use [this sample app available from Git
 Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial. For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/).    
 
 > [!NOTE]
-> The app was built through [Yeoman](http://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
+> The app was built through [Yeoman](https://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
 > The sample also contains a script that sets up Nginx and deploys the app. It is executed on the virtual machines. Specifically, the script:
 > 1. Installs Node, Nginx, and PM2.
 > 2. Configures Nginx and PM2.
@@ -140,7 +140,7 @@ You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/d
 8. After the installation, you are prompted for deployment group tags. Accept the defaults.
 9. In Azure DevOps Services, check for your newly registered virtual machine in **Targets** under **Deployment Groups**.
 
-## Create a Azure Pipelines release pipeline
+## Create an Azure Pipelines release pipeline
 
 A release pipeline specifies the process that Azure Pipelines uses to deploy the app. In this example, you execute a shell script.
 

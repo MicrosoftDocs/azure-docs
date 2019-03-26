@@ -28,7 +28,7 @@ To use a log query with another query you can save it as a function. This allows
 
 ## Create a function
 
-Create a function in log analytics in the Azure portal by clicking **Save** and then providing the information in the following table.
+Create a function with Log Analytics in the Azure portal by clicking **Save** and then providing the information in the following table.
 
 | Setting | Description |
 |:---|:---|

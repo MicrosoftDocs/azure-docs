@@ -64,8 +64,8 @@ the team to contact you.
 
 ## Running your first query
 
-Resource Graph supports both Azure CLI and Azure PowerShell. The query is structured the same for
-both languages. Learn how to enable Resource Graph in [Azure
+Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is
+structured the same for each language. Learn how to enable Resource Graph in [Azure
 CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
 PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 

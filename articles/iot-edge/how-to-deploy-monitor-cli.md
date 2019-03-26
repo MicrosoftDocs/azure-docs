@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -108,7 +108,6 @@ Here's a basic deployment manifest with one module as an example:
    }
    ```
 
-
 ## Identify devices using tags
 
 Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
@@ -150,10 +149,12 @@ Use the following command to display the contents of a deployment:
    ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
    ```
+
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
 Inspect the deployment in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
+
 * **targetedCount** - A system metric that specifies the number of device twins in IoT Hub that match the targeting condition.
 * **appliedCount** - A system metric specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
 * **reportedSuccessfulCount** - A device metric that specifies the number of Edge devices in the deployment reporting success from the IoT Edge client runtime.
@@ -174,6 +175,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 When you modify a deployment, the changes immediately replicate to all targeted devices. 
 
 If you update the target condition, the following updates occur:
+
 * If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
 * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
 * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
@@ -183,12 +185,13 @@ Use the following command to update a deployment:
    ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
    ```
+
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 * **--set** - Update a property in the deployment. You can update the following properties:
-    * targetCondition - for example `targetCondition=tags.location.state='Oregon'`
-    * labels 
-    * priority
+  * targetCondition - for example `targetCondition=tags.location.state='Oregon'`
+  * labels 
+  * priority
 
 
 ## Delete a deployment
@@ -200,6 +203,7 @@ Use the following command to delete a deployment:
    ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
    ```
+
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
