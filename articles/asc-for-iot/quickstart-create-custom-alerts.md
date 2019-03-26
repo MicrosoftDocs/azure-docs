@@ -87,4 +87,4 @@ The following table provides a summary of alerts available for customization.
 Advance to the next article to learn how to deploy a security agent...
 
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-deploy-agent.md)
+> [Next steps button](select-deploy-agent.md)

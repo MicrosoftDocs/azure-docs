@@ -43,5 +43,5 @@ See [Create security module twin](quickstart-create-security-twin.md) and [Confi
 
 ## See also
 - [ATP for IoT Preview](overview.md)
-- [Deploy security agents](tutorial-deploy-agent.md)
+- [Deploy security agents](select-deploy-agent.md)
 - [Security agent authentication methods](concept-security-agent-authentication-methods.md)

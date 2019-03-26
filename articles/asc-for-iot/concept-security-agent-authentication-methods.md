@@ -53,7 +53,7 @@ See [Security agent installation parameters](#security-agent-installation-parame
 
 ## Security agent installation parameters
 
-When [deploying a security agent](tutorial-deploy-agent.md), authentication details must be provided as arguments.
+When [deploying a security agent](select-deploy-agent.md), authentication details must be provided as arguments.
 These arguments are documented in the following table.
 
 
@@ -107,5 +107,5 @@ Edit _LocalConfiguration.json_ with the following parameters:
 
 ## See also
 - [Security agents overview](security-agent-architecture.md)
-- [Deploy security agent](tutorial-deploy-agent.md)
+- [Deploy security agent](select-deploy-agent.md)
 - [Access raw security data](how-to-security-data-access.md)
