@@ -132,14 +132,17 @@ To validate your development kit setup, build and install the sample application
 
 ## Troubleshooting the Android device
 
-1. If you cannot connect to the Speech Device. Type the following commands in a Command Prompt window:
+1. If you cannot connect to the Speech Device. Type the following command in a Command Prompt window. It will return a list of devices:
 
-ToDo: fix this
+   ```Powershell
+    adb devices
+   ```
 
     > [!NOTE]
-    > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    > This command uses the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
     >
-    > If you see an error `no devices/emulators found` then check your USB cable is connected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
+    > If you see an error `no devices/emulators found` then check your USB cable is connected and ensure a high quality cable is used.
+    >
 
 ## Next steps
 
