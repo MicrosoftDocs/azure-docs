@@ -15,7 +15,9 @@ ms.custom: seodec18
 
 # Text-to-speech REST API
 
-The Speech Services allow you to convert text-to-speech using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+The Speech Services allow you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region using a set of REST APIs. Each available endpoint is associated with a region. A subscription key for the endpoint/region you plan to use is required.
+
+The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
 * For a complete list of voices, see [language support](language-support.md#text-to-speech).
 * For information about regional availability, see [regions](regions.md#text-to-speech).
@@ -48,7 +50,7 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 
 ### Request headers
 
-This table lists required and optional headers for speech-to-text requests.
+This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
@@ -139,7 +141,7 @@ These regions are supported for text-to-speech using the REST API. Make sure tha
 
 ### Request headers
 
-This table lists required and optional headers for speech-to-text requests.
+This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
