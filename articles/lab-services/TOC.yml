@@ -74,7 +74,9 @@
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Create and manage schedules
       href: classroom-labs/how-to-create-schedules.md
-  - name: DevTest labs
+    - name: Create an environment with multiple VMs inside a template VM
+      href: classroom-labs/how-to-enable-multi-vm-environment.md
+  - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
       href: resource-group-control.md
@@ -86,6 +88,17 @@
       href: test-app-azure.md
     - name: Export or delete personal data
       href: personal-data-delete-export.md
+    - name: Import virtual machines from another lab
+      href: import-virtual-machines-from-another-lab.md
+    - name: Create an image factory
+      href: image-factory-create.md
+      items:
+      - name: Run an image factory from AzureDevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Save custom images and distribute to multiple labs
+        href: image-factory-save-distribute-custom-images.md
+      - name: Set retention policy and run cleanup scripts
+        href: image-factory-set-retention-policy-cleanup.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -126,7 +139,9 @@
       - name: Redeploy a VM
         href: devtest-lab-redeploy-vm.md
       - name: Import a VM
-        href: devtest-lab-import-vm.md                
+        href: devtest-lab-import-vm.md
+      - name: Start or stop a VM using PowerShell or CLI
+        href: use-command-line-start-stop-virtual-machines.md                
     - name: Use environments in a lab
       items:
       - name: Create an environment
@@ -183,6 +198,8 @@
       items: 
       - name: Specify mandatory artifacts 
         href: devtest-lab-mandatory-artifacts.md
+      - name: Add artifacts to a VM
+        href: add-artifact-vm.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
       - name: Add an artifact repository to a lab

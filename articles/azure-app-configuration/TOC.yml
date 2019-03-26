@@ -1,4 +1,4 @@
-- name: Azure App Configuration (Preview) Documentation
+- name: Azure App Configuration Preview documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,7 +13,7 @@
       href: quickstart-dotnet-core-app.md
     - name: Create a .NET Framework app
       href: quickstart-dotnet-app.md
-    - name: Create an Azure Function
+    - name: Create an Azure function
       href: quickstart-azure-function-csharp.md
     - name: Create a Java Spring app
       href: quickstart-java-spring-app.md

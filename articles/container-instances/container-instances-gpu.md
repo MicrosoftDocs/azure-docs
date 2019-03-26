@@ -175,7 +175,7 @@ az group deployment create --resource-group myResourceGroup --template-file gpud
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Output:

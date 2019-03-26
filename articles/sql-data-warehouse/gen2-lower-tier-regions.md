@@ -1,7 +1,7 @@
 ---
 title: Azure SQL Data Warehouse Gen2 supports lower compute tiers | Microsoft Docs
 description: Azure SQL Data Warehouse Gen2 now supports lower compute tiers
-author: antvgski
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual

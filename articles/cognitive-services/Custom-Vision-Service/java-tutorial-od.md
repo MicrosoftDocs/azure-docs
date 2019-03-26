@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision SDK for Java
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application. 
+This article provides information and sample code to help you get started using the Custom Vision SDK with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application.
 
 ## Prerequisites
 
@@ -24,11 +24,12 @@ This article provides information and sample code to help you get started using 
 - Maven installed
 
 ## Get the Custom Vision SDK and sample code
+
 To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These are included in the sample project you will download, but you can access them individually here.
 
 You can install the Custom Vision SDK from maven central repository:
-* [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+- [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+- [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 Clone or download the [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) project. Navigate to the **Vision/CustomVision/** folder.
 
@@ -71,9 +72,9 @@ The previous code snippet makes use of two helper functions that retrieve the im
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### Train the project
+### Train the project and publish
 
-This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
