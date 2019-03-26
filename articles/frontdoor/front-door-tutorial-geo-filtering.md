@@ -37,7 +37,7 @@ Make sure you have the current version of PowerShellGet installed. Run below com
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
-#### Install AzRM.FrontDoor module 
+#### Install Az.FrontDoor module 
 
 ```
 Install-Module -Name Az.FrontDoor -AllowPrerelease
