@@ -52,7 +52,7 @@ In the delimited text dataset, you will set the delimiter to handle either singl
 
 ### Parquet
 
-Use Parquet as the prefered staging dataset type in ADF data flows. Parquet will store rich metadata schema along with the data.
+Use Parquet as the preferred staging dataset type in ADF data flows. Parquet will store rich metadata schema along with the data.
 
 ### Database types
 
