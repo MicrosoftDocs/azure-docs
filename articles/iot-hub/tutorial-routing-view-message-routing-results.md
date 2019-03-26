@@ -15,9 +15,9 @@ ms.custom: mvc
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
-## Summary of part 2
+## Defining the routed messages
 
-This is the rules for the routing that were set up in part 1 of this tutorial.
+These are the rules for the message routing; these were set up in part 1 of this tutorial.
 
 |value |Result|
 |------|------|

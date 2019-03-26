@@ -10,15 +10,15 @@ ms.author: robinsh
 ms.custom: include file
 ---
 
-[Message routing](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. To configure message routing, you create [routing queries](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
+[Message routing](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. While configuring message routing, you can create [routing queries](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. If a message isn't retrieved by any of the defined routing queries, the messages are routed to the default endpoint.
 
-In this 2-part tutorial, you learn how to set up and use these routing queries with IoT Hub. You route messages from an IoT device to one of multiple endpoints, including blob storage and a Service Bus queue. Messages to the Service Bus queue are picked up by a Logic App and sent via e-mail. Messages that do not have custom message routing defined are sent to the default endpoint, then picked up by Azure Stream Analytics and viewed in a Power BI visualization.
+In this 2-part tutorial, you learn how to set up and use these custom routing queries with IoT Hub. You route messages from an IoT device to one of multiple endpoints, including blob storage and a Service Bus queue. Messages to the Service Bus queue are picked up by a Logic App and sent via e-mail. Messages that do not have custom message routing defined are sent to the default endpoint, then picked up by Azure Stream Analytics and viewed in a Power BI visualization.
 
  To complete parts 1 and 2 of this tutorial, you perform the following tasks:
 
 **Part I: Create resources, set up message routing**
 > [!div class="checklist"]
-> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
+> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device. This can be done using the portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 > * Configure the endpoints and message routes in IoT Hub for the storage account and Service Bus queue.
 
 **Part II: Send messages to the hub, view routed results**
