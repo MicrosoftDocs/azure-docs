@@ -22,9 +22,9 @@ While using RBAC role assignments is a powerful mechanism to control user permis
 
 Azure Storage provides three built-in RBAC roles for Blob storage: 
 
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 When a user or service principal is granted RBAC data permissions either through one of these built-in roles, or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the caller’s RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the caller does not have an RBAC assignment or the request’s operation does not match the assigned permission, then ACL checks are performed to determine if the caller is authorized to perform the requested operation.
 
