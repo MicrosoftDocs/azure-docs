@@ -55,6 +55,6 @@ In this article, you learned about the features and services of ASC for IoT. To 
 - [Service prerequisites](service-prerequisites.md)
 - [Getting started](getting-started.md)
 - [Define your solution](quickstart-configure your-solution.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT alerts](concept-security-alerts.md)
+- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
+- [ASC for IoT alerts](concept-security-alerts.md)
 

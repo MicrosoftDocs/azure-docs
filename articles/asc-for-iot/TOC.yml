@@ -47,7 +47,7 @@
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: Security module
-    href: concept-security-module,md
+    href: concept-security-module.md
   - name: Security alerts
     href: concept-security-alerts.md
   - name: Security recommendations
