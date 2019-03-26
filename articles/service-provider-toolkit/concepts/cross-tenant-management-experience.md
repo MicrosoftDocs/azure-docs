@@ -18,17 +18,27 @@ This article describes the scenarios that you, as a service provider, can use wi
 > [!NOTE]
 > Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure Active Directory (Azure AD) tenants of its own to simplify cross-tenant administration.
 
+## Understanding customer tenants
+
+An Azure AD tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft, by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants.
+
+Typically, in order to manage Azure resources for an customer, a user needs to sign in to the Azure portal using an account associated with that customer's tenant. This means that an administrator in the customer's tenant must create a user account in that tenant.
+
+With Azure Delegated Resource Management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging for any customers to which they have access, either by visiting the [My customers](../how-to/view-manage-customers.md) page, or by working from within the context of that customer's subscription. This allows greater flexibility to manage resources for multiple customers, without having to log in to different accounts in different tenants.
+
+## Supported services and scenarios
+
 Currently, the cross-tenant management experience supports the following scenarios with delegated customer resources:
 
-[Azure Automation](https://docs.microsoft.com/en-us/azure/automation/)
+[Azure Automation](https://docs.microsoft.com/azure/automation/)
 
-- **need to confirm supported scenario(s)**
+- Use automation accounts within customer tenants
 
-[Azure Backup](https://docs.microsoft.com/en-us/azure/backup/)
+[Azure Backup](https://docs.microsoft.com/azure/backup/)
 
 - Back up and restore customer data
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/)
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 
@@ -53,11 +63,15 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Ability to filter and see all info for delegated subscriptions
 
-[Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/)
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 
 - Manage disaster recovery options for Azure VMs in customer tenants
+
+[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
+
+- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure virtual machines in customer tenants
+- Use boot diagnostics to troubleshoot Azure virtual machines in customer tenants
 
 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/)
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
-
