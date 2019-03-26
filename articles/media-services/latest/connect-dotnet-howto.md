@@ -23,7 +23,7 @@ This article shows you how connect to the Azure Media Services v3 API using the 
 ## Prerequisites
 
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name
-- Install a tool that you would like to use for .NET development. The steps in this article show how to use Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
+- Install a tool that you would like to use for .NET development. The steps in this article show how to use [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
 
 ## Create a console application
 
@@ -59,7 +59,7 @@ The following NuGet packages were added to the project:
 ### Set values in appsettings.json
 
 Run the `az ams account sp create` command as described in [access APIs](access-api-cli-how-to.md). The command returns json that you should copy into your "appsettings.json".
-- 
+ 
 ## Add configuration file
 
 Add a new .cs class to your project. Name it `ConfigWrapper`. Paste the following code in this file (this example assumes you have the namespace is `ConsoleApp1`).
