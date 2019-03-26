@@ -9,14 +9,19 @@
   - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
+- name: Setup
+  items:
+  - name: Create a workspace
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Get started - Portal
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: Get started - Python
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: Experiment with a cloud notebook
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experiment with a local notebook
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)

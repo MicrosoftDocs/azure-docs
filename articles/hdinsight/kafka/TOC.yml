@@ -40,6 +40,8 @@
     href: apache-kafka-scalability.md
   - name: High availability of data
     href: apache-kafka-high-availability.md
+  - name: Performance tuning
+    href: apache-kafka-performance-tuning.md
 - name: How to
   items:
   - name: Enable auto topic creation
@@ -90,21 +92,6 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
-        maintainContext: true
-      - name: Install published app - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Install published app - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Install published app - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Install published app - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Install published app - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -249,7 +236,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
