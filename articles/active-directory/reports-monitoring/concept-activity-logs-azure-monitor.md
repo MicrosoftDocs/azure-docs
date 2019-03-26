@@ -3,7 +3,7 @@ title: Azure Active Directory activity logs in Azure Monitor (preview) | Microso
 description: Introduction to Azure Active Directory activity logs in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

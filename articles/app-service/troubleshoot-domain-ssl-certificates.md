@@ -310,7 +310,7 @@ Yes. When you access the Custom Domains and SSL blade in the Azure portal, you s
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 

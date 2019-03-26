@@ -278,6 +278,7 @@ If you use network security groups, you must allow traffic from the Azure health
     | China | China North | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Inbound |
     | &nbsp; | China East | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Inbound |
     | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
+    | &nbsp; | China East 2 | 139.217.227.106</br>139.217.228.187 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
     | France | France Central| 20.188.39.64</br>40.89.157.135 | 443 | Inbound |
