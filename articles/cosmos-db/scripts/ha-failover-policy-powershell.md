@@ -38,8 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-3.8.0) | Invokes an action on the Azure CosmosDB account. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a logical server that hosts a database or elastic pool. |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on the Azure CosmosDB account. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
