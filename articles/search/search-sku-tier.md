@@ -48,7 +48,7 @@ The following table lists the available tiers. Other sources of tier information
 |Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
 
 > [!NOTE] 
-> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers.  The primary tradeoff is in query throughput and higher latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers.  The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## How billing works
@@ -212,7 +212,7 @@ The standard tiers can deliver a balance of replicas to partitions, supporting f
 
 Customers who expect strong sustained query volumes from the outset should consider higher **Standard** tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
 
-The storage optimized tiers lean toward large data workloads, supporting more overall index storage available, where query latency requirements are relaxed and lower number of users overall.  Additional replicas should still be leveraged for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
+The storage optimized tiers lean toward large data workloads, supporting more overall index storage available, where query latency requirements are somewhat relaxed.  Additional replicas should still be leveraged for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
 
 **Service level agreements**
 
