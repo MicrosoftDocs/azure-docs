@@ -12,7 +12,7 @@ manager: cpendleton
 
 # Using the Azure Maps Services module
 
-The Azure Maps Web SDK provides a services module which is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications using JavaScript and/or TypeScript.
+The Azure Maps Web SDK provides a services module that is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications using JavaScript or TypeScript.
 
 ## Using the Services module in a web page
 
@@ -35,7 +35,7 @@ The Azure Maps Web SDK provides a services module which is a helper library that
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
         ```
 
-3. To initialize a service URL client endpoint you must first create a authenication pipeline. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the search service client. In this example the search service URL client will be created. If using a subscription key for authentication:
+3. To initialize a service URL client endpoint, you must first create an authentication pipeline. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the search service client. In this example, the search service URL client will be created. If using a subscription key for authentication:
 
     ```javascript
     //Get an Azure Maps key at https://azure.com/maps
@@ -116,7 +116,7 @@ The Azure Maps Web SDK provides a services module which is a helper library that
     }
     ```
 
-    See [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
+    For more information, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
 4. The following code uses the newly created search service URL client to geocode an address, "1 Microsoft Way, Redmond, WA" using the `searchAddress` function and display the results as a table in the body of the page. 
 
