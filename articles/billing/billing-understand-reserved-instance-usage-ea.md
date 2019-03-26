@@ -78,6 +78,11 @@ Your Azure reservation usage also shows up in usage summary section of Enterpris
 1. You aren't charged for the hardware component of the VM as it is covered by reservation. For a SQL Database reservation, you see a line with **Service Name** as Azure SQL Database reserved capacity usage.
 2. In this example, you don't have the Azure Hybrid Benefit so you're charged for the Windows software used with the VM.
 
+## Need help? Contact us.
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
@@ -90,6 +95,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact us
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

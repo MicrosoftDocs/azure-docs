@@ -22,7 +22,7 @@ Use the following steps in Ambari to create a new YARN queue, and then balance t
 In this example, two existing queues (**default** and **thriftsvr**) both are changed from 50% capacity to 25% capacity, which gives the new queue (spark) 50% capacity.
 
 | Queue | Capacity | Maximum capacity |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |

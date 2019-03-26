@@ -159,7 +159,7 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **Q.** Can I change the type of a volume during restore?
 
-**A.**No, you cannot change the volume type during restore.
+**A.** No, you cannot change the volume type during restore.
 
 * Volumes that have been deleted are restored as the type stored in the snapshot.
 * Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).

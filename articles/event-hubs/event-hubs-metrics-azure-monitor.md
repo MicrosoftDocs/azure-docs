@@ -36,7 +36,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![View successful metrics][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics**.
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 

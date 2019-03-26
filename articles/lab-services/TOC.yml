@@ -74,7 +74,9 @@
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Create and manage schedules
       href: classroom-labs/how-to-create-schedules.md
-  - name: DevTest labs
+    - name: Create an environment with multiple VMs inside a template VM
+      href: classroom-labs/how-to-enable-multi-vm-environment.md
+  - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
       href: resource-group-control.md
@@ -86,6 +88,8 @@
       href: test-app-azure.md
     - name: Export or delete personal data
       href: personal-data-delete-export.md
+    - name: Import virtual machines from another lab
+      href: import-virtual-machines-from-another-lab.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:

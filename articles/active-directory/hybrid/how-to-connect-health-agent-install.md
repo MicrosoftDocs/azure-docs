@@ -243,11 +243,11 @@ $userName = "NEWUSER@DOMAIN"
 $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
- 
+ 
 Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
 
 ```
-5. Once you are done, you can remove access for the local account by doing one or more of the following: 
+1. Once you are done, you can remove access for the local account by doing one or more of the following: 
     * Remove the role assignment for the local account for AAD Connect Health
     * Rotate the password for the local account. 
     * Disable the AAD local account

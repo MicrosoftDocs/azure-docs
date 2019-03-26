@@ -55,7 +55,7 @@ This problem occurs because Remote Desktop Services isn't running on the VM. The
 
 - The TermService service is set to **Disabled**. 
 - The TermService service is crashing or hanging. 
-- The TermService is not starting because of to a incorrect configuration.
+- The TermService is not starting because of to an incorrect configuration.
 
 ## Solution
 
@@ -203,7 +203,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk.
-3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
+3. Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

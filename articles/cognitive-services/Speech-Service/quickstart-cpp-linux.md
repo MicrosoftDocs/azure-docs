@@ -117,7 +117,7 @@ Download and install the SDK as follows:
    ./helloworld
    ```
 
-1.  In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
 
    ```text
    Say something...

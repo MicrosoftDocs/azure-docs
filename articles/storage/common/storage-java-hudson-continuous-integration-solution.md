@@ -128,7 +128,7 @@ The following steps show how to configure a build step to download items from Az
 1. In the **Build** section of the job configuration, click **Add build step** and choose **Download from Azure Blob storage**.
 2. For **Storage account name**, select the storage account to use.
 3. For **Container name**, specify the name of the container that has the blobs you want to download. You can use environment variables.
-4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\*** would specify all blobs whose names start with **project**.
+4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\\*** would specify all blobs whose names start with **project**.
 5. [Optional] For **Download path**, specify the path on the Hudson machine where you want to download files from Azure Blob storage. Environment variables can also be used. (If you do not provide a value for **Download path**, the files from Azure Blob storage will be downloaded to the job's workspace.)
 
 If you have additional items you want to download from Azure Blob storage, you can create additional build steps.

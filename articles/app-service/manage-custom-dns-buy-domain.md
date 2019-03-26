@@ -143,7 +143,7 @@ You also see the selected hostnames in the **Custom domains** page, in the **Cus
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www.kontoso.net_.
+To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www\.kontoso.net_.
 
 ## Assign hostnames to app
 
@@ -174,7 +174,7 @@ Select **Add hostname**.
 In the **Add hostname** dialog, type the fully qualified domain name of your App Service Domain or any subdomain. For example:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 When finished, select **Validate**. The hostname record type is automatically selected for you.

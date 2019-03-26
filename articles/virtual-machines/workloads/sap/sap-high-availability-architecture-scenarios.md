@@ -392,8 +392,8 @@ You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution h
 ### High-availability architecture for an SAP ASCS/SCS instance on Linux
 
 > ![Linux][Logo_Linux] Linux
->
-For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
+> 
+> For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
 For more information about clustering the SAP ASCS/SCS instance by using the Red Hat cluster framework, see [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
@@ -401,10 +401,10 @@ For more information about clustering the SAP ASCS/SCS instance by using the Red
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
 > ![Windows][Logo_Windows] Windows
->
+> 
 > Currently, multi-SID is supported only with WSFC. Multi-SID is supported using file share and shared disk.
->
-For more information about multi-SID high-availability architecture, see:
+> 
+> For more information about multi-SID high-availability architecture, see:
 
 * [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and file share][sap-ascs-ha-multi-sid-wsfc-file-share]
 

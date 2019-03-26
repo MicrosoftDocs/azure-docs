@@ -6,10 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
-ms.date: 03/11/2019
+ms.author: larryfr
+author: Blackmist
+ms.date: 03/25/2019
 ms.custom: seodec18
 ---
 
@@ -18,6 +17,10 @@ ms.custom: seodec18
 In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## 2019-03-25
+
+### Azure Machine Learning SDK for Python v1.0.21
 
 ## 2019-03-11
 

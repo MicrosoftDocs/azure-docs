@@ -11,15 +11,44 @@ ms.date: 02/04/2019
 ---
 # Compare storage options for use with Azure HDInsight clusters
 
-Microsoft Azure HDInsight users can choose from a few different storage options when creating HDInsight clusters:
+You can choose between a few different Azure storage services when creating HDInsight clusters:
 
-* Azure Data Lake Storage Gen2
 * Azure Storage
+* Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
 This article provides an overview of these storage types and their unique features.
 
-## Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
+The following table summarizes the Azure Storage services that are supported with different versions of HDInsight:
+
+| Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
+|---|---|---|---|---|---|---|---|
+|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
+|Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
+|Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
+|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool, Archive | All | All |
+|Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
+
+For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
+
+You can create a cluster using different combinations of services for primary and optional secondary storage. The following table summarizes the cluster storage configurations that are currently supported in HDInsight:
+
+| HDInsight Version | Primary Storage | Secondary Storage | Supported |
+|---|---|---|---|
+| 3.6 & 4.0 | Standard Blob | Standard Blob | Yes |
+| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | No |
+| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Standard Blob | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
+| 3.6 | Data Lake Storage Gen1 | Standard Blob | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0 | Data Lake Storage Gen1 | Any | No |
+
+*=This could be one or multiple Data Lake Storage Gen2 accounts, as long as they are all setup to use the same managed identity for cluster access.
+
+## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
 Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 and integrates them into Azure Blob storage. These features include a file system that is compatible with Hadoop, Azure Active Directory (Azure AD), and POSIX-based access control lists (ACLs). This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using the tiering and data life-cycle management of Blob storage.
 
@@ -83,21 +112,10 @@ For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/
 
 Azure Storage is a robust general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
-When creating an Azure storage account, you can choose from several storage account types. The following table provides information on options that are supported with HDInsight.
-
-| **Storage account type** | **Supported services** | **Supported performance tiers** | **Supported access tiers** |
-|----------------------|--------------------|-----------------------------|------------------------|
-| General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive*    |
-| General-purpose V1   | Blob               | Standard                    | N/A                    |
-| Blob storage         | Blob               | Standard                    | Hot, Cool, Archive*    |
-
-*The Archive access tier is an offline tier that has a retrieval latency of several hours. Don't use this tier with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
-
-> [!WARNING]  
-> We don't recommend using the default blob container to store business data. The default container holds application and system logs. Make sure to retrieve the logs before you delete the default blob container. Delete the blog container after each use to reduce storage costs. Also keep in mind that one blob container can't be used as the default file system for multiple clusters.
-
+We recommend to use separate storage containers for your default cluster storage and your business data, to isolate the HDInsight logs and temporary files from your own business data. We also recommend deleting the default blob container, which contains application and system logs, after each use to reduce storage cost. Make sure to retrieve the logs before deleting the container.
 
 ### HDInsight storage architecture
+
 The following diagram provides an abstract view of the HDInsight architecture of Azure Storage:
 
 ![Diagram showing how Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight Storage Architecture")

@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with EthicsPoint Incident Management (EPIM)
     ![EthicsPoint Incident Management (EPIM) Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    
     | |
 	|--|
 	| `https://<companyname>.navexglobal.com`|

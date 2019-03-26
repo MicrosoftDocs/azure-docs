@@ -338,8 +338,6 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Snapshot Debugger
-          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps

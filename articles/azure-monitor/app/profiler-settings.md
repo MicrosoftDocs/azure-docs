@@ -106,11 +106,11 @@ If any of the preceding values aren't set, install the latest site extension by 
     ![Change and save app insights][change-and-save-appinsights]
 
 1. Go back to **App Settings** pane for the App Service to ensure that the following values are set:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![App settings for Profiler][app-settings-for-profiler]
+     ![App settings for Profiler][app-settings-for-profiler]
 
 1. Optionally, select **Extensions**, and then check the extension version and determine whether an update is available.
 

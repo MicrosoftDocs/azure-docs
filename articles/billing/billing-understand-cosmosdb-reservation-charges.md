@@ -99,6 +99,10 @@ The Azure billing system will assign the reservation billing benefit to the firs
 
 To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](../billing/billing-understand-reserved-instance-usage-ea.md).
 
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about Azure reservations, see the following articles:
@@ -110,7 +114,3 @@ To learn more about Azure reservations, see the following articles:
 * [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## Need help? Contact us
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
