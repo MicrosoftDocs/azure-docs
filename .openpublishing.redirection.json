@@ -15784,16 +15784,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-windows.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/service-fabric/service-fabric-reliable-services-advanced-usage.md",
       "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-lifecycle",
       "redirect_document_id": false
