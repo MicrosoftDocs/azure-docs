@@ -28,6 +28,8 @@ Upgrading to a General-purpose v2 storage account from your General-purpose v1 o
 5. Under **Confirm upgrade**, type in the name of your account.
 6. Click **Upgrade** at the bottom of the blade.
 
+    ![Upgrade Account Kind](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+
 ## Upgrade with PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
