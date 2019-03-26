@@ -29,7 +29,7 @@
 
 1. Select **Review + create**. You can skip the **Network** and **Tags** sections. 
 
-1. Review the account settings, and then select **Create**. Wait a few minutes for the account to be created and the portal page to display **Your deployment is complete**. 
+1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**. 
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
 
