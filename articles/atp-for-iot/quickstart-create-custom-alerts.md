@@ -1,16 +1,16 @@
 ---
-title: Create custom alerts for ATP for IoT Preview| Microsoft Docs
-description: Create and assign custom device alerts for ATP for IoT.
-services: atpforiot
+title: Create custom alerts for ASC for IoT Preview| Microsoft Docs
+description: Create and assign custom device alerts for ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
@@ -20,27 +20,29 @@ ms.author: mlottner
 # Quickstart: Create custom alerts
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-# Custom Alerts
+Using custom security groups and alerts, take full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
 
-## Overview
+## Why use custom alerts? 
 
-You know your devices best.
-For customers who fully understand their expected device behavior, ATP for IoT allows translating this understanding into a device behavior policy and alert on any deviation from the expected normal behavior.
+You know your IoT devices best.
 
-Using custom groups and alerts, you can take full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
+For customers who fully understand their expected device behavior, ASC for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
 
 ## Security Groups
 
-Security groups enable customers to define logical groups of devices, and manage their security state in a centralized way.
-These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to the customer’s needs.
+Security groups enable you to define logical groups of devices, and manage their security state in a centralized way.
 
-Security groups are defined by a security module twin tag property named **SecurityGroup**. Change the value of this property to change the device’s security group. 
+These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to your specific needs.
+
+Security groups are defined by a security module twin tag property named **SecurityGroup**. Change the value of this property to change the security group of a device.  
 
 By default, each IoT solution on IoT Hub has one security group named **default**.
+
+Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end solution. 
 
 ## Customize an alert
 
@@ -82,11 +84,7 @@ The following table provides a summary of alerts available for customization.
 
 ## Next steps
 
-[Deploy a security agent](tutorial-deploy-agent.md).
+Advance to the next article to learn how to deploy a security agent...
 
-
-## See Also
-- [ATP for IoT overview](overview.md)
-- [Service prerequisites](service-prerequisites.md)
-- [Getting started](quickstart-getting-started.md)
-- [Understanding security alerts](concept-security-alerts.md)
+> [!div class="nextstepaction"]
+> [Next steps button](tutorial-deploy-agent.md)

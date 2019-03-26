@@ -1,19 +1,19 @@
 ---
-title: Configure an ATP for IoT agent Preview| Microsoft Docs
-description: Learn how to configure agents for use with ATP for IoT.
-services: atpforiot
+title: Configure an ASC for IoT agent Preview| Microsoft Docs
+description: Learn how to configure agents for use with ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: mlottner
 
 ---

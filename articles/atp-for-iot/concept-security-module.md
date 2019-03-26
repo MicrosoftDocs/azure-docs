@@ -18,17 +18,23 @@ ms.author: mlottner
 
 ---
 
+# Security module
+
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-# Security module
+This article explains how ASC for IoT uses device twins and modules. 
+
+## Device twins
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.  
 ATP for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities. Integration is achieved by making use of the IoT Hub twin mechanism.  
 
-Learn more about [device](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) and [module](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) twins concepts in Azure IoT Hub.  
+Learn more about the concept of [device](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) twins in Azure IoT Hub. 
+
+## Security module twins
 
 ATP for IoT maintains a security module twin for each device in the service. The security module twin holds all the information relevant to device security for each specific device in your solution. Device security properties are maintained in a dedicated security module twin for safer communication and for enabling updates and maintenance that require fewer resources.  
 

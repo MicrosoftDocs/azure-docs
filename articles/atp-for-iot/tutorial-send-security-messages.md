@@ -1,14 +1,14 @@
 ---
-title: Send your security messages to ATP for IoT Preview| Microsoft Docs
-description: Learn how to send your security messages using ATP for IoT.
-services: atpforiot
+title: Send your security messages to ASC for IoT Preview| Microsoft Docs
+description: Learn how to send your security messages using ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -21,31 +21,33 @@ ms.author: mlottner
 # Send security messages SDK
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains ATP for IoT data analysis capabilities when choosing to collect and send your device security messages without using an ATP for IoT agent, and explains how to do so.  
+This article explains ASC for IoT data analysis capabilities when choosing to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
 
-## ATP for IoT 
+## ASC for IoT 
 
-ATP for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ATP for IoT schema](https://github.com/Azure/ATP-for-IoT-Schemas). 
+ASC for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ASC for IoT schema](https://github.com/Azure/ASC-for-IoT-Schemas). 
 
 ## Send security messages 
 
-Send security messages without using the ATP for IoT agent, by using the [Azure IoT device SDK](https://github.com/Azure/azure-iot-sdk-csharp).
+Send security messages without using the ASC for IoT agent, by using the [Azure IoT device SDK](https://github.com/Azure/azure-iot-sdk-csharp).
 
-To send the device data from your devices for processing by ATP for IoT, use one of the  following APIs to mark messages for correct routing to ATP for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ATP for IoT within both IoT Hub or within Azure Security Center. 
+To send the device data from your devices for processing by ASC for IoT, use one of the  following APIs to mark messages for correct routing to ASC for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ASC for IoT within both IoT Hub or within Azure Security Center. 
 
-All data that is sent, even if marked with the correct header, must also comply with the [ATP for IoT message schema](https://github.com/Azure/ATP-for-IoT-Schemas). 
+All data that is sent, even if marked with the correct header, must also comply with the [ASC for IoT message schema](https://github.com/Azure/ASC-for-IoT-Schemas). 
 
 > [!NOTE]
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
 
 ### Send security message API
-**Send security messages** API is currently available in C and C#. Additional languages are planned for a future release. 
 
-C# API
+The **Send security messages** API is currently available in C and C#.  
+
+#### C# API
+
 ```cs
 private static async Task SendSecurityMessageAsync()
 {
@@ -56,7 +58,9 @@ private static async Task SendSecurityMessageAsync()
     await client.SendEventAsync(securityMessage);
 }
 ```
-C API
+
+#### C API
+
 ```c
 bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data, size_t dataSize) {
  
@@ -102,6 +106,6 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 
 ## See Also
 - [Overview](overview.md)
-- [Understand ATP for IoT recommendations](concept-recommendations.md)
-- [Explore ATP for IoT alerts](concept-security-alerts.md)
+- [Understand ASC for IoT recommendations](concept-recommendations.md)
+- [Explore ASC for IoT alerts](concept-security-alerts.md)
 - [Access raw security data](how-to-security-data-access.md)

@@ -1,43 +1,43 @@
 ---
-title: Configure your IoT solution Preview| Microsoft Docs
-description: Learn how to configure your end-to-end IoT solution using ATP for IoT.
-services: atpforiot
+title: Configure your ASC for IoT solution Preview| Microsoft Docs
+description: Learn how to configure your end-to-end IoT solution using ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
 # Quickstart: Configure your IoT solution
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to perform initial configuration of your IoT security solution using ATP for IoT. 
+This article provides an explanation of how to perform initial configuration of your IoT security solution using ASC for IoT. 
 
-## ATP for IoT
+## ASC for IoT
 
-ATP for IoT provides comprehensive end-to-end security for Azure-based IoT solutions.
+ASC for IoT provides comprehensive end-to-end security for Azure-based IoT solutions.
 
-With ATP for IoT. you can monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms and backend resources in Azure.
+With ASC for IoT. you can monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms and backend resources in Azure.
 
-Once onboarded to your IoT Hub, ATP for IoT automatically identifies other Azure services, also connected to your IoT hub and related to your IoT solution.
+Once enabled on your IoT Hub, ASC for IoT automatically identifies other Azure services, also connected to your IoT hub and related to your IoT solution.
 
 In addition to automatic relationship detection, you can also pick and choose which other Azure resources to tag as part of your IoT solution.
 Your selections allow you to add entire subscriptions, resource groups, or single resources.
 
-After defining all of the resource relationships, ATP for IoT leverages Azure Security Center to provide you security recommendations and alerts for these resources.
+After defining all of the resource relationships, ASC for IoT leverages Azure Security Center to provide you security recommendations and alerts for these resources.
 
 ## Add Azure resources to your IoT solution
 
@@ -50,17 +50,12 @@ To add new resource to your IoT solution, do the following:
 4. Click **Add**. 
 
 Congratulations! You've added a new resource to your IoT solution.
-ATP for IoT will now monitor you'r newly added resources, and surface relevant security recommendations and alerts as part of your IoT solution.
+
+ASC for IoT now monitors you're newly added resources, and surfaces relevant security recommendations and alerts as part of your IoT solution.
 
 ## Next steps
 
-1. [Create security modules](quickstart-create-security-twin.md).
-1. Configure [custom alerts](quickstart-create-custom-alerts.md).
-1. [Deploy a security agent](tutorial-deploy-agent.md).
+Advance to the next article to learn how to create security modules...
 
-
-## See Also
-- [ATP for IoT overview](overview.md)
-- [Service prerequisites](service-prerequisites.md)
-- [Getting started](quickstart-getting-started.md)
-- [Understanding security alerts](concept-security-alerts.md)
+> [!div class="nextstepaction"]
+> [Next steps button](quickstart-create-security-twin.md)

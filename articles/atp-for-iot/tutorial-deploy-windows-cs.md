@@ -1,16 +1,16 @@
 ---
-title: Windows installation of ATP for IoT agent Preview| Microsoft Docs
-description: Learn about how to install ATP for IoT agent on 32bit or 64bit Windows devices.
-services: azureiotsecurity
+title: Windows installation of ASC for IoT agent Preview| Microsoft Docs
+description: Learn about how to install ASC for IoT agent on 32bit or 64bit Windows devices.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: azureiotsecurity
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
@@ -18,17 +18,25 @@ ms.author: mlottner
 
 ---
 
-# ATP for IoT C#-based security agent deployment for Windows
+# Tutorial: Deploy ASC for IoT C#-based security agent for Windows
 
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how to install the ATP for IoT C#-based security agent on Windows.
-For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
+This tutorial explains how to install the ASC for IoT C#-based security agent on Windows.
+
+In this tutorial, you learn how to: 
+> [!div class="checklist"]
+> * Install
+> * Verify deployment
+> * Uninstall the agent
+> * Troubleshoot 
 
 ## Prerequisites
+
+For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
 
 1. To deploy the security agent, local admin rights are required on the machine you wish to install on. 
 
@@ -38,7 +46,7 @@ For other platforms and agent flavours, see [Choose the right security agent](tu
 
 To install the security agent, do the following:
 
-1. To install the ATP for IoT agent on the device, download the most recent version to your machine from the ATP for IoT GitHub repository(../../releases) folder.
+1. To install the ASC for IoT agent on the device, download the most recent version to your machine from the ASC for IoT GitHub repository(../../releases) folder.
 
 2. Extract the contents of the package, and navigate to the /Install folder.
 
@@ -65,20 +73,22 @@ This script does the following:
 
 
 For additional help, use the Get-Help command in PowerShell <br>Get-Help example:  
-```Get-Help .\InstallSecurityAgent.ps1```
+    ```Get-Help .\InstallSecurityAgent.ps1```
 
-### Check deployment status
+### Verify deployment status
 
-Check the deployment status by running:
-```sc.exe query "ASC IoT Agent" ```
+Check the agent deployment status by running:
+    ```sc.exe query "ASC IoT Agent" ```
 
 ### Uninstall the agent
 
-To uninstall the agent, run the PowerShell script with the **-mode** parameter set to **Uninstall**: 
+To uninstall the agent:
 
-```
-.\InstallSecurityAgent.ps1 -Uninstall
-``` 
+1. Run the following PowerShell script with the **-mode** parameter set to **Uninstall**.  
+
+    ```
+    .\InstallSecurityAgent.ps1 -Uninstall
+    ``` 
 
 ## Troubleshooting
 
@@ -117,12 +127,12 @@ To turn on logging:
 
 1. Review the log file for more information about the failure.
 
-   The log file is located at: `<unpacked_agent_location>/IoTAgentLog.log`
+   Log file location: `<unpacked_agent_location>/IoTAgentLog.log`
 
 
 ## See Also
 - [Overview](overview.md)
 - [Architecture](architecture.md)
 - [Onboarding](quickstart-onboard-iot-hub.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ATP for IoT alerts](concept-security-alerts.md)
+- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
+- [Understanding ASC for IoT alerts](concept-security-alerts.md)
