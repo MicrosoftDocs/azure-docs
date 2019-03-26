@@ -28,7 +28,7 @@ sections:
           html: <p>What is Video Indexer?</p>
           image:
             src: media/index/AMSIcons-media_servicesV3.svg
-          title: What is Video Indexer?
+          title: 
 
   - title: 5-Minute Quickstarts
     items:
@@ -40,7 +40,7 @@ sections:
       - image:
           src: media/index/AMSIcons-media_analytics.svg
         text: Extract insights
-        href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+        href: /azure/media-services/video-indexer/video-indexer-get-started
   - title: Step-by-Step Tutorials
     items:
     - type: paragraph
@@ -51,5 +51,5 @@ sections:
       - image: 
           src: media/index/AMSIcons-media_analytics.svg
         text: Extract insights
-        href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json   
+        href: /azure/media-services/video-indexer/video-indexer-use-apis
   
