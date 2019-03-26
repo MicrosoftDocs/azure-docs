@@ -1,5 +1,5 @@
 ---
-title: Enable Disk encryption for service fabric Linux clusters | Microsoft Docs
+title: Enable Disk encryption for Azure Service Fabric Linux clusters | Microsoft Docs
 description: This article describes how to enable disk encryption for Service Fabric cluster scale set in Azure by using Azure Resource Manager, Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
@@ -33,22 +33,22 @@ The guide covers the following procedures:
 
 ## Prerequisites
 
-1. **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
-2. You can self-register your subscription by running the following steps: 
-```Powershell
+* **Self-Registration** - In order to use, virtual machine scale set disk encryption preview requires self-registration
+* You can self-register your subscription by running the following steps: 
+```powershell
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
-3. Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
-```Powershell
+* Wait around 10 minutes until the state as 'Registered'. You can check the state by running the following command: 
+```powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
-4. **Azure Key Vault** - Create a KeyVault in the same subscription and region as the virtual machine scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
-```Powershell
+* **Azure Key Vault** - Create a KeyVault in the same subscription and region as the virtual machine scale set and set the access policy   'EnabledForDiskEncryption' on the KeyVault using its PS cmdlet. You can also set the policy using the KeyVault UI in the Azure portal: 
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-5. Install latest [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) , which has the new encryption commands.
-6. Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. The following are the virtual machine scale set ADE cmdlets to enable ([Set](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status and remove ([disable](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on scale set instance. 
+* Install latest [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) , which has the new encryption commands.
+* Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. The following are the virtual machine scale set ADE cmdlets to enable ([Set](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encryption, retrieve ([Get](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) encryption status and remove ([disable](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encryption on scale set instance. 
 
 | Command | Version |  Source  |
 | ------------- |-------------| ------------|
@@ -72,7 +72,7 @@ Use the following commands to create cluster and enable disk encryption using Az
 
 ### Sign in to Azure  
 
-```Powershell
+```powershell
 
 Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
@@ -131,9 +131,7 @@ Since for Linux virtual machine scale set - only data disk encryption is support
 ```
  
 
-```Powershell
-
-
+```powershell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
@@ -150,8 +148,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 Here is the equivalent CLI command to do the same. Change the values in the declare statements to appropriate values. CLI supports all the other parameters that the above powershell command supports.
 
-```CLI
-
+```azurecli
 declare certPassword=""
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -174,12 +171,12 @@ The output should show that added data disk on mount point column.
 
 
 #### Deploy application to Linux Service Fabric cluster
-Follow steps and guidance to [deploy application to your cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux)
+Follow steps and guidance to [deploy application to your cluster](service-fabric-quickstart-containers-linux.md)
 
 
 #### Enable disk encryption for Service Fabric Linux Cluster virtual machine scale set created above
  
-```Powershell
+```powershell
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
@@ -191,7 +188,7 @@ Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VM
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryption-keyvault <KeyVaultResourceId>
 
@@ -201,7 +198,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 Get status of an entire virtual machine scale set or any instance VM in scale set. See commands below.
 Additionally user can sign in to Linux Cluster VM and run LSBLK command. The output should show that added data disk on mount point column and Type column as Crypt for added data disk.
 
-```Powershell
+```powershell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
@@ -211,27 +208,22 @@ Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSe
 
 ```
 
-```CLI
-
+```azurecli
 az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 
 ```
 
-
-
 #### Disable disk encryption for Service Fabric Cluster virtual machine scale set 
 Disable disk encryption applies to entire virtual machine scale set and not by instance 
 
-```Powershell
-
+```powershell
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
 Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 
-```CLI
-
+```azurecli
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 ```
