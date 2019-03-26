@@ -98,7 +98,7 @@ The **Groups of VMs** section contains three tabs:
 
    The list includes:
 
-   - **Group Name***: the name of the subscription and group
+   - **Group Name**: the name of the subscription and group
    - **VMs and Computers**: the number of virtual machines in the group
    - **Mode**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
    - **Alerts**: any current violations
@@ -142,7 +142,7 @@ Security Center only recommends application whitelisting policies for virtual ma
 ![Recommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 The list contains:
-- **Group Name****: the name of the subscription and group
+- **Group Name**: the name of the subscription and group
 - **VMs and Computers**: the number of virtual machines in the group
 
 Azure Security Center enables you to define an application whitelisting policy on non-recommended groups of VMs as well. Follow the same principles as were previously described, to configure an application whitelisting policy on those groups as well.
