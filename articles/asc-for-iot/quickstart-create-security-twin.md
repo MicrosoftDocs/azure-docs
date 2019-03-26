@@ -52,7 +52,8 @@ To create a new _azureiotsecurity_ module twin for a device use the following in
 
 1. In your IoT Hub, locate and select the device you wish to create a security module twin for in your IoT Hub.
 1. Click on your device, and then on **Add module identity**.
-1. In the **Microsoft Identity Name** field, enter **azureiotsecurity**.
+1. In the **Module Identity Name** field, enter **azureiotsecurity**.
+
 1. Click **Save**. 
 
 ## Verify creation of a module twin
