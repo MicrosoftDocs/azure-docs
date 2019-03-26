@@ -73,7 +73,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Exit the Azure configuration area, and then select Done.
 
-1. After a few minutes, the process is completed. A sample Node.js app is set up in a Git repo in your Azure DevOps organization, an Function App and Application Insights is created, a CI/CD pipeline is executed, and your app is deployed to Azure.
+1. After a few minutes, the process is completed. A sample ASP.NET app is set up in a Git repo in your Azure DevOps organization, an Function App and Application Insights is created, a CI/CD pipeline is executed, and your app is deployed to Azure.
 
    After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
 
