@@ -83,9 +83,16 @@ You can set up an elastic pool resource to collect the following diagnostics tel
 | :------------------- | ------------------- |
 | **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
 
+To configure streaming of diagnostics telemetry for elastic pools and databases in elastic pools, you will need to separately configure **both** of the following:
+
+- Enable streaming of diagnostics telemetry for an elastic pool, **and**
+- Enable streaming of diagnostics telemetry for each database in elastic pool
+
+This is because elastic pool is a database container with its own telemetry being separate from an individual database telemetry.
+
 To enable streaming of diagnostics telemetry for an elastic pool resource, follow these steps:
 
-1. Go to the elastic pool resource in Azure portal.
+1. Go to the **elastic pool** resource in Azure portal.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 
@@ -137,6 +144,13 @@ You can set up a managed instance resource to collect the following diagnostics 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
 | **Managed instance** | ResourceUsageStats contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+
+To configure streaming of diagnostics telemetry for managed instance and instance databases, you will need to separately configure **both** of the following:
+
+- Enable streaming of diagnostics telemetry for managed instance, **and**
+- Enable streaming of diagnostics telemetry for each instance database
+
+This is because managed instance is a database container with its own telemetry being separate from an individual instance database telemetry.
 
 To enable streaming of diagnostics telemetry for a managed instance resource, follow these steps:
 
