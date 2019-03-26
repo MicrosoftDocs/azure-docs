@@ -21,7 +21,7 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 1. Open Windows PowerShell.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
    
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     Get-AzSubscription
     Select-AzSubscription -SubscriptionName "MySubscription"
