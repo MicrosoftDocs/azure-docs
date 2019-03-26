@@ -44,7 +44,7 @@ az aks create \
     --name myAKSCluster \
     --node-vm-size Standard_NC6 \
     --node-count 1 \
-    --kubernetes-version 1.11.7
+    --kubernetes-version 1.11.8
 ```
 
 Get the credentials for your AKS cluster using the [az aks get-credentials][az-aks-get-credentials] command:

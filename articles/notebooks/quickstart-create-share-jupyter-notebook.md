@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,12 +30,12 @@ ms.author: kraigb
 
 1. In the **Create New Project** popup that appears, enter or set the following details, then select **Create**:
 
-    - **Project name**: Hello World in Python
-    - **Project ID**: hello-world-python
-    - **Public project**: (cleared)
-    - **Create a README.md**: (cleared)
+   - **Project name**: Hello World in Python
+   - **Project ID**: hello-world-python
+   - **Public project**: (cleared)
+   - **Create a README.md**: (cleared)
 
-    ![New Project popup with populated details](media/quickstarts/new-project-popup.png)
+     ![New Project popup with populated details](media/quickstarts/new-project-popup.png)
 
 1. After a few moments, Azure Notebooks navigates you to the new project. Add a notebook to the project by selecting the **+ New** drop-down (which may appear as only **+**), then selecting **Notebook**:
 

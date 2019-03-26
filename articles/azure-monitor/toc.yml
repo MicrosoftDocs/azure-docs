@@ -281,12 +281,24 @@
             href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
             href: app/profiler-vm.md
+          - name: Profiler for Linux App services (preview)
+            href: app/profiler-aspnetcore-linux.md
           - name: Profiler Settings
             href: app/profiler-settings.md 
           - name: Track Requests for Profiling
             href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
             href: app/profiler-troubleshooting.md 
+        - name: Snapshot Debugger
+          items:
+          - name: Overview
+            href: app/snapshot-debugger.md 
+          - name: Enable Snapshot Debugger for an App Service
+            href: app/snapshot-debugger-appservice.md
+          - name: Enable Snapshot Debugger for other environments
+            href: app/snapshot-debugger-vm.md
+          - name: Snapshot Debugger troubleshooting
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
@@ -304,7 +316,7 @@
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
-          - name: Profiler for Linux App services
+          - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
@@ -326,8 +338,6 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Snapshot Debugger
-          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps

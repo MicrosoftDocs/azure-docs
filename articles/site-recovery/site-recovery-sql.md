@@ -25,7 +25,7 @@ Many workloads use SQL Server as a foundation, and it can be integrated with app
 * **SQL Server Failover Clustering Instances (Always On FCI)**: Two or more nodes running SQL Server instanced with shared disks are configured in a Windows Failover cluster. If a node is down, the cluster can fail SQL Server over to another instance. This setup is typically used to implement high availability at a primary site. This deployment doesn't protect against failure or outage in the shared storage layer. A shared disk can be implemented using iSCSI, fiber channel or shared vhdx.
 * **SQL Always On Availability Groups**: Two or more nodes are set up in a shared nothing cluster, with SQL Server databases configured in an availability group, with synchronous replication and automatic failover.
 
- This article leverages the following native SQL disaster recovery technologies for recovering databases to a remote site:
+  This article leverages the following native SQL disaster recovery technologies for recovering databases to a remote site:
 
 * SQL Always On Availability Groups, to provide for disaster recovery for SQL Server 2012 or 2014 Enterprise editions.
 * SQL database mirroring in high safety mode, for SQL Server Standard edition (any version), or for SQL Server 2008 R2.
@@ -40,7 +40,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
-**Azure**|NA| Yes
+**Azure** |NA| Yes
 
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
@@ -68,11 +68,11 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 | **Version** | **Edition** | **Deployment** | **On-prem to on premises** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
-|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |
-|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror | |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups |
+|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server 2008 R2 or 2008 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
 
 ## Deployment prerequisites

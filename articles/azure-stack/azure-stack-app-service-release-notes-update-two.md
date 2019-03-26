@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
@@ -49,6 +49,8 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
+- Updates **Azure Functions runtime** to **v1.0.11612**.
+
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
@@ -60,7 +62,7 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
     - NodeJS 8.11.1
   - Added **NPM** versions:
     - 5.6.0
-  - Updated .Net Core components to be consistent with Azure App Service in public cloud.
+  - Updated .NET Core components to be consistent with Azure App Service in public cloud.
   - Updated Kudu
 
 - Auto Swap of deployment slots feature enabled - [Configuring Auto Swap](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)

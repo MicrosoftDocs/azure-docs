@@ -44,7 +44,7 @@ The following tables list the operations or actions that can be done when the Bi
 | SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
 | ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
-| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
+| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |
 
 
 

@@ -38,8 +38,8 @@ You can create a Windows Server 2016 virtual machine by using the Azure CLI. Fol
 
 A resource group is a logical container where you can deploy and manage Azure Stack resources. From your Azure Stack environment, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
 
->[!NOTE]
- Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
+> [!NOTE]
+>  Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
 
 The following example creates a resource group named myResourceGroup in the local location.
 

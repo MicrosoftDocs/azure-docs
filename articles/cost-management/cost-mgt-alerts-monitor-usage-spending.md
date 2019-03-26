@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
@@ -44,7 +44,7 @@ Support for alert types depends on the type of Azure account that you have (Micr
 
 ## View cost alerts
 
-In the Azure portal, click **Cost Management + Billing** in the list of services. Then in the list under  **Cost Management**, select  **Cost alerts**.
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 ![Example image of alerts shown in Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

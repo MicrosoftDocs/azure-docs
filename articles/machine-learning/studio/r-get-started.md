@@ -1,5 +1,5 @@
 ---
-title: Getting started with the R programming language
+title: Getting started with R
 titleSuffix: Azure Machine Learning Studio
 description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio to create a forecasting solution.
 services: machine-learning
@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
@@ -126,7 +126,7 @@ If you don't understand the last line of this code at the moment, read on. In th
 
 RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this guide. Once the R code is tested and ready, you can simply cut and paste from the RStudio editor into a Machine Learning Studio [Execute R Script][execute-r-script] module.  
 
-If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open-source R language are available at the Comprehensive R Archive Network (CRAN) at [http://www.r-project.org/](http://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
+If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open-source R language are available at the Comprehensive R Archive Network (CRAN) at [https://www.r-project.org/](https://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
@@ -1307,18 +1307,18 @@ RStudio is quite well documented. Here are some links to the key sections of the
 
 This R programming tutorial covers the basics of what you need to use the R language with Azure Machine Learning Studio. If you are not familiar with R, two introductions are available on CRAN:
 
-* [R for Beginners](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) by Emmanuel Paradis is a good place to start.  
-* [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.html) by W. N. Venables et. al. goes into a bit more depth.
+* [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) by Emmanuel Paradis is a good place to start.  
+* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.html) by W. N. Venables et. al. goes into a bit more depth.
 
 There are many books on R that can help you get started. Here are a few I find useful:
 
 * The **Art of R Programming: A Tour of Statistical Software Design** by Norman Matloff is an excellent introduction to programming in R.  
 * **R Cookbook** by Paul Teetor provides a problem and solution approach to using R.  
-* **R in Action** by Robert Kabacoff is another useful introductory book. The companion [Quick R website](http://www.statmethods.net/) is a useful resource.
+* **R in Action** by Robert Kabacoff is another useful introductory book. The companion [Quick R website](https://www.statmethods.net/) is a useful resource.
 * **R Inferno** by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
 * If you want a deep dive into advanced topics in R, have a look at the book **Advanced R** by Hadley Wickham. The online version of this book is available for free at [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/).
 
-A catalog of R time series packages can be found in [CRAN Task View: Time Series Analysis](http://cran.r-project.org/web/views/TimeSeries.html). For information on specific time series object packages, you should refer to the documentation for that package.
+A catalog of R time series packages can be found in [CRAN Task View: Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html). For information on specific time series object packages, you should refer to the documentation for that package.
 
 The book **Introductory Time Series** with R by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
 
@@ -1326,8 +1326,8 @@ Here are some great internet resources:
 
 * DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free [interactive R tutorial](https://www.datacamp.com/courses/introduction-to-r).
 * [Learn R Programming, The Definitive Guide](https://www.programiz.com/r-programming) from Programiz.
-* A quick [R Tutorial](http://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
-* There are over 60 R resources listed at [Top R language resources to improve your data skills](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* A quick [R Tutorial](https://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
+* There are over 60 R resources listed at [Top R language resources to improve your data skills](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
 [execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script

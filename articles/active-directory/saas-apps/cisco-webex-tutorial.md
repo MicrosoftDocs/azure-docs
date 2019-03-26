@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -165,7 +165,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 ### Configure Cisco Webex Meetings Single Sign-On
 
-1. Go to [Cisco Cloud Collaboration Management](http://www.webex.com/go/connectadmin) with your administration credentials.
+1. Go to [Cisco Cloud Collaboration Management](https://www.webex.com/go/connectadmin) with your administration credentials.
 
 2. Go to **Security Settings** and navigate to **Federated Web SSO Configuration**.
  
@@ -208,7 +208,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

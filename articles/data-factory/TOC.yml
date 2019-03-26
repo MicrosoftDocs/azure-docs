@@ -303,6 +303,9 @@
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Load SAP BW data
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -352,6 +355,8 @@
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md 
+    - name: Load SAP BW data
+      href: load-sap-bw-data.md
     - name: Load Office 365 data
       href: load-office-365-data.md
     - name: Read or write partitioned data
@@ -427,6 +432,8 @@
     items:
     - name: Aggregate
       href: data-flow-aggregate.md
+    - name: Alter row
+      href: data-flow-alter-row.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -529,20 +536,20 @@
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
   - name: Create triggers
     items:
-    - name: Create a schedule trigger
-      href: how-to-create-schedule-trigger.md
-    - name: Create a tumbling window trigger
-      href: how-to-create-tumbling-window-trigger.md
-    - name: Create a tumbling window trigger dependency
-      href: tumbling-window-trigger-dependency.md
     - name: Create an event-based trigger
       href: how-to-create-event-trigger.md
+    - name: Create a schedule trigger
+      href: how-to-create-schedule-trigger.md
+    - name: Create a tumbling window trigger 
+      href: how-to-create-tumbling-window-trigger.md
   - name: Templates
     items:
     - name: Overview of templates
       href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copy new files by LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md 
     - name: Bulk copy with control table
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy with control table

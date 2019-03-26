@@ -283,7 +283,11 @@
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
     - name: Migrate to latest schema
-      href: ../connectors/connectors-schema-migration.md  
+      href: ../connectors/connectors-schema-migration.md
+  - name: Test
+    items:
+      - name: Test logic apps with mock data
+        href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
       - name: Define and deploy logic apps
@@ -363,7 +367,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-logic-apps
+    href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter
     href: https://twitter.com/logicappsio
   - name: Pricing
