@@ -46,7 +46,7 @@ The following steps illustrate how to change the order in which the artifacts ar
 1. At the top of the **Apply artifacts** pane, select the link indicating the number of artifacts that have been added to the VM.
    
     ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. On the **Selected artifacts** pane, drag and drop the artifacts into the desired order. **Note:** If you have trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
+1. On the **Selected artifacts** pane, drag and drop the artifacts into the desired order. If you have trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
 1. Select **OK** when done.  
 
 ### View or modify an artifact
