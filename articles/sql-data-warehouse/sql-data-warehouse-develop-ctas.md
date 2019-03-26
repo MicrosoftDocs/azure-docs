@@ -2,13 +2,13 @@
 title: CREATE TABLE AS SELECT (CTAS) in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for coding with the CREATE TABLE AS SELECT (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/26/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
 ---
 
@@ -17,7 +17,7 @@ Tips for coding with the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Azure 
 
 ## What is CREATE TABLE AS SELECT (CTAS)?
 
-The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or CTAS statement is one of the most important T-SQL features available. It is a parallel operation that creates a new table based on the output of a SELECT statement. CTASD is the simplest and fastest way to create a copy of a table. 
+The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or CTAS statement is one of the most important T-SQL features available. It is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command. 
 
 ## SELECT..INTO vs. CTAS
 You can consider CTAS as a super-charged version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql) statement.
@@ -30,7 +30,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-In the preceding example, `[dbo].[FactInternetSales_new]` is be created as ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX since these are the table defaults in Azure SQL Data Warehouse.
+In the preceding example, `[dbo].[FactInternetSales_new]` is created as a ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX since these are the table defaults in Azure SQL Data Warehouse.
 
 SELECT..INTO, however, does not allow you to change either the distribution method or the index type as part of the operation. This is where CTAS comes in.
 
@@ -119,11 +119,6 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
 DROP TABLE FactInternetSales_old;
 ```
-
-> [!NOTE]
-> Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][Statistics] topic in the Develop group of topics.
-> 
-> 
 
 ## Using CTAS to work around unsupported features
 CTAS can also be used to work around a number of the unsupported features listed below. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design. Scenarios that can be worked around with CTAS include:
