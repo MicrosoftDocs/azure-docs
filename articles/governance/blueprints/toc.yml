@@ -85,6 +85,8 @@
 - name: References
   expanded: true
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
     href: /dotnet/api/overview/azure/blueprints/management
   - name: REST
