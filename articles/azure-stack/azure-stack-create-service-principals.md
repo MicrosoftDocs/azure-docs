@@ -85,11 +85,11 @@ Tasks for managing AD FS service principals.
 | Type | Action |
 | --- | --- |
 | AD FS Certificate | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS Client Secret | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS Client Secret | [Update](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### Create a service principal using a certificate
 
