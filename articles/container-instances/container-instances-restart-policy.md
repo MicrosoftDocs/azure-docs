@@ -119,7 +119,5 @@ For details on how to persist the output of your containers that run to completi
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli
