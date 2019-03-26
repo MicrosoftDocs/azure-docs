@@ -52,7 +52,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
     The following example used Windows PowerShell to verify the cryptographic hash for version 3.13.4 of the x64 MSI distribution:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -184,7 +184,7 @@ Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
 Replace the value of **REG_ID** with your registration ID.
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -195,7 +195,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
