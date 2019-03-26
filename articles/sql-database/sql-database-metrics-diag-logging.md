@@ -83,9 +83,16 @@ You can set up an elastic pool resource to collect the following diagnostics tel
 | :------------------- | ------------------- |
 | **Elastic pool** | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. |
 
+To configure streaming of diagnostics telemetry for elastic pools and databases in elastic pools, you will need to separately configure **both** of the following:
+
+- Enable streaming of diagnostics telemetry for an elastic pool, **and**
+- Enable streaming of diagnostics telemetry for each database in elastic pool
+
+This is because elastic pool is a database container with its own telemetry being separate from an individual database telemetry.
+
 To enable streaming of diagnostics telemetry for an elastic pool resource, follow these steps:
 
-1. Go to the elastic pool resource in Azure portal.
+1. Go to the **elastic pool** resource in Azure portal.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 
@@ -96,8 +103,8 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 1. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
 1. Select the check box for elastic pool diagnostics telemetry: **AllMetrics**.
 1. Select **Save**.
-
    ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. Configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following the steps described in the next section.
 
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need configure diagnostics telemetry for each database in elastic pool, as documented below. 
@@ -106,9 +113,9 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 
    ![SQL Database icon](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-To enable streaming of diagnostics telemetry for single, pooled, or instance databases, follow these steps:
+To enable streaming of diagnostics telemetry for single or pooled databases, follow these steps:
 
-1. Go to your Azure SQL database resource.
+1. Go to Azure **SQL database** resource.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
    - You can create up to three parallel connections to stream diagnostics telemetry.
@@ -138,9 +145,16 @@ You can set up a managed instance resource to collect the following diagnostics 
 | :------------------- | ------------------- |
 | **Managed instance** | ResourceUsageStats contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
 
+To configure streaming of diagnostics telemetry for managed instance and instance databases, you will need to separately configure **both** of the following:
+
+- Enable streaming of diagnostics telemetry for managed instance, **and**
+- Enable streaming of diagnostics telemetry for each instance database
+
+This is because managed instance is a database container with its own telemetry being separate from an individual instance database telemetry.
+
 To enable streaming of diagnostics telemetry for a managed instance resource, follow these steps:
 
-1. Go to the managed instance resource in Azure portal.
+1. Go to the **managed instance** resource in Azure portal.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
 
@@ -151,8 +165,8 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 1. For log analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or use an existing workspace.
 1. Select the check box for instance diagnostics telemetry: **ResourceUsageStats**.
 1. Select **Save**.
-
    ![Configure diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. Configure streaming of diagnostics telemetry for each instance database within the managed instance you want to monitor by following the steps described in the next section.
 
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
@@ -163,7 +177,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 
 To enable streaming of diagnostics telemetry for instance databases, follow these steps:
 
-1. Go to your instance database in managed instance.
+1. Go to **instance database** resource within managed instance.
 2. Select **Diagnostics settings**.
 3. Select **Turn on diagnostics** if no previous settings exist, or select **Edit setting** to edit a previous setting.
    - You can create up to three (3) parallel connections to stream diagnostics telemetry.

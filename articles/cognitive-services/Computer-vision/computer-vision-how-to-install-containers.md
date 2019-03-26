@@ -38,7 +38,7 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations

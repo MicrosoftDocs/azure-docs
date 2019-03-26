@@ -105,8 +105,6 @@ To display the Tez UI for the query, select the **Tez** tab below the worksheet.
 > [!IMPORTANT]  
 > Tez is not used to resolve all queries. You can resolve many queries without using Tez. 
 
-If Tez was used to resolve the query, the Directed Acyclic Graph (DAG) is displayed. If you want to view the DAG for queries you've run in the past, or if you want to debug the Tez process, use the [Tez View](../hdinsight-debug-ambari-tez-view.md) instead.
-
 ## View job history
 
 The __Jobs__ tab displays a history of Hive queries.
