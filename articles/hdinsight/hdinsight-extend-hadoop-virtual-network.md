@@ -30,6 +30,8 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 > [!IMPORTANT]  
 > If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Planning
 
 The following are the questions that you must answer when planning to install HDInsight in a virtual network:
@@ -75,7 +77,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         ```powershell
         $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-        get-azurermnetworksecuritygroup -resourcegroupname $resourceGroupName
+        get-Aznetworksecuritygroup -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
@@ -92,7 +94,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         ```powershell
         $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-        get-azurermroutetable -resourcegroupname $resourceGroupName
+        get-Azroutetable -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
@@ -179,7 +181,7 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 	```powershell
 	$resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-	$clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+	$clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
 	$nodes = @()
 	foreach($nic in $clusterNICs) {
@@ -273,9 +275,10 @@ If you use network security groups, you must allow traffic from the Azure health
     | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 | Inbound |
     | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 | Inbound |
     | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 | Inbound |
-    | China | China North | 42.159.96.170</br>139.217.2.219 | 443 | Inbound |
-    | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inbound |
+    | China | China North | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Inbound |
+    | &nbsp; | China East | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Inbound |
     | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
+    | &nbsp; | China East 2 | 139.217.227.106</br>139.217.228.187 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
     | France | France Central| 20.188.39.64</br>40.89.157.135 | 443 | Inbound |
@@ -337,7 +340,7 @@ $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
 # Get the Virtual Network object
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
 # Get the region the Virtual network is in.
@@ -346,11 +349,11 @@ $location = $vnet.Location
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
 # Create a Network Security Group.
 # And add exemptions for the HDInsight health and management services.
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
     -Name "hdisecure" `
     -ResourceGroupName $resourceGroupName `
     -Location $location `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -name "hdirule1" `
         -Description "HDI health and management address 52.164.210.96" `
         -Protocol "*" `
@@ -361,7 +364,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 300 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -Name "hdirule2" `
         -Description "HDI health and management 13.74.153.132" `
         -Protocol "*" `
@@ -372,7 +375,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 301 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -Name "hdirule3" `
         -Description "HDI health and management 168.61.49.99" `
         -Protocol "*" `
@@ -383,7 +386,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 302 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -Name "hdirule4" `
         -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
@@ -394,7 +397,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 303 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -Name "hdirule5" `
         -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
@@ -405,7 +408,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 304 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
+    | Add-AzNetworkSecurityRuleConfig `
         -Name "hdirule6" `
         -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
@@ -417,14 +420,14 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 305 `
         -Direction Inbound `
 # Set the changes to the security group
-Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
+Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
-$vnet | Set-AzureRmVirtualNetwork
+$vnet | Set-AzVirtualNetwork
 ```
 
 > [!IMPORTANT]  
@@ -433,7 +436,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > The following example demonstrates how to enable SSH access from the Internet:
 >
 > ```powershell
-> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
+> Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
 ### Azure Classic CLI
@@ -456,10 +459,10 @@ Use the following steps to create a virtual network that restricts inbound traff
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule6 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
     ```
 
 3. To retrieve the unique identifier for this network security group, use the following command:
@@ -509,7 +512,7 @@ On the custom DNS server in the virtual network:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-    $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
+    $NICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
@@ -591,7 +594,7 @@ This example makes the following assumptions:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-    $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
+    $NICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
