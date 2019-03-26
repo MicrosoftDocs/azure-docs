@@ -7,7 +7,7 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/25/2019
 ms.custom: seodec2018
 ---
 # How to compose a query in Azure Search
