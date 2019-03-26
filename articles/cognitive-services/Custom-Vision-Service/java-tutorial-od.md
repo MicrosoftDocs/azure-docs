@@ -39,7 +39,7 @@ This Java project creates a new Custom Vision object detection project named __S
 
 The program is configured to store your key data as environment variables. Set these variables by navigating to the **Vision/CustomVision** folder in PowerShell. Then enter the commands:
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -88,7 +88,7 @@ The prediction endpoint, represented by the `predictor` object here, is the refe
 
 To compile and run the solution using maven, run the following command in the project directory in PowerShell:
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

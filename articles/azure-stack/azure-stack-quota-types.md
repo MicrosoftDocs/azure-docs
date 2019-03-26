@@ -25,8 +25,8 @@ ms.lastreviewed: 12/07/2018
 
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
 
-> [!IMPORTANT]  
-> It can take up to two hours before a quota value is enforced.
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
 
 ## Compute quota types
 

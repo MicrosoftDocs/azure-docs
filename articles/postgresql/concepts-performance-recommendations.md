@@ -1,18 +1,15 @@
 ---
 title: Performance recommendations in Azure Database for PostgreSQL
-description: This article describes the performance recommendations one can get in Azure Database for PostgreSQL.
+description: This article describes the Performance Recommendation feature in Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 03/26/2018
 ---
 # Performance Recommendations in Azure Database for PostgreSQL
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
-
-> [!IMPORTANT]
-> Performance Recommendations is in Public Preview.
 
 The Performance Recommendations feature identifies the top indexes which can be created in your Azure Database for PostgreSQL server to improve performance. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes. 
 
