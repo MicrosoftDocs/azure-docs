@@ -32,8 +32,6 @@ Configuration options available in automated machine learning:
 ## Select your experiment type
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting.
 
-While automated machine learning capabilities are generally available, **forecasting is still in public preview.**
-
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
 Classification | Regression | Forecasting
