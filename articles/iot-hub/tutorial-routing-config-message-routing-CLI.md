@@ -14,7 +14,9 @@ ms.custom: mvc
 
 # Tutorial: Configure IoT Hub message routing using Azure CLI
 
-[!INCLUDE [../../includes/iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+[!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
 ## Download the script (optional)
 

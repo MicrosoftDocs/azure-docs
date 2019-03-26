@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resources and the routing using Azure PowerShell.
@@ -15,6 +15,8 @@ ms.custom: mvc
 # Tutorial: Configure IoT Hub message routing using Azure PowerShell
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
 ## Download the script (optional)
 
