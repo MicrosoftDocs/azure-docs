@@ -1,5 +1,5 @@
 ---
-title: How to update Azure Monitor for containers for custom metrics | Microsoft Docs
+title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 services: azure-monitor
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.date: 03/27/2019
 ms.author: magoedte
 ---
 
-# How to update Azure Monitor for containers to enable custom metrics
-Azure Monitor for containers is introducing support for collecting performance metrics from Azure Kubernetes Services (AKS) clusters nodes and pods to calculate average/count/min/max/sum utilization of the cluster resource viewed in performance charts, create metric alerts, and pin performance charts in Azure dashboards. 
+# How to update Azure Monitor for containers to enable metrics
+Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, metric alerts, and when pinning performance charts in Azure portal dashboards.
 
 The following metrics are enabled as part of this feature:
 
@@ -42,7 +42,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 For existing AKS clusters monitored by Azure Monitor for containers, after selecting the cluster to view its health from the multi-cluster view in Azure Monitor or directly from the cluster by selecting **Insights** from the left-hand pane, you should see a banner at the top of the portal.
 
-![Upgrade AKS cluster banner in Azure portal](./media/container-insights-onboard-metrics/portal-banner-enable-01.png)
+![Upgrade AKS cluster banner in Azure portal](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
 Clicking **Enable** will initiate the process to upgrade the cluster. This process can take several seconds to finish, and you can track its progress under Notifications from the menu.
 
