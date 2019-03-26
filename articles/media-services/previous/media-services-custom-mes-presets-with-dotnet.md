@@ -261,6 +261,11 @@ namespace CustomizeMESPresests
 }
 ```
 
+## See also
+
+- [How to encode with a custom transform by using CLI](../latest/custom-preset-cli-howto.md)
+- [Encoding with Media Services v3](../latest/encoding-concept.md)
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
