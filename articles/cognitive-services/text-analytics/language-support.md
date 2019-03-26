@@ -13,13 +13,13 @@ ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
 
-This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, and language detection.
+This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, language detection and named entity recognition.
 
 ## Language Detection
 
 The Text Analytics API can detect up to 120 different languages. Language Detection returns the "script" of a language. For instance, for the phrase "I have a dog" it will return  `en` instead of  `en-US`. The only special case is Chinese, where the language detection capability will return `zh_CHS` or `zh_CHT` if it can determine the script given the text provided. In situations where a specific script cannot be identified for a Chinese document, it will return simply `zh`.
 
-## Sentiment Analysis, Key Phrase Extraction, and Entity Recognition
+## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
 For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages.
 
@@ -27,7 +27,7 @@ For sentiment analysis, key phrase extraction, and entity recognition, the list 
 
 Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. It's possible for languages to remain in preview, even while Text Analytics API transitions to generally available.
 
-| Language    | Language code | Sentiment | Key phrases | Entity Recognition |   Notes  |
+| Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danish      | `da`          | ✔ \*     | ✔           |             |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |             |     |
