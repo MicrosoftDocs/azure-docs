@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to manage Azure AD access rights to containers and queues with RBAC - Azure Storage | Microsoft Docs
+title: Use the Azure portal to manage Azure AD access rights to blob and queue data with RBAC - Azure Storage | Microsoft Docs
 description: Use role-based access control (RBAC) from the Azure portal to assign access to containers and queues to security principals. Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
 services: storage
 author: tamram
@@ -11,9 +11,9 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Grant access to Azure containers and queues with RBAC in the Azure portal
+# Grant access to Azure blob and queue data with RBAC in the Azure portal
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues. 
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -31,7 +31,7 @@ This article describes how to use the Azure portal to assign RBAC roles. The Azu
 
 After you have determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the **Access Control (IAM)** settings for the resource, and follow these instructions to manage role assignments:
 
-1. Assign the appropriate Azure Storage RBAC role to grant access to containers or queues. For read access, assign the **Blob Data Reader** or **Queue Data Reader** role. For read, write, and delete access, assign the **Blob Data Contributor** or **Queue Data Contributor** role. You can also assign a custom role.
+1. Assign the appropriate Azure Storage RBAC role to grant access to an Azure AD security principal.
 
 1. Assign the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role to users who need to access containers or queues via the Azure portal using their Azure AD credentials. 
 

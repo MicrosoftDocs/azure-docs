@@ -49,4 +49,4 @@ For details on the permissions required to call Azure Storage operations, see [P
 
 - [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
 - [Authenticate access to blobs and queues with managed identities for Azure Resources](storage-auth-aad-msi.md)
-- Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../articles/storage/files/storage-files-active-directory-overview.md).
+- Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to manage Azure AD access rights to containers and queues with RBAC - Azure Storage
+title: Use Azure CLI to manage Azure AD access rights to blob and queue data with RBAC - Azure Storage
 description: Use Azure CLI to assign access to containers and queues with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
 services: storage
 author: tamram
@@ -11,9 +11,9 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Grant access to Azure containers and queues with RBAC using Azure CLI
+# Grant access to Azure blob and queue data with RBAC using Azure CLI
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues. 
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -113,8 +113,25 @@ az role assignment create \
     --resource-group sample-resource-group
 ```
 
+### Subscription scope
+
+To assign a role scoped to the subscription, specify the scope for the subscription for the `--scope` parameter. The scope for a subscription is in the form:
+
+```
+/subscriptions/<subscription>
+```
+
+The following example shows how to assign the **Storage Blob Data Reader** role to a user at the level of the storage account. Make sure to replace the sample values with your own values: 
+
+```azurecli-interactive
+az role assignment create \
+    --role "Storage Blob Data Reader" \
+    --assignee <email> \
+    --scope "/subscriptions/<subscription-id>"
+```
+
 ## Next steps
 
 - [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure containers and queues with RBAC using Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Grant access to Azure blob and queue data with RBAC using Azure PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
