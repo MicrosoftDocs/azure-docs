@@ -22,7 +22,7 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | - cpuUsageMillicores<br> - cpuUsagePercentage<br> -  memoryRssBytes<br> - memoryRssPercentage<br> - memoryWorkingSetBytes<br> - memoryWorkingSetPercentage<br> - nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the node’s name as value for the *host* dimension. |
+| insights.container/nodes | - cpuUsageMillicores<br> - cpuUsagePercentage<br> -  memoryRssBytes<br> - memoryRssPercentage<br> - memoryWorkingSetBytes<br> - memoryWorkingSetPercentage<br> - nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the<br> node’s name as value for the *host* dimension. |
 | insights.container/pods | podCount | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 
 Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include these new capabilities.
