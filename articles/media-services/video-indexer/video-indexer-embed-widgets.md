@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -19,7 +19,7 @@ This article shows how you can embed Video Indexer widgets into your application
 > [!NOTE]
 > Starting with Feb 1, 2018, version 1 of the **Cognitive Insights** widget will be deprecated. The embed URL version will default to `version=2`.
 
-Starting with version 2, the widget base URL includes the accout's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the account's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## Widget types
 
@@ -41,7 +41,7 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 |t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
 |captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: captions=en-US|
 |showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: showCaptions=true|
-|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|"
+|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|
 |autoplay|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: autoplay=false|
 |language|Language code|Controls the player language (default is en-US)<br/>Example: language=de-DE|
 

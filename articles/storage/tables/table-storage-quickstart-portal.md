@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Quickstart: Create an Azure Storage table in the Azure portal 
 

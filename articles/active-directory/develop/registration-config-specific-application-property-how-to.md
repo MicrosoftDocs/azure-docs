@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to fill out specific fields for a custom-developed application

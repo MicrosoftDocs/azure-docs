@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: curtand
@@ -17,6 +17,7 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, to delegate permissions across Microsoft 365 workloads quickly and accurately I want to know where the content is for admin roles.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Administrator roles for Microsoft 365 workloads

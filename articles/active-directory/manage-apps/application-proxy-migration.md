@@ -3,8 +3,8 @@ title: Upgrade to Azure AD Application Proxy | Microsoft Docs
 description: Choose which proxy solution is best if you're upgrading from Microsoft Forefront or Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/27/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 # Compare remote access solutions
 
@@ -51,7 +52,7 @@ Azure AD Application Proxy offers unique benefits when compared to similar produ
 - Extending Azure AD to on-premises resources
    - Cloud-scale security and protection
    - Features like conditional access and Multi-Factor Authentication are easy to enable
-- No componenet in the demilitarized zone
+- No components in the demilitarized zone
 - No inbound connections required
 - One access panel that your users can go to for all their applications, including O365, Azure AD integrated SaaS apps, and your on-premises web apps. 
 

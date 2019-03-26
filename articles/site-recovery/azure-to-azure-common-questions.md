@@ -4,7 +4,7 @@ description: This article summarizes common questions when you set up disaster r
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
 
@@ -15,8 +15,13 @@ This article provides answers to common questions about deploying disaster recov
 
 
 ## General
+
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
+### How does the free tier for Azure Site Recovery work?
+Every instance that is protected with Azure Site Recovery is free for the first 31 days of protection. From the 32nd day onwards, protection for the instance is charged at the rates above.
+### During the first 31 days, will I incur any other Azure charges?
+Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### What are the best practices for configuring Site Recovery on Azure VMs?
 1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)
@@ -39,7 +44,7 @@ Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disast
 
 ### Can I exclude disks?
 
-Yes, you can exclude disks at the time of protection by using PowerShell. For more information, see the [PowerShell guidance](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+Yes, you can exclude disks at the time of protection by using PowerShell. For more information, refer [article](azure-to-azure-exclude-disks.md)
 
 ### How often can I replicate to Azure?
 Replication is continuous when you're replicating Azure VMs to another Azure region. For more information, see the [Azure-to-Azure replication architecture](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
@@ -53,6 +58,10 @@ With Site Recovery, you can replicate and recover VMs between any two regions wi
 ### Does Site Recovery require internet connectivity?
 
 No, Site Recovery does not require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+
+### Can I replicate the application having separate resource group for separate tiers? 
+Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
+For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate these three tiers in three different resource group.
 
 ## Replication policy
 
@@ -73,12 +82,15 @@ Today, most applications can recover well from crash-consistent snapshots. A cra
 Site Recovery creates a crash-consistent recovery point every 5 minutes.
 
 ### What is an application-consistent recovery point? 
-Application-consistent recovery points are created from application-consistent snapshots. Application-consistent snapshots capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. 
+Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. 
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
+### What is the impact of application-consistent recovery points on application performance?
+Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
+
 ### What is the minimum frequency of application-consistent recovery point generation?
-Site Recovery can creates a application-consistent recovery point with a minimum frequency of in 1 hour.
+Site Recovery can creates an application-consistent recovery point with a minimum frequency of in 1 hour.
 
 ### How are recovery points generated and saved?
 To understand how Site Recovery generates recovery points, let's take an example of a replication policy that has a recovery point retention window of 24 hours and an app-consistent frequency snapshot of 1 hour.
@@ -90,7 +102,7 @@ The following screenshot illustrates the example. In the screenshot:
 1. For time less than the last 1 hour, there are recovery points with a frequency of 5 minutes.
 2. For time beyond the last 1 hour, Site Recovery keeps only 1 recovery point.
 
-  ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### How far back can I recover?
@@ -159,7 +171,7 @@ You can trigger a failover after the outage. Site Recovery doesn't need connecti
 ### What is a RTO of a virtual machine failover ?
 Site Recovery has a [RTO SLA of 2 hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). However, most of the time, Site Recovery fail over virtual machines within minutes. You can calculate the RTO by going to the failover Jobs which shows the time it took to bring up the VM. For Recovery plan RTO, refer below section. 
 
-## Recovery plan
+## Recovery plans
 
 ### What is a recovery plan?
 A recovery plan in Site Recovery orchestrates the failover recovery of VMs. It helps make the recovery consistently accurate, repeatable, and automated. A recovery plan addresses the following needs for the user:
@@ -193,6 +205,11 @@ It depends on the situation. For example, if the source region VM exists, only c
 
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
+
+## Capacity
+### Does Site Recovery work with Reserved Instance?
+Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
+
 
 ## Security
 ### Is replication data sent to the Site Recovery service?

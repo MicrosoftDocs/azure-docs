@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK license agreement.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -46,7 +46,7 @@ e)	share, publish, or lend the software (except for any distributable code, and 
 
 f)	You must use the software only in combination with Microsoft Azure Cognitive Services, Speech service
 
-**3\. DATA COLLECTION.** This software may interact with other Microsoft products that collect data that is transmitted to Microsoft. To learn more about how Microsoft processes personal data we collect, please see the Microsoft Privacy Statement at http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. DATA COLLECTION.** This software may interact with other Microsoft products that collect data that is transmitted to Microsoft. To learn more about how Microsoft processes personal data we collect, please see the Microsoft Privacy Statement at https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. PRE-RELEASE SOFTWARE.** The software is a pre-release version. It may not operate correctly. It may be different from the commercially released version.
 
@@ -77,9 +77,9 @@ b)	Canada. If you acquired this software in Canada, you may stop receiving updat
 c)	Germany and Austria.
 
 > (i)	Warranty. The properly licensed software will perform substantially as described in any Microsoft materials that accompany the software. However, Microsoft gives no contractual guarantee in relation to the licensed software.
-
+> 
 > (ii)	Limitation of Liability. In case of intentional conduct, gross negligence, claims based on the Product Liability Act, as well as, in case of death or personal or physical injury, Microsoft is liable according to the statutory law.
-
+> 
 > Subject to the foregoing clause (ii), Microsoft will only be liable for slight negligence if Microsoft is in breach of such material contractual obligations, the fulfillment of which facilitate the due performance of this agreement, the breach of which would endanger the purpose of this agreement and the compliance with which a party may constantly trust in (so-called "cardinal obligations"). In other cases of slight negligence, Microsoft will not be liable for slight negligence.
 
 **15\. DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED "AS IS." YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES NO EXPRESS WARRANTIES, GUARANTEES, OR CONDITIONS. TO THE EXTENT PERMITTED UNDER APPLICABLE LAWS, MICROSOFT EXCLUDES ALL IMPLIED WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.**

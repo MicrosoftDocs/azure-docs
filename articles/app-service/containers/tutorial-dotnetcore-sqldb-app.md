@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -355,6 +355,35 @@ Once the `git push` is complete, navigate to your Azure app and try out the new 
 ![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database is not lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
+
+## Stream diagnostic logs
+
+The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) with two configuration changes:
+
+- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
+
+> [!NOTE]
+> The project's log level is set to `Information` in *appsettings.json*.
+> 
+
+In App Service on Linux, apps are run inside a container from a default Docker image. You can access the console logs generated from within the container. To get the logs, first turn on container logging by running the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Once container logging is turned on, watch the log stream by running the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
+
+To stop log streaming at anytime, type `Ctrl`+`C`.
+
+For more information on customizing the ASP.NET Core logs, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## Manage your Azure app
 

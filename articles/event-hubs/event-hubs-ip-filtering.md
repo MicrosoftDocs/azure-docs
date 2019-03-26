@@ -21,7 +21,7 @@ For scenarios in which Azure Event Hubs should be only accessible from certain w
 
 ## When to use
 
-If you are looking to setup your Event Hubs namespace such that it should receive traffic from only a specified range of IP addresses and reject everything else, then you can leverage a *Firewall rule* to block Event Hub endpoints from other IP addresses.For example, you are using Event Hubs with [Azure Express Route][express-route] to create private connections to your on-premises infrastructure.
+If you are looking to setup your Event Hubs namespace such that it should receive traffic from only a specified range of IP addresses and reject everything else, then you can leverage a *Firewall rule* to block Event Hub endpoints from other IP addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a *Firewall rule* to restrict the traffic from your on-premises infrastructure IP addresses.
 
 ## How filter rules are applied
 

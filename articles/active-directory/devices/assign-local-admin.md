@@ -18,8 +18,9 @@ ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
 
-#Customer intent: As a IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
+#Customer intent: As an IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
 
+ms.collection: M365-identity-device-management
 ---
 # How to manage the local administrators group on Azure AD joined devices
 

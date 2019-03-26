@@ -1,6 +1,6 @@
 ---
-title: Use Azure AD access reviews to manage users that have been excluded from conditional access policies | Microsoft Docs
-description: Use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
+title: Use Azure AD Access Reviews to manage users excluded from conditional access policies | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) Access Reviews to manage users that have been excluded from conditional access policies
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,11 +15,12 @@ ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD access reviews to manage users that have been excluded from conditional access policies
+# Use Azure AD Access Reviews to manage users excluded from conditional access policies
 
-In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
+In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) Access Reviews.
 
 > [!NOTE]
 > A valid Azure AD Premium P2, Enterprise Mobility + Security E5 paid, or trial license is required to use Azure AD access reviews. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
@@ -96,7 +97,7 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a conditional access policy that blocks access from certain countries. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
-> A Global Administrator or User Account Administrator role is required to create access reviews.
+> A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will reoccur every week.
 
@@ -152,5 +153,5 @@ As an IT administrator, you know that managing exclusion groups to your policies
 
 ## Next steps
 
-- [Create an access review of group members or application access with Azure AD](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

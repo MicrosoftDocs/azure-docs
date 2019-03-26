@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
+ms.lastreviewed: 01/16/2019
 
 ---
 
@@ -23,7 +24,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview.
+> Kubernetes on Azure Stack is in preview. Azure Stack disconnected scenario is not currently supported by the preview.
 
 You can follow the steps in this article to deploy and set up the resources for Kubernetes in a single, coordinated operation. The steps use an Azure Resource Manager solution template. You'll need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. The Azure Stack template doesn't use the same managed AKS service offered in global Azure.
 
@@ -35,7 +36,7 @@ You can use Kubernetes to:
 
 - Develop massively scalable, upgradable, applications that can be deployed in seconds. 
 - Simplify the design of your application and improve its reliability by different Helm applications. [Helm](https://github.com/kubernetes/helm) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications.
-- Easily monitor and diagnose the health of your applications with scale and upgrade functionality.
+- Easily monitor and diagnose the health of your applications.
 
 You'll only be charged for the compute usage required by the nodes supporting your cluster. For more information, see [Usage and billing in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
@@ -56,6 +57,8 @@ You're now ready to connect to your cluster. The master can be found in your clu
 You may also find the **Helm** package manager useful for installing and deploying apps to your cluster. For instructions on installing and using Helm with your cluster, see [helm.sh](https://helm.sh/).
 
 ## Next steps
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

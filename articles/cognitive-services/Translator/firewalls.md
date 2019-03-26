@@ -4,17 +4,17 @@ titlesuffix: Azure Cognitive Services
 description: Translate behind IP firewalls with the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 
 # How to translate behind IP firewalls with the Translator Text API
 
-Translator Text API can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. We **do not recommend** running Microsoft Translator from behind an IP filtered firewall. The setup is likely to break in the future without notice. 
+Translator Text API can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. We **do not recommend** running Microsoft Translator from behind an IP filtered firewall. The setup is likely to break in the future without notice.
 
 ## Translator IP Addresses
 The IP addresses for api.cognitive.microsofttranslator.com - Microsoft Translator Text API as of November 20, 2018:

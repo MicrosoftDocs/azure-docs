@@ -4,11 +4,11 @@ titlesuffix: Azure Cognitive Services
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 
@@ -37,7 +37,8 @@ More details about the various levels of customization based on available data c
 
 ## Microsoft Translator Hub
 
-The legacy Microsoft Translator Hub can be used to translate statistical machine translation. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> The legacy Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 ## Custom Translator versus Hub
 
@@ -54,8 +55,8 @@ The legacy Microsoft Translator Hub can be used to translate statistical machine
 
 > [!NOTE]
 > As of February 1, 2018, AddTranslation() and AddTranslationArray() are no longer available for use with the Translator Text API V2.0. These methods will fail and nothing will be written. The Translator Text API V3.0 does not support these methods.
-
->Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 ## Next steps
 

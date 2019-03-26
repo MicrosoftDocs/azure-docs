@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
+title: Azure Multi-Factor Authentication FAQ - Azure Active Directory
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
 
@@ -83,7 +84,7 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes.
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
 
 Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider.
 
@@ -115,7 +116,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 **Q: What should I tell my users to do if they don’t receive a response on their phone?**
 
-Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesnt work please open a support case with Microsoft to further troubleshoot.
+Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesn't work please open a support case with Microsoft to further troubleshoot.
 
 If the steps above do not work hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage Service Encryption for data at rest

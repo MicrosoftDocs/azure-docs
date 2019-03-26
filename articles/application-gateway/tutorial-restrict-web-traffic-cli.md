@@ -12,7 +12,15 @@ ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Enable web application firewall using the Azure CLI
+# Enable web application firewall using the Azure CLI
+
+> [!div class="op_single_selector"]
+>
+> - [Azure portal](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
@@ -68,7 +76,7 @@ az network public-ip create \
 
 ## Create an application gateway with a WAF
 
-You can use [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created.
+You can use [az network application-gateway create](/cli/azure/network/application-gateway) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -135,7 +143,7 @@ az vmss extension set \
 
 ## Create a storage account and configure diagnostics
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data. 
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data. 
 
 ### Create a storage account
 

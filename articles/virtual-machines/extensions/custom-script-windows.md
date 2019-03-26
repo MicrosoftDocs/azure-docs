@@ -27,7 +27,7 @@ This document details how to use the Custom Script Extension using the Azure Pow
 ## Prerequisites
 
 > [!NOTE]  
-> Do not use Custom Script Extension to run Update-AzureRmVM with the same VM as its parameter, since it will wait on itself.  
+> Do not use Custom Script Extension to run Update-AzVM with the same VM as its parameter, since it will wait on itself.  
 >   
 > 
 
@@ -119,12 +119,12 @@ These items should be treated as sensitive data and specified in the extensions 
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 #### Property value details
- * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
-* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
-* `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
+* `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
+  * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
+  * `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
-* `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
-* `storageAccountKey`: (optional, string) the access key of storage account
+  * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
+  * `storageAccountKey`: (optional, string) the access key of storage account
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 * `commandToExecute`
@@ -142,10 +142,10 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+The `Set-AzVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 	-VMName myVM `
 	-Location myLocation `
 	-FileUri myURL `
@@ -170,7 +170,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
 	-Location myLocation ` 
 	-VMName myVM ` 
 	-Name "buildserver1" ` 
@@ -187,7 +187,7 @@ In this example you may want to use a local SMB server for your script location,
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
 	-Location myLocation ` 
 	-VMName myVM ` 
 	-Name "serverUpdate" 
@@ -210,7 +210,7 @@ If you want to run the custom script extension more than once, you can only do t
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Extension execution output is logged to files found under the following directory on the target virtual machine.

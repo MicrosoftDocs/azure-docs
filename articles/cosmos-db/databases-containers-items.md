@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos databases, containers and items
+# Work with databases, containers, and items
 
 After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities: databases, containers, and items. The following image shows the hierarchy of different entities in an Azure Cosmos account:
 
@@ -88,7 +88,7 @@ An Azure Cosmos container has a set of system defined properties. Depending on t
 An Azure Cosmos container supports the following operations using any of the Azure Cosmos APIs.
 
 | **Operation** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Enumerate containers in a database | Yes* | Yes | Yes | Yes | NA | NA |
 | Read a container | Yes | Yes | Yes | Yes | NA | NA |
 | Create new container | Yes | Yes | Yes | Yes | NA | NA |
@@ -121,15 +121,15 @@ Every Azure Cosmos item has the following system defined properties. Depending o
 Azure Cosmos item supports the following operations that can be performed using any of the Azure Cosmos APIs.
 
 | **Operation** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Insert, Replace, Delete, Upsert, Read | No | Yes | Yes | Yes | Yes | Yes |
 
 ## Next steps
 
 You can now proceed to learn how to provision throughput on Azure Cosmos account or see other concepts:
 
-* [How to configure provisioned throughput on a Azure Cosmos database](how-to-provision-database-throughput.md)
-* [How to configure provisioned throughput on a Azure Cosmos container](how-to-provision-container-throughput.md)
+* [How to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md)
+* [How to configure provisioned throughput on an Azure Cosmos container](how-to-provision-container-throughput.md)
 * [Logical partitions](partition-data.md)
 * [How to configure TTL on Azure Cosmos container](how-to-time-to-live.md)
 * [How to build reactive applications using Change Feed](change-feed.md)

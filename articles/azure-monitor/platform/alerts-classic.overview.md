@@ -12,7 +12,7 @@ ms.author: robb
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [scheduled to be retired](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [scheduled to be retired](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
@@ -76,10 +76,10 @@ However, the older metric alerts do not use action groups. Instead, you can conf
 - Call a webhook, which enables you to launch additional automation actions.
 
 Webhooks enables automation and remediation, for example, using:
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - a third-party service
+- Azure Automation Runbook
+- Azure Function
+- Azure Logic App
+- a third-party service
 
 ## Next steps
 Get information about alert rules and configuring them by using:

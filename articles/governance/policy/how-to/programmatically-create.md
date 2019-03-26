@@ -4,7 +4,7 @@ description: This article walks you through programmatically creating and managi
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -98,12 +98,15 @@ CLI, and HTTP requests.
 
    Replace _ContosoRG_ with the name of your intended resource group.
 
-   The **Scope** parameter on `New-AzPolicyAssignment` also works with subscriptions and management
-   groups. The parameter uses a full resource path, which the **ResourceId** property on
-   `Get-AzResourceGroup` returns. The pattern for **Scope** for each container is as follows.
-   Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID,
-   and management group name, respectively.
+   The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription,
+   resource group, or a single resource. The parameter uses a full resource path, which the
+   **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each
+   container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your
+   resource name, resource group name, subscription ID, and management group name, respectively.
+   `{rType}` would be replaced with the **resource type** of the resource, such as
+   `Microsoft.Compute/virtualMachines` for a VM.
 
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscription - `/subscriptions/{subId}/`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
@@ -145,7 +148,7 @@ Use the following procedure to create a policy definition.
 
 1. Create the policy definition using one of the following calls:
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -175,7 +178,7 @@ Use the following procedure to create a policy assignment and assign the policy 
 
 1. Create the policy assignment using the following call:
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -189,24 +192,24 @@ To create a policy definition, use the following procedure:
 
 1. Copy the following JSON snippet to create a JSON policy assignment file.
 
-  ```json
-  {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
-  }
-  ```
+   ```json
+   {
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
+   }
+   ```
 
    For more information about authoring a policy definition, see [Azure Policy Definition
    Structure](../concepts/definition-structure.md).
@@ -254,7 +257,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 The policy definition ID for the policy definition that you created should resemble the following example:
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

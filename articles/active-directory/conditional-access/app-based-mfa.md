@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Require MFA for specific apps with Azure Active Directory conditional access 
@@ -40,6 +41,9 @@ To complete the scenario in this quickstart, you need:
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+
+
+The scenario in this quickstart requires that per user MFA is not enabled for your test account. For more information, see [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md).
 
 
 ## Test your sign-in
@@ -157,7 +161,7 @@ To initialize the what if policy evaluation tool, set:
 - **Isabella Simonsen** as user 
 - **Microsoft Azure Management** as cloud app
 
- Clicking **What If** creates a simulation report that shows:
+  Clicking **What If** creates a simulation report that shows:
 
 - **Require MFA for Azure portal access** under **Policies that will apply** 
 - **Require multi-factor authentication** as **Grant Controls**.

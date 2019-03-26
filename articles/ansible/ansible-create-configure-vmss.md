@@ -1,7 +1,7 @@
 ---
 title: Create virtual machine scale sets in Azure using Ansible
 description: Learn how to use Ansible to create and configure a virtual machine scale set in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarchermsft
 manager: jeconnoc
@@ -271,5 +271,5 @@ The result of running the command in Cloud Shell shows that three instances now 
 ## Next steps
 > [!div class="nextstepaction"] 
 > [Deploy applications to virtual machine scale sets using Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

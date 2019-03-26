@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cornerstone OnDemand for automatic user provisioning

@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-
+ms.lastreviewed: 01/16/2019
 ---
 
 # Report Azure Stack usage data to Azure

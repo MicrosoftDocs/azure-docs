@@ -1,13 +1,13 @@
 ---
 title: Create custom neural networks with Net#
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
@@ -51,7 +51,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 ## Supported customizations
 
-The architecture of neural network models that you create in Azure Machine Learning can be extensively customized by using Net#. You can:
+The architecture of neural network models that you create in Azure Machine Learning Studio can be extensively customized by using Net#. You can:
 
 + Create hidden layers and control the number of nodes in each layer.
 + Specify how layers are to be connected to each other.
@@ -211,17 +211,16 @@ There are two sets of properties that control padding, the properties being mutu
 + **UpperPad** and **LowerPad**: (optional) Provide greater control over the amount of padding to use. **Important:** These attributes can be defined if and only if the **Padding** property above is ***not*** defined. The values should be integer-valued tuples with lengths that are the arity of the bundle. When these attributes are specified, "dummy" nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in each dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively.
 
     To ensure that kernels correspond only to "real" nodes and not to "dummy" nodes, the following conditions must be met:
-      - Each component of **LowerPad** must be strictly less than `KernelShape[d]/2`.
-      - Each component of **UpperPad** must be no greater than `KernelShape[d]/2`.
-      - The default value of these attributes is a tuple with all components equal to 0.
+  - Each component of **LowerPad** must be strictly less than `KernelShape[d]/2`.
+  - Each component of **UpperPad** must be no greater than `KernelShape[d]/2`.
+  - The default value of these attributes is a tuple with all components equal to 0.
 
     The setting **Padding** = true allows as much padding as is needed to keep the "center" of the kernel inside the "real" input. This changes the math a bit for computing the output size. Generally, the output size *D* is computed as `D = (I - K) / S + 1`, where `I` is the input size, `K` is the kernel size, `S` is the stride, and `/` is integer division (round toward zero). If you set UpperPad = [1, 1], the input size `I` is effectively 29, and thus `D = (29 - 5) / 2 + 1 = 13`. However, when **Padding** = true, essentially `I` gets bumped up by `K - 1`; hence `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. By specifying values for **UpperPad** and **LowerPad** you get much more control over the padding than if you just set **Padding** = true.
 
 For more information about convolutional networks and their applications, see these articles:
 
-+ [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## Pooling bundles
 
@@ -247,13 +246,13 @@ hidden P1 [5, 12, 12]
 
 For more information about pooling layers, see these articles:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## Response normalization bundles
 
-**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in the paper [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
+**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in the paper [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
 Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters (`α`, `β`, and `k`) and a convolutional structure (or neighborhood shape). Every neuron in the destination layer **y** corresponds to a neuron **x** in the source layer. The activation level of **y** is given by the following formula, where `f` is the activation level of a neuron, and `Nx` is the kernel (or the set that contains the neurons in the neighborhood of **x**), as defined by the following convolutional structure:
 
@@ -459,4 +458,4 @@ output Digit [10] from Hid3 all;
 
 ## Acknowledgements
 
-The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure Machine Learning studio - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure Machine Learning studio - Introduction to Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

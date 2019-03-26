@@ -5,6 +5,9 @@
   items:
     - name: What is the Bing News Search API?
       href: search-the-web.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   items:
   - name: REST API
@@ -21,6 +24,8 @@
       href: python.md
     - name: Using Ruby
       href: ruby.md
+    - name: Using Go
+      href: go.md
   - name: SDK
     items:
     - name: Using C#
@@ -41,8 +46,6 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
   - name: Handle hit highlighting
     href: hit-highlighting.md
   - name: Page news
@@ -79,6 +82,9 @@
         href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Pricing

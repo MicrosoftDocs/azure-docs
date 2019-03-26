@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Get support and training and provide feedback for Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 
 author: peterclu

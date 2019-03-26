@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to call the Custom Decision Service APIs from a smartphone app.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

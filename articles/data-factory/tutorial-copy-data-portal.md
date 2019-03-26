@@ -32,7 +32,7 @@ In this tutorial, you perform the following steps:
 > * Monitor the pipeline and activity runs.
 
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one.
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
@@ -49,7 +49,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     Jane,Doe
 	```
 
-1. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](http://storageexplorer.com/) to do these tasks.
+1. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](https://storageexplorer.com/) to do these tasks.
 
 #### Create a sink SQL table
 
@@ -78,30 +78,31 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
-1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**. 
+1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
   
-   ![New data factory creation](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
      ![New data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    The name of the Azure data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
   
    ![Error message](./media/tutorial-copy-data-portal/name-not-available-error.png)
-1. Select the Azure **subscription** in which you want to create the data factory. 
-1. For **Resource Group**, take one of the following steps:
+4. Select the Azure **subscription** in which you want to create the data factory. 
+5. For **Resource Group**, take one of the following steps:
      
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
 
     b. Select **Create new**, and enter the name of a resource group. 
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
-1. Under **Version**, select **V2**.
-1. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-1. Select **Pin to dashboard**. 
-1. Select **Create**. 
-1. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
+6. Under **Version**, select **V2**.
+7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+8. Select **Pin to dashboard**. 
+9. Select **Create**. 
+10. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
 
 	![Deploying data factory tile](media/tutorial-copy-data-portal/deploying-data-factory.png)
 1. After the creation is finished, you see the **Data factory** page as shown in the image.
@@ -123,7 +124,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
    ![Create pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
 
-1. In the **Activities** tool box, expand the **Data Flow** category, and drag and drop the **Copy** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
+1. In the **Activities** tool box, expand the **Move andTransform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
     ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -172,7 +173,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset. 
 
     ![Sink dataset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. In the **New Dataset** window, input "SQL" in the searchbox to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
+1. In the **New Dataset** window, input "SQL" in the search box to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
 
     ![SQL database selection](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
@@ -228,7 +229,7 @@ You can debug a pipeline before you publish artifacts (linked services, datasets
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 
-1. Once the pipeline can run successfually, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
+1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
     ![Publish](./media/tutorial-copy-data-portal/publish-button.png)
 

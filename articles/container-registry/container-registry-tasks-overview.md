@@ -110,9 +110,9 @@ When you're ready to automate OS and framework patching by building your contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
-[az-login-service-principal]: /cli/azure/authenticate-azure-cli#log-in-with-a-service-principal
+[az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png

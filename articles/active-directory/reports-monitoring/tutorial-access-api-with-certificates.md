@@ -3,7 +3,7 @@ title: Tutorial Get data using the Azure AD Reporting API with certificates | Mi
 description: This tutorial explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 
 ms.assetid: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk 
 
 # Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
@@ -85,15 +86,15 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
   
 7. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
 
- ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Use the access token in your Powershell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
 9. Query the directoryAudits endpoint to retrieve the audit logs. 
- ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Query the signins endpoint to retrieve the sign-in logs.
- ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 

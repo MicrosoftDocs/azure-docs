@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -51,6 +51,16 @@ You can create a new app with the authoring APIs in a couple of ways:
     > [!NOTE]
     > The culture cannot be changed once the application is created. 
 
+## Import an app from file
+
+1. On **My Apps** page, select **Import new app**.
+1. In the pop-up dialog, select a valid app JSON file, and then select **Done**.
+
+### Import errors
+
+Possible errors are: 
+
+* An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
 
 ## Next steps
 

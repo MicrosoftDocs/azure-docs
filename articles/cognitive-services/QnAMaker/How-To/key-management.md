@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Your QnA Maker service deals with two kinds of keys, subscription keys and endpoint keys.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---

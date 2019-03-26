@@ -43,17 +43,25 @@ sections:
   items:
   - type: paragraph
     text: 'Get insights about an image using the Bing Visual Search API:'
-  - type: table
-    style: dataMatrix
-    columns:
+  - type: list
+    style: icon48
+    items:
       - image:
           src: media/index/logo_csharp.svg
+        href: visual-search-sdk-c-sharp
+        text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
+        href: quickstarts/java
+        text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
+        href: visual-search-sdk-node
+        text: "Node.js"
       - image:
           src: media/index/logo_python.svg
+        href:  visual-search-sdk-python
+        text: "Python"
     rows:
       - title: ''
         values:
@@ -82,6 +90,6 @@ sections:
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

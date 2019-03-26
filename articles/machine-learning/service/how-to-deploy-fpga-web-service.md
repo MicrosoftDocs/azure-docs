@@ -10,17 +10,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 12/06/2018
+ms.date: 1/29/2019
 ms.custom: seodec18
 ---
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning service
 
-You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md).  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.   
+You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md).  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.  These models are currently available:
+  - ResNet 50
+  - ResNet 152
+  - DenseNet-121
+  - VGG-16   
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
@@ -30,10 +34,16 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 
     ```shell
     pip install --upgrade azureml-sdk[contrib]
-    ```  
+    ```
+
+  - Currently only tensorflow version<=1.10 is supported, so install it after all other installations are complete:
+
+    ```shell
+    pip install "tensorflow==1.10"
+    ```
 
 ## Create and deploy your model
-Create a pipeline to preprocess the input image, featurize it using ResNet 50 on an FPGA, and then run the features through a classifer trained on the ImageNet data set.
+Create a pipeline to preprocess the input image, make it a feature using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 
 Follow the instructions to:
 
@@ -65,7 +75,7 @@ print(image_tensors.shape)
 Initialize the model and download a TensorFlow checkpoint of the quantized version of ResNet50 to be used as a featurizer.
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+from azureml.contrib.brainwave.models import QuantizedResnet50
 model_path = os.path.expanduser('~/models')
 model = QuantizedResnet50(model_path, is_frozen = True)
 feature_tensor = model.import_graph_def(image_tensors)
@@ -78,11 +88,11 @@ print(feature_tensor.shape)
 This classifier has been trained on the ImageNet data set.
 
 ```python
-classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+classifier_output = model.get_default_classifier(feature_tensor)
 ```
 
 ### Create service definition
-Now that you have definied the image preprocessing, featurizer, and classifier that runs on the service, you can create a service definition. The service definition is a set of files generated from the model that is deployed to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are run in order.  TensorFlow stages, Keras stages, and BrainWave stages are supported.  The stages are run in order on the service, with the output of each stage input into the subsequent stage.
+Now that you have defined the image preprocessing, featurizer, and classifier that runs on the service, you can create a service definition. The service definition is a set of files generated from the model that is deployed to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are run in order.  TensorFlow stages, Keras stages, and BrainWave stages are supported.  The stages are run in order on the service, with the output of each stage becoming the input into the subsequent stage.
 
 To create a TensorFlow stage, specify a session containing the graph (in this case default graph is used) and the input and output tensors to this stage.  This information is used to save the graph so that it can be run on the service.
 
@@ -90,13 +100,13 @@ To create a TensorFlow stage, specify a session containing the graph (in this ca
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
 
 save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'service_def.zip')
+model_def_path = os.path.join(save_path, 'model_def.zip')
 
 model_def = ModelDefinition()
 with tf.Session() as sess:
     model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
     model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
     model_def.save(model_def_path)
     print(model_def_path)
 ```
@@ -125,7 +135,7 @@ except WebserviceException:
     image_config = BrainwaveImage.image_configuration()
     deployment_config = BrainwaveWebservice.deploy_configuration()
     service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
+    service.wait_for_deployment(True)
 ```
 
 ### Test the service
@@ -161,7 +171,7 @@ registered_model.delete()
 
 ## Secure FPGA web services
 
-Securing FPGA web services with SSL is not currently supported.
+For information on securing FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
 
 
 ## Next steps

@@ -93,13 +93,13 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Trigger concurrency | 50 when you limit concurrency | When you turn on concurrency control for a trigger, the default limit is 25. This limit describes the maximum number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Maximum waiting runs | 100 when you limit concurrency | When you turn on concurrency control for a trigger, the default limit is 10. This limit describes the maximum number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach array items | 100,000 | This limit describes the maximum number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
-| Foreach concurrency | 50 when you limit concurrency | When you turn on concurrency control for this loop, the default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| SplitOn items | 100,000 | | 
-| Until iterations | 5,000 | | 
-|||| 
+| Trigger concurrency | * Unlimited when the concurrency control is turned off <p><p>* 25 is the default limit when the concurrency control is turned on, which can't be undone after you turn on the control. You can change the default to a value between 1 and 50 inclusively. | This limit describes the highest number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximum waiting runs | When the concurrency control is turned on, the minimum number of waiting runs is 10 plus the number of concurrent runs (trigger concurrency). You can change the maximum number up to 100 inclusively. | This limit describes the highest number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach array items | 100,000 | This limit describes the highest number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
+| Foreach concurrency | 20 is the default limit when the concurrency control is turned off. You can change the default to a value between 1 and 50 inclusively. | This limit is highest number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| SplitOn items | 100,000 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. |
+| Until iterations | 5,000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -180,7 +180,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 | ---- | ----- | 
 | Number of custom connectors | 1,000 per Azure subscription | 
 | Number of requests per minute for each connection created by a custom connector | 500 requests per connection |
-|||| 
+|||
 
 <a name="managed-identity"></a>
 
@@ -209,53 +209,58 @@ This tier restricts throughput and usage, and has no service-level agreement (SL
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 25 | | 
-| EDI trading agreements | 10 | | 
-| Maps | 25 | | 
-| Schemas | 25 | 
 | Assemblies | 10 | | 
 | Batch configurations | 5 | 
 | Certificates | 25 | | 
+| EDI trading agreements | 10 | | 
+| EDI trading partners | 25 | | 
+| Maps | 25 | | 
+| Schemas | 25 | 
 |||| 
 
 *Basic tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 2 | | 
-| EDI trading agreements | 1 | | 
-| Maps | 500 | | 
-| Schemas | 500 | 
 | Assemblies | 25 | | 
 | Batch configurations | 1 | | 
 | Certificates | 2 | | 
+| EDI trading agreements | 1 | | 
+| EDI trading partners | 2 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
 |||| 
 
 *Standard tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 500 | | 
-| EDI trading agreements | 500 | | 
-| Maps | 500 | | 
-| Schemas | 500 | 
 | Assemblies | 50 | | 
 | Batch configurations | 5 |  
 | Certificates | 50 | | 
+| EDI trading agreements | 500 | | 
+| EDI trading partners | 500 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### Artifact capacity limits
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Schema | 8 MB | To upload files larger than 2 MB, use the [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Map (XSLT file) | 2 MB | | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Artifact | Limit | Notes | 
+| -------- | ----- | ----- | 
+| Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Runtime endpoint | Limit | Notes |
+|------------------|-------|-------|
+| Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
+| Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

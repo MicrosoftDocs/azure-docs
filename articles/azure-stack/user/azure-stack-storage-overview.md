@@ -11,9 +11,10 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/14/2019
 
 ---
 # Introduction to Azure Stack storage

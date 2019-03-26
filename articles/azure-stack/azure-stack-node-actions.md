@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/22/2019
 
 ---
 
@@ -38,15 +39,15 @@ To view the status of a scale unit:
 3. In the results, select the scale unit.
 4. On the left, under **General**, select **Nodes**.
 
-  View the following information:
+   View the following information:
 
-  - The list of individual nodes
-  - Operational Status (see list below)
-  - Power Status (running or stopped)
-  - Server model
-  - IP address of the baseboard management controller (BMC)
-  - Total number of cores
-  - Total amount of memory
+   - The list of individual nodes
+   - Operational Status (see list below)
+   - Power Status (running or stopped)
+   - Server model
+   - IP address of the baseboard management controller (BMC)
+   - Total number of cores
+   - Total amount of memory
 
 ![status of a scale unit](media/azure-stack-node-actions/multinodeactions.png)
 

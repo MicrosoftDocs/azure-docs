@@ -99,7 +99,7 @@ In the **Custom domains** page, click **Buy Domain**.
 ### Configure the domain purchase
 
 In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -108,22 +108,22 @@ In the **App Service Domain** page, in the **Search for domain** box, type the d
 >
 
 Click the **Contact Information** and fill out the domain's contact information form. When finished, click **OK** to return to the App Service Domain page.
-   
-It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains. 
+
+It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains.
 
 Next, select the desired options for your domain. See the following table for explanations:
 
 | Setting | Suggested Value | Description |
 |-|-|-|
 |Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_. Some top-level domains are managed by registrars that do not support privacy protection, and they are listed on the **Privacy protection** page. |
-| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your app can be accessed at the selected hostnames. If the app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
+| Assign default hostnames | **www** and **\@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your app can be accessed at the selected hostnames. If the app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
 
 Click **Legal Terms** to review the terms and the charges, then click **Buy**.
 
 > [!NOTE]
-> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+> App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -143,7 +143,7 @@ You also see the selected hostnames in the **Custom domains** page, in the **Cus
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www.kontoso.net_.
+To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www\.kontoso.net_.
 
 ## Assign hostnames to app
 
@@ -174,7 +174,7 @@ Select **Add hostname**.
 In the **Add hostname** dialog, type the fully qualified domain name of your App Service Domain or any subdomain. For example:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 When finished, select **Validate**. The hostname record type is automatically selected for you.

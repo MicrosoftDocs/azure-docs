@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the workflow operations in Azure Content Moderator to create or update a workflow or get workflow details by using the Review API.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

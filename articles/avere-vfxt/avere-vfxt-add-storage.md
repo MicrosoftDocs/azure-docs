@@ -3,25 +3,19 @@ title: Configure Avere vFXT storage - Azure
 description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
-ms.date: 10/31/2018
+ms.topic: conceptual
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
 # Configure storage
 
-This step sets up backend storage system for your vFXT cluster.
+This step sets up a back-end storage system for your vFXT cluster.
 
 > [!TIP]
-> If you used the `create-cloudbacked-cluster` prototype script to create a new Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
->
-> However, if your new Blob container was encrypted with a default encryption key, you must either download the key recovery file from the cluster or replace the default key with a new key before storing data. The default key is saved only in the cluster, and cannot be retrieved if the cluster is lost or becomes unavailable.
->
-> After connecting to the Avere Control Panel, click the **Settings** tab, then choose **Core Filer** > **Cloud Encryption Settings**. In the **Local Key Store** section, choose one of these options: 
-> * Use the **Redownload Recovery File** button to get the recovery file for the existing key. The recovery file is encrypted with the cluster administrative password. Make sure to save the file in a reliable place. 
-> * Follow the instructions in the **Generate a New Master Key** section of the page to create a new encryption key that you control. This option allows you to specify a unique passphrase, and it requires you to upload and re-download the recovery file to validate the passphrase-file pair.
+> If you created a new Azure Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
 
-Follow these instructions if you used the `create-minimal-cluster` prototype script for your cluster, or if you want to add an additional hardware or cloud-based storage system.
+Follow these instructions if you did not create a new Blob container with your cluster, or if you want to add an additional hardware or cloud-based storage system.
 
 There are two main tasks:
 
@@ -38,12 +32,11 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 To add a core filer, choose one of the two main types of core filers:
 
   * [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer 
-  * [Azure Storage account cloud core filer](#azure-storage-account-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
+  * [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
 
 ### NAS core filer
 
-A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud.  
-The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
+A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud. The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
 
 The following steps add a NAS core filer:
 
@@ -74,7 +67,7 @@ Next, proceed to [Create a junction](#create-a-junction).
 To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
 
 > [!TIP] 
-> The ``create-cloudbacked-cluster`` sample script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The ``create-minimal-cluster`` sample script does not create an Azure storage container. To avoid having to create and configure an Azure Storage core filer after creating the cluster, use the ``create-cloudbacked-cluster`` script to deploy your vFXT cluster.
+> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network. 
 
 Adding Blob storage to your cluster requires these tasks:
 
@@ -151,7 +144,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * Optionally, set **Encryption type** to **None**.  Azure Storage is encrypted by default.
    * Click **Add Filer**.
 
-  For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
+   For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
 
 The page will refresh, or you can refresh the page to display your new core filer.
 

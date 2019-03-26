@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos account
+# Work with Azure Cosmos account
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, you should initially create an Azure Cosmos account in your Azure subscription. Your Azure Cosmos account contains a unique DNS name and you can manage an account by using Azure portal, Azure CLI or by using different language-specific SDKs. For more information, see [how to manage your Azure Cosmos account](how-to-manage-database-account.md).
 
@@ -25,7 +25,7 @@ Azure Cosmos DB container is the fundamental unit of scalability. You can virtua
 
 Currently, you can create a maximum of 100 Azure Cosmos accounts under an Azure subscription. A single Azure Cosmos account can virtually manage unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers. The following image shows the hierarchy of elements in an Azure Cosmos account:
 
-![Hierarchy of a Azure Cosmos account](./media/account-overview/hierarchy.png)
+![Hierarchy of an Azure Cosmos account](./media/account-overview/hierarchy.png)
 
 ## Next steps
 

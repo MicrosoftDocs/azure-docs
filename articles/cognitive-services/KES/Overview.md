@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Add interactive search and refinement to your app with Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
@@ -21,7 +21,7 @@ See [Getting Started](GettingStarted.md) for a sample walkthrough of how to use 
 
 ![AcademicAutoComplete](AutoComplete.png)
 
-KES has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration).
+KES has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is [https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration).
 
 ## Reference
 

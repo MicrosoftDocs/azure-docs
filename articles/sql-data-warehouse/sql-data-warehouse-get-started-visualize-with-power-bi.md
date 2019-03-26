@@ -2,11 +2,11 @@
 title: Visualize SQL Data Warehouse data with Power BI Microsoft Azure
 description: Visualize SQL Data Warehouse data with Power BI
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
@@ -88,4 +88,4 @@ When using Direct Connect:
 These restrictions and notes may change as the experiences improve.
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md), [load](design-elt-data-loading.md), or [migrate](sql-data-warehouse-overview-migrate.md). Or take a look at the [Power BI website](http://www.powerbi.com/).
+Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md), [load](design-elt-data-loading.md), or [migrate](sql-data-warehouse-overview-migrate.md). Or take a look at the [Power BI website](https://www.powerbi.com/).

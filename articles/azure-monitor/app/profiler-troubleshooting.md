@@ -3,15 +3,15 @@ title: Troubleshoot problems with Azure Application Insights Profiler | Microsof
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
@@ -30,11 +30,11 @@ Profiler writes trace messages and custom events to your Application Insights re
     ```
     The following image displays two examples of searches from two AI resources: 
     
-    * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
+   * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
 
-    * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
+   * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
 
-    If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
+     If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
 
      ![Search Profiler telemetry][profiler-search-telemetry]
 
@@ -84,7 +84,7 @@ When you configure Profiler, updates are made to the web app's settings. If your
 
 1. In the **Web App Control** pane, open **Settings**.
 
-1. Set **.Net Framework version** to **v4.6**.
+1. Set **.NET Framework version** to **v4.6**.
 
 1. Set **Always On** to **On**.
 
@@ -118,6 +118,8 @@ Profiler runs as a continuous webjob in the web app. You can open the web app re
 
 ## Troubleshoot problems with Profiler and Azure Diagnostics
 
+  >**There is a bug in the profiler that ships in the latest version of WAD for Cloud Services.** In order to use profiler with a cloud service, it only supports AI SDK up to version 2.7.2. If you are using a newer version of the AI SDK, you'll have to go back to 2.7.2 in order to use the profiler. If you use Visual Studio to downgrade the version of the App Insights SDK, you may get a binding redirect error at runtime. This is because the "newVersion" in the web.config file for Microsoft.ApplicationInsights should be set to "2.7.2.0" after downgrading the AI SDK, but it doesn't get updated automatically.
+
 To see whether Profiler is configured correctly by Azure Diagnostics, do the following three things: 
 1. First, check to see whether the contents of the Azure Diagnostics configuration that are deployed are what you expect. 
 
@@ -127,15 +129,19 @@ To see whether Profiler is configured correctly by Azure Diagnostics, do the fol
 
 To check the settings that were used to configure Azure Diagnostics:
 
-1. Sign in to the virtual machine (VM), and then open the log file at this location: 
+1. Sign in to the virtual machine (VM), and then open the log file at this location. (The drive could be c: or d: and the plugin version could be different.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    or
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. In the file, you can search for the string **WadCfg** to find the settings that were passed to the VM to configure Azure Diagnostics. You can check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file:
+1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file. (The drive could be c: or d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

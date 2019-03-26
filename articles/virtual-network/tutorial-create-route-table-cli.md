@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a route table
 
-Before you can create a route table, create a resource group with [az group create](/cli/azure/group#az_group_create) for all resources created in this article. 
+Before you can create a route table, create a resource group with [az group create](/cli/azure/group) for all resources created in this article. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -74,7 +74,7 @@ az network route-table route create \
 
 ## Associate a route table to a subnet
 
-Before you can associate a route table to a subnet, you have to create a virtual network and subnet. Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Before you can associate a route table to a subnet, you have to create a virtual network and subnet. Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -103,7 +103,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Associate the *myRouteTablePublic* route table to the *Public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Associate the *myRouteTablePublic* route table to the *Public* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -132,7 +132,7 @@ az vm create \
 
 The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM. 
 
-For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic#az_network_nic_update).
+For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -141,7 +141,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the VM's operating system with [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set):
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the VM's operating system with [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -264,7 +264,7 @@ Close the SSH sessions to both the *myVmPublic* and *myVmPrivate* VMs.
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

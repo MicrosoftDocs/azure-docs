@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
@@ -59,4 +59,3 @@ Currently Advisor will only show at most four replicated table candidates at onc
 
 > [!IMPORTANT]
 > The replicated table recommendation is not full proof and does not take into account data movement operations. We are working on adding this as a heuristic but in the meantime, you should always validate your workload after applying the recommendation. Please contact sqldwadvisor@service.microsoft.com if you discover replicated table recommendations that causes your workload to regress. To learn more about replicated tables, visit the following [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
->

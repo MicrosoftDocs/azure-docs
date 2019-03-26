@@ -4,7 +4,7 @@ description: This document helps you to validate the security alerts in Azure Se
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57

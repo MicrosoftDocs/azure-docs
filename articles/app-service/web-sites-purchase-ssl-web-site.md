@@ -4,7 +4,7 @@ description: Learn how to buy an App Service certificate and bind it to your App
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
@@ -19,7 +19,7 @@ ms.custom: seodec18
 ---
 # Buy and configure an SSL certificate for Azure App Service
 
-This tutorial shows you how to secure your web app by creating (purchasing) an App Service certificate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) and then bind it to an App Service app.
+This tutorial shows you how to secure your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating (purchasing) an App Service certificate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) and then bind it to an App Service app.
 
 > [!TIP]
 > App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so, you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, see [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -30,7 +30,7 @@ This tutorial shows you how to secure your web app by creating (purchasing) an A
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
+- [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -49,7 +49,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Subscription | The datacenter where the web app is hosted. |
 | Resource group | The resource group that contains the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Legal Terms | Click to confirm that you agree with the legal terms. |
+| Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
 ## Store in Azure Key Vault
 
@@ -116,28 +116,35 @@ Use the following table to help you configure the binding in the **SSL Bindings*
 
 Visit your app using `HTTPS://<domain_name>` instead of `HTTP://<domain_name>` to verify that the certificate has been configured correctly.
 
-## Rekey and sync certificate
+## Rekey certificate
 
-If you ever need to rekey your certificate, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Rekey and Sync** from the left navigation.
+If you think your certificate's private key is compromised, you can rekey your certificate. Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Rekey and Sync** from the left navigation.
 
-Click **Rekey** Button to start the process. This process can take 1-10 minutes to complete.
+Click **Rekey** to start the process. This process can take 1-10 minutes to complete.
 
 ![insert image of Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
+Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
+> [!NOTE]
+> If you don't click **Sync**, App Service automatically syncs your certificate within 48 hours.
+
 ## Renew certificate
 
-To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. 
+To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![renew certificate automatically](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
+Once the renew operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
 > [!NOTE]
-> The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> If you don't click **Sync**, App Service automatically syncs your certificate within 48 hours.
 
 ## Automate with scripts
 

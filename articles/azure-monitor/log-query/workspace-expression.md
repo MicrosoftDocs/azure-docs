@@ -1,6 +1,6 @@
 ---
-title: workspace() expression in Azure Log Analytics query | Microsoft Docs
-description: The workspace expression is used in a Log Analytics query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription.
+title: workspace() expression in Azure Monitor log query | Microsoft Docs
+description: The workspace expression is used in an Azure Monitor log query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,9 +15,9 @@ ms.date: 09/10/2018
 ms.author: bwren
 ---
 
-# workspace() expression in Log Analytics query
+# workspace() expression in Azure Monitor log query
 
-The `workspace` expression is used in a Log Analytics query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. This is useful to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+The `workspace` expression is used in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. This is useful to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
 
 ## Syntax
@@ -66,5 +66,6 @@ union
 
 ## Next steps
 
-- See the [app expression](workspace-expression.md) to refer to Application Insights app.
-- Read about how [Log Analytics data](../../azure-monitor/log-query/log-query-overview.md) is stored.
+- See the [app expression](app-expression.md) to refer to an Application Insights app.
+- Read about how [Azure Monitor data](log-query-overview.md) is stored.
+- Access full documentation for the [Kusto query language](/azure/kusto/query/).

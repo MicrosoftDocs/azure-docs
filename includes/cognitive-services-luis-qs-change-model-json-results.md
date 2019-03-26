@@ -5,12 +5,12 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
---- 
+---
 The `response` array for adding the example utterances indicates success or failure for each example utterance with the `hasError` property. The following JSON response shows both utterances were added successfully. 
 
 ```json

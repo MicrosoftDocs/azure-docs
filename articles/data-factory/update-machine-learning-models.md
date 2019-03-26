@@ -54,9 +54,6 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 }
 ```
 
-
-
-
 | Property                      | Description                              | Required |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Name of the activity in the pipeline     | Yes      |
@@ -67,12 +64,11 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 | trainedModelLinkedServiceName | Name of Azure Storage linked service holding the ilearner file that is uploaded by the update operation | Yes      |
 | trainedModelFilePath          | The relative file path in trainedModelLinkedService to represent the ilearner file that is uploaded by the update operation | Yes      |
 
-
 ## End-to-end workflow
 
 The entire process of operationalizing retraining a model and update the predictive Web Services involves the following steps:
 
-- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is a iLearner file that you can use to update the predictive Web Service.
+- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is an iLearner file that you can use to update the predictive Web Service.
 - Invoke the **update resource endpoint** of the **predictive Web Service** by using the **Update Resource activity** to update the Web Service with the newly trained model.
 
 ## Azure Machine Learning linked service
@@ -111,15 +107,15 @@ Here is a sample linked service definition:
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000	000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint1"
-        	},
+                "type": "SecureString",
+                "value": "APIKeyOfEndpoint1"
+            },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
-            "type": "SecureString",
-            "value": "servicePrincipalKey"
-        	},
+                "type": "SecureString",
+                "value": "servicePrincipalKey"
+            },
             "tenant": "mycompany.com"
         }
     }
@@ -144,7 +140,7 @@ Here is the sample JSON definition of the linked service:
 ```JSON
 {
     "name": "StorageLinkedService",
-      "properties": {
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
@@ -159,13 +155,13 @@ The following JSON snippet defines an Azure Machine Learning linked service that
 ```JSON
 {
     "name": "trainingEndpoint",
-      "properties": {
+    "properties": {
         "type": "AzureML",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
+            "apiKey": "myKey"
         }
-      }
+    }
 }
 ```
 
@@ -252,9 +248,9 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
                 "typeProperties": {
                     "trainedModelName": "ADFV2Sample Model [trained model]",
                     "trainedModelLinkedServiceName": {
-                                "type": "LinkedServiceReference",
-                                "referenceName": "StorageLinkedService"
-                            },
+                        "type": "LinkedServiceReference",
+                        "referenceName": "StorageLinkedService"
+                    },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
                 "dependsOn": [
@@ -262,8 +258,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
                         "activity": "amlbeGetilearner",
                         "dependencyConditions": [ "Succeeded" ]
                     }
-                 ]
-
+                ]
             }
         ]
     }

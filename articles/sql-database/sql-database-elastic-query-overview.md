@@ -11,7 +11,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/19/2019
 ---
 
 # Azure SQL Database elastic query overview (preview)

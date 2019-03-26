@@ -31,23 +31,18 @@ Certain limitations apply when you deploy container groups to a virtual network.
 
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
+* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
 
 ## Preview limitations
 
-While this feature is in preview, the following limitations apply when deploying container instances to a virtual network. 
+While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
-**Supported regions and resource limits**
-
-| Location | OS | CPU | Memory (GB) |
-| -------- | :---: | :---: | :-----------: |
-| West Europe | Linux | 4 | 14 |
-| East US, West US | Linux | 2 | 3.5 |
-| Australia East, North Europe | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
-**Unsupported network resources and features**
+### Unsupported network resources and features
 
 * Azure Load Balancer
 * Virtual network peering
@@ -115,13 +110,13 @@ The following sections describe how to deploy container groups to a virtual netw
 
 First, deploy a container group and specify the parameters for a new virtual network and subnet. When you specify these parameters, Azure creates the virtual network and subnet, delegates the subnet to Azure Container instances, and also creates a network profile. Once these resources are created, your container group is deployed to the subnet.
 
-Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. You need to supply the name of a resource group that was created in a region that [supports](#preview-limitations) container groups in a virtual network. This command deploys the [microsoft/aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. You need to supply the name of a resource group that was created in a region that [supports](#preview-limitations) container groups in a virtual network. This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -211,7 +206,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -242,9 +237,9 @@ Once the deployment has completed, run the [az container show][az-container-show
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## Clean up resources
@@ -311,7 +306,7 @@ Several virtual network resources and features were discussed in this article, t
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
@@ -14,12 +14,12 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset
 
-This walkthrough demonstrates how to use the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. It uses Azure Machine Learning to build a binary classification model on this data. It also shows how to publish one of these models as a Web service.
+This walkthrough demonstrates how to use the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. It uses Azure Machine Learning to build a binary classification model on this data. It also shows how to publish one of these models as a Web service.
 
 It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 ## <a name="dataset"></a>Criteo Dataset Description
-The Criteo data is a click prediction dataset that is approximately 370GB of gzip compressed TSV files (~1.3TB uncompressed), comprising more than 4.3 billion records. It is taken from 24 days of click data made available by [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). For the convenience of data scientists, the data available to us to experiment with has been unzipped.
+The Criteo data is a click prediction dataset that is approximately 370GB of gzip compressed TSV files (~1.3TB uncompressed), comprising more than 4.3 billion records. It is taken from 24 days of click data made available by [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). For the convenience of data scientists, the data available to us to experiment with has been unzipped.
 
 Each record in this dataset contains 40 columns:
 
@@ -62,7 +62,7 @@ Set up your Azure Data Science environment for building predictive analytics sol
 3. [Create an Azure Machine Learning studio workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
-The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot of what this looks like is shown here:
+The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot of what this looks like is shown here:
 
 ![Accept Criteo terms](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -300,7 +300,7 @@ This yields:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Note that Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently is explained and demonstrated.
+Note that Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently is explained and demonstrated.
 
 Finally look at the number of unique values for some other categorical columns as well. The contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
 
@@ -399,10 +399,10 @@ With this, you are ready to use our down sampled train and test datasets for bui
 There is a final important component before moving on to Azure Machine Learning, which concerns the count table. In the next sub-section, the count table is discussed in some detail.
 
 ## <a name="count"></a> A brief discussion on the count table
-As you saw, several categorical variables have a very high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
+As you saw, several categorical variables have a very high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
 
 [!NOTE]
->In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+>In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) and [feature hashing](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 To build count tables on the count data, use the data in the folder raw/count. In the modeling section, users are shown how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when "pre-built count tables" are referred to, we mean using the count tables that have been provided. Detailed instructions on how to access these tables are provided in the next section.
@@ -411,7 +411,7 @@ To build count tables on the count data, use the data in the folder raw/count. I
 Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
-2. [Create the experiment: clean the data and featurize with count tables](#step2)
+2. [Create the experiment: clean the data and make it a feature with count tables](#step2)
 3. [Build, train, and score the model](#step3)
 4. [Evaluate the model](#step4)
 5. [Publish the model as a web-service](#step5)
@@ -445,7 +445,7 @@ Right-click the output port of the **Import Data** module. This reveals a **Save
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![Drage dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Drag dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**

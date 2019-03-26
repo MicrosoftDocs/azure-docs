@@ -126,6 +126,6 @@ You can use a similar pattern for REST and other supported languages to get node
 [rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts
 [rest_get_task]: /rest/api/batchservice/task/get
 [rest_list_tasks]: /rest/api/batchservice/task/list
-[rest_get_exec_info]: /rest/api/batchservice/task/get#executionInfo
+[rest_get_exec_info]: /rest/api/batchservice/task/get
 [rest_start_task]: /rest/api/batchservice/pool/add#starttask
 

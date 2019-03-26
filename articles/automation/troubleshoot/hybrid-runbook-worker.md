@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -40,7 +40,7 @@ The following are potential possible causes:
 
 * The runbooks can't authenticate with local resources
 
-* The computer configured to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.
+* The computer configured to run the Hybrid Runbook Worker feature does not meet the minimum hardware requirements.
 
 #### Resolution
 
@@ -81,8 +81,17 @@ The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicat
 
 ### <a name="oms-agent-not-running"></a>Scenario: The OMS Agent for Linux isn't running
 
+#### Issue
 
-If the OMS Agent for Linux isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
+The OMS Agent for Linux is not running
+
+#### Cause
+
+If the OMS Agent for Linux isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. The agent may not be running for various reasons.
+
+#### Resolution
+
+ Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -172,6 +181,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
+
+#### Issue
+
+You receive the following message when trying to add a Hybrid Runbook Worker using the `Add-HybridRunbookWorker` cmdlet.
+
+```
+Machine is already registered to a different account
+```
+
+#### Cause
+
+This can be caused if the machine is already registered with a different Automation Account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+
+#### Resolution
+
+To resolve this issue, remove the following registry key and restart the `HealthService` and try the `Add-HybridRunbookWorker` cmdlet again:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## Next steps
 

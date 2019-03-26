@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the grammar format in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
@@ -15,7 +15,7 @@ ms.author: paulhsu
 
 # Grammar Format
 
-The grammar is an XML file that specifies the weighted set of natural language queries that the service can interpret, as well as how these natural language queries are translated into semantic query expressions.  The grammar syntax is based on [SRGS](http://www.w3.org/TR/speech-grammar/), a W3C standard for speech recognition grammars, with extensions to support data index integration and semantic functions.
+The grammar is an XML file that specifies the weighted set of natural language queries that the service can interpret, as well as how these natural language queries are translated into semantic query expressions.  The grammar syntax is based on [SRGS](https://www.w3.org/TR/speech-grammar/), a W3C standard for speech recognition grammars, with extensions to support data index integration and semantic functions.
 
 The following describes each of the syntactic elements that can be used in a grammar.  See [this example](#example) for a complete grammar that demonstrates the use of these elements in context.
 

@@ -13,12 +13,13 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app
@@ -73,9 +74,9 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 
 1. In the `DirectorySearcher` project, open `app.config`.
 1. Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the Azure portal. Your code will reference these values whenever it uses ADAL.
-  * The `ida:Tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com
-  * The `ida:ClientId` is the client ID of your application you copied from the portal.
-  * The `ida:RedirectUri` is the redirect URL you registered in the portal.
+   * The `ida:Tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com
+   * The `ida:ClientId` is the client ID of your application you copied from the portal.
+   * The `ida:RedirectUri` is the redirect URL you registered in the portal.
 
 ## Step 3: Use ADAL to get tokens from Azure AD
 
@@ -168,7 +169,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

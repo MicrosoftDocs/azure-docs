@@ -17,6 +17,7 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 # View activity and audit history for Azure resource roles in PIM
 

@@ -113,9 +113,9 @@ After you give the Service Principal a name and create a password for it, click 
 
 It’s also possible to add cluster access to one or more Data Lake Storage accounts following cluster creation. Open the Azure portal entry for a Data Lake Storage and go to **Data Explorer > Access > Add**. 
 
-### How to access Data Lake Storage from ML Services on HDInsight
+### How to access Data Lake Storage Gen1 from ML Services on HDInsight
 
-Once you’ve given access to Data Lake Storage, you can use the storage in ML Services cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
+Once you’ve given access to Data Lake Storage Gen1, you can use the storage in ML Services cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
 
 
 	# Point to the ADL Storage (e.g. ADLtest)
@@ -137,7 +137,7 @@ Once you’ve given access to Data Lake Storage, you can use the storage in ML S
 	# Specify the input file in HDFS to analyze
 	inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-The following commands are used to configure the Data Lake Storage account with the RevoShare directory and add the sample .csv file from the previous example:
+The following commands are used to configure the Data Lake Storage Gen1 account with the RevoShare directory and add the sample .csv file from the previous example:
 
 
 	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

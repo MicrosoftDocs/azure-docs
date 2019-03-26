@@ -3,7 +3,7 @@ title: Azure Service Fabric patch orchestration application | Microsoft Docs
 description: Application to automate operating system patching on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
+ms.date: 2/01/2019
+ms.author: brkhande
 
 ---
 
@@ -57,6 +57,9 @@ The patch orchestration app is composed of the following subcomponents:
 > The patch orchestration app uses the Service Fabric repair manager system service to disable or enable the node and perform health checks. The repair task created by the patch orchestration app tracks the Windows Update progress for each node.
 
 ## Prerequisites
+
+> [!NOTE]
+> Minimum .NET framework version required is 4.6.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -128,11 +131,11 @@ To enable the repair manager service:
     ],
     ```
 
-3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
+3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
-### Disable automatic Windows Update on all nodes
+### Configure Windows Updates for all nodes
 
-Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
+Automatic Windows Updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or Group Policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
 
 ## Download the app package
 
@@ -413,3 +416,6 @@ An administrator must intervene and determine why the application or cluster bec
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
 - Fixing bug where InstallWindowsOSOnlyUpdates configuration is always picked as True.
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
+
+### Version 1.3.2
+- Fixing an issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

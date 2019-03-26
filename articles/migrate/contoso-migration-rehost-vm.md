@@ -163,10 +163,10 @@ They set these up as follows:
     - The app database VM (SQLVM) will migrate to the database subnet (PROD-DB-EUS2), in the production network.
 
 2. Set up a storage account-Contoso creates an Azure storage account (contosovmsacc20180528) in the primary region.
-    - The storage account must be in the same region as the Recovery Services vault.
-    - They use a general-purpose account, with standard storage, and LRS replication.
+   - The storage account must be in the same region as the Recovery Services vault.
+   - They use a general-purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Recovery storage](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Create a vault-With the network and storage account in place, Contoso now creates a Recovery Services vault (ContosoMigrationVault), and places it in the ContosoFailoverRG resource group in the primary East US 2 region.
 
@@ -216,15 +216,15 @@ After failover, Contoso wants to connect to the Azure VMs. To do this, Contoso a
 
 1. For access over the internet they:
 
- - Enable RDP on the on-premises VM before failover.
- - Ensure that TCP and UDP rules are added for the **Public** profile.
- - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
+   - Enable RDP on the on-premises VM before failover.
+   - Ensure that TCP and UDP rules are added for the **Public** profile.
+   - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
 
 2. For access over site-to-site VPN, they:
 
- - Enable RDP on the on-premises machine.
- - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
- - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
+   - Enable RDP on the on-premises machine.
+   - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
+   - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
 
 In addition, when they run a failover they need to check the following:
 
@@ -336,10 +336,10 @@ With everything in place, Contoso admins can now enable replication for the VMs.
 
 4. They select **WebVM** for replication, check the replication policy, and enable replication.
 
-    - At this stage they only selects WEBVM because VNet and subnet must be selected, and the app VMs will be placed in different subnets.
-    - Site Recovery automatically installs the Mobility service on the VM when replication is enabled.
+   - At this stage they only selects WEBVM because VNet and subnet must be selected, and the app VMs will be placed in different subnets.
+   - Site Recovery automatically installs the Mobility service on the VM when replication is enabled.
 
-    ![Enable replication](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Enable replication](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 6. In **Essentials** in the Azure portal, they can see the structure for the VMs replicating to Azure.
@@ -455,7 +455,7 @@ The Contoso security team reviews the Azure VMs, to determine any security issue
 - To control access, the team reviews the Network Security Groups (NSGs) for the VMs. NSGs are used to ensure that only traffic allowed to the app can reach it.
 - The team also consider securing the data on the disk using Azure Disk Encryption and KeyVault.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ## BCDR
 

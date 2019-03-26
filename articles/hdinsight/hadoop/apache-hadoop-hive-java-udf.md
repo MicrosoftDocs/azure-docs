@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -32,7 +32,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 * A text editor or Java IDE
 
     > [!IMPORTANT]
-    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character.
+    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the Troubleshooting section for steps on removing the CR character.
 
 ## Create an example Java UDF 
 
@@ -172,7 +172,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 2. Use the `scp` command to copy the file to the HDInsight cluster.
 
     ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
     ```
 
     Replace `myuser` with the SSH user account for your cluster. Replace `mycluster` with the cluster name. If you used a password to secure the SSH account, you are prompted to enter the password. If you used a certificate, you may need to use the `-i` parameter to specify the private key file.
@@ -209,7 +209,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
     ```
 
     > [!NOTE]
-    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Storage instead, change the `wasb:///` value to `adl:///`.
+    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Storage Gen2 instead, change the `wasb:///` value to `abfs:///`. If your cluster uses Data Lake Storage Gen1, change the `wasb:///` value to `adl:///`.
 
 3. Use the UDF to convert values retrieved from a table to lower case strings.
 

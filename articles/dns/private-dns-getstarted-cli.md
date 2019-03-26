@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
@@ -43,7 +43,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `az network dns zone create` command with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
+A DNS zone is created by using the `az network dns zone create` command with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
 
 If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone.
 
@@ -54,10 +54,10 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.2.0.0/16 \
   --subnet-name backendSubnet \
-  --subnet-prefix 10.2.0.0/24
+  --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -114,12 +114,12 @@ This will take a few minutes to complete.
 
 To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help with adding A records for example, see `azure network dns record-set A add-record --help`.
 
- The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4".
+ The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4".
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -131,13 +131,13 @@ To list the DNS records in your zone, run:
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 Remember, you won't see the automatically created A records for your two test virtual machines.
 
 ## Test the private zone
 
-Now you can test the name resolution for your **contoso.local** private zone.
+Now you can test the name resolution for your **private.contoso.com** private zone.
 
 ### Configure VMs to allow inbound ICMP
 
@@ -156,13 +156,13 @@ Repeat for myVM02.
 
 1. From the myVM02 Windows PowerShell command prompt, ping myVM01 using the automatically registered host name:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    You should see output that looks similar to this:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -176,13 +176,13 @@ Repeat for myVM02.
    ```
 2. Now ping the **db** name you created previously:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    You should see output that looks similar to this:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

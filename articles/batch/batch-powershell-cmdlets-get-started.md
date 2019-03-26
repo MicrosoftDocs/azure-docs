@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with PowerShell - Azure Batch | Microsoft Docs
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 services: batch
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
@@ -263,7 +263,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 You can find more information on application packages in [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
 > [!IMPORTANT]
-> You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
+> You must link an Azure Storage account to your Batch account to use application packages.
 
 ### Update a pool's application packages
 

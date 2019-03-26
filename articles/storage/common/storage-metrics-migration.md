@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage metrics migration

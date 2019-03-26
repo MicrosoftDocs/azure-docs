@@ -165,6 +165,7 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     }
 }
 ```
+
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
 timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.

@@ -23,7 +23,7 @@ For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics doesn't create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are controlled by you, and so that you can tune the performance, consistency, and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
-> You must add 0.0.0.0 to the list of allowed IPs from you Azure Cosmos DB firewall.
+> You must add 0.0.0.0 to the list of allowed IPs from your Azure Cosmos DB firewall.
 
 Some of the Cosmos DB collection options are detailed below.
 
@@ -43,7 +43,7 @@ If the incoming JSON document has an existing ID field, that field is automatica
 If you want to save <i>all</i> documents including the ones with a duplicate ID, rename the ID field in your query (with the AS keyword) and let Cosmos DB create the ID field or replace the ID with another column's value (using the AS keyword or by using the 'Document ID' setting).
 
 ## Data partitioning in Cosmos DB
-Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as previous query step or input partitioning scheme.
+Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) containers are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as the previous query step or input partitioning scheme.
 > [!Note]
 > At this time, Azure Stream Analytics only supports unlimited collections with partition keys at the top level. For example, `/region` is supported. Nested partition keys (e.g. `/region/name`) are not supported. 
 

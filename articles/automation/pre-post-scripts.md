@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
 # Manage pre and post scripts (Preview)
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Using a pre/post script
 
-To use a pre and or post script in an Update Deployment, simply start by creating an Update Deployment. Select **Pre-scripts + Post Scripts (Preview)**. This opens the **Select Pre-scripts + Post-scripts** page.  
+To use a pre and or post script in an Update Deployment, start by creating an Update Deployment. Select **Pre-scripts + Post Scripts (Preview)**. This action opens the **Select Pre-scripts + Post-scripts** page.  
 
 ![Select scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -36,17 +36,31 @@ The **Selected items** section now shows both your scripts selected and on is a 
 
 Finish configuring your Update Deployment.
 
-When your Update Deployment is complete, you can go to **Update deployments** to view the results. As you can see the status of the pre-script and post-script are provided.
+When your Update Deployment is complete, you can go to **Update deployments** to view the results. As you can see, the status of the pre-script and post-script are provided.
 
 ![Update results](./media/pre-post-scripts/update-results.png)
 
-By clicking into the update deployment run you are provided additional details to the pre and post scripts. A link to the script source at the time of the run is provided.
+By clicking into the update deployment run, you're provided additional details to the pre and post scripts. A link to the script source at the time of the run is provided.
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
 ## Passing parameters
 
-When you configure pre and post scripts you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. In addition to your standard runbook parameters an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
+When you configure pre and post scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre and Post scripts support the following types:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+If you need another object type, you can cast it to another type with your own logic in the runbook.
+
+In addition to your standard runbook parameters, an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
 
 ### SoftwareUpdateConfigurationRunContext properties
 
@@ -64,7 +78,7 @@ When you configure pre and post scripts you can pass in parameters just like sch
 |azureVirtualMachines     | A list of resourceIds for the Azure VMs in the update deployment        |
 |nonAzureComputerNames|A list of the Non-Azure computers FQDNs in the update deployment|
 
-The following is an example of a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
+The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -113,7 +127,7 @@ Or you can search for them by their script name as seen in the following list:
 > [!IMPORTANT]
 > After you import the runbooks, you must **Publish** them before they can be used. To do that find the runbook in your Automation Account, select **Edit**, and click **Publish**.
 
-The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure as well as handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
+The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure and handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
 
 ```powershell
 <# 
@@ -168,14 +182,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Interacting with Non-Azure machines
 
-Pre and post tasks run in the Azure context and do not have access to Non-Azure machines. In order to interact with the Non-Azure machines you must have the following:
+Pre and post tasks run in the Azure context and don't have access to Non-Azure machines. To interact with the Non-Azure machines, you must have the following items:
 
 * A Run As account
 * Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * Parent runbook
 
-To interact with Non-Azure machines a parent runbook is ran in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on.
+To interact with Non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on.
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -210,7 +224,7 @@ if ($summary.Type -eq "Error")
 
 ## Known issues
 
-* You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
+* You can't pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
 
 ## Next steps
 

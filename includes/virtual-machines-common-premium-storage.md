@@ -58,11 +58,11 @@ Here are some of the features of Premium Storage:
 
     To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the performance tier to **Premium_LRS**. To change the performance tier, use one of the following approaches:
      
-    - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
+  - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
 
-    To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
+    To learn about premium storage account limits, see [Scalability and performance targets](#scalability-and-performance-targets).
 
 * **Premium locally redundant storage**
 
@@ -93,8 +93,6 @@ These are some of the features supported on premium storage enabled VMs:
 
     > [!NOTE]
     > If you stripe premium storage data disks by using [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 
@@ -155,7 +153,7 @@ Sizes denoted with an asterisk are currently in preview.
 | Throughput per disk | 25 MB per second | 50 MB per second | 100 MB per second | 125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 480 MB per second | 750 MB per second | 750 MB per second |
 
 > [!NOTE]
-> Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Premium Storage-supported VMs](#premium-storage-supported-vms). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  
+> Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Supported VMs](#supported-vms). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  
 > Azure has designed Premium Storage platform to be massively parallel. Designing your application to be multi-threaded will help to achieve the high performance target offered on the larger disk sizes.
 
 Here are some important things to know about Premium Storage scalability and performance targets:
@@ -290,7 +288,7 @@ When you use Premium Storage, the following billing considerations apply:
 
 * **Premium storage disk and blob size**
 
-    Billing for a premium storage disk or blob depends on the provisioned size of the disk or blob. Azure maps the provisioned size (rounded up) to the nearest premium storage disk option. For details, see the table in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets). Each disk maps to a supported provisioned disk size, and is billed accordingly. Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS and throughput used.
+    Billing for a premium storage disk or blob depends on the provisioned size of the disk or blob. Azure maps the provisioned size (rounded up) to the nearest premium storage disk option. For details, see the table in [Scalability and performance targets](#scalability-and-performance-targets). Each disk maps to a supported provisioned disk size, and is billed accordingly. Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS and throughput used.
 
 * **Premium unmanaged disks snapshots**
 

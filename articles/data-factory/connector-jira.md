@@ -62,8 +62,8 @@ The following properties are supported for Jira linked service:
             "port" : "<port>",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }

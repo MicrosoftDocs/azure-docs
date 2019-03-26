@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux
 

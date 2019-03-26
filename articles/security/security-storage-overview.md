@@ -4,7 +4,7 @@ description: This article provides an overview of the core Azure security featur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
 
 ---
@@ -43,7 +43,7 @@ Learn more:
 
 ## Delegated access to storage objects
 
-A shared access signature provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. 
+A shared access signature provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
 
 The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to provide the SAS to the appropriate constructor or method.
 
@@ -69,13 +69,13 @@ Learn more about client-side encryption:
 
 For many organizations, [data encryption at rest](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty. Three Azure features provide encryption of data that's at rest:
 
-* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) enables you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) is always enabled and automatically encrypts storage service data when writing it to Azure Storage.
 * [Client-side encryption](../storage/common/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) enables you to encrypt the OS disks and data disks that an IaaS virtual machine uses.
 
 Learn more about Storage Service Encryption:
 
-* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Disk (Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
+* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
 * [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md)
 
 ## Azure Disk Encryption
@@ -110,9 +110,9 @@ Learn more:
 
 ## Advanced Threat Protection
 
-Azure Storage provides Advanced Threat Protection for an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage account. Advanced Threat Protection monitors Azure Storage diagnostic logs for suspicious read, write, or delete requests to Blob storage. 
+Azure Storage provides Advanced Threat Protection for an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage account. Advanced Threat Protection monitors Azure Storage diagnostic logs for suspicious read, write, or delete requests to Blob storage.
 
-Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center provides details on any suspicious activity detected and recommends actions to investigate and remediate the potential threat. 
+Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center provides details on any suspicious activity detected and recommends actions to investigate and remediate the potential threat.
 
 Learn more:
 
@@ -124,5 +124,4 @@ Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/service
 
 Learn more
 
-* [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [What is Azure Key Vault?](../key-vault/key-vault-overview.md)

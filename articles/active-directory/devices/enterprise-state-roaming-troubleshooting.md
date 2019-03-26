@@ -20,6 +20,7 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshooting Enterprise State Roaming settings in Azure Active Directory
@@ -43,7 +44,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
 * **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
 * **Information about the user** – What identity is the user using to sign in to the device? How is the user signing in to the device? Are they part of a selected security group allowed to sync? 
 * **Information about the device** – Is this device Azure AD-joined or domain-joined? What build is the device on? What are the most recent updates?
-- **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
+* **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
 
 Including this information helps us solve your problem as quickly as possible.
 
@@ -55,8 +56,8 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
 1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, sign on with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
 1. Verify that sync works across multiple machines by making some changes on the original machine, such as moving the taskbar to the right or top side of the screen. Watch the change propagate to the second machine within five minutes. 
 
-  * Locking and unlocking the screen (Win + L) can help trigger a sync.
-  * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
+   * Locking and unlocking the screen (Win + L) can help trigger a sync.
+   * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
 
 **Potential issue**: If the controls in the **Settings** page are not available, and you see the message “Some Windows features are only available if you are using a Microsoft account or work account.” This issue might arise for devices that are set up to be domain-joined and registered to Azure AD, but the device has not yet successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. 
 

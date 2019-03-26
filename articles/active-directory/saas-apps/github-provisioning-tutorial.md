@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure GitHub for automatic user provisioning
@@ -29,11 +30,11 @@ The objective of this tutorial is to show you the steps you need to perform in G
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant
-*   A GitHub tenant with the [Business Cloud plan](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) or better enabled 
-*   A user account in GitHub with Admin permissions 
+*   A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   A user account in GitHub with Admin permissions to the organization
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to GitHub teams on the Business plan or better.
+> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## Assigning users to GitHub
 

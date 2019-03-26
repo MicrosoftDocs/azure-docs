@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 03/13/2019
 ---
 # Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises
 
@@ -22,12 +22,13 @@ This quickstart demonstrates how to connect to an Azure SQL Database Managed Ins
 This quickstart:
 
 - Uses the resources created [Create a Managed Instance](sql-database-managed-instance-get-started.md) as its starting point.
-- Requires PowerShell 5.1 and Azure PowerShell 5.4.2 or higher on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Requires PowerShell 5.1 and AZ PowerShell 1.4.0 or later on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Requires the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) on your on-premises client computer.
 
 ## Attach a VPN gateway to your Managed Instance virtual network
 
-1. Open Powershell on your on-premises client computer.
+1. Open PowerShell on your on-premises client computer.
+
 2. Copy this PowerShell script. This script attaches a VPN Gateway to the Managed Instance virtual network that you created in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart. This script does the following:
 
    - Creates and install certificates on client machine
@@ -45,12 +46,18 @@ This quickstart:
        certificateNamePrefix  = '<certificateNamePrefix>'
        }
 
-     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
+     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
+
+     > [!IMPORTANT]
+     > To use the Azure PowerShell Resource Manager module rather than the Az module, use the following cmdlet: `attachVPNGateway.ps1` rather than the `attachVPNGatewayAz.ps1` cmdlet.
 
 3. Paste the script in your PowerShell window and provide the required parameters. The values for `<subscriptionId>`, `<resourceGroup>`, and `<virtualNetworkName>` should match the ones that you used for the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart. The value for `<certificateNamePrefix>` can be a string of your choice.
 
 4. Execute the PowerShell script.
+
+> [!IMPORTANT]
+> Do not continue until the PowerShell script completes.
 
 ## Create a VPN connection to your Managed Instance
 
@@ -59,17 +66,17 @@ This quickstart:
 3. Select **Point-to-site configuration** and then select **Download VPN client**.
 
     ![Download VPN client](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. On your on-premises client computer, extract the files from the zip file and then open the extracted folder.
-5. Open the WindowsAmd64 folder and open the **VpnClientSetupAmd64.exe** file.
-6. If you receive a **Windows protected your PC** message, select **More info** and then choose **Run anyway**.
+4. On your on-premises client computer, extract the files from the zip file and then open the folder with the extracted files.
+5. Open the `**WindowsAmd64** folder and open the **VpnClientSetupAmd64.exe** file.
+6. If you receive a **Windows protected your PC** message, click **More info** and then click **Run anyway**.
 
     ![Install VPN client](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Select **Yes** in the User Account Control dialog box to continue.
-8. In the dialog box referencing your virtual network, select **Yes** to install the VPN Client.
+7. In the User Account Control dialog box, click **Yes** to continue.
+8. In the dialog box referencing your virtual network, select **Yes** to install the VPN Client for your virtual network.
 
 ## Connect to the VPN connection
 
-1. Go to VPN connections on your on-premises client computer and select your Managed Instance virtual network to establish a connection to this VNet. In the following image, the VNet is named **MyNewVNet**.
+1. Go to **VPN** in **Network & Internet** on your on-premises client computer and select your Managed Instance virtual network to establish a connection to this VNet. In the following image, the VNet is named **MyNewVNet**.
 
     ![VPN connection](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. Select **Connect**.
@@ -83,12 +90,11 @@ This quickstart:
 
     ![VPN connection](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-
 ## Use SSMS to connect to the Managed Instance
 
 1. On the on-premises client computer, open SQL Server Management Studio (SSMS).
-2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box. 
-1. Select **SQL Server Authentication**, provide your username and password, and then select **Connect**.
+2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box.
+3. Select **SQL Server Authentication**, provide your username and password, and then select **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

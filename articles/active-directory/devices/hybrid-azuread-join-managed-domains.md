@@ -14,12 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
+ms.date: 03/20/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
 
@@ -52,8 +53,6 @@ This tutorial assumes that you are familiar with:
   
 
 To configure the scenario in this article, you need:
-
-- An on-premises Active Directory (AD) with a schema level of 85 or later. For more information, see [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - The [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
 
@@ -219,5 +218,5 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
 

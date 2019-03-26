@@ -4,7 +4,7 @@ description: This document walks you through how recommendations in Azure Securi
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -49,27 +49,25 @@ To see the details of each recommendation, select the **Recommendations tile** u
 
 You can filter recommendations. To filter the recommendations, select **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
 
-The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
 
-* **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
+* **RECOMMENDATIONS**: The recommendation.
+* **SECURE SCORE IMPACT**:
 * **RESOURCE**: Lists the resources to which this recommendation applies.
-* **STATE**: Describes the current state of the recommendation:
-  * **Open**: The recommendation hasn't been addressed yet.
-  * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-  * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
-* **SEVERITY**: Describes the severity of that particular recommendation:
-  * **High**: A vulnerability exists with a meaningful resource (such as an application, a VM, or a network security group) and requires attention.
-  * **Medium**: A vulnerability exists and non-critical or additional steps are required to eliminate it or to complete a process.
-  * **Low**: A vulnerability exists that should be addressed but does not require immediate attention. (By default, low recommendations aren't presented, but you can filter on low recommendations if you want to see them.)
+* **STATUS BARS**:  Describes the severity of that particular recommendation:
+   * **High (Red)**: A vulnerability exists with a meaningful resource (such as an application, a VM, or a network security group) and requires attention.
+   * **Medium (Orange)**: A vulnerability exists and non-critical or additional steps are required to eliminate it or to complete a process.
+   * **Low (Blue)**: A vulnerability exists that should be addressed but does not require immediate attention. (By default, low recommendations aren't presented, but you can filter on low recommendations if you want to see them.) 
+   * **Healthy (Green)**:
+   * **Not Available (Grey)**:
+ 
 
-Use the table below as a reference to help you understand the available recommendations and what each one does if you apply it.
 
 > [!NOTE]
 > You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
->
->
-### Apply recommendations
-After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
+> 
+> 
+> ### Apply recommendations
+> After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 
 
 

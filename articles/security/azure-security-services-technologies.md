@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure Security services and 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -30,7 +30,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
-|[Log Analytics](../log-analytics/log-analytics-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
+|[Azure Monitor logs](../log-analytics/log-analytics-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
 |[Azure Dev/Test Labs](../devtest-lab/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

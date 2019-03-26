@@ -69,16 +69,18 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 ----
 
 ## Container offer requirements
+
 |  | Listing Element | Base Requirements | Optimal Requirements | 
 |:--- |:--- |:--- |:--- |
 |1 |Offer Settings | <br>• Offer ID: Max 50 Character <br>• Publisher ID: Select from drop-down <br>•	Name: Max 50 characters | Mirrors the title style already available in the description- do not want long titles. | 
-| 2 | SKUs | Partner clicks on new SKUs| Mirrors the title style already available in the description- do not want long titles.  |  |
+| 2 | SKUs | Partner clicks on new SKUs| Mirrors the title style already available in the description- do not want long titles.  |
 | 3 | Marketplace Artifacts | Logos display correctly |<br>• Logo includes “hero image,” which is the large-format image in the Azure Portal <br>• Logos: Small (48x48) & Large (216x216) are requirements <br>• Hero image requirements: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Screenshot (Max 5):  CPP requires a .png image with resolution 1280 x 720.|
 | 4 | Lead Management |<br>•	Lead Management: Select the system where your leads will be stored. <br>•	Learn how to connect your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## Consulting offer requirements
+
 |  | Listing Element | Base Requirements | Optimal Requirements |
 |:--- |:--- |:--- |:--- |
 | 1 | Offer Title  |  <br>•  Must clearly list service type and duration in the following format: NAME : DURATION TYPE. (i.e., “Offer Engagement: 1-Week Proof-of-Concept”)  | <br>•  Does not repeat publisher name <br>•  Mirrors the title style already available in the description- do not want long titles. | 
@@ -100,4 +102,4 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 *	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

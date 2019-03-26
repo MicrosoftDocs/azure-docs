@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -27,30 +27,57 @@ Although all tiers, including the **Free** tier, generally offer feature parity,
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
 >
 
-Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. You could start with two or three of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## Tiers for Azure Search
+
+The following table lists the available tiers. Other sources of tier information include the [pricing page](https://azure.microsoft.com/pricing/details/search/), [service and data limits](search-limits-quotas-capacity.md), and the portal page when provisioning a service.
+
+|Tier | Capacity |
+|-----|-------------|
+|Free | Shared with other subscribers. Non-scalable, limited to 3 indexes and 50 MB storage. |
+|Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
+|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
+|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
+|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service). |
+|Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
+
 
 ## How billing works
 
-In Azure Search, there are four ways you can incur costs when you create a search resource in the portal:
+In Azure Search, there are three ways to incur costs in Aure Search, and there are fixed and variable components. This section looks at each billing component in turn.
 
-* Adding replicas and partitions used for regular indexing and querying tasks. You start with one of each, but you can increase one or both to add capacity, choosing and paying for additional levels of resourcing. 
-* Data egress charges during indexing. When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those resources.
-* For [cognitive search](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free.
-* For [cognitive search](cognitive-search-concept-intro.md) only, enrichments based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
+### 1. Core service costs (fixed and variable)
+
+For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
+
+In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tiers.
+
+![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
+
+Additional replicas and partitions are an add-on to the initial charge. A search service requires a replica and partition so the minimum configuration is one of each. Beyond the minimum, you add replicas and partitions independently. For example, you could add only replicas or only partitions. 
+
+Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### 2. Data egress charges during indexing
+
+When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those resources. Those charges are not Azure Search meters, but they are mentioned here because if you are using indexers to pull data from Azure SQL Database or Azure Cosmos DB, you'll see that charge in your bill.
+
+### 3. AI-enriched indexing using Cognitive Services
+
+For [cognitive search](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
 
 If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
 
-### Billing for general-purpose indexing and queries
+<a name="search-units"></a>
+
+### Billing based on search units
 
 For Azure Search operations, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
 
 SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
 
-Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. 
+Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. You can review [this chart](search-capacity-planning.md#chart) to see valid combinations at a glance.
 
 The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 
@@ -103,7 +130,7 @@ Shifting focus to the more commonly used standard tiers, **S1-S3** are a progres
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
 **S1** is a common choice when dedicated resources and multiple partitions become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced compositions.)

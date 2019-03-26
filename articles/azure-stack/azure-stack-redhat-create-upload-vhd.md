@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
+ms.lastreviewed: 08/15/2018
 
 ---
 # Prepare a Red Hat-based virtual machine for Azure Stack

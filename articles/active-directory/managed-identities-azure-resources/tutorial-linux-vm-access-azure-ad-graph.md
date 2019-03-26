@@ -3,7 +3,7 @@ title: Use a Linux VM system-assigned managed identity to access Azure AD Graph 
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: priyamo
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API

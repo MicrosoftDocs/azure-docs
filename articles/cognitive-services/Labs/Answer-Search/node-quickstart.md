@@ -3,7 +3,7 @@ title: "Quickstart: Project Answer Search, Node"
 description: Get started using Project Answer Search with Node.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search
@@ -47,7 +47,7 @@ let path = '/answerSearch/v7.0/search';
 let mkt = 'en-us';
 let q = 'Yosemite National Park';
 
-let params = '?q=' + encodeURI(q) + '&mkt=en-us';
+let params = '?q=' + encodeURI(q) + '&mkt= + mkt;
 
 let response_handler = function (response) {
     let body = '';

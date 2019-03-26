@@ -6,7 +6,7 @@ author: hirokib
 manager: jrj
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
@@ -75,5 +75,5 @@ To sign in to Fivetran, enter the credentials that you use to access SQL Data Wa
 * Host (your server name).
 * Port.
 * Database.
-* User (the user name should be **fivetran@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
 * Password.

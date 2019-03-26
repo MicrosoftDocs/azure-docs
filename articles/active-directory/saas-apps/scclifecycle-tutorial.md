@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SCC LifeCycle
 
@@ -114,6 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://bs1.scc.com/<entity>`|
@@ -132,8 +134,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. To configure single sign-on on **SCC LifeCycle** side, you need to send the downloaded **Metadata XML** to [SCC LifeCycle support team](mailto:lifecycle.support@scc.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-  >[!NOTE]
-  >Single sign-on has to be enabled by the SCC LifeCycle support team.
+   >[!NOTE]
+   >Single sign-on has to be enabled by the SCC LifeCycle support team.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: This upgrade guide describes changes between version 5 and version 7 of the Bing Image Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
 ---
 
-# Bing Image Search API upgrade guide
+# Bing Image Search API v7 upgrade guide
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Image Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
@@ -21,7 +21,7 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
+- The endpoint's version number changed from v5 to v7. For example, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
 
 ### Error response objects and error codes
 

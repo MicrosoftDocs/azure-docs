@@ -63,7 +63,7 @@ The user account's elevation level indicates whether a task runs with elevated a
 
 By default, tasks run in Batch under an auto-user account, as a standard user without elevated access, and with task scope. When the auto-user specification is configured for task scope, the Batch service creates an auto-user account for that task only.
 
-The alternative to task scope is pool scope. When the auto-user specification for a task is configured for pool scope, the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see the section titled [Run a task as the auto-user with pool scope](#run-a-task-as-the-autouser-with-pool-scope).   
+The alternative to task scope is pool scope. When the auto-user specification for a task is configured for pool scope, the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see the section titled Run a task as the auto-user with pool scope.   
 
 The default scope is different on Windows and Linux nodes:
 

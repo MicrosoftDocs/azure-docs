@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.topic: conceptual
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Set up your Media Services development environment
+# Set up your Media Services development environment  
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 

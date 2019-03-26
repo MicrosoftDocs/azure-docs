@@ -4,12 +4,12 @@ titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/04/2019
 ms.author: diberry
 ---
 
@@ -57,7 +57,7 @@ The Calendar domain provides intents and entities related to calendar entries. T
 | Add | Add a new one-time item to the calendar.| Make an appointment with Lisa at 2pm on Sunday <br/><br/>I want to schedule a meeting<br/><br/>I need to set up a meeting|
 | CheckAvailability | Find availability for an appointment or meeting on the user's calendar or another person's calendar.| When is Jim available to meet? <br/><br/>Show when Carol is available tomorrow<br/><br/>Is Chris free on Saturday?|
 | Delete | Request to delete a calendar entry.| Cancel my appointment with Carol. <br/><br/>Delete my 9 am meeting<br/>|
-| Edit | Request to change an existing meeting or calendar entry.| Move my 9 am meeting to 10 am.<br/><br/>I want to update my schedule.<br/><br/>Reschdule my meeting with Ryan.|
+| Edit | Request to change an existing meeting or calendar entry.| Move my 9 am meeting to 10 am.<br/><br/>I want to update my schedule.<br/><br/>Reschedule my meeting with Ryan.|
 | Find | Display my weekly calendar.| Find the dentist review appointment. <br/><br/>Show my calendar<br/>|
 
 ### Entities
@@ -101,7 +101,7 @@ The Communication domain provides intents and entities related to email, message
 | Confirm| Confirm an action.|Yes<br/>Okay<br/>All right<br/>I confirm that I want to send this email.<br/>|
 | Dial| Make a phone call.|Call Jim<br/>Please dial 311<br/>|
 | FindContact| Find contact information by name.|Find Carol's number<br/>Show me Carol's number<br/>|
-| FindSpeedDial| Find the speedial number a phone number is set to and vice versa.|What is my dial number 5?<br/>Do I have speed dial set?<br/>What is the dial number for 941-5555-333?|
+| FindSpeedDial| Find the speed dial number a phone number is set to and vice versa.|What is my dial number 5?<br/>Do I have speed dial set?<br/>What is the dial number for 941-5555-333?|
 | GetForwardingsStatus| Get the current status of call forwarding.|Is my call forwarding turned on?<br/>Tell me if my call status is on or off<br/>|
 | Goback| Go back to the previous step.|Go back to twitter<br/>Go back a step<br/>Go back|
 | Ignore| Ignore an incoming call.|Don't answer<br/>Ignore call|
@@ -247,7 +247,7 @@ The MovieTickets domain provides intents and entities related to booking tickets
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
-| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captian Omar Part 2 next Wednesday|
+| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captain Omar Part 2 next Wednesday|
 |GetShowTime| Get the showtime of a movie.|When is Captain Omar showing?|
 
 
@@ -407,7 +407,7 @@ The Places domain provides intents for handling queries related to places like b
 |GetMenu|Ask for the menu items for a restaurant.|Does Zucca serve anything vegan?<br/>What's on the menu at Sizzler<br/>Show me Applebee's menu|
 |GetPhoneNumber| Ask for the phone number of a place.|What is the phone number of the nearest Starbucks?<br/>Give the number for Home Depot| 
 |GetPriceRange| Asks for the price range of a place.|Is Zucca cheap?<br/>Is the Cineplex half price on Wednesdays?<br/>How much does a whole lobster dinner cost at Sizzler?|
-|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecase Factory<br/>Read Cineplex reviews in Yelp|
+|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecake Factory<br/>Read Cineplex reviews in Yelp|
 |GetRoute|Ask for directions to a place.|How to walk to Bellevue square<br/>Show me the shortest way to 8th and 59th from here<br/>Get me directions to Mountain View CA|
 |GetStarRating|Ask for the star rating of a place.|How is Zucca rated according to Yelp?<br/>How many stars does the French Laundry have?<br/>Is the aquarium in Monterrey good?|
 |GetTransportationSchedule|Get the bus schedule for a place.|What time is the next bus to downtown?<br/>Show me the buses in King County|

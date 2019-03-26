@@ -121,7 +121,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **To redeem a connection authorization**
