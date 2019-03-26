@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
 
-    f. The first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
+    f. Find the first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
 
     g. Find the tag **IDPSSODescriptor** with SAML protocol. Within that section, find the tag **KeyDescriptor** with **use=signing**. copy the value of **X509Certificate** and paste it in the **Certificate** textbox.
 

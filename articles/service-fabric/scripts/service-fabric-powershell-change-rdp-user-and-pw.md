@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Update the RDP username and password | M
 description: Azure PowerShell Script Sample - Update the RDP username and password for all Service Fabric cluster nodes of a specific node type.
 services: service-fabric
 documentationcenter: 
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 

@@ -287,11 +287,14 @@ Security Center is an Azure service that continuously monitors the customer’s 
 Azure Security Center monitors the following Azure resources:
 
 * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
+* Virtual machine scale sets (VMSSs)
 * Azure Virtual Networks
 * Azure SQL service
 * Azure Storage account
 * Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
 * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
+
+In addition, non-Azure (including on-premises) computers can also be monitored by Azure Security Center (Both [Windows computers](./quick-onboard-windows-computer.md) and [Linux computers](./quick-onboard-linux-computer.md) are supported)
 
 ## Virtual Machines
 ### What types of virtual machines are supported?

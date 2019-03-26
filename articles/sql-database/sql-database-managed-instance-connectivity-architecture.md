@@ -62,7 +62,7 @@ Let’s take a deeper dive into connectivity architecture for managed instances.
 
 ![Connectivity architecture of the virtual cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients connect to a managed instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use autofailover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Clients connect to a managed instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use auto failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 This private IP address belongs to the managed instance's internal load balancer. The load balancer directs traffic to the managed instance's gateway. Because multiple managed instances can run inside the same cluster, the gateway uses the managed instance's host name to redirect traffic to the correct SQL engine service.
 
@@ -104,6 +104,8 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |Any              |Internet   |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET*  |Allow |
+
+> Make sure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through ARM deployments may fail if inbound and output rules are configured separately for each ports. 
 
 \* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
@@ -162,6 +164,6 @@ If the virtual network includes a custom DNS, add an entry for the Azure recursi
 - [Calculate the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you want to deploy the managed instances.
 - Learn how to create a managed instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
-  - By using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - By using [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://portal.azure.com/).
