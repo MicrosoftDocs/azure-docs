@@ -14,9 +14,9 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Quickstart: Start the sample app on an Android Speech Devices SDK
+# Quickstart: Run the sample app on an Android Speech Devices SDK
 
-This article describes how to configure your development PC and an Android Speech device development kit for developing speech-enabled devices by using the Speech Devices SDK. It shows you how to build and deploy a sample application to the device.
+This article describes how to configure your development PC and an Android Speech Device Development Kit for developing speech-enabled devices by using the Speech Devices SDK. It shows you how to build and deploy a sample application to the device.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -38,13 +38,13 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the device
 
-1.	Start Vysor on your computer.
+1. Start Vysor on your computer.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.	Your device should be listed under **Choose a device**. Select the **View** button next to the device.
+1. Your device should be listed under **Choose a device**. Select the **View** button next to the device.
 
-1.	Connect to your wireless network by selecting the folder icon, and then select **Settings** > **WLAN**.
+1. Connect to your wireless network by selecting the folder icon, and then select **Settings** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
 
@@ -93,8 +93,8 @@ To validate your development kit setup, build and install the sample application
     To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
    * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
-   * Update the MainActivity.java with the keyword and the package name: 
-    
+   * Update the MainActivity.java with the keyword and the package name:
+
      ```java
      private static final String Keyword = "Machine";
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
@@ -106,6 +106,7 @@ To validate your development kit setup, build and install the sample application
    private static final String DeviceGeometry = "Circular6+1";
    private static final String SelectedGeometry = "Circular6+1";
    ```
+
    The following table describes the available values:
 
    |Variable|Meaning|Available values|
@@ -116,7 +117,6 @@ To validate your development kit setup, build and install the sample application
    |||For a circular dev kit that uses four mics: `Circular3+1`|
    |||For a linear dev kit that uses all mics: `Linear4`|
    |||For a linear dev kit that uses two mics: `Linear2`|
-
 
 1. To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
@@ -139,7 +139,7 @@ ToDo: fix this
     > [!NOTE]
     > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
     >
-    > If you see an error `no devices/emulators found` then check your USB cable is conected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
+    > If you see an error `no devices/emulators found` then check your USB cable is connected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
 
 ## Next steps
 
