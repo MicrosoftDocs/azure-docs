@@ -22,9 +22,38 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 1
     items:
       - image:
           src:  
         text: What is Video Indexer?
         href: video-indexer-overview.md
+     items:
+       - image:
+         src:
+         text: Compares Video Indexer APIs and Media Services v3 APIs
+         href: compare-video-indexer-with-media-services-presets.md
+
+  - title: 5-Minute Quickstarts
+    items:
+    - type: paragraph
+      text: 'Learn how to extract insights from your videos with Video Indexer:'
+    - type: list
+      style: icon48
+      items: 
+      - image:
+          src: media/index/AMSIcons-media_analytics.svg
+        text: Extract insights
+        href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  - title: Step-by-Step Tutorials
+    items:
+    - type: paragraph
+      text: 'Learn how to extract insights from your videos with the Video Indexer API:'
+    - type: list
+      style: icon48
+      items: 
+      - image: 
+          src: media/index/AMSIcons-media_analytics.svg
+        text: Extract insights
+        href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json   
+  
