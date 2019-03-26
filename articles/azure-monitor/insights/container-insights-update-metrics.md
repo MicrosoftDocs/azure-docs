@@ -559,7 +559,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     }
     ```
 
-2. Save this file as **onboard_metrics.ps1** to a local folder.
+2. Save this file as **onboard_metrics_atscale.ps1** to a local folder.
 3. Run the following command by using the Azure PowerShell. Edit the values for **subscriptionId**, **ResourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.
 
     ```powershell
