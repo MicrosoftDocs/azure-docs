@@ -4,7 +4,7 @@ description: Learn how to query Microsoft Graph for a list of risk events and as
 services: active-directory
 keywords: azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ---
