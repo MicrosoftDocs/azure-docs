@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/13/2019
+ms.lastreviewed: 03/27/2019
 ---
 
 # Azure Stack 1902 update
@@ -47,17 +47,17 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: No current hotfix available.
-- **1902**: No current hotfix available.
+- **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
+- **1902**: [KB 4494719 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
+> You can install 1902 directly from either the [1.1901.0.95 or 1.1901.0.99](azure-stack-update-1901.md#build-reference) release, without first installing any 1901 hotfix. However, if you have installed the older **1901.2.103** hotfix, you must install the newer [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) before proceeding to 1902.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -158,7 +158,6 @@ This update installs the following security updates:
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
 
-
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4487006](https://support.microsoft.com/en-us/help/4487006).
 
 ## Known issues with the update process
@@ -219,7 +218,7 @@ The following are post-installation known issues for this build version.
 
 - If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set the group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you cannot establish a PowerShell remote session and you will receive an **Access is denied** error:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.

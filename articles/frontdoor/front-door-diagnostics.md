@@ -39,7 +39,7 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 
 Activity logs provide information about the operations done on your Front Door Service. They also determine the what, who, and when for any write operations (put, post, or delete) taken on your Front Door Service.
 
->[!NOTE] 
+>[!NOTE]
 >Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
 
 Access activity logs in your Front Door Service or all the logs of your Azure resources in Azure Monitor. To view activity logs:

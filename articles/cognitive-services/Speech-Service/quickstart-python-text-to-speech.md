@@ -88,7 +88,7 @@ def get_token(self):
 
 Here you're going to build the request and save the speech response. First, you need to set the `base_url` and `path`. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `base_url`. For more information, see [Speech Services regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Next, you need to add required headers for the request. Make sure that you update `User-Agent` with the name of your resource (located in the Azure portal), and set `X-Microsoft-OutputFormat` to your preferred audio output. For a full list of output formats, see [Audio outputs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+Next, you need to add required headers for the request. Make sure that you update `User-Agent` with the name of your resource (located in the Azure portal), and set `X-Microsoft-OutputFormat` to your preferred audio output. For a full list of output formats, see [Audio outputs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Then construct the request body using Speech Synthesis Markup Language (SSML). This sample defines the structure, and uses the `tts` input you created earlier.
 
@@ -161,6 +161,6 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## See also
 
-* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)

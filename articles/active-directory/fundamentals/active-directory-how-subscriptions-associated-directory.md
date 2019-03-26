@@ -58,11 +58,10 @@ Before you can associate or add your subscription, you must perform the followin
 
     The directory is changed for the subscription and you get a success message.
 
-    ![Success message](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Use the **Directory switcher** to go to your new directory. It might take up to 10 minutes for everything to show up properly.
 
-4. Use the Directory switcher to go to your new directory. It might take up to 10 minutes for everything to show up properly.
-
-    ![Directory switcher page](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md). 
 
