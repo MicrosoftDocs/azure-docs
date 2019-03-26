@@ -26,4 +26,3 @@ Next, create a device identity and save its key for later use. This device ident
 5. Now that it's been created, click on the device to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
 
    ![Screenshot showing the device details, including the keys.](./media/iot-hub-include-create-simulated-device-portal/device-details.png)
-

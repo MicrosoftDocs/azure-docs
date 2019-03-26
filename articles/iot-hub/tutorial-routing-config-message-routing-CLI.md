@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using Azure CLI.

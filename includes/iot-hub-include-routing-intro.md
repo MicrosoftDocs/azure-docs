@@ -35,7 +35,7 @@ In this 2-part tutorial, you learn how to set up and use these custom routing qu
 
 * For part 1 of this tutorial:
 
-  - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * For part 2 of this tutorial:
 

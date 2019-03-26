@@ -144,9 +144,9 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane.
+6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane and see the selections you made.
 
-7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields.
+7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields. This field will be greyed out if the region selected does not support JSON encoding.,
 
    > [!NOTE]
    > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order.

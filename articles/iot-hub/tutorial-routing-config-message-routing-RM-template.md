@@ -6,7 +6,7 @@ manager: philmeagit st
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my resources using an Azure Resource Manager template.
@@ -24,13 +24,13 @@ ms.custom: mvc
 
 ## Download the template and parameters file
 
-For the second part of this tutorial, you download and run a Visual Studio application to send messages to the IoT Hub. There is a folder in the download that contains the Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts. 
+For the second part of this tutorial, you download and run a Visual Studio application to send messages to the IoT Hub. There is a folder in that download that contains the Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
 Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) now. Unzip the master.zip file. The Resource Manager template and the parameters file are in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** and **template_iothub_parameters.json**.
 
 ## Create your resources
 
-You're going to create all of your resources using an Azure Resource Manager (RM) template. Unlike Azure CLI or PowerShell, you deploy the whole template at one time. This article shows you the sections separately to help you understand each one. After the template is deployed, you can view the message routing configuration in the portal.
+You're going to create all of your resources using an Azure Resource Manager (RM) template. Unlike Azure CLI or PowerShell, you deploy the whole template at one time. This article shows you the sections separately to help you understand each one. Then it will show you how to deploy the template, and create the virtual device for testing. After the template is deployed, you can view the message routing configuration in the portal.
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make naming the resources easier, those resource names are set up to append a random alphanumeric value generated from the current date/time. 
 
@@ -38,7 +38,7 @@ If you look at the template, you'll see where variables are set up for these res
 
 The following section explains the parameters used.
 
-### Parameters 
+### Parameters
 
 Most of these parameters have default values. The ones ending with **_in** are concatenated with *randomValue* to make them globally unique. 
 
@@ -117,13 +117,13 @@ Here's what this section looks like:
             } ,
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-            ]        
-        }   
+            ]
+        }
     ]
 }
 ```
 
-### Resources - Service Bus namespace and queue 
+### Resources - Service Bus namespace and queue
 
 The second resource created is the Service Bus namespace, along with the Service Bus queue to which messages are routed. The SKU is set to standard. The API version is retrieved from the variables. It is also set to activate the Service Bus namespace when it deploys this section (status:Active). 
 
@@ -182,17 +182,17 @@ Here's the first part of the IoT Hub section. This part of the template sets up 
         "[resourceId('Microsoft.ServiceBus/namespaces/queues', variables('service_bus_namespace'), variables('service_bus_queue'))]"
     ],
     "properties": {
-        "eventHubEndpoints": {                
+        "eventHubEndpoints": {}
             "events": {
                 "retentionTimeInDays": 1,
                 "partitionCount": "[parameters('d2c_partitions')]"
-                }                    
+                }
             },
 ```
 
-The next section is the section for the message routing configuration for the Iot Hub. First is the section for the endpoints. This part of the template sets up the routing endpoints for the Service Bus queue and the storage account, including the connection strings. 
+The next section is the section for the message routing configuration for the Iot Hub. First is the section for the endpoints. This part of the template sets up the routing endpoints for the Service Bus queue and the storage account, including the connection strings.
 
-To create the connection string for the queue, you need the queueAuthorizationRulesResourcedId, which is retrieved inline. To create the connection string for the storage account, you retrieve the primary storage key and then use it in the format for the connection string. 
+To create the connection string for the queue, you need the queueAuthorizationRulesResourcedId, which is retrieved inline. To create the connection string for the storage account, you retrieve the primary storage key and then use it in the format for the connection string.
 
 The endpoint configuration is also where you set the blob format to `AVRO` or `JSON`.
 
@@ -228,7 +228,7 @@ The endpoint configuration is also where you set the blob format to `AVRO` or `J
     },
 ```
 
-This next section is for the message routes to the endpoints. There is one set up for each endpoint, so there is one for the Service Bus queue and one for the storage account container. 
+This next section is for the message routes to the endpoints. There is one set up for each endpoint, so there is one for the Service Bus queue and one for the storage account container.
 
 Remember that the query condition for the messages being routed to storage is `level="storage"`, and the query condition for the messages being routed to the Service Bus queue is `level="critical"`.
 
@@ -252,7 +252,6 @@ Remember that the query condition for the messages being routed to storage is `l
             ],
         "isEnabled": true
     }
-        
 ],
 ```
 
@@ -264,7 +263,7 @@ This json shows the rest of the IoT Hub section, which contains default informat
                 "source": "DeviceMessages",
                 "condition": "true",
                 "endpointNames": [
-                    "events" 
+                    "events"
                 ],
                 "isEnabled": true
             }
@@ -335,7 +334,7 @@ In this section, you create a Consumer Group for the IoT Hub data to be used by 
     "name": "[concat(variables('iotHubName'), '/events/',parameters('consumer_group'))]",
     "apiVersion": "2018-04-01",
     "dependsOn": [
-        "[concat('Microsoft.Devices/Iothubs/', variables('iotHubName'))]"
+        "[concat('Microsoft.Devices/IotHubs/', variables('iotHubName'))]"
     ]
 }
 ```
@@ -350,12 +349,8 @@ If you want to send a value back to the deployment script to be displayed, you u
       "type": "string",
       "value": "[Concat('Endpoint=sb://',variables('service_bus_namespace'),'.servicebus.windows.net/;SharedAccessKeyName=',parameters('AuthRules_sb_queue'),';SharedAccessKey=',listkeys(variables('queueAuthorizationRuleResourceId'),variables('sbVersion')).primaryKey,';EntityPath=',variables('service_bus_queue'))]"
     }
-  }    
+  }
 ```
-
-### Resources -- simulated device 
-
-[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## Deploying the RM template
 
@@ -365,7 +360,7 @@ To upload the files, click the **Upload/Download files** icon in the menu bar, t
 
 ![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Use the File Explorer that pops up to find the files on your local disk and select them, then click **Open**. 
+Use the File Explorer that pops up to find the files on your local disk and select them, then click **Open**.
 
 After the files are uploaded, a results dialog shows something like the following image.
 
@@ -373,9 +368,9 @@ After the files are uploaded, a results dialog shows something like the followin
 
 The files are uploaded to the share used by your Cloud Shell instance. 
 
-Run the script to perform the deployment. The last line of this script retrieves the variable that was set up to be returned -- the Service Bus queue connection string. 
+Run the script to perform the deployment. The last line of this script retrieves the variable that was set up to be returned -- the Service Bus queue connection string.
 
-These variables are set in this script. 
+These variables are set in this script.
 
 **$RGName** is the resource group name to which to deploy the template. This field is created before deploying the template.
 
@@ -412,6 +407,10 @@ New-AzResourceGroupDeployment `
 ```
 
 If you have script errors, you can edit the script locally, upload it again to the Cloud Shell, and run the script again. After the script finishes running successfully, continue to the next step.
+
+## Create simulated device
+
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## View message routing in the portal
 

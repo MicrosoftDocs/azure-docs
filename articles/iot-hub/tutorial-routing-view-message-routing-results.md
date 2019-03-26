@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2018
+ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
@@ -15,9 +15,9 @@ ms.custom: mvc
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
-## Defining the routed messages
+## Rules for routing the messages
 
-These are the rules for the message routing; these were set up in part 1 of this tutorial.
+These are the rules for the message routing; these were set up in part 1 of this tutorial, and you see them work in this second part.
 
 |value |Result|
 |------|------|
@@ -25,15 +25,15 @@ These are the rules for the message routing; these were set up in part 1 of this
 |level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using Power BI.|
 
-Now you will continue to create the resources to which the messages will be routed, and then see the routing working.
+Now you create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
 
 ## Create a Logic App  
 
-The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue. 
+The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue.
 
-1. In the [Azure portal](https://portal.azure.com), click **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then click **Create** to continue to the **Create logic app** pane. Fill in the fields. 
+1. In the [Azure portal](https://portal.azure.com), click **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then click **Create** to continue to the **Create logic app** pane. Fill in the fields.
 
-   **Name**: This field is the name of the logic app. This tutorial uses **ContosoLogicApp**. 
+   **Name**: This field is the name of the logic app. This tutorial uses **ContosoLogicApp**.
 
    **Subscription**: Select your Azure subscription.
 
@@ -73,7 +73,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![Screenshot showing the Office365 options.](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Next, log into your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
+8. Sign into your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
    Click **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
 
@@ -263,7 +263,7 @@ If you want to remove all of the resources you've created through both parts of 
 
 ### Clean up resources in the Power BI visualization
 
-Log into your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
+Sign into your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
 ### Clean up resources using Azure CLI
 
