@@ -1240,6 +1240,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-autosuggest-example.md",
+      "redirect_url": "/azure/search/search-autocomplete-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-import-data-rest-api.md",
       "redirect_url": "/azure/search/search-create-index-rest-api",
       "redirect_document_id": false

@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 3/25/2019
+ ms.date: 3/26/2019
  ms.author: victorh
  ms.custom: include file
 ---
@@ -40,10 +40,11 @@ You can set up Azure Firewall by using the Azure portal, PowerShell, REST API, o
 
 Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule collections are executed in order of their priority. Network rule collections are higher priority than application rule collections, and all rules are terminating.
 
-There are two types of rule collections:
+There are three types of rule collections:
 
-* *Application rules*: Enable you to configure fully qualified domain names (FQDNs) that can be accessed from a subnet.
-* *Network rules*: Enable you to configure rules that contain source addresses, protocols, destination ports, and destination addresses.
+* *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a subnet.
+* *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
+* *NAT rules*: Configure DNAT rules to allow incoming connections.
 
 ### Does Azure Firewall support inbound traffic filtering?
 
@@ -126,3 +127,7 @@ Yes. The firewall, subnet, VNet, and the public IP address all must be in the sa
 ### When configuring DNAT for inbound network traffic, do I also need to configure a corresponding network rule to allow that traffic?
 
 No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../articles/firewall/rule-processing.md).
+
+### How to wildcards work in an application rule target FQDN?
+
+If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
