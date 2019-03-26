@@ -1,5 +1,5 @@
 ---
-title: Supported Web Browsers - Azure Maps | Microsoft Docs
+title: Supported web browsers - Azure Maps | Microsoft Docs
 description: Learn about supported web browsers for Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
@@ -10,7 +10,7 @@ services: azure-maps
 manager: cpendleton
 ---
 
-# Supported Web Browsers
+# Supported web browsers
 
 The Azure Maps Web SDK provides a helper function [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-) to detect if a web browser has the minimum required WebGL features to support loading and rendering the map control. 
 
@@ -33,7 +33,7 @@ The Azure Maps Web SDK supports the following web browsers.
 - The current and previous version of Firefox 
 - The current and previous version of Safari (Mac OS X) 
 
-See also [Targeting Legacy Browsers](#Targeting-Legacy-Browsers).
+See also [Target legacy browsers](#Target-Legacy-Browsers).
 
 ## Mobile
 
@@ -52,9 +52,9 @@ See also [Targeting Legacy Browsers](#Targeting-Legacy-Browsers).
 
 The following Web SDK modules are also supported in Node.js:
 
-- Services module ([documentation](using-the-services-module.md) | [npm module](https://www.npmjs.com/package/azure-maps-rest))
+- Services module ([documentation](how-to-use-services-module.md) | [npm module](https://www.npmjs.com/package/azure-maps-rest))
 
-## <a name="Targeting-Legacy-Browsers"></a>Targeting Legacy Browsers
+## <a name="Target-Legacy-Browsers"></a>Target legacy browsers
 
 If you need to target older web browsers that may not support or have limited support for WebGL, it is recommended to use the Azure Maps Services in combination with an open-source map control such as [leaflet](https://leafletjs.com/). 
 

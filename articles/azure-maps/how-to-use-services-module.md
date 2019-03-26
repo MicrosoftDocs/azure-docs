@@ -14,26 +14,26 @@ manager: cpendleton
 
 The Azure Maps Web SDK provides a services module that is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications using JavaScript or TypeScript.
 
-## Using the Services module in a web page
+## Using the services module in a web page
 
 1. Create a new HTML file.
 2. Load in the Azure Maps Services module. This can be done using one of two options;
 
     a. Use the globally hosted CDN version of the Azure Maps services module by adding a script reference to the <head> element of the file:
     
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
-        ```
+	```html
+	<script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+	```
     
     b. Alternatively, load the Azure Maps Web SDK source code locally using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) NPM package and host it with your app. This package also includes TypeScript definitions.
     
-        > npm install azure-maps-rest
+	> npm install azure-maps-rest
     
     Then add a script references to the `<head>` element of the file:
     
-        ```html
-        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
-        ```
+	```html
+	<script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+	```
 
 3. To initialize a service URL client endpoint, you must first create an authentication pipeline. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the search service client. In this example, the search service URL client will be created. If using a subscription key for authentication:
 
@@ -155,7 +155,7 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## Next Steps
+## Next steps
 
 Learn more about the classes and methods used in this article:
 
