@@ -21,11 +21,13 @@ This article shows you how to create this new account type using the [Azure port
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure
+## Create a premium file share using the Azure Portal
+
+### Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a FileStorage (preview) storage account
+### Create a FileStorage (preview) storage account
 
 Now you're ready to create your storage account.
 
@@ -52,7 +54,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 
 Once your storage account resource has been created, navigate to it.
 
-## Create a premium file share
+### Create a premium file share
 
 1. In the left menu for the storage account, scroll to the **File service** section, then select **Files (preview)**.
 1. Select **+File share** to create a premium file share.
@@ -63,9 +65,103 @@ Once your storage account resource has been created, navigate to it.
 
     ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-## Clean up resources
+### Clean up resources
 
 If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
+
+## Create a premium file share using PowerShell
+
+### Create an account using PowerShell
+
+First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+
+Then, log in to your Azure subscription, create a resource group, and then create a storage account.
+
+### Log in to your Azure Subscription
+
+Use the `Login-AzAccount` command and follow the on-screen directions to authenticate.
+
+```powershell
+Login-AzAccount
+```
+
+### Create a resource group
+
+To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command: 
+
+> [!NOTE]
+> The hierarchical namespace is currently available in all public regions.
+
+```powershell
+# put resource group in a variable so you can use the same group name going forward,
+# without hardcoding it repeatedly
+$resourceGroup = "storage-quickstart-resource-group"
+$location = "westus2"
+New-AzResourceGroup -Name $resourceGroup -Location $location
+```
+
+### Create a filestorage (preview) storage account
+
+To create a FileStorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+
+```powershell
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus" -Kind "FileStorage"
+```
+
+### Clean up resources
+
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
+
+```powershell
+Remove-AzResourceGroup -Name $resourceGroup
+```
+
+## Create a premium file share using Azure CLI
+
+To start Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+
+If you want to log into your local installation of the CLI, run the login command:
+
+```cli
+az login
+```
+
+### Add the CLI extension for Azure premium files
+
+To interact with premium files using the CLI, you'll have to add an extension to your shell.
+
+To do that, enter the following command by using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
+
+### Create a resource group
+
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group) command.
+
+```azurecli-interactive
+az group create `
+    --name files-howto-resource-group `
+    --location westus2
+```
+
+### Create a FileStorage (preview) storage account
+
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
+
+```azurecli-interactive
+az storage account create `
+    --name fileshowto `
+    --resource-group files-howto-resource-group `
+    --location westus `
+    --sku Premium_LRS `
+    --kind FileStorage
+```
+
+### Clean up resources
+
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
 
 ## Next steps
 
