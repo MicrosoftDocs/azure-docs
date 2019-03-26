@@ -43,12 +43,12 @@ The following steps are not required if you're running commands in Azure Cloud S
     Connect-AzAccount
     ```
 
-2. Set the subscription where you want your cluster to be created:
+1. Set the subscription where you want your cluster to be created:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. When running Azure CLI locally or in the Azure Cloud Shell, you need to install the Az.Kusto module on your device:
+1. When running Azure CLI locally or in the Azure Cloud Shell, you need to install the Az.Kusto module on your device:
 	
 	```azurepowershell-interactive
      Install-Module -Name Az.Kusto	
@@ -70,7 +70,7 @@ The following steps are not required if you're running commands in Azure Cloud S
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 
-2. Run the following command to check whether your cluster was successfully created:
+1. Run the following command to check whether your cluster was successfully created:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -94,7 +94,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
    | SoftDeletePeriod | *3650:00:00:00* | The amount of time that data will be kept available to query. |
    | HotCachePeriod | *3650:00:00:00* | The amount of time that data will be kept in cache. |
 
-2. Run the following command to see the database that you created:
+1. Run the following command to see the database that you created:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
