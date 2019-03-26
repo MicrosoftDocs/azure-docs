@@ -21,7 +21,7 @@ ms.author: mlottner
 # Tutorial: Deploy ASC for IoT C#-based security agent for Windows
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -51,9 +51,10 @@ To install the security agent, do the following:
 2. Extract the contents of the package, and navigate to the /Install folder.
 
 3. Open Windows PowerShell. 
-    1. Add running permissions to the InstallSecurityAgent script by running ```Unblock-File .\InstallSecurityAgent.ps1```
+    1. Add running permissions to the InstallSecurityAgent script by running
+    ```Unblock-File .\InstallSecurityAgent.ps1```
     
-    and run:
+        and run:
 
     ```
 	.\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -77,7 +78,7 @@ For additional help, use the Get-Help command in PowerShell <br>Get-Help example
 
 ### Verify deployment status
 
-Check the agent deployment status by running:
+- Check the agent deployment status by running:<br>
     ```sc.exe query "ASC IoT Agent" ```
 
 ### Uninstall the agent
@@ -112,14 +113,14 @@ To turn on logging:
 
 1. Restart the agent by running the following PowerShell or command line:
 
-   - Powershell:
+    **Powershell**
 	 ```
 	 Restart-Service "ASC IoT Agent"
 	 ```
 	 
-   OR
+   or
 
-   - CMD:
+    **CMD**
 	 ```
 	 sc.exe stop "ASC IoT Agent" 
 	 sc.exe start "ASC IoT Agent" 
@@ -130,9 +131,9 @@ To turn on logging:
    Log file location: `<unpacked_agent_location>/IoTAgentLog.log`
 
 
-## See Also
+## Next steps
 - [Overview](overview.md)
 - [Architecture](architecture.md)
-- [Onboarding](quickstart-onboard-iot-hub.md)
+- [Enable the service](quickstart-onboard-iot-hub.md)
 - [ASC for IoT FAQ](resources-frequently-asked-questions.md)
 - [Understanding ASC for IoT alerts](concept-security-alerts.md)

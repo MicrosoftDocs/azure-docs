@@ -84,4 +84,4 @@ ms.author: mlottner
 ## See also
 - [Overview](overview.md)
 - [Access your security data](how-to-security-data-access.md)
-- [Investigate a device](tutorial-investigate-a-device.md)
+- [Investigate a device](tutorial-investigate-device.md)

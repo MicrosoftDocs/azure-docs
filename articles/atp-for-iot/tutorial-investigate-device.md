@@ -17,7 +17,13 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
+
 # Tutorial: Investigate a suspicious IoT device
+
+> [!IMPORTANT]
+> ASC for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ASC for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
@@ -166,6 +172,5 @@ Use this data to discover:
   3. Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
-
-After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](tutorial-deploy-agent.md) or [changing the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
+After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](select-deploy-agent.md) or [changing the configuration of an existing device agent](concept-agent-configuration.md) to improve your results. 
  

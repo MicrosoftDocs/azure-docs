@@ -1,14 +1,14 @@
 ---
-title: Frequently asked questions for ATP for IoT Preview| Microsoft Docs
-description: Find answers to the most frequently asked questions about ATP for IoT features and service.
-services: atpforiot
+title: Frequently asked questions for ASC for IoT Preview| Microsoft Docs
+description: Find answers to the most frequently asked questions about ASC for IoT features and service.
+services: ASCforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 97fda6c2-1ecb-491f-b48d-41788bd7e0d3
-ms.service: atpforiot
+ms.service: ASCforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# ATP for IoT frequently asked questions  
+# ASC for IoT frequently asked questions  
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides a list of frequently asked questions and answers about ATP for IoT. 
+This article provides a list of frequently asked questions and answers about ASC for IoT. 
 
 ## Does Azure provide support for IoT security?
 
@@ -32,49 +32,49 @@ Azure provides an integrated view for monitoring and managing your IoT security 
 
 ## What is Azure's unique value proposition for IoT security?
 
-ATP for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central, and Azure Security Center enable you to create the solution you want with the security you need.
+ASC for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central, and Azure Security Center enable you to create the solution you want with the security you need.
 
-## Who is ATP for IoT made for? 
+## Who is ASC for IoT made for? 
 
-ATP for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. ATP for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
+ASC for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. ASC for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
 
-## How does ATP for IoT compare to the competition?
+## How does ASC for IoT compare to the competition?
 
-While other solutions provide a set of capabilities that allow customers to create their own solutions, ATP for IoT provides a unique end-to-end IoT security solution that provides a wide view across the security of all of your related Azure resources. Azure enables fast deployment and full integration with IoT Hub module twins for easy integration with existing device management tools.
+While other solutions provide a set of capabilities that allow customers to create their own solutions, ASC for IoT provides a unique end-to-end IoT security solution that provides a wide view across the security of all of your related Azure resources. Azure enables fast deployment and full integration with IoT Hub module twins for easy integration with existing device management tools.
 
 ## Do I have to be an Azure Security Center (ASC) customer?
 
-No, but it is recommended. Without ASC, ATP for IoT receives limited connected resource data and provides a limited analysis of your potential attack surface, threats, and potential attacks. 
+No, but it is recommended. Without ASC, ASC for IoT receives limited connected resource data and provides a limited analysis of your potential attack surface, threats, and potential attacks. 
 
 ## Do I have to be an Azure IoT customer?
 
-Yes. ATP for IoT relies on Azure IoT connectivity  and infrastructure.
+Yes. ASC for IoT relies on Azure IoT connectivity  and infrastructure.
 
 ## Do I have to install an agent?
 
-Agent installation on your IoT devices isn't mandatory in order to enable the Microsoft ATP for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
+Agent installation on your IoT devices isn't mandatory in order to enable the Microsoft ASC for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
 
-1. Install the ATP for IoT security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
+1. Install the ASC for IoT security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 
-2. Create your own agent and implement Microsoft ATP for IoT security message schema. This option enables usage of Microsoft ATP for IoT analysis tools on top of your device security agent.
+2. Create your own agent and implement Microsoft ASC for IoT security message schema. This option enables usage of Microsoft ASC for IoT analysis tools on top of your device security agent.
 
 3. No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities. 
 
-## What does the ATP for IoT agent do?
+## What does the ASC for IoT agent do?
 
-ATP for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The ATP for IoT security agent does not scan business-related data or activity.
+ASC for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The ASC for IoT security agent does not scan business-related data or activity.
 
-## Where I can get the ATP for IoT security agent?
+## Where I can get the ASC for IoT security agent?
 
-The ATP for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT-Preview
+The ASC for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT-Preview
 
-## Where does the ATP for IoT agent get installed? 
+## Where does the ASC for IoT agent get installed? 
 
 Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT-Preview
 
 ## What are the dependencies and prerequisites of the agent?
 
-ATP for IoT supports a wide variety of platforms. See [Supported Device platforms](tutorial-deploy-agent.md) to verify support for your specific devices. 
+ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](select-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 
@@ -82,11 +82,11 @@ Connectivity, access, firewall configuration, process list & OS baseline are col
 
 ## How much data will the agent generate?
 
-Agent data generation is driven by device, application, connectivity type, and customer agent configuration. Due to the high variability between devices and IoT solutions, we recommend first deploying the agent in a lab or test setting to observe, learn, and set the specific configuration that fits your needs, while measuring the amount of generated data. After starting the service, the ATP for IoT agent provides operational recommendations for optimizing agent throughput to help you with the configuration and customization process.
+Agent data generation is driven by device, application, connectivity type, and customer agent configuration. Due to the high variability between devices and IoT solutions, we recommend first deploying the agent in a lab or test setting to observe, learn, and set the specific configuration that fits your needs, while measuring the amount of generated data. After starting the service, the ASC for IoT agent provides operational recommendations for optimizing agent throughput to help you with the configuration and customization process.
 
 ## How can I control my billing?
 
-ATP for IoT provides configurable agent scans, data buffers, and the ability to create custom alerts that increase or reduce the amount of data generated by the agent.
+ASC for IoT provides configurable agent scans, data buffers, and the ability to create custom alerts that increase or reduce the amount of data generated by the agent.
 
 ## Do agent messages use up quota from IoT Hub?
 
@@ -94,15 +94,15 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 ## What next? I've installed an agent and don't see any activities or logs
 
-1. Check the [agent type fits the designated OS platform of your device](device-agent-prerequisites.md)
+1. Check the [agent type fits the designated OS platform of your device](select-deploy-agent.md)
 
-1. Confirm the [agent is running on the device](tutorial-agent-configuration.md).
+1. Confirm the [agent is running on the device](concept-agent-configuration.md).
 
 2. Check the [service was onboarded successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 
-3. Check that the device is [configured in IoT hub with the ATP for IoT module](quickstart-create-security-twin.md).  
+3. Check that the device is [configured in IoT Hub with the ASC for IoT module](quickstart-create-security-twin.md).  
 
-If the activities or logs are still unavailable, contact your ATP for IoT partner for additional help.
+If the activities or logs are still unavailable, contact your ASC for IoT partner for additional help.
 
 ## What happens when the internet connection stops working?
 
@@ -134,19 +134,19 @@ Yes. You can set a customized alert on pre-determined set of behaviors such as I
 
 - Raw data from your security agent can also be stored in your Log Analytics account. Consider size, duration, storage requirements, and associated costs before changing the configuration of this option. 
 
-## Why should I add ATP for IoT to the module identity? What is it used for?
+## Why should I add ASC for IoT to the module identity? What is it used for?
 
-The ATP for IoT module is used for agent configuration and management.
+The ASC for IoT module is used for agent configuration and management.
 
 
 ## Next steps
 
-To learn more about how to get started with ATP for IoT, see the following articles:
+To learn more about how to get started with ASC for IoT, see the following articles:
 
 ## See Also
 
-- [ATP for IoT overview](overview.md)
+- [ASC for IoT overview](overview.md)
 - [Service prerequisites](service-prerequisites.md)
-- [Getting started](quickstart-getting-started.md)
+- [Getting started](getting-started.md)
 - [Understanding security alerts](concept-security-alerts.md)
 
