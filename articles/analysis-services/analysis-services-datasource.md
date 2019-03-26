@@ -59,7 +59,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|csv file  |
+|CSV file  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel workbook     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -78,7 +78,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Database     |  
-|txt file  |
+|TXT file  |
 |XML table<sup>[1](#tab1400b)</sup>    |  
 ||
  
