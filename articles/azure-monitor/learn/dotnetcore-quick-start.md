@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 03/16/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
