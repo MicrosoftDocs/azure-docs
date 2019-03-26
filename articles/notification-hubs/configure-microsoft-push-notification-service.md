@@ -19,11 +19,9 @@ This article shows you how to configure Microsoft Push Notification Service (MPN
 ## Prerequisites
 If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md). 
 
-## Configure Windows Push Notification Service (WNS)
+## Configure Microsoft Push Notification Service (MPNS)
 
-The following procedure gives you steps to configure Windows Push Notification Service (WNS) settings for a notification hub: 
-
-To set up Microsoft Push Notification Service (MPNS) for Windows Phone: 
+The following procedure gives you steps to configure Microsoft Push Notification Service (MPNS) settings for a notification hub: 
 
 1. In the Azure portal, in the **Notification Hub**, select **Windows Phone (MPNS)**.
 1. Enable either unauthenticated or authenticated push notifications:

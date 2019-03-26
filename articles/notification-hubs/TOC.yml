@@ -121,6 +121,12 @@
       href: configure-google-firebase-cloud-messaging.md
     - name: Configure Windows Push Notification Service
       href: configure-windows-push-notification-service.md
+    - name: Configure Microsoft Push Notification Service
+      href: configure-microsoft-push-notification-service.md
+    - name: Configure Android Device Messaging
+      href: configure-android-device-messaging.md            
+    - name: Configure Baidu Cloud Push
+      href: configure-baidu-cloud-push.md      
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
