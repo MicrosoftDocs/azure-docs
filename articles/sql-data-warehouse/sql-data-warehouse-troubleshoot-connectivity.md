@@ -18,7 +18,7 @@ This article lists common troubleshooting techniques around connecting to your S
 
 ## Check Service Availability
 
-Check to see if the service is available. In the Azure Portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**
+Check to see if the service is available. In the Azure portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**
 
 ![Select Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
@@ -37,11 +37,11 @@ Check the portal to see if your SQL data warehouse is paused or scaling.
 
 ![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-If you see that your service is paused or scaling, check to see that it isn't during your maintenance schedule. On the portal for your SQL data warehouse *Overview*, you'll see the elected maintenance schedule.
+If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your SQL data warehouse *Overview*, you'll see the elected maintenance schedule.
 
-![Overview Maintance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this isn't a scheduled event. To resume the SQL data warehouse, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL data warehouse, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## Check your firewall settings
 
