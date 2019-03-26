@@ -18,7 +18,7 @@ This article lists common troubleshooting techniques around connecting to your S
 
 ## Check Service Availability
 
-Check to see if the service is available. In the Azure portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**
+Check to see if the service is available. In the Azure portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
 
 ![Select Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
@@ -45,17 +45,17 @@ Otherwise, check with your IT administrator to verify that this maintenance isn'
 
 ## Check your firewall settings
 
-SQL Data Warehouse communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal)
+SQL Data Warehouse communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal).
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)
+If you're receiving Errors 40914 and 40615, see [error description and resolution here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
 ### Software
 
-Check to make sure you're using the latest tools to connect to your SQL data warehouse.
+Check to make sure you're using the latest tools to connect to your SQL data warehouse:
 
 * SSMS
 * Azure Data Studio
@@ -72,7 +72,7 @@ Check to make sure you're using the latest driver versions.  Using an older ve
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-connection-strings)
+Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 ADO.NET connection string
 
@@ -104,7 +104,7 @@ Check to see if you're experiencing heavy load on the server with a high number 
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)
+Errors 40914 and 40615, see the [error description and resolution here](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
 Create a [support ticket](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) so the engineering team can support you.
