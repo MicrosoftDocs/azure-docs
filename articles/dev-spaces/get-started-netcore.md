@@ -131,17 +131,36 @@ Keep an eye on the command's output, you'll notice several things as it progress
 > These steps will take longer the first time the `up` command is run, but subsequent runs should be quicker.
 
 ### Test the web app
-Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
+Scan the console output for the *Application started* message, confirming that the `up` command has completed:
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
-Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 80 (http) is available at http://localhost:<port number>
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.<id>.<region>.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
+Identify the public URL for the service. It ends in `.azds.io`. In the output shown above, the public URL is on the second line.
+
+Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development, and is one of the "free" benefits you get from Dev Spaces instrumentation.
+
+![azds trace terminal window](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
+> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -161,7 +180,6 @@ Updating code files requires a little more work, because a .NET Core app needs t
 1. Run  `azds up` in the terminal window. 
 
 This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, go to the About menu in the web app.
-
 
 But there is an even *faster method* for developing code, which you'll explore in the next section. 
 
@@ -200,11 +218,11 @@ Hit **F5** to debug your code in Kubernetes.
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
 > [!Tip]
-> The VS Code status bar will display a clickable URL.
+> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to quickly open your site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
+Set a breakpoint in a server-side code file, for example within the `About()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
@@ -219,7 +237,7 @@ public IActionResult About()
 }
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
 ![](media/get-started-netcore/debug-action-refresh.png)
 
