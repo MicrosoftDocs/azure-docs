@@ -5,28 +5,36 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 03/26/2019
 ms.author: mbullwin
 
 ---
 # Monitor Azure App Service performance
-In the [Azure portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
-## Runtime or build time
-You can configure monitoring by instrumenting the app in either of two ways:
+Enabling monitoring on your .NET and .NET Core based web applications running on Azure App Services is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent and monitoring capabilities are now baked into the app service image by default. This article will walk you through enabling monitoring as well as provide guidance for automating the process for large scale deployments.
 
-* **Runtime** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or reinstall your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on.
+## Enable Application Insights
 
-* **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. This also gives you the ability to test the latest version of the Application Insights SDK as you can choose to evaluate beta SDKs whereas runtime monitoring is restricted to the latest stable release.
+There are two ways to enable application monitoring for Azure App Services hosted applications:
 
-## Runtime instrumentation with Application Insights
-If you're currently running an app service in Azure, you already get some monitoring: request and error rates by default. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and access to the powerful Kusto query language. 
+* **Agent based application monitoring** (ApplicationInsightsAgent).  
+    * This is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
+
+* **Manually instrumenting the application through code** by installing the Application Insights SDK.
+    * This approach is much more flexible, but it requires advanced Application Insights SDK configuration.
+    * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about...
+
+> [!NOTE]
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section]() below.
+
+### Enable agent based application monitoring
+
+# [.NET](#tab/net)
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -44,23 +52,48 @@ If you're currently running an app service in Azure, you already get some monito
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
 
    * .NET **Basic collection** level offers essential single-instance APM capabilities.
-    
+
    * .NET **Recommended collection** level:
        * Adds CPU, memory, and I/O usage trends.
        * Correlates micro-services across request/dependency boundaries.
        * Collects usage trends, and enables correlation from availability results to transactions.
        * Collects exceptions unhandled by the host process.
        * Improves APM metrics accuracy under load, when sampling is used.
-    
-     .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
 
-3. **Instrument your app service** after Application Insights has been installed.
+# [.NET Core](#tab/netcore)
 
-   **Enable client-side monitoring** for page view and user telemetry.
+1. **Select Application Insights** in the Azure control panel for your app service.
 
-    (This is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI-based support for disabling client-side monitoring is not currently available for .NET Core.)
-    
-   * Select Settings > Application Settings
+    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights.png)
+
+   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+
+     > [!NOTE]
+     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+
+     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
+
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
+
+    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+
+  .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
+
+# [Node.js](#tab/nodejs)
+
+Node.js App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your node.js application you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) with the Application Insights Node.js SDK.
+
+# [Java](#tab/java)
+
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application you need to [manually instrument your application](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-get-started) with the Application Insights Java SDK.
+
+---
+
+## Enable client-side monitoring
+
+# [.NET](#tab/net)
+
+* Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
 
      Key: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -68,35 +101,19 @@ If you're currently running an app service in Azure, you already get some monito
      Value: `true`
    * **Save** the settings and **Restart** your app.
 
-4. Explore your app's monitoring data by selecting **Settings** > **Application Insights** > **View more in Application Insights**.
+# [.NET Core](#tab/netcore)
 
-Later, you can build the app with Application Insights if you want.
+Client-side monitoring is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI/Application setting based support for disabling client-side monitoring is not currently available for .NET Core.
 
-*How do I remove Application Insights, or switch to sending to another resource?*
+# [Node.js](#tab/nodejs)
 
-* In Azure, open the web app control blade, and under Settings, open **Application Insights**. You can turn off Application Insights by clicking **Disable** at the top, or select a new resource in the **Change your resource** section.
+Node.js App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your node.js application you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) with the Application Insights Node.js SDK.
 
-## Build the app with Application Insights
-Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md), and get more detailed exception reports.
+# [Java](#tab/java)
 
-1. **In Visual Studio** (2013 update 2 or later), configure Application Insights for your project.
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started) with the Application Insights Java SDK.
 
-    Right-click the web project, and select **Add > Application Insights** or **Project** > **Application Insights** > **Configure Application Insights**.
-
-    ![Right-click the web project and choose Add or Configure Application Insights](./media/azure-web-apps/03-add.png)
-
-    If you're asked to sign in, use the credentials for your Azure account.
-
-    The operation has two effects:
-
-   1. Creates an Application Insights resource in Azure, where telemetry is stored, analyzed, and displayed.
-   2. Adds the Application Insights NuGet package to your code (if it isn't there already), and configures it to send telemetry to the Azure resource.
-2. **Test the telemetry** by running the app in your development machine (F5).
-3. **Publish the app** to Azure in the usual way. 
-
-*How do I switch to sending to a different Application Insights resource?*
-
-* In Visual Studio, right-click the project, choose **Configure Application Insights**, and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
+---
 
 ## Automate monitoring
 
@@ -154,8 +171,103 @@ This generates the latest Azure Resource Manager template with all required sett
 
   ![App Service web app template](./media/azure-web-apps/arm-template.png)
 
+Below is a sample, replace all instances of  `AppMonitoredSite` with your site name:
+
+```json
+{
+    "resources": [
+        {
+            "name": "[parameters('name')]",
+            "type": "Microsoft.Web/sites",
+            "properties": {
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value": "[reference('microsoft.insights/components/AppMonitoredSite', '2015-05-01').InstrumentationKey]"
+                        },
+                        {
+                            "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+                            "value": "~2"
+                        }
+                    ]
+                },
+                "name": "[parameters('name')]",
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "microsoft.insights/components/AppMonitoredSite"
+            ],
+            "apiVersion": "2016-03-01",
+            "location": "[parameters('location')]"
+        },
+        {
+            "apiVersion": "2016-09-01",
+            "name": "[parameters('hostingPlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[parameters('location')]",
+            "properties": {
+                "name": "[parameters('hostingPlanName')]",
+                "workerSizeId": "[parameters('workerSize')]",
+                "numberOfWorkers": "1",
+                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+            },
+            "sku": {
+                "Tier": "[parameters('sku')]",
+                "Name": "[parameters('skuCode')]"
+            }
+        },
+        {
+            "apiVersion": "2015-05-01",
+            "name": "AppMonitoredSite",
+            "type": "microsoft.insights/components",
+            "location": "West US 2",
+            "properties": {
+                "ApplicationId": "[parameters('name')]",
+                "Request_Source": "IbizaWebAppExtensionCreate"
+            }
+        }
+    ],
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "hostingPlanName": {
+            "type": "string"
+        },
+        "hostingEnvironment": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "sku": {
+            "type": "string"
+        },
+        "skuCode": {
+            "type": "string"
+        },
+        "workerSize": {
+            "type": "string"
+        },
+        "serverFarmResourceGroup": {
+            "type": "string"
+        },
+        "subscriptionId": {
+            "type": "string"
+        }
+    },
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0"
+}
+```
+
 > [!NOTE]
 > The template will generate application settings in “default” mode. This mode is performance optimized, though you can modify the template to activate whichever features you prefer.
+
+
 
 ## More telemetry
 
