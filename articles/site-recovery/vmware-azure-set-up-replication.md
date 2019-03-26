@@ -38,12 +38,10 @@ Associate the replication policy with your on-premises configuration server.
 
 ## Edit a policy
 
-1. Select **Manage** > **Site Recovery Infrastructure**.
-2. In **For VMware and Physical machines**, select **Replication policies**. 
-3. Click **+Replication policy**, and specify the policy name.
-4. In **RPO threshold**, specify the RPO limit. Alerts are generated when continuous replication exceeds this limit.
-5. In **Recovery point retention**, specify (in hours) the duration of the retention window for each recovery point. Protected machines can be recovered to any point within a retention window. Up to 24 hours of retention is supported for machines replicated to premium storage. Up to 72 hours is supported for standard storage.
-6. In **App-consistent snapshot frequency**, choose from the dropdown how often (in hours) recovery points that contain application-consistent snapshots should be created. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown.
+1. Select **Manage** > **Site Recovery Infrastructure** > **Replication Policies**.
+2. Select the replication policy you wish to modify.
+3. Click **Edit settings**, and update the RPO threshold/recovery point retention hours/app-consistent snapshot frequency fields as required.
+6. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown of the filed **App-consistent snapshot frequency**.
 7. Click **OK**. The policy should be created in 30 to 60 seconds.
 
 When you create a replication policy, a matching failback replication policy is automatically created, with the suffix "failback". After creating the policy, you can edit it by selecting it > **Edit Settings**
