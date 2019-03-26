@@ -23,13 +23,11 @@ If you haven't already created a notification hub, create one now. For more info
 
 The following procedure gives you steps to configure Windows Push Notification Service (WNS) settings for a notification hub: 
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows (WNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows (WNS)** on the left menu.
 2. Enter values for **Package SID** and **Security Key**.
 3. Select **Save**.
 
    ![Screenshot that shows the Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
-
-
 
 ## Next steps
 For a tutorial with step-by-step instructions for pushing notifications to Universal Windows Platform applications by using Azure Notification Hubs and Windows Push Notification Service (WNS), see [Send notifications to UWP apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).

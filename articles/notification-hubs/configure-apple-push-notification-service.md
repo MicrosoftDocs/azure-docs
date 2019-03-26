@@ -21,9 +21,9 @@ If you haven't already created a notification hub, create one now. For more info
 
 ## Configure Apple Push Notification Service
 
-The following procedure gives you stesp to configure Apple Push Notification Service (APNS) settings for a notifcation hub:
+The following procedure gives you steps to configure Apple Push Notification Service (APNS) settings for a notification hub:
 
-1. In the Azure portal, in the **Notification Hub**, select **Apple (APNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Apple (APNS)** on the left menu.
 
 1. For **Authentication Mode**, select either **Certificate** or **Token**.
 

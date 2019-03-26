@@ -23,7 +23,7 @@ If you haven't already created a notification hub, create one now. For more info
 
 The following procedure gives you steps to configure Microsoft Push Notification Service (MPNS) settings for a notification hub: 
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows Phone (MPNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows Phone (MPNS)** on the left menu.
 1. Enable either unauthenticated or authenticated push notifications:
 
    a. To enable unauthenticated push notifications, select **Enable unauthenticated push** > **Save**.
@@ -36,7 +36,6 @@ The following procedure gives you steps to configure Microsoft Push Notification
       * Enter the password for the certificate.
       * Select **OK**.
       * On the **Windows Phone (MPNS)** page, select **Save**.
-
 
 ## Next steps
 For a tutorial with step-by-step instructions for pushing notifications to Windows Phone devices by using Azure Notification Hubs and Microsoft Push Notification Service (MPNS), see [Push notifications to Windows Phone apps by using Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
