@@ -179,7 +179,7 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
 10. Can I clone an existing Configuration Server and use it for replication orchestration?
 
-    **No**, use of a cloned Configuration Server component is not supported.
+    **No**, use of a cloned Configuration Server component is not supported. Clone of scale-out process server is also an unsupported scenario. Cloning Site Recovery components impact ongoing replications.
 
 11. Can I change the IP of configuration server?
 

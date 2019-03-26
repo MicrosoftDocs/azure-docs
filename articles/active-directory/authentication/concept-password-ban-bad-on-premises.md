@@ -29,8 +29,15 @@ Azure AD password protection is designed with these principles in mind:
 * No minimum Active Directory domain or forest functional level (DFL/FFL) is required.
 * The software doesn't create or require accounts in the Active Directory domains that it protects.
 * User clear-text passwords don't leave the domain controller during password validation operations or at any other time.
-* Incremental deployment is supported. But the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed.
-* We recommend that you install the DC Agent on all domain controllers to ensure universal password protection security enforcement.
+* Incremental deployment is supported, however the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed. See next topic for more details.
+
+## Incremental deployment
+
+Azure AD password protection supports incremental deployment across domain controllers in an Active Directory domain but it's important to understand what this really means and what the tradeoffs are.
+
+The Azure AD password protection DC agent software can only validate passwords when it is installed on a domain controller, and only for password changes that are sent to that domain controller. It is not possible to control which domain controllers are chosen by Windows client machines for processing user password changes. In order to guarantee consistent behavior and universal password protection security enforcement, the DC agent software MUST be installed on all domain controllers in a domain.
+
+Many organizations will want to do careful testing of Azure AD password protection on a subset of their domain controllers prior to doing a full deployment. Azure AD password protection does support partial deployment, ie the DC agent software on a given DC will actively validate passwords even when other DCs in the domain do not have the DC agent software installed. Partial deployments of this type are NOT secure and are NOT recommended other than for testing purposes.
 
 ## Architectural diagram
 
