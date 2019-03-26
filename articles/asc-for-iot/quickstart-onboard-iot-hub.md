@@ -1,17 +1,17 @@
 ---
 
-title: Onboard ATP for IoT service to IoT Hub Preview| Microsoft Docs
-description: Learn how to onboard ATP for IoT service to your IoT Hub.
-services: atpforiot
+title: Enable ASC for IoT service in IoT Hub Preview| Microsoft Docs
+description: Learn how to enable ASC for IoT service in your IoT Hub.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
@@ -19,26 +19,27 @@ ms.author: mlottner
 
 ---
 
-# Quickstart: Onboard an IoT Hub
+# Quickstart: Enable service in IoT Hub
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to onboard the ATP for IoT preview service into your IoT Hub.  
+This article provides an explanation of how to enable the ASC for IoT preview service into your IoT Hub.  
 
 > [!NOTE]
-> ATP for IoT currently only supports standard tier and higher IoT Hubs.
->ATP for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
+> ASC for IoT currently only supports standard tier and higher IoT Hubs.
+>ASC for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
 
-## Prerequisites for onboarding
+## Prerequisites for enabling the service
+
 - Log Analytics workspace
-  - Two types of information are stored by default in your Log Analytics workpace by by ATP for IoT; **security alerts** and **recommendations**. 
+  - Two types of information are stored by default in your Log Analytics workspace by by ASC for IoT; **security alerts** and **recommendations**. 
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs. 
 - IoT Hub (standard tier or higher)
 
-## Enable ATP for IoT on your IoT Hub 
+## Enable ASC for IoT on your IoT Hub 
 
 To enable security on your IoT Hub, do the following: 
 
@@ -51,18 +52,11 @@ To enable security on your IoT Hub, do the following:
 5. Click **OK**. 
 6. Click **Save**. 
 
-Congratulations! You've completed onboarding ATP for IoT to your IoT Hub. 
+Congratulations! You've completed enabling ASC for IoT on your IoT Hub. 
 
 ## Next steps
 
-1. Configure your [solution](quickstart-configure-your-solution.md).
-1. [Create security modules](quickstart-create-security-twin.md).
-1. Configure [custom alerts](quickstart-create-custom-alerts.md).
-1. [Deploy a security agent](tutorial-deploy-agent.md).
+Advance to the next article to learn how to configure your solution...
 
-
-## See Also
-- [Overview](overview.md)
-- [Understanding ATP for IoT alerts](concept-security-alerts.md)
-- [Access your security-data](how-to-security-data-access.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
+> [!div class="nextstepaction"]
+> [Next steps button](quickstart-configure-your-solution.md)

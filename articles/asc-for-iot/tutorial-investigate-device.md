@@ -1,35 +1,40 @@
 ---
-title: ATP for IoT device investigation tutorial Preview| Microsoft Docs
-description: This article explains how to use ATP for IoT to investigate a suspicious IoT device.
-services: atpforiot
+title: ASC for IoT device investigation tutorial Preview| Microsoft Docs
+description: This article explains how to use ASC for IoT to investigate a suspicious IoT device.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
+
 # Tutorial: Investigate a suspicious IoT device
 
-ATP for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
+> [!IMPORTANT]
+> ASC for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ASC for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
 > [!div class="checklist"]
 > * Find your device data
-> * Steps to take for suspicious IoT devices
-> * Remediation
-> * Prevention
+> * Investigate using kql queries
+
 
 ## Where can I access my data
 
-By default, ATP for IoT stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
+By default, ASC for IoT stores your security alerts and recommendations in your Log Analytics (LA) workspace. You can also choose to store your raw security data.
 
 To locate the your LA workspace for data storage:
 
@@ -38,11 +43,9 @@ To locate the your LA workspace for data storage:
 1. Change your LA workspace configuration details. 
 1. Click **Save**. 
 
+Following configuration, do the following to access data stored in your Log Analytics workspace:
 
-
-Following configuration, do the following to access your LA workspace stored data:
-
-1. Select and click on an ATP for IoT alert in your IoT Hub. 
+1. Select and click on an ASC for IoT alert in your IoT Hub. 
 1. Click **Further investigation**. 
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 
@@ -52,7 +55,8 @@ To access insights and raw data about your IoT devices, go to your Log Analytics
 
 Check and investigate the device data for the following details and activities using the following kql queries:
 
-- Were other alerts triggered around the same time?
+-To find out if other alerts were triggered around the same time use the following kql query:
+
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -61,7 +65,8 @@ Check and investigate the device data for the following details and activities u
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
   ~~~
 
-- Who has access to this device?
+- To find out which users have access to this device use the following kql query: 
+
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -75,10 +80,12 @@ Check and investigate the device data for the following details and activities u
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
   ~~~
+Use this data to discover: 
   1. Which users have access to the device?
-  2. Do users have the permission levels expected? 
+  2. Do the users with access have the permission levels expected? 
 
-- How can users access the device?
+- To find out how users are able to access the device, use the following kql query:
+
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -96,10 +103,13 @@ Check and investigate the device data for the following details and activities u
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
   ~~~
-  1. Which listening sockets are currently active on the device?
-  2. Should the listening sockets be active?
 
-- Who logged in to the device? 
+    Use this data to discover:
+  1. Which listening sockets are currently active on the device?
+  2. Should the listening sockets that are currently be active?
+
+- To find out who logged in to the device, use the following kql query: 
+ 
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -121,10 +131,13 @@ Check and investigate the device data for the following details and activities u
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
   ~~~
-  1. Which users have logged in to the device?
-  2. Did the users that logged in connect from expected IP addresses?
+
+    Use the query results to discover:
+  1. Which users logged in to the device?
+  2. Did the users that logged in connect from expected or unexpected IP addresses?
   
-- Is the device behaving as expected?
+- To learn if the device is behaving as expected, use the following kql query:
+
   ~~~
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -151,16 +164,13 @@ Check and investigate the device data for the following details and activities u
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
   ~~~
-  1. Are there any suspicious processes running on the device?
-  2. Are processes executed by appropriate users?
-  3. Do command line executions contain the correct expected arguments?
+
+    Use the query results to discover:
+
+  1. Were there any suspicious processes running on the device?
+  2. Were processes executed by appropriate users?
+  3. Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
-
-[Configure custom alerts](quickstart-create-custom-alerts.md), or if you don't already have a device agent, [Deploy a security agent](tutorial-deploy-agent.md) or [change the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
+After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](select-deploy-agent.md) or [changing the configuration of an existing device agent](concept-agent-configuration.md) to improve your results. 
  
-
-## See also
-- [Understand ATP for IoT recommendations](concept-recommendations.md)
-- [Explore ATP for IoT alerts](concept-security-alerts.md)
-- [Access raw security data](how-to-security-data-access.md)
