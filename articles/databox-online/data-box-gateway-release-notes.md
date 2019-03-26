@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: alkohli
 ---
 
@@ -21,8 +21,8 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 The GA release corresponds to the software versions:
 
-- **Data Box Gateway 1903 (1.5.810.441)**
-- **Data Box Edge 1903 (1.5.810.441)**
+- **Data Box Gateway 1903 (1.5.814.447)**
+- **Data Box Edge 1903 (1.5.814.447)**
 
 
 ## What's new
