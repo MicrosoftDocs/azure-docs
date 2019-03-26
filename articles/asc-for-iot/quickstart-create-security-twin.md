@@ -40,15 +40,16 @@ To make full use of ASC for IoT features, you'll need to create, configure and u
 
 ## Create azureiotsecurity module twin 
 
-_azureiotsecurity_ module twins can be created in batch mode using the default configuration, or individually with specific configurations for each device.
-To batch create for new devices or devices without a module twin, use the [Module batch script](https://aka.ms/iot-security-github-create-module). 
+_azureiotsecurity_ module twins can be created in two ways:
+1. [Module batch script](https://aka.ms/iot-security-github-create-module) - automatically creates module twin for new devices or devices without a module twin using the default configuration.
+2. Manually editing each module twin individually with specific configurations for each device.
 
 >[!NOTE] 
 > Using the batch method will not overwrite existing module twins. Using the batch method ONLY creates new module twins for devices that do not already have a module twin. 
 
 See [Modify a security module twin](how-to-modify-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
 
-To create a new _azureiotsecurity_ module twin for a device use the following instructions: 
+To create manually a new _azureiotsecurity_ module twin for a device use the following instructions: 
 
 1. In your IoT Hub, locate and select the device you wish to create a security module twin for in your IoT Hub.
 1. Click on your device, and then on **Add module identity**.
