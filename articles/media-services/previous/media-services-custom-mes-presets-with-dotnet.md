@@ -271,7 +271,3 @@ namespace CustomizeMESPresests
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See Also
-[Media Services Encoding Overview](media-services-encode-asset.md)
-
