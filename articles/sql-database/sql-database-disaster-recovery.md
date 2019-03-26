@@ -28,11 +28,11 @@ To learn about business continuity scenarios and the features supporting these s
 > If you are using zone-redundant Premium or Business Critical databases or pools, the recovery process is automated and the rest of this material does not apply.
 
 > [!NOTE]
-> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see: [Upgrading or downgrading as primary database](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)
+> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see [Upgrading or downgrading as primary database](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
 
 > [!NOTE]
 > Use one or several failover groups to manage failover of multiple databases.
-> If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary. For more information, see: [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md)
+> If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary. For more information, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).
 
 ## Prepare for the event of an outage
 
