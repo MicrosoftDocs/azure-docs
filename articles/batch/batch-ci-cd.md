@@ -4,18 +4,11 @@
 # Mandatory fields.
 title: Building a CI/CD Strategy for High Performance Compute using Azure Batch
 description: This document discussed the approach of deploying a build/release pipeline for a HPC application running on top of Azure Batch.
-author: chredd
-ms.author: chredd, mikewarr # Microsoft employees only
+author: christianreddington
+ms.author: christianreddington, mikewarr # Microsoft employees only
 ms.date: 01/08/2018
-ms.topic: article-type-from-white-list
-# Use ms.service for services or ms.prod for on-prem products. Remove the # before the relevant field.
-# ms.service: service-name-from-white-list
-# ms.prod: product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
+ms.topic: quickstart
+services: batch
 ---
 # Building a CI/CD Strategy for High Performance Compute using Azure Batch
 
