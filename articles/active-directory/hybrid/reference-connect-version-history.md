@@ -58,7 +58,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 - Allow database name to be entered during install (default name ADSync)
 - Upgrade to ADAL 3.19.8 to pick up a WS-Trust fix for Ping and add support for new Azure instances 
 - Modify Group Sync Rules to flow samAccountName, DomainNetbios and DomainFQDN to cloud - needed for claims 
-- Modified Default Sync Rule Handling – read more [here](how-to-connect-fix-default-rules.md):
+- Modified Default Sync Rule Handling – read more [here](how-to-connect-fix-default-rules.md).
 - Added a new agent running as a windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. Read more about the Admin Agent [here](whatis-aadc-admin-agent.md). 
 - Updated the End User License Agreement (EULA) 
 - Added auto upgrade support for deployments that use AD FS as their login type.  This also removed the requirement of updating the AD FS Azure AD Relying Party Trust as part of the upgrade process. 
