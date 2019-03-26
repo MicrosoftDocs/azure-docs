@@ -351,11 +351,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm, substituting your IP address for <ip-address>, and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.htm`, substituting your IP address for `<ip-address>`, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.htm` and you should see something like the following example:
 
 ![Test video URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
