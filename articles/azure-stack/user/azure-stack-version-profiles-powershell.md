@@ -30,7 +30,7 @@ API version profiles provide a way to manage version differences between Azure a
 
 The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles. Use the following cmdlet to install the **AzureRM.Bootstrapper** module:
 
-```PowerShell
+```powershell
 Install-Module -Name AzureRm.BootStrapper
 ```
 
@@ -52,7 +52,7 @@ The following table lists the required API profile version and PowerShell admini
 
 Use the **Install-AzureRmProfile** cmdlet with the **2018-03-01-hybrid** API version profile to install the AzureRM modules required by Azure Stack. The Azure Stack operator modules are not installed with this API version profile. They should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](../azure-stack-powershell-install.md) article.
 
-```PowerShell
+```powershell
 Install-AzureRMProfile -Profile 2018-03-01-hybrid
 ```
 
@@ -64,7 +64,7 @@ Use the **Use-AzureRmProfile** cmdlet to install and import modules that are ass
 2. Downloads and installs the modules if they are not already installed.
 3. Imports the modules into the current PowerShell session.
 
-```PowerShell
+```powershell
 # Installs and imports the specified API version profile into the current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser
 
@@ -74,7 +74,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser -Force
 
 To install and import selected AzureRM modules from an API version profile, run the **Use-AzureRMProfile** cmdlet with the **Module** parameter:
 
-```PowerShell
+```powershell
 # Installs and imports the compute, storage and network modules from the specified API version profile into your current PowerShell session.
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
@@ -83,7 +83,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.S
 
 Use the **Get-AzureRmProfile** cmdlet to get the list of available API version profiles:
 
-```PowerShell
+```powershell
 # lists all API version profiles provided by the AzureRM.BootStrapper module.
 Get-AzureRmProfile -ListAvailable
 
@@ -99,13 +99,13 @@ Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version
 2. Prompts you to install if they are not already installed.  
 3. Installs and imports the updated modules into the current PowerShell session.  
 
-```PowerShell
+```powershell
 Update-AzureRmProfile -Profile 2018-03-01-hybrid
 ```
 
 <!-- To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
-```PowerShell 
+```powershell 
 Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
 ``` -->
 
@@ -120,7 +120,7 @@ This cmdlet runs the following tasks:
 
 Use the **Uninstall-AzureRmProfile** cmdlet to uninstall the specified API version profile.
 
-```PowerShell
+```powershell
 Uninstall-AzureRmProfile -Profile  2018-03-01-hybrid
 ```
 
