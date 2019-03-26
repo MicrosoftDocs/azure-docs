@@ -16,11 +16,11 @@ manager: carmonm
 This article describes the scenarios that you, as a service provider, can use with [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure Active Directory (Azure AD) tenants of its own to simplify cross-tenant administration.
+> Azure Delegated Resource Management can also be used within an enterprise which has multiple tenants of its own to simplify cross-tenant administration.
 
 ## Understanding customer tenants
 
-An Azure AD tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft, by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants.
+An Azure Active Directory (Azure AD) tenant is a representation of an organization, sometimes referred to as a *directory*. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft, by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID).
 
 Typically, in order to manage Azure resources for an customer, a user needs to sign in to the Azure portal using an account associated with that customer's tenant. This means that an administrator in the customer's tenant must create a user account in that tenant.
 
