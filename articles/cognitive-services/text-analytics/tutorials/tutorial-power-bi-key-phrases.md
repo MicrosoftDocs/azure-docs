@@ -86,7 +86,7 @@ You might also consider filtering out blank messages using the Remove Empty filt
 ## Understand the API
 <a name="UnderstandingAPI"></a>
 
-The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
+The [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
 
 | | |
 | - | - |
@@ -288,10 +288,10 @@ in  keyphrases
 Learn more about the Text Analytics service, the Power Query M formula language, or Power BI.
 
 > [!div class="nextstepaction"]
-> [Text Analytics API reference](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Power Query M reference](//msdn.microsoft.com/library/mt211003.aspx)
+> [Power Query M reference](https://msdn.microsoft.com/library/mt211003.aspx)
 
 > [!div class="nextstepaction"]
-> [Power BI documentation](//powerbi.microsoft.com/documentation/powerbi-landing-page/)
+> [Power BI documentation](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
