@@ -41,8 +41,8 @@ Associate the replication policy with your on-premises configuration server.
 1. Select **Manage** > **Site Recovery Infrastructure** > **Replication Policies**.
 2. Select the replication policy you wish to modify.
 3. Click **Edit settings**, and update the RPO threshold/recovery point retention hours/app-consistent snapshot frequency fields as required.
-6. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown of the filed **App-consistent snapshot frequency**.
-7. Click **OK**. The policy should be created in 30 to 60 seconds.
+4. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown of the filed **App-consistent snapshot frequency**.
+5. Click **Save**. The policy should be updated in 30 to 60 seconds.
 
 When you create a replication policy, a matching failback replication policy is automatically created, with the suffix "failback". After creating the policy, you can edit it by selecting it > **Edit Settings**
 
