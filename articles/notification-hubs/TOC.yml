@@ -117,6 +117,10 @@
     items:
     - name: Configure Apple Push Notification Service settings
       href: configure-apple-push-notification-service.md
+    - name: Configure Google Firebase Cloud Messaging settings
+      href: configure-google-firebase-cloud-messaging.md
+    - name: Configure Windows Push Notification Service
+      href: configure-windows-push-notification-service.md
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
