@@ -15,28 +15,28 @@ ms.custom: seodec2018
 
 # Example: Add Suggestions or Autocomplete query inputs in Azure Search
 
-In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box that supports search-as-you-type behaviors.
+In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
 
 + *Suggestions* provide a list of suggested queries. 
 
 + *Autocomplete*, [a new preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. 
 
-You can download and run sample code to evaluate these features. The sample code targets a prebuilt index populated with the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The index includes a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can either use the index already provided, or populate your own index using a data loader in the NYCJobs sample solution. 
+You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can either use the index already provided, or populate your own index using a data loader in the NYCJobs sample solution. 
 
-Code is an ASP.NET MVC-based application that uses C# to call the [Azure Search .NET SDK](https://aka.ms/search-sdk). In HomeController.cs, classes are defined for instantiating suggested and autocompleted queries. 
+The sample demonstrates both typeahead features, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query requests can be found in the HomeController.cs file. JavaScript developers can use the Azure Search REST API. 
 
-JavaScript uses the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries to build the search box supporting both suggestions and autocomplete. From JavaScript, you can call the Azure Search REST API directly. Inputs collected in the search box are paired with suggestions and autocomplete actions, as defined in HomeController.cs. 
+For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. From JavaScript, you can call the  Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs. 
 
 This exercise walks you through the following tasks:
 
 > [!div class="checklist"]
-> * Define suggestions and autocomplete actions
-> * Implement a search input box in JavaScript and call suggestions and autocomplete ations.
-> * Support client-side caching to improve performance 
+> * Implement a search input box in JavaScript and issue requests for suggested queries or autocompleted terms.
+> * In C#, define suggestions and autocomplete actions in HomeController.cs
+> * In JavaScript, call the REST APIs directly to provide the same functionality
 
 ## Prerequisites
 
-An Azure Search service is optional for this exercise because the solution uses a live sandbox service and a pre-built index. If you want to run this example on your own search service, see [Configure NYC Jobs index to run on your service](#configure-app) for instructions.
+An Azure Search service is optional for this exercise because the solution uses a live sandbox service hosting a pre-built NYCJobs demo index. If you want to run this example on your own search service, see [Configure NYC Jobs index to run on your service](#configure-app) for instructions.
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
@@ -68,9 +68,9 @@ Open the Index.cshtml file under the folder \Views\Home to view the code:
 
 This is a simple input text box with a class for styling, an ID to be referenced by JavaScript, and placeholder text.  The magic is in the embedded JavaScript.
 
-The C# language sample uses JavaScript in Index.cshtml to leverage the [jQuery UI Autocomplete library](https://jqueryui.com/autocomplete/). This library adds the autocomplete experience to the search box by making asynchronous calls to the MVC controller to retrieve suggestions. 
+The C# language sample uses JavaScript in Index.cshtml to leverage the [jQuery UI Autocomplete library](https://jqueryui.com/autocomplete/). This library adds the autocomplete experience to the search box by making asynchronous calls to the MVC controller to retrieve suggestions. The JavaScript language version is in IndexJavaScript.cshtml. It includes the script below for the search bar, as well as REST API calls to Azure Search.
 
-Let's look at the JavaScript code for the first example, which provides a list of suggested queries:
+Let's look at the JavaScript code for the first example, which calls jQuery UI Autocomplete function, passing in a request for suggested queries:
 
 ```javascript
 $(function () {
@@ -113,7 +113,7 @@ Launch the application by pressing F5.
 
 Try typing something like "execative" and notice how results come back for "executive", even though they are not an exact match to the letters you typed.
 
-## HomeController.cs (C# version)
+## C# version
 
 Now that we have reviewed the JavaScript code for web page, let's look at the C# controller code that actually retrieves the suggested queries using the Azure Search .NET SDK.
 
@@ -186,7 +186,7 @@ The Autocomplete function takes the search term input. The method creates an [Au
 
 The other examples on the page follow the same pattern to add hit highlighting and facets to support client-side caching of the autocomplete results. Review each of these to understand how they work and how to leverage them in your search experience.
 
-## IndexJavaScript.cshtml (JavaScript version with REST API)
+## JavaScript version with REST
 
 For the JavaScript implementation in IndexJavaScript.cshtml page, jQuery UI Autocomplete is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Search to retrieve suggested queries or completed terms. 
 
@@ -241,7 +241,7 @@ On line 148, you can find a script that calls the `autocompleteUri`. The first c
 
 <a name="configure-app"></a>
 
-## Configure NYC Jobs index to run on your service
+## Configure NYCJobs to run on your service
 
 Until now, you've been using the hosted NYCJobs demo index. If you want full visibility into all of the code, including the index, follow these instructions to create and load the index in your own search service.
 
