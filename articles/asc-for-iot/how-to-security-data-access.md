@@ -130,7 +130,8 @@ SecurityAlert
 
 
 
-## See Also
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
+## Next steps
+
+- Read the ASC for IoT [Overview](overview.md)
+- Learn about ASC for IoT [Architecture](architecture.md)
+- Understand and explore [ASC for IoT alerts](concept-security-alerts.md)

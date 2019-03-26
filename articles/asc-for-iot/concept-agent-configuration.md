@@ -20,25 +20,25 @@ ms.author: mlottner
 # Configure security agents
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to configure an agent for use with ATP for IoT.
+This article provides an explanation of how to configure an agent for use with ASC for IoT.
 
 ## Agents
 
-ATP for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
+ASC for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
 
-ATP for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+ASC for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the ATP for IoT security agent configuration [schema](https://github.com/azure/atp-for-iot-schemas/security/module/twin) to make changes.  
+Use the ASC for IoT security agent configuration [schema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) to make changes.  
 
 ## Configuration objects 
 
-Each ATP for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the azureiotsecurity module. 
+Each ASC for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the azureiotsecurity module. 
 
 To modify the configuration, create and modify this object inside the azureiotsecurity module twin identity. 
 If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
@@ -66,7 +66,7 @@ To use a default property value, remove the property from the configuration obje
 
 ```json
 "desired": { //azureiotsecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
+  "azureiot*com^securityAgentConfiguration^1*0*0": { //ASC for IoT Agent 
       // configuration section  
     "lowPriorityMessageFrequency": "PT1H",     
     "highPriorityMessageFrequency": "PT7M",    
@@ -77,7 +77,7 @@ To use a default property value, remove the property from the configuration obje
 ```
 
 ## Default properties 
-Set of controllable properties that control the ATP for IoT security agents.
+Set of controllable properties that control the ASC for IoT security agents.
 
 Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
 

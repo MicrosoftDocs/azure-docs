@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
@@ -109,8 +109,13 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 }
 ```
 
+
+
 ## Next steps
-- [Overview](overview.md)
-- [Understand ASC for IoT recommendations](concept-recommendations.md)
-- [Explore ASC for IoT alerts](concept-security-alerts.md)
-- [Access raw security data](how-to-security-data-access.md)
+- Read the ASC for IoT service [Overview](overview.md)
+- Learn more about ASC for IoT [Architecture](architecture.md)
+- Enable the [service](quickstart-onboard-iot-hub.md)
+- Read the [FAQ](resources-frequently-asked-questions.md)
+- Learn how to access [raw security data](how-to-security-data-access.md)
+- Understand [recommendations](concept-recommendations.md)
+- Understand [alerts](concept-security-alerts.md)

@@ -1,6 +1,6 @@
 ---
 title: Windows installation of ASC for IoT agent Preview| Microsoft Docs
-description: Learn about how to install ASC for IoT agent on 32bit or 64bit Windows devices.
+description: Learn about how to install ASC for IoT agent on 32-bit or 64-bit Windows devices.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -132,8 +132,8 @@ To turn on logging:
 
 
 ## Next steps
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Enable the service](quickstart-onboard-iot-hub.md)
-- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
+- Read the ASC for IoT service [Overview](overview.md)
+- Learn more about ASC for IoT [Architecture](architecture.md)
+- Enable the [service](quickstart-onboard-iot-hub.md)
+- Read the [FAQ](resources-frequently-asked-questions.md)
+- Understand [alerts](concept-security-alerts.md)

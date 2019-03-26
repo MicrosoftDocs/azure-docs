@@ -1,6 +1,6 @@
 ---
 title: Tutorial to install and deploy Linux C# agent of Azure Security Center for IoT Preview| Microsoft Docs
-description: Learn how to install the ASC for IoT agent on both 32 and 64bit Linux. 
+description: Learn how to install the ASC for IoT agent on both 32-bit and 64-bit Linux. 
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -123,6 +123,6 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
 - Read the ASC for IoT service [Overview](overview.md)
 - Learn more about ASC for IoT [Architecture](architecture.md)
-- Enable the [ASC for IoT service](quickstart-onboard-iot-hub.md)
-- Read the [ASC for IoT FAQ](resources-frequently-asked-questions.md)
-- Understand [ASC for IoT alerts](concept-security-alerts.md)
+- Enable the [service](quickstart-onboard-iot-hub.md)
+- Read the [FAQ](resources-frequently-asked-questions.md)
+- Understand [alerts](concept-security-alerts.md)
