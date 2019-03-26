@@ -54,7 +54,7 @@ For a mailbox user, either on-premises or in Exchange Online, only values for ve
 | on-premises proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In this case **smtp:abbie.spencer@fabrikam.com** was removed since that domain has not been verified. But Exchange also added **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam has not used Lync/Skype on-premises, but Azure AD and Exchange Online prepare for it.
+In this case **smtp:abbie.spencer\@fabrikam.com** was removed since that domain has not been verified. But Exchange also added **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam has not used Lync/Skype on-premises, but Azure AD and Exchange Online prepare for it.
 
 This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invoked with every change on a user when:
 

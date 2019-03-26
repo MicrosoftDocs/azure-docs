@@ -142,13 +142,13 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
 1. Connect to the managed instance with the Azure AD server principal (login), using SQL Server Management Studio. Enter your managed instance host name. For Authentication in SSMS, there are three options to choose from when logging in with an Azure AD account:
 
-    - Active Directory - Universal with MFA support
-    - Active Directory - Password
-    - Active Directory - Integrated </br>
+   - Active Directory - Universal with MFA support
+   - Active Directory - Password
+   - Active Directory - Integrated </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    For more information, see the following article: [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md)
+     For more information, see the following article: [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication (MFA) login window. Sign in with your Azure AD password.
 
@@ -201,10 +201,10 @@ Once the Azure AD server principal (login) has been created, and provided with `
 1. In **Object Explorer**, right-click the server and choose **New Query** for the new connection.
 1. Check server permissions for the newly created Azure AD server principal (login) by executing the following command:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Azure AD guest users are supported for managed instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the managed instance belongs to, from another Azure AD. For example, joe@contoso.com (Azure AD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the managed instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (For example, joe@contoso.com or steve@outlook.com).
@@ -354,7 +354,7 @@ Managed instance supports the impersonation of Azure AD server-level principals 
     GO
     ```
 
-1. Use the following command to see that the user you're impersonating when executing the stored procedure is **bob@aadsqlmi.net**.
+1. Use the following command to see that the user you're impersonating when executing the stored procedure is **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

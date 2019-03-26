@@ -21,7 +21,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md). 
 
 |Area|Limit|
-|--|:--|--|
+|--|:--|
 | [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|

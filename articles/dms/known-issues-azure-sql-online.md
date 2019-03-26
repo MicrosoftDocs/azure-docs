@@ -3,9 +3,9 @@ title: Article about known issues/migration limitations with online migrations t
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
@@ -57,9 +57,9 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2.	Exclude these tables from the **Configure migration settings** blade, on which you specify tables for migration.
+   1. Exclude these tables from the **Configure migration settings** blade, on which you specify tables for migration.
 
- 3.	Rerun the migration activity.
+   1. Rerun the migration activity.
 
 ### Migration failures with various integrity violations with active triggers in the schema during “Full data load” or “Incremental data sync”
 

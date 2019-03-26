@@ -54,15 +54,15 @@ The following diagram shows the high-level process for publishing an Azure appli
 
 The high-level steps for publishing an Azure application offer are:
 
-0. Meet the [Prerequisites](./cpp-prerequisites.md) - (Not shown) Verify that you have met the business and technical requirements for publishing an Azure app to the Azure Marketplace. 
+1. Meet the [Prerequisites](./cpp-prerequisites.md) - (Not shown) Verify that you have met the business and technical requirements for publishing an Azure app to the Azure Marketplace. 
 
 1. [Create the offer](./cpp-create-offer.md) - Provide detailed information about the offer. This information includes: the offer description, marketing materials, support information, and asset specifications.
 
-2. [Create or collect existing business and technical assets](./cpp-create-technical-assets.md) - Create the business assets (legal documents and marketing materials) and technical assets for the associated solution.
+1. [Create or collect existing business and technical assets](./cpp-create-technical-assets.md) - Create the business assets (legal documents and marketing materials) and technical assets for the associated solution.
 
-3. [Create the SKU](./cpp-skus-tab.md) - Create the SKU(s) associated with the offer. A unique SKU is required for each image you're planning to publish.
+1. [Create the SKU](./cpp-skus-tab.md) - Create the SKU(s) associated with the offer. A unique SKU is required for each image you're planning to publish.
 
-4. Certify and [publish the offer](./cpp-publish-offer.md) - After the offer and the technical assets are completed, you can submit the offer. This submission starts the publishing process. During this process, the solution is tested, validated, certified, then "goes live" on the Azure Marketplace.
+1. Certify and [publish the offer](./cpp-publish-offer.md) - After the offer and the technical assets are completed, you can submit the offer. This submission starts the publishing process. During this process, the solution is tested, validated, certified, then "goes live" on the Azure Marketplace.
 
 ## Next steps
 

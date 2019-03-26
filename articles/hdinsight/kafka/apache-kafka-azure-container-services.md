@@ -75,17 +75,17 @@ If you do not already have an AKS cluster, use one of the following documents to
 
 5. To configure the peering between the HDInsight network and the AKS cluster network, select the virtual network and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
 
-    * __Name__: Enter a unique name for this peering configuration.
-    * __Virtual network__: Use this field to select the virtual network for the **AKS cluster**.
+   * __Name__: Enter a unique name for this peering configuration.
+   * __Virtual network__: Use this field to select the virtual network for the **AKS cluster**.
 
-    Leave all other fields at the default value, then select __OK__ to configure the peering.
+     Leave all other fields at the default value, then select __OK__ to configure the peering.
 
 6. To configure the peering between the AKS cluster network and the HDInsight network, select the __AKS cluster virtual network__, and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
 
-    * __Name__: Enter a unique name for this peering configuration.
-    * __Virtual network__: Use this field to select the virtual network for the __HDInsight cluster__.
+   * __Name__: Enter a unique name for this peering configuration.
+   * __Virtual network__: Use this field to select the virtual network for the __HDInsight cluster__.
 
-    Leave all other fields at the default value, then select __OK__ to configure the peering.
+     Leave all other fields at the default value, then select __OK__ to configure the peering.
 
 ## Install Apache Kafka on HDInsight
 

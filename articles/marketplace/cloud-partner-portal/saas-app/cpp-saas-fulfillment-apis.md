@@ -21,9 +21,6 @@ ms.author: pbutlerm
 
 The SaaS Fulfillment API enables independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. This API enables ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  This API is a requirement for listing transactable SaaS offers on the Azure Marketplace.
 
-The current version of this API is Version 2, which should be used for all new SaaS offers.  Version 1 of the API is deprecated and is being maintained to support existing offers.
-
-
 ## Business model support
 
 This API supports the following business model capabilities; you can:
@@ -36,4 +33,4 @@ This API supports the following business model capabilities; you can:
 
 ## Next steps
 
-Use the most current version of this interface for development: [SaaS Fulfillment API Version 2](./cpp-saas-fulfillment-api-v2.md).
+Use this interface for development: [SaaS Fulfillment API Version 2](./cpp-saas-fulfillment-api-v2.md).

@@ -22,9 +22,10 @@ ms.author: ryanwi
 This article documents the ServiceFabricServiceModel.xsd schema file installed with the Service Fabric SDK.  By default, the schema file is installed to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## Namespace bindings
+
 |Prefix|Namespace URI|
 |---|---|
-|xs|https://www.w3.org/2001/XMLSchema|
+|xs|https:\//www.w3.org/2001/XMLSchema|
 
 ## Component summary 
 The following components are defined in ServiceFabricServiceModel.xsd:

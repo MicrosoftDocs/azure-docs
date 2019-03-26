@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/26/2019
 ms.author: raynew
 
 ---
@@ -43,7 +43,7 @@ Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
 Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
 Operating system locale | English (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") should be installed.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is not required for configuration server with versions from [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server roles | Don't enable: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Group policies| Don't enable: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
@@ -58,7 +58,7 @@ Site Recovery supports replication of any workload running on a supported machin
 **Component** | **Details**
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
-Machine workload | Site Recovery supports replication of any workload (say Active Directory, SQL server etc.,) running on a supported machine. To learn more, click [here](https://aka.ms/asr_workload)
+Machine workload | Site Recovery supports replication of any workload (say Active Directory, SQL server etc.,) running on a supported machine. [Learn more](https://aka.ms/asr_workload).
 Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. </br></br>  [Windows Server 2008 with at least SP2 - 32 bit and 64 bit](migrate-tutorial-windows-server-2008.md) (migration only). </br></br> Windows 2016 Nano Server isn't supported.
 Linux operating system architecture | Only 64-bit system is supported. 32-bit system is not supported
 Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.6 <br/><br/>CentOS: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.6 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>-Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.</br></br> - [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open source technology in Azure. Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> - On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> - Servers running Red Hat Enterprise Linux 5.2-5.11 or CentOS 5.2-5.11 should have the [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed for the machines to boot in Azure.
@@ -150,7 +150,7 @@ Multi-NIC | Yes
 Reserved IP address | Yes
 IPv4 | Yes
 Retain source IP address | Yes
-Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes
+Azure Virtual Network service endpoints<br/> | Yes
 Accelerated Networking | No
 
 ## Storage
@@ -181,7 +181,7 @@ Guest/server multipath (MPIO) | No
 
 > [!NOTE]
 > UEFI boot VMware virtual machines running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
-
+> 
 > - Only migration to Azure is supported. Failback to on-premises VMware site isn't supported.
 > - The server shouldn't have more than four partitions on the OS disk.
 > - Requires Mobility Service version 9.13 or later.
@@ -199,7 +199,7 @@ Block blobs | No
 Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
-Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | Yes
 General purpose v2 storage accounts (both hot and cool tiers) | No
 
 ## Azure compute
@@ -240,7 +240,7 @@ Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 **Source data churn** | **Maximum Limit**
 ---|---
@@ -261,12 +261,12 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 ## Download latest Azure Site Recovery components
 
 **Name** | **Description** | **Latest version download instructions**
---- | --- | --- | --- | ---
-Configuration server | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | For fresh installation, click [here](vmware-azure-deploy-configuration-server.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For fresh installation, click [here](vmware-azure-set-up-process-server-scale.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For fresh installation, click [here](vmware-azure-install-mobility-service.md). For upgrading existing component to latest version, click [here](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).
+--- | --- | --- 
+Configuration server | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | For more information, visit our guidance on [fresh installation](vmware-azure-deploy-configuration-server.md) and [upgrade of existing component to latest version](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For more information, visit our guidance on [fresh installation](vmware-azure-set-up-process-server-scale.md) and [upgrade of existing component to latest version](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For more information, visit our guidance on [fresh installation](vmware-azure-install-mobility-service.md) and [upgrade of existing component to latest version](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
 
-To learn about the latest features and fixes, click [here](https://aka.ms/ASR_latest_release_notes).
+To learn more about the latest features, visit [latest release notes](https://aka.ms/ASR_latest_release_notes).
 
 
 ## Next steps

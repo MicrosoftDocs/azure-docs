@@ -82,7 +82,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
-* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.Net framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
+* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.NET framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
 
   For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 

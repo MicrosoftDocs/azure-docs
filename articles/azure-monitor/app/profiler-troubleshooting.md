@@ -30,11 +30,11 @@ Profiler writes trace messages and custom events to your Application Insights re
     ```
     The following image displays two examples of searches from two AI resources: 
     
-    * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
+   * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
 
-    * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
+   * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
 
-    If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
+     If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
 
      ![Search Profiler telemetry][profiler-search-telemetry]
 
@@ -84,7 +84,7 @@ When you configure Profiler, updates are made to the web app's settings. If your
 
 1. In the **Web App Control** pane, open **Settings**.
 
-1. Set **.Net Framework version** to **v4.6**.
+1. Set **.NET Framework version** to **v4.6**.
 
 1. Set **Always On** to **On**.
 

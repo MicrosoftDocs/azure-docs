@@ -42,10 +42,12 @@ If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azu
 
 ## Create a CNAME DNS record
 
-Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with your domain provider to point to your CDN endpoint. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure CDN, the source domain name is your custom domain name and the destination domain name is your CDN endpoint hostname. After Azure CDN verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www.contoso.com) is routed to the specified destination CDN endpoint hostname (such as contoso.azureedge.net). 
+Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with your domain provider to point to your CDN endpoint. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure CDN, the source domain name is your custom domain name and the destination domain name is your CDN endpoint hostname. After Azure CDN verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www\.contoso.com) is routed to the specified destination CDN endpoint hostname (such as contoso.azureedge.net). 
 
 A custom domain and its subdomain can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Azure service endpoints by using multiple CNAME records. You can also map a custom domain with different subdomains to the same CDN endpoint.
 
+> [!NOTE]
+> Any alias record type can be used for Custom domains if you are using Azure DNS as your domain provider. This walkthrough uses the CNAME record type. If you are using A or AAAA record types just follow the same steps below while replacing CNAME with the record type of your choice. If you're using an alias record to add a root domain as a custom domain and you want to enable SSL, you must use manual validation as described [here](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
 
 ## Map the temporary cdnverify subdomain
 
@@ -65,7 +67,7 @@ To create a CNAME record with the cdnverify subdomain:
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Source: Enter your custom domain name, including the cdnverify subdomain, in the following format: cdnverify._&lt;custom domain name&gt;. For example, cdnverify.www.contoso.com.
+    - Source: Enter your custom domain name, including the cdnverify subdomain, in the following format: cdnverify.&lt;custom domain name&gt;. For example, cdnverify.www.contoso.com.
 
     - Type: Enter *CNAME*.
 
@@ -120,7 +122,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
 4. For **Endpoint hostname**, the endpoint host name to use as the destination domain of your CNAME record is prefilled and is derived from your CDN endpoint URL: *&lt;endpoint hostname&gt;*.azureedge.net. It cannot be changed.
 
-5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www.contoso.com or cdn.contoso.com. Do not use the cdnverify subdomain name.
+5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www\.contoso.com or cdn.contoso.com. Do not use the cdnverify subdomain name.
 
    ![CDN custom domain dialog](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -157,13 +159,13 @@ To create a CNAME record for your custom domain:
 
     | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-    - Source: Enter your custom domain name (for example, www.contoso.com).
+   - Source: Enter your custom domain name (for example, www\.contoso.com).
 
-    - Type: Enter *CNAME*.
+   - Type: Enter *CNAME*.
 
-    - Destination: Enter your CDN endpoint hostname. It must be in the following format:_&lt;endpoint name&gt;_.azureedge.net. For example, contoso.azureedge.net.
+   - Destination: Enter your CDN endpoint hostname. It must be in the following format:_&lt;endpoint name&gt;_.azureedge.net. For example, contoso.azureedge.net.
 
 4. Save your changes.
 

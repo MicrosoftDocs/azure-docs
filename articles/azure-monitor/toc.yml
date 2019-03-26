@@ -289,6 +289,16 @@
             href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
             href: app/profiler-troubleshooting.md 
+        - name: Snapshot Debugger
+          items:
+          - name: Overview
+            href: app/snapshot-debugger.md 
+          - name: Enable Snapshot Debugger for an App Service
+            href: app/snapshot-debugger-appservice.md
+          - name: Enable Snapshot Debugger for other environments
+            href: app/snapshot-debugger-vm.md
+          - name: Snapshot Debugger troubleshooting
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
@@ -328,8 +338,6 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Snapshot Debugger
-          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps

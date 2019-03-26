@@ -7,12 +7,13 @@ metadata:
   meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
   services: functions
   author: HJToland3
+  ms.author: jtoland
   manager: craigg
+  ms.reviewer: craigg
   ms.service: dms
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 03/12/2019
-  ms.author: rajpo
 abstract:
   description: Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. When you're ready to begin the migration process, the Azure Database Migration Service performs all of the required steps.
   aside:

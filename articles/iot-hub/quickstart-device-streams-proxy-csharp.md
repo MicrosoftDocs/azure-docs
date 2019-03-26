@@ -8,13 +8,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
 ---
 
 # Quickstart: SSH/RDP over IoT Hub device streams using C# proxy applications (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide involves two C# programs that enable client/server application traffic (such as SSH and RDP) to be sent over a device stream established through IoT Hub. See [here](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup.
 
@@ -43,6 +45,11 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+
+  - **Central US**
+  - **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
@@ -95,7 +102,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Make a note of the returned value, which looks like this:

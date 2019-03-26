@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # SAML single sign-on for on-premises applications with Application Proxy (Preview)
 
-You can provide single sign-on (SSO) for on-premises applications published through Application Proxy that are secured with SAML authentication. With SAML single sign-on, Azure Active Directory (Azure AD) authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
+You can provide single sign-on (SSO) to on-premises applications that are secured with SAML authentication and provide remote access to these applications through Application Proxy. With SAML single sign-on, Azure Active Directory (Azure AD) authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. You can also map users to specific application roles based on rules you define in your SAML claims. By enabling Application Proxy in addition to SAML SSO your users will have external access to the application and a seamless SSO experience.
 
 The applications must be able to consume SAML tokens issued by **Azure Active Directory**. 
 This configuration does not apply to applications using an on-premises identity provider. For these scenarios we recommend reviewing [Resources for migrating applications to Azure AD](migration-resources.md).
@@ -47,12 +47,12 @@ Keep the following in mind when you're going through the tutorial:
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
 
-    * Make sure the **Reply URL** root matches or is a path under the **External URL** for the on-premises application that you added for remote access through Application Proxy in Azure AD.
+   * Make sure the **Reply URL** root matches or is a path under the **External URL** for the on-premises application that you added for remote access through Application Proxy in Azure AD.
 
-    ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+    > If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## Test your app
 

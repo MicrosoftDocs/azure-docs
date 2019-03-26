@@ -38,19 +38,19 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
     The cost amounts are rounded up to the next whole number. For example: 
 
-    * 5.01 rounds up to 6 
-    * 5.50 rounds up to 6
-    * 5.99 rounds up to 6
+   * 5.01 rounds up to 6 
+   * 5.50 rounds up to 6
+   * 5.99 rounds up to 6
 
-    As it states above the chart, the costs you see by default in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates. You can also set your own spending targets that are displayed in the charts by [managing the cost targets for your lab.](#managing-cost-targets-for-your-lab)
+     As it states above the chart, the costs you see by default in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates. You can also set your own spending targets that are displayed in the charts by [managing the cost targets for your lab.](#managing-cost-targets-for-your-lab)
 
-    The following costs are *not* included in the cost calculation:
+     The following costs are *not* included in the cost calculation:
 
-    * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
-    * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
-    * Your taxes
-    * Your discounts
-    * Your billing currency. Currently, the lab cost is displayed only in USD currency.
+   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
+   * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
+   * Your taxes
+   * Your discounts
+   * Your billing currency. Currently, the lab cost is displayed only in USD currency.
 
 ### Managing cost targets for your lab
 DevTest Labs lets you better manage the costs in  your lab by setting a spending target that you can then view in the Monthly Estimated Cost Trend chart. DevTest Labs can also send you a notification when the specified target spending or threshold is reached. 
@@ -73,11 +73,11 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
 
        ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-      - If you specify **Notify**, you must define a webhook URL.
-      - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
-      - You must create a webhook prior to entering it here.  
+     - If you specify **Notify**, you must define a webhook URL.
+     - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
+     - You must create a webhook prior to entering it here.  
 
-      For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 ## View cost by resource 
 The monthly cost trend feature in labs allows you to see how much you have spent in the current calendar month. It also shows the projection of the spending until the end of the month, based on your spending in last seven days. To help you understand why the spending in the lab is meeting thresholds early on, you can use the **cost by resource** feature that shows you the month-to-date cost **per resource** in a table.

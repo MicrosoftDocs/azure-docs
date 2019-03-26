@@ -357,7 +357,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
    * In the activities section, there is only activity whose **type** is set to **Copy**.
    * **Input** for the activity is set to **EmpOnPremSQLTable** and **output** for the activity is set to **OutputBlobTable**.
-   * In the **typeProperties** section, **SqlSource** is specified as the **source type** and **BlobSink **is specified as the **sink type**.
+   * In the **typeProperties** section, **SqlSource** is specified as the **source type** and **BlobSink** is specified as the **sink type**.
    * SQL query `select * from emp` is specified for the **sqlReaderQuery** property of **SqlSource**.
 
    Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial.

@@ -95,7 +95,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## Policy
 
@@ -185,7 +185,7 @@ During preview, valid filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The preview release only supports `blockBlob`. | Yes |
-| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "https://myaccount.blob.core.windows.net/container1/foo/..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
+| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "https:\//myaccount.blob.core.windows.net/container1/foo/..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
 
 ### Rule actions
 
@@ -199,8 +199,8 @@ In preview, lifecycle management supports tiering and deletion of blobs and dele
 | tierToArchive | Support blobs currently at hot or cool tier | Not supported |
 | delete        | Supported                                   | Supported     |
 
->[!NOTE] 
-If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+> [!NOTE]
+> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 In preview, the action execution conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
 

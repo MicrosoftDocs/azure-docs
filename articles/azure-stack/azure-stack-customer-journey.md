@@ -112,32 +112,32 @@ Several steps must be performed by the partner before the solution is handed off
 
 Actions that should be taken by the OEM Partner are:
 
--   [Run test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Run test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registration with Azure](azure-stack-registration.md)
+- [Registration with Azure](azure-stack-registration.md)
 
--   [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Backup Switch Configuration and HLH Configuration files
+- Backup Switch Configuration and HLH Configuration files
 
--   Remove DVM
+- Remove DVM
 
--   Prepare a customer summary for deployment
+- Prepare a customer summary for deployment
 
--   [Check updates to make sure the solution software is updated to the latest version](.\azure-stack-updates.md)
+- [Check updates to make sure the solution software is updated to the latest version](./azure-stack-updates.md)
 
 There are several steps that are required or optional depending on the installation type.
 
--   If deployment was completed using [AD FS](azure-stack-integrate-identity.md), then the Azure Stack stamp will need to be integrated with customer's own AD FS.
+- If deployment was completed using [AD FS](azure-stack-integrate-identity.md), then the Azure Stack stamp will need to be integrated with customer's own AD FS.
 
   > [!NOTE]
   > This step is the responsibility of the customer, although the partner may optionally choose to offer services to do this.
 
--   Integration with an existing monitoring system from the respective partner.
+- Integration with an existing monitoring system from the respective partner.
 
-    -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) also supports fleet management capabilities.
+  -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) also supports fleet management capabilities.
 
-    -   [Nagios Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## Overall timeline
 
