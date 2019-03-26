@@ -36,7 +36,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >[!NOTE]
 >Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## 1.3.xx.xx 
+## 1.3.9.0 
 
 ### Release status 
 
@@ -65,7 +65,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 - Added an Azure AD trust management task that provides two options: analyze/update trust and reset trust. 
 - Changed the AD FS Azure AD Relying Party trust behavior so that it always uses the -SupportMultipleDomain switch (includes trust and Azure AD domain updates). 
 - Changed the install new AD FS farm behavior so that it requires a .pfx certificate by removing the option of using a pre-installed certificate.
-- Updated the install new AD FS farm workflow so that it only allows deploying 1 ADFS and 1 WAP server.  All additional servers will be done after initial installation. 
+- Updated the install new AD FS farm workflow so that it only allows deploying 1 AD FS and 1 WAP server.  All additional servers will be done after initial installation. 
 
 ### Fixed issues 
 
@@ -75,7 +75,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 - Fix PS Permissions script to refine GWB permissions 
 - Fix VSS Errors with LocalDB  
 - Fix misleading error message when object type is not in scope 
-- Corrected an issue where installation of AAD PowerShell on a server could potentially cause an assembly conflict with Azure AD Connect. 
+- Corrected an issue where installation of Azure AD PowerShell on a server could potentially cause an assembly conflict with Azure AD Connect. 
 - Fixed PHS bug on Staging Server when Connector Credentials are updated in the old UI. 
 - Fixed some memory leaks 
 - Miscellaneous Autoupgrade fixes 
