@@ -29,6 +29,9 @@ Adaptive application control is an intelligent, automated end-to-end application
 - Avoid old and unsupported apps to run.
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
+- 
+- > [!NOTE]
+  > For Non-Azure and Linux VMs, adaptive application controls are supported in audit mode only.
 
 ## How to enable adaptive application controls?
 Adaptive application controls help you define a set of applications that are allowed to run on configured groups of VMs. This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux VMs and servers. The following steps can be used to configure application whitelisting in Security Center:
