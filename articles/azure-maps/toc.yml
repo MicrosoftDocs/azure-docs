@@ -97,13 +97,17 @@
       - name: Make your app accessible
         href: map-accessibility.md
     - name: Services module
-      items:  
-      - name: Show search results 
-        href: map-search-location.md  
+      items:
+      - name: Using the services module
+        href: how-to-use-services-module.md
+      - name: Show search results
+        href: map-search-location.md
       - name: Get information from a coordinate
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
-        href: map-route.md   
+        href: map-route.md
+    - name: Supported browsers
+      href: supported-browsers.md
   - name: Develop with the Android SDK
     items:
     - name: How to use Android map control
@@ -192,7 +196,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge

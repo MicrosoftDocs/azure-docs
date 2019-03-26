@@ -235,7 +235,7 @@ If you have a workflow that uses a C# application, validate these applications i
 
 On Linux-based clusters, the znode parent for HBase is `/hbase-unsecure`. Set this value in the configuration for any Java client applications that use native HBase Java API.
 
-See [Build a Java-based Apache HBase application](hdinsight-hbase-build-java-maven.md) for an example client that sets this value.
+See [Build a Java-based Apache HBase application](hbase/apache-hbase-build-java-maven-linux.md) for an example client that sets this value.
 
 ## Spark
 
