@@ -15,6 +15,9 @@ ms.author: mbullwin
 
 Enabling monitoring on your .NET and .NET Core based web applications running on Azure App Services is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent and monitoring capabilities are now baked into the app service image by default. This article will walk you through enabling monitoring as well as provide guidance for automating the process for large scale deployments.
 
+> [!NOTE]
+> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`.
+
 ## Enable Application Insights
 
 There are two ways to enable application monitoring for Azure App Services hosted applications:
@@ -35,14 +38,14 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
-    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights.png)
+    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
      > [!NOTE]
      > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
+     ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
@@ -61,20 +64,20 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
-    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights.png)
+    ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
      > [!NOTE]
      > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
+     ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+    ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-  .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
+
 
 # [Node.js](#tab/nodejs)
 
@@ -97,6 +100,8 @@ Java App Service based web applications do not currently support automatic agent
 
      Value: `true`
    * **Save** the settings and **Restart** your app.
+
+![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 # [.NET Core](#tab/netcore)
 
@@ -271,7 +276,7 @@ In order to enable the application monitoring through PowerShell, only the under
 ```powershell
 $app = Get-AzureRmWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
-$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #copy pre-existing application settings so those settings are preserved
+$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
 $newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
 $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
@@ -293,23 +298,14 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 
 * [Upgrade by enabling via the portal](). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
 
-* [Upgrade through PowerShell]:
+* [Upgrade through PowerShell]():
 
     1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell]().
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
 If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps]().
 
-## More telemetry
-
-* [Web page load data](../../azure-monitor/app/javascript.md)
-* [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
-
 ## Troubleshooting
-
-### Do I still need to go to Extensions - Add - Application Insights extension for new App Service apps?
-
-No, you no longer need to add the extension manually. Enabling Application Insights via the Settings blade will add all the needed Application settings to enable monitoring. This is now possible, because the files previously added by the extension are now [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`.
 
 ### If runtime and build time monitoring are both enabled do I end up with duplicate data?
 
@@ -334,10 +330,14 @@ For .NET Core the following are currently **not supported**:
 
 * Self-contained deployment.
 * Apps targeting the .NET Framework.
-* .NET Core 2.2 applications.
+
 
 > [!NOTE]
 > .NET Core 2.0 and .NET Core 2.1 are supported. When .NET Core 2.2 support is added this article will be updated.
+
+## Custom telemetry
+
+Learn about [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) with manual SDK based instrumentation.
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
