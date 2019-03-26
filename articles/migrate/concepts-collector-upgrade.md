@@ -14,7 +14,7 @@ services: azure-migrate
 
 You can upgrade the Collector to the latest version without downloading the OVA again.
 
-1. Close all browser windows and any open files/folders in the appliance
+1. Close all browser windows and any open files/folders in the appliance.
 2. Download the latest upgrade package from the list of updates mentioned below in this article.
 3. To ensure that the downloaded package is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
