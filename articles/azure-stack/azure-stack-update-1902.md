@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
+ms.lastreviewed: 03/27/2019
 ---
 
 # Azure Stack 1902 update
@@ -53,7 +53,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
+> You can install 1902 directly from either the [1.1901.0.95 or 1.1901.0.99](azure-stack-update-1901.md#build-reference) release, without first installing any 1901 hotfix. However, if you have installed the older **1901.2.103** hotfix, you must install the newer [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) before proceeding to 1902.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
