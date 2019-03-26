@@ -14,7 +14,7 @@ ms.author: hrasheed
 > * [.NET Examples](hdinsight-sdk-dotnet-samples.md)
 > * [Java Examples](hdinsight-sdk-java-samples.md)
 > * [Python Examples](hdinsight-sdk-python-samples.md)
-<!--> * [Go Examples](hdinsight-sdk-go-samples.md)-->
+<!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 This article provides:
 
@@ -36,9 +36,9 @@ You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com
 * [Spark with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 * [Spark with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
 
-## Other API Functions
+## Other API functions
 
-Code snippets for the following API functions can be found in the [HDInsight .NET API reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/hdinsight?view=azure-dotnet):
+Code snippets for the following API functions can be found in the [HDInsight .NET API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet):
 
 * List clusters
 * Delete clusters
