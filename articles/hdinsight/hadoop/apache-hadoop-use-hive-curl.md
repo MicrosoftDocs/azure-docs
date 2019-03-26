@@ -62,7 +62,7 @@ This document also uses Windows PowerShell and [Jq](https://stedolan.github.io/j
 3. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
     
     ```powershell

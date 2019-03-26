@@ -274,7 +274,7 @@ When you purchase a domain from the Azure portal, the App Service application is
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 
-Yes, you can point the domain to a VM, Storage etc. For more information, see [Create a custom FQDN in the Azure portal for a Windows VM](../virtual-machines/windows/portal-create-fqdn.md).
+Yes, you can point the domain to a VM. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
 **Is my domain hosted by GoDaddy or Azure DNS?**
 

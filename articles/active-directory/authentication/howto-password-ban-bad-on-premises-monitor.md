@@ -18,6 +18,8 @@ ms.collection: M365-identity-device-management
 
 After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
+Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
+
 ## DC agent event logging
 
 On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to a local event log:

@@ -1,6 +1,11 @@
 {
     "redirections": [
       {
+        "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
+        "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/machine-learning/service/quickstart-get-started.md",
         "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
         "redirect_document_id": false
@@ -31856,7 +31861,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-introduction.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-access",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
       "redirect_document_id": false
     },
     {

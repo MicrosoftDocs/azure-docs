@@ -120,13 +120,13 @@
   - name: Troubleshoot dropped notifications
     href: notification-hubs-push-notification-fixer.md
 - name: Reference
-  items:
+  items:  
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST API
-    href: /rest/api/notificationhubs
+    href: /rest/api/notificationhubs/
   - name: Resource Manager template
     href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Resources
