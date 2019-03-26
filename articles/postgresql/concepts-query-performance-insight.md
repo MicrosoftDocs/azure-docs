@@ -5,15 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 03/26/2019
 ---
 
 # Query Performance Insight 
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
-
-> [!IMPORTANT]
-> The Query Performance Insight feature is in Public Preview. 
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 

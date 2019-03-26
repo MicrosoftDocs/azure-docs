@@ -51,7 +51,7 @@ You can establish a split tunnel Virtual Private Network (VPN) connection to an 
 
 To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the IP address and password values for your environment):
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -90,7 +90,7 @@ Connect to the Azure Stack instance by using either of the following two methods
 
 * By using the `Connect-AzsVpn ` command: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```
