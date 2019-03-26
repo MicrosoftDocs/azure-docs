@@ -16,7 +16,7 @@ ms.author: magoedte
 ---
 
 # How to update Azure Monitor for containers to enable metrics
-Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, metric alerts, and when pinning performance charts in Azure portal dashboards.
+Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
 
 The following metrics are enabled as part of this feature:
 
@@ -25,14 +25,12 @@ The following metrics are enabled as part of this feature:
 | insights.container/nodes | - cpuUsageMillicores<br> - cpuUsagePercentage<br> -  memoryRssBytes<br> - memoryRssPercentage<br> - memoryWorkingSetBytes<br> - memoryWorkingSetPercentage<br> - nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the node’s name as value for the *host* dimension. |
 | insights.container/pods | podCount | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 
-Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription.  
+Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include these new capabilities.
 
-New deployments of AKS will automatically include these new capabilities. The process assigns the **Monitoring Metrics Publisher** role to the cluster’s service principal so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Either process assigns the **Monitoring Metrics Publisher** role to the cluster’s service principal so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## Prerequisites 
-Before you start, make sure that you have the following:
-
-- You are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
+Before you start, make sure that you are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -577,4 +575,4 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```
 
 ## Verify update 
-After initiating the update using one of the methods described earlier, you can 
+After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  
