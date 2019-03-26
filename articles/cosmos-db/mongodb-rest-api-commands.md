@@ -165,7 +165,7 @@ The following table describes the parameters within the command:
 
 Returns a default custom command response. Check Default output of custom command to see the parameters in the output.
 
-## Examples
+### Examples
 
 **Update the provisioned throughput associated with a collection**
 
@@ -210,7 +210,7 @@ If the command succeeds, the response contains a document with the following fie
 
 If the command fails, a default custom command response is returned. Check Default output of custom command to see the parameters in the output. 
 
-## Examples
+### Examples
 
 **Get the collection**
 
