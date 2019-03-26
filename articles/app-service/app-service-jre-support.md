@@ -1,20 +1,11 @@
 ---
-# This basic template provides core metadata fields for Markdown articles on docs.microsoft.com.
-
-# Mandatory fields.
 title: App Service for Windows Java Runtime Support
 description: This topic provides the Java Runtime statement of support for Azure App Service on Windows.
 author: bmitchell287; JoshuaPartlow
-ms.author: brendm; joshuapa # Microsoft employees only
+ms.author: brendm; joshuapa 
 ms.date: 3/22/2019
 ms.topic: article
-# Use ms.service for services or ms.prod for on-prem products. Remove the # before the relevant field.
 ms.service: app-service
-# ms.prod: product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 manager: dougE
 ---
 

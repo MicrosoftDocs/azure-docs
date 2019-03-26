@@ -68,7 +68,7 @@
   - name: App Service plans
     href: overview-hosting-plans.md
   - name: Java runtime support
-    href: app-serice-jre-support.md
+    href: app-service-jre-support.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
