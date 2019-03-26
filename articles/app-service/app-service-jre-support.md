@@ -1,8 +1,8 @@
 ---
 title: App Service for Windows Java Runtime Support
 description: This topic provides the Java Runtime statement of support for Azure App Service on Windows.
-author: bmitchell287; JoshuaPartlow
-ms.author: brendm 
+author: bmitchell287
+ms.author: brendm; joshuapa
 ms.date: 3/22/2019
 ms.topic: article
 ms.service: app-service
