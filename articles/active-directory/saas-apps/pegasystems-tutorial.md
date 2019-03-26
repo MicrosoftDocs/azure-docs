@@ -119,14 +119,14 @@ To configure Azure AD single sign-on with Pega Systems, perform the following st
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay State URL. You can find the values of Identifier and Reply URL from Pega application which is explained later in this tutorial. For Relay State, contact [Pega Systems Client support team](https://www.pega.com/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Pega Systems application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Pega Systems application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-6. In addition to above, Pega Systems application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+7. In addition to above, Pega Systems application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute|
-	| ------------------- | -------------------- |    
+	| ------------------- | -------------------- |
 	| uid | *********** |
 	| cn  | *********** |
 	| mail | *********** |
@@ -158,11 +158,11 @@ To configure Azure AD single sign-on with Pega Systems, perform the following st
 
 	g. Click **Save**.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Pega Systems** section, copy the appropriate URL(s) as per your requirement.
+9. On the **Set up Pega Systems** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -204,15 +204,15 @@ To configure Azure AD single sign-on with Pega Systems, perform the following st
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-	a. Copy the **Entity Identification** value and paste back in Azure Portal's **Identifier** textbox.
+	a. Copy the **Entity Identification** value and paste it in to **Identifier** textbox in the **Basic SAML Configuration** in the Azure portal.
 
-	b.  Copy the **Assertion Consumer Service (ACS) location** value and paste back in Azure Portal's **Reply URL** textbox.
+	b.  Copy the **Assertion Consumer Service (ACS) location** value and paste it in to **Reply URL** textbox textbox in the **Basic SAML Configuration** in the Azure portal.
 
 	c. Select **Disable request signing**.
 
 7. Click **Save**
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -264,9 +264,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Pega Systems test user
 
-The objective of this section is to create a user called Britta Simon in Pega Systems. Work with [Pega Systems Client support team](https://www.pega.com/contact-us) to create users in Pega Sysyems.
+The objective of this section is to create a user called Britta Simon in Pega Systems. Work with [Pega Systems Client support team](https://www.pega.com/contact-us) to create users in Pega Systems.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -279,4 +279,3 @@ When you click the Pega Systems tile in the Access Panel, you should be automati
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
