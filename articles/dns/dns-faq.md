@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ---
 
@@ -258,7 +258,7 @@ Yes. During the public preview, the following limitations exist:
 
 ### Are there any quotas or limits on zones or records for private zones?
 
-See the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits).
+See the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits) article.
 
 ### Is there portal support for private zones?
 
