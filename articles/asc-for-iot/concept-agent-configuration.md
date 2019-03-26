@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
@@ -111,6 +111,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
  
 
 ## See Also
-- [Understand ATP for IoT recommendations](concept-recommendations.md)
-- [Explore ATP for IoT alerts](concept-security-alerts.md)
+
+- [Understand ASC for IoT recommendations](concept-recommendations.md)
+- [Explore ASC for IoT alerts](concept-security-alerts.md)
 - [Access raw security data](how-to-security-data-access.md)

@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
+For other platforms and agent flavours, see [Choose the right security agent](select-deploy-agent.md).
 
 1. To deploy the security agent, local admin rights are required on the machine you wish to install on. 
 
