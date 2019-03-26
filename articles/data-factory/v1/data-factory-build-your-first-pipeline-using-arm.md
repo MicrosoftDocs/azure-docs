@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (Resource Manager template) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
@@ -315,20 +315,20 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 ## Create data factory
 1. Start **Azure PowerShell** and run the following command: 
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
-	   ```powershell
-	   Connect-AzAccount
- 	   ```  
+     ```PowerShell
+     Connect-AzAccount
+     ```  
    * Run the following command to view all the subscriptions for this account.
-	   ```powershell
-	   Get-AzSubscription
-	   ```
+     ```PowerShell
+     Get-AzSubscription
+     ``` 
    * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
      ```
      Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
      ```   
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
-	```powershell
+	```PowerShell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
 
@@ -570,7 +570,7 @@ In the tutorial, you created a template for defining Data Factory entities and a
 
 Example:  
 
-```powershell
+```PowerShell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
@@ -626,4 +626,3 @@ This template creates a data factory named GatewayUsingArmDF with a gateway name
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
-
