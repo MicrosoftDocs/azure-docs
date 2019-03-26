@@ -47,8 +47,8 @@ Both flavours have the same set of features, and support the similar configurati
 | Windows prerequisites | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
 | Supported Linux platforms? | Yes, x64 and x86 | Yes, x64 only |
 | Linux prerequisites | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
-| Disk footprint | XXX | 90MB |
-| Memory footprint (on average) | XXX | 33MB |
+| Disk footprint | 2.5MB | 90MB |
+| Memory footprint (on average) | 5.5MB | 33MB |
 | [Authentication](concept-security-agent-authentication-methods.md) to IoT Hub | Yes | Yes |
 | Security data [collection](tutorial-agent-configuration.md#supported-security-events) | Yes | Yes |
 | Event aggregation | Yes | Yes |

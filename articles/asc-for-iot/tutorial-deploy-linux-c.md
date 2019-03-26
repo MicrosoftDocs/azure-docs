@@ -51,9 +51,9 @@ To install and deploy the security agent, do the following:
 
 1. Add running permissions to the **InstallSecurityAgent script** by running the following:
     
-    ```
-    chmod +x InstallSecurityAgent.sh
-    ```
+   ```
+   chmod +x InstallSecurityAgent.sh
+   ```
 
 1. Next, run: 
 
