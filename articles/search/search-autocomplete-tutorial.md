@@ -15,17 +15,17 @@ ms.custom: seodec2018
 
 # Example: Add Suggestions or Autocomplete query inputs in Azure Search
 
-In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
+In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
 
-+ *Suggestions* provide a list of suggested queries. 
++ *Suggestions* is a list of suggested queries. As a user types, you can return a list of suggested queries that match one or more documents in the index. The service won't return a query that yields no results.
 
-+ *Autocomplete*, [a new preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. 
++ *Autocomplete*, [a new preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. As with suggestions, a completed word or phrase is predicated on a match in the index. 
 
-You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the index already hosted in a sandbox service, or populate your own index using a data loader in the NYCJobs sample solution. 
+You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the prepared index hosted in a sandbox service, or [populate your own index](#configure-app) using a data loader in the NYCJobs sample solution. 
 
-The **DotNetHowToAutocomplete** sample demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query requests can be found in the HomeController.cs file. JavaScript developers will find most of the query logic in IndexJavaScript.cshtml, which includes direct calls to the Azure Search REST API. 
+The **DotNetHowToAutocomplete** sample demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query calls can be found in the HomeController.cs file. JavaScript developers will find equievalent query logic in IndexJavaScript.cshtml, which includes direct calls to the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
 
-For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or in IndexJavaScript.cshtml.
+For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or IndexJavaScript.cshtml.
 
 This exercise walks you through the following tasks:
 
@@ -36,7 +36,7 @@ This exercise walks you through the following tasks:
 
 ## Prerequisites
 
-An Azure Search service is optional for this exercise because the solution uses a live sandbox service hosting a pre-built NYCJobs demo index. If you want to run this example on your own search service, see [Configure NYC Jobs index to run on your service](#configure-app) for instructions.
+An Azure Search service is optional for this exercise because the solution uses a live sandbox service hosting a prepared NYCJobs demo index. If you want to run this example on your own search service, see [Configure NYC Jobs index](#configure-app) for instructions.
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
@@ -95,7 +95,7 @@ This line tells the jQuery UI autocomplete function where to get the list of ite
 
 #### Extending the sample to support fuzzy matching
 
-Fuzzy search allows you to get results based on close matches even if the user misspells a word in the search box. Let's try this out by changing the source line to enable fuzzy matching.
+Fuzzy search allows you to get results based on close matches even if the user misspells a word in the search box. While not required, it significantly improves the robustness of a typeahead experience. Let's try this out by changing the source line to enable fuzzy matching.
 
 Change the following line from this:
 
@@ -115,13 +115,13 @@ Try typing something like "execative" and notice how results come back for "exec
 
 ## C# version
 
-Now that we have reviewed the JavaScript code for web page, let's look at the C# controller code that actually retrieves the suggested queries using the Azure Search .NET SDK.
+Now that we have reviewed the JavaScript code for the web page, let's look at the C# controller code that actually retrieves the suggested queries using the Azure Search .NET SDK.
 
 Open the **HomeController.cs** file under the Controllers directory. 
 
 The first thing you might notice is a method at the top of the class called `InitSearch`. This creates an authenticated HTTP index client to the Azure Search service. For more information, see [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-On line 41, notice the Suggest function.
+On line 41, notice the Suggest function. It is based on the [DocumentsOperationsExtensions.Suggest method](https://docs.microsoft.com/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -153,9 +153,9 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-The Suggest function takes two parameters that determine whether hit highlights are returned or fuzzy matching is used in addition to the search term input. The method creates a SuggestParameters object, which is then passed to the Suggest API. The result is then converted to JSON so it can be shown in the client.
+The Suggest function takes two parameters that determine whether hit highlights are returned or fuzzy matching is used in addition to the search term input. The method creates a [SuggestParameters object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), which is then passed to the Suggest API. The result is then converted to JSON so it can be shown in the client.
 
-On line 69, notice the Autocomplete function.
+On line 69, notice the Autocomplete function. It is based on the [DocumentsOperationsExtensions.Autocomplete method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult AutoComplete(string term)
