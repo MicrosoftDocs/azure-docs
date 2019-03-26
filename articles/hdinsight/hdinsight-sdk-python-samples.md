@@ -9,11 +9,12 @@ ms.author: hrasheed
 
 ---
 # Azure HDInsight: Python samples for the SDK
+
 > [!div class="op_single_selector"]
-> * [Python Examples](hdinsight-management-api-dotnet-samples.md)
-> * [.NET Examples](hdinsight-management-api-dotnet-samples.md)
-> * [Go Examples](hdinsight-management-api-dotnet-samples.md)
-> * [Java Examples](hdinsight-management-api-dotnet-samples.md)
+> * [Python Examples](hdinsight-sdk-python-samples.md)
+> * [.NET Examples](hdinsight-sdk-dotnet-samples.md)
+> * [Java Examples](hdinsight-sdk-java-samples.md)
+<!--> * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 
 This article provides:
