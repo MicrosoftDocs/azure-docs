@@ -56,7 +56,7 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
 
 1. If you go back to your IoT Central app, you'll see this rule has a Microsoft Flow action in the Actions area.
 
-You can always start building a workflow using the IoT Central connector in Microsoft Flow. You can then choose which IoT Central app and which rule to connect to.
+You can also build workflows using the IoT Central connector directly from Microsoft Flow. You can then choose which IoT Central app to connect to.
 
 ## Create a device in a workflow
 
