@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # Protocol support for HTTP headers in Azure Front Door Service
-This article outlines the protocol that Front Door Service supports with parts of the call path (see image). The following sections provide more information about HTTP headers supported by Front Door.
+This article outlines the protocol that Front Door Service supports with parts of the call path (see image). The following sections provide more information about HTTP headers supported by Front Door Service.
 
 ![Azure Front Door Service HTTP headers protocol][1]
 
