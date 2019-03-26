@@ -19,11 +19,13 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure account. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account) for a walkthrough.
+* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-account) for a walkthrough.
 
-* A collection in your database. See [Add a collection](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection) for a walkthrough.
+* When you create your Cosmos DB, use the partition key as "/id". **NOT SURE WHERE TO PUT THIS**
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough. 
+* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough.
+
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
 
 ## Create a stored procedure
 
@@ -33,14 +35,14 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Enter a stored procedure ID and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number. 
+2. Enter a stored procedure ID and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
     function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
       var collection = getContext().getCollection();
       var response = {};
-      
+
       var docLink = getDocumentLink(deviceId, moduleId);
 
       var isAccepted = collection.readDocument(docLink, function(err, doc) {
@@ -122,13 +124,13 @@ First, create a stored procedure and set it up to run a logic that compares sequ
     }
     ```
 
-3. Save the stored procedure: 
+3. Save the stored procedure:
 
     ![save stored procedure](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
 
 ## Create a logic app
 
-First, create a logic app and add an Event grid trigger that monitors the resource group for your virtual machine. 
+First, create a logic app and add an Event grid trigger that monitors the resource group for your virtual machine.
 
 ### Create a logic app resource
 
@@ -136,30 +138,28 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
    ![Create logic app](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
-2. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+2. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub.
 
 3. Select **Pin to dashboard**, then choose **Create**.
 
    You've now created an Azure resource for your logic app. After Azure deploys your logic app, the Logic Apps Designer shows you templates for common patterns so you can get started faster.
 
-   > [!NOTE] 
-   > When you select **Pin to dashboard**, 
-   > your logic app automatically opens in the Logic Apps Designer. 
-   > Otherwise, you can manually find and open your logic app.
+   > [!NOTE]
+   > When you select **Pin to dashboard**, your logic app automatically opens in the Logic Apps Designer. Otherwise, you can manually find and open your logic app.
 
 4. In the Logic App Designer under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
 
 ### Select a trigger
 
-A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.  
+A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.
 
 1. In the connectors and triggers search bar, type **HTTP**.
 
-2. Select **Request - When an HTTP request is received** as the trigger. 
+2. Select **Request - When an HTTP request is received** as the trigger.
 
    ![Select HTTP request trigger](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
-3. Select **Use sample payload to generate schema**. 
+3. Select **Use sample payload to generate schema**.
 
    ![Use sample payload to generate a schema](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
@@ -187,13 +187,13 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    }]
    ```
 
-5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
+5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section.
 
 ### Create a condition
 
-In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database. 
+In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database.
 
-1. Select **New step** then **Built-ins** and **Condition**. 
+1. Select **New step** then **Built-ins** and **Condition**.
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
@@ -211,48 +211,48 @@ In your logic app workflow, conditions help run specific actions after passing t
 
    ![Search for CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-5. Populate the form for Execute stored procure by selecting values from your database. Enter the partition key value and parameters as shown below. 
+5. Populate the form for Execute stored procedure by selecting values from your database. Enter the partition key value and parameters as shown below.
 
    ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. Save your logic app. 
+6. Save your logic app.
 
 ### Copy the HTTP URL
 
-Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid. 
+Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid.
 
-1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
+1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it.
 
-2. Copy the value of **HTTP POST URL** by selecting the copy button next to it. 
+2. Copy the value of **HTTP POST URL** by selecting the copy button next to it.
 
    ![Copy the HTTP POST URL](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
 
-3. Save this URL so that you can refer to it in the next section. 
+3. Save this URL so that you can refer to it in the next section.
 
 ## Configure subscription for IoT Hub events
 
-In this section, you configure your IoT Hub to publish events as they occur. 
+In this section, you configure your IoT Hub to publish events as they occur.
 
-1. In the Azure portal, navigate to your IoT hub. 
+1. In the Azure portal, navigate to your IoT hub.
 
 2. Select **Events**.
 
    ![Open the Event Grid details](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. Select **Event subscription**. 
+3. Select **Event subscription**.
 
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Create the event subscription with the following values: 
+4. Create the event subscription with the following values:
 
-   * **Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
+   * **Event Type**: Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
 
    * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
        ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
    * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
-   The form looks similar to the following example: 
+   The form looks similar to the following example:
 
        ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
@@ -264,13 +264,13 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 ### Register a device in IoT Hub
 
-1. From your IoT hub, select **IoT Devices**. 
+1. From your IoT hub, select **IoT Devices**.
 
 2. Select **Add**.
 
 3. For **Device ID**, enter `Demo-Device-1`.
 
-4. Select **Save**. 
+4. Select **Save**.
 
 5. You can add multiple devices with different device IDs.
 
@@ -302,7 +302,7 @@ You should see the following output that shows the sensor data and the messages 
 
    Click **Stop** to stop the simulator and trigger a **Device Disconnected** event.
 
-You have now run a sample application to collect sensor data and send it to your IoT hub. 
+You have now run a sample application to collect sensor data and send it to your IoT hub.
 
 ### Observe events in Cosmos DB
 
@@ -316,27 +316,27 @@ Instead of using the [Azure portal](https://portal.azure.com), you can accomplis
 
 ## Clean up resources
 
-This tutorial used resources that incur charges on your Azure subscription. When you're done trying out the tutorial and testing your results, disable or delete resources that you don't want to keep. 
+This tutorial used resources that incur charges on your Azure subscription. When you're done trying out the tutorial and testing your results, disable or delete resources that you don't want to keep.
 
-If you don't want to lose the work on your logic app, disable it instead of deleting it. 
+If you don't want to lose the work on your logic app, disable it instead of deleting it.
 
 1. Navigate to your logic app.
 
-2. On the **Overview** blade, select **Delete** or **Disable**. 
+2. On the **Overview** blade, select **Delete** or **Disable**.
 
-Each subscription can have one free IoT hub. If you created a free hub for this tutorial, then you don't need to delete it to prevent charges.
+    Each subscription can have one free IoT hub. If you created a free hub for this tutorial, then you don't need to delete it to prevent charges.
 
-1. Navigate to your IoT hub. 
+3. Navigate to your IoT hub.
 
-2. On the **Overview** blade, select **Delete**. 
+4. On the **Overview** blade, select **Delete**.
 
-Even if you keep your IoT hub, you may want to delete the event subscription that you created. 
+    Even if you keep your IoT hub, you may want to delete the event subscription that you created.
 
-1. In your IoT hub, select **Event Grid**.
+5. In your IoT hub, select **Event Grid**.
 
-2. Select the event subscription that you want to remove. 
+6. Select the event subscription that you want to remove.
 
-3. Select **Delete**. 
+7. Select **Delete**.
 
 To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
