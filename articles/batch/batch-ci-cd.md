@@ -9,6 +9,7 @@ ms.author: christianreddington, mikewarr # Microsoft employees only
 ms.date: 01/08/2018
 ms.topic: quickstart
 services: batch
+ms.custom: fasttrack-new
 ---
 # Building a CI/CD Strategy for High Performance Compute using Azure Batch
 
