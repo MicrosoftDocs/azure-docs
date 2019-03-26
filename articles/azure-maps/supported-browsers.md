@@ -56,7 +56,7 @@ The following Web SDK modules are also supported in Node.js:
 
 ## <a name="Targeting-Legacy-Browsers"></a>Targeting Legacy Browsers
 
-If you need to target older web browsers which may not support or have limited support for WebGL, it is recommended to use the Azure Maps Services in combination with an open source map control such as [leaflet](https://leafletjs.com/). 
+If you need to target older web browsers that may not support or have limited support for WebGL, it is recommended to use the Azure Maps Services in combination with an open-source map control such as [leaflet](https://leafletjs.com/). 
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> by Azure Maps
