@@ -100,6 +100,9 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
 
 ## Install and configure the MFA Server
 
+> [!WARNING]
+> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
+
 Now that you have downloaded the server you can install and configure it. Be sure that the server you are installing it on meets requirements listed in the planning section.
 
 1. Double-click the executable.
@@ -166,6 +169,9 @@ When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’
 * Client IP – if available
 
 In addition to the fields above, the verification result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 ## Back up and restore Azure MFA Server
 

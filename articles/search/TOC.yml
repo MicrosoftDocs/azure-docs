@@ -17,10 +17,6 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
-  - name: Postman
-    href: search-fiddler.md
-  - name: PowerShell
-    href: search-create-index-rest-api.md
   - name: C#
     items:
     - name: 1 - Create an index
@@ -29,6 +25,10 @@
       href: search-import-data-dotnet.md
     - name: 3 - Search an index
       href: search-query-dotnet.md
+  - name: Postman
+    href: search-fiddler.md
+  - name: PowerShell
+    href: search-create-index-rest-api.md
 - name: Tutorials
   items:
   - name: Index Azure SQL Database
@@ -101,7 +101,7 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Design indexes
+  - name: Create indexes
     items:
     - name: Create a basic index
       href: search-what-is-an-index.md
@@ -119,9 +119,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Autosuggest example
-        href: search-autosuggest-example.md
-      - name: Autocomplete example
+      - name: Examples (suggestions, autocomplete)
         href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
@@ -171,7 +169,7 @@
         href: search-indexer-field-mappings.md
       - name: Troubleshooting common issues
         href: search-indexer-troubleshooting.md
-  - name: AI-enriched indexing (cognitive search)
+  - name: AI-indexing (cognitive search)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -201,9 +199,9 @@
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: Query examples (simple syntax)
+    - name: Examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Query examples (full Lucene)
+    - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
   - name: Handle results
     items:
