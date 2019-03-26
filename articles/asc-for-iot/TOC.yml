@@ -26,12 +26,16 @@
   items:
   - name: Deploy security agents
     items:
+    - name: Which agent should I deploy?
+      href: tutorial-deploy-agent.md
     - name: Deploy a C#-based security agent on a Windows device
       href: tutorial-deploy-windows-cs.md
     - name: Deploy a C#-based security agent on a Linux device
       href: tutorial-deploy-linux-cs.md
     - name: Deploy a C-based security agent on a Linux device
       href: tutorial-deploy-linux-c.md
+  - name: Configure security agents
+    href: tutorial-agent-configuration.md
   - name: Investigate a device
     href: tutorial-investigate-device.md
   - name: Send your own security messages
@@ -40,10 +44,6 @@
 
 - name: Concepts
   items:
-  - name: Which agent should I deploy?
-    href: select-deploy-agent.md
-  - name: Configure security agents
-    href: concept-agent-configuration.md
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: Security module

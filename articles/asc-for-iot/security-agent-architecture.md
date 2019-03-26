@@ -31,13 +31,13 @@ Security agents are designed to work in a constrained IoT environment, and are h
 
 Security agents support the following IoT solution features:
 
-- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](concept-agent-configuration.md).
+- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](tutorial-agent-configuration.md).
 
 - Aggregate raw security events into messages sent through IoT hub.
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an ASC for IoT agent](concept-agent-configuration.md).
+- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an ASC for IoT agent](tutorial-agent-configuration.md).
 
 ASC for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
@@ -55,11 +55,11 @@ ASC for IoT offers different installer agents for 32bit and 64bit Windows, and t
 
 
 In this article, you learned about ASC for IoT security agent architecture, and the available installers.
-To get started deploying agents on your devices, see [Deploy a security agent](select-deploy-agent.md).
+To get started deploying agents on your devices, see [Deploy a security agent](tutorial-deploy-agent.md).
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Deploy security agent](select-deploy-agent.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
 - [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Enable service in IoT Hub](quickstart-onboard-iot-hub.md)
