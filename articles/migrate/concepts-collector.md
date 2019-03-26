@@ -147,7 +147,7 @@ RDP | TCP 3389 |
 ## Collected metadata
 
 > [!NOTE]
-> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Discovery and assessment metadata is used only for the purpose of migration planning and to help you migrate to Azure with confidence.   
+> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
 The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 
