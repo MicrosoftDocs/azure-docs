@@ -46,15 +46,6 @@ There are three categories of limitations to consider for premium files: storage
 
 For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the max IOPs you can get from that share is 15,000.
 
-### Premium filestorage account limits
-
-|Area  |Target  |
-|---------|---------|
-|Size     |500 TB     |
-|Shares   |Unlimited  |
-|IOPS     |100,000    |
-|Bandwidth|5 GB/s     |
-
 #### Premium file share limits
 
 > [!IMPORTANT]
@@ -66,7 +57,7 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 |Max size                        |100 TiB      |
 |Minimum size increase/decrease    |1 GiB      |
 |Baseline IOPS    |1 IOPS per GiB up to 100,000|
-|IOPS bursting    |3x IOPS per GB up to 100,000|
+|IOPS bursting    |3x IOPS per GiB up to 100,000|
 |Min bandwidth                     |100        |
 |Bandwidth |0.1 MB/s per GiB up to 5 GiB/s     |
 |Maximum number of snapshots        |200       |
@@ -94,14 +85,6 @@ Azure File Sync has been designed with the goal of limitless usage, but limitles
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## See Also
-<<<<<<< HEAD
-
-* [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
-* [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
-* [Azure Storage Replication](../storage-redundancy.md)
-* [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)
-=======
->>>>>>> 0c5c9ee230beb3135d7701de047d3242a342c948
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
