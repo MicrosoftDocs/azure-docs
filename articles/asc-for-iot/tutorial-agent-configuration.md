@@ -24,7 +24,13 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to configure an agent for use with ATP for IoT.
+This tutorial explains how to configure ASC for IoT security agents.
+
+In this tutorial, you learn how to: 
+> [!div class="checklist"]
+> * Configure security agents
+> * Change agent behavior by editing twin properties
+> * Discover default configuration
 
 ## Agents
 
