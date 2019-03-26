@@ -120,7 +120,7 @@ In this flow, the app receives an authorization code from the v2.0 endpoint when
 
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [Authenticating to Azure AD in daemon apps with certificates](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
+In this flow, the app interacts directly with the `/token` endpoint to obtain access:
 
 ![Daemon app authentication flow](./media/v2-app-types/convergence_scenarios_daemon.png)
 
