@@ -7,6 +7,10 @@ ms.author: rgarcia
 ---
 ## Set up your device
 
+In Unity, open the project in the `Unity` folder.
+
+![Unity window](./media/spatial-anchors-unity/unity-window.png)
+
 ### Set up an Android Device
 
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
@@ -25,7 +29,9 @@ In the **Inspector** pane, enter the `Sharing Anchors Service url` (from your AS
 
 Save the scene by selecting **File** > **Save**.
 
-## To deploy the app to an Android device
+## Deploy to your device
+
+### Deploy to Android device
 
 Sign in on your Android device and connect it to your computer by using a USB cable.
 
@@ -37,7 +43,7 @@ Make sure **Export Project** doesn't have a check mark. Select **Build And Run**
 
 Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**. The first option lets you create an anchor that can be located later on the same device or on a different one. The second option, if you've already run the app, either on the same device or on a different one, allows you to locate previously shared anchors.
 
-## To deploy the app to an iOS device
+### Deploy to an iOS device
 
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
@@ -45,6 +51,6 @@ Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPl
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**. The first option lets you create an anchor that can be located later on the same device or on a different one. The second option, if you've already run the app, either on the same device or on a different one, allows you to locate previously shared anchors.
+Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**. The first scenario lets you create an anchor that can be located later on the same device or on a different one. The second scenario, if you've already run the app, either on the same device or on a different one, allows you to locate previously shared anchors. After you pick your scenario, the app will guide you with further instructions around what do to. For example, you'll be asked to move around your device to collect environment information, to place an anchor in the world, to wait while it uploads, etc.
 
 In Xcode, stop the app by selecting **Stop**.

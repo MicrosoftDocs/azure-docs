@@ -32,7 +32,7 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 To complete this guide, make sure you have:
 
 - Read through the [Azure Spatial Anchors overview](../overview.md).
-- Complete one of the [5-minute Quickstarts](../index.yml).
+- Completed one of the [5-minute Quickstarts](../index.yml).
 - Basic knowledge on C++ and the <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>.
 - Basic knowledge on <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5 (support for ARCore 1.6+ will be coming soon).
 
