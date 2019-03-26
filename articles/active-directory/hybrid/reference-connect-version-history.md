@@ -36,7 +36,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >[!NOTE]
 >Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## 1.3.9.0 
+## 1.3.90.0 
 
 ### Release status 
 
