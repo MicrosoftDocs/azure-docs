@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: 
 
@@ -54,6 +54,8 @@ Before you begin the upgrade of Azure App Service on Azure Stack to 1.5:
 Azure App Service on Azure Stack Update 5 includes the following improvements and fixes:
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates **Azure Functions runtime** to **v1.0.12205**.
 
 - Updates to **Kudu tools** to resolve issues with styling and functionality for customers operating **disconnected** Azure Stack. 
 
