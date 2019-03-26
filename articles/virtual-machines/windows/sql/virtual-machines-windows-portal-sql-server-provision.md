@@ -69,7 +69,8 @@ There are multiple tabs for configuring a SQL Server virtual machine. For the pu
 | **Basics** |[Configure basic settings](#1-configure-basic-settings) |
 | **Optional Features** |[Configure optional features](#2-configure-optional-features) |
 | **SQL Server settings** |[Configure SQL server settings](#3-configure-sql-server-settings) |
-| **Summary** |[Review the summary](#5-review-the-summary) |
+| **Review + create** |[Review the summary](#5-review-+-create) |
+
 
 ## 1. Configure basic settings
 
@@ -143,7 +144,7 @@ On the **Monitoring** tab, configure monitoring and auto-shutdown.
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## 4. Configure SQL server settings
+## 3. Configure SQL server settings
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
@@ -157,7 +158,8 @@ On the **SQL Server settings** tab, configure specific settings and optimization
 | [Storage configuration](#storage-configuration) |
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup) |
-| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
+| [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
+
 
 ### Connectivity
 
