@@ -121,7 +121,11 @@ Yes. However, configuring the UDRs to redirect traffic between subnets in the sa
 
 ### Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Azure Firewall must have direct Internet connectivity. By default, AzureFirewallSubnet should only allow a 0.0.0.0/0 user defined route with the NextHopType value set to **Internet**. If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly configure a 0.0.0.0/0 UDR  with the NextHopType value set as Internet and associate it with your AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact Support so that we can whitelist your subscription to ensure the required firewall Internet connectivity is maintained.
+Yes.
+
+Azure Firewall must have direct Internet connectivity. By default, AzureFirewallSubnet has a 0.0.0.0/0 route with the NextHopType value set to **Internet**.
+
+If you enable forced tunneling to on-premises via ExpressRoute or VPN Gateway, you may need to explicitly configure a 0.0.0.0/0 user defined route (UDR) with the NextHopType value set as Internet and associate it with your AzureFirewallSubnet. This overrides a potential default gateway BGP advertisement back to your on-premise network. If your organization requires forced tunneling for Azure Firewall to direct default gateway traffic back through your on-premise network, contact Support. We can whitelist your subscription to ensure the required firewall Internet connectivity is maintained.
 
 ### Are there any firewall resource group restrictions?
 
