@@ -54,6 +54,8 @@ Once the QnA Maker manager selects the account, the Active Directory administrat
 
 The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal Sharepoint enterprise app to have file read permissions. 
 
+![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharepoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
 -->
@@ -154,13 +156,15 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 }
 ```
 
--->
+
 
 ## Remove QnA Maker app from Sharepoint authorization
 
 1. Use the steps in the previous section to find the Qna Maker app in the Active Directory admin center. 
 1. When you select the **QnAMakerPortalSharepoint**, select **Overview**. 
 1. Select **Delete** to remove permissions. 
+
+-->
 
 ## Next steps
 
