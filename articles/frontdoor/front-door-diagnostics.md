@@ -15,16 +15,14 @@ ms.author: sharadag
 
 # Monitoring metrics and logs in Azure Front Door Service
 
-## Front Door Service monitoring resources
+Front Door Service monitoring resources
 
 - **Metrics**. Application Gateway currently has seven metrics to view performance counters.
 - **Logs**. Activity and diagnostic logs allow performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 ### Metrics
 
-Metrics are a feature for certain Azure resources that allow you to view performance counters in the portal.
-
-#### Available Front Door metrics
+Metrics are a feature for certain Azure resources that allow you to view performance counters in the portal. The following are available Front Door metrics.
 
 | Metric | Metric Display Name | Unit | Dimensions | Description |
 | --- | --- | --- | --- | --- |
@@ -39,34 +37,36 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 
 ## <a name="activity-log"></a>Activity logs
 
-Activity logs provide information about the operations done on your Front Door. They also determine the what, who, and when for any write operations (put, post, or delete) taken on your Front Door.
+Activity logs provide information about the operations done on your Front Door Service. They also determine the what, who, and when for any write operations (put, post, or delete) taken on your Front Door Service.
 
-[!NOTE] Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
+>[!NOTE] 
+>Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
 
-Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor. To view activity logs:
+Access activity logs in your Front Door Service or all the logs of your Azure resources in Azure Monitor. To view activity logs:
 
 1. Select your Front Door instance.
 2. Select **Activity log**.
 
-    ![activity log](./media/front-door-diagnostics/activity-log.png)
+    ![Activity log](./media/front-door-diagnostics/activity-log.png)
 
 3. Choose a filtering scope, and then select **Apply**.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
-Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostics logs differ from activity logs.
+Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostic logs differ from activity logs.
 
-Activity logs provide insights into the operations done on Azure resources. Diagnostics logs provide insight into operations that your resource performed. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource performed. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-To configure diagnostic logs for your Front Door:
+![Diagnostic logs](./media/front-door-diagnostics/diagnostic-log.png)
 
-1. Select your APIM service instance.
+To configure diagnostic logs for your Front Door Service:
+
+1. Select your Azure API Management service.
+
 2. Choose **Diagnostic settings**.
 
-    ![diagnostic logs](./media/front-door-diagnostics/diagnostic-log.png)
+3. Select **Turn on diagnostics**. Archive diagnostic logs along with metrics to a storage account, stream them to an event hub, or send them to Azure Monitor logs.
 
-3. Select **Turn on diagnostics**. Archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs.
-
-Front Door Service currently provides diagnostics logs (batched hourly) about individual API request with each entry having the following schema.
+Front Door Service currently provides diagnostic logs (batched hourly). Diagnostic logs provide individual API requests with each entry having the following schema.
 
 | Property  | Description |
 | ------------- | ------------- |
@@ -87,5 +87,5 @@ Front Door Service currently provides diagnostics logs (batched hourly) about in
 
 ## Next steps
 
-- [Create a Front Door](quickstart-create-front-door.md)
+- [Create a Front Door profile](quickstart-create-front-door.md)
 - [How Front Door works](front-door-routing-architecture.md)
