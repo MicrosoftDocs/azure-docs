@@ -67,6 +67,8 @@
     href: app-service-how-works-readme.md
   - name: App Service plans
     href: overview-hosting-plans.md
+  - name: Java runtime support
+    href: app-service-jre-support.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
