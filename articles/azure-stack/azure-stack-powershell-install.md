@@ -44,7 +44,6 @@ To check your version, run **$PSVersionTable.PSVersion** and compare the **Major
 - **PowerShell Gallery access**
   You need access to the [PowerShell Gallery](https://www.powershellgallery.com). The gallery is the central repository for PowerShell content. The **PowerShellGet** module contains cmdlets for discovering, installing, updating, and publishing PowerShell artifacts such as modules, DSC resources, role capabilities, and scripts from the PowerShell Gallery and other private repositories. If you are using PowerShell in a disconnected scenario, you must retrieve resources from a machine with a connection to the Internet and store them in a location accessible to your disconnected machine.
 
-
 ## 2. Validate the PowerShell Gallery accessibility
 
 Validate if PSGallery is registered as a repository.
@@ -77,13 +76,14 @@ Before installing the required version, make sure that you uninstall any previou
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
+
     If you hit an error such as 'The module is already in use', please close the PowerShell sessions that are using the modules and rerun the above script.
 
 2. Delete all the folders that start with `Azure` or `Azs.` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 
 ## 4. Connected: Install PowerShell for Azure Stack with Internet connectivity
 
-Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 or later. The profile is available by installing the **AzureRM.Bootstrapper** module. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
+Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 or later. The profile is available by installing the **AzureRM.BootStrapper** module. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
 
 Installation has three steps:
 
@@ -99,18 +99,18 @@ Run the following PowerShell script to install these modules on your development
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.0
     ```
 
     > [!Note]  
     > The Azure Stack module version 1.7.0 is a breaking change release. To migrate from Azure Stack 1.6.0 please refer to the [migration guide](https://aka.ms/azspshmigration170).
-    > The AzureRm module version 2.4.0 comes with a breaking change for the cmdlet Remove-AzureRmStorageAccount. This cmdlet expects -Force prameter to be specified for removing the storage account without confirmation.
+    > The AzureRm module version 2.4.0 comes with a breaking change for the cmdlet Remove-AzureRmStorageAccount. This cmdlet expects -Force parameter to be specified for removing the storage account without confirmation.
 - Azure Stack 1811:
 
     ```powershell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -121,8 +121,8 @@ Run the following PowerShell script to install these modules on your development
 - Azure Stack 1810 or earlier:
 
     ```powershell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -176,7 +176,6 @@ Installation has four steps:
 3. Transport the PowerShell packages to your disconnected workstation
 4. Confirm the installation of PowerShell
 
-
 ### Install Azure Stack PowerShell
 
 - Azure Stack 1901 or later.
@@ -192,7 +191,6 @@ Installation has four steps:
 
     > [!Note]  
     > The Azure Stack module version 1.7.0 is a breaking change. To migrate from AzureStack 1.6.0 please refer to the [migration guide](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
-
 
   - Azure Stack 1811 or earlier.
 
@@ -216,8 +214,8 @@ Installation has four steps:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-    > [!NOTE]  
-    > On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmldets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
+    > [!NOTE]
+    > On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmdlets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
     > ```powershell
     > Disable-AzureRmDataCollection
     > ```
@@ -282,7 +280,7 @@ In scenarios that require a proxy server to access the Internet, you must first 
 
 ## Next steps
 
- - [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
- - [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)
- - [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md)
- - [Manage API version profiles in Azure Stack](user/azure-stack-version-profiles.md)
+- [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
+- [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)
+- [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md)
+- [Manage API version profiles in Azure Stack](user/azure-stack-version-profiles.md)
