@@ -86,7 +86,8 @@ The same communication model can be used in Service Fabric. This can be useful w
 ![Service Fabric direct communication][8]
 
 ## Parity
-Despite cloud services API being publically accessible longer than Service Fabric, it is recommended you migrate away from cloud services, and the following are cloud service parity features for Service Fabric API's:
+[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](https://docs.microsoft.com/azure/app-service/overview-compare); the following is an API comparison:
+
 
 | **Cloud Service API** | **Service Fabric API** | **Notes** |
 | --- | --- | --- |
