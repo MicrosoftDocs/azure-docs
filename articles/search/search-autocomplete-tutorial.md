@@ -21,16 +21,16 @@ In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/
 
 + *Autocomplete*, [a new preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. 
 
-You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can either use the index already provided, or populate your own index using a data loader in the NYCJobs sample solution. 
+You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the index already hosted in a sandbox service, or populate your own index using a data loader in the NYCJobs sample solution. 
 
-The sample demonstrates both typeahead features, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query requests can be found in the HomeController.cs file. JavaScript developers can use the Azure Search REST API. 
+The **DotNetHowToAutocomplete** sample demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query requests can be found in the HomeController.cs file. JavaScript developers will find most of the query logic in IndexJavaScript.cshtml, which includes direct calls to the Azure Search REST API. 
 
-For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. From JavaScript, you can call the  Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs. 
+For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or in IndexJavaScript.cshtml.
 
 This exercise walks you through the following tasks:
 
 > [!div class="checklist"]
-> * Implement a search input box in JavaScript and issue requests for suggested queries or autocompleted terms.
+> * Implement a search input box in JavaScript and issue requests for suggested queries or autocompleted terms
 > * In C#, define suggestions and autocomplete actions in HomeController.cs
 > * In JavaScript, call the REST APIs directly to provide the same functionality
 
@@ -60,7 +60,7 @@ Try typing in a few letters in each search box to see what happens.
 
 For both C# and JavaScript versions, the search box implementation is exactly the same. 
 
-Open the Index.cshtml file under the folder \Views\Home to view the code:
+Open the **Index.cshtml** file under the folder \Views\Home to view the code:
 
 ```html
 <input class="searchBox" type="text" id="example1a" placeholder="search">
@@ -188,7 +188,7 @@ The other examples on the page follow the same pattern to add hit highlighting a
 
 ## JavaScript version with REST
 
-For the JavaScript implementation in IndexJavaScript.cshtml page, jQuery UI Autocomplete is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Search to retrieve suggested queries or completed terms. 
+For the JavaScript implementation, open **IndexJavaScript.cshtml**. Notice that the jQuery UI autocomplete function is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Search to retrieve suggested queries or completed terms. 
 
 Let's look at the JavaScript code for the first example:
 
