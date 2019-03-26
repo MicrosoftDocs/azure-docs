@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/26/2019
 ms.author: danlep
 ---
 
@@ -48,7 +48,7 @@ Container resource limits may differ from limits for non-networked container ins
 * **Route tables** - User-defined routes can't be set up in a subnet delegated to Azure Container Instances
 * **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
-* **Name resolution for resources** - Internal name resolution for Azure resources in the virtual network is not supported
+* **Internal name resolution** - Name resolution for Azure resources in the virtual network via the internal Azure DNS is not supported
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
