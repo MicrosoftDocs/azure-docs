@@ -5,10 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
@@ -26,8 +23,8 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * This is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
-    * This approach is much more flexible, but it requires advanced Application Insights SDK configuration.
-    * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about...
+    * This approach is much more flexible, but it requires advanced Application Insights SDK configuration. It is sometimes referred to as "build" or "compile" time monitoring.
+    * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about manually instrumenting 
 
 > [!NOTE]
 > If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section]() below.
@@ -280,7 +277,22 @@ $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable t
 $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
+## Upgrade monitoring extension/agent
+
+### Upgrading from versions 2.8.9 and up
+
+Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
+
+### Upgrade through PowerShell
+
+1. Set the application settings to enable the preinstalled site extension ApplicationInsightsAgent. See [Enabling through powershell]().
+2. Remove the private site extension named Application Insights extension for Azure App Service.
+
+If the upgrade is done from version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps]().
+
 ## More telemetry
+
+
 
 * [Web page load data](../../azure-monitor/app/javascript.md)
 * [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
