@@ -23,7 +23,7 @@ In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/
 
 You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the prepared index hosted in a sandbox service, or [populate your own index](#configure-app) using a data loader in the NYCJobs sample solution. 
 
-The **DotNetHowToAutocomplete** sample demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query calls can be found in the HomeController.cs file. JavaScript developers will find equievalent query logic in IndexJavaScript.cshtml, which includes direct calls to the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
+The **DotNetHowToAutocomplete** sample demonstrates both suggestions and autocomplete, in both C# and JavaScript language versions. C# developers can step through an ASP.NET MVC-based application that uses the [Azure Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query calls can be found in the HomeController.cs file. JavaScript developers will find equivalent query logic in IndexJavaScript.cshtml, which includes direct calls to the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
 
 For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or IndexJavaScript.cshtml.
 
@@ -115,7 +115,7 @@ Try typing something like "execative" and notice how results come back for "exec
 
 ### jQuery Autocomplete  backed by Azure Search autocomplete
 
-So far, the search UX code has been centered on the suggestions. The next code blocks shows the jQuery UI Autocomplete function (line 91 in index.cshtml), passing in a request for Azure Search autocomplete:
+So far, the search UX code has been centered on the suggestions. The next code block shows the jQuery UI Autocomplete function (line 91 in index.cshtml), passing in a request for Azure Search autocomplete:
 
 ```javascript
 $(function () {

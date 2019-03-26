@@ -23,7 +23,9 @@ translation.priority.mt:
 ---
 # Add suggesters to an index for typeahead in Azure Search
 
-A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. There are two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions provides a short list of terms or phrases that you can select as a query input. You have undoubtedly seen these behaviors before in commercial search engines.
+A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. There are two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
+
+In this Xbox search page, the autocomplete items take you to a new search results page for that query, whereas the suggestions are actual results that take you to a page for that particular game. You can limit autocomplete to one item in a search bar or provide a list like the one shown here. For suggestions, you can surface any part of a document that best describes the result.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual comparison of autocomplete and suggested queries")
 
