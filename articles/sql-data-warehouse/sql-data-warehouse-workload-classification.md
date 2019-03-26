@@ -29,7 +29,7 @@ While there are many ways to classify data warehousing workloads, the simplest a
 
 You can also subclassify your load and query workloads. Subclassification gives you more control of your workloads. For example, query workloads can consist of cube refreshes, dashboard queries or ad-hoc queries. You can classify each of these query workloads with different resource classes or importance settings. Load can also benefit from subclassification. Large transformations can be assigned to larger resource classes. Higher importance can be used to ensure key sales data is loader before weather data or a social data feed.
 
-Statements not governed by classification include DBCC commands and BEGIN, COMMIT, and ROLLBACK transactions.
+Not all statements are classified as they do not require resources or need importance to influence execution.  DBCC commands, BEGIN, COMMIT, and ROLLBACK TRANSACTION statements are not classified.
 
 ## Classification process
 

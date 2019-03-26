@@ -48,7 +48,7 @@ END
 
 ## Create user
 
-[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO" in mySampleDataWarehouse
+[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
