@@ -1,14 +1,14 @@
 ---
-title: What is ATP for IoT Preview| Microsoft Docs
-description: Learn about ATP for IoT features and service.
-services: atpforiot
+title: What is ASC for IoT Preview| Microsoft Docs
+description: Learn about ASC for IoT features and service.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.date: 03/18/2019
 ms.author: mlottner
 
 ---
-# Introducing ATP for IoT 
+# Introducing ASC for IoT
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -32,9 +32,9 @@ Unify security management and enable end to end threat analysis and protection a
 
 The Internet of Things is quickly transforming our world. With the ability to uncovering insights from your connected devices and back-end systems, you can now transform those insights into powerful applications and services to help your organization achieve unprecedented levels of operational and business performance. However, as billions of new devices are connected to the internet, and integrated into our daily lives and our businesses; your security operations teams need to ensure that their security strategies evolve quickly enough to cover these new attack surfaces. Like any other system, securing your IoT solution needs protection at every stage of your implementation. 
 
-ATP for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
+ASC for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
 
-![ATP for IoT architecture](./media/architecture/asc-for-iot-architecture.png)
+![ASC for IoT architecture](./media/architecture/asc-for-iot-architecture.png)
 
 ### Unified visibility and control
 
@@ -42,20 +42,19 @@ Get a unified view of security across all of your on-premises and cloud workload
 
 ### Adaptive threat prevention
 
-Use ATP for IoT to continuously monitor the security of machines, networks, and Azure services, including your Azure IoT solution from edge devices to applications. You can choose to use from hundreds of built-in security assessments or create your own in the central ATP for IoT Hub dashboard. Optimize your security settings and improve your security score with actionable recommendations across virtual machines, networks, apps and data. With newly added IoT capabilities, you can now reduce attack surface for your Azure IoT solution and remediate issues before they can be exploited. 
+Use ASC for IoT to continuously monitor the security of machines, networks, and Azure services, including your Azure IoT solution from edge devices to applications. You can choose to use from hundreds of built-in security assessments or create your own in the central ASC for IoT Hub dashboard. Optimize your security settings and improve your security score with actionable recommendations across virtual machines, networks, apps and data. With newly added IoT capabilities, you can now reduce attack surface for your Azure IoT solution and remediate issues before they can be exploited.
 
 ### Intelligent threat detection and response
 
 Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Built-in behavioral analytics and machine learning identify attacks and zero-day exploits. Monitor your IoT solution for incoming attacks and post-breach activity. Streamline device investigation and remediation with interactive tools and contextual threat intelligence.
 
 ## Next steps
-In this article, you learned about the features and service of ATP for IoT. To learn more about ATP for IoT architecture, prerequisites and how to get started, see the following articles:
+In this article, you learned about the features and services of ASC for IoT. To learn more about ASC for IoT architecture, prerequisites and how to get started, see the following articles:
 
-## See Also
 - [Architecture](architecture.md)
 - [Service prerequisites](service-prerequisites.md)
-- [Getting started](quickstart-getting-started.md)
+- [Getting started](getting-started.md)
 - [Define your solution](quickstart-configure-your-solution.md)
-- [ATP for IoT FAQ](resources-frequently-asked-questions.md)
-- [ATP for IoT alerts](concept-security-alerts.md)
+- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
+- [ASC for IoT alerts](concept-security-alerts.md)
 

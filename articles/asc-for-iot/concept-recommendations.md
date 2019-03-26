@@ -19,19 +19,18 @@ ms.author: mlottner
 
 ---
 # Security recommendations
+
 > [!IMPORTANT]
 > ATP for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-# Security recommendations
+Based on ongoing solution analysis, ASC for IoT provides the following recommendations when needed to help improve and protect your devices, operational status and overall IoT Hub environment. 
 
-> [!IMPORTANT]
-> ASC for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Device recommendations
+
+Device recommendations provide insights and suggestions to improve device security and behavior. 
 
 | Severity | Name                                                      | Data Source | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,11 +38,11 @@ ms.author: mlottner
 | Medium   | Permissive firewall policy found in one of the chains. | Agent       | Allowed firewall policy found (INPUT/OUTPUT). Firewall policy should deny all traffic by default, and define rules to allow necessary communication to/from the device.                               |
 | Medium   | Permissive firewall rule in the input chain was found     | Agent       | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports.                                                                                    |
 | Medium   | Permissive firewall rule in the output chain was found    | Agent       | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports.                                                                                   |
-| Medium   | Operation system baseline validation has failed           | Agent       | Device doesn't comply with [CIS Linux benchmarks].(https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Medium   | Operation system baseline validation has failed           | Agent       | Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
 ### Operational recommendation
 
-Operational recommendations provide insights and suggestions to improve agent configuration
+Operational recommendations provide insights and suggestions to improve agent configuration.
 
 | Severity | Name                                    | Data Source | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,6 +52,8 @@ Operational recommendations provide insights and suggestions to improve agent co
 
 
 ## IoT Hub recommendations
+
+Recommendation alerts provide insight and suggestions for actions to improve the security posture of your environment.  
 
 | Severity | Name                                                     | Data Source | Description                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
