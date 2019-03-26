@@ -192,7 +192,7 @@ To automate requests to your app by using synthetic transactions:
 
 3. Run the following PowerShell loop to create 100 synthetic transactions by using your test app. Modify the port number after `localhost:` to match the URl that you copied in the preceding step. For example:
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/
