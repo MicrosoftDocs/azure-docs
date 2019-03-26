@@ -205,8 +205,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## Next steps
+## See also
 
-- [Examine details of the output JSON](video-indexer-output-json-v2.md).
 - [Video Indexer overview](video-indexer-overview.md)
 - [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
+## Next steps
+
+[Examine details of the output JSON](video-indexer-output-json-v2.md).
+
