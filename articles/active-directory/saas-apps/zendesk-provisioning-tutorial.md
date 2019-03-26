@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Zendesk with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
+> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), which is available to Zendesk teams on the Enterprise plan or better.
 
 ## Adding Zendesk from the gallery
 Before configuring Zendesk for automatic user provisioning with Azure AD, you need to add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
