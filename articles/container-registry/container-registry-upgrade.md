@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/26/2019
 ms.author: danlep
 ---
 
@@ -18,7 +18,7 @@ The Classic SKU is being deprecated, and will be unavailable after April 2019. T
 
 ## Why upgrade?
 
-The Classic registry SKU is being **deprecated**, and will be unavailable after **April 2019**. All existing Classic registries should be upgraded prior to April 2019. Creation of new Classic registries will be disabled after April 2019.
+The Classic registry SKU is being **deprecated**, and will be unavailable after **April 2019**. All existing Classic registries should be upgraded prior to April 2019. Portal management features of Classic registries will be phased out. Creation of new Classic registries will be disabled after April 2019.
 
 Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries should be upgraded to managed registries (Basic, Standard, or Premium). These higher-level SKUs more deeply integrate the registry into the capabilities of Azure. For more information about the pricing and capabilities of the different service tiers, see [Container Registry SKUs](container-registry-skus.md).
 
@@ -58,7 +58,7 @@ To upgrade a Classic registry in the Azure CLI, execute the [az acr update][az-a
 az acr update --name myclassicregistry --sku Premium
 ```
 
-When the migration is complete, you should see output similar to the following. Notice that the `sku` is "Premium" and the `storageAccount` is "null," indicating that Azure now manages the image storage for this registry.
+When the migration is complete, you should see output similar to the following. Notice that the `sku` is "Premium" and the `storageAccount` is `null`, indicating that Azure now manages the image storage for this registry.
 
 ```JSON
 {
@@ -89,7 +89,7 @@ If you receive a similar error, run the [az acr update][az-acr-update] command a
 
 ## Upgrade in Azure portal
 
-When you upgrade a Classic registry by using the Azure portal, Azure selects either the Standard or Premium SKU by default, depending on which SKU can accommodate your images. For example, if your registry contains less than 100 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
+When you upgrade a Classic registry by using the Azure portal, Azure automatically selects either the Standard or Premium SKU, depending on which SKU can accommodate your images. For example, if your registry contains less than 100 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
 
 To upgrade your Classic registry by using the Azure portal, navigate to the container registry **Overview** and select **Upgrade to managed registry**.
 

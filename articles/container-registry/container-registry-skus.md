@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/26/2019
 ms.author: danlep
 ---
 
