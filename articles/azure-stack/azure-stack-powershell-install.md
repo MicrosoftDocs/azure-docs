@@ -83,7 +83,7 @@ Before installing the required version, make sure that you uninstall any previou
 
 ## 4. Connected: Install PowerShell for Azure Stack with Internet connectivity
 
-Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 or later. The profile is available by installing the **AzureRM.Bootstrapper** module. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
+Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 or later. The profile is available by installing the **AzureRM.BootStrapper** module. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
 
 Installation has three steps:
 
@@ -109,8 +109,8 @@ Run the following PowerShell script to install these modules on your development
 - Azure Stack 1811:
 
     ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -121,8 +121,8 @@ Run the following PowerShell script to install these modules on your development
 - Azure Stack 1810 or earlier:
 
     ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
