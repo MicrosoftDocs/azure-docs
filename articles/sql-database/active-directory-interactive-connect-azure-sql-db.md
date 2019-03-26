@@ -21,7 +21,7 @@ For more information about Multi-Factor Authentication support for SQL tools, se
 
 ## Multi-Factor Authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -38,13 +38,9 @@ For information about how to configure Azure AD to require Multi-Factor Authenti
 For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!TIP]
-> You can search .NET Framework APIs with the **.NET API Browser** tool page:
+> You can search .NET Framework APIs with the [.NET API Browser tool page](https://docs.microsoft.com/dotnet/api/).
 >
-> [https://docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/)
->
-> You can also search directly with the optional **?term=&lt;search value&gt;** parameter:
->
-> [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
+> You can also search directly with the [optional ?term=&lt;search value&gt; parameter](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
 
 ## Configure your C# application in the Azure portal
 
@@ -52,15 +48,13 @@ Before you begin, you should have an [Azure SQL Database server](sql-database-ge
 
 ### Register your app and set permissions
 
-
 To use Azure AD authentication, your C# program has to register as an Azure AD application. To register an app, you need to be either an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
- Completing an app registration generates and displays an **application ID**. Your program has to include this ID to connect.
-
+Completing an app registration generates and displays an **application ID**. Your program has to include this ID to connect.
 
 To register and set necessary permissions for your application:
 
-1. In the Azure portal, select > **Azure Active Directory** > **App registrations** > **New application registration**.
+1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New application registration**.
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -82,10 +76,9 @@ To register and set necessary permissions for your application:
 
 ### Set an Azure AD admin for your SQL Database server
 
+For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your SQL Database server. 
 
-For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
-
- On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
+On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
 
 For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -93,13 +86,13 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 An Azure AD admin for a SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
-You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) command. For example, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication.md).
 
 ## New authentication enum value
 
-The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. Of special interest for multi-factor authentication is the enum `SqlAuthenticationMethod`, which has the following values:
+The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. Of special interest for Multi-Factor Authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
@@ -115,7 +108,7 @@ The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.co
 
 ## Set C# parameter values from the Azure portal
 
-For the C# program to successfully run, you need to assign proper values to static fields. Shown here are fields with example values. Also shown are the Azure portal locations where you can obtain the needed values:
+For the C# program to successfully run, you need to assign proper values to static fields. Shown here are fields with example values. Also shown are the Azure portal locations where you can obtain the needed values.
 
 | Static field name | Example value | Where in Azure portal |
 | :---------------- | :------------ | :-------------------- |
