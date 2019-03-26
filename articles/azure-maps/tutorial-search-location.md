@@ -72,11 +72,11 @@ The Map Control API is a convenient client library that allows you to easily int
     <html>
     <head>
         <title>Map Search</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
         
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
@@ -132,7 +132,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
    ```JavaScript
    //Wait until the map resources have fully loaded.
-   map.events.add('load', function () {
+   map.events.add('load', function() {
 
       //Create a data source and add it to the map.
       datasource = new atlas.source.DataSource();

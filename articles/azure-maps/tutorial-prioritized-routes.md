@@ -37,12 +37,12 @@ The following steps show you how to create a static HTML page embedded with the 
     <html>
     <head>
         <title>Multiple routes by mode of travel</title>
-        
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
@@ -230,7 +230,7 @@ This section shows how to use the Maps route service API to find multiple routes
         vehicleHeight: 2,
         vehicleLength: 5,
         vehicleLoadType: 'USHazmatClass2'
-    }).then(function (response) {
+    }).then(function(response) {
         // Parse the response into GeoJSON
         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
 
@@ -249,7 +249,7 @@ This section shows how to use the Maps route service API to find multiple routes
 
     ```JavaScript
     //Execute the car route query then add the route to the map.
-    client.route.getRouteDirections(routeQuery).then(function (response) {
+    client.route.getRouteDirections(routeQuery).then(function(response) {
         // Parse the response into GeoJSON
         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
 

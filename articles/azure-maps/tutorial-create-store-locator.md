@@ -107,15 +107,15 @@ To create the user interface, add code to *index.html*:
 1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Microsoft Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
 
     ```HTML
-    <meta charset="utf-8" /> 
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8"> 
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
 1. Add references to the Azure Maps web control JavaScript and CSS files:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" /> 
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css"> 
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script> 
     ```
     
@@ -128,7 +128,7 @@ To create the user interface, add code to *index.html*:
 1. Add references to *index.js* and *index.css*:
 
     ```HTML
-    <link rel="stylesheet" href="index.css" type="text/css" /> 
+    <link rel="stylesheet" href="index.css" type="text/css"> 
     <script src="index.js"></script>
     ```
     
@@ -164,7 +164,7 @@ When you're finished, *index.html* should look like [this example index.html fil
 
 The next step is to define the CSS styles. CSS styles define how the application components are laid out and the application's appearance. Open *index.css* and add the following code to it. The `@media` style defines alternate style options to use when the screen width is smaller than 700 pixels.  
 
-```css
+```CSS
     html, body { 
         padding: 0; 
         margin: 0; 
@@ -376,7 +376,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. Add global options to make settings easier to update. Also, define variables for the map, a pop-up window, a data source, an icon layer, an HTML marker that displays the center of a search area, and an instance of the Azure Maps search service client.
 
-    ```Javascript
+    ```JavaScript
     //The maximum zoom level to cluster data point data on the map. 
     var maxClusterZoomLevel = 11; 
 
@@ -397,7 +397,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
   > [!Tip]
   > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
 
-    ```Javascript
+    ```JavaScript
     function initialize() { 
         //Initialize a map instance. 
         map = new atlas.Map('myMap', { 
@@ -429,7 +429,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         document.getElementById('searchBtn').onclick = performSearch; 
 
         //If the user presses Enter in the search box, perform a search. 
-        document.getElementById('searchTbx').onkeyup = function (e) {
+        document.getElementById('searchTbx').onkeyup = function(e) {
             if (e.keyCode === 13) { 
                 performSearch(); 
             } 
@@ -439,7 +439,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation; 
 
         //Wait until the map resources are ready.
-        map.events.add('ready', function () { 
+        map.events.add('ready', function() { 
 
         //Add your post-map load functionality. 
 
@@ -474,13 +474,13 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     function setMapToUserLocation() { 
         //Request the user's location. 
-        navigator.geolocation.getCurrentPosition(function (position) { 
+        navigator.geolocation.getCurrentPosition(function(position) { 
             //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it. 
             map.setCamera({ 
                 center: [position.coords.longitude, position.coords.latitude], 
                 zoom: maxClusterZoomLevel + 1 
             }); 
-        }, function (error) { 
+        }, function(error) { 
             //If an error occurs when the API tries to access the user's position information, display an error message. 
             switch (error.code) { 
                 case error.PERMISSION_DENIED: 
@@ -505,7 +505,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. In the map's `load` event listener, add a zoom control and an HTML marker to display the center of a search area.
 
-    ```Javascript
+    ```JavaScript
     //Add a zoom control to the map. 
     map.controls.add(new atlas.control.ZoomControl(), { 
         position: 'top-right'
@@ -522,7 +522,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. In the map's `load` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
 
-    ```Javascript
+    ```JavaScript
     //Create a data source, add it to the map, and then enable clustering. 
     datasource = new atlas.source.DataSource(null, { 
         cluster: true, 
@@ -539,7 +539,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
   Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms the map in two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
 
-    ```Javascript
+    ```JavaScript
     //Create a bubble layer to render clustered data points. 
     var clusterBubbleLayer = new atlas.layer.BubbleLayer(datasource, null, { 
         radius: 12, 
@@ -622,7 +622,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. When the coffee shop dataset is loaded, it must first be downloaded. Then, the text file must be split into lines. The first line contains the header information. To make the code easier to follow, we parse the header into an object, which we can then use to look up the cell index of each property. After the first line, loop through the remaining lines and create a point feature. Add the point feature to the data source. Finally, update the list panel.
 
-    ```Javascript
+    ```JavaScript
     function loadStoreData() { 
 
     //Download the store location data. 
@@ -681,7 +681,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. When the list panel is updated, the distance from the center of the map to all point features in the current map view is calculated. The features are then sorted by distance. HTML is generated to display each location in the list panel.
 
-    ```Javascript
+    ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>'; 
 
     function updateListItems() { 
@@ -815,7 +815,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map is centered over the shape. If the map is less than 700 pixels wide, the map view is offset so the pop-up window is visible.
 
-    ```Javascript
+    ```JavaScript
     //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window. 
     function itemSelected(id) { 
         //Get the shape from the data source by using its ID.  
