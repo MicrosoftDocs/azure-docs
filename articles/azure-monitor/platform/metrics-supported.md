@@ -429,6 +429,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |NetworkBytesReceivedPerSecond|Network Bytes Received Per Second|Bytes|Average|The network bytes received per second.|No Dimensions|
 |NetworkBytesTransmittedPerSecond|Network Bytes Transmitted Per Second|Bytes|Average|The network bytes transmitted per second.|No Dimensions|
 
+## Microsoft.ContainerRegistry/registries
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|RunDuration|Run Duration|Count|Average|Run duration of tasks.|No Dimensions|
+|SuccessfulPullCount|Successful Pull Count|Count|Average|Successful Pull Count.|No Dimensions|
+|SuccessfulPushCount|Successful Push Count|Count|Average|Successful Push Count.|No Dimensions|
+|TotalPullCount|Total Pull Count|Count|Average|Total Pull Count.|No Dimensions|
+|TotalPushCount|Total Push Count|Count|Average|Total Push Count.|No Dimensions|
+
 ## Microsoft.ContainerService/managedClusters
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
