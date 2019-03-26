@@ -91,7 +91,7 @@ The same communication model can be used in Service Fabric. This can be useful w
 
 | **Cloud Service API** | **Service Fabric API** | **Notes** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a party of the NodeName |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a property of the NodeName |
 | RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName and use FD Property |
 | RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName, and use Upgrade property |
 | RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext or Naming (ResolveService) | CodePackageActivationContext which is provided both by FabricRuntime.GetActivationContext and within the replicas via ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize |
