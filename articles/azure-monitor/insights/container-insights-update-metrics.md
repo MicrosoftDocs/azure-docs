@@ -25,7 +25,7 @@ The following metrics are enabled as part of this feature:
 | insights.container/nodes | - cpuUsageMillicores<br> - cpuUsagePercentage<br> -  memoryRssBytes<br> - memoryRssPercentage<br> - memoryWorkingSetBytes<br> - memoryWorkingSetPercentage<br> - nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the<br> node’s name as value for the *host* dimension. |
 | insights.container/pods | podCount | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 
-Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include these new capabilities.
+Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include this configuration change and capabilities.
 
 Either process assigns the **Monitoring Metrics Publisher** role to the cluster’s service principal so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
@@ -42,7 +42,7 @@ For existing AKS clusters monitored by Azure Monitor for containers, after selec
 
 Clicking **Enable** will initiate the process to upgrade the cluster. This process can take several seconds to finish, and you can track its progress under Notifications from the menu.
 
-## Upgrade all clusters in the subscription using Azure CLI
+## Upgrade all clusters in the subscription using Bash in Azure Command Shell
 
 1. Run the following command by using the Azure CLI.  Edit the value for **subscriptionId** using the value from the **AKS Overview** page for the AKS cluster.
 
@@ -60,12 +60,13 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
 
 ## Upgrade per cluster using Azure CLI
 
-1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **clusterResourceGroup**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.
+1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **clusterResourceGroup**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
 
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding | bash -s subscriptionId clusterResourceGroup clusterName  
+    az aks show -g <clusterResourceGroup> -n <clusterName> 
+    az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
 
     The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
