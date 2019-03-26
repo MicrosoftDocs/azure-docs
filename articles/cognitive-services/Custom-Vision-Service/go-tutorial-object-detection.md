@@ -265,7 +265,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 Run *sample.go*.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 
