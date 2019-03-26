@@ -41,7 +41,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as `msal<AppId>://auth` (where msal<AppId> is this application Id).
+> For the code sample for this quickstart to work, you need to add a reply URL as `msal<AppId>://auth` (where msal\<AppId> is this application Id).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -165,7 +165,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Where:||
 > |---------|---------|
-> | `forScopes` | Contains the scopes being requested (that is, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
 
 #### Getting an access token silently
 
