@@ -15,12 +15,13 @@ ms.custom: seodec18
 # Speech Devices SDK providers and development kits
 
 ToDo: Expand this page to cover both the Companies offering DKs and the actual DKs themselves, with photos.
+ToDo: Missing an Azure logo
 
 Currently, these complete, end-to-end system reference designs are available:
 
 |||
 |-|-|
-|[![Azure logo](media/speech-devices-sdk/azure-logo.png)](https://azure.com/Kinect/)|Azure Kinect DK is a developer kit with advanced artificial intelligence (AI) sensors for building sophisticated computer vision and speech models. It combines a best-in-class  spatial microphone array and depth camera with a video camera and orientation sensor—all in one small device with multiple modes, options, and SDKs to accommodate a range of compute types. Visit azure.com/Kinect.  [Visit Azure](https://azure.com/Kinect).|
+|[![Azure logo](media/speech-devices-sdk/azure-logo.png)](https://azure.com/Kinect/)|Azure Kinect DK is a developer kit with advanced artificial intelligence (AI) sensors for building sophisticated computer vision and speech models. It combines a best-in-class  spatial microphone array and depth camera with a video camera and orientation sensor—all in one small device with multiple modes, options, and SDKs to accommodate a range of compute types. [Visit Azure](https://azure.com/Kinect).|
 |
 |[![Roobo logo](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. Roobo's reference designs greatly reduce development time-to-market via integration with the Azure Speech Services. [Visit Roobo](http://ddk.roobo.com/).|
 
