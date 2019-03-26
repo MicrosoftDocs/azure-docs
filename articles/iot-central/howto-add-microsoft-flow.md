@@ -32,13 +32,11 @@ Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplate
 
 This section shows you how to trigger a mobile notification in the Flow mobile app when a rule triggers in IoT Central. You can build this entire workflow within your IoT Central app using the embedded Microsoft Flow designer.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A dialog window should open for you to configure your workflow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A dialog window will open for you to configure your workflow. The IoT Central user account you are signed into will be used to sign into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Sign into Microsoft Flow. This doesn't need to be the same account as the one that you use in IoT Central. You'll land on a page with the list of flows that are connected to this IoT Central rule.
-
-1. Click **Explore templates** and you can choose from any of the templates available. 
+1. You will see a list of workflows tha you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
 
     ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates.png)
 
