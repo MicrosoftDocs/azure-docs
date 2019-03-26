@@ -1,4 +1,4 @@
-﻿### YamlMime:YamlDocument
+### YamlMime:YamlDocument
 documentType: LandingData
 title: Video Indexer Documentation
 metadata:
@@ -16,23 +16,19 @@ metadata:
   ms.author: juliako
 abstract:
   description: Video indexer incorporates media AI technologies to make it easier to extract insights from videos. 
-
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 1
-    items:
-      - image:
-          src:  
-        text: What is Video Indexer?
-        href: video-indexer-overview.md
-     items:
-       - image:
-         src:
-         text: Compares Video Indexer APIs and Media Services v3 APIs
-         href: compare-video-indexer-with-media-services-presets.md
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 2
+      items:
+        - href: /azure/media-services/latest/
+          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          image:
+            src: media/index/AMSIcons-media_analytics.svg
+          title: Azure Media Services v3 
 
   - title: 5-Minute Quickstarts
     items:
@@ -42,7 +38,7 @@ sections:
       style: icon48
       items: 
       - image:
-          src: media/index/AMSIcons-media_analytics.svg
+          src: 
         text: Extract insights
         href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
   - title: Step-by-Step Tutorials
@@ -53,7 +49,7 @@ sections:
       style: icon48
       items: 
       - image: 
-          src: media/index/AMSIcons-media_analytics.svg
+          src: 
         text: Extract insights
         href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json   
   
