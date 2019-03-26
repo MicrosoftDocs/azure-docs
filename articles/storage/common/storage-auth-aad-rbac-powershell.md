@@ -130,5 +130,5 @@ New-AzRoleAssignment -SignInName <email> `
 ## Next steps
 
 - [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure containers and queues with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Grant access to Azure containers and queues with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
