@@ -42,7 +42,7 @@ Your ability to monitor performance relies on a containerized Log Analytics agen
 
 When a new version of the agent is released, it is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
->[!NOTE] 
+>![NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
 >The template needs to be deployed in the same resource group as the cluster.
 
