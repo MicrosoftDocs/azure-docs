@@ -118,13 +118,13 @@ The following table provides a brief description of each built-in role. Click th
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
-| [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
-| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
-| [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
-| [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
-| [Storage Queue Data Message Processor (Preview)](#storage-queue-data-message-processor-preview) | Allows for peek, receive, and delete access to Azure Storage queue messages |
-| [Storage Queue Data Message Sender (Preview)](#storage-queue-data-message-sender-preview) | Allows for sending of Azure Storage queue messages |
-| [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
+| [Storage Blob Data Contributor](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
+| [Storage Blob Data Owner](#storage-blob-data-owner-preview) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
+| [Storage Blob Data Reader](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
+| [Storage Queue Data Contributor](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+| [Storage Queue Data Message Processor](#storage-queue-data-message-processor-preview) | Allows for peek, receive, and delete access to Azure Storage queue messages |
+| [Storage Queue Data Message Sender](#storage-queue-data-message-sender-preview) | Allows for sending of Azure Storage queue messages |
+| [Storage Queue Data Reader](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
 | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests |
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
