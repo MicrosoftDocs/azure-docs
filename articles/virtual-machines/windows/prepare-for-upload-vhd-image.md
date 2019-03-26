@@ -318,7 +318,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
 
-   The following groups should be listed on this policy:
+     The following groups should be listed on this policy:
 
    - Administrators
    - Backup Operators
