@@ -59,7 +59,7 @@ If you are unable to export the assessment report from the portal, try using the
    a.    In an administrator Windows PowerShell window, run the following command:
      ```armclient login```
 
-        This opens the Azure login pop-up where you need to log in to Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
