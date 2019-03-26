@@ -42,7 +42,7 @@ The two methods for the AzureIoTSecurity agent to perform authentication:
    The information required for this type of authentication is defined in by the Authentication.config file for C# and the LocalConfiguration.json for C.
 		
  - **Device** authentication mode<br>
-    In this method, the Security agent first authenticates against the device. After the initial authentication, the ATP for IoT agent performs **Rest** call to the IoT Hub using the Rest API with the authentication data of the device. The ATP for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ATP for IoT agent performs an authentication against the ATP for IoT module.	
+    In this method, the Security agent first authenticates against the device. After the initial authentication, the ATP for IoT agent performs **REST** call to the IoT Hub using the REST API with the authentication data of the device. The ATP for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ATP for IoT agent performs an authentication against the ATP for IoT module.	
 
 See [Security agent installation parameters](#security-agent-installation-parameters) to learn how to configure.
 								
