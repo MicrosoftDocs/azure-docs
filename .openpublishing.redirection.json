@@ -1240,6 +1240,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-autosuggest-example.md",
+      "redirect_url": "/azure/search/search-autocomplete-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-import-data-rest-api.md",
       "redirect_url": "/azure/search/search-create-index-rest-api",
       "redirect_document_id": false
@@ -15781,16 +15786,6 @@
     {
       "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
       "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-windows.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
       "redirect_document_id": false
     },
     {

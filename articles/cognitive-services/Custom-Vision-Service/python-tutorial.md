@@ -26,7 +26,7 @@ This article provides information and sample code to help you get started using 
 
 To install the Custom Vision service SDK for Python, run the following command in PowerShell:
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -146,7 +146,7 @@ with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents
 
 Run *sample.py*.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 
