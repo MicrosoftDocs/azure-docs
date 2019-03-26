@@ -35,9 +35,9 @@ Before getting started, check out these prerequisites:
 
 1. Secure the media from the ent\_server\_dockerfiles\_4.0\_windows.zip file. Secure the ES-Docker-Prod-XXXXXXXX.mflic licensing file (required to build the Docker images).
 
-2. Create the VM. To do this, open Azure portal, select **Create a resource** from the top left, and filter by *Docker*. In the results, select **Windows Server 2016 Datacenter – with Containers**.
+2. Create the VM. To do this, open Azure portal, select **Create a resource** from the top left, and filter by *windows server*. In the results, select **Windows Server 2016 Datacenter – with Containers**.
 
-     ![Azure portal search results](media/container-01.jpg)
+     ![Azure portal search results](media/01_portal.png)
 
 3. To configure the properties for the VM, choose instance details:
 
