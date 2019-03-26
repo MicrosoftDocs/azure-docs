@@ -70,7 +70,7 @@ The first template that we will look at is for a Storage Account. Our solution r
         "accountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Azure Automation Account"
+                 "description": "Name of the Azure Storage Account"
              }
          }
     },
@@ -116,7 +116,7 @@ Next, we will look at the Azure Batch Account template. The Azure Batch Account 
         "storageAccountId": {
            "type": "string",
            "metadata": {
-                "description": "Name of the Azure Batch Account"
+                "description": "ID of the Azure Storage Account"
             }
         }
     },
@@ -155,7 +155,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
         "batchAccountPoolName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Azure Batch Account"
+                 "description": "Name of the Azure Batch Account Pool"
              }
          }
     },
@@ -221,7 +221,7 @@ You can also find out more about [creating linked Azure Resource Manager templat
          "batchAccountPoolName": {
              "type": "string",
              "metadata": {
-                  "description": "Name of the Azure Batch Account"
+                  "description": "Name of the Azure Batch Account Pool"
               }
           }
     },
