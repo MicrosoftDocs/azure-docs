@@ -283,16 +283,24 @@ $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Re
 
 Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
 
-### Upgrade through PowerShell
+To check which version of the extension you are running visit `http://yoursitename.scm.azurewebsites.net/ApplicationInsights` 
 
-1. Set the application settings to enable the preinstalled site extension ApplicationInsightsAgent. See [Enabling through powershell]().
-2. Remove the private site extension named Application Insights extension for Azure App Service.
+![Screenshot of url path http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
-If the upgrade is done from version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps]().
+### Upgrade from versions 1.0.0 - 2.6.5
+
+Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version you can update via one of two ways:
+
+* [Upgrade by enabling via the portal](). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
+
+* [Upgrade through PowerShell]:
+
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell]().
+    2. Manually remove the private site extension named Application Insights extension for Azure App Service.
+
+If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps]().
 
 ## More telemetry
-
-
 
 * [Web page load data](../../azure-monitor/app/javascript.md)
 * [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
