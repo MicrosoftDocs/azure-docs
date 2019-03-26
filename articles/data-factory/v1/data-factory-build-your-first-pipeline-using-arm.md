@@ -1,4 +1,4 @@
----
+﻿---
 title: Build your first data factory (Resource Manager template) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
@@ -626,3 +626,4 @@ This template creates a data factory named GatewayUsingArmDF with a gateway name
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
+
