@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Troubleshooting Connectivity Issues
+# Troubleshooting connectivity issues
 
 This article lists common troubleshooting techniques around connecting to your SQL Data Warehouse.
 
-## Check Service Availability
+## Check service availability
 
 Check to see if the service is available. In the Azure portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
 
