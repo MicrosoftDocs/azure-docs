@@ -20,9 +20,9 @@ Currently, these complete, end-to-end system reference designs are available:
 
 |||
 |-|-|
-|[![Azure logo](media/speech-devices-sdk/azure-logo.png)](http://ddk.roobo.com/)|Azure Kinect DK is a developer kit with advanced artificial intelligence (AI) sensors for building sophisticated computer vision and speech models. It combines a best-in-class  spatial microphone array and depth camera with a video camera and orientation sensor—all in one small device with multiple modes, options, and SDKs to accommodate a range of compute types. Visit azure.com/Kinect.  [Visit Azure](http://azure.com/Kinect).|
+|[![Azure logo](media/speech-devices-sdk/azure-logo.png)](https://azure.com/Kinect/)|Azure Kinect DK is a developer kit with advanced artificial intelligence (AI) sensors for building sophisticated computer vision and speech models. It combines a best-in-class  spatial microphone array and depth camera with a video camera and orientation sensor—all in one small device with multiple modes, options, and SDKs to accommodate a range of compute types. Visit azure.com/Kinect.  [Visit Azure](https://azure.com/Kinect).|
 |
-|[![ROOBO logo](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. ROOBO's reference designs greatly reduce development time-to-market via integration with the Azure Speech Services. [Visit Roobo](http://ddk.roobo.com/).|
+|[![Roobo logo](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. Roobo's reference designs greatly reduce development time-to-market via integration with the Azure Speech Services. [Visit Roobo](http://ddk.roobo.com/).|
 
 ## Next steps
 

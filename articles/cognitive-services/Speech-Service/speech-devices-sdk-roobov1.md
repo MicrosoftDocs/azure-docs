@@ -37,9 +37,9 @@ This article provides device specific information for the Roobo Smart Audio Dev 
 
     ![Linear dev kit orientation](media/speech-devices-sdk/qsg-2.png)
 
-1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a Command Prompt window:
+1. Install the certificates and set the permissions of the sound device. Type the following commands in a Command Prompt window:
 
-   ```
+   ```Powershell
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
    cd /data/
@@ -51,14 +51,15 @@ This article provides device specific information for the Roobo Smart Audio Dev 
     > [!NOTE]
     > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
     >
-    > If you see an error `no devices/emulators found` then check your USB cable is conected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
-
+    > If you see an error `no devices/emulators found` then check your USB cable is connected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
+    >
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.
- 
-1.  If you want to attach a speaker to the dev kit, you can connect it to the audio line out. You should choose a good-quality speaker with a 3.5mm analog plug.
+
+1. If you want to attach a speaker to the dev kit, you can connect it to the audio line out. You should choose a good-quality speaker with a 3.5mm analog plug.
 
     ![Vysor audio](media/speech-devices-sdk/qsg-14.png)
+
 ## Next steps
 
 * [Run the sample app](devices-sdk-android-qsg.md)
