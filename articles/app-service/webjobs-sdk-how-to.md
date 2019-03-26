@@ -150,7 +150,7 @@ static void Main(string[] args)
 
 ## Triggers
 
-Functions must be public methods and must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-trigger) attribute.
+Functions must be public methods and must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-triggers) attribute.
 
 ### Automatic triggers
 
