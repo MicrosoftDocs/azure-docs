@@ -171,7 +171,7 @@ This is done by utilizing the connection string that the sender and receiver app
 
 The downtime experienced by the application is limited to the amount of time it takes to update the DNS entry to point to the Premium namespace.
 
-This can be assumed to be ***under 5 minutes***.
+This can be assumed to be ***approximately 5 minutes***.
 
 ### Do I have to make any configuration changes while performing the migration?
 No, there are no code/configuration changes needed to perform this migration. The connection string that sender and receiver applications use to access the Standard Namespace is automatically mapped to act as an **alias** for the Premium Namespace.
