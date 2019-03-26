@@ -184,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create RightAnswers test user
 
-To enable Azure AD users to log in to RightAnswers, they must be provisioned into RightAnswers. When RightAnswers, provisioning is an automated task so there is no action item for you.
+To enable Azure AD users to sign in to RightAnswers, they must be provisioned into RightAnswers. When RightAnswers, provisioning is an automated task so there is no action item for you.
 
 Users are automatically created if necessary during the first single sign-on attempt.
 
