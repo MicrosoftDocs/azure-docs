@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: jeedes
 
 ---
@@ -73,10 +73,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with O.C. Tanner - AppreciateHub, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure O.C. Tanner - AppreciateHub Single Sign-On](#configure-o.c.-tanner---appreciatehub-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure O.C. Tanner - AppreciateHub Single Sign-On](#configure-oc-tanner---appreciatehub-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create O.C. Tanner - AppreciateHub test user](#create-o.c.-tanner---appreciatehub-test-user)** - to have a counterpart of Britta Simon in O.C. Tanner - AppreciateHub that is linked to the Azure AD representation of user.
+5. **[Create O.C. Tanner - AppreciateHub test user](#create-oc-tanner---appreciatehub-test-user)** - to have a counterpart of Britta Simon in O.C. Tanner - AppreciateHub that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -153,8 +153,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type user like BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
