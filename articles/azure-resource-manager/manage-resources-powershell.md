@@ -22,7 +22,7 @@ Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-o
 Other articles about managing resources:
 
 - [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
-- [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
+- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
 
 ## Deploy resources to an existing resource group
 

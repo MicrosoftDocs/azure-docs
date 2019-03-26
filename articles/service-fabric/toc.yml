@@ -595,6 +595,8 @@
       items:
       - name: Create
         items:
+        - name: Plan for a cluster deployment
+          href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
         - name: Set up Azure Active Directory authentication

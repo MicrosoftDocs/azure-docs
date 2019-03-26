@@ -26,7 +26,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 * For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation at docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* The [Microsoft Tech Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Tech Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## Open a support ticket
@@ -54,13 +54,12 @@ If you are unable to find answers by using self-help resources, you can open an 
 7. Add the rest of your problem information and click **Next**.
   
 8. Provide your contact information and select **Create**.
-  ![problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+  ![Problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
 ### How to open a support ticket for Azure AD in the Microsoft 365 admin center
 
 > [!NOTE]
-> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only.
-> 
+> Support for Azure AD in the [Microsoft 365 admin center](https://admin.microsoft.com) is offered for administrators only. 
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that has an Enterprise Mobility + Security (EMS) license.
 
