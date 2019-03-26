@@ -224,5 +224,5 @@ However, if you can migrate during a planned maintenance/housekeeping window and
 [Switch namespace - switch menu]: ./media/service-bus-standard-premium-migration/9.png
 [Switch namespace - success]: ./media/service-bus-standard-premium-migration/12.png
 
-[Abort flow - abort sync]: ./media/service-bus-standard-premium-migration/Abort-1.png
-[Abort flow - abort complete]: ./media/service-bus-standard-premium-migration/Abort-3.png
+[Abort flow - abort sync]: ./media/service-bus-standard-premium-migration/abort-1.png
+[Abort flow - abort complete]: ./media/service-bus-standard-premium-migration/abort-3.png
