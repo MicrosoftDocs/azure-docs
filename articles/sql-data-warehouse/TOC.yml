@@ -88,6 +88,8 @@
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
       href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Data Discovery & Classification
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
     - name: Column-level security
       href: column-level-security.md
     - name: Row-level security
@@ -282,8 +284,6 @@
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
-  - name: Gen2 lower compute tier
-    href: gen2-lower-tier-regions.md
   - name: PowerShell cmdlets
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: REST APIs
