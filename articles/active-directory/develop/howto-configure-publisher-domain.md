@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/26/2019
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ An application’s publisher domain is displayed to users on the [application’
 
 When you register a new app, the publisher domain of your app may be set to a default value. The value depends on where the app is registered, particularly whether the app is registered in a tenant and whether the tenant has tenant verified domains.
 
-If there are tenant-verified domains, the app’s publisher domain will default to the primary verified domain of the tenant. If there are no tenants verified domains (which is the case when the application is not registered in a tenant), the app’s publisher domain will be set to null.
+If there are tenant-verified domains, the app’s publisher domain will default to the primary verified domain of the tenant. If there are no tenant verified domains (which is the case when the application is not registered in a tenant), the app’s publisher domain will be set to null.
 
 The following table summarizes the default behavior of the publisher domain value.  
 
@@ -99,11 +99,11 @@ Configuring the publisher domain has an impact on what users see on the app cons
 
 The following table describes the behavior for applications created before May 21, 2019.
 
-![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/consent-prompt-apps-before-may21.png)
+![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
 The behavior for new applications created after May 21, 2019 will depend on the publisher domain and the type of application. The following table describes the changes you should expect to see with the different combinations of configurations.
 
-![Consent prompt for apps created after May 21, 2019](./media/howto-configure-publisher-domain/consent-prompt-apps-after-may21.png)
+![Consent prompt for apps created after May 21, 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
 ## Implications on redirect URIs
 
