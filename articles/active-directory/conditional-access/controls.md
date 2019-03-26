@@ -4,7 +4,7 @@ description: Learn how access controls in Azure Active Directory conditional acc
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
 #Customer intent: As an IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
