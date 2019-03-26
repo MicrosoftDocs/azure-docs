@@ -29,7 +29,7 @@ Some applications only support Windows, but most are supported on both Windows a
 
 ## Applications on latest Windows Server 2016 rendering images
 
-The following list applies to Windows Server 2016, version 1.3.4 rendering nodes.
+The following list applies to Windows Server 2016, version 1.3.4 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
 * Autodesk Maya I/O 2018 Update 4 (version 18.4.0.7622)
@@ -49,7 +49,7 @@ The following list applies to Windows Server 2016, version 1.3.4 rendering nodes
 
 ## Applications on previous Windows Server 2016 rendering images
 
-The following list applies to Windows Server 2016, version 1.3.2 rendering nodes.
+The following list applies to Windows Server 2016, version 1.3.2 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
 * Autodesk Maya I/O 2018 Update 4 (version 18.4.0.7622)  
