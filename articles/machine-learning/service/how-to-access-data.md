@@ -17,9 +17,9 @@ ms.custom: seodec18
 
 # Access data from your datastores
 
- In Azure Machine Learning service, datastores are compute location independent mechanisms to access storage without requiring changes to your source code. Whether you write training code to take a path as a parameter, or provide a datastore directly to an estimator, Azure Machine Learning workflows ensure your datastore locations are accessible and made available to your compute context.
+ In Azure Machine Learning service, datastores are compute location-independent mechanisms to access storage without requiring changes to your source code. Whether you write training code to take a path as a parameter, or provide a datastore directly to an estimator, Azure Machine Learning workflows ensure your datastore locations are accessible, and made available to your compute context.
 
-This how-to shows examples for the following tasks:
+This how-to shows examples of the following tasks:
 * [Choose a datastore](#access)
 * [Get data](#get)
 * [Upload and download data to datastores](#up-and-down)
@@ -48,14 +48,16 @@ You can use the default datastore or bring your own.
 
 ### Use the default datastore in your workspace
 
-No need to create or configure a storage account since each workspace has a default datastore. You can use that datastore right away as it is already registered in the workspace. 
+ Each workspace has a registered, default datastore that you can use right away.
 
 To get the workspace's default datastore:
+
 ```Python
 ds = ws.get_default_datastore()
 ```
 
 ### Register your own datastore with the workspace
+
 If you have existing Azure Storage, you can register it as a datastore on your workspace.   All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
