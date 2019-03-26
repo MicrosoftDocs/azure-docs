@@ -104,7 +104,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 1. Select the check box for elastic pool diagnostics telemetry: **AllMetrics**.
    ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Select **Save**.
-1. Configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
+1. In addition, configure streaming of diagnostics telemetry for each database within the elastic pool you want to monitor by following steps described in the next section.
 
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need configure diagnostics telemetry for each database in elastic pool, as documented below. 
@@ -166,7 +166,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 1. Select the check box for instance diagnostics telemetry: **ResourceUsageStats**.
    ![Configure diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Select **Save**.
-1. Configure streaming of diagnostics telemetry for each instance database within the managed instance you want to monitor by following steps described in the next section.
+1. In addition, configure streaming of diagnostics telemetry for each instance database within the managed instance you want to monitor by following steps described in the next section.
 
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
@@ -397,7 +397,7 @@ If you are using Azure SQL Analytics, you can monitor your data ingestion consum
 
 ## Metrics and logs available
 
-Collected monitoring telemetry can be used for your own _custom analysis_ and _application development_ using [SQL Analytics language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Monitoring telemetry available for Azure SQL Database, elastic pools and managed instance is documented below. Collected monitoring telemetry inside SQL Analytics can be used for your own custom analysis and application development using [Azure Monitor log queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
 
 ## All metrics
 
