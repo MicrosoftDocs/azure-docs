@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
@@ -24,6 +24,9 @@ ms.lastreviewed: 12/07/2018
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
 
 ## Compute quota types
 
@@ -47,7 +50,7 @@ ms.lastreviewed: 12/07/2018
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  
-> It can take up to two hours before a storage quota is enforced. Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
+> Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
 
 ## Network quota types
 
