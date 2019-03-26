@@ -276,6 +276,8 @@
          href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Troubleshoot
     items:
+    - name: What is the Azure AD Connect Admin Agent?
+      href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
     - name: Connectivity
