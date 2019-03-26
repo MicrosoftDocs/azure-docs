@@ -74,7 +74,7 @@ Detailed installation and agent deployment information can be found in GitHub: h
 
 ## What are the dependencies and prerequisites of the agent?
 
-ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](select-deploy-agent.md) to verify support for your specific devices. 
+ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](tutorial-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 
@@ -94,7 +94,7 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 ## What next? I've installed an agent and don't see any activities or logs
 
-1. Check the [agent type fits the designated OS platform of your device](select-deploy-agent.md)
+1. Check the [agent type fits the designated OS platform of your device](tutorial-deploy-agent.md)
 
 1. Confirm the [agent is running on the device](tutorial-agent-configuration.md).
 

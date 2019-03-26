@@ -96,7 +96,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |maxMessageSizeInBytes |Required: false |Valid values: A positive number, larger than 8192, less than 262144 |Default value: 204800 |Maximum allowed size of an agent to cloud message. This setting controls the amount of maximum data sent in each message. |
 |eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent generated event | 
 
-### Events
+### Supported security events
 
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|

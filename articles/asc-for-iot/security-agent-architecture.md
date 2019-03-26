@@ -55,11 +55,11 @@ ASC for IoT offers different installer agents for 32bit and 64bit Windows, and t
 
 
 In this article, you learned about ASC for IoT security agent architecture, and the available installers.
-To get started deploying agents on your devices, see [Deploy a security agent](select-deploy-agent.md).
+To get started deploying agents on your devices, see [Deploy a security agent](tutorial-deploy-agent.md).
 
 ## See Also
 - [Service prerequisites](service-prerequisites.md)
-- [Deploy security agent](select-deploy-agent.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
 - [Security agent authentication methods](concept-security-agent-authentication-methods.md)
 - [Configure your solution](quickstart-configure-your-solution.md)
 - [Enable service in IoT Hub](quickstart-onboard-iot-hub.md)
