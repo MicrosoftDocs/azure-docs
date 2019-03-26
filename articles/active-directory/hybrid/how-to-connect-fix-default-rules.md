@@ -121,7 +121,7 @@ Azure AD Sync takes care of most of the objects, you can reduce the scope of obj
 Here is how you can reduce the scope of objects synced to Azure AD. Please note that if you reduce the scope of the **users** being synced then the password hash syncing will also stop for the filtered-out users. If the objects are already syncing, then after reducing scope, the filtered-out objects will be deleted from the target directory, please work on scoping very carefully.
 Here are the supported ways to reduce the scope of the objects you are syncing.
 
-- [cloudFiltered attribute](#cloudFiltered-attribute)
+- [cloudFiltered attribute](#cloudfiltered-attribute)
 - [OU filtering](#ou-filtering)
 
 ### cloudFiltered attribute
