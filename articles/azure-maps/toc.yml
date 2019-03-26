@@ -100,7 +100,9 @@
         href: map-accessibility.md
     - name: Services module
       items:  
-      - name: Show search results 
+      - name: Using the Services module
+        href: using-the-services-module.md      
+	  - name: Show search results 
         href: map-search-location.md  
       - name: Get information from a coordinate
         href: map-get-information-from-coordinate.md
