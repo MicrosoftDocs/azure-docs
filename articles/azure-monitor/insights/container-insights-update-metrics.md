@@ -52,7 +52,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
     ```
 
-    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+    The configuration change can take a few seconds to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
     ```azurecli
     completed role assignments for all AKS clusters in subscription: <subscriptionId>
@@ -68,12 +68,6 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     az aks show -g <clusterResourceGroup> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
-
-    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
-
-    ```azurecli
-    completed the role assignment
-    ```
 
 ## Upgrade all clusters in the subscription using Azure PowerShell
 
@@ -323,7 +317,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+    The configuration change can take a few seconds to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
@@ -571,7 +565,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+    The configuration change can take a few seconds to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
