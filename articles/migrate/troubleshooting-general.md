@@ -59,11 +59,11 @@ If you are unable to export the assessment report from the portal, try using the
   a.	In an administrator Windows PowerShell window, run the following command:
       ```armclient login```
 
-  This opens the Azure login pop-up where you need to logon to Azure.
+  This opens the Azure login pop-up where you need to log in to Azure.
 
   b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
        Sample request and output:
 
@@ -332,4 +332,4 @@ To collect Event Tracing for Windows, do the following:
 | 802       | TimeSyncError                  | Time is not in sync with the internet time server.                            | Time is not in sync with the internet time server.                                                    | Ensure that the time on the machine is accurately set for the machine's time zone and retry the operation.                                 |
 | 702       | OMSInvalidProjectKey           | Invalid project key specified.                                                | Invalid project key specified.                                                                        | Retry the operation with correct project key.                                                                                              |
 | 703       | OMSHttpRequestException        | Error while sending request. Message %Message;                                | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project id and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
