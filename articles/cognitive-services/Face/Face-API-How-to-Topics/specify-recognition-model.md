@@ -39,9 +39,9 @@ When using the [Face - Detect] API, assign the model version with the `recogniti
 * `recognition_01`
 * `recognition_02`
 
-So, a request URL for the [Face - Detect] REST API will look like this:
+Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel]
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
 &subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
@@ -49,14 +49,14 @@ If you leave it unassigned, the default model version (_recognition_01_) will be
 
 ```csharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02");
+var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## Identify faces with specified model
 
 The Face API can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
 
-A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you do not specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API.
+A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you do not specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API with the _returnRecognitionModel_ parameter set as **true**.
 
 See the following code example for the .NET client library.
 
@@ -74,7 +74,7 @@ There is no change in the [Face - Identify] API; you only need to specify the mo
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `recognition_01` model is used. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after creation. To see what model a face list is configured with, use the [FaceList - Get] API.
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `recognition_01` model is used. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after creation. To see what model a face list is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
 
 See the following code example for the .NET client library.
 
