@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Learn how to enable your IoT Hub to ASC for IoT, install ASC for IoT agents and get visibility into your data, and potential threats.
+    text: Learn how to enable your IoT Hub to ASC for IoT, install ASC for IoT agents, and get visibility into your data and potential threats.
   - type: list
     style: icon48
     items: 

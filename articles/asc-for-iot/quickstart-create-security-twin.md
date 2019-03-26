@@ -70,4 +70,4 @@ To learn more about customizing properties of ASC for IoT module twins, see [Age
 Advance to the next article to learn how to configure custom alerts...
 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-create-custom-alerts.md)
+> [Configure custom alerts](quickstart-create-custom-alerts.md)

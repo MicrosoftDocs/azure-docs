@@ -55,7 +55,7 @@ To access insights and raw data about your IoT devices, go to your Log Analytics
 
 Check and investigate the device data for the following details and activities using the following kql queries:
 
--To find out if other alerts were triggered around the same time use the following kql query:
+- To find out if other alerts were triggered around the same time use the following kql query:
 
   ~~~
   let device = "YOUR_DEVICE_ID";

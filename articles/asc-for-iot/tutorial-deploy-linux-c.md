@@ -81,18 +81,18 @@ For additional help, run the script with the –help parameter:
 
 To uninstall the agent, run the script with the –u parameter:
 
-     `./InstallSecurityAgent.sh -u`. 
+    `./InstallSecurityAgent.sh -u`. 
 
-    ```
-    .\InstallSecurityAgent.sh –uninstall / -u
-    ``` 
+```
+ .\InstallSecurityAgent.sh –uninstall / -u
+``` 
 
 ## Troubleshooting
 Check the deployment status by running:
 
-    ```
-    systemctl status ASCIoTAgent.service
-    ```
+```
+systemctl status ASCIoTAgent.service
+```
 
 
 ## Next steps

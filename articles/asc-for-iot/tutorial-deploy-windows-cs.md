@@ -108,8 +108,8 @@ To turn on logging:
    <add key="logFilePath" value="IoTAgentLog.log" />
    ```
 
-> [!NOTE]
-> We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage. 
+    > [!NOTE]
+    > We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage. 
 
 1. Restart the agent by running the following PowerShell or command line:
 

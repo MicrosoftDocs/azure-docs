@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/27/2019
 ms.author: mlottner
 
 ---
@@ -31,7 +31,7 @@ Security agents are developed as open source projects, and are available in two 
 
 ## Supported platforms for ASC for IoT agents
 
-The following list includes all supported platforms as of public preview. Support for additional platforms is planned for future releases.  
+The following list includes all currently supported platforms.  
 
 |ASC for IoT agent |Operating System |Architecture |
 |--------------|------------|--------------|

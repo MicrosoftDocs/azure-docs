@@ -59,4 +59,4 @@ Congratulations! You've completed enabling ASC for IoT on your IoT Hub.
 Advance to the next article to learn how to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-configure-your-solution.md)
+> [Configure your solution](quickstart-configure-your-solution.md)

@@ -94,7 +94,7 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
    1. Open the configuration file for editing in any Linux editor:
 
-   `vi /var/ASCIoTAgent/General.config`
+        `vi /var/ASCIoTAgent/General.config`
 
    1. Edit the following values: 
 
@@ -104,24 +104,25 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
       <add key="diagnosticVerbosityLevel" value="Some" /> 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-   The **logFilePath** value is configurable. 
+       The **logFilePath** value is configurable. 
 
-   > [!NOTE]
-   > We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage.
+       > [!NOTE]
+       > We recommend turning logging **off** after troubleshooting is complete. Leaving logging **on** increases log file size and data usage.
 
-   3. Restart the agent by running:
+   1. Restart the agent by running:
 
        `systemctl restart ASCIoTAgent.service`
 
-   4. View the log file for more information about the failure.  
+   1. View the log file for more information about the failure.  
 
-   Log file location is: `/var/ASCIoTAgent/IotAgentLog.log`
+       Log file location is: `/var/ASCIoTAgent/IotAgentLog.log`
 
-   Change the file location path according to the name you chose for the **logFilePath** in step 2. 
+       Change the file location path according to the name you chose for the **logFilePath** in step 2. 
 
 ## Next steps
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Enable the service](quickstart-onboard-iot-hub.md)
-- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
+
+- Read the ASC for IoT service [Overview](overview.md)
+- Learn more about ASC for IoT [Architecture](architecture.md)
+- Enable the [ASC for IoT service](quickstart-onboard-iot-hub.md)
+- Read the [ASC for IoT FAQ](resources-frequently-asked-questions.md)
+- Understand [ASC for IoT alerts](concept-security-alerts.md)
