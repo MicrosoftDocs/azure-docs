@@ -45,7 +45,7 @@ The following table describes the parameters within the command:
 
 ### Output
 
-Returns a default custom command response. See the [default output]() of custom command for the parameters in the output.
+Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
 
 ### Examples
 
@@ -87,7 +87,7 @@ The following table describes the parameters within the command:
 
 ### Output
 
-Returns a default custom command response. See the [default output]() of custom command for the parameters in the output.
+Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
 
 ### Examples
 
@@ -127,7 +127,7 @@ If the command succeeds, the response contains a document with the following fie
 | `database`    |    `string`	     |   Name of the database.      |
 |   `provisionedThroughput`  |    `int`	     |    Provisioned throughput that is set on the database. This is an optional response parameter.     |
 
-If the command fails, a default custom command response is returned. See the [default output]() of custom command for the parameters in the output.
+If the command fails, a default custom command response is returned. See the [default output](#default-output) of custom command for the parameters in the output.
 
 ### Examples
 
@@ -162,7 +162,7 @@ The following table describes the parameters within the command:
 
 ## Output
 
-Returns a default custom command response. See the [default output]() of custom command for the parameters in the output.
+Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
 
 ### Examples
 
@@ -207,7 +207,7 @@ If the command succeeds, the response contains a document with the following fie
 |  `shardKeyDefinition`   |   `document`      |  Index specification document used as a shard key. This is an optional response parameter.       |
 |  `provisionedThroughput`   |   `int`      |    Provisioned Throughput to set on the collection. This is an optional response parameter.     |
 
-If the command fails, a default custom command response is returned. See the [default output]() of custom command for the parameters in the output.
+If the command fails, a default custom command response is returned. See the [default output](#default-output) of custom command for the parameters in the output.
 
 ### Examples
 
@@ -220,7 +220,7 @@ use test
 db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
 
-**Default output of a custom command**
+## <a id="default-output"></a> Default output of a custom command
 
 If not specified, a custom response contains a document with the following fields:
 
