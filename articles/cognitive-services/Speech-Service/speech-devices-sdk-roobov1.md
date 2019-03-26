@@ -62,4 +62,4 @@ This article provides device specific information for the Roobo Smart Audio Dev 
 
 ## Next steps
 
-* [Run the sample app](devices-sdk-android-qsg.md)
+* [Run the sample app](speech-devices-sdk-android-qsg.md)
