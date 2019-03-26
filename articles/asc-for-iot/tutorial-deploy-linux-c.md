@@ -51,7 +51,9 @@ To install and deploy the security agent, do the following:
 
 1. Add running permissions to the **InstallSecurityAgent script** by running the following:
     
-    `chmod +x InstallSecurityAgent.sh` 
+    ```
+    chmod +x InstallSecurityAgent.sh
+    ```
 
 1. Next, run: 
 
@@ -75,24 +77,18 @@ This script does the following:
 
 For additional help, run the script with the –help parameter: 
     
-    `./InstallSecurityAgent.sh --help`
+    ./InstallSecurityAgent.sh --help
 
 ### Uninstall the agent
 
-To uninstall the agent, run the script with the –u parameter:
+To uninstall the agent, run the script with the –-uninstall parameter:
 
-     `./InstallSecurityAgent.sh -u`. 
-
-    ```
-    .\InstallSecurityAgent.sh –uninstall / -u
-    ``` 
+    ./InstallSecurityAgent.sh -–uninstall
 
 ## Troubleshooting
 Check the deployment status by running:
 
-    ```
     systemctl status ASCIoTAgent.service
-    ```
 
 
 ## Next steps
