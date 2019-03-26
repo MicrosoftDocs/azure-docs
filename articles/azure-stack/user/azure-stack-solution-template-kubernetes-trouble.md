@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.author: mabvrigg
+ms.author: mabrigg
 ms.date: 03/20/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
