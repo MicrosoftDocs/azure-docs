@@ -14,7 +14,10 @@ ms.custom: seodec2018
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
+In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search.
+
+> [!NOTE]
+> The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
 
 Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
@@ -37,15 +40,15 @@ The following table lists the available tiers. Other sources of tier information
 |-----|-------------|
 |Free | Shared with other subscribers. Non-scalable, limited to 3 indexes and 50 MB storage. |
 |Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
-|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
-|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
-|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service) |
+|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB per service) for S1. |
+|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB per service) |
+|Standard 3 (S3) | 200 GB/partition (max 2.4 TB per service) |
 |Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
-|Storage Optimized 1 (L1) | 1 TB/partition (max 12 TB documents per service) |
-|Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB documents per service) |
+|Storage Optimized 1 (L1) | 1 TB/partition (max 12 TB per service) |
+|Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
 
 > [!NOTE] 
-> The Storage Optimize tiers offer larger storage capacity at a cheaper price per TB than the Standard tiers.  The primary tradeoff is in query throughput and higher latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers.  The primary tradeoff is in query throughput and higher latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## How billing works

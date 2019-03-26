@@ -22,6 +22,9 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. Storage Optimized comes in two levels: L1 and L2
 
+> [!NOTE]
+> The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
+
   S3 High Density (S3 HD) is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md). On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index. 
 
 > [!NOTE]
@@ -96,9 +99,9 @@ Resource-intensive operations, such as image analysis in Azure blob indexing or 
 
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |200 |200 |
-| Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |200 |200 |
-| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |200 |200 |
+| Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |10 |10 |
+| Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |10 |10 |
+| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |10 |10 |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |No limit |No limit |
 | Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |24 hours |24 hours |
 | Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |2 hours |2 hours |
