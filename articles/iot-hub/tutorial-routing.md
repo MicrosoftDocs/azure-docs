@@ -20,7 +20,13 @@ ms.custom: mvc
 
 ## Create your resources using Azure CLI
 
-There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value. 
+This tutorial creates the base resources using Azure CLI, then shows how to configure message routing using the [Azure portal](https://portal.azure.com). If you want to use the portal to set up the base resources, please refer to the following articles:
+
+**Iot Hub**: [Create an IoT Hub](iot-hub-create-through-portal.md)
+**Storage account**: [Azure Storage](../storage/common/storage-quickstart-create-account.md)
+**Service Bus queue**: [Service Bus queue - portal](../service-bus-messaging/service-bus-quickstart-portal.md)
+
+There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 
 Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue.
 
@@ -28,7 +34,7 @@ A note about debugging: this script uses the continuation symbol (the backslash 
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
-#   in which you're logged in. 
+#   in which you're logged in.
 # This field is used to set up the routing rules.
 subscriptionID=$(az account show --query id)
 
@@ -112,39 +118,39 @@ az servicebus queue create --name $sbQueueName \
 
 ```
 
-Now that the base resources are set up, add the configuration for the message routing. 
+Now that the base resources are set up, add the configuration for the message routing.
 
 ## Set up message routing
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-### Routing to a storage account 
+### Routing to a storage account
 
 Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this routing is set up, messages where the **level** property is set to **storage** are written to a storage account automatically. 
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-1. In the [Azure portal](https://portal.azure.com), click **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**. 
+1. In the [Azure portal](https://portal.azure.com), click **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**.
 
-2. Click the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**. 
+2. Click the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
 3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field, as displayed in the following picture:
 
    ![Screenshot showing how to start adding an endpoint for a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
-4. Select **Blob storage**. You see the **Add a storage endpoint** pane. 
+4. Select **Blob storage**. You see the **Add a storage endpoint** pane.
 
    ![Screenshot showing adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane. 
+6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane.
 
-7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields. 
+7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields.
 
    > [!NOTE]
-   > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order. 
-   > 
+   > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order.
+   >
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
    > The blobs are written in the Avro format.
@@ -152,31 +158,31 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 8. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
 
-9. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen. 
+9. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen.
 
    **Name**: Enter a name for your routing query. This tutorial uses **ContosoStorageRoute**.
 
-   **Endpoint**: This shows the endpoint you just set up. 
+   **Endpoint**: This shows the endpoint you just set up.
 
    **Data source**: Select **Device Telemetry Messages** from the dropdown list.
 
    **Enable route**: Be sure this field is set to `enabled`.
    
-   **Routing query**: Enter `level="storage"` as the query string. 
+   **Routing query**: Enter `level="storage"` as the query string.
 
    ![Screenshot showing creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
    Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
-### Routing to a Service Bus queue 
+### Routing to a Service Bus queue
 
-Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
+Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
 
 1. On the Resource group page, click your IoT hub, then click **Message Routing**. 
 
-2. In the **Message Routing** pane, click +**Add**. 
+2. In the **Message Routing** pane, click +**Add**.
 
-3. On the **Add a Route** pane, click +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane. 
+3. On the **Add a Route** pane, click +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
 
    ![Screenshot adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
@@ -188,7 +194,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Service Bus queue**: Click on this field to reveal the dropdown list; select the Service Bus queue from the dropdown list. This tutorial uses **contososbqueue**.
 
-5. Click **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane. 
+5. Click **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane.
 
 6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
