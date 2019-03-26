@@ -561,9 +561,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## Pacemaker configuration for Microsoft Azure scheduled events
+## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Scheduled events is a meta-data service, that allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
 
 1. **[A]** Install the **azure-events** agent . 
 
@@ -588,7 +588,7 @@ sudo crm configure property maintenance-mode=false
    > After you configure the Pacemaker resources for azure-events agent, when you place the cluster in or out of maintenance mode, you may get warning messages like:  
      WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong> hostname</strong>'  
      WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
-     WARNING: cib-bootstrap-options: unknown attribute 'hostName__ <strong>hostname</strong>'  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong>hostname</strong>'  
    > These warning messages can be ignored.
 
 ## Next steps
