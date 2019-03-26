@@ -114,7 +114,7 @@ A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
-> [Add custom HTML](./map-add-custom-html.md)
+> [HTML Markers](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Show search results](./map-search-location.md)
+> [Add a heat map layer](./map-add-heat-map-layer.md)
