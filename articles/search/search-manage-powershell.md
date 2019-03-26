@@ -26,7 +26,7 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 > * [List all of the search services in your subscription](#list-search-services)
 > * [Get information about a specific search service](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
-> * [Regenerate admin API-keys](#regenerate-admin-api-keys)
+> * Regenerate admin API-keys
 > * [Create or delete query api-keys](#create-or-delete-query-keys)
 > * [Scale a service by increasing or decreasing replicas and partitions](#scale-replicas-and-partitions)
 
