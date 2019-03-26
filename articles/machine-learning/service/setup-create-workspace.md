@@ -20,7 +20,7 @@ To use Azure Machine Learning service, you need an [**Azure Machine Learning ser
 In this article, you learn how to create a workspace using any of these methods: 
 * The [Azure portal](#portal) interface
 * The [Azure Machine Learning SDK for Python](#sdk)
-* An [Azure Resource Manager template](#template)
+* An Azure Resource Manager template
 * The [Azure Machine Learning CLI](#cli)
 
 The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles. 

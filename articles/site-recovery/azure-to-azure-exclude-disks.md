@@ -25,7 +25,7 @@ Before you start:
 ## Why exclude disks from replication?
 Excluding disks from replication is often necessary because:
 
-- Your virtual machine has reached [Azure Site Recovery limits to replicate data change rates](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates)
+- Your virtual machine has reached [Azure Site Recovery limits to replicate data change rates](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
 
 - The data that's churned on the excluded disk is not important or doesn’t need to be replicated.
 
