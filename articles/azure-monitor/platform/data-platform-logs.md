@@ -9,18 +9,21 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 0203/26/2019
 ms.author: bwren
 ---
 
 # Logs in Azure Monitor
 
 > [!NOTE]
-> All data collected by Azure Monitor fits into one of two fundamental types, metrics and logs. This article describes logs. Refer to [Metrics in Azure Monitor](data-platform-metrics.md) for a detailed description of metrics and to [Monitoring data collected by Azure Monitor](data-platform.md) for a comparison of the two.
+> All data collected by Azure Monitor fits into one of two fundamental types, Metrics and Logs. This article describes Logs. Refer to [Metrics in Azure Monitor](data-platform-metrics.md) for a detailed description of metrics and to [Monitoring data collected by Azure Monitor](data-platform.md) for a comparison of the two.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Logs in Azure Monitor are especially useful for performing complex analysis across data from a variety of sources. This article describes how logs are structured in Azure Monitor, what you can do with them, and identifies different data sources that store data in logs.
+Logs in Azure Monitor are especially useful for performing complex analysis across data from a variety of sources. This article describes how Logs are structured in Azure Monitor, what you can do with the data, and identifies different data sources that store data in Logs.
+
+> [!NOTE]
+> You should distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](activity-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [diagnostic log](diagnostic-logs-overview) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and diagnostic logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 ## What are logs?
 
@@ -31,8 +34,8 @@ A common type of log entry is an event, which is collected sporadically. Events 
  Because the format of the data can vary, applications can create custom logs by using the structure that they need. Metric data can even be stored in logs to combine them with other monitoring data for trending and other data analysis.
 
 
-## What can you do with logs?
-The following table lists the different ways that you can use log data in Azure Monitor.
+## What can you do with Azure Monitor Logs?
+The following table lists the different ways that you can use Logs in Azure Monitor.
 
 
 |  |  |
@@ -44,8 +47,8 @@ The following table lists the different ways that you can use log data in Azure 
 | Export | Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
-## How is log data structured?
-Log data in Azure Monitor, except for data collected by Application Insights, is stored in a [Log Analytics workspace](../platform/manage-access.md). You can [create multiple workspaces](manage-access.md#determine-the-number-of-workspaces-you-need) in your subscription to manage different sets of log data. Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
+## How is Azure Monitor Log data structured?
+Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](../platform/manage-access.md). You can [create multiple workspaces](manage-access.md#determine-the-number-of-workspaces-you-need) in your subscription to manage different sets of log data. Each workspace contains multiple tables that each store data from a particular source. While all tables share [some common properties](log-standard-properties.md), each has a unique set of properties depending on the kind of data it stores. A new workspace will have standard set of tables, and more tables will be added by different monitoring solutions and other services that write to the workspace.
 
 Log data from Application Insights uses the same Log Analytics engine as workspaces, but it's stored separately for each monitored application. Each application has a standard set of tables to hold data such as application requests, exceptions, and page views.
 
@@ -54,7 +57,7 @@ Log queries will either use data from a Log Analytics workspace or an Applicatio
 ![Workspaces](media/data-platform-logs/workspaces.png)
 
 ## Log queries
-Log data in Azure Monitor is retrieved using a [log query](../log-query/log-query-overview.md) written with the [Kusto query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../log-query/portals.md) to write and test log queries in the Azure portal. It allows you to work with results interactively or pin them to a dashboard to view them with other visualizations.
+Data in Azure Monitor Logs is retrieved using a [log query](../log-query/log-query-overview.md) written with the [Kusto query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../log-query/portals.md) to write and test log queries in the Azure portal. It allows you to work with results interactively or pin them to a dashboard to view them with other visualizations.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
@@ -65,8 +68,8 @@ Open [Log Analytics from Application Insights](../app/analytics.md) to analyze A
 You can also retrieve log data by using the [Log Analytics API](https://dev.loganalytics.io/documentation/overview) and the [Application Insights REST API](https://dev.applicationinsights.io/documentation/overview).
 
 
-## Sources of log data
-Azure Monitor can collect log data from a variety of sources both within Azure and from on-premises resources. The following tables list the different data sources available from different resources that write log data to Azure Monitor. Each has a link to details on any required configuration.
+## Sources of Azure Monitor Logs
+Azure Monitor can collect log data from a variety of sources both within Azure and from on-premises resources. The following tables list the different data sources available from different resources that write data to Azure Monitor Logs. Each has a link to details on any required configuration.
 
 ### Azure tenant and subscription
 

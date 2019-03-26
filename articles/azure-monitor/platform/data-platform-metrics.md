@@ -9,14 +9,14 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 03/26/2019
 ms.author: bwren
 ---
 
 # Metrics in Azure Monitor
 
 > [!NOTE]
-> The Azure Monitor data platform  is based on two fundamental data types: metrics and logs. This article describes metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platforn](data-platform.md) for a comparison of the two.
+> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platforn](data-platform.md) for a comparison of the two.
 
 
 Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. This article describes how metrics are structured, what you can do with them, and identifies different data sources that store data in metrics.
@@ -24,7 +24,7 @@ Metrics in Azure Monitor are lightweight and capable of supporting near real-tim
 ## What are metrics?
 Metrics are numerical values that describe some aspect of a system at a particular time. Metrics are collected at regular intervals and are useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
-## What can you do with metrics?
+## What can you do with Azure Monitor Metrics?
 The following table lists the different ways that you can use metric data in Azure Monitor.
 
 |  |  |
@@ -33,13 +33,13 @@ The following table lists the different ways that you can use metric data in Azu
 | Visualize | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | Alert | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
 | Automate |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
-| Export | [Route metrics to logs](diagnostic-logs-stream-log-store.md) to analyze metric data together with log data and to store metric values for longer than 93 days.<br>Stream metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
+| Export | [Route Metrics to Logs](diagnostic-logs-stream-log-store.md) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
 | Retrieve | Access metric values from a command line using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/azure/monitor/metrics). |
 | Archive | [Archive](..//learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
 
-## How is metric data structured?
-Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
+## How is Azure Monitor Metric data structured?
+Data collected by Azure Monitor Metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
 * The time the value was collected
 * The resource the value is associated with
@@ -80,12 +80,12 @@ This non-dimensional metric can only answer a basic question like "what was my n
 
 This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics.
 
-## Interacting with metrics
-Use [metrics explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
+## Interacting with Azure Monitor Metrics
+Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
 
-![Metrics Analytics](media/data-platform/metrics-explorer.png)
+![Metrics Explorer](media/data-platform/metrics-explorer.png)
 
-## Sources of metric data
+## Sources of Azure Monitor Metrics
 There are three fundamental sources of metrics collected by Azure Monitor. Once these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source.
 
 **Platform metrics** are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
