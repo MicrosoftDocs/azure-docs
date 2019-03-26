@@ -60,12 +60,12 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
 
 ## Upgrade per cluster using Azure CLI
 
-1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **clusterResourceGroup**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
+1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
 
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    az aks show -g <clusterResourceGroup> -n <clusterName> 
+    az aks show -g <resourceGroupName> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
 
@@ -336,7 +336,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     .PARAMETER SubscriptionId
         Subscription Id that the AKS cluster is in
 
-    .PARAMETER ResourceGroupName
+    .PARAMETER resourceGroupName
         Resource Group name that the AKS cluster is in
             
 	 .PARAMETER clusterName
@@ -347,7 +347,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
        [Parameter(mandatory = $true)]
        [string]$SubscriptionId,
        [Parameter(mandatory = $true)]
-       [string]$ResourceGroupName,
+       [string]$resourceGroupName,
        [Parameter(mandatory = $true)]
        [string] $clusterName
     )
@@ -520,7 +520,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     #   Check AKS cluster existance and access check
     #
     Write-Host("Checking aks cluster exists...")
-    $cluster = Get-AzAks -ResourceGroupName $ResourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue
+    $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue
     if ($notPresent) {
        Write-Host("")
        Write-Host("Could not find Aks cluster. Please make sure that specified cluster exists: '" + $clusterName + "'is correct and you have access to the cluster") -ForegroundColor Red
@@ -559,16 +559,17 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     }
     ```
 
-2. Save this file as **onboard_metrics_atscale.ps1** to a local folder.
-3. Run the following command by using the Azure PowerShell. Edit the values for **subscriptionId**, **ResourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.
+2. Save this file as **onboard_metrics.ps1** to a local folder.
+3. Run the following command by using the Azure PowerShell. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.
 
     ```powershell
-    .\onboard_metrics_atscale.ps1 subscriptionId
+    .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
     ```
+
     The configuration change can take a few seconds to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
     ```powershell
-    Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
+    Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
 ## Verify update 
