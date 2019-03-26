@@ -1,5 +1,5 @@
 ---
-title: App Service for Windows Java Runtime Support
+title: Azure App Service for Windows Java Runtime Support
 description: This topic provides the Java Runtime statement of support for Azure App Service on Windows.
 author: bmitchell287
 ms.author: brendm; joshuapa
@@ -38,3 +38,9 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 ## Runtime support
 
 Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+## Next steps
+
+This topic provides the Java Runtime statement of support for Azure App Service on Windows.
+- To learn more about hosting web applications with Azure App Service see [App Service overview](overview.md).
+- For information about Java on Azure development see [Azure for Java Dev Center](https://docs.microsoft.com/java/azure/?view=azure-java-stable).
