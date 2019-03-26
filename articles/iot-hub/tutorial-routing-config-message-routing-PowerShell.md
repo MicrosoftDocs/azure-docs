@@ -207,6 +207,8 @@ Add-AzIotHubRoute `
 Now set up the routing for the Service Bus queue. To retrieve the connection string for the Service Bus queue, you must create an authorization rule that has the correct rights defined. The following script creates an authorization rule for the Service Bus queue called `sbauthrule`, and sets the rights to `Listen Manage Send`. Once this authorization rule is set up, you can use it to retrieve the connection string for the queue.
 
 ```powershell
+##### ROUTING FOR SERVICE BUS QUEUE #####
+
 # Create the authorization rule for the Service Bus queue.
 New-AzServiceBusAuthorizationRule `
   -ResourceGroupName $resourceGroup `
@@ -240,7 +242,7 @@ Here is the Azure PowerShell for the message routing for the Service Bus queue.
 
 ```powershell
 $endpointName = "ContosoSBQueueEndpoint"
-$endpointType = "ServiceBusQueue"
+$endpointType = "servicebusqueue"
 $routeName = "ContosoSBQueueRoute"
 $condition = 'level="critical"'
 

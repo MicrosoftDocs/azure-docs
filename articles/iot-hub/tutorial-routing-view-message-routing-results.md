@@ -267,14 +267,14 @@ Sign into your [Power BI](https://powerbi.microsoft.com/) account. Go to your wo
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### Clean up resources using PowerShell
 
-To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
+To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

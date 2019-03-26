@@ -20,11 +20,7 @@ ms.custom: mvc
 
 ## Create your resources using Azure CLI
 
-This tutorial creates the base resources using Azure CLI, then shows how to configure message routing using the [Azure portal](https://portal.azure.com). If you want to use the portal to set up the base resources, please refer to the following articles:
-
-**Iot Hub**: [Create an IoT Hub](iot-hub-create-through-portal.md)
-**Storage account**: [Azure Storage](../storage/common/storage-quickstart-create-account.md)
-**Service Bus queue**: [Service Bus queue - portal](../service-bus-messaging/service-bus-quickstart-portal.md)
+This tutorial creates the base resources using Azure CLI, then uses the [Azure portal](https://portal.azure.com) to show how to configure message routing and set up the virtual device for testing.
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 
@@ -118,7 +114,7 @@ az servicebus queue create --name $sbQueueName \
 
 ```
 
-Now that the base resources are set up, add the configuration for the message routing.
+Now that the base resources are set up, add the configuration for the message routing using the [Azure portal](https://portal.azure.com).
 
 ## Set up message routing
 
