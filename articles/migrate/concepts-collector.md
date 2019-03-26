@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -145,6 +145,9 @@ vCenter Server | TCP 443 | The Collector must be able to communicate with the vC
 RDP | TCP 3389 |
 
 ## Collected metadata
+
+> [!NOTE]
+> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
 The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 
