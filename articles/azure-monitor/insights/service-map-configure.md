@@ -160,7 +160,7 @@ There is an extension available for both Windows (DependencyAgentWindows) and Li
 
 To deploy the Azure VM Extension with PowerShell, you can use the following example:
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -272,7 +272,7 @@ Files for the Dependency agent are placed in the following directories:
 To easily deploy the Dependency agent on many servers at once, the following script example is provided to download and install the Dependency agent on either Windows or Linux.
 
 ### PowerShell script for Windows
-```PowerShell
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
