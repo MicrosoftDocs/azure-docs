@@ -13,7 +13,7 @@ metadata:
   ms.date: 04/03/2019
   ms.author: jenhayes
 abstract:
-  description: Microsoft Azure Service Provider Management Toolkit (limited public preview) lets you manage customer resources at scale.
+  description: Microsoft Azure Service Provider Management Toolkit (limited public preview) lets you manage resources at scale on behalf of your customers.
 sections:
 - title: Concepts
   items:

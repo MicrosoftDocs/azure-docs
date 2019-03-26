@@ -142,7 +142,7 @@ You’ll need to have these ID values ready in order to define authorizations. I
 az ad group list –-query "[?displayName == '<yourGroupName>'].objectId" –-output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show –-upn-or-object-id "<yourUPN>" –-query "objectId " –-output tsv
+az ad user show –-upn-or-object-id "<yourUPN>" –-query "objectId" –-output tsv
 
 # To retrieve the objectId for an SPN
 az ad sp list –-query "[?displayName == '<spDisplayName>'].objectId" –-output tsv
@@ -163,9 +163,9 @@ To onboard your customer, you’ll need to create an [Azure Resource Manager](ht
 |**managedByTenantId**     |Your tenant ID         |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
-Use the Azure Resource Manager template that we provide, along with a parameter file that you modify to match your configuration and define your authorizations.
+Use the **resourceProjection.json** Azure Resource Manager template that we provide, along with the **resourceProjection.parameters.json** file that you modify to match your configuration and define your authorizations.
 
-The following example shows a modified parameter file.
+The following example shows a modified **resourceProjection.parameters.json** file.
 
 ```json
 {
