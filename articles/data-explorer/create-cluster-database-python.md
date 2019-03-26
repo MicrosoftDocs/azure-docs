@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Install Python package
 
-To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path, and then run this command:
+To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
 
 ```
 pip install azure-mgmt-kusto
