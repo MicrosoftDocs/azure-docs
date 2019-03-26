@@ -19,6 +19,6 @@ Maximum service limits can be raised upon request. If you need more services wit
 | Maximum services    |1     | 12    | 12  | 6  | 6  | 6     | 6  | 6  |
 | Maximum scale in search units (SU)<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup>Free is based on shared, not dedicated, resources. Scale-up is not supported on shared resources.
+<sup>1</sup> Free is based on shared, not dedicated, resources. Scale-up is not supported on shared resources.
 
-<sup>2</sup>Search units are billing units, allocated as either a *replica* or a *partition*. You need both resources for storage, indexing, and query operations. To learn more about SU computations, see [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> Search units are billing units, allocated as either a *replica* or a *partition*. You need both resources for storage, indexing, and query operations. To learn more about SU computations, see [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md). 
