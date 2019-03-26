@@ -12,7 +12,6 @@ ms.author: sutalasi
 # Configure and manage replication policies for VMware disaster recovery to Azure
 This article describes how to configure a replication policy when you're replicate VMware VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
 
-
 ## Create a policy
 
 1. Select **Manage** > **Site Recovery Infrastructure**.
@@ -43,8 +42,6 @@ Associate the replication policy with your on-premises configuration server.
 3. Click **Edit settings**, and update the RPO threshold/recovery point retention hours/app-consistent snapshot frequency fields as required.
 4. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown of the filed **App-consistent snapshot frequency**.
 5. Click **Save**. The policy should be updated in 30 to 60 seconds.
-
-When you create a replication policy, a matching failback replication policy is automatically created, with the suffix "failback". After creating the policy, you can edit it by selecting it > **Edit Settings**
 
 ## Disassociate or delete a replication policy
 
