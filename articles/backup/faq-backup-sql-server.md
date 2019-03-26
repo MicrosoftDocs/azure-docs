@@ -61,7 +61,7 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
-Yes, you can achieve this capability with [auto-protection](backup-azure-sql-database.md#enable-auto-protection).  
+Yes, you can achieve this capability with [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## If I delete a database from an autoprotected instance, what will happen to the backups?
 If a database is dropped from an autoprotected instance, the database backups are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still protected.
@@ -79,7 +79,7 @@ A re-named database is treated as a new database. Hence, the service will treat 
 You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
 ##  Why can’t I see an added database for an autoprotected instance?
-A database that you [add to an autoprotected instance](backup-azure-sql-database.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Recover DBs**, as shown in the following image.
+A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Recover DBs**, as shown in the following image.
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
 

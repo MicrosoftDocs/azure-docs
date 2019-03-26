@@ -137,6 +137,10 @@ Given we are using the application to deploy to the subscription, we need to add
 
 ![Azure Active Directory Keys section](./media/azure-resource-manager-test-drive/subdetails8.png)
 
+> [!CAUTION]
+> You cannot use the Azure App Registration Preview because it does not currently generate a base64 encoded key.
+
+
 Next steps
 ----------
 

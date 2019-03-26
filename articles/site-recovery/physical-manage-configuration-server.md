@@ -144,7 +144,7 @@ ProxyPassword="Password"
 You can modify proxy settings for the configuration server machine as follows:
 
 1. Log on to the configuration server.
-2. Launch the cspsconfigtool.exe using the shortcut on your.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
 3. Click the **Vault Registration** tab.
 4. Download a new vault registration file from the portal, and provide it as input to the tool.
 
@@ -260,7 +260,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzureRmAccount`

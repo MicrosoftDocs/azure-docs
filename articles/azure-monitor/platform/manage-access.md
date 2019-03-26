@@ -141,15 +141,6 @@ You can change this setting on the **Properties** page for the workspace. Changi
 
 ![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
-### Define access control mode in Azure portal
-You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
-
-![View workspace access control mode](media/manage-access/view-access-control-mode.png)
-
-You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
-
-![Change workspace access mode](media/manage-access/change-access-control-mode.png)
-
 ### Define access control mode in PowerShell
 
 Use the following command to examine the access control mode for all workspaces in the subscription:
