@@ -74,6 +74,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Automation script|Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Monitoring menu**
+
     | Item| Description |
     |---|---|
     |Alerts|Manage the alerts and actions.|
@@ -82,6 +83,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Operations Management Suite|Monitor your cluster in Azure Operations Management Suite (OMS) and Azure Monitor logs.|
 
   - **Support + troubleshooting menu**
+
     | Item| Description |
     |---|---|
     |Resource health|See [Azure resource health overview](../service-health/resource-health-overview.md).|
