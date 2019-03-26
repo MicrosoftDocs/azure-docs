@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ---
 
 # Enable logging in Azure Machine Learning service
@@ -22,7 +22,7 @@ The Azure Machine Learning Python SDK allows you to enable logging using both th
 > * Deployed models
 > * Python `logging` settings
 
-Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) to install the SDK, and [get started](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python) with the SDK to create a workspace in the Azure Portal.
+[Create an Azure Machine Learning service workspace](setup-create-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 ## Training models and compute target logging
 
@@ -36,7 +36,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-See the reference [documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) for the `Run` class for additional logging functions.
+See the reference documentation for the [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) class for additional logging functions.
 
 To enable local logging of application state during training progress, use the `show_output` parameter. Enabling verbose logging allows you to see details from the training process as well as information about any remote resources or compute targets. Use the following code to enable logging upon experiment submission.
 
@@ -107,7 +107,7 @@ logs = service.get_logs()
 You can also log custom stack traces for your web service by enabling Application Insights, which allows you to monitor request/response times, failure rates, and exceptions. Call the `update()` function on an existing web service to enable Application Insights.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 See the [how-to](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) for more information on how to work with Application Insights in the Azure portal.

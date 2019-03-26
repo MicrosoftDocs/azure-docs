@@ -204,7 +204,7 @@ namespace User.Namespace.Example01
             // You can control the maximum number of number data series per metric (and thus your resource usage and cost).
             // The default limits are no more than 1000 total data series per metric, and no more than 100 different values per dimension.
             // We discuss elsewhere how to change them.
-            // We use a common .Net pattern: TryXxx(..) to make sure that the limits are observed.
+            // We use a common .NET pattern: TryXxx(..) to make sure that the limits are observed.
             // If the limits are already reached, Metric.TrackValue(..) will return False and the value will not be tracked. Otherwise it will return True.
             // This is particularly useful if the data for a metric originates from user input, e.g. a file:
 
@@ -1073,6 +1073,17 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
 ```vb
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+```
+
+*Node.js*
+
+For Node.js, you can enable developer mode by enabling internal logging via `setInternalLogging` and setting `maxBatchSize` to 0, which causes your telemetry to be sent as soon as it is collected.
+
+```js
+applicationInsights.setup("ikey")
+  .setInternalLogging(true, true)
+  .start()
+applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
 ## <a name="ikey"></a> Setting the instrumentation key for selected custom telemetry

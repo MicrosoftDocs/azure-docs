@@ -55,9 +55,8 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ### Using managed disks in an Availability Zone
-To create a disk in an Availability Zone, use [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
 
-To create a disk in an Availability Zone, use [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
+To create a disk in an Availability Zone, use [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'

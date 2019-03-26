@@ -60,7 +60,7 @@ For additional information about the schema definition, see [Schema Format](Sche
 
 ## Generate data
 
-The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
+The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](https://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
 
 ```
 ...
@@ -203,7 +203,7 @@ After you have an XML grammar specification, you can compile it into a binary gr
 
 ## Host the grammar and index in a web service
 
-For rapid prototyping, you can host the grammar and index in a web service on the local machine, by using [`kes.exe host_service`](CommandLine.md#host_service-command). You can then access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design. In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at http://localhost:8000/. Use the following command:
+For rapid prototyping, you can host the grammar and index in a web service on the local machine, by using [`kes.exe host_service`](CommandLine.md#host_service-command). You can then access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design. In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at `http://localhost:8000/`. Use the following command:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -234,7 +234,7 @@ In this example, you can assume that the following blob storage container has al
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Note that it might take 5-10 minutes to provision a temporay VM to build the index. For rapid prototyping, you can:
+Note that it might take 5-10 minutes to provision a temporary VM to build the index. For rapid prototyping, you can:
 - Develop with a smaller data set locally on any machine.
 - Manually [create an Azure VM](../../../articles/virtual-machines/windows/quick-create-portal.md), [connect to it](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via Remote Desktop, install the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488), and run [`kes.exe`](CommandLine.md) from within the VM.
 

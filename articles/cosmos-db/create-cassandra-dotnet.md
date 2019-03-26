@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Build a Cassandra app with .NET and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -140,7 +140,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Save the Program.cs file.
     
-## Run the .Net app
+## Run the .NET app
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 

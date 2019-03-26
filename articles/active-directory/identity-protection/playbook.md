@@ -144,7 +144,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 **To test a sign in risk policy, perform the following steps:**
 
-1. Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
+1. Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2. Navigate to **Azure AD Identity Protection**.
 

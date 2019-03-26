@@ -3,18 +3,18 @@ title: Working with Reliable Collections | Microsoft Docs
 description: Learn the best practices for working with Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
-ms.author: twhitney
+ms.date: 02/22/2019
+ms.author: aljo
 ---
 
 # Working with Reliable Collections
@@ -139,7 +139,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## Define immutable data types to prevent programmer error
-Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you're supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). You can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
+Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you're supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). You can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). This library is available for download from https://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
@@ -203,8 +203,7 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 
 > [!WARNING]
 > While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
->
->
+> .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
 Alternatively, you can perform what is typically referred to as a two upgrade. With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 

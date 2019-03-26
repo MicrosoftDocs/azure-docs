@@ -3,7 +3,7 @@ title: Create a Windows container app on Service Fabric in Azure | Microsoft Doc
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: jpconnock
 editor: 'vturecek'
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
 ---
 
@@ -144,7 +144,7 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  You should see the IIS default web page:
 ![IIS default web page][iis-default]

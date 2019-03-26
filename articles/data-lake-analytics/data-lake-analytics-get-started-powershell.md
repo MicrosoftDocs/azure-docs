@@ -92,7 +92,7 @@ OUTPUT @a
 Submit the script text with the `Submit-AdlJob` cmdlet and the `-Script` parameter.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 As an alternative, you can submit a script file using the `-ScriptPath` parameter:
@@ -100,7 +100,7 @@ As an alternative, you can submit a script file using the `-ScriptPath` paramete
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 ```
 
 Get the status of a job with `Get-AdlJob`. 

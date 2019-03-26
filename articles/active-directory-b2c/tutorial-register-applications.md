@@ -5,13 +5,14 @@ services: active-directory-b2c
 author: davidmu1
 manager: daveba
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
-
+ms.subservice: B2C
 ---
+
 # Tutorial: Register an application in Azure Active Directory B2C
 
 Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory (Azure AD) B2C, they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.

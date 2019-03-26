@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -147,6 +147,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Support/*"
@@ -229,6 +230,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Insights/diagnosticSettings/*",

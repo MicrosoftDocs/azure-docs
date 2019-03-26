@@ -78,6 +78,7 @@ There are several platforms supported.
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
+| Android Things | X64  | Java 8      |
 
 ## Partner supported platforms
 

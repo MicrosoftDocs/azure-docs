@@ -68,7 +68,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure Portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
+> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```
@@ -104,7 +104,7 @@ import (
     "context"
     "github.com/Azure/go-autorest/autorest/azure/auth"
     hdi "github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight"
-    "github.com/Azure/go-autorest/autorest/to"    
+    "github.com/Azure/go-autorest/autorest/to"
 )
 
 func main() {
@@ -425,13 +425,13 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }    
+    }
 }
 ```
 
@@ -463,13 +463,13 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }       
+    }
 }
 ```
 

@@ -3,7 +3,7 @@ title: Troubleshooting BitLocker boot errors on an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 
@@ -22,13 +22,13 @@ ms.author: genli
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## Symptom
+## Symptom
 
  A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../windows/boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
-- You’re locked out! Enter the recovery key to get going again (Keyboard Layout: US) The wrong sign-in info has been entered too many times, so your PC was locked to protect your privacy. To retrieve the recovery key, go to http://windows.microsoft.com/recoverykeyfaq from another PC or mobile device. In case you need it, the key ID is XXXXXXX. Or, you can reset your PC.
+- You’re locked out! Enter the recovery key to get going again (Keyboard Layout: US) The wrong sign-in info has been entered too many times, so your PC was locked to protect your privacy. To retrieve the recovery key, go to https://windows.microsoft.com/recoverykeyfaq from another PC or mobile device. In case you need it, the key ID is XXXXXXX. Or, you can reset your PC.
 
 - Enter the password to unlock this drive [ ] Press the Insert Key to see the password as you type.
 - Enter your recovery key Load your recovery key from a USB device.

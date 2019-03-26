@@ -16,7 +16,7 @@ Advisor helps you optimize and reduce your overall Azure spend by identifying id
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
-Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 14 days and then identifies low-utilization virtual machines. Virtual machines whose CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered low-utilization virtual machines.
+Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 7 days and then identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
 
 Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.
 
@@ -35,6 +35,10 @@ Advisor identifies virtual network gates that have been idle for over 90 days. S
 Advisor will review your virtual machine usage over the last 30 days and determine if you could save money by purchasing an Azure reservation. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings from purchasing reservations. 
 
 With Azure reservations, you can pre-purchase the base costs for your virtual machines. Discounts will automatically apply to new or existing VMs that have the same size and region as your reservations. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## Delete unassociated public IP addresses to save money
+
+Advisor identifies public IP addresses that are not currently associated to Azure resources such as Load Balancers or VMs. These public IP addresses come with a nominal charge. If you do not plan to use them, deleting them can result in cost savings.
 
 ## How to access Cost recommendations in Azure Advisor
 

@@ -1,9 +1,8 @@
 ---
-title: Machine Learning Services (with R) in Azure SQL Database (Preview) Overview
+title: Azure SQL Database Machine Learning Services with R (preview) overview
 description: This topic describes Azure SQL Database Machine Learning Services (with R) and explains how it works.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,16 +10,20 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
+ms.date: 03/01/2019
 ---
-# Machine Learning Services (with R) in Azure SQL Database (preview)
+# Azure SQL Database Machine Learning Services with R (preview)
 
 Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning Services (with R) in Azure SQL Database is currently in public preview for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time. 
+> Azure SQL Database Machine Learning Services (with R) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> The preview is currently available in the following regions:West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast. 
+> The public preview is available for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time.
+>
+> The preview is currently available in the following regions: West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast.
 >
 > [Sign up for the preview](#signup) below.
 
@@ -54,7 +57,7 @@ To sign up for the public preview, follow these steps:
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and enable R for your existing or new database.
 
-Do not use Machine Learning Services with R for production workloads during the public preview.
+Machine Learning Services with R is not recommended for production workload during the public preview.
 
 ## Next steps
 

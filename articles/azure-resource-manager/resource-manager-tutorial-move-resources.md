@@ -11,14 +11,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/19/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Move Azure resources to another resource group or subscription
+# Tutorial: Move Azure resources to another resource group
 
 Learn how to move Azure resources from one resource group to another resource group. You can also move Azure resources from one Azure subscription to another Azure subscription. In this tutorial, you use a resource manager template to deploy two resource groups and one storage account. Then you move the storage account from one resource group to the other.
+
+![Azure Resource Manager move resources diagram](./media/resource-manager-tutorial-move-resources/resource-manager-template-move-resources.png)
 
 This tutorial covers the following tasks:
 

@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
@@ -230,6 +232,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
+| Brazil South | Sao Paolo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
@@ -237,6 +240,8 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
+| Japan East | Tokyo, Saitama |
+| Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
 | South Central US | Texas |

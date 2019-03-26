@@ -8,7 +8,7 @@ manager: timlt
 editor: vturecek;
 
 ms.assetid:
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

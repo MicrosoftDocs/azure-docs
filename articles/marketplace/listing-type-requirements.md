@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 
----  
+---
 
 # Requirements by Listing Type  
 The technical and marketing content requirements vary by storefront, offer type, and listing type. Review the following specifications to verify your compliance.  
@@ -82,7 +82,7 @@ The List listing type includes the following Offer types on the storefronts in t
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
----   
+---
 
 ### Trial  
 

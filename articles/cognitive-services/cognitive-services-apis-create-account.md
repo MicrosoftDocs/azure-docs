@@ -1,14 +1,14 @@
 ---
 title: Create a Cognitive Services account in the Azure portal
 titlesuffix: Azure Cognitive Services
-description: How to create a Microsoft Cognitive Services APIs account in the Azure portal.
+description: How to create a Azure Cognitive Services APIs account in the Azure portal.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
 ---
 
@@ -25,13 +25,13 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 Before you get started, it's important to know that there are two types of Azure Cognitive Services subscriptions. The first is a subscription to a single service, such as Computer Vision or the Speech Services. A single-service subscription is restricted to that resource. The second is a multi-service subscription for Azure Cognitive Services. This subscription allows you to use a single subscription for most of the Azure Cognitive Services. This option also consolidates billing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for additional information.
 
 >[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, and Custom Vision.
+> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
 
 The next sections walk you through creating either a single or multi-service subscription.
 
 ### Single-service subscription
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and click **+Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -53,7 +53,7 @@ The next sections walk you through creating either a single or multi-service sub
 
 ### Multi-service subscription
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and click **+Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

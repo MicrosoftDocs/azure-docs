@@ -4,7 +4,7 @@ description: Learn how to remove a node type from a Service Fabric cluster runni
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: JeanPaul.Connick
+manager: chakdan
 editor: vturecek
 
 ms.assetid: 

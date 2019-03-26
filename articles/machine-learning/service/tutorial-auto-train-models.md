@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 02/05/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you learn the following tasks:
 > * Run the model locally with custom parameters.
 > * Explore the results.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.0.
@@ -62,21 +62,11 @@ After you complete the steps below, run the **tutorials/regression-part2-automat
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
+Use these steps to create a local Jupyter Notebook server on your computer.  Make sure that you install `matplotlib` and the `automl` and `notebooks` extras in your environment.
 
-1. Complete the [Azure Machine Learning Python quickstart](quickstart-create-workspace-with-python.md) to create a Miniconda environment and create a workspace.
-1. Install the `automl` and `notebooks` extras in your environment using `pip install azureml-sdk[automl,notebooks]`.
-1. Install `maplotlib` using `pip install maplotlib`.
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Start the notebook server from your cloned directory.
-
-    ```shell
-    jupyter notebook
+After you complete the steps, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
 
 ## <a name="start"></a>Set up your development environment
 
@@ -106,7 +96,7 @@ import os
 
 ### Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
+Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
 
 `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 

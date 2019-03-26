@@ -52,21 +52,24 @@ To update the Activity Log log profile to include streaming, the user who's maki
 6. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell cmdlets
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 
-1. Use `Get-AzureRmLogProfile` to identify if a log profile exists.  If a log profile does exist, locate the *name* property.
-2. Use `Remove-AzureRmLogProfile` to remove the log profile using the value from the *name* property.
+1. Use `Get-AzLogProfile` to identify if a log profile exists.  If a log profile does exist, locate the *name* property.
+2. Use `Remove-AzLogProfile` to remove the log profile using the value from the *name* property.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Use `Add-AzureRmLogProfile` to create a new log profile:
+3. Use `Add-AzLogProfile` to create a new log profile:
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -75,7 +78,7 @@ If a log profile already exists, you first need to remove the existing log profi
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### Via Azure CLI

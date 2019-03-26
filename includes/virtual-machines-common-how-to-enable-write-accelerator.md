@@ -5,7 +5,7 @@
  author: msraiye
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 6/8/2018
+ ms.date: 02/22/2019
  ms.author: raiye
  ms.custom: include file
 ---
@@ -37,17 +37,17 @@ When using Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
 - The Premium disk caching must be set to 'None' or 'Read Only'. All other caching modes are not supported.
 - Snapshot are not currently supported for Write Accelerator-enabled disks. During backup, the Azure Backup service automatically excludes Write Accelerator-enabled disks attached to the VM.
-- Only smaller I/O sizes (<=32 KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
+- Only smaller I/O sizes (<=512 KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Write Accelerator. The current limits are:
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
 
@@ -121,7 +121,7 @@ $lunid=8
 #size
 $size=1023
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
 Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
@@ -142,7 +142,7 @@ $datadiskname = "test-log001"
 #new Write Accelerator status ($true for enabled, $false for disabled) 
 $newstatus = $true
 #Pulls the VM info for later
-$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+$vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
 Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot

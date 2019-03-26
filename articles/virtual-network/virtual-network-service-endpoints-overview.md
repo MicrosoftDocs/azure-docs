@@ -7,7 +7,7 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
@@ -38,6 +38,7 @@ This feature is available for the following Azure services and regions:
 **Public Preview**
 
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Preview available in all Azure regions where Azure Database for MariaDB is available.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Preview available in all Azure regions where Azure Container Registry is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 

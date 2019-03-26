@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
 ---

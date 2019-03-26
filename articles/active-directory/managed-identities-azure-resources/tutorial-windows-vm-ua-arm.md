@@ -3,7 +3,7 @@ title: Use a Windows VM user-assigned managed identity to access Azure Resource 
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Windows VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -144,7 +144,7 @@ The response contains the specific Resource Group information, similar to the fo
 
 ## Next steps
 
-In this tutorial, you learned how to create a user-assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+In this tutorial, you learned how to create a user-assigned identity and attach it to an Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

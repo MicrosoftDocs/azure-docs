@@ -10,7 +10,7 @@ ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
---- 
+---
 
 #  Tutorial: Migrate on-premises data to cloud storage by using AzCopy
 

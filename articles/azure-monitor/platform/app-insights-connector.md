@@ -122,7 +122,7 @@ When you click anywhere in the **Exceptions** blade, you see a visualization tha
 
 Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **&#42;** query also shows the perspective tab like the following image:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspective components are updated depending on the search query. This means that you can filter the results by using any search field that gives you the ability to see the data from:
 

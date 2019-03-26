@@ -3,9 +3,10 @@ title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
 description: Configure layered network security for your storage account.
 services: storage
 author: cbrooksmsft
+
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ---
@@ -13,7 +14,7 @@ ms.subservice: common
 
 Azure Storage provides a layered security model. This model enables you to secure your storage accounts to a specific set of supported networks​. When network rules are configured, only applications requesting data from over the specified set of networks can access a storage account.
 
-An application that accesses a storage account when network rules are in effect requires proper authorization on the request. Authorization is supported with Azure Active Directory (AD) credentials (for blobs and queues) (preview), a valid account access key, or a SAS token.
+An application that accesses a storage account when network rules are in effect requires proper authorization on the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests come from a service that is operating within an Azure Virtual Network (VNet). Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
@@ -346,6 +347,7 @@ If you enable the **Allow trusted Microsoft services...** exception, the followi
 |Azure Backup|Microsoft.Backup|Run backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure disaster recovery by enabling replication for Azure IaaS virtual machines. This is required if you are using firewall enabled cache storage account or source storage account or target storage account.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation. [Learn more](/azure/devtest-lab/devtest-lab-overview).|
+|Azure Data Box|Microsoft.DataBox|Enables import of data to Azure using Data Box. [Learn more](/azure/databox/data-box-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing and allow Event Grid to publish to storage queues. Learn about [blob storage events](/azure/event-grid/event-sources) and [publishing to queues](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview).|
