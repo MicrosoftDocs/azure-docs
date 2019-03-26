@@ -20,6 +20,15 @@ ms.author: rkarlin
 # Custom Alert Rules in Azure Security Center (Preview)
 This document helps you to create custom alert rules in Azure Security Center.
 
+> [!NOTE]
+> The custom alerts experience will be retired June 30th, 2019, due to retirement of the Azure Monitor classic alerts service. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones.
+> Users are advised to enable Azure Sentinel with one-click onboarding to keep their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
+>                                      
+> To keep your existing alerts with Azure Sentinel, please see: [Azure Sentinel Workspace selection blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security_Insights/WorkspaceSelectorBlade). In the blade, select the workspace where your custom alerts are stored, and then select the ‘Analytics’ menu item to automatically migrate your alerts.
+> Note that this step performs a one-time migration of all your custom alerts to the Azure Sentinel service. You will no longer be able to access these alerts via Azure Security Center
+>
+> To re-create your alerts using Azure Monitor log alerts, please see: [Create, view, and manage log alerts using Azure Monitor](Create, view, and manage log alerts using Azure Monitor) for instructions on how to create log alerts.
+
 ## What are custom alert rules in Security Center?
 
 Security Center has a set of predefined [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), which are triggered when a threat, or suspicious activity takes place. In some scenarios, you may want to create a custom alert to address specific needs of your environment.
