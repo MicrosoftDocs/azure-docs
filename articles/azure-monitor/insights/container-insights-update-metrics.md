@@ -50,12 +50,13 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     az login
     az account set --subscription "Subscription Name"
     curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    ```
 
     The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```azurecli
-       completed role assignments for all AKS clusters in subscription: <subscriptionId>
-       ```
+    ```azurecli
+    completed role assignments for all AKS clusters in subscription: <subscriptionId>
+    ```
 
 ## Upgrade per cluster using Azure CLI
 
@@ -64,13 +65,14 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding | bash -s subscriptionId clusterResourceGroup clusterName   
+    curl -sL https://git.io/aks-mdm-onboarding | bash -s subscriptionId clusterResourceGroup clusterName  
+    ``` 
 
     The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```azurecli
-       completed the role assignment
-       ```
+    ```azurecli
+    completed the role assignment
+    ```
 
 ## Upgrade all clusters in the subscription using Azure PowerShell
 
