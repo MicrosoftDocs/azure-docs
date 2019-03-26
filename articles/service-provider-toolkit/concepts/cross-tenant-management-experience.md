@@ -24,7 +24,7 @@ An Azure Active Directory (Azure AD) tenant is a representation of an organizati
 
 Typically, in order to manage Azure resources for an customer, a user needs to sign in to the Azure portal using an account associated with that customer's tenant. This means that an administrator in the customer's tenant must create a user account in that tenant.
 
-With Azure Delegated Resource Management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging for any customers to which they have access, either by visiting the [My customers](../how-to/view-manage-customers.md) page, or by working from within the context of that customer's subscription. This allows greater flexibility to manage resources for multiple customers, without having to log in to different accounts in different tenants.
+With Azure Delegated Resource Management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging for any customers to which they have access, either by visiting the [My customers](../how-to/view-manage-customers.md) page, or by working from within the context of that customer's subscription. This allows greater flexibility to manage resources for multiple customers, without having to sign in to different accounts in different tenants.
 
 ## Supported services and scenarios
 
