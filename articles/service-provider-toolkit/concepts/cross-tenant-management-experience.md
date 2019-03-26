@@ -20,6 +20,18 @@ This article describes the scenarios that you, as a service provider, can use wi
 
 Currently, the cross-tenant management experience supports the following scenarios with delegated customer resources:
 
+[Azure Automation](https://docs.microsoft.com/en-us/azure/automation/)
+
+- **need to confirm supported scenario(s)**
+
+[Azure Backup](https://docs.microsoft.com/en-us/azure/backup/)
+
+- Back up and restore customer data
+
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)
+
+- Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
+
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
 - View alerts for delegated subscriptions and filter on up to 20 subscriptions
@@ -40,3 +52,12 @@ Currently, the cross-tenant management experience supports the following scenari
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
 
 - Ability to filter and see all info for delegated subscriptions
+
+[Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/)
+
+- Manage disaster recovery options for Azure VMs in customer tenants
+
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/)
+
+- Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
+
