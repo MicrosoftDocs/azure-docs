@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: garye
 ---
 
@@ -29,27 +29,6 @@ Before you get started, it's important to know that there are two types of Azure
 
 The next sections walk you through creating either a single or multi-service subscription.
 
-### Single-service subscription
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
-
-    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. Under Azure Marketplace, select **AI + Machine Learning**. If you don't see the service you're interested in, click on **See all** to view the entire catalog of Cognitive Services APIs.
-
-    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. On the **Create** page, provide the following information:
-
-    |    |    |
-    |--|--|
-    | **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyNameFaceAPIAccount*. |
-    | **Subscription** | Select one of your available Azure subscriptions. |
-    | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
-
-    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### Multi-service subscription
 
@@ -76,6 +55,28 @@ The next sections walk you through creating either a single or multi-service sub
     | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
     ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### Single-service subscription
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
+
+    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. Under Azure Marketplace, select **AI + Machine Learning**. If you don't see the service you're interested in, click on **See all** to view the entire catalog of Cognitive Services APIs.
+
+    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. On the **Create** page, provide the following information:
+
+    |    |    |
+    |--|--|
+    | **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyNameFaceAPIAccount*. |
+    | **Subscription** | Select one of your available Azure subscriptions. |
+    | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
+    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
+
+    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## Access your resource
 
