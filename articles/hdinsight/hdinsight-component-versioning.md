@@ -4,13 +4,12 @@ description: Learn the Apache Hadoop components and versions in HDInsight and th
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 services: hdinsight
 ms.reviewer: jasonh
-author: kkampf
-
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: kakampf
+ms.date: 03/26/2019
+ms.author: hrasheed
 
 ---
 # What are the Apache Hadoop components and versions available with HDInsight?

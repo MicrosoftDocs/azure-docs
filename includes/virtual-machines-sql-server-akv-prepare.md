@@ -23,8 +23,10 @@ To use Azure Key Vault Integration to configure your SQL Server VM, there are se
 
 The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 ### <a id="install"></a> Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Register an application in your Azure Active Directory
 
@@ -43,7 +45,7 @@ Next, register an application with AAD. This will give you a Service Principal a
 
 * The application ID and the secret will also be used to create a credential in SQL Server.
 
-* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet. For more information, see [Azure Key Vault overview](../articles/key-vault/key-vault-overview.md).
+* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet. For more information, see [Azure Key Vault overview](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Create a key vault
 In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-overview.md) article. Before completing these steps, there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
