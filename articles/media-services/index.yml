@@ -35,7 +35,7 @@ sections:
             src: media/index/AMSIcons-media_analytics.svg
           title: Video Indexer
         - href: /azure/media-services/previous/
-          html: <p>Learn how to encode, stream on-demand, and broadcast live videos with Media Services v2.</p>
+          html: <p>No new features or functionality are being added to Media Services v2. Checkout the latest Media Services v3 version.</p>          
           image:
             src: media/index/AMSIcons-media_servicesV2.svg
           title: Azure Media Services v2 (legacy)
