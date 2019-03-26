@@ -72,7 +72,7 @@ On the **Basics** tab, provide the following information:
 
    ![Administrator account](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down. 
+1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down. 
 
    ![Inbound port rules](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
