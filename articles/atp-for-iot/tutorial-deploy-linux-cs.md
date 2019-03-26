@@ -90,7 +90,7 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
    1. Edit the following values: 
 
-      ```
+      ```xml
       <add key="logLevel" value="Debug"/>
       <add key="fileLogLevel" value="Debug"/>
       <add key="diagnosticVerbosityLevel" value="Some" /> 
