@@ -225,19 +225,19 @@ From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Con
 
 In the Package Manager Console window, enable Code First Migrations:
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 Add a migration:
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 Update the local database:
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

@@ -105,6 +105,8 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |management  |80, 443, 12000|TCP     |Any              |Internet   |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET*  |Allow |
 
+> Make sure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through ARM deployments may fail if inbound and output rules are configured separately for each ports. 
+
 \* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
 > [!IMPORTANT]
