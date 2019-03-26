@@ -1240,6 +1240,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-autosuggest-example.md",
+      "redirect_url": "/azure/search/search-autocomplete-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-import-data-rest-api.md",
       "redirect_url": "/azure/search/search-create-index-rest-api",
       "redirect_document_id": false
@@ -13137,6 +13142,11 @@
       "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-pricing-billing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
+      "redirect_document_id": false
+    },        
     {
       "source_path": "articles/service-bus-messaging/service-bus-sas-overview.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -36356,6 +36366,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/gen2-lower-tier-regions.md",
+      "redirect_url": "/azure/sql-data-warehouse/gen2-migration-schedule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
@@ -36513,6 +36528,11 @@
     {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
       "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
     }
   ]
