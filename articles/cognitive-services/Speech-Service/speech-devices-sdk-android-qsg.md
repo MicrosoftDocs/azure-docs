@@ -90,7 +90,7 @@ To validate your development kit setup, build and install the sample application
 
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
+    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
    * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
    * Update the MainActivity.java with the keyword and the package name:

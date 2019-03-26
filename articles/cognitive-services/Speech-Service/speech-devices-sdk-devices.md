@@ -17,7 +17,7 @@ ms.custom: seodec18
 ToDo: Expand this page to cover both the Companies offering DKs and the actual DKs themselves, with photos.
 ToDo: Missing an Azure logo
 
-Currently, these complete, end-to-end system reference designs are available:
+Currently, these complete, complete system reference designs are available:
 
 |||
 |-|-|

@@ -26,7 +26,7 @@ This article provides device specific information for the Roobo Smart Audio Dev 
 
 1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
 
-1. To control the development kit connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
+1. To control the development kit, connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
 
 1. Orient your development kit for either the circular or linear configuration.
 
