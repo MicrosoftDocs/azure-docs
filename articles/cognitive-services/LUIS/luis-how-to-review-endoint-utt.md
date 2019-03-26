@@ -17,6 +17,15 @@ ms.author: diberry
 
 [Active learning](luis-concept-review-endpoint-utterances.md) captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 
+
+## Enable active learning
+
+To enable active learning, log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) with the `log=true` querystring parameter and value.
+
+## Disable active learning
+
+To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) with the `log=false` querystring parameter and value.
+
 ## Filter utterances
 
 1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.
@@ -76,9 +85,6 @@ To delete several utterances, select each item and select on the trash bin to th
 
 ![Delete several](./media/label-suggested-utterances/delete-several.png)
 
-## Disable active learning
-
-Active learning is enabled for all queries to your endpoint allowed to be logged. Disabling active learning is done by _not logging_ the utterance. This is accomplished with the `log=false` querystring parameter and value.
 
 ## Next steps
 
