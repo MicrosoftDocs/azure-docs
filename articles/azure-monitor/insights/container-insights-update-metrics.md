@@ -320,12 +320,12 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
 3. Run the following command by using the Azure PowerShell.  Edit the value for **subscriptionId** using the value from the **AKS Overview** page for the AKS cluster.
 
     ```powershell
-       .\onboard_metrics_atscale.ps1 subscriptionId
-       ```
-       The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+    .\onboard_metrics_atscale.ps1 subscriptionId
+    ```
+    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
     ```powershell
-       Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
+    Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
 ### Upgrade per cluster using Azure PowerShell
