@@ -41,16 +41,16 @@ After defining all of the resource relationships, ATP for IoT leverages Azure Se
 
 ## Add Azure resources to your IoT solution
 
-To add new resource to your IoT solution, do the following: 
+To add new resources to your IoT solution, do the following: 
 
 1. Open your **IoT Hub** in Azure portal. 
-2. Select and open **Resources** under **Security** from the left menu. 
+2. From the left menu, under **Security**, select and open **Resources**. 
 3. Select **Add resources**.
-4. Choose resources which belong to your IoT solution.
+4. Choose resources to add to your IoT solution.
 4. Click **Add**. 
 
 Congratulations! You've added a new resource to your IoT solution.
-ATP for IoT will now monitor you'r newly added resources, and surface relevant security recommendations and alerts as part of your IoT solution.
+ATP for IoT will now monitor you're newly added resources, and surface relevant security recommendations and alerts as part of your IoT solution.
 
 ## Next steps
 
