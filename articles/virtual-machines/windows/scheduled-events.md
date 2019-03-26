@@ -168,7 +168,7 @@ curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
-```PowerShell
+```powershell
 # How to get scheduled events 
 function Get-ScheduledEvents($uri)
 {
