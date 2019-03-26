@@ -17,7 +17,7 @@ Where applicable, pay-per-use licensing is available for the pre-installed rende
 
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
-## Applications on CentOS 7 rendering nodes
+## Applications on CentOS 7 rendering images
 
 * Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
 * Autodesk Maya I/O 2018 Update 2 (cut 201711281015)
@@ -27,7 +27,7 @@ Some applications only support Windows, but most are supported on both Windows a
 * Chaos Group V-Ray for Maya 2018 (version 3.60.04)
 * Blender (2.68)
 
-## Applications on latest Windows Server 2016 rendering nodes
+## Applications on latest Windows Server 2016 rendering images
 
 The following list applies to Windows Server 2016, version 1.3.4 rendering nodes.
 
@@ -47,7 +47,7 @@ The following list applies to Windows Server 2016, version 1.3.4 rendering nodes
 > [!NOTE]
 > Chaos Group V-Ray for 3ds Max 2019 (version 4.10.01) introduces breaking changes to V-ray. To use the previous version (version 3.60.02), use Windows Server 2016, version 1.3.2 rendering nodes.
 
-## Applications on previous Windows Server 2016 rendering nodes
+## Applications on previous Windows Server 2016 rendering images
 
 The following list applies to Windows Server 2016, version 1.3.2 rendering nodes.
 
