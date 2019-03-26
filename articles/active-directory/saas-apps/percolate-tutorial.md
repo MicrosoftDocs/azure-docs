@@ -217,7 +217,7 @@ To enable Azure AD users to log in to Percolate, they must be provisioned into P
 
 	![Configure Single Sign-On](./media/percolate-tutorial/configure04.png)
 
-	a. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
 
 	b. In **Fullname** text box, enter the name of user like **Brittasimon**.
 
