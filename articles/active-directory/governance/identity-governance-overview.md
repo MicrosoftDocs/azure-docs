@@ -72,7 +72,7 @@ While there is no perfect solution or recommendation for every customer, the fol
 - [What is an access review?](access-reviews-overview.md)
 - [Manage user access with access reviews](manage-user-access-with-access-reviews.md)
 - [Manage guest access with access reviews](manage-guest-access-with-access-reviews.md)
-- [Start an access review of a directory role](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Start an access review of Azure AD roles](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### Terms of use
 
