@@ -174,7 +174,7 @@ This section shows how to use Azure Maps route service API to find the route fro
 
 1. In the GetMap function, add the following to Javascript code.
 
-    ```Javascript
+    ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 

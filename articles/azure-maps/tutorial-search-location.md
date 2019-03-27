@@ -134,7 +134,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
     ```JavaScript
     //Wait until the map resources are loaded.
-    map.events.add('load', function () {
+    map.events.add('load', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();

@@ -104,7 +104,7 @@ The following steps show you how to create a static HTML page embedded with the 
     map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
-           flow: "relative"
+            flow: "relative"
         });
     });
     ```
@@ -197,7 +197,7 @@ This section shows how to use the Maps route service API to find multiple routes
 
 1. In the GetMap function, add the following to Javascript code.
 
-    ```Javascript
+    ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 
