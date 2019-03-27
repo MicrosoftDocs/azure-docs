@@ -120,7 +120,7 @@ Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Usage | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 /PassphraseFilePath |  Mandatory. Location of the passphrase. Use any valid UNC or local file path.
@@ -149,7 +149,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 #### Installation settings
 **Setting** | **Details**
 --- | ---
-Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+Usage | ./install -d \<Install Location> -r <MS|MT> -v VmWare -q
 -r | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 -d | Optional parameter. Specifies the Mobility service installation location: /usr/local/ASR.
 -v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
@@ -158,7 +158,7 @@ Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 -P |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder.
 
