@@ -42,7 +42,7 @@ Your ability to monitor performance relies on a containerized Log Analytics agen
 
 When a new version of the agent is released, it is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
->![NOTE] 
+>[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring by using either Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
 >The template needs to be deployed in the same resource group as the cluster.
 
@@ -52,13 +52,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Enable monitoring for a new cluster
 During deployment, you can enable monitoring of a new AKS cluster in the Azure portal, with Azure CLI, or with Terraform.  To enable from the portal, follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../../aks/kubernetes-walkthrough-portal.md) and follow the steps under the section **Monitor health and logs**.  
 
->![NOTE]
+>[!NOTE]
 >When following the steps in the quickstart article to enable monitoring for the AKS cluster from the portal, you are prompted to either select an existing Log Analytics workspace or create a new one. 
 
 ### Enable using Azure CLI
 To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
->![NOTE]
+>[!NOTE]
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
