@@ -33519,6 +33519,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/monitoring/monitoring-container-agent-upgrade.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/monitoring/monitoring-vminsights-faq.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-faq",
       "redirect_document_id": "false"
