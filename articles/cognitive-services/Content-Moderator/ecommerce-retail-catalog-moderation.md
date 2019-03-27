@@ -59,7 +59,7 @@ This tutorial will highlight the code that is central to the project, but it wil
 
 ## Define API keys and endpoints
 
-As mentioned above, this tutorial uses three cognitive services; therefore, it requires three corresponding keys and API endpoints. See the following fields in the **Program** class: 
+As mentioned above, this tutorial uses three cognitive services; therefore, it requires three corresponding keys and API endpoints. See the following fields in the **Program** class:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -77,19 +77,19 @@ See the **EvaluateAdultRacy** method in the **Program** class. This method takes
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## EvaluateCustomVisionTags method
+## EvaluateComputerVisionTags method
 
-The next method takes an image URL and your Computer Vision subscription information and analyzes the image for the presence of celebrities. If one or more celebrities are found, it sets the corresponding value in the **ReviewTags** array to **True**. 
+The next method takes an image URL and your Computer Vision subscription information and analyzes the image for the presence of celebrities. If one or more celebrities are found, it sets the corresponding value in the **ReviewTags** array to **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## EvaluateCustomVisionTags method
 
-Next, see the **EvaluateCustomVisionTags** method, which classifies the actual products&mdash;in this case flags, toys, and pens. Follow the instructions in the [How to build a classifier](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guide to build your own custom image classifier to detect the presence of flags, toys, and pens (or whatever you chose as your custom tags) in images.
+Next, see the **EvaluateCustomVisionTags** method, which classifies the actual products&mdash;in this case flags, toys, and pens. Follow the instructions in the [How to build a classifier](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guide to build your own custom image classifier to detect the presence of flags, toys, and pens (or whatever you chose as your custom tags) in images. You can use the images in the **sample-images** folder of the [GitHub repo](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) to quickly train some of the categories in this example.
 
 ![Custom Vision web page with training images of pens, toys, and flags](images/tutorial-ecommerce-custom-vision.PNG)
 
-Once you have trained your classifier, get the prediction key and prediction endpoint URL (see [Get the URL and prediction key](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) if you need help retrieving them), and assign these values to your `CustomVisionKey` and `CustomVisionUri` fields, respectively. The method uses these values to query the classifier. If the classifier finds one or more of the custom tags in the image, this method sets the corresponding value(s) in the **ReviewTags** array to **True**. 
+Once you have trained your classifier, get the prediction key and prediction endpoint URL (see [Get the URL and prediction key](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) if you need help retrieving them), and assign these values to your `CustomVisionKey` and `CustomVisionUri` fields, respectively. The method uses these values to query the classifier. If the classifier finds one or more of the custom tags in the image, this method sets the corresponding value(s) in the **ReviewTags** array to **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
