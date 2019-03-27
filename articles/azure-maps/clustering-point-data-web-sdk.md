@@ -1,6 +1,6 @@
 ---
-title: Clustering point data ino Azure Maps | Microsoft Docs
-description: How to clusteri point data in the Web SDK
+title: Clustering point data in Azure Maps | Microsoft Docs
+description: How to cluster point data in the Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 3/27/2019
@@ -41,13 +41,13 @@ The `DataSource` class also has the following methods related to clustering:
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves the children of the given cluster on the next zoom level. This may be a combination of shapes and sub-clusters. The sub-clusters will be features with properties matching ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | Calculates a zoom level at which the cluster will start expanding or break apart. |
 | getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
 ## Display clusters using a bubble layer
 
-A bubble layer is a great way to render clustered points as you can easily scale the radius and change the color them based on the number of points in the cluster by using an expression. When displaying clusters using a bubble layer, you should also use a separate layer for rendering unclustered data points. It is often nice to also be able to display the size of the cluster on top of the bubbles. This can be achieved by using a symbol layer with a no icon and only text. 
+A bubble layer is a great way to render clustered points as you can easily scale the radius and change the color them based on the number of points in the cluster by using an expression. When displaying clusters using a bubble layer, you should also use a separate layer for rendering unclustered data points. It is often nice to also be able to display the size of the cluster on top of the bubbles. A symbol layer with text and no icon can be used to achieve this behaviour. 
 
 <br/>
 
@@ -58,7 +58,7 @@ A bubble layer is a great way to render clustered points as you can easily scale
 
 ## Display clusters using a symbol layer
 
-When visualizing the point data using the Symbol layer, by default this will automatically hide symbols that overlap each other to create a cleaner experience, however this may not be the desired experience if you want to see the density of data points on the map. Setting the `allowOverlap` option of the Symbol layers `iconOptions` property to `true` disables this experience but will result in all the symbols being displayed. Using clustering allows you to see the density of all the data while creating a nice clean user experience. In this sample custom symbols will be used to represent clusters and individual data points.
+When visualizing the point data using the Symbol layer, by default it will automatically hide symbols that overlap each other to create a cleaner experience, however this may not be the desired experience if you want to see the density of data points on the map. Setting the `allowOverlap` option of the Symbol layers `iconOptions` property to `true` disables this experience but will result in all the symbols being displayed. Using clustering allows you to see the density of all the data while creating a nice clean user experience. In this sample, custom symbols will be used to represent clusters and individual data points.
 
 <br/>
 
@@ -69,11 +69,11 @@ When visualizing the point data using the Symbol layer, by default this will aut
 
 ## Clustering and the heat maps layer
 
-Heat maps are a great way to display the density of data on the map. This visualization can handle a large amount of data points on its own, but it can handle even more data if the data points are clustered and the cluster size is used as the weight of the heat map. This can be achieved by setting the `weight` option of the heat map layer to `['get', 'point_count']`. When the cluster radius is small, the heat map will look nearly identical to a heat map using the unclustered data points but will perform much better. However, the smaller the cluster radius, the more accurate the heat map will be but with less of a performance benefit.
+Heat maps are a great way to display the density of data on the map. This visualization can handle a large number of data points on its own, but it can handle even more data if the data points are clustered and the cluster size is used as the weight of the heat map. Set the `weight` option of the heat map layer to `['get', 'point_count']` to achieve this. When the cluster radius is small, the heat map will look nearly identical to a heat map using the unclustered data points but will perform much better. However, the smaller the cluster radius, the more accurate the heat map will be but with less of a performance benefit.
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Cluster weighted Heat Map" src="//codepen.io/azuremaps/embed/VRJrgO/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster weighted Heat Map" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster weighted Heat Map</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -85,11 +85,11 @@ When mouse events occur on a layer that contain clustered data points, the clust
 | Property name | Type | Description |
 |---------------|------|-------------|
 | cluster | boolean | Indicates if feature represents a cluster. |
-| cluster_id | string | A unique id for the cluster which can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
+| cluster_id | string | A unique ID for the cluster that can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
 | point_count | number | The number of points the cluster contains. |
-| point_count_abbreviated | string | A string that abbreviates the point_count value if it is long. (i.e. 4,000 becomes 4K) |
+| point_count_abbreviated | string | A string that abbreviates the point_count value if it is long. (for example, 4,000 becomes 4K) |
 
-This example takes a bubble layer that renders cluster points and adds a click event that when triggered, calculate and zoom the map to the next zoom level at which the cluster will break apart using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point. 
+This example takes a bubble layer that renders cluster points and adds a click event that when triggered, calculate, and zoom the map to the next zoom level at which the cluster will break apart using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point. 
 
 <br/>
 

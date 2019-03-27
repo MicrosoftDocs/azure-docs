@@ -34,12 +34,10 @@ This sample shows how to add arrow icons along a line on the map. When using a s
 
 <br/>
 
-<p class="codepen" data-height="500" data-theme-id="0" data-default-tab="js,result" data-user="azuremaps" data-slug-hash="drBJwX" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Show arrow along line">
-  <span>See the Pen <a href="https://codepen.io/azuremaps/pen/drBJwX/">
-  Show arrow along line</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height="500" style="width: 100%;" scrolling="no" title="Show arrow along line" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show arrow along line</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Customize a line layer
 
