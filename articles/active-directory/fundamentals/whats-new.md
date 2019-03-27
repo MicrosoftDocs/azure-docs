@@ -89,13 +89,13 @@ For more information about how to better secure your organization through automa
 
 ---
 
-### Restore and manage your deleted Office 365 groups from the Azure AD portal
+### Restore and manage your deleted Office 365 groups in the Azure AD portal
 
 **Type:** New feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-You can now view and manage any of your retired, but not yet permanently deleted, Office 365 groups from the Azure AD portal. With this change, you can more quickly locate any groups that are available to restore, or you can permanently delete any groups that are no longer needed by your organization.
+You can now view and manage your deleted Office 365 groups from the Azure AD portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren’t needed by your organization.
 
 For more information, see [Restore expired or deleted groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore).
 
@@ -111,13 +111,15 @@ You can now provide a single sign-on (SSO) experience for on-premises, SAML-auth
 
 ---
 
-### New error message breaking client request loops helps to improve reliability and user experience
+### Client apps in request loops will be interrupted to improve reliability and user experience
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-Client apps can incorrectly issue hundreds of the same login requests over a short period of time. These requests, whether they're successful or not, all contribute to a poor user experience and heightened workloads for the IDP, increasing latency for all users and reducing the availability of the IDP. This update sends an `invalid_grant` error: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` to clients that issue duplicate requests multiple times. After this error is sent, if the problem isn't due to client misconfiguration, an interactive prompt appears for the user to sign-in again or to perform additional authentication steps. For more information about this change, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
+Client apps can incorrectly issue hundreds of the same login requests over a short period of time. These requests, whether they're successful or not, all contribute to a poor user experience and heightened workloads for the IDP, increasing latency for all users and reducing the availability of the IDP.
+
+This update sends an `invalid_grant` error: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` to client apps that issue duplicate requests multiple times over a short period of time, beyond the scope of normal operation. Client apps that encounter this issue should show an interactive prompt, requiring the user to sign in again. For more information about this change and about how to fix your app if it encounters this error, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
 
 ---
 
