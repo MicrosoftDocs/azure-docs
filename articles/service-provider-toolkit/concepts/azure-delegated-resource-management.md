@@ -15,7 +15,7 @@ Azure Delegated Resource Management is one of the key components of the Microsof
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
-## What is Azure Delegated Resource Mangagement?
+## What is Azure Delegated Resource Management?
 
 Azure Delegated Resource Management lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across multiple remote Azure AD tenants. Service providers can sign in to their own Azure AD tenant and use that single token to be authorized across customer tenancy scopes (subscriptions and resource groups) to perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
 
