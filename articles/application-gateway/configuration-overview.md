@@ -37,7 +37,7 @@ Consider a subnet that has 27 Application Gateway instances and an IP address fo
 
 We recommend that you use a subnet size of at least /28. This size gives you 11 usable IP addresses. If your application load requires more than 10 IP addresses, consider a /27 or /26 subnet size.
 
-#### Network security groups on the application gateway subnet
+#### Network security groups on the Application Gateway subnet
 
 Network security groups (NSGs) are supported on Application Gateway. But there are several restrictions:
 
@@ -216,7 +216,7 @@ For more information about redirects, see [Application Gateway redirect overview
 
     Choose listener as the redirection target to redirect traffic from one listener to another on the gateway. This setting is required when you want to enable HTTP-to-HTTPS redirection. It redirects traffic from the source listener that checks for incoming HTTP requests to the destination listener that checks for incoming HTTPS requests. You can also choose to include the query string and path from the original request in the request that's forwarded to the redirection target.
 
-    ![Application gateway components dialog box](./media/configuration-overview/configure-redirection.png)
+    ![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
 
     For more information about HTTP-to-HTTPS redirection, see:
     - [HTTP-to-HTTP redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
