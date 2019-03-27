@@ -12,34 +12,34 @@ ms.author: absha
 
 # Application Gateway configuration overview
 
-Azure Application Gateway consists of several components that can be configured in various ways for different scenarios. This article shows you how to configure each component.
+Azure Application Gateway consists of several components that you can configure in various ways for different scenarios. This article shows you how to configure each component.
 
 ![Application Gateway components flow chart](./media/configuration-overview/configuration-overview1.png)
 
-This image illustrates configuration of an application that has three listeners. The first two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both listen on port 80. The third is a basic listener that has end-to-end Secure Sockets Layer (SSL) termination.
+This image illustrates an application that has three listeners. The first two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both listen on port 80. The third is a basic listener that has end-to-end Secure Sockets Layer (SSL) termination.
 
 ## Prerequisites
 
 ### Azure virtual network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for your application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
 
 > [!NOTE]
-> Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported.
+> You can't mix Standard_v2 and Standard Application Gateway on the same subnet.
 
 #### Size of the subnet
 
 Application Gateway consumes 1 private IP address per instance, plus another private IP address if a private front-end IP is configured.
 
-Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 instances of application gateway with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the gateway instances. So, you need a /27 subnet size or larger.
+Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 instances of Application Gateway with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the Application Gateway instances. So, you need a /27 subnet size or larger.
 
-Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the gateway instances, 1 for the private front end, and 5 for internal use. So, you need a /26 subnet size or larger.
+Consider a subnet that has 27 Application Gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the Application Gateway instances, 1 for the private front end, and 5 for internal use. So, you need a /26 subnet size or larger.
 
 We recommend that you use a subnet size of at least /28. This size gives you 11 usable IP addresses. If your application load requires more than 10 IP addresses, consider a /27 or /26 subnet size.
 
 #### Network security groups on the application gateway subnet
 
-Network security groups (NSGs) are supported on the application gateway. But there are several restrictions:
+Network security groups (NSGs) are supported on Application Gateway. But there are several restrictions:
 
 - You must include exceptions for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for the v2 SKU. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
 
@@ -50,9 +50,9 @@ Network security groups (NSGs) are supported on the application gateway. But the
 
 - Traffic from the **AzureLoadBalancer** tag must be allowed.
 
-##### Whitelist application gateway access to a few source IPs
+##### Whitelist Application Gateway access to a few source IPs
 
-For this scenario, use NSGs on the application gateway subnet. Put the following restrictions on the subnet in this order of priority:
+For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
 1. Allow incoming traffic from a source IP/IP range.
 2. Allow incoming requests from all sources to ports 65503-65534 for [back-end health communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
@@ -60,24 +60,24 @@ For this scenario, use NSGs on the application gateway subnet. Put the following
 4. Block all other incoming traffic by using a deny-all rule.
 5. Allow outbound traffic to the internet for all destinations.
 
-#### User-defined routes supported on the application gateway subnet
+#### User-defined routes supported on the Application Gateway subnet
 
-For the v1 SKU, user-defined routes (UDRs) are supported on the application gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection. But you must ensure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network.
+For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network.
 
-For the v2 SKU, UDRs aren't supported on the application gateway subnet. For more information, see [Autoscaling and zone-redundancy for Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+For the v2 SKU, UDRs aren't supported on the Application Gateway subnet. For more information, see [Autoscaling and zone-redundancy for Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
 
 > [!NOTE]
-> Using UDRs on the application gateway subnet causes the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also causes generation of application gateway logs and metrics to fail. We recommend that you don't use UDRs on the application gateway subnet so that you can view the back-end health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet causes the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also causes generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
 
 ## Front-end IP
 
-You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you're hosting a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an internal load-balancer (ILB) endpoint. A gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
+You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you're hosting a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint. An Application Gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
 
-Only one public IP address or one private IP address is supported. You choose the front-end IP when you create the application gateway.
+Only 1 public IP address or 1 private IP address is supported. You choose the front-end IP when you create the application gateway.
 
 - For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. If you create a new public IP, the IP address type that you select (static or dynamic) can't be changed later. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
-- For a private IP, you can specify a private IP address from the subnet in which the application gateway is created. If you don't specify one, an arbitrary IP address is automatically selected from the subnet. For more information, see [Create an application gateway with an internal load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- For a private IP, you can specify a private IP address from the subnet where the application gateway is created. If you don't specify one, an arbitrary IP address is automatically selected from the subnet. For more information, see [Create an application gateway with an internal load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
 A front-end IP address is associated to a *listener*, which checks for incoming requests on the front-end IP.
 
@@ -93,11 +93,11 @@ When you create a new listener, you choose between [*basic* and *multi-site*](ht
 
 - If you're hosting a single site behind an application gateway, choose basic. Learn [how to create an application gateway with a basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you're configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, choose multi-site listener. For a multi-site listener, you must also enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
+- If you're configuring more than one web application or multiple subdomains of the same parent domain on the same Application Gateway instance, choose multi-site listener. For a multi-site listener, you must also enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
 
 #### Order of processing listeners
 
-For the v1 SKU, listeners are processed in the order that they are listed. If a basic listener matches an incoming request, the listener processes that request first. So, multi-site listeners should be configured before basic listeners to ensure that traffic is routed to the correct back end.
+For the v1 SKU, listeners are processed in the order that they are listed. If a basic listener matches an incoming request, the listener processes that request first. So, multi-site listeners should be configured before basic listeners to make sure that traffic is routed to the correct back end.
 
 For the v2 SKU, multi-site listeners are processed before basic listeners.
 
@@ -127,7 +127,7 @@ See [certificates supported for SSL termination](https://docs.microsoft.com/azur
 
 #### HTTP2 support
 
-HTTP/2 protocol support is available to clients that connect to application gateway listeners only. The communication to back-end server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet shows how to enable this:
+HTTP/2 protocol support is available to clients that connect to Application Gateway listeners only. The communication to back-end server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet shows how to enable this:
 
 ```azurepowershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
