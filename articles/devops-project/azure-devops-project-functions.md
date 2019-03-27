@@ -19,7 +19,7 @@ DevOps Projects also:
 
 - Automatically creates Azure resources, such as Azure Functions
 
-- Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD
+- Creates and configures a release pipeline in Azure DevOps for CI/CD
 
 In this tutorial, you will:
 
@@ -51,25 +51,23 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the left pane, select **Create a resource**.
 
-1. In the search box, type **DevOps Projects**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then click **Add**.
 
-   ![DevOps Projects](media/fullbrowser.png)
+   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
 
-1. Select **.NET**, and then select **Next**.
-
-1. Under **Choose an application framework**, select **ASP.NET**.
+1. Select **.NET**, and then select **Next**. Under **Choose an application framework**, select **ASP.NET** and click **Next**.
 
 1. Select **Function App** and then select **Next**.
 
 ## Configure Azure DevOps and Azure subscription
 
-1. Create a new Azure DevOps organization, or select an existing organization.
-
 1. Enter a name for your Azure DevOps project.
+
+1. Create a new Azure DevOps organization, or select an existing organization.
 
 1. Select your Azure subscription.
 
-1. To view additional Azure configuration settings and to identify the pricing tier and location click on Additional settings. This pane displays various options for configuring the pricing tier and location of Azure services.
+1. To view additional Azure configuration settings and to identify the pricing tier and location, click on Additional settings. This pane displays various options for configuring the pricing tier and location of Azure services.
 
 1. Exit the Azure configuration area, and then select Done.
 
@@ -101,18 +99,17 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 
     ![Build](_img/azure-devops-project-functions/build.png)
 
-1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching sources from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
+1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
+
+1. Select **Triggers**. DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+
+1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
 1. Change the name of your build pipeline to something more descriptive, and then select **Save** from the **Save & queue** dropdown.
 
 1. Under your build pipeline name, select **History**. This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
-
-1. Select **Triggers**. DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
-
-1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
-
 
 ## Examine the CD release pipeline
 
