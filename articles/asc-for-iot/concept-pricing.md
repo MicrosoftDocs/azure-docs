@@ -74,6 +74,6 @@ The following table provides a summary of associated costs and implications each
 ## See also
 
 - Access your [raw security data](how-to-security-data-access.md)
-- Drill down into the logs and [investigate a device](tutorial-investigate-device.md)
+- Drill down into the logs and [investigate a device](how-to-investigate-device.md)
 - Understand and explore [security recommendations](concept-recommendations.md)
 - Understand and explore [security alerts](concept-security-alerts.md)
