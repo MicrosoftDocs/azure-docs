@@ -113,7 +113,7 @@ If you created a share before you configured compute on your Data Box Edge devic
 
     ![Share mounted](media/data-box-edge-manage-shares/share-mounted.png)
 
-5. Select the share again to view the local mountpoint for the share. Edge compute module used this local mountpoint for the share.
+5. Select the share again to view the local mountpoint for the share. Edge compute module uses this local mountpoint for the share.
 
     ![Local mountpoint for the share](media/data-box-edge-manage-shares/share-mountpoint.png)
 
