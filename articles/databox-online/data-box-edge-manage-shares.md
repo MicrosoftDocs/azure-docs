@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Data Box Edge
@@ -137,7 +137,8 @@ The list of shares updates to reflect the deletion.
 The refresh feature allows you to refresh the contents of a share. When you refresh a share, a search is initiated to find all the Azure objects including blobs and files that were added to the cloud since the last refresh. These additional files are then downloaded to refresh the contents of the share on the device.
 
 > [!IMPORTANT]
-> You can't refresh local shares.
+> - You can't refresh local shares.
+> - Permissions and access control lists (ACLs) are not preserved across a refresh operation. 
 
 Do the following steps in the Azure portal to refresh a share.
 
