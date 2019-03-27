@@ -1,5 +1,5 @@
 ---
-title: Tutorial to install and deploy Linux C# agent of Azure Security Center for IoT Preview| Microsoft Docs
+title: Tutorial to install and deploy Linux C# agent of ASC for IoT Preview| Microsoft Docs
 description: Learn how to install the ASC for IoT agent on both 32-bit and 64-bit Linux. 
 services: ascforiot
 documentationcenter: na
