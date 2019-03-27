@@ -60,7 +60,10 @@ Run the `az ams account sp create` command as described in [access APIs](access-
  
 ## Add configuration file
 
-Add a new .cs class to your project. Name it `ConfigWrapper`. Paste the following code in this file (this example assumes you have the namespace is `ConsoleApp1`).
+For convenience, add a configuration file that is responsible for reading values from "appsettings.json".
+
+1. Add a new .cs class to your project. Name it `ConfigWrapper`. 
+1. Paste the following code in this file (this example assumes you have the namespace is `ConsoleApp1`).
 
 ```csharp
 using System;
