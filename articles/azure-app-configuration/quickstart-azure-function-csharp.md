@@ -42,13 +42,19 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 ## Connect to an app configuration store
 
-1. Open *Function1.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Open *Function1.cs*, and add a reference to an App Configuration .NET Core configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
+3. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(
