@@ -62,7 +62,7 @@ You can query the entities in a table by using the **Get-AzTableRow** command.
 Get-AzTableRow -table $cloudTable | ft
 ```
 
-This command yield results similar to the following table:
+This command yields results similar to the following table:
 
 | userid | username | partition | rowkey |
 |----|---------|---------------|----|
