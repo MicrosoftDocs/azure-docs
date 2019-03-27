@@ -62,7 +62,7 @@ A block blob storage account is a specialized storage account for storing unstru
 
 ### FileStorage (preview) storage accounts
 
-A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characterists such as IOPS busting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characteristics such as IOPS busting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
@@ -84,8 +84,8 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-* The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
-* The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
+* The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the Hot tier by default.
+* The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the Hot tier.
 * The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers. 
 
 If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
