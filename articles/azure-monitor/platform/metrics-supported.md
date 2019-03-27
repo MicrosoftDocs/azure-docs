@@ -433,7 +433,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|RunDuration|Run Duration|Milliseconds|Total|Run duration of tasks in milliseconds.|No Dimensions|
+|RunDuration|Run Duration|Milliseconds|Total|Run duration of tasks in milliseconds.|BuildOsType|
 |SuccessfulPullCount|Successful Pull Count|Count|Average|Number of successful image pulls.|No Dimensions|
 |SuccessfulPushCount|Successful Push Count|Count|Average|Number of successful image pushes.|No Dimensions|
 |TotalPullCount|Total Pull Count|Count|Average|Number of image pulls in total.|No Dimensions|
