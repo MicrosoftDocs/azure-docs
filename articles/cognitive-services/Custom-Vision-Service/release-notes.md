@@ -8,11 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/21/2019
 ms.author: anroth
 ---
 
 # Custom Vision Service Release Notes
+
+## March 26, 2019
+- Custom Vision Service has entered General Availability on Azure! 
+- Added Advanced Training feature with a new machine learning backend for improved performance, especially on challenging datasets and fine-grained classification. With advanced training, you can specify a compute time budget for training and Custom Vision will experimentally identify the best training and augmentation settings. For quick iterations, you can continue to use the existing fast training. 
+- Introduced 3.0 APIs. Announced coming deprecation of pre-3.0 APIs on October 1, 2019. See the documentation Quickstarts for [.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), or [Go](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) for examples on how to get started. 
+- Replaced “Default Iterations” with Publish/Unpublish in the 3.0 APIs. 
+- New model export targets have been added. Dockerfile export has been upgraded to support ARM for Raspberry Pi 3. Export support has been added to the [Vision AI Dev Kit.](https://visionaidevkit.com/) 
+- Increased limit of Tags per project to 500 for S0 tier. Increased limit of Images per project to 100,000 for S0 tier.
+- Removed Adult domain. General domain is reccomended instead.
+- Announced [pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) for General Availability.  
+
+
+## February 25, 2019
+- Announced the end of Limited Trial projects (projects not associated with an Azure resource), as Custom Vision nears completion of its move to Azure public preview. Beginning March 25, 2019, the CustomVision.ai site will only support viewing projects associated with an Azure resource, such as the free Custom Vision resource. Through October 1, 2019, you’ll still be able to access your existing limited trial projects via the Custom Vision APIs. This will give you time to update API keys for any apps you’ve written with Custom Vision. After October 1, 2019, any limited trial projects you haven’t moved to Azure will be deleted.
 
 ## January 22, 2019
 - Support added for new Azure regions: West US 2, East US, East US 2, West Europe, North Europe, Southeast Asia, Australia East, Central India, UK South, Japan East, and North Central US. Support continues for South Central US. 

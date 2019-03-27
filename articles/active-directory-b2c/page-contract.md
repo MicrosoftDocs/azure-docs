@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Select a page contract in Azure Active Directory B2C using custom policies
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies, whether you’re using user flows or custom policies. This article discusses how to select a page contract in Azure AD B2C by configuring it in a [custom policy](active-directory-b2c-overview-custom.md). A page contract is an association of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
 

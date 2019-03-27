@@ -3,7 +3,7 @@ title: Use Azure Security Center recommendations to enhance security | Microsoft
 description: " Learn how to use security policies and recommendations in Azure Security Center to help mitigate a security attack. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/2/2019
-ms.author: rkarlin
+ms.date: 3/26/2019
+ms.author: monhaber
 
 ---
 # Use Azure Security Center recommendations to enhance security
-You can reduce the chances of a significant security event by configuring a security policy and then implementing the recommendations provided by Azure Security Center. This article shows you how to use security policies and recommendations in Security Center to help mitigate a security attack.
+You can reduce the chances of a significant security event by configuring a security policy and then implementing the recommendations provided by Azure Security Center. This article shows you how to use security policies and recommendations in Security Center to help mitigate a security attack. 
 
-Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed security controls.
+Security Center automatically runs continuous scans to analyze the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed security controls. Security Center updates its recommendations within 24 hours, with the following exceptions:
+
+- Operating system security configuration recommendations are updated within 48 hours
+- Endpoint Protection issues recommendations are updated within 8 hours
 
 ## Scenario
 This scenario shows you how to use Security Center to help reduce the chances of a security incident by monitoring Security Center recommendations and taking action. The scenario uses the fictitious company, Contoso, and roles presented in the Security Center [planning and operations guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). In this scenario, we're focusing on the roles of the following personas:

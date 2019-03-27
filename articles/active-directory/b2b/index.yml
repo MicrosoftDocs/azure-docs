@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Active Directory B2B Documentation
 metadata:
   document_id: 
-  title: Azure Active Directory B2B Documentation | Microsoft Docs
+  title: Azure Active Directory B2B Documentation - Azure Active Directory | Microsoft Docs
   description: Use our tutorials, quickstarts, and how-tos to learn about using B2B guest user access to share and collaborate with external partners.
   services: active-directory
   ms.subservice: authentication

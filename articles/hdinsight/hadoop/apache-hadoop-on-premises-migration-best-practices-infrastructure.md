@@ -14,6 +14,8 @@ ms.author: hrasheed
 
 This article gives recommendations for managing the infrastructure of Azure HDInsight clusters. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Plan for HDInsight cluster capacity
 
 The key choices to make for HDInsight cluster capacity planning are the following:
@@ -103,14 +105,14 @@ Changes to configs in the config files such as `core-site.xml`, `hive-site.xml` 
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -147,7 +149,7 @@ Cluster scaling can be automated using the following methods:
 ### PowerShell cmdlet
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### Azure CLI

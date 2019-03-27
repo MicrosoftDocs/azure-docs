@@ -248,6 +248,20 @@ In ApplicationInsights.xml:
 
 ```
 
+### 3. Invoke your filter (Java Spring)
+
+For applications based on the Spring framework, custom telemetry processors must be registered in your main application class as a bean. They will then be autowired when the application starts.
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+You will need to create your own filter parameters in `application.properties` and leverage Spring Boot's externalized configuration framework to pass those parameters into your custom filter. 
+
+
 ## Troubleshooting
 
 *My filter isn't working.*

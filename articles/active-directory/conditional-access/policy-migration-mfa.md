@@ -5,7 +5,7 @@ description: This article shows how to migrate a classic policy that requires mu
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/13/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 
 ms.collection: M365-identity-device-management
