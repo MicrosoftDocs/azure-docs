@@ -92,7 +92,7 @@ When Azure Dev Spaces is enabled on your AKS cluster, it installs the controller
 * Removes any Kubernetes namespace named *azds*, if it exists, and creates a new one.
 * Deploys a Kubernetes initializer object.
 
-![Azure Dev Spaces prepare cluster]](media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure Dev Spaces prepare cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 In order to use Azure Dev Spaces, there must be at least one dev space. Azure Dev Spaces uses Kubernetes namespaces within your AKS cluster for dev spaces. When a controller is being installed, it prompts you to create a new Kubernetes namespace or choose an existing namespace to use as your first dev space. When a namespace is designated as a dev space, the controller adds the *azds.io/space=true* label to that namespace to identify it as a dev space. The initial dev space you create or designate is selected by default after you prepare your cluster. When a space is selected, it is used by Azure Dev Spaces for creating new workloads.
 
