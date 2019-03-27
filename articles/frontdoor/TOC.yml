@@ -48,8 +48,12 @@
     href: front-door-routing-methods.md
   - name: URL rewrite
     href: front-door-url-rewrite.md
+  - name: IP restrictions
+    href: waf-front-door-ip-restriction-overview.md
 - name: How-to guides
   items:
+  - name : Configure IP restriction rules
+    href: front-door-waf-configure-ip-restriction.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot routing issues
