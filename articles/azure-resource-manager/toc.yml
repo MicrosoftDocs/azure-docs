@@ -40,7 +40,7 @@
   - name: Secure artifacts
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
@@ -62,6 +62,7 @@
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Deployment Manager
+    displayName: adm
     href: deployment-manager-overview.md
   - name: Deployment modes
     href: deployment-modes.md
