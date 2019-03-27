@@ -137,7 +137,7 @@ Azure Monitor can use this approach to collect diagnostics from Azure storage fo
 >
 >
 
-See [Use blob storage for IIS and table storage for events](azure-storage-iis-table.md) to learn more about how Azure Minitor can collect these logs.
+See [Use blob storage for IIS and table storage for events](azure-storage-iis-table.md) to learn more about how Azure Monitor can collect these logs.
 
 ## Connectors for Azure services
 
