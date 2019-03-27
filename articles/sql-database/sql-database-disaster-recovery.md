@@ -74,6 +74,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 
 - [Fail over to a geo-replicated secondary server using the Azure portal](sql-database-geo-replication-portal.md)
 - [Fail over to the secondary server using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Fail over to a secondary server using Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## Recover using geo-restore
 
