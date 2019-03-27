@@ -356,7 +356,7 @@ Assuming the above parameter file is saved as metricfromLogsAlertStatic.paramete
 
 Alternatively, one can use the Azure Powershell command below as well:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
@@ -672,7 +672,7 @@ Assuming the above parameter file is saved as metricfromLogsAlertDynamic.paramet
 
 Alternatively, one can use the Azure Powershell command below as well:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 

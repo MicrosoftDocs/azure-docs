@@ -3,7 +3,7 @@ title: Azure Service Fabric standalone cluster scaling | Microsoft Docs
 description: Learn about scaling Service Fabric standalone clusters in or out and up or down.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: aljo
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: ryanwi
+ms.author: dekapur
 
 ---
 # Scaling Service Fabric standalone clusters

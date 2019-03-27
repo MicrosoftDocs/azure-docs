@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric cluster using certificate common name | Mi
 description: Learn how to create a Service Fabric cluster using certificate common name from a template.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint
