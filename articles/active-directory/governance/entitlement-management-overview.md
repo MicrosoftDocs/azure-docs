@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ Enterprise organizations often face challenges when managing access for users ac
 - Users may have difficulty locating the right individuals or right resources
 - Once users find and receive access to a resource, they may hold on to access rights longer than is required for business purposes
 
-These problems are compounded for users who need access from another directory, such as guest users that are from supply chain organizations or other business partners. Organizations that want to make their resources available to authorized users in other directories also have these challenges:
+These problems are compounded for users who need access from another directory, such as guest users that are from supply chain organizations or other business partners. For example:
 
 - Organizations may not know all of the specific individuals in other directories to be able to invite them
 - Even if organizations were able to invite these users, organizations may not remember to manage all of the user's access rights consistently
@@ -51,9 +51,9 @@ Azure AD entitlement management can help address these challenges.
 
 Here are some of capabilities of entitlement management:
 
-- Define packages of resources users need
+- Define packages of resources that users need
 - Define rules for how to request resources and when access expires
-- Delegate managers to manage resources and approve requests
+- Delegate to users the ability to manage resources and approve requests
 - Govern the lifecycle of access for both internal and guest users
 - Create reports to track history
 
@@ -65,13 +65,13 @@ For an overview of identity governance and entitlement management, watch the fol
 
 Here are the types of resources you can manage access to with entitlement management:
 
-- Azure AD security group
-- Office 365 group
-- Azure AD enterprise application
-- SaaS application
+- Azure AD security groups
+- Office 365 groups
+- Azure AD enterprise applications
+- SaaS applications
 - Custom integrated applications
-- SharePoint Online site collection
-- SharePoint Online site
+- SharePoint Online site collections
+- SharePoint Online sites
 
 ## Prerequisites
 
@@ -84,16 +84,16 @@ For more information, see [Sign up for Azure Active Directory Premium editions](
 
 ## What are access packages and policies?
 
-Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. Access packages can be used to govern access by your internal employees, and also by guest users from outside your organization. Access packages are defined in containers called *catalogs*.
+Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, and sites. Access packages are used to govern access for your internal employees, and also fro guest users from outside your organization. Access packages are defined in containers called *catalogs*.
 
-Access packages also include one or more *policies*. A policy defines the rules or guardrails around the access to an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time. An access package must be configured with a policy.
+Access packages also include one or more *policies*. A policy defines the rules or guardrails to access an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time.
 
-With an access package and policies, the access package manager defines:
+With an access package and its policies, the access package manager defines:
 
 - Resources
-- Users that are eligible for access
-- Approval process with the right approvers to approve or deny access
-- Technical roles the users need in the resources
+- Roles the users need for the resources
+- Users and guest users that are eligible to request access
+- Approval process and the users that can approve or deny access
 - Duration of user's access
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)

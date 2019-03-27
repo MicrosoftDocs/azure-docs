@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/25/2019
+ms.date: 03/26/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -140,7 +140,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ## Step 3: Create a policy
 
-A *policy* defines the rules or guardrails around the access to an access package. In this step, you create a policy that allows users who are already in the resource directory to request access.
+A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows users who are already in the resource directory to request access.
 
 ![Create an access package policy](./media/entitlement-management-first-access-package/elm-access-package-policy.png)
 
