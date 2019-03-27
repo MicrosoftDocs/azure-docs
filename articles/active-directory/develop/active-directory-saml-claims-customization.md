@@ -92,6 +92,8 @@ You can also use the claims transformations functions.
 
 ## Adding regular claims
 
+To add regular claims:
+
 1. In **User Attributes & Claims**, select **Add new claim** to open the **Manage user claims** page.
 1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
