@@ -57,7 +57,7 @@ To access insights and raw data about your IoT devices, go to your Log Analytics
 
 Check and investigate the device data for the following details and activities using the following kql queries:
 
-- To find out if other alerts were triggered around the same time use the following kql query:
+### To find out if other alerts were triggered around the same time use the following kql query:
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -67,7 +67,7 @@ Check and investigate the device data for the following details and activities u
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
   ~~~
 
-- To find out which users have access to this device use the following kql query: 
+### To find out which users have access to this device use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -84,9 +84,9 @@ Check and investigate the device data for the following details and activities u
   ~~~
 Use this data to discover: 
   1. Which users have access to the device?
-  2. Do the users with access have the permission levels expected? 
+  2. Do the users with access have the permission levels as expected? 
 
-- To find out how users are able to access the device, use the following kql query:
+### TO find out which ports in the device are currently in use or were used use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -108,9 +108,10 @@ Use this data to discover:
 
     Use this data to discover:
   1. Which listening sockets are currently active on the device?
-  2. Should the listening sockets that are currently be active?
+  2. Should these listening sockets needs to be active?
+  3. Are there any suspicious remote address connected to the device?
 
-- To find out who logged in to the device, use the following kql query: 
+### To find out users that logged into the device use the following kql query: 
  
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -136,9 +137,10 @@ Use this data to discover:
 
     Use the query results to discover:
   1. Which users logged in to the device?
-  2. Did the users that logged in connect from expected or unexpected IP addresses?
+  2. Did the users that logged in were suppuse to log in?
+  3. Did the users that logged in connect from expected or unexpected IP addresses?
   
-- To learn if the device is behaving as expected, use the following kql query:
+### To find out if the proccess list is as expected use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
