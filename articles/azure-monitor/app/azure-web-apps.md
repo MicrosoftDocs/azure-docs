@@ -30,7 +30,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about manually instrumenting 
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](./azure-web-apps.md/#troubleshooting) below.
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](../../azure-monitor/app/azure-web-apps.md/#troubleshooting) below.
 
 ### Enable agent based application monitoring
 
@@ -300,14 +300,14 @@ To check which version of the extension you are running visit `http://yoursitena
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](./azure-web-apps.md/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](../../azure-monitor/app/azure-web-apps.md/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
 
-* [Upgrade through PowerShell](./azure-web-apps.md/#enabling-through-powershell):
+* [Upgrade through PowerShell](../../azure-monitor/app/azure-web-apps.md/#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](./azure-web-apps.md/#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](../../azure-monitor/app/azure-web-apps.md/#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
-If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](./azure-web-apps.md/#troubleshooting).
+If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](../../azure-monitor/app/azure-web-apps.md/#troubleshooting).
 
 ## Troubleshooting
 
