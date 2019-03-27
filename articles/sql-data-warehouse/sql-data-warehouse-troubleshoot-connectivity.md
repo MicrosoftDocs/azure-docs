@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 03/27/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ---
@@ -15,6 +15,14 @@ ms.reviewer: igorstan
 # Troubleshooting connectivity issues
 
 This article lists common troubleshooting techniques around connecting to your SQL Data Warehouse.
+- [Check service availability]()
+- [Check for paused or scaling operation]()
+- [Check your firewall settings]()
+- [Check your VNet/Service Endpoint settings]()
+- [Check for the latest drivers]()
+- [Check your connection string]()
+- [Intermittent connection issues]()
+- [Common error messages]()
 
 ## Check service availability
 
