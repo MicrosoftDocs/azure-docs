@@ -91,7 +91,7 @@ This capability supports rewriting headers to the following server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
-| client_ip                  | IP address of the client; particularly useful in scenarios where customers intend to rewrite the X-Forwarded-For header set by Application Gateway, so that the header contains only the IP address without the port information. |
+| client_ip                  | IP address of the client from which the application gateway received the request. If there is a reverse proxy before the application gateway and the originating client, then *client_ip* will return the IP adress of the reverse proxy. tjsi variable is particularly useful in scenarios where customers intend to rewrite the X-Forwarded-For header set by Application Gateway, so that the header contains only the IP address without the port information. |
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |
@@ -116,7 +116,7 @@ This capability supports rewriting headers to the following server variables:
 
 - The HTTP header rewrite support is only supported on the new SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). The capability will not be supported on the old SKU.
 
-- Rewriting the Connect, Upgrade and Host headers is not supported yet.
+- Rewriting the Connection, Upgrade and Host headers is not supported yet.
 
 - The capability to conditionally rewrite the http headers will be available soon.
 
