@@ -50,10 +50,9 @@ To modify the configuration, create and modify this object inside the azureiotse
 If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
 
 ```json
-"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //Agent configuration object 
-  … 
-} 
+"desired": {
+  "azureiot*com^securityAgentConfiguration^1*0*0": {
+  } 
 }
 ```
 
@@ -63,24 +62,37 @@ The agent will not launch if the configuration object does not match the schema.
 
 ## Editing a property 
 
-All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin. 
+All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin.
+To use a default property value, remove the property from the configuration object.
 
-Setting a property overrides the default value. 
-To set a property, add the property key to the configuration object with the desired value. 
+### Setting a property
 
-To use a default property value, remove the property from the configuration object. 
+1. In your IoT Hub, locate and select the device you wish to change.
 
-```json
-"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //ASC for IoT Agent 
-      // configuration section  
-    "lowPriorityMessageFrequency": "PT1H",     
-    "highPriorityMessageFrequency": "PT7M",    
-    "eventPriorityFirewallConfiguration": "High",     
-    "eventPriorityConnectionCreate": "High" 
-  } 
-}, 
-```
+1. Click on your device, and then on **azureiotsecurity** module.
+
+1. Click on your device, and then on **azureiotsecurity** module.
+
+1. Click on **Module Identity Twin**.
+
+1. Edit the security module's desired properties.
+   
+   For exmple, to configure connection events as high prority and collect high prority events every 7 minutes, use the following configuration.
+   
+   ```json
+    "desired": {
+      "azureiot*com^securityAgentConfiguration^1*0*0": {
+        "highPriorityMessageFrequency": "PT7M",    
+        "eventPriorityConnectionCreate": "High" 
+      } 
+    }, 
+    ```
+
+1. Click **Save**.
+
+### Using a default value
+
+To use a default property value, remove the property from the configuration object.
 
 ## Default properties 
 Set of controllable properties that control the ASC for IoT security agents.
