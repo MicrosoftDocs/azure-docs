@@ -36526,8 +36526,6 @@
       "redirect_document_id": false
     },
     {
-    },
-    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Tags.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/configure#tags",
       "redirect_document_id": true
