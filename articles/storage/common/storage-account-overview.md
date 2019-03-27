@@ -62,7 +62,7 @@ A block blob storage account is a specialized storage account for storing unstru
 
 ### FileStorage (preview) storage accounts
 
-A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characterists such as IOPS busting. For more information on these characteristics, see the [File share performance tiers](storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characterists such as IOPS busting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
