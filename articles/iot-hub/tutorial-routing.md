@@ -114,7 +114,7 @@ az servicebus queue create --name $sbQueueName \
 
 ```
 
-Now that the base resources are set up, add the configuration for the message routing using the [Azure portal](https://portal.azure.com).
+Now that the base resources are set up, you can configure the message routing using the [Azure portal](https://portal.azure.com).
 
 ## Set up message routing
 
@@ -130,7 +130,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 2. Click the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field, as displayed in the following picture:
+3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
    ![Screenshot showing how to start adding an endpoint for a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
@@ -223,4 +223,4 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 Now that you have the resources set up and the message routes configured, advance to the next tutorial to learn how to send messages to the IoT hub and see them be routed to the different destinations. 
 
 > [!div class="nextstepaction"]
-[Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
+> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)

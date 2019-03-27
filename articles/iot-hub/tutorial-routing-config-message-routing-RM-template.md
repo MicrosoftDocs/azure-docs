@@ -69,9 +69,9 @@ Most of these parameters have default values. The ones ending with **_in** are c
 
 **service_bus_namespace_in**: This field is the name of the Service Bus namespace to be created. This value is concatenated with the randomValue to make it globally unique.
 
-**service_bus_queue_in**: This field is the name of the Service Bus queue used for routing messages. This value is concatenated with the randomValue to make it globally unique. 
+**service_bus_queue_in**: This field is the name of the Service Bus queue used for routing messages. This value is concatenated with the randomValue to make it globally unique.
 
-**AuthRules_sb_queue**: This field is the authorization rules for the service bus queue, used to retrieve the connection string for the queue. 
+**AuthRules_sb_queue**: This field is the authorization rules for the service bus queue, used to retrieve the connection string for the queue.
 
 ### Variables
 
@@ -96,7 +96,7 @@ The first resource created is the storage account, along with the container to w
 Here's what this section looks like:
 
 ```json
-{       
+{
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
     "apiVersion": "2018-07-01",
@@ -421,4 +421,4 @@ If you have script errors, you can edit the script locally, upload it again to t
 Now that you have all of the resources set up and the message routes are configured, advance to the next tutorial to learn how to process and display the information about the routed messages.
 
 > [!div class="nextstepaction"]
-[Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
+> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)

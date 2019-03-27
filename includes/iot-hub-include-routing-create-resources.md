@@ -9,13 +9,15 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
 ---
-## Create resources
+## Create base resources
 
-For this tutorial, you need an IoT hub, a storage account, and a Service Bus queue. These resources can be created using Azure CLI, Azure PowerShell, the Azure portal, or an Azure Resource Manager template. Use the same resource group and location for all of the resources. Then at the end, you can remove all of the resources in one step by deleting the resource group.
+Before you can configure the message routing, you need to create an IoT hub, a storage account, and a Service Bus queue. These resources can be created using one of the four articles that available for part 1 of this tutorial: Azure CLI, Azure PowerShell, the Azure portal, or an Azure Resource Manager template.
 
-The following sections describe these steps.
+Use the same resource group and location for all of the resources. Then at the end, you can remove all of the resources in one step by deleting the resource group.
 
-1. Create a [resource group](../articles/azure-resource-manager/resource-group-overview.md). 
+The following sections describe the steps to be performed.
+
+1. Create a [resource group](../articles/azure-resource-manager/resource-group-overview.md).
 
 2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
 
@@ -25,6 +27,6 @@ The following sections describe these steps.
 
 3. Create a standard V1 storage account with Standard_LRS replication.
 
-4. Create a Service Bus namespace and queue. 
+4. Create a Service Bus namespace and queue.
 
-5. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase.
+5. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase. (If creating a Resource Manager template, this is done after deploying the template.)

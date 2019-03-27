@@ -34,7 +34,9 @@ There are several resource names that must be globally unique, such as the IoT H
 
 Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This first section of the script will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue. As you go through the rest of the tutorial, copy each block of script and paste it into Cloud Shell to run it.
 
-A note about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure there are no spaces after any of the backslashes.
+> [!TIP]
+> A tip about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure there are no spaces after any of the backslashes.
+> 
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
@@ -135,7 +137,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 ```
 
-Now that the base resources are set up, add the configuration for the message routing. 
+Now that the base resources are set up, you can configure the message routing.
 
 ## Set up message routing
 
@@ -145,9 +147,9 @@ To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azur
 
 ### Routing to a storage account 
 
-First, set up the endpoint for the storage account, then set up the route. 
-
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
+
+First, set up the endpoint for the storage account, then set up the route. 
 
 These variables are set:
 
@@ -299,4 +301,4 @@ az iot hub route create --name $routeName \
 Now that you have the resources set up and the message routes configured, advance to the next tutorial to learn how to send messages to the IoT hub and see them be routed to the different destinations. 
 
 > [!div class="nextstepaction"]
-[Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
+> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)

@@ -58,7 +58,7 @@
       items:
       - name: Portal
         href: tutorial-routing.md
-      - name: ARM template
+      - name: Azure RM template
         href: tutorial-routing-config-message-routing-RM-template.md
       - name: Azure CLI
         href: tutorial-routing-config-message-routing-CLI.md

@@ -122,7 +122,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
-Now that the base resources are set up, add the configuration for the message routing.
+Now that the base resources are set up, you can configure the message routing.
 
 ## Set up message routing
 
@@ -276,4 +276,4 @@ Add-AzIotHubRoute `
 Now that you have the resources set up and the message routes configured, advance to the next tutorial to learn how to send messages to the IoT hub and see them be routed to the different destinations. 
 
 > [!div class="nextstepaction"]
-[Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
+> [Part 2 - View the message routing results](tutorial-routing-view-message-routing-results.md)
