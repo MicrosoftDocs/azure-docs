@@ -323,7 +323,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
-### Upgrade per cluster using Azure PowerShell
+## Upgrade per cluster using Azure PowerShell
 
 1. Copy and paste the following script into your file:
 
