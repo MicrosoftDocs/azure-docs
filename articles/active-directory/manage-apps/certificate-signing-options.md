@@ -67,7 +67,7 @@ Next, change the certificate signing options in the SAML token for that applicat
 
 4. In the **Select a single sign-on method** page, select **SAML** if available. (If **SAML** isn't available, the application doesn't support SAML, and you may ignore the rest of this procedure and article.)
 
-5. In the **Set up Single Sign-On with SAML - Preview** page, select the **Edit** icon (a pencil) in the **SAML Signing Certificate** heading. The **SAML Signing Certificate** page appears.
+5. In the **Set up Single Sign-On with SAML - Preview** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears.
 
    ![SAML signing page](./media/certificate-signing-options/saml-signing-page.png)
 
