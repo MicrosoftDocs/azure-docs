@@ -63,7 +63,7 @@ The list of health checks and resource types supported through Resource Health c
 When checking the health of a resource, right under the health status you can click **Report incorrect health status**. Before submitting the report, you have the option of providing additional details on why you believe the current health status is incorrect.
 
 ## Is Resource Health available for all Azure regions? 
-Resource health is available in across all Azure geos.
+Resource health is available in all Azure geos.
 
 ## How is Resource Health different from Azure status or the Service Health dashboard?
 The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.
