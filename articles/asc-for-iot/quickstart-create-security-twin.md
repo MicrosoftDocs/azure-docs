@@ -47,7 +47,7 @@ _azureiotsecurity_ module twins can be created in two ways:
 >[!NOTE] 
 > Using the batch method will not overwrite existing azureiotsecurity module twins. Using the batch method ONLY creates new module twins for devices that do not already have a security module twin. 
 
-See [Modify a security module twin](how-to-modify-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
+See [agent configuration](how-to-agent-configuration.md) to learn how to modify or change the configuration of an existing module twin. 
 
 To create manually a new _azureiotsecurity_ module twin for a device use the following instructions: 
 
