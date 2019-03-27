@@ -11,7 +11,6 @@
     href: service-prerequisites.md
   - name: Get started with ASC for IoT
     href: getting-started.md
-
 - name: Quickstarts
   expanded: true
   items:
@@ -23,7 +22,6 @@
     href: quickstart-create-security-twin.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
-
 - name: Concepts
   items:
   - name: Security agent authentication
@@ -34,13 +32,10 @@
     href: concept-security-alerts.md
   - name: Security recommendations
     href: concept-recommendations.md
-
 - name: How-to guides
   items:
-  - name: Deploy security agents
-    items:
-    - name: Which agent should I deploy?
-      href: how-to-deploy-agent.md
+  - name: Which agent should I deploy?
+    href: how-to-deploy-agent.md
     - name: Deploy a C#-based security agent on a Windows device
       href: how-to-deploy-windows-cs.md
     - name: Deploy a C#-based security agent on a Linux device
@@ -55,7 +50,6 @@
     href: how-to-security-data-access.md
   - name: Investigate a device
     href: how-to-investigate-device.md
-
 - name: Resources
   items:
   - name: Frequently asked questions
