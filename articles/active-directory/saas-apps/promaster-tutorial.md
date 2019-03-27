@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![ProMaster (by Inlogik) Domain and URLs single sign-on information](common/idp-intiated.png)
 
