@@ -22,7 +22,7 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | - cpuUsageMillicores<br> - cpuUsagePercentage<br> -  memoryRssBytes<br> - memoryRssPercentage<br> - memoryWorkingSetBytes<br> - memoryWorkingSetPercentage<br> - nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the<br> node’s name as value for the *host* dimension. |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the<br> node’s name as value for the *host* dimension. |
 | insights.container/pods | podCount | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 
 Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include this configuration change and capabilities.
@@ -42,7 +42,8 @@ For existing AKS clusters monitored by Azure Monitor for containers, after selec
 
 Clicking **Enable** will initiate the process to upgrade the cluster. This process can take several seconds to finish, and you can track its progress under Notifications from the menu.
 
-## Upgrade all clusters in the subscription using Bash in Azure Command Shell
+## Upgrade all clusters using Bash in Azure Command Shell
+Perform the following steps to update all clusters in your subscription using Bash in Azure Command Shell.
 
 1. Run the following command by using the Azure CLI.  Edit the value for **subscriptionId** using the value from the **AKS Overview** page for the AKS cluster.
 
@@ -59,6 +60,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```
 
 ## Upgrade per cluster using Azure CLI
+Perform the following steps to update a specific cluster in your subscription using Azure CLI.
 
 1. Run the following command by using the Azure CLI. Edit the values for **subscriptionId**, **resourceGroupName**, and **clusterName** using the values on the **AKS Overview** page for the AKS cluster.  To get the value of **clientIdOfSPN**, it is returned when you run the command `az aks show` as shown in the example below.
 
@@ -69,7 +71,8 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
 
-## Upgrade all clusters in the subscription using Azure PowerShell
+## Upgrade all clusters using Azure PowerShell
+Perform the following steps to update all clusters in your subscription using Azure PowerShell.
 
 1. Copy and paste the following script into your file:
 
@@ -324,6 +327,7 @@ Clicking **Enable** will initiate the process to upgrade the cluster. This proce
     ```
 
 ## Upgrade per cluster using Azure PowerShell
+Perform the following steps to update a specific cluster using Azure PowerShell.
 
 1. Copy and paste the following script into your file:
 
