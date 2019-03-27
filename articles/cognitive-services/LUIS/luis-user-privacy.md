@@ -47,11 +47,11 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 ## Active learning data
 
-Active learning data is separated out into 3 Azure geographies:
+To enable [active learning](luis-how-to-review-endoint-utt.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in one or more of the following Azure geographies:
 
-* Europe
-* Australia
-* United States
+* [Europe](#europe)
+* [Australia](#australia)
+* [United States](#united-states)
 
 ### Europe
 
@@ -76,7 +76,7 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 The [luis.ai](https://www.luis.ai) portal and United States authoring APIs are hosted in Azure's United States geography. The luis.ai portal and United States authoring APIs support deployment of endpoints to the following Azure geographies:
 
-* Azure geographies not supported above
+* Azure geographies not supported in Europe or Australia
 
 When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endoint-utt.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endoint-utt.md#delete-utterance). 
 
