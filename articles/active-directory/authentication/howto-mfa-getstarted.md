@@ -47,6 +47,8 @@ Enable at least one authentication method for your users based on your organizat
 
 Once you enable the conditional access policy, users will be forced to enroll the next time they use an app protected with the policy. If you enable a policy requiring MFA for all users on all cloud apps, this action could cause headaches for your users and your helpdesk. The recommendation is to ask users to register authentication methods beforehand using the registration portal at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Many organizations find that creating posters, table cards, and email messages helps drive adoption.
 
+Use the customizable posters and email templates in [multi-factor authentication rollout materials] to roll out multi-factor authentication to your organization. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
 ## Enable Multi-Factor Authentication with Conditional Access
 
 Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
