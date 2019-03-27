@@ -189,19 +189,17 @@ When you're testing an IoT Edge deployment, you can usually access your devices 
 
 By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
 
-**Option: set global limits that apply to all container modules**
+**Option: Set global limits that apply to all container modules**
 
 You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
 
-    ```
     {
-    "log-driver": "json-file",
-    "log-opts": {
-        "max-size": "10m",
-        "max-file": "3"
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
     }
-    }
-    ``` 
 
 Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
 
@@ -210,11 +208,10 @@ Add (or append) this information to a file named `daemon.json` and place it the 
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby-data\config\` |
 
-**Option: adjust the logfile size of each container module**
+**Option: Adjust the logfile size of each container module**
 
 You can do so in the **createOptions** of each module. For example:
 
-    ```
     "createOptions": {
         "HostConfig": {
             "LogConfig": {
@@ -226,7 +223,7 @@ You can do so in the **createOptions** of each module. For example:
             }
         }
     }
-    ```
+
 
 **Addtional options on Linux systems**
 
