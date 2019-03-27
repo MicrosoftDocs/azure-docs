@@ -51,10 +51,11 @@ Azure AD entitlement management can help address these challenges.
 
 Here are some of capabilities of entitlement management:
 
-- Define packages of resources that users need
+- Create packages of related resources that users need
 - Define rules for how to request resources and when access expires
-- Delegate to users the ability to manage resources and approve requests
 - Govern the lifecycle of access for both internal and guest users
+- Delegate management of resources
+- Designate approvers to approve requests
 - Create reports to track history
 
 For an overview of identity governance and entitlement management, watch the following video from the Ignite 2018 conference:
