@@ -11,13 +11,15 @@ ms.author: alkarche
 
 ---
 # Integrate a Function App with an Azure Virtual Network
-This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET. 
 
-For this tutorial we will be deploying a wordpress site on a VM in a private, non-internet accessible, VNET. We will then deploy a Function with access to both the internet and the VNET. We will use that Function to access resources from the wordpress site deployed inside the VNET.
+This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET.
+
+For this tutorial we will be deploying a WordPress site on a VM in a private, non-internet accessible, VNET. We will then deploy a Function with access to both the internet and the VNET. We will use that Function to access resources from the WordPress site deployed inside the VNET.
 
 For more information on how the system works, troubleshooting, and advanced configuration, see the document [Integrate your app with an Azure Virtual Network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet). Azure Functions in the dedicated plan has the same hosting capabilities as web apps, so all the functionality and limitations in that document apply to Functions as well.
 
 ## Topology
+
  ![VNet Integration UI][1]
 
 ## Creating a VM inside of a VNET
@@ -26,15 +28,15 @@ To start off, we will create a pre-configured VM running Wordpress inside of a V
 
 Wordpress on a VM was chosen because it is one of the least expensive resources that can be deployed inside of a VNET. Note that this scenario can also work with any resource in a VNET including REST APIs, other Azure Services, App Service environments, etc.
 
-1.	Go to the Azure portal
-2.	Add a new resource by opening the “Create a resource” blade
-3.	Search for “[Wordpress LEMP7 Max Performance on CentOS](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)” and open its creation blade 
-4.	In the creation blade configure the VM with the following information:
-    1.	Create a new resource group for this VM to make cleaning up the resources easier at the end of the tutorial. I named my Resource Group “Function-VNET-Tutorial”
-    1.	Give the virtual machine a unique name. I named mine “VNET-Wordpress”
-    1.	Select the region closest to you
-    1.	Select the size as B1s (1 vcpu, 1 GB memory)
-    1.	For the administrator account, choose password authentication and enter a unique username and password. For this tutorial, you will not need to sign in to the VM unless you need to troubleshoot.
+1. Go to the Azure portal
+2. Add a new resource by opening the “Create a resource” blade
+3. Search for “[WordPress LEMP7 Max Performance on CentOS](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)” and open its creation blade 
+4. In the creation blade configure the VM with the following information:
+    1. Create a new resource group for this VM to make cleaning up the resources easier at the end of the tutorial. I named my Resource Group “Function-VNET-Tutorial”
+    1. Give the virtual machine a unique name. I named mine “VNET-Wordpress”
+    1. Select the region closest to you
+    1. Select the size as B1s (1 vcpu, 1 GB memory)
+    1. For the administrator account, choose password authentication and enter a unique username and password. For this tutorial, you will not need to sign in to the VM unless you need to troubleshoot.
     
         <img src="./media/functions-create-vnet/create-VM-1.png" width="700">
 
@@ -56,19 +58,26 @@ Wordpress on a VM was chosen because it is one of the least expensive resources 
 
 You will now have a wordpress site deployed entirely within your virtual network. This site is not accessible from the public internet.
 
-## Create a Dedicated Function App
+## Create a Premium plan Function App
 
-The next step is to create a Function App inside of a standard or higher App Service Plan. Note that consumption plan Function apps do not support VNET integration.
+The next step is to create a Function App inside of a Premium plan. The Premium plan is a new offering that brings serverless scale to a plan with all of the benefits of a dedicated App Service Plan. Note that consumption plan Function apps do not support VNET integration.
 
 1. Go to the Azure portal
 2. Add a new resource by opening the “Create a resource” blade
 3. Select "Serverless Function App"
-4. Enter all of your normal information into the creation blade, with one exception:
-    1. Select a standard or higher App Service Plan level.
+4. Enter all of your information into the creation blade and set your **Hosting plan** to **App Service Plan**:
+    
+    <img src="./media/functions-create-vnet/Create-Function-App-Plan.PNG" width="300">
 
+    1. Select a Premium Plan (EP) Service Plan level. 
+
+        <img src="./media/functions-create-vnet/Hosting-Plan.PNG" width="900">
+
+    1. Your completed Plan will look like the following:
+        
         <img src="./media/functions-create-vnet/Create-App-Service-Plan.PNG" width="300">
     
-1. My completed creating blade looked like the following.
+1. My completed creating blade looked like the following:
 
     <img src="./media/functions-create-vnet/Create-Function-App.png" width="300">
 
@@ -78,6 +87,9 @@ The next step is to create a Function App inside of a standard or higher App Ser
 Now we have a wordpress site hosing many files from within a VNET, and will now need to connect the Function app to that VNET.
 
 1.	In the portal for the Function App from the previous step select **Platform features**, then select **Networking**
+
+    <img src="./media/functions-create-vnet/Networking-0.png" width="850">
+
 1.	Select **Click to configure** under VNet Integration
 
     <img src="./media/functions-create-vnet/Networking-1.png" width="450">
