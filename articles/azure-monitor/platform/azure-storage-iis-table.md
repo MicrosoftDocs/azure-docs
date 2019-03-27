@@ -144,7 +144,7 @@ In approximately 30 minutes, you are able to see data from the storage account i
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Use the steps in [Configuring Azure Monitor to index Azure diagnostics](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) to use PowerShell to read from Azure diagnostics that are written to table storage.
+Use the steps in [Configuring Azure Monitor to index Azure diagnostics](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
 For more information, see [Enabling Diagnostics in Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
