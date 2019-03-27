@@ -100,7 +100,7 @@ Once you have provided your values for the variables, press **F5** to run the sc
 
 After the script runs and the cluster is created, find the `ClusterEndpoint` in the output. For example:
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
@@ -144,7 +144,7 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  You should see the IIS default web page:
 ![IIS default web page][iis-default]
