@@ -33510,7 +33510,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-container-agent-upgrade.md",
-      "redirect_url": "/azure/azure-monitor/insights/container-agent-upgrade",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
       "redirect_document_id": "false"
     },
     {

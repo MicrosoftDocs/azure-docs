@@ -90,13 +90,15 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open Program.cs, and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+4. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -110,7 +112,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .UseStartup<Startup>();
     ```
 
-5. Open Index.cshtml in the Views > Home directory, and replace its content with the following code:
+6. Open Index.cshtml in the Views > Home directory, and replace its content with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -136,7 +138,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </html>
     ```
 
-6. Open _Layout.cshtml in the Views > Shared directory, and replace its content with the following code:
+7. Open _Layout.cshtml in the Views > Shared directory, and replace its content with the following code:
 
     ```html
     <!DOCTYPE html>
