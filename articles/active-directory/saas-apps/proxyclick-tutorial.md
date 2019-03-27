@@ -213,7 +213,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Proxyclick test user
 
-To enable Azure AD users to log in to Proxyclick, they must be provisioned into Proxyclick. In the case of Proxyclick, provisioning is a manual task.
+To enable Azure AD users to sign in to Proxyclick, they must be provisioned into Proxyclick. In the case of Proxyclick, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
