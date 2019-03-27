@@ -11,6 +11,7 @@
     href: service-prerequisites.md
   - name: Get started with ASC for IoT
     href: getting-started.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -34,11 +35,10 @@
   - name: Security recommendations
     href: concept-recommendations.md
 
-
 - name: How-to guides
   items:
     - name: Deploy security agents
-    items:
+      items:
     - name: Which agent should I deploy?
       href: how-to-deploy-agent.md
     - name: Deploy a C#-based security agent on a Windows device
@@ -55,7 +55,6 @@
     href: how-to-security-data-access.md
   - name: Investigate a device
     href: how-to-investigate-device.md
-
 
 - name: Resources
   items:
