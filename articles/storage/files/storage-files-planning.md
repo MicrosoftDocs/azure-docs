@@ -74,6 +74,22 @@ Azure Files offers two performance tiers: standard and premium.
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 * **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md)
 
+Premium file shares is still in preview and is only available in a subset of regions with Azure Backup support being available in an even smaller subset:
+
+|Region  |Azure Backup support  |
+|---------|---------|
+|East US2      | Yes|
+|East US       | Yes|
+|West US       | No |
+|West US2      | No |
+|Central US    | No |
+|North Europe  | No |
+|West Europe   | Yes|
+|SE Asia       | Yes|
+|Japan East    | No |
+|Korea Central | No |
+|Australia East| No |
+
 ### Provisioned shares
 
 Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase.
