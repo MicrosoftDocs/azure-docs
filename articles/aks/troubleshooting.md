@@ -89,4 +89,4 @@ Cluster operations are limited when active upgrade operations are occurring or a
 
 ## Can I move my cluster to a different subscription/tenant?
 
-If you have moved your AKS cluster to a different subscription/tenant, the cluster will lose functionality. **AKS does not support moving clusters across subscriptions or tenants** due to managed resources no longer having proper rights to access the new subscription or tenant. To resolve this, move your resources back to their original creation settings to restore rights for managed cluster operations.
+If you have moved your AKS cluster to a different subscription/tenant, the cluster will lose functionality. **AKS does not support moving clusters across subscriptions or tenants** due to managed resources no longer having proper rights to access the new subscription or tenant.
