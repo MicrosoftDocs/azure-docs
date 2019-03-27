@@ -11,6 +11,8 @@
     href: stream-files-dotnet-quickstart.md
   - name: Stream video files - CLI
     href: stream-files-cli-quickstart.md
+  - name: Stream video files - Node.js
+    href: stream-files-nodejs-quickstart.md
 - name: Tutorials
   expanded: true
   items:
@@ -50,6 +52,7 @@
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Media Encoder Standard formats
+      displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
@@ -87,7 +90,7 @@
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
     - name: Streaming Endpoints
-      displayName: Origins
+      displayName: origins, cdn 
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
       displayName: URLs

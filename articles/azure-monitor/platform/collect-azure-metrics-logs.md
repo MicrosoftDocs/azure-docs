@@ -1,6 +1,6 @@
 ---
-title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
-description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
+title: Collect Azure service logs and metrics into Log Analytics workspace | Microsoft Docs
+description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics workspace in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,14 +15,14 @@ ms.date: 04/12/2017
 ms.author: magoedte
 ---
 
-# Collect Azure service logs and metrics for use in Log Analytics
+# Collect Azure service logs and metrics into Log Analytics workspace in Azure Monitor
 
 There are four different ways of collecting logs and metrics for Azure services:
 
-1. Azure diagnostics direct to Log Analytics (*Diagnostics* in the following table)
-2. Azure diagnostics to Azure storage to Log Analytics (*Storage* in the following table)
+1. Azure diagnostics direct to Log Analytics workspace in Azure Monitor (*Diagnostics* in the following table)
+2. Azure diagnostics to Azure storage to Log Analytics workspace in Azure Monitor (*Storage* in the following table)
 3. Connectors for Azure services (*Connectors* in the following table)
-4. Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
+4. Scripts to collect and then post data into Log Analytics workspace in Azure Monitor (blanks in the following table and for services that are not listed)
 
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
@@ -59,12 +59,12 @@ There are four different ways of collecting logs and metrics for Azure services:
 >
 
 ## Azure diagnostics direct to Log Analytics
-Many Azure resources are able to write diagnostic logs and metrics directly to Log Analytics and this is the preferred way of collecting the data for analysis. When using Azure diagnostics, data is written immediately to Log Analytics and there is no need to first write the data to storage.
+Many Azure resources are able to write diagnostic logs and metrics directly to a Log Analytics workspace in Azure Monitor, and this is the preferred way of collecting the data for analysis. When using Azure diagnostics, data is written immediately to the workspace, and there is no need to first write the data to storage.
 
-Azure resources that support [Azure monitor](../../azure-monitor/overview.md) can send their logs and metrics directly to Log Analytics.
+Azure resources that support [Azure monitor](../../azure-monitor/overview.md) can send their logs and metrics directly to a Log Analytics workspace.
 
 > [!NOTE]
-> Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+> Sending multi-dimensional metrics to a Log Analytics workpace via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
 >
 > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric is represented as all incoming messages across all queues in the Event Hub.
 >
@@ -76,8 +76,6 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 ### Enable diagnostics with PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
 The following PowerShell example shows how to use [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
 
@@ -122,9 +120,9 @@ To enable diagnostics on a resource when it is created, and have the diagnostics
 
 ## Azure diagnostics to storage then to Log Analytics
 
-For collecting logs from within some resources, it is possible to send the logs to Azure storage and then configure Log Analytics to read the logs from storage.
+For collecting logs from within some resources, it is possible to send the logs to Azure storage and then configure the Log Analytics workspace to read the logs from storage.
 
-Log Analytics can use this approach to collect diagnostics from Azure storage for the following resources and logs:
+Azure Monitor can use this approach to collect diagnostics from Azure storage for the following resources and logs:
 
 | Resource | Logs |
 | --- | --- |
@@ -133,23 +131,23 @@ Log Analytics can use this approach to collect diagnostics from Azure storage fo
 | Web Roles <br> Worker Roles |Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent |
 
 > [!NOTE]
-> You are charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
+> You are charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when the Log Analytics workspace reads the data from your storage account.
 >
 >
 
-See [Use blob storage for IIS and table storage for events](azure-storage-iis-table.md) to learn more about how Log Analytics can collect these logs.
+See [Use blob storage for IIS and table storage for events](azure-storage-iis-table.md) to learn more about how Azure Monitor can collect these logs.
 
 ## Connectors for Azure services
 
-There is a connector for Application Insights, which allows data collected by Application Insights to be sent to Log Analytics.
+There is a connector for Application Insights, which allows data collected by Application Insights to be sent to a Log Analytics workspace.
 
 Learn more about the [Application Insights connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## Scripts to collect and post data to Log Analytics
+## Scripts to collect and post data to Log Analytics workspace
 
-For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](../../azure-monitor/platform/data-collector-api.md)
+For Azure services that do not provide a direct way to send logs and metrics to a Log Analytics workspace you can use an Azure Automation script to collect the log and metrics. The script can then send the data to the workspace using the [data collector API](../../azure-monitor/platform/data-collector-api.md)
 
-The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
+The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and send it to Azure Monitor.
 
 ## Next steps
 

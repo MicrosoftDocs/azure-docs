@@ -4,7 +4,7 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/11/2019
-ms.author: markvi
+ms.date: 03/25/2019
+ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -50,6 +50,8 @@ Azure AD supports several of the most widely used authentication and authorizati
 Single factor authentication (for example, username and password) is not enough these days. Passwords are bad as they are easy to guess and we (humans) are bad at choosing good passwords. Passwords are also vulnerable to a variety of attacks like phishing and password spray. One of the easiest things you can do to protect against password threats is to implement MFA. With MFA, even if an attacker gets in possession of a user's password, the password alone is not sufficient to successfully authenticate and access the data.
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
+
+Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access.
 
 
 
@@ -134,4 +136,6 @@ If you block legacy authentication using the other clients condition, you can al
 
 ## Next steps
 
-If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+- If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+
+- For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
