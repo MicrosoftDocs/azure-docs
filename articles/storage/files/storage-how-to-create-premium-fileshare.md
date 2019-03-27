@@ -89,9 +89,6 @@ Login-AzAccount
 
 To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
-> [!NOTE]
-> The hierarchical namespace is currently available in all public regions.
-
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly

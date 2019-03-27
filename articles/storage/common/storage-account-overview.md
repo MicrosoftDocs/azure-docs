@@ -62,7 +62,7 @@ A block blob storage account is a specialized storage account for storing unstru
 
 ### FileStorage (preview) storage accounts
 
-A FileStorage storage account is a specialized storage account used to create premium fileshares. 
+A FileStorage storage account is a specialized storage account used to store and create premium file shares.
 
 ## Naming storage accounts
 
