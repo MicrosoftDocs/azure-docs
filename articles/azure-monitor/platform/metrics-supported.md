@@ -433,11 +433,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|RunDuration|Run Duration|Milliseconds|Total|Run duration of tasks in milliseconds.|Resource ID, OS Type|
-|SuccessfulPullCount|Successful Pull Count|Count|Average|Number of successful image pulls.|Resource ID|
-|SuccessfulPushCount|Successful Push Count|Count|Average|Number of successful image pushes.|Resource ID|
-|TotalPullCount|Total Pull Count|Count|Average|Number of image pulls in total.|Resource ID|
-|TotalPushCount|Total Push Count|Count|Average|Number of image pushes in total.|Resource ID|
+|RunDuration|Run Duration|Milliseconds|Total|Run duration of tasks in milliseconds.|No Dimensions|
+|SuccessfulPullCount|Successful Pull Count|Count|Average|Number of successful image pulls.|No Dimensions|
+|SuccessfulPushCount|Successful Push Count|Count|Average|Number of successful image pushes.|No Dimensions|
+|TotalPullCount|Total Pull Count|Count|Average|Number of image pulls in total.|No Dimensions|
+|TotalPushCount|Total Push Count|Count|Average|Number of image pushes in total.|No Dimensions|
 
 ## Microsoft.ContainerService/managedClusters
 
