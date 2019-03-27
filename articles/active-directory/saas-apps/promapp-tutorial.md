@@ -99,7 +99,7 @@ To configure Azure AD single sign-on with Promapp, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![Promapp Domain and URLs single sign-on information](common/idp-intiated.png)
 
