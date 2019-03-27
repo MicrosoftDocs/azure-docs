@@ -41,7 +41,7 @@ If you see that your service is paused or scaling, check to see it isn't during 
 
 ![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL data warehouse, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL data warehouse, follow the steps outlined [here](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## Check your firewall settings
 
