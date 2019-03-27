@@ -72,8 +72,6 @@ choose **Custom**.
 
 3. Enter or drag the slider for the number of days you want.
 
-<a name="throughput-limits"></a>
-
 <a name="looping-debatching-limits"></a>
 
 ## Concurrency, looping, and debatching limits
@@ -89,6 +87,8 @@ Here are the limits for a single logic app run:
 | SplitOn items | 100,000 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. |
 | Until iterations | 5,000 | |
 ||||
+
+<a name="throughput-limits"></a>
 
 ## Throughput limits
 
@@ -110,8 +110,8 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 |------|-------|-------|
-| Base unit execution limit | 10,000 action executions per 5 minutes, which is ~80 million action executions per month | |
-| Scale unit execution limit | 5,000 action executions per 5 minutes, which is ~40 million action executions per month | |
+| Base unit execution limit | 10,000 action executions per 5 minutes, <br>which is ~80 million action executions per month | |
+| Scale unit execution limit | 5,000 action executions per 5 minutes, <br>which is ~40 million action executions per month | |
 | Maximum scale units that you can add | 3 | |
 ||||
 
