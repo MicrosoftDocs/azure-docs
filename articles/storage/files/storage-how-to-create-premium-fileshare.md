@@ -21,7 +21,7 @@ This article shows you how to create this new account type using the [Azure port
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a premium file share using the Azure Portal
+## Create a premium file share using the Azure portal
 
 ### Sign in to Azure
 
@@ -75,9 +75,9 @@ If you would like to clean up the resources created in this article, you can sim
 
 First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
 
-Then, log in to your Azure subscription, create a resource group, and then create a storage account.
+Then, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
-### Log in to your Azure Subscription
+### Sign in to your Azure Subscription
 
 Use the `Login-AzAccount` command and follow the on-screen directions to authenticate.
 
@@ -87,7 +87,7 @@ Login-AzAccount
 
 ### Create a resource group
 
-To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command: 
+To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 > [!NOTE]
 > The hierarchical namespace is currently available in all public regions.
@@ -118,7 +118,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Create a premium file share using Azure CLI
 
-To start Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
 If you want to log into your local installation of the CLI, run the login command:
 
@@ -144,7 +144,7 @@ az group create `
 
 ### Create a FileStorage (preview) storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
+To create a FileStorage (preview) storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
