@@ -185,11 +185,53 @@ On Linux, the IoT Edge daemon uses journals as the default logging driver. You c
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
-If you're worried about logs becoming too large on a resource constrained device, you have a few options to reduce memory use. 
+### Place limits on log size
 
-* You can specifically limit the size of all docker logfiles in the Docker daemon itself. For Linux, configure the daemon at `/etc/docker/daemon.json`. For Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* If you want to adjust the logfile size for each container, you can do so in the CreateOptions of each module. 
-* Configure Docker to automatically manage logs by setting journals as the default logging driver for Docker. 
+By default the Moby container engine does not set container log size limits. Over time this can lead to device filling up with logs and running out of disk space. Consider the following options to prevent this:
+
+**Option: set global limits that apply to all container modules**
+
+You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to JSON (recommended) with max size and number of files limit:
+
+    ```
+    {
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
+    }
+    }
+    ``` 
+
+Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
+
+| Platform | Location |
+| -------- | -------- |
+| Linux | `/etc/docker/daemon.json` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\daemon.json` |
+
+**Option: adjust the logfile size of each container module**
+
+You can do so in the **CreateOptions** of each module. For example:
+
+    ```
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+    ```
+
+**Addtional options on Linux systems**
+
+* Configure the container engine to send logs to `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) by setting `journald` as the default logging driver. 
+
 * Periodically remove old logs from your device by installing a logrotate tool for Docker. Use the following file specification: 
 
    ```
