@@ -277,7 +277,7 @@
       href: media-services-protect-hls-with-fairplay.md
     - name: Offline PlayReady for Windows 10
       href: offline-playready-streaming-windows-10.md
-    - name: Offline Fairplay for iOS
+    - name: Offline FairPlay for iOS
       href: media-services-protect-hls-with-offline-fairplay.md
     - name: Offline Widevine for Android
       href: offline-widevine-for-android.md
