@@ -203,7 +203,7 @@ A successful response returns a status of 204 and no JSON response body.
 
 When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
 
-The `SuggestedQuestions` column is a JSON object of information of implicit (`autosuggested`) and explicit (`usersuggested`) [feedback](#active-learning). An example of this JSON object for a single user-submitted question of `help` is:
+The `SuggestedQuestions` column is a JSON object of information of implicit (`autosuggested`) and explicit (`usersuggested`) feedback. An example of this JSON object for a single user-submitted question of `help` is:
 
 ```JSON
 [

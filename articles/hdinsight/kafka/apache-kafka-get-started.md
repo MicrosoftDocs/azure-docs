@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 03/26/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 # Quickstart: Create an Apache Kafka on HDInsight cluster

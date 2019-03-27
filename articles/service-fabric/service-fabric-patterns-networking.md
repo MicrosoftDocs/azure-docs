@@ -3,7 +3,7 @@ title: Networking patterns for Azure Service Fabric | Microsoft Docs
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Service Fabric networking patterns
