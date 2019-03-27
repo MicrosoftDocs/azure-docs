@@ -31,7 +31,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 1. From the **File** menu, click **New** > **Project**. 
 1. Create a **.NET Core** console application.
 
-The project in this repository was created using Visual Studio 2017. It targets `netcoreapp2.0`. The code in the project uses 'async main', which is available starting with C# 7.1. See this [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) for more details.
+The sample app in this topic, targets `netcoreapp2.0`. The code in uses 'async main', which is available starting with C# 7.1. See this [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) for more details.
 
 ## Add required NuGet packages
 
