@@ -33,7 +33,7 @@ sections:
   - title: 5-Minute Quickstarts
     items:
     - type: paragraph
-      text: 'Learn how to extract insights from your videos with Video Indexer:'
+      text: 'Sign in to the Video Indexer website and upload your first video:'
     - type: list
       style: icon48
       items: 
