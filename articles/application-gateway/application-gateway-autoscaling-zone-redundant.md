@@ -25,6 +25,29 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
+## Feature comparison between v1 SKU and v2 SKU
+
+The following table compares the features available with each SKU.
+
+|                                                   | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Autoscaling                                       |          | &#x2713; |
+| Zone redundancy                                   |          | &#x2713; |
+| &nbsp;Static VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL-based routing                                 | &#x2713; | &#x2713; |
+| Multiple-site hosting                             | &#x2713; | &#x2713; |
+| Traffic redirection                               | &#x2713; | &#x2713; |
+| Web application firewall (WAF)                    | &#x2713; | &#x2713; |
+| Secure Sockets Layer (SSL) termination            | &#x2713; | &#x2713; |
+| End-to-end SSL encryption                         | &#x2713; | &#x2713; |
+| Session affinity                                  | &#x2713; | &#x2713; |
+| Custom error pages                                | &#x2713; | &#x2713; |
+| Rewrite HTTP(S) headers                           |          | &#x2713; |
+| WebSocket support                                 | &#x2713; | &#x2713; |
+| HTTP/2 support                                    | &#x2713; | &#x2713; |
+| Connection draining                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) Ingress controller |          | &#x2713; |
+
 ## Supported regions
 
 The autoscaling SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West.
@@ -43,7 +66,7 @@ During preview, there's no charge. You are billed for resources other than appli
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |Billing|There is no billing currently.|
-|FIPS mode, WebSocket|These are currently not supported.|
+|FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported in the Public Preview.|
 

@@ -102,11 +102,14 @@ API | Default Data Format | Other Formats
 /scheduledevents | json | none
 /attested | json | none
 
-To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
+To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
 
 ### Security
 
@@ -120,8 +123,8 @@ If there is a data element not found or a malformed request, the Instance Metada
 HTTP Status Code | Reason
 ----------------|-------
 200 OK |
-400 Bad Request | Missing `Metadata: true` header
-404 Not Found | The requested element doesn't exist 
+400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
+404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` and `POST` requests are supported
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
 500 Service Error     | Retry after some time
@@ -500,8 +503,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
-
+``` bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+```
 
 **Response**
 ```

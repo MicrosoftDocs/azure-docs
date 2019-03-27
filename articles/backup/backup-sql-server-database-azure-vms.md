@@ -141,7 +141,7 @@ Configure backup as follows:
 
    - Select the default policy: HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
-   - [Define a new policy](#configure-a-backup-policy) based on your RPO and retention range.
+   - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
