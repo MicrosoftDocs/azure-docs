@@ -95,4 +95,4 @@ It is recommended that key concepts such as high availability and security are w
 * [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
-* [Monitoring](monitoring.md)
+
