@@ -58,8 +58,7 @@ Most of these parameters have default values. The ones ending with **_in** are c
 
 **d2c_partitions**: This field is the number of partitions used for the event stream.
 
-<!--robin-->
-**features**: This field is the features of the IoT Hub. Ok, I have actually no idea what this is. Does it show up in the portal somewhere? 
+**features**: This field is the capabilities and features enabled for the IoT hub. Should be set to None or DeviceManagement.
 
 **storageAccountName_in**: This field is the name of the storage account to be created. Messages are routed to a container in the storage account. This field is concatenated with the randomValue to make it globally unique.
 
