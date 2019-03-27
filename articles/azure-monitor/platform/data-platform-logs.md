@@ -18,8 +18,6 @@ ms.author: bwren
 > [!NOTE]
 > All data collected by Azure Monitor fits into one of two fundamental types, Metrics and Logs. This article describes Logs. Refer to [Metrics in Azure Monitor](data-platform-metrics.md) for a detailed description of metrics and to [Monitoring data collected by Azure Monitor](data-platform.md) for a comparison of the two.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Logs in Azure Monitor are especially useful for performing complex analysis across data from a variety of sources. This article describes how Logs are structured in Azure Monitor, what you can do with the data, and identifies different data sources that store data in Logs.
 
 > [!NOTE]
