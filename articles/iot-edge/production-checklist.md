@@ -201,12 +201,14 @@ You can limit the size of all container logfiles in the container engine log opt
         }
     }
 
-Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform. The container engine must be restarted for the changes to take effect.
+Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
 
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+The container engine must be restarted for the changes to take effect.
 
 **Option: Adjust log settings for each container module**
 
