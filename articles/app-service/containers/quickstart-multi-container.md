@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
@@ -134,7 +134,10 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a multi-container WordPress app in Web App for Containers](tutorial-multi-container-app.md)
+> [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure a custom container](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

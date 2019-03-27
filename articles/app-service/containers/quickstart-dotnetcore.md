@@ -5,7 +5,7 @@ keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -184,4 +184,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database app in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

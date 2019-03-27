@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # Tutorial: Build a Java EE and Postgres web app in Azure
 
-This tutorial will show you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](https://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service on Linux](app-service-linux-intro.md).
+This tutorial shows you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](https://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service on Linux](app-service-linux-intro.md).
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Deploy a Java EE app to Azure using Maven
 > * Create a Postgres database in Azure
@@ -191,9 +191,26 @@ Congratulations! Your application is now using a Postgres database and any recor
 If you don't need these resources for another tutorial (see Next steps), you can delete them by running the following command:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## Next steps
 
-Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) for more information on setting up services, troubleshooting, and scaling your application.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Deploy a Java EE app to Azure using Maven
+> * Create a Postgres database in Azure
+> * Configure the WildFly server to use Postgres
+> * Update and redeploy the app
+> * Run unit tests on WildFly
+
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+
+Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure Java app](configure-language-java.md)

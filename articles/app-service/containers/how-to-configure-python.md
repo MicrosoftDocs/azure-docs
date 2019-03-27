@@ -12,15 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2019
+ms.date: 03/27/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
 ms.custom: seodec18
 ---
 
 # Configure your Python app for Azure App Service
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules. 
-The App Service deployment engine (Kudu) automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on.
+
+This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+
+The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on.
+
+This guide provides key concepts and instructions for Python developers using in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [tutorial](tutorial-python-postgresql-app.md) first.
 
 > [!NOTE]
 > [Python on the Windows flavor of App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service) is deprecated and is not recommended for use.
@@ -53,10 +57,13 @@ az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-
 ## Container characteristics
 
 Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+
 This container has the following characteristics:
 
 - Apps are run using the [Gunicorn WSGI HTTP Server](https://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
+
 - By default, the base image includes the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.7, such as Django.
+
 - To install additional packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. Then, publish your project to App Service using Git deployment, which automatically runs `pip install -r requirements.txt` in the container to install your app's dependencies.
 
 ## Container startup process
@@ -79,7 +86,7 @@ For Django apps, App Service looks for a file named `wsgi.py` within your app co
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want more specific control over the startup command, use a custom startup command and replace `<module>` with the name of the module that contains *wsgi.py*.
+If you want more specific control over the startup command, use a [custom startup command](#customize-startup-command) and replace `<module>` with the name of the module that contains *wsgi.py*.
 
 ### Flask app
 
@@ -92,7 +99,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a custom startup command.
+If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command](#customize-startup-command).
 
 ### Default behavior
 
@@ -125,8 +132,11 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 To provide a custom command, do the following steps:
 
 1. Navigate to the [Application settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page on the Azure portal.
+ 
 1. In the **Runtime** settings, set the **Stack** option to **Python 3.7**, and enter the command directly in the **Startup File** field.
-Alternately, you can save the command in a text file in the root of your project, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
+
+    Alternately, you can save the command in a text file in the root of your project, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
+
 1. Select **Save**. The App Service restarts automatically, and after a few seconds you should see the custom startup command applied.
 
 > [!Note]
@@ -151,14 +161,25 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 
 Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [CodeIgniter](https://codeigniter.com/), the [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) checks the value of `X_FORWARDED_PROTO` by default.
 
+## Access diagnostic logs
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## Troubleshooting
 
 - **You see the default app after deploying your own app code.** The default app appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 - Restart the App Service, wait 15-20 seconds, and check the app again.
 - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, replacing `<resource_group_name>` and `<app_service_name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
 - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeploy the app.
-- If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a custom startup command.
+- If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 - **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
 - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
 - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
-- Use SSH or the Kudu Console to connect to the App Service, then examine the diagnostic logs stored in the *LogFiles* folder. For more information on logging, see [Enable diagnostics logging for web apps in Azure App Service](../troubleshoot-diagnostic-logs.md).
+- [Access the log stream](#access-diagnostic-logs).
+
+## Next steps
+
+The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
+
+> [!div class="nextstepaction"]
+> [Python app with PostgreSQL](tutorial-python-postgresql-app.md)
