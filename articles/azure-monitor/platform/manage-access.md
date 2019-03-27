@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
 ---
 
@@ -295,10 +295,10 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 
