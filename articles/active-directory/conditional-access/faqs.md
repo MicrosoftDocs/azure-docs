@@ -3,7 +3,7 @@ title: Azure Active Directory conditional access FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about conditional access in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management

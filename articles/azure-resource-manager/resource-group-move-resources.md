@@ -100,6 +100,7 @@ The following list provides a general summary of Azure services that can be move
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
 * Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
+* SAP HANA on Azure
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 * Service Bus
@@ -142,7 +143,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Microsoft Genomics
-* SAP HANA on Azure
 * Security
 * Site Recovery
 * StorSimple Device Manager
