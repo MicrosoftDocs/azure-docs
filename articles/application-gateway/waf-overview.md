@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Web application firewall for Azure Application Gateway
 
- Azure Application Gateway offers a  web application firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
+Azure Application Gateway offers a  web application firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
 Preventing such attacks in application code is challenging. It can require rigorous maintenance, patching, and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler. A WAF also gives application administrators better assurance of protection against threats and intrusions.
 
@@ -53,7 +53,7 @@ This section describes the core benefits that Application Gateway and its WAF pr
 - Protection against HTTP protocol violations.
 - Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
 - Protection against bots, crawlers, and scanners.
-- Detection of common application misconfigurations (such as of Apache and Microsoft Internet Information Services software).
+- Detection of common application misconfigurations (for example, Apache and IIS).
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 
@@ -71,7 +71,7 @@ The WAF protects against the following web vulnerabilities:
 - HTTP protocol violations
 - HTTP protocol anomalies, such as missing host user-agent and accept headers
 - Bots, crawlers, and scanners
-- Common application misconfigurations (for example, of Apache or Internet Information Services software)
+- Common application misconfigurations (for example, Apache and IIS)
 
 #### OWASP CRS 3.0
 
@@ -106,7 +106,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|Protect against SQL-injection attacks|
 |**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Protect against cross-site scripting  attacks|
 |**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Protect against path-traversal attacks|
-|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Protect against backdoor Trojans|
+|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Protect against backdoor trojans|
 
 ### WAF modes
 
