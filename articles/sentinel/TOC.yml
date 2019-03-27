@@ -69,9 +69,7 @@
       - name: Connect Cisco
         href: connect-cisco.md
     - name: Connect threat intelligence
-      href: connect-threat-intelligence.md
-  - name: User analytics
-    href: user-analytics.md
+      href: connect-threat-intelligence.md  
   - name: Hunting
     href: hunting.md
     items:
