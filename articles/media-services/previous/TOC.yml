@@ -446,7 +446,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=media-services
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
-  - name: Azure PowerShell (Service Management)
+  - name: Azure PowerShell 
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
