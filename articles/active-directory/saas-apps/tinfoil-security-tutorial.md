@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with TINFOIL SECURITY, perform the followin
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![TINFOIL SECURITY Domain and URLs single sign-on information](common/preintegrated.png)
 
@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with TINFOIL SECURITY, perform the followin
 
 	    ![image](common/edit-attribute.png)
 
-6. In addition to above, LinkedIn application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+6. In addition to above, TINFOIL SECURITY application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute |
 	| ------------------- | -------------|
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with TINFOIL SECURITY, perform the followin
 
 	d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, paste the account ID value which you will get later on the tutorial.
+	e. In the **Source attribute** textbox, paste the account ID value which you will get later on the tutorial.
 
 	f. Click **Ok**
 
