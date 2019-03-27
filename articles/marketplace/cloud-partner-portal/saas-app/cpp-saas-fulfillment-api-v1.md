@@ -650,13 +650,13 @@ A SaaS webhook is used for notifying changes proactively to the SaaS service. Th
 *Body*
 
 ``` json
-{
+  {
     "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
     "action": "Subscribe", // Subscribe/Unsubscribe/ChangePlan
-    "OperationRequestSource":"Azure"
-    "timeStamp": "2018-12-01T00:00:00"
+    "operationRequestSource":"Azure",
+    "timeStamp":"2018-12-01T00:00:00"
   }
 ```
 
