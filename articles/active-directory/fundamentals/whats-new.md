@@ -75,17 +75,17 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### New Zscaler and Atlassian provisioning connectors in Azure AD gallery - March 2019
+### New Zscaler and Atlassian provisioning connectors in the Azure AD gallery - March 2019
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
 
-In March 2019, we've added these 7 new provisioning connectors to the Azure AD gallery:
+Automate creating, updating, and deleting user accounts for the following apps:
 
 [Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](http://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler Two](http://aka.ms/ZscalerTwoProvisioning), [Zscaler Three](http://aka.ms/ZscalerThreeProvisioning), [Zscaler ZSCloud](http://aka.ms/ZscalerZSCloudProvisioning), [Atlassian Cloud](http://aka.ms/atlassianCloudProvisioning)
 
-For more information about how to better secure your organization through automating user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](http://aka.ms/ProvisioningDocumentation).
+For more information about how to better secure your organization through automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](http://aka.ms/ProvisioningDocumentation).
 
 ---
 
