@@ -20,10 +20,7 @@ an approved top 10 customer task.
 
 # Tutorial: Create an Azure storage queue, and insert, get, and delete messages
 
-The article demonstrates the basic steps for creating an Azure storage queue. Common uses of queue storage include:
-
-- Creating a backlog of work to process asynchronously
-- Passing messages from an Azure web role to an Azure worker role
+Queues let your application scale automatically and immediately when demand changes. This makes them useful for critical business data that would be damaging to lose. A queue increases resiliency by temporarily storing waiting messages. At times of low or normal demand, the size of the queue remains small because the destination component removes messages from the queue faster than they are added. At times of high demand, the queue may increase in size, but messages are not lost. The destination component can catch up and empty the queue as demand returns to normal. The article demonstrates the basic steps for creating an Azure storage queue.
 
 In this tutorial, you learn how to:
 
@@ -52,14 +49,12 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 <!---If you need to sign in to the portal to do the tutorial, this H2 and
 link are required.--->
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Prepare your environment
 
-For this tutorial, you need to do the following before you can deploy Azure File Sync:
+For this tutorial, you need to do the following before you can implement Azure queue storage:
 
 - Create an Azure storage account
-- Create the Azure storage infrastructure
+- Open Azure Cloud Shell
 
 <!---If you need them, make Prerequisites your first H2 in a tutorial. If
 there’s something a customer needs to take care of before they start (for
@@ -70,7 +65,7 @@ begin.--->
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-### Create the Azure storage infrastructure
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 <!---Required:
 Tutorials are prescriptive and guide the customer through an end-to-end
