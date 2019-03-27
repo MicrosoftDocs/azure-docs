@@ -13143,6 +13143,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-pricing-billing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/service-bus-messaging/service-bus-sas-overview.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
@@ -33376,11 +33381,6 @@
     {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-central/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/howto-create-webhooks",
       "redirect_document_id": false
     },
     {
