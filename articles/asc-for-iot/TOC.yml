@@ -37,8 +37,8 @@
 
 - name: How-to guides
   items:
-    - name: Deploy security agents
-      items:
+  - name: Deploy security agents
+    items:
     - name: Which agent should I deploy?
       href: how-to-deploy-agent.md
     - name: Deploy a C#-based security agent on a Windows device
