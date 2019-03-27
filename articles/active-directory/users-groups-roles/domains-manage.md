@@ -46,6 +46,8 @@ You can add up to 900 managed domain names. If you're configuring all your domai
 
 If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain is automatically verified by Azure AD. To see that the subdomain you added is verified, refresh the domain list in the browser.
 
+The option to register a third-level domain with federated authentication is currently disable over the portal GUI. To register a thrid-level domain of an existing federated second-level domain, use the PowerShell command 'New-MsolDomain -Name <domain_name> -Authentication Federated'
+
 ## What to do if you change the DNS registrar for your custom domain name
 
 If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
