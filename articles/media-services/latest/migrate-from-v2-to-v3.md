@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
 ---
 
@@ -81,6 +81,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Overlays
     * Cropping
     * Thumbnail Sprites
+    * The InsertSilence flag 
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
 
 > [!NOTE]

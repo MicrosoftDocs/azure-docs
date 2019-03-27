@@ -273,7 +273,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Name           : sap-suse-cluster-connector
    Version        : 3.1.0-8.1
    Arch           : noarch
-   Vendor         : SUSE LLC <https://www.suse.com/>
+   Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
    Support Level  : Level 3
    Installed Size : 45.6 KiB
    Installed      : Yes
@@ -927,7 +927,7 @@ The following tests are a copy of the test cases in the [best practices guides o
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
 
-   Run the following commands as <sapsid>adm to migrate the ASCS instance.
+   Run the following commands as \<sapsid>adm to migrate the ASCS instance.
 
    <pre><code>
    anftstsapcl1:qasadm 53> sapcontrol -nr 00 -host anftstsapvh -user <b>qas</b>adm &lt;password&gt; -function HAFailoverToNode ""
