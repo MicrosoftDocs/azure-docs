@@ -107,7 +107,7 @@ Here are the limits for a single logic app run:
 
 Here are the limits for a single logic app run:
 
-**Global Logic Apps service**
+## Global Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -119,7 +119,7 @@ Here are the limits for a single logic app run:
 | Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. |
 ||||
 
-**Integration service environment (ISE)**
+## Integration service environment (ISE)
 
 | Name | Limit | Notes |
 |------|-------|-------|
@@ -128,25 +128,10 @@ Here are the limits for a single logic app run:
 | Maximum scale units that you can add | 3 | |
 ||||
 
-
-
 To go above these limits in normal processing, 
 or run load testing that might go above these limits, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
-
-<a name="sftp"></a>
-
-## FTP, SFTP, and SFTP-SSH limits
-
-### File size
-
-| Name | Limit | Notes |
-|------|-------|-------|
-| FTP | 50 MB | To exceed this limit for actions only, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. Also, some connectors and APIs might not support chunking or even the default limit. |
-| SFTP | 50 MB | To exceed this limit for actions only, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. Also, some connectors and APIs might not support chunking or even the default limit. |
-| SFTP-SSH | 1 GB | This connector handles up to 1 GB, but transfers that data in 50 MB pieces, not 1 GB pieces. To exceed this limit for actions only, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. |
-|||| 
 
 <a name="request-limits"></a>
 
