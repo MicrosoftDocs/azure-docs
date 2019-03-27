@@ -1,5 +1,5 @@
 ---
-title: What are Azure AD access reviews? | Microsoft Docs
+title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
@@ -37,7 +37,7 @@ Azure AD enables you to collaborate internally within your organization and with
 
 ## When to use access reviews?
 
-- **Too many users in privileged roles:** It's a good idea to check how many users have administrative access, how many of them are Global Administrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in [Azure AD directory roles](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as Global Administrators, or [Azure resources roles](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as User Access Administrator in the [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experience.
+- **Too many users in privileged roles:** It's a good idea to check how many users have administrative access, how many of them are Global Administrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in [Azure AD roles](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as Global Administrators, or [Azure resources roles](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as User Access Administrator in the [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experience.
 - **When automation is infeasible:** You can create rules for dynamic membership on security groups or Office 365 groups, but what if the HR data is not in Azure AD or if users still need access after leaving the group to train their replacement? You can then create a review on that group to ensure those who still need access should have continued access.
 - **When a group is used for a new purpose:** If you have a group that is going to be synced to Azure AD, or if you plan to enable the application Salesforce for everyone in the Sales team group, it would be useful to ask the group owner to review the group membership prior to the group being used in a different risk content.
 - **Business critical data access:** for certain resources, it might be required to ask people outside of IT to regularly sign off and give a justification on why they need access for auditing purposes.
@@ -53,7 +53,7 @@ Depending on what you want to review, you will create your access review in Azur
 | --- | --- | --- | --- |
 | Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self review | Azure AD access reviews</br>Azure AD groups | Access panel |
 | Assigned to a connected app | Specified reviewers</br>Self review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
-| Azure AD directory role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
+| Azure AD role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
 | Azure resource role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
 
 ## Prerequisites

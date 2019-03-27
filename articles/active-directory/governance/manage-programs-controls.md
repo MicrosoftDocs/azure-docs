@@ -1,5 +1,5 @@
 ---
-title: Manage programs and controls for Azure AD access reviews | Microsoft Docs
+title: Manage programs and controls for access reviews - Azure Active Directory | Microsoft Docs
 description: Learn how to create additional programs for each governance, risk management, and compliance initiative in your organization to collect and organize Azure Active Directory access reviews as controls.
 services: active-directory
 documentationcenter: ''

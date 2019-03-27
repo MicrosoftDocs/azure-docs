@@ -54,14 +54,16 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
         dotnet restore
 
-3. Open *Program.cs*, and update the `Main` method to use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
+3. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+4. Update the `Main` method to use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
 
+    ```csharp
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();

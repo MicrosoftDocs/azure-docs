@@ -1,5 +1,5 @@
 ---
-title: Review access to groups or applications in Azure AD access reviews | Microsoft Docs
+title: Review access to groups or applications in access reviews - Azure Active Directory | Microsoft Docs
 description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 author: rolyon

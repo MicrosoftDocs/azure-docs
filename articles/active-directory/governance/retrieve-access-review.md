@@ -1,6 +1,6 @@
 ---
-title: Retrieve access review results for groups or applications in Azure AD access reviews | Microsoft Docs
-description: Learn how to retrieve access review results for group members or application access in Azure AD access reviews.
+title: Retrieve access review results for groups or applications in access reviews - Azure Active Directory | Microsoft Docs
+description: Learn how to retrieve access review results for group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
 author: rolyon

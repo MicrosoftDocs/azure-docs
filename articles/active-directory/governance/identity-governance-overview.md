@@ -1,6 +1,6 @@
 ---
-title: Azure AD identity governance| Microsoft Docs
-description: Azure AD identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
+title: Identity governance - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
 author: rolyon

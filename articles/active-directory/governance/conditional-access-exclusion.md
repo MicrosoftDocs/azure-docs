@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD access reviews to manage users excluded from conditional access policies | Microsoft Docs
+title: Use access reviews to manage users excluded from conditional access policies - Azure Active Directory | Microsoft Docs
 description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
 services: active-directory
 documentationcenter: ''
@@ -39,7 +39,7 @@ Another example might be that you have a conditional access policy that [blocks 
 
 ## Why are exclusions challenging?
 
-In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting directory roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
+In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting Azure AD roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
 
 At the beginning of an exclusion, there is a short list of users who bypass the policy. Over time, more and more users are excluded, and the list grows. At some point, there is a need to review the list and confirm that each of these users should still be excluded. Managing the list from a technical point of view, can be relatively easy, but who makes the business decisions and how do you make sure it is all auditable?
 
