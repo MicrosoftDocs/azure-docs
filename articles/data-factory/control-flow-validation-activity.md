@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 3/25/2019
+ms.date: 03/25/2019
 ms.author: shlo
 
 ---

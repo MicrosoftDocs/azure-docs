@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 3/25/2019
+ms.date: 03/25/2019
 ms.author: shlo
 
 ---
@@ -62,7 +62,7 @@ body | Represents the payload that is sent to the endpoint. | The body passed ba
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic" or "ClientCertificate." For more information, see [Authentication](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No |
 timeout | How long the activity will wait for the &#39;callbackuri&#39; to be invoked. How long the activity will wait for the ‘callbackuri’ to be invoked. Default value is 10mins (“00:10:00”). Format is Timespan i.e. d.hh:mm:ss | String | No |
 
-## Additional Notes
+## Additional notes
 
 Azure Data Factory will pass an additional property “callbackuri” in the body to the url endpoint, and will expect this uri to be invoked before the timeout value specified. If the uri is not invoked, the activity will fail with status ‘TimedOut’.
 
