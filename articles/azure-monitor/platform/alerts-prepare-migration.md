@@ -155,4 +155,3 @@ If you are using a partner integration that is not listed here, confirm with the
 
 - [How to use the migration tool](alerts-using-migration-tool.md)
 - [Understand how the migration tool works](alerts-understand-migration.md)
-- [Common Alert Schema](https://aka.ms/commonAlertSchemaDocs)

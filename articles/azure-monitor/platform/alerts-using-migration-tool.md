@@ -23,24 +23,19 @@ Classic alerts are being replaced by new unified alerting in Azure Monitor. The 
   - You will also be able to take advantage of new notification mechanisms like SMS, Voice and ITSM Connector
 - The [unified alert experience](alerts-overview.md) brings all the alerts on different signals (metric, activity log and log) into one place
 
-## Why migrate using the voluntary migration tool
-
-While you can wait for automatic migration in July 2019, using the voluntary migration tool allows you the following benefits
-
-- If you are already using new alerts, get to unification faster
-- You are in control of when to trigger the migration
-
 ## Things you should know before you start the migration
 
 As part of the migration, classic alert rules are converted to equivalent new alert rules and action groups are created.
 
-The payload format of new alert rules is different from that of the classic alert rules as they support more features.
+- The notification payload format as well as the APIs to create and manage new alert rules is different from those of the classic alert rules as they support more features. Learn [how to prepare for the migration](alerts-prepare-migration.md).
 
-The APIs to create and manage new alert rules are different from the APIs used to create and manage classic alert rules.
+- Some classic alert rules cannot be migrated using the tool. [Learn which rules are not migratable and see how to migrate them](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
 
-Learn more on [how to prepare for the migration](alerts-prepare-migration.md).
+    > [!NOTE]
+    > Migration process will not impact the evaluation of your classic alert rules. They will continue to run and send alerts till they are migrated and new alert rules start evaluating.
 
-## How to migrate your classic alert rules using the migration tool
+
+## How to use the migration tool
 
 The following procedure describes how to trigger the migration of your classic alert rules in Azure portal:
 
@@ -63,21 +58,16 @@ The following procedure describes how to trigger the migration of your classic a
 
     ![migration-preview](media/alerts-migration/migration-preview.png "Preview migration")
 
-7. You can optionally opt-in to use the new **Common Alert Schema**. Common Alert Schema unifies the notification formats (email, webhooks, logic apps and runbooks) across different alert types (metric, log and activity log) to simplify the integration process. Learn more about the [**Common Alert Schema**](https://aka.ms/commonAlertSchemaDocs)
+7. Provide one or more **email addresses** to be notified of migration status. We will send an email when the migration completes or an action is needed from you.
 
-    >[!IMPORTANT]
-    > As the Common Alert Schema is relatively new, our partners might not yet support this. If you have alerts integrated with third-party partner services, we would recommend not opting in before testing your integrations work. If you don't rely on such integrations today, we recommend opting in to simplify your integration process in the future.
-
-8. Provide one or more **email addresses** to be notified of migration status. We will send an email when the migration completes or an action is needed from you.
-
-9. Click on **Start Migration**. Read the information shown in the confirmation dialog and confirm if you are ready to start the migration process.
+8. Click on **Start Migration**. Read the information shown in the confirmation dialog and confirm if you are ready to start the migration process.
 
     >[!IMPORTANT]
     > Once you initiate the migration process for a subscription, you will not be able to edit/create classic alert rules for the subscription. However, your classic alert rules will continue running and providing you alerts till they are migrated over. This is to ensure the fidelity between classic alert rules and the new rules created during migration. Once the migration is complete for your subscription, you can not use classic alert rules anymore.
 
     ![migration-confirm](media/alerts-migration/migration-confirm.png "Confirm start migration")
 
-10. As we complete migration or need an action from you, you will receive an email on the email addresses provided in the step 8. You can also periodically check the status from the migration landing page in the portal.
+9. As we complete migration or need an action from you, you will receive an email on the email addresses provided in the step 8. You can also periodically check the status from the migration landing page in the portal.
 
 ## Frequently asked questions
 
@@ -93,14 +83,13 @@ Users who have the Monitoring Contributor role assigned to them at the subscript
 
 ### **How long is the migration going to take?**
 
-For most subscriptions, migration should complete under 2 hours. However if you have a subscription with large number of classic alert rules(>500), the migration could take up to a few hours.  During this time, please be ensured that your alerts are still running either in the classic alerts system or the new one.
+For most subscriptions, migration typically completes under an hour. You can keep track of the migration progress from the migration landing page.  During this time, please be ensured that your alerts are still running either in the classic alerts system or the new one.
 
 ### **What can I do if I run into an issue during migration?**
 
-Please follow the troubleshooting guide to see remediation steps for any issues you might face during migration. If any action is needed from you to complete the migration, you will be notified on the email address(es) provided during migration.
+Please follow the [troubleshooting guide to see remediation steps for any issues you might face during migration](alerts-understand-migration.md#common-issues-and-remediations). If any action is needed from you to complete the migration, you will be notified on the email address(es) provided during migration.
 
 ## Next steps
 
 - [Prepare for migration](alerts-prepare-migration.md)
 - [Understand how the migration tool works](alerts-understand-migration.md)
-- [Common Alert Schema](https://aka.ms/commonAlertSchemaDocs)

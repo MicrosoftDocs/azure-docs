@@ -14,39 +14,6 @@ As [previously announced](monitoring-classic-retirement.md), classic alerts in A
 
 This article will walk you through how the voluntary migration tool works and provides remediation for some issues you might run into.
 
-## Roll-out phases
-
-The migration tool is rolling out in phases to customers that use classic alert rules. **Subscription Owners** will receive an email when the subscription is ready to be migrated using the tool. As the tool is being rolled out in phases, in early phases, you will see that most of your subscriptions are not yet ready to be migrated. However, by mid-April, all subscriptions that have classic alert rules can be migrated using the migration tool.
-
-Currently a **sub-set** of subscriptions which **only** have classic alert rules on following resource types are marked as ready for migration.
-
-- Microsoft.apimanagement/service
-- Microsoft.batch/batchaccounts
-- Microsoft.cache/redis
-- Microsoft.compute/virtualMachines
-- Microsoft.compute/virtualMachineScaleSets
-- Microsoft.datafactory/datafactories
-- Microsoft.dbformysql/servers
-- Microsoft.dbforpostgresql/servers
-- Microsoft.eventhub/namespaces
-- Microsoft.logic/workflows
-- Microsoft.network/applicationgateways
-- Microsoft.network/dnszones
-- Microsoft.network/expressroutecircuits
-- Microsoft.network/loadbalancers
-- Microsoft.network/networkwatchers/connectionmonitors
-- Microsoft.network/publicipaddresses
-- Microsoft.network/trafficmanagerprofiles
-- Microsoft.network/virtualnetworkgateways
-- Microsoft.notificationhubs/namespaces/notificationhubs
-- Microsoft.search/searchservices
-- Microsoft.servicebus/namespaces
-- Microsoft.streamanalytics/streamingjobs
-- Microsoft.timeseriesinsights/environments
-- Microsoft.web/hostingenvironments/workerpools
-- Microsoft.web/serverfarms
-- Microsoft.web/sites
-
 ## Which classic alert rules can be migrated?
 
 While almost all classic alert rules can be migrated using the tool, there are some exceptions. The following alert rules will not be migrated using the tool (or during the automatic migration in July 2019)
@@ -84,6 +51,39 @@ Classic alert rules on Percent metrics will need to be migrated based on [the ma
 
 Classic alert rules AnonymousThrottlingError and SASThrottlingError will need to be split into two new alerts as there is no combined metric that provides these. Thresholds will need to be appropriately adapted.
 
+## Roll-out phases
+
+The migration tool is rolling out in phases to customers that use classic alert rules. **Subscription Owners** will receive an email when the subscription is ready to be migrated using the tool.
+
+> [!NOTE]
+> As the tool is being rolled out in phases, in early phases, you will see that most of your subscriptions are not yet ready to be migrated. However, by April, all subscriptions that have classic alert rules will be migratable using the migration tool.
+
+Currently a **sub-set** of subscriptions which **only** have classic alert rules on following resource types are marked as ready for migration. Support for more resource types will be added in upcoming phases.
+
+- Microsoft.apimanagement/service
+- Microsoft.batch/batchaccounts
+- Microsoft.cache/redis
+- Microsoft.datafactory/datafactories
+- Microsoft.dbformysql/servers
+- Microsoft.dbforpostgresql/servers
+- Microsoft.eventhub/namespaces
+- Microsoft.logic/workflows
+- Microsoft.network/applicationgateways
+- Microsoft.network/dnszones
+- Microsoft.network/expressroutecircuits
+- Microsoft.network/loadbalancers
+- Microsoft.network/networkwatchers/connectionmonitors
+- Microsoft.network/publicipaddresses
+- Microsoft.network/trafficmanagerprofiles
+- Microsoft.network/virtualnetworkgateways
+- Microsoft.search/searchservices
+- Microsoft.servicebus/namespaces
+- Microsoft.streamanalytics/streamingjobs
+- Microsoft.timeseriesinsights/environments
+- Microsoft.web/hostingenvironments/workerpools
+- Microsoft.web/serverfarms
+- Microsoft.web/sites
+
 ## Who can trigger the migration?
 
 Any user who has the built-in role of **Monitoring Contributor** at the subscription level will be able to trigger the migration. Users with a custom role with the following permissions can also trigger the migration:
@@ -109,4 +109,3 @@ As part of the migration, new metric alerts and new action groups will be create
 
 - [How to use the migration tool](alerts-using-migration-tool.md)
 - [Prepare for migration](alerts-prepare-migration.md)
-- [Common Alert Schema](https://aka.ms/commonAlertSchemaDocs)
