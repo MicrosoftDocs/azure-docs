@@ -122,10 +122,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## Filter examples  
 
- Find all hotels with a base rate less than $100 that are rated at or above 4:  
+ Find all hotels with a base rate less than $200 that are rated at or above 4:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  Find all hotels other than "Roach Motel" that have been renovated since 2010:  
@@ -134,10 +134,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- Find all hotels with a base rate less than $200 that have been renovated since 2012, with a datetime literal that includes time zone information for Pacific Standard Time:  
+ Find all hotels with a base rate less than $200 that have been renovated since 2010, with a datetime literal that includes time zone information for Pacific Standard Time:  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Find all hotels that have parking included and do not allow smoking:  

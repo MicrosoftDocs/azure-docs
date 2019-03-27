@@ -68,9 +68,12 @@ If you don't have a virtual network, learn how to
     > [!NOTE]
     > If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
     > which provides a private connection to Microsoft cloud services, you must 
-    > [add that route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
-    > used by your ISE. If you use a route table with your subnets, 
-    > [add your route to that route table](../virtual-network/manage-route-table.md).
+    > [create a route table](../virtual-network/manage-route-table.md) that has 
+    > the following route and link that table with each subnet used by your ISE:
+    > 
+    > **Name**: <*route-name*><br>
+    > **Address prefix**: 0.0.0.0/0<br>
+    > **Next hop**: Internet
 
   * Make sure that your virtual network [makes these ports available](#ports) 
   so your ISE works correctly and stays accessible.
@@ -168,7 +171,7 @@ and then choose **Review + create**, for example:
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **Additional capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
-   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). |
+   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already set up role-based access control in your virtual network for Azure Logic Apps. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
 
@@ -200,9 +203,12 @@ and then choose **Review + create**, for example:
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
-   remember to [add that route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
-   used by your ISE. If you use a route table with your subnets, 
-   [add your route to that route table](../virtual-network/manage-route-table.md).
+   remember to [create a route table](../virtual-network/manage-route-table.md) 
+   that has the following route and link that table with each subnet used by your ISE:
+
+     **Name**: <*route-name*><br>
+     **Address prefix**: 0.0.0.0/0<br>
+     **Next hop**: Internet
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
 
