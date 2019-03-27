@@ -89,27 +89,9 @@ Output:
 
 This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
 
-## Manually stop and start a container group
-
-Regardless of the restart policy configured for a [container group](container-instances-container-groups.md), you might want to manually stop or start a container group.
-
-* **Stop** - You can manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs. 
-
-  Stopping a container group terminates and recycles the containers in the group; it does not preserve container state. 
-
-* **Start** - When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. 
-
-  Starting a container group begins a new deployment with the same container configuration. This action can help you quickly reuse a known container group configuration that works as you expect. You don't have to create a new container group to run the same workload.
-
-* **Restart** - You can restart a container group while it is running - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled. 
-
-  Restarting a container group is helpful when you want to troubleshoot a deployment problem. For example, if a temporary resource limitation prevents your containers from running successfully, restarting the group might solve the problem.
-
-After you manually start or restart a container group, the container group runs according to the configured restart policy.
-
 ## Next steps
 
-Task-based scenarios, such as batch processing a large dataset with several containers, can take advantage of [custom environment variables](container-instances-environment-variables.md) or [command lines](container-instances-start-command.md) at runtime.
+Task-based scenarios, such as batch processing a large dataset with several containers, can take advantage of custom [environment variables](container-instances-environment-variables.md) or [command lines](container-instances-start-command.md) at runtime.
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
