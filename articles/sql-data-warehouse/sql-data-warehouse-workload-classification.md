@@ -29,6 +29,8 @@ While there are many ways to classify data warehousing workloads, the simplest a
 
 You can also subclassify your load and query workloads. Subclassification gives you more control of your workloads. For example, query workloads can consist of cube refreshes, dashboard queries or ad-hoc queries. You can classify each of these query workloads with different resource classes or importance settings. Load can also benefit from subclassification. Large transformations can be assigned to larger resource classes. Higher importance can be used to ensure key sales data is loader before weather data or a social data feed.
 
+Not all statements are classified as they do not require resources or need importance to influence execution.  DBCC commands, BEGIN, COMMIT, and ROLLBACK TRANSACTION statements are not classified.
+
 ## Classification process
 
 Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and a resource class to requests.  
