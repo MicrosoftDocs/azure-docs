@@ -16,7 +16,7 @@ This step-by-step tutorial shows you how to use Azure Functions to connect to re
 
 For this tutorial we will be deploying a WordPress site on a VM in a private, non-internet accessible, VNET. We will then deploy a Function with access to both the internet and the VNET. We will use that Function to access resources from the WordPress site deployed inside the VNET.
 
-For more information on how the system works, troubleshooting, and advanced configuration, see the document [Integrate your app with an Azure Virtual Network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet). Azure Functions in the dedicated plan has the same hosting capabilities as web apps, so all the functionality and limitations in that document apply to Functions as well.
+For more information on how the system works, troubleshooting, and advanced configuration, see the document [Integrate your app with an Azure Virtual Network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet). Azure Functions in the Premium plan have the same hosting capabilities as web apps, so all the functionality and limitations in that document apply to Functions as well.
 
 ## Topology
 
@@ -124,7 +124,7 @@ Your Function App is connected to both the Internet and your VNET. The proxy is 
 
 ## Next Steps
 
-Azure Functions running on App Service plans are running on the same service as web apps, so all of the documentation for Web Apps will apply to dedicated Functions.
+Azure Functions running on Premium plans share the same underlying infrastructure as web apps, so all of the documentation for Web Apps will apply to Premium plan Functions.
 
 1. [Learn more about VNET integration with App Service / Functions here](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Learn more about VNETs in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
