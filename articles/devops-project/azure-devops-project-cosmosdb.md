@@ -19,11 +19,11 @@ DevOps Projects also:
 
 - Automatically creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service and App Service plan
 
-- Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD
+- Creates and configures a release pipeline in Azure DevOps for CI/CD
 
 In this tutorial, you will:
 
-- Use DevOps Projects to deploy an Node.js app powered by Azure Cosmos DB
+- Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
 
 - Configure Azure DevOps and an Azure subscription
 
@@ -49,29 +49,29 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the left pane, select **Create a resource**.
 
-1. In the search box, type **DevOps Projects**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then click **Add**.
 
-   ![DevOps Projects](media/fullbrowser.png)
+   ![DevOps Projects](_img/azure-devops-project-cosmosdb/devops-project.png)
 
-1. Select **Node.js** as the runtime, and then select **Next**.
-
-1. Under **Choose an application framework**, select **Express.js**.
+1. Select **Node.js** as the runtime, and then select **Next**. Under **Choose an application framework**, select **Express.js**.
 
 1. Enable **Add a database** for **Cosmos DB** and click on **Next**.
 
-1. Select an Azure service to deploy the application. You have different services like Windows Web App, Kubernetes service and Web App for Containers. For this tutorial, we will use **Windows Web App**. Click on **Next**.
+    ![Add Database](_img/azure-devops-project-cosmosdb/add-database.png)
+
+1. Select an Azure service to deploy the application. You have different services like Windows Web App, Kubernetes Service and Web App for Containers. For this tutorial, we will use **Windows Web App**. Click on **Next**.
 
 ## Configure Azure DevOps and Azure subscription
 
-1. Create a new Azure DevOps organization, or select an existing organization.
-
 1. Enter a name for your Azure DevOps project.
+
+1. Create a new Azure DevOps organization, or select an existing organization.
 
 1. Select your Azure subscription.
 
-1. To view additional Azure configuration settings and to identify the pricing tier and location click on Additional settings. This pane displays various options for configuring the pricing tier and location of Azure services.
+1. To view additional Azure configuration settings and to identify the pricing tier and location, click on Additional settings. This pane displays various options for configuring the pricing tier and location of Azure services.
 
-1. Exit the Azure configuration area, and then select Done.
+1. Exit the Azure configuration area, and then select **Done**.
 
 1. After a few minutes, the process is completed. A sample Node.js app is set up in a Git repo in your Azure DevOps organization, an Azure Cosmos DB, App Service, App Service plan and Application Insights are created, a CI/CD pipeline is executed, and your app is deployed to Azure.
 
@@ -101,18 +101,17 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 
     ![Build](_img/azure-devops-project-cosmosdb/build.png)
 
-1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching sources from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
+1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
+
+1. Select **Triggers**. DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+
+1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
 1. Change the name of your build pipeline to something more descriptive, and then select **Save** from the **Save & queue** dropdown.
 
 1. Under your build pipeline name, select **History**. This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
-
-1. Select **Triggers**. DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
-
-1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
-
 
 ## Examine the CD release pipeline
 
@@ -124,7 +123,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 1. Under **Artifacts**, select **Drop**. The build pipeline you examined in the previous steps produces the output that's used for the artifact.
 
-1. At the right of the **Drop** icon, select **Continuous deployment trigger**. This release pipeline has an enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution.
+1. At the right of the **Drop** icon, select **Continuous deployment trigger**. This release pipeline has enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution.
 
 1. At the right, select **View releases** to display a history of releases.
 
