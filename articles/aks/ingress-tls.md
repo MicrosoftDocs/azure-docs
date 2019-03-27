@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 03/27/2019
 ms.author: iainfou
 ---
 
@@ -87,33 +87,27 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
 
 ```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Install the CustomResourceDefinition resources separately
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --version v0.6.0
-```
+# Create the namespace for cert-manager
+kubectl create namespace cert-manager
 
-If your cluster is not RBAC enabled, instead use the following command:
+# Label the cert-manager namespace to disable resource validation
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
 
-```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --set rbac.create=false \
-    --set serviceAccount.create=false \
-    --version v0.6.0
+# Update your local Helm chart repository cache
+helm repo update
+
+# Install the cert-manager Helm chart
+helm install \
+  --name cert-manager \
+  --namespace cert-manager \
+  --version v0.7.0 \
+  jetstack/cert-manager
 ```
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
@@ -129,6 +123,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
+  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -159,13 +154,16 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Create the first demo application from a Helm chart with the following command:
 
 ```console
-helm install azure-samples/aks-helloworld
+helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 Now install a second instance of the demo application. For the second instance, you specify a new title so that the two applications are visually distinct. You also specify a unique service name:
 
 ```console
-helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+helm install azure-samples/aks-helloworld \
+    --namespace ingress-basic \
+    --set title="AKS Ingress Demo" \
+    --set serviceName="ingress-demo"
 ```
 
 ## Create an ingress route
@@ -181,6 +179,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
@@ -218,7 +217,7 @@ Next, a certificate resource must be created. The certificate resource defines t
 
 Cert-manager has likely automatically created a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
 
-To verify that the certificate was created successfully, use the `kubectl describe certificate tls-secret` command.
+To verify that the certificate was created successfully, use the `kubectl describe certificate tls-secret --namespace ingress-basic` command.
 
 If the certificate was issued, you will see output similar to the following:
 ```
@@ -238,6 +237,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
   name: tls-secret
+  namespace: ingress-basic
 spec:
   secretName: tls-secret
   dnsNames:
@@ -283,7 +283,25 @@ Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingre
 
 ## Clean up resources
 
-This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up, first remove the certificate resources:
+This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, you can either delete the entire sample namespace, or the individual resources.
+
+### Delete the sample namespace and all resources
+
+To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace are deleted.
+
+```console
+kubectl delete namespace ingress-basic
+```
+
+Then, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+### Delete resources individually
+
+Alternatively, a more granular approach is to delete the individual resources created. First, remove the certificate resources:
 
 ```console
 kubectl delete -f certificates.yaml
@@ -317,6 +335,12 @@ Next, remove the Helm repo for the AKS hello world app:
 
 ```console
 helm repo remove azure-samples
+```
+
+Delete the itself namespace. Use the `kubectl delete` command and specify your namespace name:
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 Finally, remove the ingress route that directed traffic to the sample apps:

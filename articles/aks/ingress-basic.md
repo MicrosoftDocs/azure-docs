@@ -34,7 +34,7 @@ This article also requires that you are running the Azure CLI version 2.0.61 or 
 To create the ingress controller, use `Helm` to install *nginx-ingress*. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
 > [!TIP]
-> The following example creates a Kuberenetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
 ```console
 # Create a namespace for your ingress resources
@@ -137,10 +137,16 @@ This article used Helm to install the ingress components and sample apps. When y
 
 ### Delete the sample namespace and all resources
 
-To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name:
+To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace are deleted.
 
 ```console
 kubectl delete namespace ingress-basic
+```
+
+Then, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
 ```
 
 ### Delete resources individually
