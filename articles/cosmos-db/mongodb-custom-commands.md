@@ -1,6 +1,6 @@
 ---
 title: Custom commands for MongoDB
-description: This article describes how to use custom commands to manage data stored in Azure Cosmos DB for MongoDB API.  
+description: This article describes how to use custom commands to manage data stored in Azure Cosmos DB’s API for MongoDB.  
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 03/26/2019
 ms.author: sngun
 ---
 
-# Use custom commands to manage data stored in Azure Cosmos DB for MongoDB API 
+# Use custom commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB for MongoDB API by using any of the open source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB for MongoDB API enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB for MongoDB API, you can enjoy the benefits of the MongoDB that you're already used to, along with the enterprise capabilities that Azure Cosmos DB provides such as global distribution, automatic sharding, availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and many more.
+By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits of the MongoDB that you're already used to, along with the enterprise capabilities that Azure Cosmos DB provides such as global distribution, automatic sharding, availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and many more.
 
 ## MongoDB protocol support
 
-By default, the Azure Cosmos DB for MongoDB API is compatible with MongoDB server version 3.2. The following custom commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB for MongoDB API:
+By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2. The following custom commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
 
 * [Create Database](#create-database)
 * [Update Database](#update-database)
