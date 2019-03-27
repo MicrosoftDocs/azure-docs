@@ -68,7 +68,7 @@ You can configure the application gateway to either have a public IP address or 
 
 Only one public IP address or one private IP address is supported. You choose the frontend IP while creating the Application Gateway. 
 
-- In case of a Public IP, you can choose to create a new public IP or use an existing public IP in the same location as the Application Gateway. If you create a new public IP address, the IP address type selected (static or dynamic) cannot be changed later. For more information, see [Static vs Dynamic Public IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- In case of a Public IP, you can choose to create a new public IP or use an existing public IP in the same location as the Application Gateway. If you create a new public IP address, the IP address type selected (static or dynamic) cannot be changed later. For more information, see [Static vs Dynamic Public IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - In case of a private IP, you can choose to specify a private IP address from the subnet in which the Application Gateway is created. If not specified explicitly, an arbitrary IP address will be automatically selected from the subnet. For more information, see [Create an application gateway with an internal load balancer (ILB) endpoint.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -106,7 +106,7 @@ You need to choose between HTTP and HTTPS protocol.
 
 - If you choose HTTP, the traffic between the client and application gateway will flow unencrypted.
 
-- Choose HTTPS if you are interested in [Secure Sockets Layer (SSL) termination](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) or [end to end SSL encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). If you choose HTTPS, the traffic between the client and application gateway will be encrypted and the SSL connection will be terminated at the application gateway.  If you want end to end SSL encryption, you will additionally need to choose HTTPS protocol while configuring *backend HTTP setting*. This will ensure that the traffic is re-encrypted when it travels from the Application Gateway to the backend.
+- Choose HTTPS if you are interested in [Secure Sockets Layer (SSL) termination](https://docs.microsoft.com/azure/application-gateway/overview) or [end to end SSL encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). If you choose HTTPS, the traffic between the client and application gateway will be encrypted and the SSL connection will be terminated at the application gateway.  If you want end to end SSL encryption, you will additionally need to choose HTTPS protocol while configuring *backend HTTP setting*. This will ensure that the traffic is re-encrypted when it travels from the Application Gateway to the backend.
 
   To configure Secure Sockets Layer (SSL) termination and end to end SSL encryption, a certificate is required to be added to the listener so as to enable the Application Gateway to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic. 
 

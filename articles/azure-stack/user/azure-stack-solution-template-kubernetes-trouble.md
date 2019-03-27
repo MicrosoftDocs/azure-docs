@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.author: mabvrigg
+ms.author: mabrigg
 ms.date: 03/20/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
@@ -82,7 +82,7 @@ The following diagram shows the general process for deploying the cluster.
 
 You can collect logs on the VMs that support your Kubernetes cluster. You can also review the deployment log. You might need to talk to your Azure Stack administrator to verify the version of Azure Stack that you need to use, and to get logs from Azure Stack that are related to your deployment.
 
-1. Review the [deployment status](#review-deployment-status) and [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
+1. Review the [deployment status](#review-deployment-status) and retrieve the logs from the master node in your Kubernetes cluster.
 2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator.
 3.  Review your VM creation files. You might have had the following issues:  
     - The public key might be invalid. Review the key that you created.  
