@@ -26,7 +26,7 @@ ms.author: mlottner
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ASC for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
-To learn more, see [Security agent reference architecture](security-agent-architecture.md).
+See [Security agent reference architecture](security-agent-architecture.md) to learn more.
 
 Agents are developed as open source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
 
@@ -77,7 +77,7 @@ Answer the following questions about your IoT devices to select the correct agen
     [Deploy a C#-based security agent for Linux](how-to-deploy-linux-cs.md).
 
 Both agent flavors offer the same set of features and support similar configuration options.
-For more information, see [Security agent comparison](how-to-deploy-agent.md#understand-security-agent-options).
+See [Security agent comparison](how-to-deploy-agent.md#understand-security-agent-options) to learn more.
 
 ## Supported platforms
 

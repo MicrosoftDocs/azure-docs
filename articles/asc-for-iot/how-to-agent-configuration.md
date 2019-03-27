@@ -79,9 +79,9 @@ To use a default property value, remove the property from the configuration obje
 
 1. Click on **Module Identity Twin**.
 
-1. Edit the security module's desired properties.
+1. Edit the desired properties of the security module.
    
-   For exmple, to configure connection events as high prority and collect high prority events every 7 minutes, use the following configuration.
+   For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
    ```json
     "desired": {

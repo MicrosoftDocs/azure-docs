@@ -17,7 +17,7 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# Edge security module
+# Azure IoT Edge security module
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
@@ -25,35 +25,34 @@ ms.author: mlottner
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) provides powerful capabilities to manange and perform business workflows at the edge.
-The key part that it plays in IoT environments coupled with the relateive abundance of resources compared to other IoT devices, make it particularly attractive for mailcious intenders.
+The key part that Edge plays in IoT environments make it particularly attractive for mailcious actors.
 
-ASC for IoT security module provides a comprehensive security solution for your IoT Edge device.
-Security module collects, aggregates and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
+ASC for IoT security module provides a comprehensive security solution for your IoT Edge devices.
+ASC for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.
 
-Similarly to ASC for IoT security agents for IoT devices, security Edge module is highly customizable through it's module twin.
-For more details, see [Configure your agent](how-to-agent-configuration.md).
+Similar to ASC for IoT security agents for IoT devices, the ASC for IoT Edge module is highly customizable through its module twin.
+See [Configure your agent](how-to-agent-configuration.md) to learn more.
 
-ASC for IoT security module for IoT Edge support the following features:
+ASC for IoT security module for IoT Edge offers the following features:
 
-- Collect raw security events from
-
-  - The underlying Operating System (Linux)
-  - The Edge Container systems
+- Collects raw security events from the underlying Operating System (Linux), and the Edge Container systems.
   
-  To learn more about available security data collectors, see [ASC for IoT agent configuration](how-to-agent-configuration.md).
+  See [ASC for IoT agent configuration](how-to-agent-configuration.md) to learn more about available security data collectors.
 
-- Analyze Edge deployment manifest
+- Analysis of Edge deployment manifests.
 
-- Aggregate raw security events into messages sent through [Edge hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Aggregates raw security events into messages sent through [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
-- Configure remotely through use of the security module twin. To learn more, see [Configure an ASC for IoT agent](how-to-agent-configuration.md).
+- Remove configuration through use of the security module twin.
 
-ASC for IoT security module for IoT Edge runs as privelged module under IoT Edge.
-Privilege mode is required to allow the module to monitor the Operating System, and other Edge modules.
+  See [Configure an ASC for IoT agent](how-to-agent-configuration.md) to learn more.
+
+ASC for IoT security module for IoT Edge runs in a privileged mode under IoT Edge.
+Privileged mode is required to allow the module to monitor the Operating System, and other Edge modules.
 
 ## Agent supported platforms
 
-ASC for IoT security module for IoT Edge is currently available only for Linux.
+ASC for IoT security module for IoT Edge is currently only available for Linux.
 
 ## Next steps
 

@@ -38,22 +38,23 @@ ASC for IoT can process and analyze any kind of security message data as long as
 
 ## Security message
 
-ASC for IoT defines a security message by the following criteria:
-- The message was sent from the Azure IoT C/C# SDK
-- The message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
-- The message was set as a security message prior to sending
+ASC for IoT defines a security message using the following criteria:
+- If the message was sent with Azure IoT C/C# SDK
+- If the message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
+- If the message was set as a security message prior to sending
 
-Security message encapsulates the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and an array of security events.
-The schema defines the valid and required properties of a security message including the types of events.
+Each security message includes the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and a list of security events.
+The schema defines the valid and required properties of the security message including the types of events.
 
 [!NOTE]
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
-> Messages sent that were not set as a seucrity message using the Azure IoT C/C# SDK will not be routed to ASC for IoT pipeline
+> Messages sent that were not set as a security message using the Azure IoT C/C# SDK will not be routed to the ASC for IoT pipeline
 
-## Example for a valid message
+## Valid message example
 
-The example below shows a valid security message object, the example contains the message metadata and one `ProcessCreate` security event
-Once set as a security message and sent, this message will be processed by the ASC for IoT
+The example below shows a valid security message object. The example contains the message metadata and one `ProcessCreate` security event.
+
+Once set as a security message and sent, this message will be processed by ASC for IoT.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -160,4 +161,4 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
-- Understand [alerts](concept-security-alerts.md) for IoT defines a security message by the following criteria:
+- Understand [alerts](concept-security-alerts.md)
