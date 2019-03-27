@@ -60,7 +60,7 @@ In this article, you learned about ASC for IoT security agent architecture, and 
 To continue getting started with ASC for IoT deployment, use the following articles:
 
 - Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
-- Select and deploy a [security agent](select-deploy-agent.md)
+- Select and deploy a [security agent](how-to-deploy-agent.md)
 - Review the ASC for IoT [Service prerequisites](service-prerequisites.md)
 - Learn how to [Enable ASC for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [ASC for IoT FAQ](resources-frequently-asked-questions.md)

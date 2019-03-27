@@ -57,7 +57,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 | Remote configuration through [security module twin](concept-security-module.md) | Yes | Yes |
 
 
-## Determine which agent flavor to use
+## Choose an agent flavor 
 
 Answer the following questions about your IoT devices to select the correct agent:
 
@@ -76,7 +76,7 @@ Answer the following questions about your IoT devices to select the correct agen
     [Deploy a C#-based security agent for Linux](how-to-deploy-linux-cs.md).
 
 Both agent flavors offer the same set of features and support similar configuration options.
-For more information, see [Security agent comparison](how-to-deploy-agent.md#security-agent-comparison).
+For more information, see [Security agent comparison](how-to-deploy-agent.md#understand-security-agent-options).
 
 ## Supported platforms
 
