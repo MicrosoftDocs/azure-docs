@@ -187,11 +187,11 @@ When you're testing an IoT Edge deployment, you can usually access your devices 
 
 ### Place limits on log size
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to device filling up with logs and running out of disk space. Consider the following options to prevent this:
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
 
 **Option: set global limits that apply to all container modules**
 
-You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to JSON (recommended) with max size and number of files limit:
+You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
 
     ```
     {
@@ -207,12 +207,12 @@ Add (or append) this information to a file named `daemon.json` and place it the 
 
 | Platform | Location |
 | -------- | -------- |
-| Linux | `/etc/docker/daemon.json` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\daemon.json` |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
 
 **Option: adjust the logfile size of each container module**
 
-You can do so in the **CreateOptions** of each module. For example:
+You can do so in the **createOptions** of each module. For example:
 
     ```
     "createOptions": {
@@ -232,7 +232,7 @@ You can do so in the **CreateOptions** of each module. For example:
 
 * Configure the container engine to send logs to `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) by setting `journald` as the default logging driver. 
 
-* Periodically remove old logs from your device by installing a logrotate tool for Docker. Use the following file specification: 
+* Periodically remove old logs from your device by installing a logrotate tool. Use the following file specification: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{
