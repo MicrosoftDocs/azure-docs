@@ -15,7 +15,7 @@ ms.custom: "mvc, seodec18"
 
 # Tutorial: Store data at the edge with SQL Server databases
 
-Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. By incorporating local databases, your IoT Edge devices can perform more complex computing without having to maintain a connection to IoT Hub. For example, a sensor on a machine uploads data to the cloud once a month for reporting and improving a machine learning module. However, if a field technician is working on the machine, they can access the last few days of sensor data locally.
+Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. Your IoT Edge devices can use local databases to perform more complex computing without having to maintain a connection to IoT Hub. 
 
 This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions, running on the IoT Edge device, structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like MySQL or PostgreSQL.
 
@@ -33,8 +33,8 @@ In this tutorial, you learn how to:
 
 An Azure IoT Edge device:
 
-* You can use an Azure virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* SQL Server only supports Linux containers. If you want to test this tutorial by using a Windows device as your Edge device, you must configure it so that it uses Linux containers. See [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for the prerequisites and installation steps for configuring the IoT Edge runtime for Linux containers on Windows.
+* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* SQL Server only supports Linux containers. If you want to test this tutorial by using a Windows device as your IoT Edge device, you must configure it so that it uses Linux containers. See [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md) for the prerequisites and installation steps for configuring the IoT Edge runtime for Linux containers on Windows.
 
 Cloud resources:
 
