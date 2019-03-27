@@ -215,7 +215,7 @@ However, if you can migrate during a planned maintenance/housekeeping window and
 ## Next steps
 
 * Learn more about the [differences between Standard and Premium Messaging](./service-bus-premium-messaging.md)
-* Learn about the High-Availability and Geo-Diaster recovery story for Service Bus Premium [here](service-bus-outages-disasters#protecting-against-outages-and-disasters---service-bus-premium)
+* Learn about the High-Availability and Geo-Diaster recovery aspects for Service Bus Premium [here](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)
 
 [Migration Landing Page]: ./media/service-bus-standard-premium-migration/1.png
 [Setup namespace]: ./media/service-bus-standard-premium-migration/2.png
