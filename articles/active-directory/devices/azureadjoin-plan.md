@@ -3,7 +3,7 @@ title: How to plan your Azure Active Directory (Azure AD) join implementation | 
 description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management

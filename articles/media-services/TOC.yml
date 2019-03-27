@@ -3,7 +3,7 @@
 - name: Azure Media Services v2 (legacy)
   href: previous/media-services-overview.md
 - name: Video Indexer
-  href: video-indexer/video-indexer-overview.md
+  href: video-indexer/
 - name: Resources
   items:
   - name: Azure Roadmap
