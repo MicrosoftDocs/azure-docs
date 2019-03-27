@@ -22,16 +22,6 @@ Azure Delegated Resource Management lets authorized users in one Azure Active Di
 > [!NOTE]
 > Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant administration.
 
-## How Azure Delegated Resource Management works
-
-At a high level, here's how this works:
-
-1. As a service provider, you identify the access (roles) that your groups, service principals, or users will need to manage the customer's Azure resources. The access definition contains the service provider's tenant ID along with the required access for the offer, defined using **principalId** identities from your tenant mapped to Azure built-in **roleDefinition** values (Contributor, VM Contributor, Reader, etc.) 
-2. You specify this access and onboard the customer to Azure Delegated Resource Management in one of two ways:
-    - [Publish an Azure Marketplace managed services offer](../how-to/publish-managed-services-offers.md) (private or public) that the customer will accept
-    - [Deploy an Azure Resource Manager template to the customer's tenant](../how-to/onboard-customer.md) for one or more specific subscriptions or resource groups
-3. Once the customer has been onboarded, authorized users can sign in to your service provider tenant and perform management tasks at the given customer scope, based on the access that you defined.
-
 With Azure Delegated Resource Management, authorized users can work directly in the context of a customer subscription without needing an account in into that customer's tenant. They can also [view and manage all delegated customer subscriptions in the new **My customers** page](../how-to/view-manage-customers.md) in the Azure portal.
 
 The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in Azure Monitor logs in the customer's tenant, so both the customer and service provider can easily identify the user associated with any changes.
@@ -39,3 +29,13 @@ The [cross-tenant management experience](cross-tenant-management-experience.md) 
 When you onboard a customer to Azure Delegated Resource Management, they’ll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 
 You can [publish the new Managed Services offer type to Azure Marketplace](../how-to/publish-managed-services-offers.md) to easily onboard customers to Azure Delegated Resource Management. Alternatively, you can [complete the onboarding process by deploying Azure Resource Manager templates](../how-to/onboard-customer.md).
+
+## How Azure Delegated Resource Management works
+
+At a high level, here's how Azure Delegated Resource Management works:
+
+1. As a service provider, you identify the access (roles) that your groups, service principals, or users will need to manage the customer's Azure resources. The access definition contains the service provider's tenant ID along with the required access for the offer, defined using **principalId** identities from your tenant mapped to Azure built-in **roleDefinition** values (Contributor, VM Contributor, Reader, etc.)
+2. You specify this access and onboard the customer to Azure Delegated Resource Management in one of two ways:
+    - [Publish an Azure Marketplace managed services offer](../how-to/publish-managed-services-offers.md) (private or public) that the customer will accept
+    - [Deploy an Azure Resource Manager template to the customer's tenant](../how-to/onboard-customer.md) for one or more specific subscriptions or resource groups
+3. Once the customer has been onboarded, authorized users can sign in to your service provider tenant and perform management tasks at the given customer scope, based on the access that you defined.
