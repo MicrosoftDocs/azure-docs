@@ -153,7 +153,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
     //Add the data to the data source.
     datasource.add([startPoint, endPoint]);
-    
+
     map.setCamera({
         bounds: atlas.data.BoundingBox.fromData([startPoint, endPoint]),
         padding: 80
@@ -196,7 +196,7 @@ This section shows how to use Azure Maps route service API to find the route fro
     //Make a search route request
     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
         //Get data features from response
-        var data = directions.geojson.getFeatures(); 
+        var data = directions.geojson.getFeatures();
         datasource.add(data);
     });
     ```

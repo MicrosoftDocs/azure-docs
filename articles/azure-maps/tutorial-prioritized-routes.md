@@ -104,7 +104,7 @@ The following steps show you how to create a static HTML page embedded with the 
     map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
-            flow: "relative"
+           flow: "relative"
         });
     });
     ```

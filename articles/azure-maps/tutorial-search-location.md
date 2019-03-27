@@ -74,15 +74,15 @@ The Map Control API is a convenient client library that allows you to easily int
         <title>Map Search</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-        
+
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
         <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
-        
-        <script>		
+
+        <script>
         function GetMap(){
             //Add Map Control JavaScript code here.
         }
@@ -96,7 +96,7 @@ The Map Control API is a convenient client library that allows you to easily int
                 padding: 0;
                 margin: 0;
             }
-            
+
             #myMap {
                 width: 100%;
                 height: 100%;
@@ -190,24 +190,24 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
     var lon = -122.13687658309935;
 
     searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
-       limit: 10,
-       lat: lat,
-       lon: lon,
-       radius: radius
+        limit: 10,
+        lat: lat,
+        lon: lon,
+        radius: radius
     }).then((results) => {
-      
+
         // Extract GeoJSON feature collection from the response and add it to the datasource
         var data = results.geojson.getFeatures();
         datasource.add(data);
-      
+
         // set camera to bounds to show the results
         map.setCamera({
-           bounds: data.bbox,
-           zoom: 10
+            bounds: data.bbox,
+            zoom: 10
         });
     });
     ```
- 
+
 3. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with round-blue pins marking the locations of gasoline stations in the area.
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
@@ -233,12 +233,12 @@ The map that we've made so far only looks at the longitude/latitude data for the
     //Add a mouse over event to the result layer and display a popup when this event fires.
     map.events.add('mouseover', resultLayer, showPopup);
     ```
-    
-    The API **atlas.Popup** provides an information window anchored at the required position on the map. 
-      
-2. In the *script* tag, after the `GetMap` function, add the following code to show the moused over result information in the popup. 
 
-   ```JavaScript
+    The API **atlas.Popup** provides an information window anchored at the required position on the map. 
+
+2. In the *script* tag, after the `GetMap` function, add the following code to show the moused over result information in the popup.
+
+    ```JavaScript
     function showPopup(e) {
         //Get the properties and coordinates of the first shape that the event occured on.
 
@@ -259,7 +259,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
         //Open the popup.
         popup.open(map);
     }
-   ```
+    ```
 
 3. Save the file and refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins.
 
