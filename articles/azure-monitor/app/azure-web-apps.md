@@ -13,7 +13,7 @@ ms.author: mbullwin
 ---
 # Monitor Azure App Service performance
 
-Enabling monitoring on your .NET and .NET Core based web applications running on Azure App Services is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent and monitoring capabilities are now baked into the app service image by default. This article will walk you through enabling monitoring as well as provide guidance for automating the process for large scale deployments.
+Enabling monitoring on your .NET and .NET Core based web applications running on Azure App Services is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent are now built into the app service image by default. This article will walk you through enabling Application Insights monitoring as well as provide preliminary guidance for automating the process for large scale deployments.
 
 > [!NOTE]
 > Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`.
@@ -30,7 +30,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about manually instrumenting 
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section]() below.
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](azure-web-apps.md/#troubleshooting) below.
 
 ### Enable agent based application monitoring
 
@@ -61,6 +61,14 @@ There are two ways to enable application monitoring for Azure App Services hoste
        * Improves APM metrics accuracy under load, when sampling is used.
 
 # [.NET Core](#tab/netcore)
+
+The following versions of .NET Core are supported:
+
+    * .NET Core 2.0
+    * .NET Core 2.1
+    * .NET Core 2.2
+
+Targeting the full framework from .NET Core is currently not supported.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -296,16 +304,36 @@ To check which version of the extension you are running visit `http://yoursitena
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](azure-web-apps.md/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
 
-* [Upgrade through PowerShell]():
+* [Upgrade through PowerShell](azure-web-apps.md/#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell]().
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](azure-web-apps.md/#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
-If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps]().
+If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](azure-web-apps.md/#troubleshooting).
 
 ## Troubleshooting
+
+1. Check that the application is monitored via `ApplicationInsightsAgent`.
+    * Check that `ApplicationInsightsAgent_EXTENSION_AGENT app setting is set to a value of "~2".
+2. Ensure that the application meets the requirements to be monitored.
+    * Visit `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+
+    ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
+
+    * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+        * If it is not running follow the [enable Application Insights monitoring instructions](azure-web-apps.md/#enable-application-insights)
+    * Check that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+        * If this is not present it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints which will allow the runtime information to become available.
+    * Confirm that `IKeyExists` is `true`
+        * It it is false, add `APPINSIGHTS_INSTRUMENTATIONKEY with your ikey guid to your application settings.
+    * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
+        * If any of these entries exist, remove the following packages: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
+
+
+
+If after following the troubleshooting steps above your application is still not working, please create a ticket via the [Azure support page](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 ### If runtime and build time monitoring are both enabled do I end up with duplicate data?
 
