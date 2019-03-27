@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 
@@ -169,7 +169,7 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Hierarchical entity data
 
-**Hierarchical entities will eventually be deprecated. Please use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
+**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
 
 [Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you're looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity.
 

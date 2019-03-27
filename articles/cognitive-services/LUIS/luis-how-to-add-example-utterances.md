@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 
@@ -86,7 +86,7 @@ Assuming the utterance, `Does John Smith work in Seattle?`, a composite utteranc
 
 ## Add hierarchical entity
 
-**Hierarchical entities will eventually be deprecated. Please use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
+**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
 
 A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
@@ -105,7 +105,7 @@ In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin 
 
 ## Add entity's role to utterance
 
-A role is an named subtype of an entity, determined by the context of the utterance. You can mark an entity within an utterance as the entity, or select a role within that entity. Any entity can have roles including custom entities that are machine-learned (simple entities and composite entities), are not machine-learned (prebuilt entities, regular expression entities, list entities). 
+A role is a named subtype of an entity, determined by the context of the utterance. You can mark an entity within an utterance as the entity, or select a role within that entity. Any entity can have roles including custom entities that are machine-learned (simple entities and composite entities), are not machine-learned (prebuilt entities, regular expression entities, list entities). 
 
 Learn [how to mark an utterance with entity roles](tutorial-entity-roles.md) from a hands-on tutorial. 
 
