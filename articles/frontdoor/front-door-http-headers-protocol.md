@@ -18,7 +18,7 @@ This article outlines the protocol that Front Door Service supports with parts o
 
 ![Azure Front Door Service HTTP headers protocol][1]
 
->[!WARNING]
+>[!IMPORTANT]
 >Front Door Service doesn't certify any HTTP headers that aren't documented here.
 
 ## Client to Front Door Service
@@ -26,7 +26,7 @@ Front Door Service accepts most headers from the incoming request without modify
 
 ## Front Door Service to backend
 
-Front Door Service includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers.
+Front Door Service includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers:
 
 | Header  | Example and description |
 | ------------- | ------------- |
