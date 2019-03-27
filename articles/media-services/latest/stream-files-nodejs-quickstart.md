@@ -24,7 +24,7 @@ The sample in this topic encodes content that you make accessible via an HTTPS U
 
 By the end of the quickstart you will be able to stream a video.  
 
-![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
+![Play the video](./media/stream-files-nodejs-quickstart/final-video.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
