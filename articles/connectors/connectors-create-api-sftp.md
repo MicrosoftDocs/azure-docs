@@ -40,9 +40,7 @@ If you're new to logic apps, review
 
 ## Limits
 
-Compared to the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md): 
-
-* SFTP actions can read or write files that are *50 MB and smaller* unless you use 
+* SFTP actions can read or write files that are *50 MB or smaller* unless you use 
 [message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
 Currently, SFTP triggers don't support chunking.
 
@@ -51,6 +49,11 @@ Currently, SFTP triggers don't support chunking.
 
 * For files *larger than 1 GB*, use the SFTP-SSH connector plus 
 [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+For other differences between the SFTP 
+connector and the SFTP-SSH connector, review 
+[Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) 
+in the SFTP-SSH article.
 
 ## Prerequisites
 

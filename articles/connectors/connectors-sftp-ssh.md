@@ -41,17 +41,15 @@ If you're new to logic apps, review
 
 ## Limits
 
-Compared to the [SFTP connector](../connectors/connectors-create-api-sftp.md):
-
-* SFTP-SSH actions can read or write files that are 
-*1 GB or smaller* by managing data as *50 MB pieces*.
+* SFTP-SSH actions can read or write files that are *1 GB or smaller* 
+by managing data as *50 MB pieces*, not 1 GB pieces.
 
 * For files *larger than 1 GB*, actions can use 
 [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 Currently, SFTP-SSH triggers don't support chunking.
 
 For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
-later in this article.
+later in the next section.
 
 <a name="comparison"></a>
 
@@ -61,24 +59,24 @@ Here are other key differences between the SFTP-SSH connector and the
 SFTP connector where the SFTP-SSH connector has these capabilities:
 
 * Uses the <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> library, 
-which is an open-source Secure Shell (SSH) library that supports .NET. 
+which is an open-source Secure Shell (SSH) library that supports .NET.
 
   > [!NOTE]
   >
   > The SFTP-SSH connector supports *only* these private keys, 
   > formats, algorithms, and fingerprints:
-  > 
+  >
   > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
   > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
   > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
   > AES-128-CBC, AES-192-CBC, and AES-256-CBC
   > * **Fingerprint**: MD5
 
-* Reads or writes files up to *1 GB* in size compared 
-to the SFTP connector, but handles data in 50 MB pieces, 
-not 1 GB pieces. For files larger than 1 GB, actions can 
-also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
-Currently, triggers don't support chunking.
+* Actions can read or write files *up to 1 GB* compared to 
+the SFTP connector, but handles data in 50 MB pieces, 
+not 1 GB pieces. For files larger than 1 GB, actions 
+can also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
+Currently, SFTP-SSH triggers don't support chunking.
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
@@ -90,7 +88,7 @@ which renames a file on the SFTP server.
 performance and reduces the number of attempts at connecting to the server. 
 To set the duration for this caching behavior, edit the 
 <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
-property in the SSH configuration on your SFTP server. 
+property in the SSH configuration on your SFTP server.
 
 ## Prerequisites
 
