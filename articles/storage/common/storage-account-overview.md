@@ -13,7 +13,7 @@ ms.subservice: common
 
 # Azure storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. Data in your Azure storage account is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS. 
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. Data in your Azure storage account is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS.
 
 To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
@@ -59,6 +59,10 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 ### Block blob storage accounts
 
 A block blob storage account is a specialized storage account for storing unstructured object data as block blobs or append blobs. Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+
+### FileStorage (preview) storage accounts
+
+A FileStorage storage account is a specialized storage account used to create premium fileshares. 
 
 ## Naming storage accounts
 
