@@ -44,7 +44,7 @@ https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
 
 ## Set Node.js version
 
-To set your app to a [supported Node.js version](#show-node.js-version), run the following command in the [Cloud Shell](https://shell.azure.com):
+To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource_group_name> --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=<x.y.z>
