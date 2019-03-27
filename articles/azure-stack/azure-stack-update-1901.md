@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
+ms.lastreviewed: 03/27/2019
 ---
 
 # Azure Stack 1901 update
@@ -52,14 +52,16 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 ### Azure Stack hotfixes
 
+If you already have 1901 and you have not installed any hotfixes yet, you can [install 1902 directly](azure-stack-update-1902.md), without first installing the 1901 hotfix.
+
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: [KB 4481548 – Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
+> Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901. If you already have 1901 and you have not installed any hotfixes yet, you can install 1902 directly, without first installing the 1901 hotfix.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 

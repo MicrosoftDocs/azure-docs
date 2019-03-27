@@ -82,7 +82,7 @@ In the target scenario, photos can help. If you show users a photo of the inte
 
 In the room scenario, users enter a space simply knowing there's an anchor here somewhere. Users scan the space with their device and quickly locate the anchor.
 
-This experience typically requires you to create well-curated anchors, as discussed in [Various viewing perspectives](#consider-various-viewing-perspectives). If you scanned the room from many perspectives when you created the anchor, users can scan almost anywhere when they try to locate it.
+This experience typically requires you to create well-curated anchors, as discussed in Various viewing perspectives. If you scanned the room from many perspectives when you created the anchor, users can scan almost anywhere when they try to locate it.
 
 ![Illustration of how a user can scan a room to find an anchor](./media/scan-room.png)
 
