@@ -136,7 +136,6 @@ The following statements are exempt from resource classes and always run in smal
 - CREATE, ALTER, or DROP USER
 - CREATE, ALTER, or DROP PROCEDURE
 - CREATE or DROP VIEW
-- CREATE EXTERNAL TABLE AS SELECT
 - INSERT VALUES
 - SELECT from system views and DMVs
 - EXPLAIN
@@ -145,6 +144,7 @@ The following statements are exempt from resource classes and always run in smal
 <!--
 Removed as these two are not confirmed / supported under SQL DW
 - CREATE REMOTE TABLE AS SELECT
+- CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
 
