@@ -162,9 +162,9 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-dotnetcore-windows
         - href:
-        - href:
-        - href:
+        - href: quickstart-java-jre
         - href: quickstart-python
         - href: quickstart-objectivec-macos
         - href: quickstart-js-node
