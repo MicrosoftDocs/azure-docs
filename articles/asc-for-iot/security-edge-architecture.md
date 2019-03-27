@@ -24,8 +24,8 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production worklo§1ads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) provides powerful capabilities to manange and perform business workflows at the edge.
-The key part that Edge plays in IoT environments make it particularly attractive for mailcious actors.
+[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
+The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
 ASC for IoT security module provides a comprehensive security solution for your IoT Edge devices.
 ASC for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.
@@ -35,11 +35,11 @@ See [Configure your agent](how-to-agent-configuration.md) to learn more.
 
 ASC for IoT security module for IoT Edge offers the following features:
 
-- Collects raw security events from the underlying Operating System (Linux), and the Edge Container systems.
+- Collects raw security events from the underlying Operating System (Linux), and the IoT Edge Container systems.
   
   See [ASC for IoT agent configuration](how-to-agent-configuration.md) to learn more about available security data collectors.
 
-- Analysis of Edge deployment manifests.
+- Analysis of IoT Edge deployment manifests.
 
 - Aggregates raw security events into messages sent through [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
@@ -48,7 +48,7 @@ ASC for IoT security module for IoT Edge offers the following features:
   See [Configure an ASC for IoT agent](how-to-agent-configuration.md) to learn more.
 
 ASC for IoT security module for IoT Edge runs in a privileged mode under IoT Edge.
-Privileged mode is required to allow the module to monitor the Operating System, and other Edge modules.
+Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
 
 ## Agent supported platforms
 
