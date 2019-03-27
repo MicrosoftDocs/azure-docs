@@ -36440,6 +36440,11 @@
       "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
       "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+      "redirect_document_id": true
     }
   ]
 }
