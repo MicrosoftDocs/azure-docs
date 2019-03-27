@@ -1,14 +1,14 @@
 ---
-title: Security alert guide for ATP for IoT Preview| Microsoft Docs
-description: Learn about security alerts and recommended remediation using ATP for IoT features and service.
-services: atpforiot
+title: Security alert guide for ASC for IoT Preview| Microsoft Docs
+description: Learn about security alerts and recommended remediation using ASC for IoT features and service.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-# ATP for IoT security alerts
+# ASC for IoT security alerts
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -89,6 +89,7 @@ For more details, see [Create custom alerts](quickstart-create-custom-alerts.md)
 |
 
 ## See also
+
 - [Overview](overview.md)
 - [Access your security data](how-to-security-data-access.md)
 - [Investigate a device](tutorial-investigate-device.md)

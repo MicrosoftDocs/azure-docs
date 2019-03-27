@@ -1,6 +1,6 @@
 ---
 title: Tutorial to install and deploy Linux C agent of ASC for IoT agent Preview| Microsoft Docs
-description: Learn how to install the ASC for IoT agent on both 32bit and 64bit Linux. 
+description: Learn how to install the ASC for IoT agent on both 32-bit and 64-bit Linux. 
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -90,8 +90,8 @@ Check the deployment status by running:
 
 
 ## Next steps
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Enable the service](quickstart-onboard-iot-hub.md)
-- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
+- Read the ASC for IoT service [Overview](overview.md)
+- Learn more about ASC for IoT [Architecture](architecture.md)
+- Enable the [service](quickstart-onboard-iot-hub.md)
+- Read the [FAQ](resources-frequently-asked-questions.md)
+- Understand [security alerts](concept-security-alerts.md)

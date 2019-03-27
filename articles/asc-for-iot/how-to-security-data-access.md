@@ -175,8 +175,9 @@ SecurityRecommendation
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium        | 4   |
 
 
-## See Also
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
-- [Understanding ASC for IoT recommendation](concept-recommendations.md)
+## Next steps
+
+- Read the ASC for IoT [Overview](overview.md)
+- Learn about ASC for IoT [Architecture](architecture.md)
+- Understand and explore [ASC for IoT alerts](concept-security-alerts.md)
+- Understand and explore [ASC for IoT recommendation](concept-recommendations.md)

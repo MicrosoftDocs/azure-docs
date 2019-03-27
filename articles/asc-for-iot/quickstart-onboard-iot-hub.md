@@ -26,7 +26,7 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to enable the ASC for IoT preview service into your IoT Hub.  
+This article provides an explanation of how to enable the ASC for IoT preview service on your IoT Hub.  
 
 > [!NOTE]
 > ASC for IoT currently only supports standard tier and higher IoT Hubs.
@@ -59,4 +59,4 @@ Congratulations! You've completed enabling ASC for IoT on your IoT Hub.
 Advance to the next article to learn how to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-configure-your-solution.md)
+> [Configure your solution](quickstart-configure-your-solution.md)

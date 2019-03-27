@@ -58,4 +58,4 @@ ASC for IoT now monitors you're newly added resources, and surfaces relevant sec
 Advance to the next article to learn how to create security modules...
 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-create-security-twin.md)
+> [Create security modules](quickstart-create-security-twin.md)

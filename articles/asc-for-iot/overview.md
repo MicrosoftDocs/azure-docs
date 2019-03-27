@@ -49,7 +49,8 @@ Use ASC for IoT to continuously monitor the security of machines, networks, and 
 Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Built-in behavioral analytics and machine learning identify attacks and zero-day exploits. Monitor your IoT solution for incoming attacks and post-breach activity. Streamline device investigation and remediation with interactive tools and contextual threat intelligence.
 
 ## Next steps
-In this article, you learned about the features and services of ASC for IoT. To learn more about ASC for IoT architecture, prerequisites and how to get started, see the following articles:
+
+In this overview, you learned about the features and services of ASC for IoT. To learn more about ASC for IoT architecture, prerequisites, and learn how to get started, see the following articles:
 
 - [Architecture](architecture.md)
 - [Service prerequisites](service-prerequisites.md)

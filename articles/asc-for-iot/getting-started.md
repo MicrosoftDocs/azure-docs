@@ -1,5 +1,5 @@
 ---
-title: Get started using ASC for IoT Preview| Microsoft Docs
+title: Get started using Azure Security Center (ASC) for IoT Preview| Microsoft Docs
 description: Get started in understanding the basic workflow of ASC for IoT features and service.
 services: ascforiot
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# Get started with ASC for IoT 
+# Get started with Azure Security Center (ASC) for IoT 
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
@@ -48,7 +48,7 @@ Choose the workflow scenario that best meets your IoT device and environment req
 
 To enable monitoring your device identity management, device to cloud, and cloud to device communication patterns,use following basic workflow for testing and to start the  service: 
 
-1. [Enable ASC for IoT service to your IoT Hub](quickstart-onboard-iot-hub.md)
+1. [Enable ASC for IoT service on your IoT Hub](quickstart-onboard-iot-hub.md)
 1. If your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Create an ascforiot security module](quickstart-create-security-twin.md) for your devices. 
 1. Define normal device and system behavior through [custom alerts](quickstart-create-custom-alerts.md). 

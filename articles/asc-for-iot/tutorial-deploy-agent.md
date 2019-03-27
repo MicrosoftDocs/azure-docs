@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 03/27/2019
 ms.author: mlottner
 
 ---
@@ -27,17 +27,18 @@ ms.author: mlottner
 
 
 ASC for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
-Security agents are developed as open source projects, and are available in two flavours: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
+
+Security agents are developed as open source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
 
 In this tutorial, you will: 
 > [!div class="checklist"]
-> * Compare security agent flavours
+> * Compare security agent flavors
 > * Discover supported agent platforms
-> * Choose the right agent flavour for your solution
+> * Choose the right agent flavor for your solution
 
 ## Security agent comparison
 
-Both flavours have the same set of features, and support the similar configuration options. The C-based security agent has a lower memory footprint.
+Both flavors have the same set of features, and support the similar configuration options. The C-based security agent has a lower memory footprint.
 
 |     | C-based security agent | C#-based security agent |
 | --- | ----------- | --------- |
@@ -54,11 +55,10 @@ Both flavours have the same set of features, and support the similar configurati
 | Event aggregation | Yes | Yes |
 | Remote configuration through [security module twin](concept-security-module.md) | Yes | Yes |
 
-
-
 ## Supported platforms for ASC for IoT agents
 
-The following list includes all supported platforms as of public preview. Support for additional platforms is planned for future releases.  
+The following list includes all currently supported platforms.
+Support for additional platforms is planned for future releases.  
 
 |ASC for IoT agent |Operating System |Architecture |
 |--------------|------------|--------------|
@@ -72,19 +72,29 @@ The following list includes all supported platforms as of public preview. Suppor
 |C#|Windows 10 IoT Core build 17763	|x64|
 
 
-## Which flavours should I use?
+## Which flavor should I use?
 
 Consider the following questions with respect to your IoT devices:
 
-- Are you using _Windows Server_ or _Windows IoT Core_? [Deploy a C#-based security agent](tutorial-deploy-windows-cs.md).
-- Are you using a Linux distribution with x86 architecture? see [Deploy a C-based security agent](tutorial-deploy-linux-c.md).
-- Are you using a Linux distribution with x64 architecture? you can use both flavours. [Deploy a C-based security agent](tutorial-deploy-linux-c.md) or [deploy a C#-based security agent](tutorial-deploy-linux-cs.md).
+- Are you using _Windows Server_ or _Windows IoT Core_? 
 
-Both flavours have the same set of features and support the similar configuration options.
+    [Deploy a C#-based security agent for Windows](tutorial-deploy-windows-cs.md).
+
+- Are you using a Linux distribution with x86 architecture? 
+
+    [Deploy a C-based security agent for Linux](tutorial-deploy-linux-c.md).
+
+- Are you using a Linux distribution with x64 architecture?
+
+    You can use both flavors. <br>
+    [Deploy a C-based security agent for Linux](tutorial-deploy-linux-c.md) and/or 
+    [Deploy a C#-based security agent for Linux](tutorial-deploy-linux-cs.md).
+
+Both flavors have the same set of features and support the similar configuration options.
 For more information, see [Security agent comparison](tutorial-deploy-agent.md#security-agent-comparison).
 
 
-## See Also
+## Next steps
 - [Overview](overview.md)
 - [Security agents](security-agent-architecture.md)
 - [Security agent authentication methods](concept-security-agent-authentication-methods.md)

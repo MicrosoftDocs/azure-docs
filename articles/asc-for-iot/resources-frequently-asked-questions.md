@@ -98,7 +98,7 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 1. Confirm the [agent is running on the device](tutorial-agent-configuration.md).
 
-2. Check the [service was onboarded successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
+2. Check the [service was enabled successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 
 3. Check that the device is [configured in IoT Hub with the ASC for IoT module](quickstart-create-security-twin.md).  
 
@@ -143,10 +143,9 @@ The ASC for IoT module is used for agent configuration and management.
 
 To learn more about how to get started with ASC for IoT, see the following articles:
 
-## See Also
 
-- [ASC for IoT overview](overview.md)
-- [Service prerequisites](service-prerequisites.md)
-- [Getting started](getting-started.md)
-- [Understanding security alerts](concept-security-alerts.md)
+- Read the ASC for IoT [overview](overview.md)
+- Verify the [Service prerequisites](service-prerequisites.md)
+- Learn more about how to [Get started](getting-started.md)
+- Understand [ASC for IoT security alerts](concept-security-alerts.md)
 

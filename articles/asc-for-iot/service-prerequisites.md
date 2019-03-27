@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
@@ -58,7 +58,7 @@ Check your IoT Hub location to verify service availability before you begin.
 
 ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](tutorial-deploy-agent.md) to check your existing or planned device library.  
 
-## See Also
+## Next steps
 - [Overview](overview.md)
 - [Enable the service](quickstart-onboard-iot-hub.md)
 - [ASC for IoT FAQ](resources-frequently-asked-questions.md)

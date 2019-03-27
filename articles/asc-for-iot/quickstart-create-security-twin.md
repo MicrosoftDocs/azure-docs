@@ -1,19 +1,19 @@
 ---
-title: Create a security module twin for ATP for IoT Preview| Microsoft Docs
-description: Learn how to create a ATP for IoT module twin for use with ATP for IoT.
-services: atpforiot
+title: Create a security module twin for ASC for IoT Preview| Microsoft Docs
+description: Learn how to create a ASC for IoT module twin for use with ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
@@ -45,7 +45,7 @@ _azureiotsecurity_ module twins can be created in two ways:
 2. Manually editing each module twin individually with specific configurations for each device.
 
 >[!NOTE] 
-> Using the batch method will not overwrite existing security module twins. Using the batch method ONLY creates new module twins for devices that do not already have a security module twin. 
+> Using the batch method will not overwrite existing azureiotsecurity module twins. Using the batch method ONLY creates new module twins for devices that do not already have a security module twin. 
 
 See [Modify a security module twin](how-to-modify-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
 
@@ -76,4 +76,4 @@ To learn more about customizing properties of ASC for IoT module twins, see [Age
 Advance to the next article to learn how to configure custom alerts...
 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-create-custom-alerts.md)
+> [Configure custom alerts](quickstart-create-custom-alerts.md)

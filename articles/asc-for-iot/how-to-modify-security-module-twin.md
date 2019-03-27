@@ -1,14 +1,14 @@
 ---
-title: How-to modify a ATP for IoT module twin for ATP for IoT Preview| Microsoft Docs
-description: Learn how to modify a ATP for IoT security module twin for ATP for IoT.
-services: atpforiot
+title: How to instructions to modify a ASC for IoT module twin in ASC for IoT Preview| Microsoft Docs
+description: Learn how to modify a ASC for IoT security module twin for ASC for IoT.
+services: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 
 ms.assetid: 1bc5dc86-0f33-4625-b3d3-f9b6c1a54e14
-ms.service: atpforiot
+ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,16 +18,16 @@ ms.author: mlottner
 
 ---
 
-# Modify an ATP for IoT module twin
+# Modify an ASC for IoT module twin
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview.
+> ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article explains how to modify the configuration of an existing **AzureIoTSecurity module twin** for an existing device. 
 
-See [Create an ATP for IoT module](quickstart-create-security-twin.md) to learn how to make a new security module for a new device.  
+See [Create an ASC for IoT module](quickstart-create-security-twin.md) to learn how to make a new security module for a new device.  
 
 ## Modification considerations
 
@@ -37,7 +37,7 @@ See [Create an ATP for IoT module](quickstart-create-security-twin.md) to learn 
 
 ## Configuration schema and validation 
 
-Make sure to validate your agent configuration against this [schema](https://github.com/Azure/atp-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
 
  
 If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
@@ -50,7 +50,7 @@ To set a property, add the property key to the configuration object with the des
 
 ```json
 "desired": { //AzureIoTSecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //ATP for IoT Agent 
+  "azureiot*com^securityAgentConfiguration^1*0*0": { //ASC for IoT Agent 
       // configuration section  
     "hubResourceId": "/subscriptions/82392767-31d3-4bd2-883d-9b60596f5f42/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/myIotHub",     
     "lowPriorityMessageFrequency": "PT1H",     
@@ -62,7 +62,7 @@ To set a property, add the property key to the configuration object with the des
 ```
 
 ## Properties 
-The following table contains all of the configurable properties that control ATP for IoT agents. 
+The following table contains all of the configurable properties that control ASC for IoT agents. 
           
 
 | Name| Status | Valid values| Default values| Description |
@@ -77,7 +77,7 @@ The following table contains all of the configurable properties that control ATP
 
 ### Events
 
-The following list of events are all of the events the ATP for IoT agent can collect from your devices. Use the AzureIotSecurity module twin to configure which of these events are collected and decide their priority in your solution. 
+The following list of events are all of the events the ASC for IoT agent can collect from your devices. Use the AzureIotSecurity module twin to configure which of these events are collected and decide their priority in your solution. 
  
 |Event name| PropertyName | Default value| Snapshot event| Detail status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -98,8 +98,9 @@ Configuration error |eventPriorityConfigurationError |Low |False |Agent failed t
 |
 
 
-## See Also
+## Next steps
 
-- [Overview](overview.md)
-- [Understanding ATP for IoT alerts](concept-security-alerts.md)
-- [Access your security data](how-to-security-data-access.md)
+- Read the ASC for IoT [Overview](overview.md)
+- Learn about ASC for IoT [Architecture](architecture.md)
+- Understand and explore [ASC for IoT alerts](concept-security-alerts.md)
+- Discover how to access your [security data](how-to-security-data-access.md)
