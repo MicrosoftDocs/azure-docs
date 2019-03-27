@@ -145,11 +145,14 @@
       href: media-reserved-units-cli-how-to.md   
     - name: Start developing
       href: developers-guide.md
+    - name: REST with Postman
+      href: media-rest-apis-with-postman.md       
+    - name: Configure and connect to SDKs
       items:
-      - name: Connect to API - .NET
-        href: connect-dotnet-howto.md
-    - name: Configure Postman
-      href: media-rest-apis-with-postman.md      
+      - name: .NET 
+        href: configure-connect-dotnet-howto.md
+      - name: Node.js
+        href: configure-connect-nodejs-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET

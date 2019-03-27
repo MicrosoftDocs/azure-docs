@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Connect to Media Services v3 API - .NET
 
-This article shows you how connect to the Azure Media Services v3 API using the service principal login method.
+This article shows you how to connect to the Azure Media Services v3 .NET SDK using the service principal login method.
 
 ## Prerequisites
 
@@ -133,7 +133,7 @@ namespace ConsoleApp1
 }
 ```
 
-## Connect
+## Connect to the .NET client
 
 1. Open `Program.cs`.
 1. Paste the following code:
