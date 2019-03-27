@@ -76,7 +76,7 @@ Azure Files offers two performance tiers: standard and premium.
 
 Premium file shares is still in preview and is only available in a subset of regions with Azure Backup support being available in an even smaller subset:
 
-|Region  |Azure Backup support  |
+|Available region  |Azure Backup support  |
 |---------|---------|
 |East US2      | Yes|
 |East US       | Yes|
