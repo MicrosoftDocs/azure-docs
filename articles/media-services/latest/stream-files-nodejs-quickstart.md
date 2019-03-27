@@ -95,9 +95,9 @@ Execute the following CLI command:
 az group delete --name amsResourceGroup
 ```
 
-### Job error codes
+## See also
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 
