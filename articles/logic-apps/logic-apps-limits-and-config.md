@@ -107,7 +107,7 @@ Here are the limits for a single logic app run:
 
 Here are the limits for a single logic app run:
 
-## Global Logic Apps service
+### Global Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -119,7 +119,7 @@ Here are the limits for a single logic app run:
 | Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. |
 ||||
 
-## Integration service environment (ISE)
+### Integration service environment (ISE)
 
 | Name | Limit | Notes |
 |------|-------|-------|
