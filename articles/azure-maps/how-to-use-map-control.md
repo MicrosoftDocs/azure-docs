@@ -21,7 +21,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 1. Create a new HTML file.
 
 2. Load in the Azure Maps Web SDK. This can be done using one of two options;
-    
+
     a. Use the globally hosted CDN version of the Azure Maps Web SDK by adding the URL endpoints to the stylesheet and script references in the `<head>` element of the file:
 
     ```HTML
@@ -44,18 +44,18 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
     ```HTML
     <style>
-    	html, body {
-    		margin: 0;
-    	}
-    
-    	#myMap {
-    		height: 100vh;
-    		width: 100vw;
-    	}
+        html, body {
+            margin: 0;
+        }
+
+        #myMap {
+            height: 100vh;
+            width: 100vw;
+        }
     </style>
     ```
 
-4. In the body of the page, add a `<div>` element and give it an `id` of **myMap**. 
+4. In the body of the page, add a `<div>` element and give it an `id` of **myMap**.
 
     ```HTML
     <body>
@@ -97,13 +97,14 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </script>
     ```
 
-	See [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
+    See [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
+
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
     ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
-    
+
     <!-- Ensures the web page looks good on all screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
@@ -115,44 +116,44 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     <html>
     <head>
         <title></title>
-    
+
         <meta charset="utf-8">
-    	
-    	<!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    	<meta http-equiv="x-ua-compatible" content="IE=Edge">
-    
-    	<!-- Ensures the web page looks good on all screen sizes. -->
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
+        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+        <!-- Ensures the web page looks good on all screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-    
+
         <style>
-        	html, body {
-        		margin: 0;
-        	}
-        
-        	#myMap {
-        		height: 100vh;
-        		width: 100vw;
-        	}
+            html, body {
+                margin: 0;
+            }
+
+            #myMap {
+                height: 100vh;
+                width: 100vw;
+            }
         </style>
     </head>
     <body>
         <div id="myMap"></div>
-    	
-    	<script type="text/javascript">
+
+        <script type="text/javascript">
             //Create an instance of the map control and set some options.
-        	var map = new atlas.Map('myMap', {
-        		center: [-122.33, 47.6],
-        		zoom: 12,
-        		language: 'en-US',
-        		authOptions: {
-        			authType: 'subscriptionKey',
-        			subscriptionKey: '<Your Azure Maps Key>'
-        		}
-        	});
+            var map = new atlas.Map('myMap', {
+                center: [-122.33, 47.6],
+                zoom: 12,
+                language: 'en-US',
+                authOptions: {
+                    authType: 'subscriptionKey',
+                    subscriptionKey: '<Your Azure Maps Key>'
+                }
+            });
         </script>
     </body>
     </html>
