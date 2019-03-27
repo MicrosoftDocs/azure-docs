@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.author: raynew
 
 ---
@@ -150,7 +150,7 @@ Multi-NIC | Yes
 Reserved IP address | Yes
 IPv4 | Yes
 Retain source IP address | Yes
-Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes
+Azure Virtual Network service endpoints<br/> | Yes
 Accelerated Networking | No
 
 ## Storage
@@ -199,7 +199,7 @@ Block blobs | No
 Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
-Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | Yes
 General purpose v2 storage accounts (both hot and cool tiers) | No
 
 ## Azure compute

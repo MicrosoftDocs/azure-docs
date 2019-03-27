@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
@@ -52,6 +52,8 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 - **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network. Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports. During deployment, customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates **Azure Functions runtime** to **v1.0.11388**.
 
 - **Updates to the following application frameworks and tools**:
     - Added **.NET Core 2.0** support

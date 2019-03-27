@@ -31,7 +31,7 @@ Standard voices are available in these regions:
 | East US2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
+| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
 ### Custom voices
