@@ -68,7 +68,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure Media Services using the Azure portal</h3>
+                        <h3>Get Started with Azure Media Services using Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Media Services account using the Azure Portal</h3>
+                        <h3>Create an Azure Media Services account using Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content using the Azure portal</h3>
+                        <h3>Get started delivering content using Azure portal</h3>
                     </div>
                 </div>
             </div>
