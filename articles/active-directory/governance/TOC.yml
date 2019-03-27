@@ -12,7 +12,7 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: First access package in entitlement management
+    - name: Create your first access package
       href: entitlement-management-first-access-package.md
 - name: Concepts
   expanded: true
