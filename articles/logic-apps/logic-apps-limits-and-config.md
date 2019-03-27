@@ -52,7 +52,7 @@ Here are the limits for a single logic app run:
 | Minimum recurrence interval | 1 second | |
 | Maximum recurrence interval | 500 days | |
 | Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
-|||| 
+||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
