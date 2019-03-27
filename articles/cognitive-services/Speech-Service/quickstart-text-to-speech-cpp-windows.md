@@ -18,7 +18,7 @@ In this article, you create a C++ console application for Windows. You use the C
 
 The feature described within this article is available from [Speech SDK 1.4.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.4.0).
 
-For a complete list of languages/voices available for speech synthesis, see [language support](language-support.md).
+For a complete list of languages/voices available for speech synthesis, see [language support](language-support.md#text-to-speech).
 
 ## Prerequisites
 
