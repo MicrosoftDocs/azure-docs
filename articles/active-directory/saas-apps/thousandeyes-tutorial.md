@@ -208,7 +208,7 @@ The objective of this section is to create a user called Britta Simon in Thousan
 
 **If you need to create user manually, perform following steps:**
 
-1. Log into your ThousandEyes company site as an administrator.
+1. Sign in to your ThousandEyes company site as an administrator.
 
 2. Click **Settings**.
 
