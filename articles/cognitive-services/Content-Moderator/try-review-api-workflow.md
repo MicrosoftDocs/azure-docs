@@ -136,5 +136,4 @@ Select **Send**. If the operation succeeds, the **Response status** is `200 OK`,
 
 ## Next steps
 
-- For more complex workflow examples, see the [workflows section](workflow-api.md).
 - Learn how to use workflows with [content moderation jobs](try-review-api-job.md).
