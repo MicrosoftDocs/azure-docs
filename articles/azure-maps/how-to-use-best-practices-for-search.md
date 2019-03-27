@@ -9,9 +9,9 @@ services: azure-maps
 manager: philmea
 ---
 
-# Best practices for search 
+# Best practices to use Azure Maps Search Service
 
-Azure Maps Search Service includes APIs with various capabilities, e.g from address search to searching Point of Interest data around a specific location. In this article, we will share the best practices to call data via Azure Maps Search Services. You will learn how to:
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs with various capabilities, e.g from address search to searching Point of Interest data around a specific location. In this article, we will share the best practices to call data via Azure Maps Search Services. You will learn how to:
 
 * Build queries to return relevant matches
 * Limit search results
@@ -43,7 +43,7 @@ In this section, you will learn how to use Azure Maps search APIs to limit searc
 
 In order to geo-bias your results to the relevant area for your user, you should always add the maximum possible detailed location input. To restrict the search results, consider the following:
 
-1. Set the `countrySet` parameter, for example "US, FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return inaccurate results, since there are two cities named **Bellevue** in France and the US.
+1. Set the `countrySet` parameter, for example "US, FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return results from USA and France, since there are cities named **Bellevue** in France and in the the USA.
 
 2. You can use the `btmRight` and `topleft` parameters to set the bounding box to restrict the search to a specific area on the map.
 
@@ -62,6 +62,8 @@ In order to geo-bias your results to the relevant area for your user, you should
     4. `POI` **Points of Interest**: Points on a map that are worth attention and may be interesting.  [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) won't return POIs.  
     5. `Str` **Streets**: Representation of streets on the map.
     6. `XStr` **Cross Streets/intersections**:  Representation of junctions; places where two streets intersect.
+
+
     **Usage Examples**:
         * idxSet=POI (search Points Of Interest only) 
         * idxSet=PAD,Addr (search addresses only, PAD= Point Address, Addr= Address Range)
@@ -69,7 +71,7 @@ In order to geo-bias your results to the relevant area for your user, you should
 
 ### Search results language
 
-The `language` parameter allows you to set a language for the search results. If the language is not supported or is not set in the request parameters, the search service automatically defines the language based on the request content, For example the based on the location of the request. When the specified language is not supported for the data, the **default language** is used. Default language is the officially supported language in the country/region. See [supported languages](https://docs.microsoft.com/azure/azure-maps/supported-languages) for a list of supported languages with respect to Azure Maps services by country/region.
+The `language` parameter allows you to set in which language search results should be returned. If the language is not set in the request, search service automatically defaults to neutral ground truth language in the country/region. Also, when data in the specified language is not available, the default language is used. See [supported languages](https://docs.microsoft.com/azure/azure-maps/supported-languages) for a list of supported languages with respect to Azure Maps services by country/region.
 
 
 ### Predictive mode (Auto-suggest)
@@ -82,64 +84,69 @@ To find more matches for partial queries, such as, "Microsoft", `typeHead` param
 To find cross street addresses, I.e. 1st Avenue & Union Street, Seattle, special character '&' needs to be encoded before sending the request. We recommend encoding character data in a URI, where all characters are encoded using a '%' character and a two-character hex value corresponding to their UTF-8 character.
 
 **Usage Examples**:
-    * Get Search Address:
-        ```
-        query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
-        ```
+
+* Get Search Address:
+
+
+```
+query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
+```
+
+
 Here are the different methods to use for different languages: 
 
-* JavaScript/TypeScript:
-    ```Javascript
-    encodeURIComponent(query)
-    ```
+JavaScript/TypeScript:
+```Javascript
+encodeURIComponent(query)
+```
 
-* C#/VB:
-    ```C#
-    Uri.EscapeDataString(query)
-    ```
+C#/VB:
+```C#
+Uri.EscapeDataString(query)
+```
 
-* Java:
-    ```Java
-    URLEncoder.encode(query, "UTF-8") 
-    ```
+Java:
+```Java
+URLEncoder.encode(query, "UTF-8") 
+```
 
-* Python:
-    ```Python
-    import urllib.parse 
-    urllib.parse.quote(query)
-    ```
+Python:
+```Python
+import urllib.parse 
+urllib.parse.quote(query)
+```
 
-* C++:
-    ```C++
-    #include <curl/curl.h>
-    curl_easy_escape(query)
-    ```
+C++:
+```C++
+#include <curl/curl.h>
+curl_easy_escape(query)
+```
 
-* PHP:
-    ```PHP
-    urlencode(query)
-    ```
+PHP:
+```PHP
+urlencode(query)
+```
 
-* Ruby:
-    ```Ruby
-    CGI::escape(query) 
-    ```
+Ruby:
+```Ruby
+CGI::escape(query) 
+```
 
-* Swift:
-    ```Swift
-    query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
-    ```
+Swift:
+```Swift
+query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
+```
 
-* Go:
-    ```Go
-    import ("net/url") 
-    url.QueryEscape(query)
-    ```
+Go:
+```Go
+import ("net/url") 
+url.QueryEscape(query)
+```
 
 
 ## Best practices for POI search
 
-Use the `countrySet` parameter to specify countries where your application needs coverage, as the default behavior will be to search the entire world, potentially returning unnecessary results and/or result in longer search times.
+We strongly advise you to use the `countrySet` parameter to specify countries where your application needs coverage, as the default behavior will be to search the entire world, potentially returning unnecessary results and/or result in longer search times.
 
 ### Airport search
 
@@ -151,17 +158,33 @@ https://atlas.microsoft.com/search/poi/json?subscription-key=[you_key]&api-versi
 
 ### Nearby search
 
-To retrieve POI results around a specific location, the nearby search method may be the right choice. This endpoint will only return POI results, and does not take in a search query parameter. To limit the results, it is recommend to set the radius.
+To retrieve only POI results around a specific location, the nearby search method may be the right choice. This endpoint will only return POI results, and does not take in a search query parameter. To limit the results, it is recommend to set the radius.
 
-### Understanding response summary
-
+### Understanding the responses
 Lets make a fuzzy search request to the Azure Maps search service for the geographic region and Point of interests with name Seattle. If you look carefully at the request URL below, we have used the `idxSet` parameter to define the result type we want in the response.
 
 ```
-https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=Seattle&lon=-122.33596&lat=47.6101&radius=20&idxSet=Geo,POI
+https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=Seattle&countrySet=US&radius=20&idxSet=Geo,POI
 ```
 
-Further lets have a look at the response structure below. The result type of both the result objects in the response are different. One of them is a POI object with name seattle in it and the other is the Geographic region representing the city of Seattle. See [Get Search fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#definitions) to know more about response object parameters.
+Further lets have a look at the response structure below. The result type of both the result objects in the response are different. One of them is a POI object with name seattle in it and the other is the Geographic region representing the city of Seattle. See [Get Search fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#definitions) to know more about response object parameters. 
+
+Supported types of result:
+
+**Point Address:** Points on a map where specific address with a street name and number. The highest level of accuracy available for addresses. 
+
+**Address Range:**  For some streets there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges. 
+
+**Geography:** Areas on a map which represent administrative division of a land, i.e., country, state, city. 
+
+**POI - (Points of Interest):** Points on a map that are worth attention and may be interesting.
+
+**Street:** Representation of streets on the map. Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed. 
+
+**Cross Street:** Intersections. Representations of junctions; places where two streets intersect.
+
+The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response.
+
 
 ```JSON
 {
