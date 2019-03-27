@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 
@@ -35,7 +35,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 

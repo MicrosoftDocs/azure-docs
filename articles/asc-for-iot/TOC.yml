@@ -2,14 +2,15 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: Solution architecture
-  href: architecture.md
-- name: Security agents
-  href: security-agent-architecture.md
-- name: Service prerequisites
-  href: service-prerequisites.md
-- name: Get started with ASC for IoT
-  href: getting-started.md
+  items:
+  - name: Solution architecture
+    href: architecture.md
+  - name: Security agents
+    href: security-agent-architecture.md
+  - name: Service prerequisites
+    href: service-prerequisites.md
+  - name: Get started with ASC for IoT
+    href: getting-started.md
 - name: Quickstarts
   expanded: true
   items:

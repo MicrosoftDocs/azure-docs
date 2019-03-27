@@ -25,7 +25,7 @@ Before you start, it's important to understand that you can't delete a Recovery 
 - If you don't want to retain any data in the Recovery Services vault, and want to delete the vault, you can delete the vault by force.
 - If you try to delete a vault, but can't, the vault is still configured to receive backup data.
 
-To learn how to delete a vault, see the section, [Delete a vault from Azure portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). If section, [Delete the vault by force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). If you aren't sure what's in the vault, and you need to make sure that you can delete the vault, see the section, [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+To learn how to delete a vault, see the section, [Delete a vault from Azure portal](#delete-a-vault-from-the-azure-portal). If section, [Delete the vault by force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). If you aren't sure what's in the vault, and you need to make sure that you can delete the vault, see the section, [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## Delete a vault from the Azure portal
 
@@ -84,7 +84,7 @@ To delete a Recovery Services vault:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a contained within a vault, do the following:
+9. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a container within a vault, do the following:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
