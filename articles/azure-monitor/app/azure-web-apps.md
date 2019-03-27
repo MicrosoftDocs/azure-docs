@@ -30,7 +30,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about manually instrumenting 
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#troubleshooting) below.
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
 
 ### Enable agent based application monitoring
 
@@ -300,14 +300,14 @@ To check which version of the extension you are running visit `http://yoursitena
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
 
-* [Upgrade through PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#enabling-through-powershell):
+* [Upgrade through PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
-If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#troubleshooting).
+If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 ## Troubleshooting
 
@@ -319,7 +319,7 @@ If the upgrade is done from a version prior to 2.5.1 please ensure that the Appl
     ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
 
     * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * If it is not running follow the [enable Application Insights monitoring instructions](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps/#enable-application-insights)
+        * If it is not running follow the [enable Application Insights monitoring instructions](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
 
     * Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * If this is not present it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints which will allow the runtime information to become available.
