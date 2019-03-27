@@ -10,23 +10,22 @@ editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# Configure security agents
+# Tutorial: Configure security agents
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This tutorial explains how to configure ASC for IoT security agents.
+This article explains ASC for IoT security agent, how to change them configure ASC for IoT security agents.
 
-In this tutorial, you learn how to: 
 > [!div class="checklist"]
 > * Configure security agents
 > * Change agent behavior by editing twin properties
@@ -44,10 +43,11 @@ Use the ASC for IoT security agent configuration [schema](https://github.com/azu
 
 ## Configuration objects 
 
-Each ASC for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the azureiotsecurity module. 
+Each ASC for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
 
-To modify the configuration, create and modify this object inside the azureiotsecurity module twin identity. 
-If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
+To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity. 
+
+If the agent configuration object does not exist in the **azureiotsecurity** module twin, all security agent property values are set to default. 
 
 ```json
 "desired": {
@@ -59,10 +59,16 @@ If the agent configuration object does not exist in the azureiotsecurity module 
 Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
 The agent will not launch if the configuration object does not match the schema.
 
+## Configuration schema and validation 
+
+Make sure to validate your agent configuration against this [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+
+ 
+If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
 
 ## Editing a property 
 
-All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin.
+All custom properties must be set inside the agent configuration object within the **azureiotsecurity** module twin.
 To use a default property value, remove the property from the configuration object.
 
 ### Setting a property
@@ -93,7 +99,8 @@ To use a default property value, remove the property from the configuration obje
 To use a default property value, remove the property from the configuration object.
 
 ## Default properties 
-Set of controllable properties that control the ASC for IoT security agents.
+
+The following table contains the controllable properties of ASC for IoT security agents.
 
 Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
 
@@ -126,7 +133,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
  
 
-## See Also
+## Next steps
 
 - [Understand ASC for IoT recommendations](concept-recommendations.md)
 - [Explore ASC for IoT alerts](concept-security-alerts.md)

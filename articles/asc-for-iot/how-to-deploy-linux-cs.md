@@ -1,5 +1,5 @@
 ---
-title: Tutorial to install and deploy Linux C# agent of Azure Security Center for IoT Preview| Microsoft Docs
+title: Guide to install and deploy Linux C# agent of ASC for IoT Preview| Microsoft Docs
 description: Learn how to install the ASC for IoT agent on both 32-bit and 64-bit Linux. 
 services: ascforiot
 documentationcenter: na
@@ -10,23 +10,23 @@ editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 03/27/2019
 ms.author: mlottner
 
 ---
-# Tutorial: Deploy ASC for IoT C#-based security agent for Linux
+# Deploy ASC for IoT C#-based security agent for Linux
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This tutorial explains how to install and deploy the ASC for IoT C#-based security agent on Linux.
+This guide explains how to install and deploy the ASC for IoT C#-based security agent on Linux.
 
-In this tutorial, you learn how to: 
+In this guide, you learn how to: 
 > [!div class="checklist"]
 > * Install
 > * Verify deployment
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
+For other platforms and agent flavors, see [Choose the right security agent](how-to-deploy-agent.md).
 
 1. To deploy the security agent, local admin rights are required on the machine you wish to install on. 
 

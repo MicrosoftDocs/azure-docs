@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
@@ -18,21 +18,21 @@ ms.author: mlottner
 
 ---
 
-# Tutorial: Send security messages SDK
+# Send security messages SDK
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This tutorial explains ASC for IoT data analysis capabilities when choosing to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
+This how-to guide explains ASC for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
 
-In this tutorial, you learn how to: 
+In this guide, you learn how to: 
 > [!div class="checklist"]
 > * Use the Send security message API for C#
 > * Use the Send security message API for C
 
-## ASC for IoT 
+## ASC for IoT capabilities
 
 ASC for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ASC for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
 

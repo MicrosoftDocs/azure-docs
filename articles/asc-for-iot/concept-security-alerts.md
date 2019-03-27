@@ -92,4 +92,4 @@ For more details, see [Create custom alerts](quickstart-create-custom-alerts.md)
 
 - [Overview](overview.md)
 - [Access your security data](how-to-security-data-access.md)
-- [Investigate a device](tutorial-investigate-device.md)
+- [Investigate a device](how-to-investigate-device.md)
