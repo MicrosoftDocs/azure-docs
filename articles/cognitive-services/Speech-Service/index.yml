@@ -161,7 +161,7 @@ sections:
         values:
         - href:
         - href:
-        - href:
+        - href: quickstart-cpp-macos
         - href: quickstart-csharp-dotnetcore-windows
         - href:
         - href: quickstart-java-jre

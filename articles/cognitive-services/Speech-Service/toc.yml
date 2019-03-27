@@ -39,6 +39,9 @@
       - name: 'C++ (Linux)'
         href: quickstart-cpp-linux.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
+      - name: 'C++ (macOS)'
+        href: quickstart-cpp-macos.md
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Java (Android)'
         href: quickstart-java-android.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
