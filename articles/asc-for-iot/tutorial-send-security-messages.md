@@ -161,6 +161,3 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
 - Understand [alerts](concept-security-alerts.md) for IoT defines a security message by the following criteria:
-- The message was sent from the Azure IoT C/C# SDK
-- The message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
-- The message was set as a security message prior to sending
