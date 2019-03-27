@@ -19,7 +19,7 @@ ms.date: 03/27/2019
 
 Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers-dtu.md)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers-vcore.md)) is automatically provisioned with several AlwaysON replicas to support the availability SLA.
 
-![Readonly replicas](media/sql-database-managed-instance/business-critical-service-tier.png)
+![Readonly replicas](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
 These replicas are provisioned with the same compute size as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
@@ -30,7 +30,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
 
 > [!NOTE]
-> Query Data Store, Extended Events and Audit features are not supported on the read-only replicas.  
+> Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas.  
 
 ## Data consistency
 
