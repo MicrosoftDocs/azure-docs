@@ -53,6 +53,9 @@
       - name: 'Objective-C (iOS)'
         href: quickstart-objectivec-ios.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
+      - name: 'Objective-C (macOS)'
+        href: quickstart-objectivec-macos.md
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Python'
         href: quickstart-python.md
         displayName: recognize speech, speech recognition, speech-to-text, stt

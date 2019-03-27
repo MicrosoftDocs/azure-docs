@@ -166,7 +166,7 @@ sections:
         - href:
         - href:
         - href: quickstart-python
-        - href:
+        - href: quickstart-objectivec-macos
         - href: quickstart-js-node
         - href:
       - title: Devices SDK (ARM32)
