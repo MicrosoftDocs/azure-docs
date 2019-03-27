@@ -729,8 +729,8 @@ At this point, everything is set up in the user interface. Now, we need to add t
         } else { 
             //Update the location of the centerMarker property. 
             centerMarker.setOptions({ 
-                position: camera.center, 
-                visible: true 
+                position: camera.center,
+                visible: true
             }); 
 
             //List the ten closest locations in the side panel. 

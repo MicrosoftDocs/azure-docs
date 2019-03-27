@@ -83,11 +83,11 @@ The following steps show you how to create a static HTML page embedded with the 
     ```JavaScript
    //Instantiate a map object
    var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+           authType: 'subscriptionKey',
+           subscriptionKey: '<Your Azure Maps Key>'
+        }
    });
    ```
 
@@ -184,6 +184,7 @@ This section shows how to use Azure Maps route service API to find the route fro
     // Construct the RouteURL object
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
+
    The **SubscriptionKeyCredential** creates a **SubscriptionKeyCredentialPolicy** to authenticate HTTP requests to Azure Maps with the subscription key. The **atlas.service.MapsURL.newPipeline()** takes in the **SubscriptionKeyCredential** policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The **routeURL** represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
 
 2. After setting up credentials and the URL, add the following JavaScript code to construct the route from start to end point. The **routeURL** requests the Azure Maps route service to calculate route directions. A GeoJSON feature collection from the response is then extracted using the **geojson.getFeatures()** method and added to the data source.
@@ -194,9 +195,9 @@ This section shows how to use Azure Maps route service API to find the route fro
 
     //Make a search route request
     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
-      //Get data features from response
-      var data = directions.geojson.getFeatures(); 
-      datasource.add(data);
+        //Get data features from response
+        var data = directions.geojson.getFeatures(); 
+        datasource.add(data);
     });
     ```
 

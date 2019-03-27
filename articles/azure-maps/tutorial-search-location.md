@@ -183,31 +183,31 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
    The **SubscriptionKeyCredential** creates a **SubscriptionKeyCredentialPolicy** to authenticate HTTP requests to Azure Maps with the subscription key. The **atlas.service.MapsURL.newPipeline()** takes in the **SubscriptionKeyCredential** policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The **searchURL** represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
 
 2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius of the provided latitude and longitude. A GeoJSON feature collection from the response is then extracted using the **geojson.getFeatures()** method and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
- 
-   ```JavaScript
-   var query =  'gasoline-station';
-   var radius = 9000;
-   var lat = 47.64452336193245;
-   var lon = -122.13687658309935;
 
-   searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+    ```JavaScript
+    var query =  'gasoline-station';
+    var radius = 9000;
+    var lat = 47.64452336193245;
+    var lon = -122.13687658309935;
+
+    searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
        limit: 10,
        lat: lat,
        lon: lon,
        radius: radius
-   }).then((results) => {
+    }).then((results) => {
       
-      // Extract GeoJSON feature collection from the response and add it to the datasource
-      var data = results.geojson.getFeatures();
-      datasource.add(data);
+        // Extract GeoJSON feature collection from the response and add it to the datasource
+        var data = results.geojson.getFeatures();
+        datasource.add(data);
       
-      // set camera to bounds to show the results
-      map.setCamera({
-        bounds: data.bbox,
-        zoom: 10
-      });
+        // set camera to bounds to show the results
+        map.setCamera({
+           bounds: data.bbox,
+           zoom: 10
+        });
     });
-   ```
+    ```
  
 3. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with round-blue pins marking the locations of gasoline stations in the area.
 
