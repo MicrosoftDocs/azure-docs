@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ---
 # Advanced certificate signing options in the SAML token for gallery apps in Azure Active Directory
 
-Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. Over 500 of the applications support single sign-on by using the [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0 protocol, such as the [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) application. When a user authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). The application then validates and uses the token to sign in the user instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
+Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. Over 500 of the applications support single sign-on by using the [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0 protocol, such as the [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) application. When a customer authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). The application then validates and uses the token to sign in the customer instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
 
 Azure AD uses some of the default settings for the gallery applications. The default values are set up based on the application's requirements.
 
@@ -31,17 +31,17 @@ In Azure AD, you can set up certificate signing options and the certificate sign
 
 Azure AD supports three certificate signing options:
 
-* **Sign SAML assertion**. This default option is set for most of the gallery applications. If this option is selected, Azure AD as an Identity Provider (IdP) signs the SAML assertion and certificate with the [X.509](https://wikipedia.org/wiki/X.509) certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
+* **Sign SAML assertion**. This default option is set for most of the gallery applications. If you select this option, Azure AD as an Identity Provider (IdP) signs the SAML assertion and certificate with the [X.509](https://wikipedia.org/wiki/X.509) certificate of the application. Also, it uses the signing algorithm that you select in the **Signing Algorithm** drop-down list.
 
-* **Sign SAML response**. If this option is selected, Azure AD as an IdP signs the SAML response with the X.509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
+* **Sign SAML response**. If you select this option, Azure AD as an IdP signs the SAML response with the X.509 certificate of the application. Also, it uses the signing algorithm that you select in the **Signing Algorithm** drop-down list.
 
-* **Sign SAML response and assertion**. If this option is selected, Azure AD as an IdP signs the entire SAML token with the X.509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
+* **Sign SAML response and assertion**. If you select this option, Azure AD as an IdP signs the entire SAML token with the X.509 certificate of the application. Also, it uses the signing algorithm that you select in the **Signing Algorithm** drop-down list.
 
 ## Certificate signing algorithms
 
 Azure AD supports two signing algorithms, or secure hash algorithms (SHAs), to sign the SAML response:
 
-* **SHA-256**. Azure AD uses this default algorithm to sign the SAML response. It's the newest algorithm and is treated as more secure than SHA-1. Most of the applications support the SHA-256 algorithm. If an application supports only SHA-1 as the signing algorithm, you can change it. Otherwise, we recommend that you use the SHA-256 algorithm for signing the SAML response.
+* **SHA-256**. Azure AD uses this default algorithm to sign the SAML response. It's the newest algorithm and is more secure than SHA-1. Most of the applications support the SHA-256 algorithm. If an application supports only SHA-1 as the signing algorithm, you can change it. Otherwise, we recommend that you use the SHA-256 algorithm for signing the SAML response.
 
 * **SHA-1**. This algorithm is older, and it's treated as less secure than SHA-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
@@ -71,9 +71,9 @@ Next, change the certificate signing options in the SAML token for that applicat
 
    ![SAML signing page](./media/certificate-signing-options/saml-signing-page.png)
 
-6. In the **Signing Option** dropdown list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**. (These options are described in the [Certificate signing options](#certificate-signing-options) section earlier.)
+6. In the **Signing Option** drop-down list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**. Descriptions of these options appear earlier in this article in the [Certificate signing options](#certificate-signing-options).
 
-7. In the **Signing Algorithm** dropdown list, choose **SHA-1** or **SHA-256**, which are described in the [Certificate signing algorithms](#certificate-signing-algorithms) section earlier.
+7. In the **Signing Algorithm** drop-down list, choose **SHA-1** or **SHA-256**. Descriptions of these options appear earlier in this article in the [Certificate signing algorithms](#certificate-signing-algorithms) section.
 
 8. If you're satisfied with your choices, select **Save** to apply the new SAML signing certificate settings. Otherwise, select the **X** to discard the changes.
 
