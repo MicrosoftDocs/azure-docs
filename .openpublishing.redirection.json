@@ -21829,6 +21829,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/tutorial-elastic-query-with-sql-database-and-sql-data-warehouse.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/how-to-use-elastic-query-with-sql-data-warehouse.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
       "redirect_document_id": false
