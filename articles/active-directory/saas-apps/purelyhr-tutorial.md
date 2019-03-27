@@ -43,6 +43,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * PurelyHR supports **SP** and **IDP** initiated SSO
 
+* PurelyHR supports **Just In Time** user provisioning
+
 ## Adding PurelyHR from the gallery
 
 To configure the integration of PurelyHR into Azure AD, you need to add PurelyHR from the gallery to your list of managed SaaS apps.
