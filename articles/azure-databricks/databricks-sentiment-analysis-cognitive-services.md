@@ -222,7 +222,10 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+// val pool = Executors.newFixedThreadPool(1)
+// The above line results in an error, this should be replaced with the below:
+val pool = Executors.newScheduledThreadPool(1) 
+
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {
