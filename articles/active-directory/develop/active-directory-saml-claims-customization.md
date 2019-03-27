@@ -81,7 +81,7 @@ For more info, see [Table 3: Valid ID values per source](active-directory-claims
 
 ### Special claims - Transformations
 
-You can also use the special claims transformations functions.
+You can also use the claims transformations functions.
 
 | Function | Description |
 |----------|-------------|
@@ -98,7 +98,7 @@ You can also use the special claims transformations functions.
 
 ### Regular claims - Transformations
 
-You can also use the special claims transformations functions.
+You can also use the claims transformations functions.
 
 | Function | Description |
 |----------|-------------|
