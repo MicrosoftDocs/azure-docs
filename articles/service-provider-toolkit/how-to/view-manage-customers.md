@@ -50,6 +50,6 @@ You can work directly in the context of a delegated subscription within the Azur
 2. Select **Switch directory**.
 3. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. (Do not change your working directory.)
 
-If you then access a service which supports cross-tenant management experiences, the service will default to the scope of the delegated subscription that you selected. You can remove this scope by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
+If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md)), the service will default to the scope of the delegated subscription that you selected. You can remove this scope by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
 You can also access functionality related to delegated subscriptions from within services that support cross-tenant management experiences by modifying your scope from within that service.

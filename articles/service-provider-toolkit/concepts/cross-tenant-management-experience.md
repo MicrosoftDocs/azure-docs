@@ -78,4 +78,4 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
-Role assignments with managed identities for Azure resources is not supported in the cross-tenant management experience.
+Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
