@@ -71,8 +71,6 @@ To use a default property value, remove the property from the configuration obje
 
 1. Click on your device, and then on **azureiotsecurity** module.
 
-1. Click on your device, and then on **azureiotsecurity** module.
-
 1. Click on **Module Identity Twin**.
 
 1. Edit the security module's desired properties.
