@@ -8,9 +8,11 @@ ms.date: 03/21/2019
 ms.author: thweiss
 ---
 
+# How to find the request unit charge
+
 This article presents the different ways to find the request unit consumption for any operation executed against a container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Cosmos DB through one of the SDK.
 
-# Finding the request unit charge from the Azure portal
+## From the Azure portal
 
 The Azure portal currently lets you find the request charge for a SQL query only.
 
@@ -28,7 +30,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 ![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-ru-charge/portal-sql-query.png)
 
-# Finding the request unit charge from the .NET SDK v2
+## From the .NET SDK v2
 
 Objects returned from the .NET SDK v2 expose a `RequestCharge` property.
 
@@ -63,7 +65,7 @@ while (query.HasMoreResults)
 }
 ```
 
-# Finding the request unit charge from the Java SDK
+## From the Java SDK
 
 Objects returned from the Java SDK expose a `getRequestCharge()` method.
 
@@ -91,7 +93,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-# Finding the request unit charge from the JavaScript SDK
+## From the JavaScript SDK
 
 Objects returned from the JavaScript SDK expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
 
@@ -124,7 +126,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-# Finding the request unit charge from the Python SDK
+## From the Python SDK
 
 The `CosmosClient` object from the Python SDK exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
 

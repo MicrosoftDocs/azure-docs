@@ -8,6 +8,8 @@ ms.date: 03/21/2019
 ms.author: thweiss
 ---
 
+# How to find the request unit charge when using the Table API
+
 This article explains how to find the request unit charge for operations executed against Azure Cosmos DB's Table API.
 
 The only SDK currently returning request unit charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that gets populated by the SDK when used against Cosmos DB's Table API.
