@@ -20,4 +20,7 @@ Azure provides the following built-in RBAC roles for access to storage data:
 - [Storage Queue Data Message Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Use to grant add permissions to messages in Azure Storage queues.
 
+> [!IMPORTANT]
+> RBAC role assignments may take up to five minutes to propagate.
+
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../articles/role-based-access-control/custom-roles.md). 
