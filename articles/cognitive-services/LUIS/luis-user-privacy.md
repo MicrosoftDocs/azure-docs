@@ -18,7 +18,7 @@ ms.author: diberry
 Delete customer data to ensure privacy and compliance. 
 
 ## Summary of customer data request features​
-Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Programmatic APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -30,7 +30,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
   - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## Deleting customer data
-LUIS users have full control to delete any user content, either through the LUIS web portal or the LUIS Programmatic APIs. The following table displays links assisting with both:
+LUIS users have full control to delete any user content, either through the LUIS web portal or the LUIS Authoring (also known as Programmatic) APIs. The following table displays links assisting with both:
 
 | | **User Account** | **Application** | **Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ LUIS users have full control to delete any user content, either through the LUIS
 
 
 ## Exporting customer data
-LUIS users have full control to view the data on the portal, however it must be exported through the LUIS Programmatic APIs. The following table displays links assisting with data exports via the LUIS Programmatic APIs:
+LUIS users have full control to view the data on the portal, however it must be exported through the LUIS Authoring (also known as Programmatic) APIs. The following table displays links assisting with data exports via the LUIS Authoring (also known as Programmatic) APIs:
 
 | | **User Account** | **Application** | **Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-act
 
 ### Europe
 
-The [eu.luis.ai](https://eu.luis.ai) portal and Europe authoring APIs are hosted in Azure's Europe geography. The eu.luis.ai portal and Europe authoring APIs support deployment of endpoints to the following Azure geographies:
+The [eu.luis.ai](https://eu.luis.ai) portal and Europe Authoring (also known as Programmatic) APIs are hosted in Azure's Europe geography. The eu.luis.ai portal and Europe Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
 
 * Europe
 * France
@@ -66,7 +66,7 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 ### Australia
 
-The [au.luis.ai](https://au.luis.ai) portal and Australia authoring APIs are hosted in Azure's Australia geography. The au.luis.ai portal and Australia authoring APIs support deployment of endpoints to the following Azure geographies:
+The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known as Programmatic) APIs are hosted in Azure's Australia geography. The au.luis.ai portal and Australia Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
 
 * Australia
 
@@ -74,7 +74,7 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 ### United States
 
-The [luis.ai](https://www.luis.ai) portal and United States authoring APIs are hosted in Azure's United States geography. The luis.ai portal and United States authoring APIs support deployment of endpoints to the following Azure geographies:
+The [luis.ai](https://www.luis.ai) portal and United States Authoring (also known as Programmatic) APIs are hosted in Azure's United States geography. The luis.ai portal and United States Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
 
 * Azure geographies not supported in Europe or Australia
 
