@@ -32,7 +32,7 @@ Before you get started, here's a list of prerequisites:
 The current version of the Cognitive Services Speech SDK is `1.3.1`.
 
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle.
-It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
+It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
 
 ## Create an Xcode Project
 
@@ -45,7 +45,7 @@ In the dialogs that follow, make the following selections:
     1. Enter a name for the quickstart app, for example `helloworld`.
     1. Enter an appropriate organization name and an organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. To sign the app, you need a proper provisioning profile. Refer to the [Apple developer site](https://developer.apple.com/) for details.
     1. Make sure Objective-C is chosen as the language for the project.
-    1. Disable the checkbox to use storyboards and the create a document-based application. The simple UI for the sample app will be created programmatically.
+    1. Disable the checkboxes to use storyboards and to create a document-based application. The simple UI for the sample app will be created programmatically.
     1. Disable all checkboxes for tests and core data.
     ![Project Settings](media/sdk/qs-objectivec-macos-project-settings.png)
 1. Select project directory
@@ -57,12 +57,12 @@ In the dialogs that follow, make the following selections:
     ![Sandbox Settings](media/sdk/qs-objectivec-macos-sandbox.png)
 1. The app also needs to declare use of the microphone in the `Info.plist` file. Click on the file in the overview, and add the "Privacy - Microphone Usage Description" key, with a value like "Microphone is needed for speech recognition".
     ![Settings in Info.plist](media/sdk/qs-objectivec-macos-info-plist.png)
-1. Close the Xcode project, you will use a different instance of it later after setting up the CocoaPods.
+1. Close the Xcode project. You will use a different instance of it later after setting up the CocoaPods.
 
 ## Install the SDK as a CocoaPod
 
 1. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigate to the directory of your sample app (e.g., `helloworld`). Place a text file with the name `Podfile` and the following content in that directory:
+1. Navigate to the directory of your sample app (`helloworld`). Place a text file with the name `Podfile` and the following content in that directory:
     ```
     target 'helloworld' do
         platform :osx, '10.13'
@@ -83,7 +83,7 @@ In the dialogs that follow, make the following selections:
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** -> **Run** from the menu or clicking the **Play** button.
-1. After you start the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
+1. After you click the button and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 
 ## Next steps
 
