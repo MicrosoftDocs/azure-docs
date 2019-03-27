@@ -424,4 +424,4 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure Python app](how-to-configure-python)
+> [Configure Python app](how-to-configure-python.md)

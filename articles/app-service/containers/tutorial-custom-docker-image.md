@@ -149,7 +149,7 @@ docker login <azure-container-registry-name>.azurecr.io --username <registry-use
 
 Confirm that the login succeeds.
 
-### Push an image to Azure Container Registry
+### Push image to Azure Container Registry
 
 Tag your local image for the Azure Container Registry. For example:
 ```bash
@@ -250,7 +250,7 @@ In your local Git repository, open app/templates/app/index.html. Locate the firs
   </nav>
 ```
 
-Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push the Docker image to Docker Hub](#push-the-docker-image-to-docker-hub). Test the web app by following the instructions in [Test the web app](#test-the-web-app).
+Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry). Test the web app by following the instructions in [Test the web app](#test-the-web-app).
 
 ## Access diagnostic logs
 

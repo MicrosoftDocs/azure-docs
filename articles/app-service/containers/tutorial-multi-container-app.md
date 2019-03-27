@@ -52,7 +52,7 @@ For this tutorial, you use the compose file from [Docker](https://docs.docker.co
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
 > [!NOTE]
-> For supported configuration options, see [Docker Compose options (multi-container)](configure-custom-container.md#docker-compose-options-multi-container).
+> For supported configuration options, see [Docker Compose options (multi-container)](configure-custom-container.md#docker-compose-options).
 >
 
 In Cloud Shell, create a tutorial directory and then change to it.
@@ -495,7 +495,7 @@ You'll use *kubernetes-wordpress.yml* for this portion of the tutorial. It is di
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
-For supported configuration options, see [Kubernetes configuration options (multi-container)](configure-custom-container.md#kubernetes-configuration-options-multi-container)
+For supported configuration options, see [Kubernetes configuration options (multi-container)](configure-custom-container.md#kubernetes-configuration-options)
 
 ### Create an Azure Database for MySQL server
 

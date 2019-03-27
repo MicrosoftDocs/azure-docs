@@ -53,7 +53,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 ```
 
 > [!NOTE]
-> You can also [configure your own persistent storage](containers/how-to-serve-content-from-azure-storage.md).
+> You can also [configure your own persistent storage](how-to-serve-content-from-azure-storage.md).
 
 ## Enable SSH
 

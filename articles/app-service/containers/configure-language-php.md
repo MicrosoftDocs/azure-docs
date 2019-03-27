@@ -151,7 +151,7 @@ upload_max_filesize=10M
 ; log_errors=On
 ```
 
-Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-git.md)), it's automatically restarted after deployment.
+Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md)), it's automatically restarted after deployment.
 
 As an alternative to using `.user.ini`, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
@@ -185,7 +185,7 @@ echo “expose_php = Off” >> ini/setting.ini
 
 ## Enable PHP extensions
 
-The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-phpinisystem-directives). You can also do it without using a *.ini* file by following the steps here.
+The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives). You can also do it without using a *.ini* file by following the steps here.
 
 > [!NOTE]
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.

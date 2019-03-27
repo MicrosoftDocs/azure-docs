@@ -47,7 +47,7 @@ az webapp config set --name <app_name> --resource-group <resource_group_name> --
 
 ## Access environment variables
 
-In App Service, you can set either app settings or connection strings outside of your app code (see [Set environment variables](web-sites-configure.md)). Then you can access them using the standard ASP.NET pattern:
+In App Service, you can set either app settings or connection strings outside of your app code (see [Set environment variables](../web-sites-configure.md)). Then you can access them using the standard ASP.NET pattern:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
