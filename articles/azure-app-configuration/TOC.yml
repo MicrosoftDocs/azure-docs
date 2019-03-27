@@ -1,4 +1,4 @@
-- name: Azure App Configuration Documentation
+- name: Azure App Configuration Preview documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,7 +13,7 @@
       href: quickstart-dotnet-core-app.md
     - name: Create a .NET Framework app
       href: quickstart-dotnet-app.md
-    - name: Create an Azure Function
+    - name: Create an Azure function
       href: quickstart-azure-function-csharp.md
     - name: Create a Java Spring app
       href: quickstart-java-spring-app.md
@@ -25,8 +25,6 @@
       href: integrate-azure-managed-service-identity.md
 - name: Samples
   items:
-    - name: Code samples
-      href: https://github.com/Azure/AppConfiguration/samples
     - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
@@ -50,4 +48,8 @@
     - name: Java Spring configuration provider
       href: https://go.microsoft.com/fwlink/?linkid=2074659
     - name: REST
-      href: https://docs.microsoft.com/rest/api/azure-app-configuration
+      href: https://go.microsoft.com/fwlink/?linkid=2078296
+- name: Resources
+  items:
+    - name: Provide product feedback
+      href: https://github.com/Azure/AppConfiguration

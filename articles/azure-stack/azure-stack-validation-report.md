@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
@@ -43,7 +43,7 @@ For example, to view the report from a PowerShell prompt that is open to the loc
 
 The output resembles the following:
 
-```PowerShell
+```powershell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -91,7 +91,7 @@ To view a summary of the report, you can add the **-Summary** switch to the end 
 
 The summary shows validations that don't have results and indicates pass or fail for validations that are complete. The output resembles the following:
 
-```PowerShell
+```powershell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############

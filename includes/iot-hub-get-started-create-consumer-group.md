@@ -1,9 +1,9 @@
 ---
-author: dominicbetts
-ms.service: iot-hub
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
 ---
 ## Add a consumer group to your IoT hub
 

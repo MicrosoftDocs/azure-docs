@@ -34,7 +34,7 @@ The latest release of Azure Machine Learning service includes the following feat
 + A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace). You can create workspaces quickly in the [Azure portal](quickstart-get-started.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace). You can create workspaces quickly in the [Azure portal]((setup-create-workspace.md#portal). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -44,7 +44,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended. 
 
-All the latest capabilities are available by using this <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](quickstart-get-started.md).
+All the latest capabilities are available by using this <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](setup-create-workspace.md#portal).
 
 ## What about run histories?
 
@@ -54,8 +54,7 @@ Run histories are now called **experiments**. You can collect your model's exper
 
 The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 
-[![Online portal](./media/overview-what-happened-to-workbench/image001.png)]
-(./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
@@ -63,7 +62,7 @@ Start training your models and tracking the run histories using the new CLI and 
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
 
-With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
+With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
 You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
@@ -76,10 +75,10 @@ Much of the project content was already on your local machine. So you just need 
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Learn how to get started in [Python with the main SDK](quickstart-create-workspace-with-python.md) or using [Azure portal](quickstart-get-started.md).
+[Create a workspace](setup-create-workspace.md#portal) to get started.
 
 ## What about my registered models and images?
- 
+
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
 
 The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can re-create these images by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
@@ -104,8 +103,7 @@ By using the new Python SDK in the latest release, you can interact with Azure M
 
 In this latest release, the extension was renamed to Azure Machine Learning for Visual Studio Code and has been expanded and improved to work with the preceding new features.
 
-[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)]
-(./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
 
@@ -117,6 +115,6 @@ Learn about the [latest architecture for Azure Machine Learning service](concept
 
 For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
 
-For a quickstart showing you how to create a workspace, create a project, run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-get-started.md).
+For a quickstart showing you how to run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 

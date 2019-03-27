@@ -60,11 +60,11 @@ Note that you can combine all of the options in the same application.
 
 Use the following steps to install the Java SDK:
 
-1.  Follow the official instructions to install Git. For instructions, see [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Follow the official instructions to install Git. For instructions, see [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Follow the official instructions to install the [Java SDK](http://zulu.org/download/) and [Maven](https://maven.apache.org/). The correct version is version 8 of the Java Developer Kit. The correct Apache Maven is version 3.0 or above. The JAVA_HOME environment variable must be set to the install location of the Java Development Kit to complete the quickstart. For more information, see [Create your first function with Java and Maven](../../azure-functions/functions-create-first-java-maven.md).
+2. Follow the official instructions to install the [Java SDK](https://zulu.org/download/) and [Maven](https://maven.apache.org/). The correct version is version 8 of the Java Developer Kit. The correct Apache Maven is version 3.0 or above. The JAVA_HOME environment variable must be set to the install location of the Java Development Kit to complete the quickstart. For more information, see [Create your first function with Java and Maven](../../azure-functions/functions-create-first-java-maven.md).
 
-3.  To install the correct dependency packages, open the Pom.xml file in your Java application. Add a dependency as shown in the following code:
+3. To install the correct dependency packages, open the Pom.xml file in your Java application. Add a dependency as shown in the following code:
 
    ```xml  
    <dependency>
@@ -74,17 +74,17 @@ Use the following steps to install the Java SDK:
    </dependency>
    ```
 
-4.  The packages that need to be installed depends on the profile version you would like to use. The package names for the profile versions are:
+4. The packages that need to be installed depends on the profile version you would like to use. The package names for the profile versions are:
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **latest**
+     - **latest**
 
-5.  If not available, create a subscription and save the subscription ID for later use. For instructions on how to create a subscription, see [Create subscriptions to offers in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
+5. If not available, create a subscription and save the subscription ID for later use. For instructions on how to create a subscription, see [Create subscriptions to offers in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-6.  Create a service principal and save the Client ID and the Client Secret. For instructions on how to create a service principal for Azure Stack, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md). Note that the client ID is also known as the application ID when creating a service principal.
+6. Create a service principal and save the Client ID and the Client Secret. For instructions on how to create a service principal for Azure Stack, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md). Note that the client ID is also known as the application ID when creating a service principal.
 
-7.  Make sure your service principal has the contributor/owner role on your subscription. For instructions on how to assign a role to service principal, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md).
+7. Make sure your service principal has the contributor/owner role on your subscription. For instructions on how to assign a role to service principal, see [Provide applications access to Azure Stack](../azure-stack-create-service-principals.md).
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ To use the Azure Java SDK with Azure Stack, you must supply the following values
 | Client ID                 | AZURE_CLIENT_ID             | The service principal application ID saved when service principal was created on the previous section of this document.                                                                                              |
 | Subscription ID           | AZURE_SUBSCRIPTION_ID      | The [<span class="underline">subscription ID</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack.                |
 | Client Secret             | AZURE_CLIENT_SECRET        | The service principal application Secret saved when service principal was created.                                                                                                                                   |
-| Resource Manager Endpoint | ARM_ENDPOINT              | See [<span class="underline">the Azure Stack resource manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager Endpoint | ARM_ENDPOINT              | See [<span class="underline">the Azure Stack Resource Manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Location                  | RESOURCE_LOCATION    | Local for Azure Stack                                                                                                                                                                                                |
 
 To find the tenant ID for your Azure Stack, please follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
@@ -117,7 +117,23 @@ In Unix based systems, you can use the following command:
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### The Azure Stack resource manager endpoint
+### Trust the Azure Stack CA root certificate
+
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
+
+#### Windows
+
+1. Export the Azure Stack Self-Signed certificate to your desktop
+
+1. In a cmd shell, change directory to %JAVA_HOME%\bin
+
+1. Run this cmd:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+```
+
+### The Azure Stack Resource Manager endpoint
 
 The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage, and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
 
@@ -161,10 +177,10 @@ The following code authenticates the service principal on Azure Stack. It create
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 This enables you to use the API profile dependencies to deploy your application successfully to Azure Stack.
@@ -180,8 +196,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -225,33 +241,33 @@ You can use the following GitHub samples as references for creating solutions wi
 
 ### Sample Unit Test Project 
 
-1.  Clone the repository using the following command:
+1. Clone the repository using the following command:
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Create an Azure service principal and assign a role to access the subscription. For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](../azure-stack-create-service-principals.md).
+2. Create an Azure service principal and assign a role to access the subscription. For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](../azure-stack-create-service-principals.md).
 
-3.  Retrieve the following required environment variable values:
+3. Retrieve the following required environment variable values:
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  Set the following environment variables using the information you retrieved from the Service Principal you created using the command prompt:
+4. Set the following environment variables using the information you retrieved from the Service Principal you created using the command prompt:
     
-    - export AZURE_TENANT_ID={your tenant id}
-    - export AZURE_CLIENT_ID={your client id}
-    - export AZURE_CLIENT_SECRET={your client secret}
-    - export AZURE_SUBSCRIPTION_ID={your subscription id}
-    - export ARM_ENDPOINT={your Azure Stack Resource manager URL}
-    - export RESOURCE_LOCATION={location of Azure Stack}
+   - export AZURE_TENANT_ID={your tenant ID}
+   - export AZURE_CLIENT_ID={your client ID}
+   - export AZURE_CLIENT_SECRET={your client secret}
+   - export AZURE_SUBSCRIPTION_ID={your subscription ID}
+   - export ARM_ENDPOINT={your Azure Stack Resource Manager URL}
+   - export RESOURCE_LOCATION={location of Azure Stack}
 
    In Windows, use **set** instead of **export**.
 
-5.  Use the `getactivedirectorysettings` code to retrieve the arm metadata endpoint and use the HTTP client to set the endpoint information.
+5. Use the `getactivedirectorysettings` code to retrieve the arm metadata endpoint and use the HTTP client to set the endpoint information.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -273,7 +289,7 @@ You can use the following GitHub samples as references for creating solutions wi
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  In the pom.xml file, add the dependency below to use the 2018-03-01-hybrid profile for Azure Stack. This dependency will install the modules associated with this profile for the Compute, Networking, Storage, KeyVault and App Services resource providers.
+6. In the pom.xml file, add the dependency below to use the 2018-03-01-hybrid profile for Azure Stack. This dependency will install the modules associated with this profile for the Compute, Networking, Storage, KeyVault and App Services resource providers.
       
    ```xml
    <dependency>
@@ -283,7 +299,7 @@ You can use the following GitHub samples as references for creating solutions wi
    </dependency>
    ```
 
-8.  In the command prompt that was open to set the environment variables, enter the following line:
+8. In the command prompt that was open to set the environment variables, enter the following line:
     
    ```shell
    mvn clean compile exec:java

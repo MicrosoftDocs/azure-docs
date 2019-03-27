@@ -6,7 +6,7 @@ author: bwren
 manager: carmonm
 editor: tysonn
 
-ms.service: monitoring
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

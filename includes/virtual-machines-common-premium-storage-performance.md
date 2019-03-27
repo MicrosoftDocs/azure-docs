@@ -64,11 +64,11 @@ When you are optimizing your application to get higher IOPS and Throughput, it w
 
 The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.
 
-1. [Update the storage type](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Create a managed disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Create a managed disk from a snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Convert unmanaged disks to managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Update the storage type.
+- Detach and attach a disk from one VM to another.
+- Create a managed disk from a VHD.
+- Create a managed disk from a snapshot.
+- Convert unmanaged disks to managed disks.
 
 # Performance Application Checklist for disks
 
@@ -230,7 +230,7 @@ Azure Premium Storage offers eight GA disk sizes and three disk sizes that are i
 
 | Premium Disks Type  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 GiB)    |
+| Disk size           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
 | IOPS per disk       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
 | Throughput per disk | 25 MiB per second  | 50 MiB per second  | 100 MiB per second |125 MiB per second | 150 MiB per second | 200 MiB per second | 250 MiB per second | 250 MiB per second | 480 MiB per second | 750 MiB per second | 750 MiB per second |
 

@@ -109,6 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Infor Retail – Information Management Domain and URLs single sign-on information IDP](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following patterns: 
+	
 	|	|
 	| -- |
 	| `https://<company name>.mingle.infor.com` |

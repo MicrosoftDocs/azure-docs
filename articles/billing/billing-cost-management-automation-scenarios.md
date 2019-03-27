@@ -140,4 +140,4 @@ These APIs provide similar sets of data but have different audiences:
 
 - To compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-- If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

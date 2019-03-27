@@ -19,15 +19,15 @@ In addition to the two default tags, **isadult** (**a**) and **isracy** (**r**),
 
 ## Create tags
 
-1.	Select Tags from the Settings tab.
+1. Select Tags from the Settings tab.
 
-  ![Content Moderation Tags](images/tags-1.png)
+   ![Content Moderation Tags](images/tags-1.png)
 
-2.	Enter a two-letter Short code for the tag.
-3.	Enter a Name for the tag. Keep the name short and descriptive. For example, **isbullying**.
-4.	Enter a Description.
-5.	Click Add.
-6.	Click Save when you are done creating tags.
+2. Enter a two-letter Short code for the tag.
+3. Enter a Name for the tag. Keep the name short and descriptive. For example, **isbullying**.
+4. Enter a Description.
+5. Click Add.
+6. Click Save when you are done creating tags.
 
 ![Defining Content Moderation Tags](images/tags-2-define.png)
 

@@ -36,7 +36,6 @@ These solution templates are transaction offers, which are deployed and billed t
 | Customer Usage Attribution | Enabling customer usage attribution is required on all solution templates published to the Azure Marketplace. For more information on customer usage attribution and how to enable it, see [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
 
-
 ## Next steps
 If you haven't already done so, [register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 

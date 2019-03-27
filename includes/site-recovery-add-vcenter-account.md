@@ -14,4 +14,4 @@ ms.author: raynew
     ![Details](./media/site-recovery-add-vcenter-account/credentials2.png)
 
 	> [!Note]
-  > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, click **Configuration Servers** > ***server name*** > **Refresh Server**.
+   > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, click **Configuration Servers** > ***server name*** > **Refresh Server**.
