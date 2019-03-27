@@ -72,10 +72,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Improvements
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
-
-- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
-
-   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+<!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
+- Improvements to Test-AzureStack for secret rotation readiness test.
 
 ## Common vulnerabilities and exposures
 
