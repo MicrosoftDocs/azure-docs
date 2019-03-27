@@ -29,9 +29,9 @@ ASC for IoT provides reference architecture for security agents that log, proces
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
-Security agents support the following IoT solution features:
+Security agents support the following features:
 
-- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](how-to-agent-configuration.md).
+- Collect raw security events from the underlying Operating System (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](how-to-agent-configuration.md).
 
 - Aggregate raw security events into messages sent through IoT hub.
 
@@ -60,7 +60,7 @@ In this article, you learned about ASC for IoT security agent architecture, and 
 To continue getting started with ASC for IoT deployment, use the following articles:
 
 - Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
-- Select and deploy a [security agent](select-deploy-agent.md)
+- Select and deploy a [security agent](how-to-deploy-agent.md)
 - Review the ASC for IoT [Service prerequisites](service-prerequisites.md)
 - Learn how to [Enable ASC for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [ASC for IoT FAQ](resources-frequently-asked-questions.md)
