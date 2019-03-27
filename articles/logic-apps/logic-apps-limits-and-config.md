@@ -49,9 +49,9 @@ Here are the limits for a single logic app run:
 | Name | Limit | Notes |
 |------|-------|-------|
 | Run duration | 90 days | To change this limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second | |
 | Maximum recurrence interval | 500 days | |
+| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
 |||| 
 
 <a name="change-duration"></a>
@@ -72,18 +72,7 @@ choose **Custom**.
 
 3. Enter or drag the slider for the number of days you want.
 
-<a name="disable-delete"></a>
-
-## Disabling or deleting logic apps
-
-When you disable a logic app, no new runs are instantiated. 
-All in-progress and pending runs continue until they finish, 
-which might take time to complete.
-
-When you delete a logic app, no new runs are instantiated. 
-All in-progress and pending runs are canceled. 
-If you have thousands of runs, cancellation might 
-take significant time to complete.
+<a name="throughput-limits"></a>
 
 <a name="looping-debatching-limits"></a>
 
@@ -100,8 +89,6 @@ Here are the limits for a single logic app run:
 | SplitOn items | 100,000 | For triggers that return an array, you can specify an expression that uses a 'SplitOn' property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a "Foreach" loop. This expression references the array to use for creating and running a workflow instance for each array item. |
 | Until iterations | 5,000 | |
 ||||
-
-<a name="throughput-limits"></a>
 
 ## Throughput limits
 
@@ -273,6 +260,19 @@ Here are the limits that apply to B2B protocols:
 | X12 | 50 MB | Applies to decode and encode |
 | EDIFACT | 50 MB | Applies to decode and encode |
 ||||
+
+<a name="disable-delete"></a>
+
+## Disabling or deleting logic apps
+
+When you disable a logic app, no new runs are instantiated. 
+All in-progress and pending runs continue until they finish, 
+which might take time to complete.
+
+When you delete a logic app, no new runs are instantiated. 
+All in-progress and pending runs are canceled. 
+If you have thousands of runs, cancellation might 
+take significant time to complete.
 
 <a name="configuration"></a>
 
