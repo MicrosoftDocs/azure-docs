@@ -1,5 +1,5 @@
 ---
-title: License requirements to use PIM - Azure | Microsoft Docs
+title: License requirements to use PIM - Azure Active Directory | Microsoft Docs
 description: Describes the licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Deploy Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Describes how to plan the deployment of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Deploy Azure AD Privileged Identity Management (PIM)
 
-This step-by-step guide describes how to plan the deployment of Azure AD Privileged Identity Management (PIM) in your organization.
+This step-by-step guide describes how to plan the deployment of Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in your organization.
 
 > [!TIP]
 > Throughout this document, you will see items marked as:
@@ -290,7 +290,7 @@ Now that you have identified the test users, use this step to configure PIM for 
 
 #### Configure PIM for Azure AD roles
 
-1. [Configure the Azure AD directory role settings](pim-how-to-change-default-settings.md) based on what you planned.
+1. [Configure the Azure AD role settings](pim-how-to-change-default-settings.md) based on what you planned.
 
 1. Navigate to **Azure AD roles**, click **Roles**, and then select the role you just configured.
 
