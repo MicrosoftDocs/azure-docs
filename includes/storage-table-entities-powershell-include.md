@@ -12,7 +12,7 @@ ms.author: tamram
 
 Now that you have a table, let's look at how to manage entities, or rows, in the table. 
 
-An entity can have up to 255 properties, including 3 system properties: **PartitionKey**, **RowKey**, and **Timestamp**. You are responsible for inserting and updating the values of **PartitionKey** and **RowKey**. The server manages the value of **Timestamp**, which cannot be modified. Together the **PartitionKey** and **RowKey** uniquely identify every entity within a table.
+Entities can have up to 255 properties, including three system properties: **PartitionKey**, **RowKey**, and **Timestamp**. You're responsible for inserting and updating the values of **PartitionKey** and **RowKey**. The server manages the value of **Timestamp**, which can't be modified. Together the **PartitionKey** and **RowKey** uniquely identify every entity within a table.
 
 * **PartitionKey**: Determines the partition that the entity is stored in.
 * **RowKey**: Uniquely identifies the entity within the partition.
@@ -62,7 +62,7 @@ You can query the entities in a table by using the **Get-AzTableRow** command.
 Get-AzTableRow -table $cloudTable | ft
 ```
 
-This command yields results similar to the following table:
+This command yield results similar to the following table:
 
 | userid | username | partition | rowkey |
 |----|---------|---------------|----|
