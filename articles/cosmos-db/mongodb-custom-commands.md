@@ -21,7 +21,6 @@ By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB s
 * [Create Database](#create-database)
 * [Update Database](#update-database)
 * [Get Database](#get-database)
-* [Create Collection](#create-collection)
 * [Update Collection](#update-collection)
 * [Get Collection](#get-collection)
 
