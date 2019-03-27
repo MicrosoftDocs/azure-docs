@@ -65,8 +65,8 @@ To verify if a security module twin exists for a specific device:
 1. Enter the device ID, or select an option in the **Query device field** and click **Query devices**. 
     ![Query devices](./media/quickstart/verify-security-module-twin.png)
 1. Select the device or double click it to open the Device details page. 
-1. Select the **Module identities** menu, and confirm existence of the **azureiotsecurity** module and a **Connection State** of **Connected** in the list of module identities associated with the device. 
-    ![Modules associated with a device](./media/quickstart/verify-security-module-twin-2.png)
+1. Select the **Module identities** menu, and confirm existence of the **azureiotsecurity** module in the list of module identities associated with the device. 
+    ![Modules associated with a device](./media/quickstart/verify-security-module-twin-3.png)
 
 
 To learn more about customizing properties of ASC for IoT module twins, see [Agent configuration](tutorial-agent-configuration.md).
