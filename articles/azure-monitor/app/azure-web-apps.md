@@ -114,7 +114,7 @@ To disable client-side monitoring either remove the associated key value pair fr
 
 # [.NET Core](#tab/netcore)
 
-Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI/Application setting based support for disabling client-side monitoring is not currently available for .NET Core.
+Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
 To disable client-side monitoring:
 
