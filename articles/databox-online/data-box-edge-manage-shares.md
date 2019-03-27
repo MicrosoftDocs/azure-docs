@@ -58,7 +58,7 @@ Do the following steps in the Azure portal to create a share.
 
         ![Add NFS share](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it its created. When this option is selected, the Edge module can also use the compute with the local mount point.
+7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it is created. When this option is selected, the Edge module can also use the compute with the local mount point.
 
 8. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
 
