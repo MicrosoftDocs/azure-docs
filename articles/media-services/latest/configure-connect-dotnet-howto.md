@@ -36,9 +36,7 @@ The project in this repository was created using Visual Studio 2017. It targets 
 ## Add required NuGet packages
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **NuGet Manager Console**.
-2. Copy and paste the following commands in the **Package Manager Console** window:
-
-The following NuGet packages were added to the project: 
+2. In the **Package Manager Console** window, use `Install-Package` command to add the following NuGet packages. For example, `Install-Package Microsoft.Azure.Management.Media`.
 
 |Package|Description|
 |---|---|
