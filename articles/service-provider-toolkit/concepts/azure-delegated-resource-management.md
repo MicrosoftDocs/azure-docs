@@ -17,14 +17,14 @@ Azure Delegated Resource Management is one of the key components of the Microsof
 
 ## What is Azure Delegated Resource Management?
 
-Azure Delegated Resource Management lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across multiple remote Azure AD tenants. Service providers can sign in to their own Azure AD tenant and use that single token to be authorized across customer tenancy scopes (subscriptions and resource groups) to perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
+Azure Delegated Resource Management lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across different Azure AD tenants belonging to their customers. Service providers can sign in to their own Azure AD tenant and have authorization to work in delegated customer subscriptions and resource groups. This lets them perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
 
 > [!NOTE]
 > Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant administration.
 
 With Azure Delegated Resource Management, authorized users can work directly in the context of a customer subscription without needing an account in into that customer's tenant. They can also [view and manage all delegated customer subscriptions in the new **My customers** page](../how-to/view-manage-customers.md) in the Azure portal.
 
-The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in Azure Monitor logs in the customer's tenant, so both the customer and service provider can easily identify the user associated with any changes.
+The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log in the customer's tenant, so both the customer and service provider can easily identify the user associated with any changes.
 
 When you onboard a customer to Azure Delegated Resource Management, they’ll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 

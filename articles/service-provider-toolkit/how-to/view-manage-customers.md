@@ -13,7 +13,7 @@ manager: carmonm
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
-In this article, you'll learn how, as a service provider using [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md), you can view all of your delegated customer resources and subscriptions by going to **My customers** in the [Azure portal](https://portal.azure.com).
+In this article, you'll learn how, as a service provider using [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md), you can view all of your delegated customer resources and subscriptions by going to **My customers** in the [Azure portal](https://portal.azure.com). While we’ll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it.You can also find it by entering “Service providers” in the search box near the top of the Azure portal.
 
@@ -46,10 +46,12 @@ The access assignments associated with each delegated subscription appear in the
 
 You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're working in. To do so:
 
-1. Select **Azure Active Directory** from the left navigation pane. (Alternately, select your user name in the upper right corner of the Azure portal.)
-2. Select **Switch directory**.
-3. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. (Do not change your working directory.)
+1. Select the **Directory + Subscription** icon near the top of the Azure portal.
+2. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. (Do not change your working directory.)
 
-If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the scope of the delegated subscription that you selected. You can remove this scope by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
+If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you selected. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
-You can also access functionality related to delegated subscriptions from within services that support cross-tenant management experiences by modifying your scope from within that service.
+> [!NOTE]
+> If you have been granted access to one or more resource groups, rather than access to an entire subscription, you can select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource groups(s).
+
+You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.

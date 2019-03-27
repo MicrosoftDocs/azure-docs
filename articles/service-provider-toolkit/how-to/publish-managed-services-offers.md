@@ -16,12 +16,11 @@ manager: carmonm
 In this article, you’ll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management. 
 
 > [!NOTE]
-> Customers can also be onboarded manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Delegated Resource Management](onboard-customer.md).
+> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
+>
+> If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Delegated Resource Management](onboard-customer.md).
 
 Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about that process, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
-
-> [!NOTE]
-> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
 
 ## Create your offer in the Cloud Partner Portal
 
@@ -69,13 +68,13 @@ Finally, complete the **Manifest Details** section. This creates a manifest with
     - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers’ resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 > [!TIP]
-> In most cases, you’ll want to assign permissions to an Azure AD user group rather than a series of individual user or application accounts. This lets you add or remove individual users to that group without having to update and republish the plan when your access requirements change.
+> In most cases, you’ll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
 
 When you're done adding plans, select **Save**, then continue to the **Marketplace** section.
 
 ## Marketplace
 
-The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal. For examples of how some of these fields appear, see [Marketplace form](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app#azure-marketplace).
+The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal.
 
 Provide info for the following fields in the **Overview** section:
 
