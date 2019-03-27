@@ -95,8 +95,8 @@ procedure.
 1. Step 1 of the procedure
 1. Step 2 of the procedure
 1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length.
+<!--   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
+   Use screenshots but be judicious to maintain a reasonable length.
    Make sure screenshots align to the
    [current standards](contribute-mvc-screen-shots.md).
    If users access your product/service via a web browser the first
@@ -177,7 +177,7 @@ Clean up resources (H2) should come just before Next steps (H2)
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> [Next steps](storage-quickstart-queues-portal.md)
 
 <!--- Required:
 Tutorials should always have a Next steps H2 that points to the next
