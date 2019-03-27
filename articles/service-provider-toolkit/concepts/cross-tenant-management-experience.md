@@ -65,13 +65,17 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 
-- Manage disaster recovery options for Azure VMs in customer tenants
+- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can’t use RunAs accounts to copy VM extensions)
 
 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
 
-- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure virtual machines in customer tenants
-- Use boot diagnostics to troubleshoot Azure virtual machines in customer tenants
+- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
+- Use boot diagnostics to troubleshoot Azure VMs in customer tenants 
+- Access VMs with serial console in customer tenants
+- Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
 
 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/)
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
+
+Role assignments with managed identities for Azure resources is not supported in the cross-tenant management experience.
