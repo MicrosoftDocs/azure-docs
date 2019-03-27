@@ -44,7 +44,7 @@ To get the Standard tier:
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the Standard pricing tier to the subscription or resource group containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
 >
 >
 

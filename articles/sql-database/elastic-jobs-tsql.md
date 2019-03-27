@@ -402,19 +402,19 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 
 |Stored procedure  |Description  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Adds a new job.    |
-|[sp_update_job](#spupdatejob)    |      Updates an existing job.   |
-|[sp_delete_job](#spdeletejob)     |      Deletes an existing job.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Adds a step to a job.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Updates a job step.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Deletes a job step.    |
-|[sp_start_job](#spstartjob)    |  Starts executing a job.       |
-|[sp_stop_job](#spstopjob)     |     Stops a job execution.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Adds a target group.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Removes a target group member from a target group.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Removes the history records for a job.     |
+|sp_add_job     |     Adds a new job.    |
+|sp_update_job    |      Updates an existing job.   |
+|sp_delete_job     |      Deletes an existing job.   |
+|sp_add_jobstep    |    Adds a step to a job.     |
+|sp_update_jobstep     |     Updates a job step.    |
+|sp_delete_jobstep     |     Deletes a job step.    |
+|sp_start_job    |  Starts executing a job.       |
+|sp_stop_job     |     Stops a job execution.   |
+|sp_add_target_group    |     Adds a target group.    |
+|sp_delete_target_group     |    Deletes a target group.     |
+|sp_add_target_group_member     |    Adds a database or group of databases to a target group.     |
+|sp_delete_target_group_member     |     Removes a target group member from a target group.    |
+|sp_purge_jobhistory    |    Removes the history records for a job.     |
 
 
 
@@ -1194,13 +1194,13 @@ The following views are available in the [jobs database](sql-database-job-automa
 
 |View  |Description  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  Shows job execution history.      |
+|jobs_executions     |  Shows job execution history.      |
 |[jobs](#jobs-view)     |   Shows all jobs.      |
-|[job_versions](#jobversions-view)     |   Shows all job versions.      |
+|job_versions     |   Shows all job versions.      |
 |[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
-|[jobstep_versions](#jobstepversions-view)     |     Shows all steps in all versions of each job.    |
-|[target_groups](#targetgroups-view)     |      Shows all target groups.   |
-|[target_group_members](#targetgroups-view)     |   Shows all members of all target groups.      |
+|jobstep_versions     |     Shows all steps in all versions of each job.    |
+|target_groups     |      Shows all target groups.   |
+|target_group_members     |   Shows all members of all target groups.      |
 
 
 ### jobs_executions view
