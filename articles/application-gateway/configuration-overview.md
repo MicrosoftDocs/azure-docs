@@ -20,9 +20,9 @@ This image illustrates an application that has three listeners. The first two ar
 
 ## Prerequisites
 
-### Azure virtual network and dedicated subnet
+### Azure Virtual Network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the Application Gateway subnet.
 
 > [!NOTE]
 > You can't mix Standard_v2 and Standard Application Gateway on the same subnet.
@@ -56,7 +56,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 1. Allow incoming traffic from a source IP/IP range.
 2. Allow incoming requests from all sources to ports 65503-65534 for [back-end health communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
-3. Allow incoming Azure Load Balancer probes (**AzureLoadBalancer** tag) and inbound virtual network traffic (**VirtualNetwork** tag) on the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview).
+3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) and inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Block all other incoming traffic by using a deny-all rule.
 5. Allow outbound traffic to the internet for all destinations.
 
@@ -71,7 +71,7 @@ For the v2 SKU, UDRs aren't supported on the Application Gateway subnet. For mor
 
 ## Front-end IP
 
-You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you're hosting a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint. An Application Gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
+You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint. An Application Gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
 
 Only 1 public IP address or 1 private IP address is supported. You choose the front-end IP when you create the application gateway.
 
@@ -172,7 +172,7 @@ When you create a rule, you choose between [*basic* and *path-based*](https://do
 
 For the v1 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
-For the v2 SKU, an exact match is higher priority than path order as listed in the URL path map. If a request matches the pattern in two or more paths, the request is forwarded to the back end that's associated with the path that exactly matches the request. If the path in the incoming request doesn't exactly match any path in the map, pattern matching of the request is processed in the path map order list for the path-based rule.
+For the v2 SKU, an exact match is higher priority than path order in the URL path map. If a request matches the pattern in two or more paths, the request is forwarded to the back end that's associated with the path that exactly matches the request. If the path in the incoming request doesn't exactly match any path in the map, pattern matching of the request is processed in the path map order list for the path-based rule.
 
 ### Associated listener
 
@@ -182,7 +182,7 @@ Associate a listener to the rule so that the *request-routing rule* that's assoc
 
 Associate to the rule the back-end pool that contains the back-end targets that serve requests that the listener receives.
 
- - For a basic rule, only one back-end pool is allowed. This is because all requests on the associated listener are forwarded to that back-end pool.
+ - For a basic rule, only one back-end pool is allowed. All requests on the associated listener are forwarded to that back-end pool.
 
  - For a path-based rule, add multiple back-end pools that correspond to each URL path. The requests that match the URL path that's entered are forwarded to the corresponding back-end pool. Also, add a default back-end pool. Requests that don't match any URL path in the rule are forwarded to that pool.
 
@@ -288,7 +288,7 @@ This setting lets you configure an optional custom forwarding path to use when t
 
 ### Use for app service
 
-This is a UI shortcut that selects the two required settings for the Azure App Service back end. It enables *pick host name from back-end address*, and it creates a new custom probe. (For more info, see the [Pick host name from back-end address](#pick) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member’s address.
+This is a UI shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe. (For more info, see the [Pick host name from back-end address](#pick) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member’s address.
 
 ### Use custom probe
 
@@ -320,7 +320,7 @@ For example, if *www.contoso<i></i>.com* is specified in the **Host name** setti
 
 ## Back-end pool
 
-You can point a back-end pool to four types of backend members: a specific virtual machine, a virtual machine scale set, an IP address/FQDN, or an app service. Each back-end pool can point to multiple members of the same type. Pointing members of different types in the same back-end pool isn't supported.
+You can point a back-end pool to four types of backend members: a specific virtual machine, a virtual machine scale set, an IP address/FQDN, or an app service. Each back-end pool can point to multiple members of the same type. Pointing to members of different types in the same back-end pool isn't supported.
 
 After you create a back-end pool, you must associate it with one or more request-routing rules. You must also configure health probes for each back-end pool on your application gateway. When a request-routing rule condition is met, the application gateway forwards the traffic to the healthy servers (as determined by the health probes) in the corresponding back-end pool.
 
