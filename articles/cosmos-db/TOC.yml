@@ -484,6 +484,9 @@
         href: how-to-write-javascript-query-api.md
       - name: Use stored procedures, triggers, & UDFs
         href: how-to-use-stored-procedures-triggers-udfs.md 
+    - name: How to model and partition a real-world example
+      displayName: model, partition, example
+      href: how-to-model-partition-example.md
     - name: Security
       items:
       - name: Configure IP firewall
