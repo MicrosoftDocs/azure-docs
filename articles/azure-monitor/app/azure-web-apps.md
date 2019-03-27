@@ -30,7 +30,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
     * If you need to leverage custom API calls to track events/dependencies not captured by default with agent based monitoring you would need to use this method. To learn more about manually instrumenting 
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](azure-web-apps.md/#troubleshooting) below.
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](./azure-web-apps.md/#troubleshooting) below.
 
 ### Enable agent based application monitoring
 
@@ -62,13 +62,9 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [.NET Core](#tab/netcore)
 
-The following versions of .NET Core are supported:
+The following versions of .NET Core are supported: .NET Core 2.0, .NET Core 2.1, .NET Core 2.2
 
-    * .NET Core 2.0
-    * .NET Core 2.1
-    * .NET Core 2.2
-
-Targeting the full framework from .NET Core is currently not supported.
+Targeting the full framework from .NET Core and self-contained deployment is currently **not supported**.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -304,14 +300,14 @@ To check which version of the extension you are running visit `http://yoursitena
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](azure-web-apps.md/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](./azure-web-apps.md/#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes the old private site extension will be removed.)
 
-* [Upgrade through PowerShell](azure-web-apps.md/#enabling-through-powershell):
+* [Upgrade through PowerShell](./azure-web-apps.md/#enabling-through-powershell):
 
-    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](azure-web-apps.md/#enabling-through-powershell).
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](./azure-web-apps.md/#enabling-through-powershell).
     2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
-If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](azure-web-apps.md/#troubleshooting).
+If the upgrade is done from a version prior to 2.5.1 please ensure that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](./azure-web-apps.md/#troubleshooting).
 
 ## Troubleshooting
 
@@ -323,45 +319,26 @@ If the upgrade is done from a version prior to 2.5.1 please ensure that the Appl
     ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
 
     * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * If it is not running follow the [enable Application Insights monitoring instructions](azure-web-apps.md/#enable-application-insights)
-    * Check that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+        * If it is not running follow the [enable Application Insights monitoring instructions](./azure-web-apps.md/#enable-application-insights)
+
+    * Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * If this is not present it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints which will allow the runtime information to become available.
+
     * Confirm that `IKeyExists` is `true`
         * It it is false, add `APPINSIGHTS_INSTRUMENTATIONKEY with your ikey guid to your application settings.
+
     * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
         * If any of these entries exist, remove the following packages: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
 
-
-
-If after following the troubleshooting steps above your application is still not working, please create a ticket via the [Azure support page](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
-
-### If runtime and build time monitoring are both enabled do I end up with duplicate data?
-
-No, by default if build time monitoring is detected runtime monitoring via the extension will stop sending data and only the build time monitoring configuration will be honored. The determination of whether to disable runtime monitoring is based on detection of any of these three files:
-
-* Microsoft.ApplicationInsights dll
-* Microsoft.ASP.NET.TelemetryCorrelation dll
-* System.Diagnostics.DiagnosticSource dll
-
-It is important to keep in mind that in many versions of Visual Studio, some or all of these files are added by default to the ASP.NET and ASP.NET Core Visual Studio template files. If your project was created based off of one of the templates even if you haven't explicitly enabled Application Insights, the presence of the file dependency would prevent runtime monitoring from activating.
-
-### APPINSIGHTS_JAVASCRIPT_ENABLED causes incomplete HTML response in NET CORE web applications.
+### APPINSIGHTS_JAVASCRIPT_ENABLED causes incomplete HTML response in NET Core web applications
 
 Enabling Javascript via App Services can cause html responses to be cut off.
 
 * Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
-* Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't work with this configuration)
+
+* Workaround 2: add sdk via code and disable agent/extension based monitoring. (Profiler and Snapshot debugger won't work with this configuration)
 
 To track this issue, go to [Azure extension causing incomplete HTML response](https://github.com/Microsoft/ApplicationInsights-Home/issues/277).
-
-For .NET Core the following are currently **not supported**:
-
-* Self-contained deployment.
-* Apps targeting the .NET Framework.
-
-
-> [!NOTE]
-> .NET Core 2.0 and .NET Core 2.1 are supported. When .NET Core 2.2 support is added this article will be updated.
 
 ## Custom telemetry
 
