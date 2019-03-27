@@ -23,26 +23,6 @@
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
 
-- name: Tutorials
-  items:
-  - name: Deploy security agents
-    items:
-    - name: Which agent should I deploy?
-      href: tutorial-deploy-agent.md
-    - name: Deploy a C#-based security agent on a Windows device
-      href: tutorial-deploy-windows-cs.md
-    - name: Deploy a C#-based security agent on a Linux device
-      href: tutorial-deploy-linux-cs.md
-    - name: Deploy a C-based security agent on a Linux device
-      href: tutorial-deploy-linux-c.md
-  - name: Configure security agents
-    href: tutorial-agent-configuration.md
-  - name: Investigate a device
-    href: tutorial-investigate-device.md
-  - name: Send your own security messages
-    href: tutorial-send-security-messages.md
-
-
 - name: Concepts
   items:
   - name: Security agent authentication
@@ -57,10 +37,24 @@
 
 - name: How-to guides
   items:
+    - name: Deploy security agents
+    items:
+    - name: Which agent should I deploy?
+      href: how-to-deploy-agent.md
+    - name: Deploy a C#-based security agent on a Windows device
+      href: how-to-deploy-windows-cs.md
+    - name: Deploy a C#-based security agent on a Linux device
+      href: how-to-deploy-linux-cs.md
+    - name: Deploy a C-based security agent on a Linux device
+      href: how-to-deploy-linux-c.md
+  - name: Configure security agents
+    href: how-to-agent-configuration.md
+  - name: Send your own security messages
+    href: how-to-send-security-messages.md 
   - name: Access raw security data
     href: how-to-security-data-access.md
-  - name: Modify a security module twin
-    href: how-to-modify-security-module-twin.md
+  - name: Investigate a device
+    href: how-to-investigate-device.md
 
 
 - name: Resources

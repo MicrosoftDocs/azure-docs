@@ -69,7 +69,7 @@ To verify if a security module twin exists for a specific device:
     ![Modules associated with a device](./media/quickstart/verify-security-module-twin-3.png)
 
 
-To learn more about customizing properties of ASC for IoT module twins, see [Agent configuration](tutorial-agent-configuration.md).
+To learn more about customizing properties of ASC for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
 
 ## Next steps
 

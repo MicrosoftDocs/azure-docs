@@ -31,13 +31,13 @@ Security agents are designed to work in a constrained IoT environment, and are h
 
 Security agents support the following IoT solution features:
 
-- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](tutorial-agent-configuration.md).
+- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](how-to-agent-configuration.md).
 
 - Aggregate raw security events into messages sent through IoT hub.
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an ASC for IoT agent](tutorial-agent-configuration.md).
+- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an ASC for IoT agent](how-to-agent-configuration.md).
 
 ASC for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
