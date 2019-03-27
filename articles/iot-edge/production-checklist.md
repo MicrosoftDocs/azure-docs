@@ -201,14 +201,14 @@ You can limit the size of all container logfiles in the container engine log opt
         }
     }
 
-Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
+Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform. The container engine must be restarted for the changes to take effect.
 
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby-data\config\` |
 
-**Option: Adjust the logfile size of each container module**
+**Option: Adjust log settings for each container module**
 
 You can do so in the **createOptions** of each module. For example:
 
@@ -225,7 +225,7 @@ You can do so in the **createOptions** of each module. For example:
     }
 
 
-**Addtional options on Linux systems**
+**Additional options on Linux systems**
 
 * Configure the container engine to send logs to `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) by setting `journald` as the default logging driver. 
 
