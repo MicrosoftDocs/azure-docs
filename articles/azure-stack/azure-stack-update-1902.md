@@ -73,14 +73,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
-<!-- 
-1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
-1396607	3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage	Diagnostics
-1404529	3835749: Enable Group Policy Diagnostic Logs	Diagnostics
-1436561	Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag	Diagnostics
-1404512	3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug	Diagnostics 
--->
-- Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
+<!-- 1391444	[ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info	System info -->
+- Improvements to hardware inventory collection in Get-AzureStackStampInformation.
 
 ## Common vulnerabilities and exposures
 
