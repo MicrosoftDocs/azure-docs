@@ -113,12 +113,13 @@ Metrics explorer is a blade in the portal in which you can visualize all the met
 ![Metrics Explorer](./media/service-fabric-mesh-monitoring-diagnostics/metricsexplorer.png)
 
 
-
+<!--
 ### Container Insights
 
 In addition to the metrics explorer, we also have a dashboard available out of the box that shows sample metrics over time under the Insights blade in the application's page in the portal. 
 
 ![Container Insights](./media/service-fabric-mesh-monitoring-diagnostics/containerinsights.png)
+-->
 
 ## Next steps
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
