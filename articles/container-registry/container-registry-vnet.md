@@ -355,7 +355,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## Clean up resources
 
-If you created all the Azure resources in the same resource group and no longer need them, you can optionally delete the resources by using a single [az group delete](/cli/azure/group#az_group_delete) command:
+If you created all the Azure resources in the same resource group and no longer need them, you can optionally delete the resources by using a single [az group delete](/cli/azure/group) command:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -401,7 +401,7 @@ Several virtual network resources and features were discussed in this article, t
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
