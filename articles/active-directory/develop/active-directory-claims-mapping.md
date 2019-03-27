@@ -47,7 +47,7 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
- Claim type (name) |
+| Claim type (name) |
 | ----- |
 | _claim_names |
 | _claim_sources |
