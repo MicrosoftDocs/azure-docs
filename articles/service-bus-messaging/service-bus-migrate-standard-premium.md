@@ -25,23 +25,22 @@ In the recent past, Azure Service Bus has expanded to offer the Premium tier whi
 The below tooling enables existing Standard tier namespaces to be migrated to the Premium tier.
 
 >[!WARNING]
-> Migration is intended for Service Bus Standard namespace to be ***upgraded*** to the Premium tier. 
-> 
+> Migration is intended for Service Bus Standard namespace to be ***upgraded*** to the Premium tier.
+>
 > The migration tooling ***does not*** support downgrading.
-
 >[!NOTE]
 > This migration is meant to happen ***in place***.
-> 
+>
 > This implies that existing sender and receiver applications don't require any code or configuration change.
 >
 > The existing connection string will automatically point to the new premium namespace.
 >
 > Additionally, all entities in the Standard namespace are **copied over** in the Premium namespace during the migration process.
-
->[!NOTE]
+>
+>
 > We support ***1000 entities per Messaging Unit*** on Premium, so to identify how many Messaging Units you need, please start with the number of entities that you have on your current Standard namespace.
 
-## Migration Steps
+## Migration steps
 
 >[!IMPORTANT]
 > There are some caveats associated with the migration process. We request you to fully familiarize yourself with the steps involved to reduce possibilities of errors.
@@ -74,12 +73,12 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
    ```
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
-   premiumNamespaceArmId = <ARM ID of the Premium namespace to migrate to>
+   premiumNamespaceArmId = <Azure Resource Manager ID of the Premium namespace to migrate to>
    postMigrationDnsName = <post migration DNS name entry to access the Standard namespace>
    ```
 
->[!IMPORTANT]
-> The Post-migration name (post_migration_dns_name) will be used to access the old Standard namespace post migration. You must use this to drain the queues and the subscriptions and then delete the namespace.
+    >[!IMPORTANT]
+    > The Post-migration name (post_migration_dns_name) will be used to access the old Standard namespace post migration. You must use this to drain the queues and the subscriptions and then delete the namespace.
 
 3. **Pair** the Standard and Premium namespaces and **Start Sync** using the below command -
 
@@ -94,14 +93,12 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
     ```
 
     The migration is considered complete when
-    1. MigrationState = "Active"
+    * MigrationState = "Active"
+    * pendingReplicationsOperationsCount = 0
+    * provisioningState = "Succeeded"
 
-    2. pendingReplicationsOperationsCount = 0
-
-    3. provisioningState = "Succeeded"
-    
     This command also displays the migration configuration. Please double check to ensure that the values are set as previous declared.
-    
+
     Additionally, also check the Premium namespace in the portal to ensure that all the queues and topics have been created, and that they match what existed on the Standard namespace.
 
 5. Commit the migration by executing the Complete command below
@@ -215,6 +212,11 @@ However, if you can migrate during a planned maintenance/housekeeping window and
     >
     > Once the migration is complete, the receivers will disconnect from the Standard namespace and automatically connect to the Premium namespace.
 
+## Next steps
+
+* Learn more about the [differences between Standard and Premium Messaging](./service-bus-premium-messaging.md)
+* Learn about the High-Availability and Geo-Diaster recovery story for Service Bus Premium [here](service-bus-outages-disasters#protecting-against-outages-and-disasters---service-bus-premium)
+
 [Migration Landing Page]: ./media/service-bus-standard-premium-migration/1.png
 [Setup namespace]: ./media/service-bus-standard-premium-migration/2.png
 [Setup namespace - create premium namespace]: ./media/service-bus-standard-premium-migration/3.png
@@ -224,5 +226,5 @@ However, if you can migrate during a planned maintenance/housekeeping window and
 [Switch namespace - switch menu]: ./media/service-bus-standard-premium-migration/9.png
 [Switch namespace - success]: ./media/service-bus-standard-premium-migration/12.png
 
-[Abort flow - abort sync]: ./media/service-bus-standard-premium-migration/abort-1.png
-[Abort flow - abort complete]: ./media/service-bus-standard-premium-migration/abort-3.png
+[Abort flow - abort sync]: ./media/service-bus-standard-premium-migration/abort1.png
+[Abort flow - abort complete]: ./media/service-bus-standard-premium-migration/abort3.png
