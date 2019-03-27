@@ -101,15 +101,16 @@ When the preparation steps are complete, the staging environment is ready for th
 
 ```sql
 -- Set the production database to read-only mode
-ALTER DATABASE V1
+ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminate geo-replication by disconnecting the secondary (11) with [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following is a truncated PowerShell code snippet example: 
+2. Terminate geo-replication by disconnecting the secondary (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following example uses Transact-SQL but [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) is also available. 
 
-```powershell
-Remove-AzSqlDatabaseSecondary
-      -DatabaseName V1
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.
