@@ -79,7 +79,7 @@ In the dialogs that follow, make the following selections:
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-## Building and Running the Sample
+## Build and Run the Sample
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** -> **Run** from the menu or clicking the **Play** button.
