@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 03/27/2019
 ms.author: jeedes
 
 ---
@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 
 	![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values gets auto populated in Basic SAML Configuration section.
+	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
 	 ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -206,7 +206,3 @@ When you click the O.C. Tanner - AppreciateHub tile in the Access Panel, you sho
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-<!--Image references-->
-
-[12]: ./media/oc-tanner-tutorial/tutorial_octanner_08.png
