@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) generates
 
 ## Security alerts
 
-This section lists all the security alerts for directory roles, along with how to fix and how to prevent. Severity has the following meaning:
+This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
 * **High**: Requires immediate action because of a policy violation.
 * **Medium**: Does not require immediate action but signals a potential policy violation.
