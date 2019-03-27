@@ -35,7 +35,9 @@
 - name: How-to guides
   items:
   - name: Which agent should I deploy?
-    href: how-to-deploy-agent.md
+    items:
+    - name: Select an agent to deploy
+      href: how-to-deploy-agent.md
     - name: Deploy a C#-based security agent on a Windows device
       href: how-to-deploy-windows-cs.md
     - name: Deploy a C#-based security agent on a Linux device
