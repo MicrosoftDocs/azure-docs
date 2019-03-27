@@ -76,4 +76,4 @@ Make use of ASC for IoT enhanced security capabilities, such as monitoring remot
 - Configure your [solution](quickstart-configure-your-solution.md)
 - [Create security modules](quickstart-create-security-twin.md)
 - Configure [custom alerts](quickstart-create-custom-alerts.md)
-- [Deploy a security agent](select-deploy-agent.md)
+- [Deploy a security agent](tutorial-deploy-agent.md)

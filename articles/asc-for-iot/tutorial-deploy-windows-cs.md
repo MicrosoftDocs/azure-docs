@@ -36,9 +36,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-For other platforms and agent flavours, see [Choose the right security agent](select-deploy-agent.md).
+For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
 
-1. To deploy the security agent, local admin rights are required on the machine you wish to install on. 
+1. Local admin rights on the machine you wish to install on. 
 
 1. [Create a security module](quickstart-create-security-twin.md) for the device.
 
@@ -50,7 +50,7 @@ To install the security agent, do the following:
 
 2. Extract the contents of the package, and navigate to the /Install folder.
 
-3. Open Windows PowerShell. 
+3. Open Windows PowerShell as Administrator. 
     1. Add running permissions to the InstallSecurityAgent script by running
     ```Unblock-File .\InstallSecurityAgent.ps1```
     
@@ -58,6 +58,12 @@ To install the security agent, do the following:
 
     ```
 	.\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
+	```
+	
+	For example:
+	
+    ```
+	.\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
 	```
 	
 	See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
@@ -97,7 +103,7 @@ If the agent fails to start, turn on logging (logging is *off* by default) to ge
 
 To turn on logging:
 
-1. Open the configuration file for editing using a standard file editor.
+1. Open the configuration file (General.config) for editing using a standard file editor.
 
 1. Edit the following values:
 
@@ -128,7 +134,7 @@ To turn on logging:
 
 1. Review the log file for more information about the failure.
 
-   Log file location: `<unpacked_agent_location>/IoTAgentLog.log`
+   Log file location: `%WinDir%/System32/IoTAgentLog.log`
 
 
 ## Next steps

@@ -24,7 +24,13 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to configure an agent for use with ASC for IoT.
+This tutorial explains how to configure ASC for IoT security agents.
+
+In this tutorial, you learn how to: 
+> [!div class="checklist"]
+> * Configure security agents
+> * Change agent behavior by editing twin properties
+> * Discover default configuration
 
 ## Agents
 
@@ -90,7 +96,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |maxMessageSizeInBytes |Required: false |Valid values: A positive number, larger than 8192, less than 262144 |Default value: 204800 |Maximum allowed size of an agent to cloud message. This setting controls the amount of maximum data sent in each message. |
 |eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent generated event | 
 
-### Events
+### Supported security events
 
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|

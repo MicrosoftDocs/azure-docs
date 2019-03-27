@@ -42,7 +42,7 @@ The two methods for the AzureIoTSecurity agent to perform authentication:
    The information required for this type of authentication is defined in by the Authentication.config file for C# and the LocalConfiguration.json for C.
 		
  - **Device** authentication mode<br>
-    In this method, the Security agent first authenticates against the device. After the initial authentication, the ASC for IoT agent performs **Rest** call to the IoT Hub using the Rest API with the authentication data of the device. The ASC for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ASC for IoT agent performs an authentication against the ASC for IoT module.	
+    In this method, the Security agent first authenticates against the device. After the initial authentication, the ASC for IoT agent performs **REST** call to the IoT Hub using the REST API with the authentication data of the device. The ASC for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ASC for IoT agent performs an authentication against the ASC for IoT module.	
 
 See [Security agent installation parameters](#security-agent-installation-parameters) to learn how to configure.
 								
@@ -53,7 +53,7 @@ See [Security agent installation parameters](#security-agent-installation-parame
 
 ## Security agent installation parameters
 
-When [deploying a security agent](select-deploy-agent.md), authentication details must be provided as arguments.
+When [deploying a security agent](tutorial-deploy-agent.md), authentication details must be provided as arguments.
 These arguments are documented in the following table.
 
 
@@ -109,5 +109,5 @@ Edit _LocalConfiguration.json_ with the following parameters:
 
 ## See also
 - [Security agents overview](security-agent-architecture.md)
-- [Deploy security agent](select-deploy-agent.md)
+- [Deploy security agent](tutorial-deploy-agent.md)
 - [Access raw security data](how-to-security-data-access.md)

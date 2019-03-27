@@ -174,5 +174,5 @@ Use this data to discover:
   3. Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
-After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](select-deploy-agent.md) or [changing the configuration of an existing device agent](concept-agent-configuration.md) to improve your results. 
+After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](tutorial-deploy-agent.md) or [changing the configuration of an existing device agent](tutorial-agent-configuration.md) to improve your results. 
  
