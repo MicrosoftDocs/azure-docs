@@ -1,6 +1,6 @@
 ---
-title: 'Create an index in code using the .NET API - Azure Search'
-description: Learn how to create a full text searchable index using the Azure Search .NET SDK and C# sample code.
+title: 'Create an index in C# - Azure Search'
+description: Learn how to create a full text searchable index in C# using the Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 03/22/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
@@ -18,7 +18,7 @@ This article walks you through the process of creating [an Azure Search index](s
 
 > [!div class="checklist"]
 > * Create a [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) object to connect to a search service.
-> * Create an [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) object to pass as a parameter on `Indexes.Create`.
+> * Create an [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) object to pass as a parameter to `Indexes.Create`.
 > * Call the `Indexes.Create` method on `SearchServiceClient` to send the `Index` to a service.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ This article walks you through the process of creating [an Azure Search index](s
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+Get the URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
   1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -195,7 +195,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## Next steps
-In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The next quickstart in this series covers how to load the index with searchable content.
+In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The index is a "bare bones" index consisting of a name and a collection of attributed fields. A more realistic index would include other elements, such as [scoring profiles](index-add-scoring-profiles.md), [suggesters](index-add-suggesters.md) for typeahead  support, [synonyms](search-synonyms.md), and possibly [custom analyzers](index-add-custom-analyzers.md). We recommend that you revisit these capabilities after you understand the basic workflow.
+
+The next quickstart in this series covers how to load the index with searchable content.
 
 > [!div class="nextstepaction"]
 > [Load data to an Azure Search index using C#](search-import-data-dotnet.md)

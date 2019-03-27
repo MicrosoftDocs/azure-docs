@@ -4,7 +4,7 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2019
-ms.author: markvi
+ms.date: 03/25/2019
+ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -136,4 +136,6 @@ If you block legacy authentication using the other clients condition, you can al
 
 ## Next steps
 
-If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+- If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+
+- For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
