@@ -424,10 +424,14 @@
       href: control-flow-set-variable-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
+    - name: Validation Activity
+      href: control-flow-validation-activity.md
     - name: Wait Activity
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+    - name: Webhook Activity
+      href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
     - name: Aggregate
