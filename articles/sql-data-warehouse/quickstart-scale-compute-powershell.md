@@ -33,13 +33,13 @@ Log in to your Azure subscription using the [Connect-AzAccount](/powershell/modu
 Connect-AzAccount
 ```
 
-To see which subscription you are using, run [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+To see which subscription you are using, run [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.profile/set-azcontext).
+If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"

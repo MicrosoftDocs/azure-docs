@@ -64,7 +64,7 @@ When prompted, choose a worker runtime from the following languages:
 * `node`: creates a JavaScript project.
 * `python`: creates a Python project.
 
-[!INCLUDE functions-python-preview-note]
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 When the command executes, you see something like the following output:
 

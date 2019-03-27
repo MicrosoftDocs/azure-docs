@@ -34,7 +34,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
 2.  Ensure you have an **Azure Databricks workspace** or create a new one.
 
-1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
+1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 
@@ -49,9 +49,9 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
     try:  
       dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
     except Exception as e:  
       # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.

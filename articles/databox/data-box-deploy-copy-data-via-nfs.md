@@ -36,7 +36,8 @@ Before you begin, make sure that:
 
 Based on the storage account selected, Data Box creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account. 
+- One share for premium storage. 
+- One share for blob storage account. 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -121,6 +122,9 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
      where j specifies the number of parallelization,  X = number of parallel copies
 
      We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
+
+> [!IMPORTANT]
+> The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
 - To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     

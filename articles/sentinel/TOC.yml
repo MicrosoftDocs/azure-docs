@@ -56,7 +56,7 @@
         href: connect-barracuda.md
       - name: Connect Check Point
         href: connect-checkpoint.md
-      - name: Connect Palo Alto
+      - name: Connect Palo Alto Networks
         href: connect-paloalto.md
       - name: Connect Fortinet
         href: connect-fortinet.md
@@ -87,6 +87,6 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure Security, Privacy, & Compliance blog
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/

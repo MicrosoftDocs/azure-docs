@@ -2,20 +2,13 @@
 title: Azure partner and customer usage attribution
 description: Overview of how to track customer usage for Azure Marketplace solutions
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: yijenj
 manager: nunoc
-editor:
-
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-
 ---
 # Azure partner customer usage attribution
 
@@ -123,6 +116,8 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/go/azure/).
+
 ## Use Terraform
 
 The support for Terraform is available through Azure Provider’s 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
@@ -276,7 +271,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
    - For usage association issues, select **Other**.
    - For access issues with the Azure Marketplace CPP, select **Access Problem**.
    
-    ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Select **Start Request**.
 
@@ -295,7 +290,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 
 ### How to submit a technical consultation request
 
-1. Visit [http://aka.ms/TechnicalJourney](http://aka.ms/TechnicalJourney).
+1. Visit [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
 1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your 
@@ -305,7 +300,7 @@ log in credentials, an online request form will open:
     * Enter a title and the description of the problem (provide as much detail as possible).
 1. Click Submit
 
-View step-by-step instructions with screenshots at [http://aka.ms/TechConsultInstructions](http://aka.ms/TechConsultInstructions).
+View step-by-step instructions with screenshots at [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
 ### What’s next
 

@@ -25,8 +25,8 @@ We use **python/pip** command to build virtual environment in your Home path. If
  
         ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > It is recommended to manually install Python instead of using the MacOS default version.
+     > [!NOTE]
+     > It is recommended to manually install Python instead of using the MacOS default version.
 
 
 2. Install **virtualenv** by running command below.

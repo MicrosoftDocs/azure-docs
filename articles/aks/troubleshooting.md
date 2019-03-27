@@ -85,4 +85,4 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
 Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
 
 * If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
-* If cluster has failed upgrade, follow steps outlined [above](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)
+* If cluster has failed upgrade, follow steps outlined above

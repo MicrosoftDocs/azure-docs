@@ -89,8 +89,8 @@ In the next few steps we will create a table in our data warehouse instance with
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL 
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL, 
+       [CustomerID] [int] NOT NULL 
    ) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
@@ -101,19 +101,19 @@ In the next few steps we will create a table in our data warehouse instance with
 
 3. Using SSMS or another query client, open a new query for the **SQL database** on your logical server.
 
-4. Submit the following query to create an external table definition that points to the **OrdersInformation** table in the data warehouse instance.
+4. Submit the following query to create an external table definition that points to the **OrderInformation** table in the data warehouse instance.
 
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL,
+       [CustomerID] [int] NOT NULL 
    ) 
    WITH 
    (
-     	DATA_SOURCE = EnterpriseDwSrc
-   ,	SCHEMA_NAME = N'dbo'
-   ,	OBJECT_NAME = N'OrderInformation'
+     	DATA_SOURCE = EnterpriseDwSrc,
+   	SCHEMA_NAME = N'dbo',
+   	OBJECT_NAME = N'OrderInformation'
    )
    ```
 

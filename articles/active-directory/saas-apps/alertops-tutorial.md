@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -226,7 +226,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     a. In the **Login User Name** textbox, enter the user name of the user like **Brittasimon**.
 
-    b. In the **Official Email** textbox, enter the email address of the user like **Brittasimon@contoso.com**.
+    b. In the **Official Email** textbox, enter the email address of the user like **Brittasimon\@contoso.com**.
 
     c. In the **First Name** textbox, enter the first name of user like **Britta**.
 

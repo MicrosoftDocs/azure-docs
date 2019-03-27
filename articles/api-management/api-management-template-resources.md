@@ -454,7 +454,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in.|  
 |WebAuthenticationInvalidEmailFormated|Email is invalid: {0}|  
 |WebAuthenticationUserNotFound|User not found|  
-|WebAuthenticationTenantNotRegistered|Your account belongs to a Azure Active Directory tenant which is not authorized to access this portal.|  
+|WebAuthenticationTenantNotRegistered|Your account belongs to an Azure Active Directory tenant which is not authorized to access this portal.|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed.|  
 |WebAuthenticationGooglePlusNotEnabled|Authentication has failed. If you authorized the application then please contact the admin to make sure that Google authentication is configured correctly.|  
 |ValidationErrorAllowedTenantIsRequired|Allowed Tenant is required|  

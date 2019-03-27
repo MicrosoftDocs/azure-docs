@@ -135,12 +135,12 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the **Solution Explorer**, right click on your new console application project, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
     
-    ![Screen shot of the Right Clicked Menu for the Project](./media/create-sql-api-dotnet/manage-nuget-package.png)
+    ![Screenshot of the Right Clicked Menu for the Project](./media/create-sql-api-dotnet/manage-nuget-package.png)
 1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-   ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 

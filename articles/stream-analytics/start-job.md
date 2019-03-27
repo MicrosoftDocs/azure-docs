@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/12/2019
 ---
 
 # How to start an Azure Stream Analytics job
@@ -18,7 +18,7 @@ You can start your Azure Stream Analytics job using the Azure portal, Visual Stu
 
 Navigate to your job in the Azure portal and select **Start** on the overview page. Select a **Job output start time** and then select **Start**.
 
-There are three options for **Job output start time**: *Now*, *Custom*, and *When last stopped*. Selecting *Now* starts the job at the current time. Selecting *Custom* allows you to set a custom time in the past or the future for the job to begin. To resume a stopped job without losing data, choose. When last stopped*.
+There are three options for **Job output start time**: *Now*, *Custom*, and *When last stopped*. Selecting *Now* starts the job at the current time. Selecting *Custom* allows you to set a custom time in the past or the future for the job to begin. To resume a stopped job without losing data, choose *When last stopped*.
 
 ## Visual Studio
 
@@ -51,7 +51,7 @@ There are three options for **OutputStartMode**: *JobStartTime*, *CustomTime*, a
 
 *LastOutputEventTime* makes the starting point of the output event stream the same as the last event output time.
 
-For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob.md).
+For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
 ## Next steps
 

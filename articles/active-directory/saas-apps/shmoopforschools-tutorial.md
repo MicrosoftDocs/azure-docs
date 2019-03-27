@@ -43,7 +43,7 @@ To configure Azure AD integration with Shmoop For Schools, you need the followin
 
 To test the steps in this tutorial, we recommend:
 
-- Using your production evironment only if it's necessary.
+- Using your production environment only if it's necessary.
 - Getting a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) if you don't already have an Azure AD trial environment.
 
 ## Scenario description

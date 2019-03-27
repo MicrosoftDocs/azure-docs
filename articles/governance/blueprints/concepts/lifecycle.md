@@ -129,8 +129,8 @@ To learn how, see [update existing assignments](../how-to/update-existing-assign
 
 ## Next steps
 
-- Understand how to use [static and dynamic parameters](parameters.md)
-- Learn to customize the [blueprint sequencing order](sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](resource-locking.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Understand how to use [static and dynamic parameters](parameters.md).
+- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

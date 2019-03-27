@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with UltiPro, perform the following steps:
     ![UltiPro Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<companyname>.ultipro.com/`|
@@ -109,6 +110,7 @@ To configure Azure AD single sign-on with UltiPro, perform the following steps:
 	| ` https://<companyname>.ultipro.ca`|
 	
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -116,6 +118,7 @@ To configure Azure AD single sign-on with UltiPro, perform the following steps:
 	| `https://<companyname>.ultipro.ca/adfs/services/trust`|
 	
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.ultipro.com/<instancename>`|
@@ -161,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

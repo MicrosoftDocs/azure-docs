@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -39,10 +39,10 @@ This article has the release notes for Azure Stack Validation as a Service.
 
 If you are running the Azure Stack Monthly Update Verification workflow and the version for your OEM update package is not 1810 or higher, you will receive an error once you get to the OEM update step. This is a bug. A fix is being developed.The mitigation steps are as follows:
 
-1.	Run the OEM update as normal.
-2.	Execute Test-AzureStack after successful application of the package and save the output.
-3.	Cancel the test.
-4.  Send the saved output to VaaSHelp@microsoft.com to receive passing results for the run.
+1. Run the OEM update as normal.
+2. Execute Test-AzureStack after successful application of the package and save the output.
+3. Cancel the test.
+4. Send the saved output to VaaSHelp@microsoft.com to receive passing results for the run.
 
 ## Version 4.0.2
 
@@ -58,7 +58,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
     `Install-VaaSPrerequisites` no longer requires cloud admin credentials. If you are running the latest version of this cmdlet, see [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for the revised commands for installing prerequisites. Here are the commands:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -75,7 +75,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
     `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during Package Validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
@@ -104,7 +104,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
   - Interactive test category
 
-    The **Interactive** test category has been added. These tests let partners to exercise interactive, non-automated Azure Stack scenarios.
+    The **Interactive** test category has been added. These tests exercise interactive, non-automated Azure Stack scenarios.
 
   - Interactive Feature Verification
 

@@ -1,11 +1,11 @@
 ---
 title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
-description: This article helps you understand the impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
+description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -14,220 +14,532 @@ ms.custom:
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
 
-This article helps you understand the impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement. The following new APIs are used to view costs and pricing:
+This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../billing/billing-mca-setup-account.md) Microsoft Customer Agreement article before continuing.
 
-- Pricesheet API for Microsoft Customer Agreements
-  - Pricesheet by Invoice
-  - Pricesheet by Billing Profile
-  - Pricesheet for the open billing period
-- Usage Details API for Microsoft Customer Agreements
-  - Usage Details by Invoice for Billing Profile (filter by invoice section)
-    - Usage Details by Usage Date
-    - Usage Details for Billing Account
-    - Usage Details for Billing Profile
-    - Usage Details for Invoice Section
-    - Usage details for subscription
-  - Usage Details for Month to Date
-    - Usage Details for Billing Account
-    - Usage Details for Billing Profile
-    - Usage Details for Invoice Section
-    - Usage details for subscription
-  - Usage Details by Billing Period
-- Credits API for Microsoft Customer Agreement
-  - Current Balance Summary API by Billing Profile
-  - Credit events API by Billing Profile
-  - Credit Lots API by Billing Profile
-- Query API
-- Charges API
-  - Charges API by Billing Account
-  - Charges API by Billing Profile
-  - Charges API by Invoice Section
-- Invoice List API
-  - By Billing Profile
-  - By Billing Account
-- Reservation APIs
-- Power BI Integration API
-- Exports API
-  - by Billing Account
-  - by Billing Profile
-  - By Invoice Section
-- Transaction API
-- Budgets API
-- Aggregated Cost API
+Organizations with an existing EA account should review this article in conjunction with setting up an MCA account. Previously, renewing an EA account required some minimal work to move from an old enrollment to a new one. However, migrating to an MCA account requires additional effort. Additional effort is because of changes in the underlying billing subsystem, which affect all cost-related APIs and service offerings.
 
-## Effect on automation
+## MCA APIs and integration
 
-The APIs used with a Microsoft customer agreement differ from ones used with an Enterprise Agreement. You might have set up API automation previously using enterprise key-based APIs or Azure Resource Manager-based APIs for enterprise enrollments. If so, update your automation configuration for newer APIs used with Microsoft Customer Agreements.
+MCA APIs and new integration allow you to:
 
-To see a list of older unsupported APIs by Microsoft Customer Agreements, see [Unsupported APIs](#unsupported-apis).
+- Have complete API availability through native Azure APIs.
+- Configure multiple invoices in a single billing account.
+- Access a combined API with Azure service usage, third-party Marketplace usage, and Marketplace purchases.
+- View costs across billing profiles (the same as enrollments) using Azure Cost Management.
+- Access new APIs to show costs, get notified when costs exceed predefined thresholds, and export raw data automatically.
 
-APIs for Microsoft Customer Agreements support Azure Resource Manager authentication only — they don't support API key-based authentication.
+## Migration checklist
 
-## Pricesheet APIs show prices for Azure services
+The following items help you transition to MCA APIs.
 
-The Pricesheet APIs for Microsoft Customer Agreement include pricing information for all services that are rated for billing, based on usage quantity. The API doesn't include entitlement purchases. For example, Marketplace entitlement purchases, reserved instance prices, and support offerings. The API provides the unique price for each service for a specific meter and product order name.
+- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../billing/billing-mca-overview.md).
+- Determine which APIs you use and see which ones are replaced in the following section.
+- Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
+- If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- Update any programming code to [use Azure AD authentication](/rest/api/azure/#create-the-request).
+- Update any programming code to replace EA API calls with MCA API calls.
+- Update error handling to use new error codes.
+- Review additional integration offerings, like Cloudyn and Power BI, for other needed action.
 
-### View the Pricesheet for Azure Consumption services by billing profile
+## EA APIs replaced with MCA APIs
 
-You can view prices for all first and third-party Azure Consumption services in the Pricesheet for a billing profile. Use the API to view prices for Azure Consumption services. The prices shown for the billing profile apply to all subscriptions that belong to the billing profile.
+EA APIs use an API key for authentication and authorization. MCA APIs use Azure AD authentication.
 
-- CSV format
-  - POST
-    -`https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31& format=csv`
-- JSON format
-  - POST
-    - `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json`
+| Purpose | EA API | MCA API |
+| --- | --- | --- |
+| Balance and credits | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
+| Usage (JSON) | [/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Usage (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Marketplace Usage (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Billing periods | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
+| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Reservation purchases | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
+| Reservation recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| Reservation usage | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
-### View current open billing or service period estimated prices
+<sup>1</sup> Azure service and third-party Marketplace usage are available with the [Usage Details API](/rest/api/consumption/usagedetails).
 
-To view the estimated prices for any service in the current open billing cycle or service period, you can view the Pricesheet in either CSV or JSON format.
+The following APIs are available to MCA billing accounts:
 
-- CSV format
-  - POST
-    - `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv`
-- JSON format
-  - POST
-    - `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json`
+| Purpose | Microsoft Customer Agreement (MCA) API |
+| --- | --- |
+| Billing accounts<sup>2</sup> | Microsoft.Billing/billingAccounts |
+| Billing profiles<sup>2</sup> | Microsoft.Billing/billingAccounts/billingProfiles |
+| Invoice sections<sup>2</sup> | Microsoft.Billing/billingAccounts/invoiceSections |
+| Invoices | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
+| Billing subscriptions | {scope}/billingSubscriptions |
 
-Prices shown in the Pricesheet for the current service period always reflect the latest prices for the meter. Prices are refreshed daily, using the latest price for the meter and product order.
+<sup>2</sup> APIs return lists of objects, which are scopes, where Cost Management experiences in the Azure portal and APIs operate. For more information about Cost Management scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-When reviewing costs based on the price in the open period, costs are estimated. The last locked price at the end of the open service period applies to usage in the open period.
+If you use any existing EA APIs, you need to update them to support MCA billing accounts. The following table shows other integration changes:
 
-The open period is the current service period where the usage hasn't yet been rated for costing and billing.
+| Purpose | Old offering | New offering |
+| --- | --- | --- |
+| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
+| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) content pack and connector | [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) and [ Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights) |
 
-### View invoice by billing profile prices
+## APIs to get balance and credits
 
-You can view prices for Azure Consumption services that are billed in a specific invoice for a billing profile. Use the API to view prices only for the services that are listed in the invoice. The invoice is identified by the invoice number.
+The [Get Balance Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) API gives you a monthly summary of:
 
-- CSV format
-  - POST
-    - `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv`
+- Balances
+- New purchases
+- Azure Marketplace service charges
+- Adjustments
+- Service overage charges
 
-- JSON format
-  - POST
-    - `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json`
+All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
 
-The `{invoiceId}` listed previously is the same as the **Invoice Number** shown in the Invoice Summary PDF file. Here's an example.
+The Get Balance Summary API is replaced by the Microsoft.Billing/billingAccounts/billingProfiles/availableBalance API.
+
+To get available balances with the Available Balance API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
+
+## APIs to get cost and usage
+
+Get a daily breakdown of costs from Azure service usage, third-party Marketplace usage, and other Marketplace purchases with the following APIs. The following separate APIs were merged for Azure services and third-party Marketplace usage. The old APIs are replaced by the [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails) API. It adds Marketplace purchases, which were previously only shown in the balance summary to date.
+
+- [Get usage detail/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
+- [Get usage detail/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
+- [Get usage detail/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [Get usage detail/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [Get marketplace store charge/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+- [Get marketplace store charge/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+
+All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+
+All the preceding APIs are replaced by the Consumption/Usage Details API.
+
+To get usage details with the Usage Details API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
+
+The Usage Details API, as with all Cost Management APIs, is available at multiple scopes. For invoiced costs, as you would traditionally receive at an enrollment level, use the billing profile scope.  For more information about Cost Management scopes, see [Understand and work with scopes](understand-work-scopes.md).
+
+| Type | ID format |
+| --- | --- |
+| Billing account | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
+| Billing profile | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
+| Subscription | `/subscriptions/{subscriptionId}` |
+| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+
+Use the following querystring parameters to update any programming code.
+
+| Old parameters | New parameters |
+| --- | --- |
+| `billingPeriod={billingPeriod}` | Not supported |
+| `endTime=yyyy-MM-dd` | `endDate=yyyy-MM-dd` |
+| `startTime=yyyy-MM-dd` | `startDate=yyyy-MM-dd` |
+
+The body of the response also changed.
+
+Old response body:
+
+```
+{
+  "id": "string",
+  "data": [{...}, ...],
+  "nextLink": "string"
+}
+```
+
+New response body:
+
+```
+{
+  "value": [{
+    "id": "{scope}/providers/Microsoft.Consumption/usageDetails/###",
+    "name": "###",
+    "type": "Microsoft.Consumption/usageDetails",
+    "tags": {...},
+    "properties": [{...}, ...],
+    "nextLink": "string"
+  }, ...]
+}
+```
+
+The property name containing the array of usage records changed from data to _values_. Each record used to have a flat list of detailed properties. However, each record now all details are now in a nested property named _properties_, except for tags. The new structure is consistent with other Azure APIs. Some property names have changed. The following table shows corresponding properties.
+
+| Old property | New property | Notes |
+| --- | --- | --- |
+| AccountId | N/A | The subscription creator isn't tracked. Use invoiceSectionId (same as departmentId). |
+| AccountNameAccountOwnerId and AccountOwnerEmail | N/A | The subscription creator isn't tracked. Use invoiceSectionName (same as departmentName). |
+| AdditionalInfo | additionalInfo | &nbsp;  |
+| ChargesBilledSeparately | isAzureCreditEligible | Note that these properties are opposites. If isAzureCreditEnabled is true, ChargesBilledSeparately would be false. |
+| ConsumedQuantity | quantity | &nbsp; |
+| ConsumedService | consumedService | Exact string values might differ. |
+| ConsumedServiceId | None | &nbsp; |
+| CostCenter | costCenter | &nbsp; |
+| Date and usageStartDate | date | &nbsp;  |
+| Day | None | Parses day from date. |
+| DepartmentId | invoiceSectionId | Exact values differ. |
+| DepartmentName | invoiceSectionName | Exact string values might differ. Configure invoice sections to match departments, if needed. |
+| ExtendedCost and Cost | costInBillingCurrency | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
+| Is Recurring Charge | None | &nbsp;  |
+| Location | location | &nbsp;  |
+| MeterCategory | meterCategory | Exact string values might differ. |
+| MeterId | meterId | Exact string values differ. |
+| MeterName | meterName | Exact string values might differ. |
+| MeterRegion | meterRegion | Exact string values might differ. |
+| MeterSubCategory | meterSubCategory | Exact string values might differ. |
+| Month | None | Parses month from date. |
+| Offer Name | None | Use publisherName and productOrderName. |
+| OfferId | None | &nbsp;  |
+| Order Number | None | &nbsp;  |
+| PartNumber | None | Use meterId and productOrderName to uniquely identify prices. |
+| Plan Name | productOrderName | &nbsp;  |
+| Product | Product |   |
+| ProductId | productId | Exact string values differ. |
+| Publisher Name | publisherName | &nbsp;  |
+| ResourceGroup | resourceGroupName | &nbsp;  |
+| ResourceGuid | meterId | Exact string values differ. |
+| ResourceLocation | resourceLocation | &nbsp;  |
+| ResourceLocationId | None | &nbsp;  |
+| ResourceRate | effectivePrice | &nbsp;  |
+| ServiceAdministratorId | N/A | &nbsp;  |
+| ServiceInfo1 | serviceInfo1 | &nbsp;  |
+| ServiceInfo2 | serviceInfo2 | &nbsp;  |
+| ServiceName | meterCategory | Exact string values might differ. |
+| ServiceTier | meterSubCategory | Exact string values might differ. |
+| StoreServiceIdentifier | N/A | &nbsp;  |
+| SubscriptionGuid | subscriptionId | &nbsp;  |
+| SubscriptionId | subscriptionId | &nbsp;  |
+| SubscriptionName | subscriptionName | &nbsp;  |
+| Tags | tags | The tags property applies to root object, not to the nested properties property. |
+| UnitOfMeasure | unitOfMeasure | Exact string values differ. |
+| usageEndDate | date | &nbsp;  |
+| Year | None | Parses year from date. |
+| (new) | billingCurrency | Currency used for the charge. |
+| (new) | billingProfileId | Unique ID for the billing profile (same as enrollment). |
+| (new) | billingProfileName | Name of the billing profile (same as enrollment). |
+| (new) | chargeType | Use to differentiate Azure service usage, Marketplace usage, and purchases. |
+| (new) | invoiceId | Unique ID for the invoice. Empty for the current, open month. |
+| (new) | publisherType | Type of publisher for purchases. Empty for usage. |
+| (new) | serviceFamily | Type of purchase. Empty for usage. |
+| (new) | servicePeriodEndDate | End date for the purchased service. |
+| (new) | servicePeriodStartDate | Start date for the purchased service. |
+
+## Billing Periods API replaced by Invoices API
+
+MCA billing accounts don't use billing periods. Instead, they use invoices to scope costs to specific billing periods. The [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) is replaced by the Invoices API. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+
+To get invoices with the Invoices API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
+
+## Price Sheet APIs
+
+This section discusses existing Price Sheet APIs and provides recommendations to move to the Price Sheet API for Microsoft Customer Agreements. It also discusses the Price Sheet API for Microsoft Customer Agreements and explains fields in the price sheets. The [Enterprise Get price sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) and [Enterprise Get billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) APIs are replaced by the Price Sheet API for Microsoft Customer Agreements (Microsoft.Billing/billingAccounts/billingProfiles/pricesheet). The new API supports both JSON and CSV formats, in asynchronous REST formats. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+
+### Billing Enterprise APIs
+
+You used Billing Enterprise APIs with Enterprise enrollments to get price and billing period information. Authentication and authorization used Azure Active Directory web tokens.
+
+To get applicable prices for the specified Enterprise Enrollment with the Price Sheet and Billing Period APIs:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
+| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
+
+### Price Sheet API for Microsoft Customer Agreements
+
+Use the Price Sheet API for Microsoft Customer Agreements to view prices for all Azure Consumption and Marketplace consumption services. The prices shown for the billing profile apply to all subscriptions that belong to the billing profile.
+
+Use the Price Sheet API to view all Azure Consumption services Price Sheet data in CSV format:
+
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=csv` |
+
+Use the Price Sheet API to view all Azure Consumption services Price Sheet data in JSON format:
+
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json` |
+
+Using the API returns the price sheet for the entire account. However, you can also get a condensed version of the price sheet in PDF format. The summary includes Azure Consumption and Marketplace consumption services that are billed for a specific invoice. The invoice is identified by the {invoiceId}, which is the same as the **Invoice Number** shown in the Invoice Summary PDF files. Here's an example.
 
 ![Example image showing the Invoice Number that corresponds to the InvoiceId](./media/migrate-cost-management-api/invoicesummary.png)
 
-## Pricesheet API asynchronous response
+To view invoice information with the Price Sheet API in CSV format:
 
-The APIs support the [Azure REST  asynchronous](../azure-resource-manager/resource-manager-async-operations.md) format. After you call the APIs using GET, you see the following response:
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
+
+To view invoice information with the Price Sheet API in JSON Format:
+
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
+
+You can also see estimated prices for any Azure Consumption or Marketplace consumption service in the current open billing cycle or service period.
+
+To view estimated prices for consumption services with the Price Sheet API in CSV format:
+
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
+
+To view estimated prices for consumption services with the Price Sheet API in JSON format:
+
+| Method | Request URI |
+| --- | --- |
+| POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
+
+The Microsoft Customer Agreement Price Sheet APIs are *asynchronous REST APIs*. The responses for the APIs changed from the older synchronous APIs. The body of the API response also changed.
+
+#### Old response body
+
+Here's an example of the synchronous REST API response:
 
 ```
-            No Response Body
-            HTTP Status 202 Accepted
+[
+        {
+            "id": "enrollments/573549891/billingperiods/2016011/products/343/pricesheets",
+            "billingPeriodId": "201704",
+            "meterId": "dc210ecb-97e8-4522-8134-2385494233c0",
+            "meterName": "A1 VM",
+            "unitOfMeasure": "100 Hours",
+            "includedQuantity": 0,
+            "partNumber": "N7H-00015",
+            "unitPrice": 0.00,
+            "currencyCode": "USD"
+        },
+        {
+    ]
 ```
 
- The following headers are sent with the location of the output.
+#### New response body
+
+The APIs support the [Azure REST asynchronous](../azure-resource-manager/resource-manager-async-operations.md) format. Call the API using GET and you receive the following response:
 
 ```
-Location: https://management.azure.com/providers/Microsoft.Consumption/operationresults/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
-Azure-AsyncOperation: https://managment.azure.com/providers/Microsoft.Consumption/operationStatus/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
-   Retry-After: 10
- OData-EntityId: {operationId}
+No Response Body
+
+HTTP Status 202 Accepted
 ```
 
-The client can make a GET call to the location. The response to the GET call is the same as the example information shown previously, until the operation reaches a completion or failure state. When completed, the response to the call for the GET on Location returns the same response as if the operation was executed at the same time. Here's an example.
+The following headers are sent with the location of the output:
+
+```
+Location:https://management.azure.com/providers/Microsoft.Consumption/operationresults/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
+
+Azure-AsyncOperation:https://managment.azure.com/providers/Microsoft.Consumption/operationStatus/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
+
+Retry-After: 10
+
+OData-EntityId: {operationId}
+
+```
+
+Make another GET call to the location. The response to the GET call is the same until the operation reaches a completion or failure state. When completed, the response to the GET call location returns the download URL. Just as if the operation was executed at the same time. Here's an example:
 
 ```
 HTTP Status 200
-i.e.
-            {
-    “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-    “name”: {operationId},
-    “type”: “Microsoft.Consumption/operationResults”,
-    “properties” : {
-          “downloadUrl”: {urltoblob},
-          “vaildTill”: “Date”
+
+                                    {
+                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
+                            “name”: {operationId},
+                           “type”: “Microsoft.Consumption/operationResults”,
+                           “properties” : {
+                                  “downloadUrl”: {urltoblob},
+                                  “vaildTill”: “Date”
 }
-}
+                     }
 ```
 
-Additionally, the client can also make a GET call for the `Azure-AsyncOperation`. The endpoint returns the status for the operation. Here's an example:
+The client can also make a GET call for the `Azure-AsyncOperation`. The endpoint returns the status for the operation.
 
-```
-HTTP Status 200
-               {
-"id": “providers/Microsoft.Consumption/operationStatus/{operationId}",
-"name": "operationId",
-"status" : "Succeeded | Failed | Canceled",
-"startTime": "<DateLiteral per ISO8601>",
-"endTime": "<DateLiteral per ISO8601>",
-"percentComplete": <double between 0 and 100>
-"properties": {
-    /\* The resource provider can choose the values here, but it should only be
-       returned on a successful operation (status being "Succeeded"). \*/
-},
-"error" : {
-    /\* This is the OData v4 format, used by the RPC and will go into the
-     v2.2 Azure REST API guidelines \*/
-    "code": "BadArgument",
-    "message": "The provided database &#39;foo&#39; has an invalid username."
-}
-}
-```
+The following table shows fields in the older Enterprise Get price sheet API. It includes corresponding fields in the new price sheet for Microsoft Customer Agreements:
 
-### Pricesheet fields
+| Old property | New property | Notes |
+| --- | --- | --- |
+| billingPeriodId  | _Not applicable_ | Not applicable. For Microsoft Customer Agreements, the invoice and associated price sheet replaced the concept of billingPeriodId. |
+| meterId  | meterId | &nbsp;  |
+| unitOfMeasure  | unitOfMeasure | Exact string values might differ. |
+| includedQuantity  | includedQuantity | Not applicable for services in Microsoft Customer Agreements. |
+| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerId) and meterid. |
+| unitPrice  | unitPrice | Unit price is applicable for services consumed in Microsoft Customer Agreements. |
+| currencyCode  | pricingCurrency | Microsoft Customer Agreements have price representations in pricing currency and billing currency. The currencyCode corresponds to the pricingCurrency in Microsoft Customer Agreements. |
+| offerId | productOrderName | Instead of OfferId, you can use productOrderName but isn't the same as OfferId. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and Offerid in legacy enrollments. |
 
-Review the information at [Understand the terms in your price sheet for a Microsoft Customer Agreement](../billing/billing-mca-understand-pricesheet.md) to view all the Pricesheet fields and their descriptions.
+## Consumption Price Sheet API operations
 
-For pricing based on usage, the usage price is locked for the service period since the beginning of period. Service price is applied and locked on the date of purchase. The service period is usually a calendar month for Azure services.
+For Enterprise Agreements, you used the Consumption Price Sheet API [Get](/rest/api/consumption/pricesheet/get) and [Get By Billing Period](/rest/api/consumption/pricesheet/getbybillingperiod) operations for a scope by subscriptionId or a billing period. The API uses Azure Resource Management authentication.
 
-The price for an Azure Consumption service in a Microsoft Customer Agreement is unique for a product order and meter.
+To get the Price Sheet information for a scope with the Price Sheet API:
 
-The fields you can use to uniquely identify the price for Azure Consumption services are:
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-- productOrderName
-- meterId (also, meterName)
+To get Price Sheet information by billing period with the Price Sheet API:
 
-The price for Microsoft Customer Agreements is defined differently than Enterprise agreements where the price for services in the enrollment is unique for:
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-- Product
-- PartNumber
-- meter
-- offer
+Instead of the above API endpoints, use the following ones for Microsoft Customer Agreements:
 
-### Pricesheet support
+**Price Sheet API for Microsoft Customer Agreements (asynchronous REST API)**
 
-Currently, the Pricesheet API only supports Microsoft Customer Agreement prices for Azure first-party and third-party consumption services. It doesn't support prices for Marketplace services, Reserved Instances, and Azure Hybrid Benefits (AHUB).
+This API is for Microsoft Customer Agreements and it provides additional attributes.
 
-The API only provides the unit price that will be charged against the service. This price is equal or lesser than the negotiated price.
+**Price Sheet for a Billing Profile scope in a Billing Account**
 
-## Query for usage and costs
+This API is the existing API. It was updated to provide the price sheet for a billing profile in a billing account.
 
-The Usage Details API provides access to Azure and third-party Marketplace service usage and costs. Prices are based on the negotiated prices for your agreement. EA customers moving to a Customer Agreement should use Usage Details for either the billing account or billing profile scope. You can be query at any scope, with the following exceptions:
+## Price Sheet for a scope by billing account
 
-|   | Customer Agreement | Enterprise Agreement | Individual Agreement (PAYG) |
-| --- | --- | --- | --- |
-| Billing account | Yes | Yes | N/A |
-| Billing profiles (invoice) | Yes | N/A. See billing account. | N/A. See subscriptions. |
-| Invoice sections | No. Use billing profiles with a filter. | N/A | N/A |
-| EA departments | N/A | Yes | N/A |
-| EA enrollment accounts | N/A | Yes | N/A. See subscriptions. |
-| Management groups | No. Use billing account. | Yes | Yes |
-| Subscriptions | Yes | Yes | Yes |
-| Resource groups | No. Use subscriptions with a filter. | No. Use subscriptions with a filter. | No. Use subscriptions with a filter. |
+Azure Resource Manager authentication is used when you get the Price Sheet at the enrollment scope in a billing account.
 
-The properties returned by UsageDetails per agreement type are different. See [UsageDetails API documentation](/rest/api/consumption/usagedetails/) for a full list.
+To get the Price Sheet at the enrollment account in a billing account:
 
-### Power BI integration
+| Method | Request URI |
+| --- | --- |
+| GET | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-EA customers moving to a Microsoft Customer Agreement should stop using any existing integration with Power BI to Microsoft Azure Consumption Insights using their EA information. Instead, you can use:
+For a Microsoft Customer Agreement, use the information in the following section. It provides the field properties used for Microsoft Customer agreements.
 
-- Power BI Desktop – Create new Power BI reports for the Microsoft Customer agreement with the [Azure Cost Management connector](https://docs.microsoft.com/power-bi/desktop-connect-azure-consumption-insights).
-- Power BI Service – Move from the [Microsoft Azure Consumption Insights](https://docs.microsoft.com/power-bi/service-connect-to-azure-consumption-insights) content pack to the Azure Cost Management (Customer Agreement) app, available at [AppSource](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview).
+### Price Sheet for a billing profile scope in a billing account
 
-## Unsupported APIs
+The updated Price Sheet by billing account API gets the Price Sheet in CSV format. To get the Price Sheet at the billing profile scope for an MCA:
 
-The following Enterprise Agreement APIs aren't supported by Microsoft Customer Agreements. Alternatives to unsupported APIs are described.
+| Method | Request URI |
+| --- | --- |
+| GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-[Get Pricesheet By Subscription](/rest/api/consumption/pricesheet/get/) is unsupported. It lists the prices for the scope of a subscriptionId. Instead, you can use **Pricesheet by Billing Profile**. The price of a service in the scope of a subscription is the same as the price in the scope of a billing profile. The user calling the API must have required permissions.
+At the EA's enrollment scope, the API response and properties are identical. The properties correspond to the same MCA properties.
 
-**Price Sheet - Get By Billing Period** is unsupported. It gets the price sheet for a scope by subscriptionId and billing period. Instead, you can use **Pricesheet by Billing Profile**. The service price in a subscription scope equals the service price in a billing profile scope. The user calling the API must have required permissions.
+The older properties for [Azure Resource Manager Price Sheet APIs](/rest/api/consumption/pricesheet) and the same new properties are in the following table.
 
-[Price Sheet for Enterprise customers by Enrollment](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet/) isn't supported. And, [Pricesheet for Enterprise customers by Enrollment for a Billing Period](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet/) isn't supported. Both provide the applicable rate for each meter for the given Enrollment and Billing Period. Instead, you can use **Pricesheet by Billing Profile**. The pricesheet at the enrollment scope is the pricesheet available for the billing profile. The user calling the API must have required permissions.
+| Old Azure Resource Manager Price Sheet API Property  | New Microsoft Customer Agreement Price Sheet API property   | Description |
+| --- | --- | --- |
+| Meter ID | _meterId_ | Unique identifier for the meter. Same as meterId. |
+| Meter name | meterName | Name of the meter. Meter represents the Azure service deployable resource. |
+| Meter category  | service | Name of the classification category for the meter. Same as the service in the Microsoft Customer Agreement Price Sheet. Exact string values differ. |
+| Meter subcategory | meterSubCategory | Name of the meter subclassification category. Based on the classification of high-level feature set differentiation in the service. For example, Basic SQL DB vs Standard SQL DB. |
+| Meter region | meterRegion | &nbsp;  |
+| Unit | _Not applicable_ | Can be parsed from unitOfMeasure. |
+| Unit of measure | unitOfMeasure | &nbsp;  |
+| Part number | _Not applicable_ | Instead of partNumber, use productOrderName and MeterId to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the partNumber in MCA invoices. |
+| Unit price | unitPrice | Microsoft Customer Agreement unit price. |
+| Currency code | pricingCurrency | Microsoft Customer Agreements represent prices in pricing currency and billing currency. Currency code is the same as the pricingCurrency in Microsoft Customer Agreements. |
+| Included quantity | includedQuantity | Not applicable to services in Microsoft Customer Agreements. Show with values of zero. |
+|  Offer Id  | productOrderName | Instead of OfferId, use productOrderName. Not the same as OfferId, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and Offerid in legacy enrollments. |
 
-## See also
-- Learn more about [Azure Consumption REST APIs](/rest/api/consumption/).
+The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, PartNumber, meter, and offer. The PartNumber isn't used in Microsoft Customer Agreements.
+
+The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterId. They represent the service meter and the product plan.
+
+To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterId.
+
+Users that have billing profile owner, contributor, reader, and invoice manager rights can download the price sheet.
+
+The price sheet includes prices for services whose price is based on usage. The services include Azure consumption and Marketplace consumption. The latest price at the end of each service period is locked and applied to usage in a single service period. For Azure consumption services, the service period is usually a calendar month.
+
+### Retired Price Sheet API fields
+
+The following fields are either not available in Microsoft Customer Agreement Price Sheet APIs or have the same fields.
+
+|Retired field| Description|
+|---|---|
+| billingPeriodId | No applicable. Corresponds to InvoiceId for MCA. |
+| offerId | Not applicable. Corresponds to productOrderName in MCA. |
+| meterCategory  | Not applicable. Corresponds to Service in MCA. |
+| unit | Not applicable. Can be parsed from unitOfMeasure. |
+| currencyCode | Same as the pricingCurrency in MCA. |
+| meterLocation | Same as the meterRegion in MCA. |
+| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of partnumber, use the meterId and productOrderName combination to uniquely identify prices. |
+| totalIncludedQuantity | Not applicable. |
+| pretaxStandardRate  | Not applicable. |
+
+## Reservation Instance Charge API replaced
+
+You can get billing transactions for reservation purchases with the [Reserved Instance Charge API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). The new API includes all purchases, including third-party Marketplace offerings. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The Reserved Instance Charge API is replaced by the Transactions API.
+
+To get reservation purchase transactions with the Transactions API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
+
+## Recommendations APIs replaced
+
+Reserved Instance Purchase Recommendations APIs provide virtual machine usage over the last 7, 30, or 60 days. APIs also provide reservation purchase recommendations. They include:
+
+- [Shared Reserved Instance Recommendation API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
+- [Single Reserved Instance Recommendations API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
+
+All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The reservation recommendations APIs listed previously are replaced by the [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) API.
+
+To get reservation recommendations with the Reservation Recommendations API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
+
+## Reservation Usage APIs replaced
+
+You can get reservation usage in an enrollment with the Reserved Instance Usage API. If there's more than one reserved instance in an enrollment, you can also get the usage of all the reserved instance purchases using this API.
+
+They include:
+
+- [Reserved Instance Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
+- [Reserved Instance Usage Summary](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
+
+All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The reservation recommendations APIs listed previously are replaced by the [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) and [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) APIs.
+
+To get reservation details with the Reservation Details API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
+
+To get reservation summaries with the Reservation Summaries API:
+
+| Method | Request URI |
+| --- | --- |
+| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
+
+
+
+## Move from Cloudyn to Cost Management
+
+Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](index.yml).
+
+With Azure Cost Management, you can:
+
+- View costs over time against a predefined budget. Analyze daily cost patterns to identify and stop spending anomalies. Break down costs by tags, resource group, service, and location.
+- Create budgets to set limits on usage and costs and get notified when important thresholds are approached. Set up automation with action groups to trigger custom events and enforce hard limits on your terms.
+- Optimize cost and usage with recommendations from Azure Advisor. Discover purchase optimizations with reservations, downsize underused virtual machines, and delete unused resources to stay within budgets.
+- Schedule a cost and usage data export to publish a CSV file to your storage account daily. Automate integration with external systems to keep billing data in sync and up to date.
+
+## Power BI integration
+
+If you use Power BI for cost reporting, you need to transition to the following:
+
+- Microsoft Azure Consumption Insights Power BI app
+- Azure Consumption Insights desktop connector
+
+
+The connector is recommended for organizations wanting the most flexibility. However, the Power BI app is also available for quick set-up.
+
+- Install the [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview)
+- [Connect with the Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights)
+
+The older Consumption Insights content pack and connector worked at an enrollment level. It required at least read access. The new Consumption Insights Power BI app and the new Azure Consumption Insights connector are available for billing profile users. Teams that need additional options for reviewing costs or to view costs across billing profiles should use in [Cost analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) the Azure portal.
+
+## Next steps
+
+- Read the [Cost Management documentation](index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.

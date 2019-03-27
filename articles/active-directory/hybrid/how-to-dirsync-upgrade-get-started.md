@@ -24,7 +24,7 @@ Azure AD Connect is the successor to DirSync. You find the ways you can upgrade 
 
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). In particular, you want to read about the following, since these areas are different from DirSync:
 
-* The required version of .Net and PowerShell. Newer versions are required to be on the server than what DirSync needed.
+* The required version of .NET and PowerShell. Newer versions are required to be on the server than what DirSync needed.
 * The proxy server configuration. If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server configured for the user installing it, but Azure AD Connect uses machine settings instead.
 * The URLs required to be open in the proxy server. For basic scenarios, those scenarios also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
 
@@ -37,7 +37,7 @@ If you are not upgrading from DirSync, see related documentation for other scena
 Depending on your current DirSync deployment, there are different options for the upgrade. If the expected upgrade time is less than three hours, then the recommendation is to do an in-place upgrade. If the expected upgrade time is more than three hours, then the recommendation is to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it takes more than three hours to do the upgrade.
 
 | Scenario |
-| --- | --- |
+| --- |
 | [In-place upgrade](#in-place-upgrade) |
 | [Parallel deployment](#parallel-deployment) |
 
