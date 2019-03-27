@@ -12,7 +12,7 @@ ms.custom: include file
 
 ### Premium performance block blob storage
 
-A premium performance block blob storage account is optimized for applications that use smaller, kilobyte range, objects. It's ideal for applications that require very high transaction rates or consistent low-latency storage. Premium performance block blob storage is designed to scale with your applications. If you plan to deploy application(s) that require hundreds of thousands of requests per second or petabytes of storage capacity, please contact us by submitting a support request in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+A premium performance block blob storage account is optimized for applications that use smaller, kilobyte range, objects. It's ideal for applications that require high transaction rates or consistent low-latency storage. Premium performance block blob storage is designed to scale with your applications. If you plan to deploy application(s) that require hundreds of thousands of requests per second or petabytes of storage capacity, please contact us by submitting a support request in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Premium performance FileStorage (preview)
 
@@ -20,7 +20,7 @@ Premium files use a unique storage account called **filestorage (preview)**, thi
 
 |Area  |Target  |
 |---------|---------|
-|Max size     |5 TiB (public preview) , 100 TiB (private preview)     |
+|Max size     |5 TiB (public preview), 100 TiB (private preview)     |
 |Shares   |Unlimited  |
 |IOPS     |100,000 (private preview)    |
 |Bandwidth|5 GB/s     |
@@ -29,7 +29,7 @@ For premium file share scale targets, see the [Premium files scale targets](../a
 
 ### Premium performance page blob storage
 
-Premium performance, general-purpose v1 or v2 storage accounts have the following scalability targets:
+Premium performance, general-purpose v1, or v2 storage accounts have the following scalability targets:
 
 | Total account capacity                            | Total bandwidth for a locally redundant storage account                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
