@@ -15,14 +15,14 @@ ms.reviewer: igorstan
 # Troubleshooting connectivity issues
 
 This article lists common troubleshooting techniques around connecting to your SQL Data Warehouse.
-- [Check service availability]()
-- [Check for paused or scaling operation]()
-- [Check your firewall settings]()
-- [Check your VNet/Service Endpoint settings]()
-- [Check for the latest drivers]()
-- [Check your connection string]()
-- [Intermittent connection issues]()
-- [Common error messages]()
+- [Check service availability](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
+- [Check for paused or scaling operation](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+- [Check your firewall settings](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
+- [Check your VNet/Service Endpoint settings](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Check for the latest drivers](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Check your connection string](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
+- [Intermittent connection issues](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
+- [Common error messages](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## Check service availability
 
