@@ -180,7 +180,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | correlationId | string | Unique http request identifier assigned by API Management |
 | location | string | Name of the Azure region where the Gateway that processed the request was located |
 | httpStatusCodeCategory | string | Category of http response status code: Successful (301 or less or 304 or 307), Unauthorized (401, 403, 429), Erroneous (400, between 500 and 600), Other |
-| resourceId | string | "Id of the API Management resource /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| resourceId | string | Id of the API Management resource /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Properties of the current request |
 | method | string | HTTP method of the incoming request |
 | url | string | URL of the incoming request |
