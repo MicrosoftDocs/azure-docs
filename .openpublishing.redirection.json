@@ -13143,6 +13143,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-pricing-billing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/service-bus-messaging/service-bus-sas-overview.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
@@ -33379,11 +33384,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/howto-create-webhooks",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
       "redirect_document_id": false
@@ -36358,6 +36358,11 @@
     {
       "source_path": "articles/iot-central/howto-export-data.md",
       "redirect_url": "/azure/iot-central/howto-export-data-event-hubs-service-bus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/gen2-lower-tier-regions.md",
+      "redirect_url": "/azure/sql-data-warehouse/gen2-migration-schedule",
       "redirect_document_id": false
     },
     {
