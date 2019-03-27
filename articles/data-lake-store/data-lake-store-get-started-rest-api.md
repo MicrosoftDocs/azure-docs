@@ -28,7 +28,7 @@ In this article, you learn how to perform account management operations on Azure
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
+* **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
 ## How do I authenticate using Azure Active Directory?
 You can use two approaches to authenticate using Azure Active Directory.

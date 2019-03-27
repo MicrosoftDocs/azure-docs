@@ -77,7 +77,7 @@ Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API
 ### Mobile *Services* server SDKs
 | Server platform | Version | Accepted version header |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**No version header ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**No version header** |
 | Node.js |(coming soon) |**No version header** |
 
 <!-- TODO: add Node npm version -->

@@ -3,10 +3,10 @@ title: Set up the Azure Service Fabric Mesh CLI | Microsoft Docs
 description: Learn how to set up the Azure Service Fabric Mesh CLI.
 services: service-fabric-mesh
 keywords:  
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
@@ -51,7 +51,7 @@ Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/az
 In order to use the Maven CLI, the following needs to be installed on your machine: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI (az mesh) - To target Azure Service Fabric Mesh 
 * SFCTL (sfctl) - To target local clusters 

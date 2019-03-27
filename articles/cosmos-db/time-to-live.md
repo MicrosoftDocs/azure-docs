@@ -25,7 +25,7 @@ The time to live value is set in seconds and it is interpreted as a delta from t
 
    - If present and the value is set to some number ("n") – items expire "n" seconds after their last modified time.
 
-2. **Time to Live on an item** (set using `TimeToLive`):
+2. **Time to Live on an item** (set using `ttl`):
 
    - This Property is applicable only if `DefaultTimeToLive` is present and it is not set to null for the parent container.
 
@@ -43,6 +43,6 @@ Deleting items based on TTL is free. There is no additional cost (that is, no ad
 
 ## Next steps
 
-Learn how to configure Tile to Live in the following articles:
+Learn how to configure Time to Live in the following articles:
 
 * [How to configure Time to Live](how-to-time-to-live.md)

@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
---- 
+---
 
-# Azure Data Factory Mapping Data Flow Reference Node
+# Mapping Data Flow Reference Node
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

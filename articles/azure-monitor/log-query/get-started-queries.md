@@ -19,11 +19,11 @@ ms.author: bwren
 
 
 > [!NOTE]
-> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn to write Azure LMonitor log queries. It will teach you how to:
+In this tutorial you will learn to write Azure Monitor log queries. It will teach you how to:
 
 - Understand queries' structure
 - Sort query results
@@ -38,7 +38,7 @@ In this tutorial you will learn to write Azure LMonitor log queries. It will tea
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.
 
 > [!NOTE]
-> The Data Explorer query language used by Azure Monitor is case-sensitive. Language keywords are typically written in lower-case. When using names of tables or columns in a query, make sure to use the correct case, as shown on the schema pane.
+> The Kusto query language used by Azure Monitor is case-sensitive. Language keywords are typically written in lower-case. When using names of tables or columns in a query, make sure to use the correct case, as shown on the schema pane.
 
 ### Table-based queries
 Azure Monitor organizes log data in tables, each composed of multiple columns. All tables and columns are shown on the schema pane in Log Analytics in the Analytics portal. Identify a table that you're interested in and then take a look at a bit of data:

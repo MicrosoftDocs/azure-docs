@@ -7,13 +7,13 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/27/2018
+ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
 
 # Monitoring resource utilization and query activity in Azure SQL Data Warehouse
-Azure SQL Data Warehouse provides a rich monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. The portal also enables you to integrate with other Azure monitoring services such as Operations Management Suite (OMS)/Log Analytics and Azure Monitor to provide a holistic monitoring experience for not only your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. This documentation describes what monitoring capabilities are available to optimize and manage your analytics platform with SQL Data Warehouse. 
+Azure SQL Data Warehouse provides a rich monitoring experience within the Azure portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs. The portal also enables you to integrate with other Azure monitoring services such as Operations Management Suite (OMS) and Azure Monitor (logs) to provide a holistic monitoring experience for not only your data warehouse but also your entire Azure analytics platform for an integrated monitoring experience. This documentation describes what monitoring capabilities are available to optimize and manage your analytics platform with SQL Data Warehouse. 
 
 ## Resource Utilization 
 The following metrics are available in the Azure portal for SQL Data Warehouse. These metrics are surfaced through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -41,11 +41,8 @@ For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the 
 To view the list of DMVs that SQL Data Warehouse provides, refer to this [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## Metrics and diagnostics logging
-Both metrics and logs can be exported to Azure Monitor, specifically the [Log analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [Log Search](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [log queries](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). The log latency for SQL Data Warehouse is about 10-15 minutes. For more details on the factors impacting latency, visit the following documentation.
 
-
-> [!NOTE]
-> As of November 2018, logs are currently being deployed for SQL Data Warehouse
 
 ## Next steps
 The following How-to guides describe common scenarios and use cases when monitoring and managing your data warehouse:

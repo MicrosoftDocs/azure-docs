@@ -6,10 +6,7 @@ description: Azure Monitor Application Insights provides deep code-level applica
 services: application-insights
 author: mrbullwinkle
 manager: carmonmills
-ms.assetid:	
 ms.service: application-insights
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin

@@ -19,8 +19,6 @@ ms.author: tomfitz
 ---
 # Logical functions for Azure Resource Manager templates
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Resource Manager provides several functions for making comparisons in your templates.
 
 * [and](#and)

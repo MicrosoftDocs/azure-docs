@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create new resource
 
-Open the [Azure preview portal](https://preview.portal.azure.com) and click **Create a resource**
+Open the [Azure portal](https://portal.azure.com) and click **Create a resource**
 
 ![Create a resource](media/quickstart-paas-portal/portal-create-resource.png)
 

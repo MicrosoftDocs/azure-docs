@@ -140,4 +140,4 @@ search in (Event) "win"
 
 ## Next steps
 
-- See further tutorials on the [Data Explorer query language site](/azure/kusto/query/).
+- See further tutorials on the [Kusto query language site](/azure/kusto/query/).

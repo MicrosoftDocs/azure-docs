@@ -24,7 +24,7 @@ The following frequently asked questions (FAQ) cover common issues encountered d
 
 ## How do you create a VM from the Azure portal using the VHD that is uploaded to premium storage?
 
-Azure Marketplace does not currently support creating VM offers from images residing on managed storage or from Azure Premium Storage.  For more information about these storage options, see [Azure Managed Disks Overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) and [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Azure Marketplace does not currently support creating VM offers from images residing on managed storage or from Azure Premium Storage.  For more information about these storage options, see [Azure Managed Disks Overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## Can you use generation 2 VMs for offers?

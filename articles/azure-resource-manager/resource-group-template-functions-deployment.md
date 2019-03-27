@@ -17,8 +17,6 @@ ms.author: tomfitz
 ---
 # Deployment functions for Azure Resource Manager templates 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](#deployment)

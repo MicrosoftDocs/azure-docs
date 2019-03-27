@@ -1,5 +1,5 @@
 ---
-title: Update an existing Power BI App offer - Azure Marketplace | Microsoft Docs
+title: Update a Power BI App offer - Azure Marketplace | Microsoft Docs
 description: Update a Power BI App offer after it has been published on the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter:
@@ -17,67 +17,56 @@ ms.date: 01/31/2019
 ms.author: pbutlerm
 ---
 
-# Update an existing Power BI App offer
+# Update a Power BI App offer
 
-This article walks you through the different aspects of updating your Power BI App offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and
-then republishing the offer.  There are commonplace reasons for you to update your offer, including:
+This article shows you how to update your Microsoft Power BI App offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and
+then to republish the offer. Here are some common reasons to update an offer:
 
-- Updating the app’s content in Power BI and getting a new Install URL from
+- To update the app's content in Power BI and get an installation URL from the
     newly packaged app
-- Updating the marketplace metadata for the offer: sales, marketing, or support information and assets
+- To update the offer's Azure Marketplace metadata (sales, marketing, or support information and assets)
  
-To assist you in these modifications, the portal offers the **Compare** and **History** features.
-
-
-## Unpermitted changes to offer
-
-There are some attributes of a Power BI App offer that cannot be modified once the offer is live in the AppSource, mainly  **Offer ID** and **Publisher ID**.
-
+Use the portal's **Compare** and **History** features to keep track of changes like these.
 
 ## Common update operations
 
-Although there are a wide range of characteristics you can change on a Power BI App offer, the following operations are common.
-
+Some attributes of a Power BI App offer can't be changed after the offer is published in AppSource. Disallowed changes include **Offer ID** and **Publisher ID**. But you can still change a wide range of characteristics. Here are some common changes.
 
 ### Update app content in Power BI
 
-It is common for the app in Power BI to be periodically updated with new content, security patches, additional features, and so on. Under such scenarios,
-you want to update the URL to the new apps content installation by using the following steps:
+Power BI apps are often updated periodically with new content, security patches, features, and so on. When an app is changed, update its installation URL by following these steps:
 
-1.  Sign into the [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2.  Under **All offers**, find the offer to update.
-3.  In the **Technical Info** tab, enter a new installer URL.
-4.  Click on **Publish** to start the workflow to publish your new app’s version to the AppSource.
-
-
-### Update offer marketplace metadata
-
-Use the following steps to update the marketplace metadata—company name, logos, etc.—associated with your offer:
-
-1.  Sign into the [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2.  Under **All offers**, find the offer you would like to update.
-3.  Goto the **Storefront Details** tab then follow the instructions in the [Power BI Apps Storefront Details tab](./cpp-storefront-details-tab.md) to make
-    metadata changes.
-4.  Click on **Publish** to start the workflow to publish your changes.
+1.  Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2.  Under **All offers**, find the offer you want to update.
+3.  On the **Technical Info** tab, enter a new installation URL.
+4.  Select **Publish** to start the workflow to publish the new app version to AppSource.
 
 
-## Compare feature
+### Update the offer's Marketplace metadata
 
-When you make changes on an already published offer, you can use the **Compare** feature to audit the changes that have been made. To use this
-feature:
+Your offer's Marketplace metadata includes your company name, logos, and other information. To update metadata, follow these steps:
 
-1.  At any point in the editing process, click the **Compare** button for your offer.
+1.  Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2.  Under **All offers**, find the offer you want to update.
+3.  On the **Storefront Details** tab, change the metadata by following the instructions in the article [Power BI app Storefront Details tab](./cpp-storefront-details-tab.md).
+4.  Select **Publish** to start the workflow to publish your changes.
 
-    ![Compare feature button](./media/compare-feature-button.png)
+
+## The Compare feature
+
+As you update a published offer, you can check the changes you've made. To use the **Compare** feature:
+
+1.  At any point in the editing process, select the offer's **Compare** button.
+
+    ![Compare button](./media/compare-feature-button.png)
 
 2.  View side-by-side versions of marketing assets and metadata.
 
 
 ## History of publishing actions
 
-To view any historical publishing activity, click on the **History** tab in the left navigation menubar of Cloud Partner Portal. Here you will be able to view timestamped actions that have been taken during the lifetime of your AppSource offers.
-
+To view your offer's publishing history, on the left side of the Cloud Partner Portal, open the **History** tab. Here you'll see a history of time-stamped actions on your AppSource offers.
 
 ## Next steps
 
-You should regularly use the [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) feature of the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) to provide insights on your marketplace customers and usage.  
+In the Cloud Partner Portal, regularly use [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) to find useful information about your Marketplace customers and usage.  

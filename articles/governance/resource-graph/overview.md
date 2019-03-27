@@ -42,7 +42,7 @@ Now that you have a better understanding of what Azure Resource Graph is, let’
 construct queries.
 
 It's important to understand that Azure Resource Graph's query language is based on the
-[Azure Data Explorer Query Language](../../data-explorer/data-explorer-overview.md).
+[Kusto query language](../../data-explorer/data-explorer-overview.md) used by Azure Data Explorer.
 
 First, for details on operations and functions that can be used with Azure Resource Graph, see [Resource
 Graph query language](./concepts/query-language.md). To browse resources, see [explore resources](./concepts/explore-resources.md).
@@ -64,8 +64,8 @@ the team to contact you.
 
 ## Running your first query
 
-Resource Graph supports both Azure CLI and Azure PowerShell. The query is structured the same for
-both languages. Learn how to enable Resource Graph in [Azure
+Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is
+structured the same for each language. Learn how to enable Resource Graph in [Azure
 CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
 PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 

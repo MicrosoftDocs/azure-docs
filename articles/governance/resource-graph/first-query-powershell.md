@@ -82,10 +82,10 @@ Resource Graph query. The query will return the first five Azure resources with 
    Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Just as with the first query, running this query multiple times is likely to yield a different
-  > set of resources per request. The order of the query commands is important. In this example, the
-  > `order by` comes after the `limit`. This will first limit the query results and then order them.
+   > [!NOTE]
+   > Just as with the first query, running this query multiple times is likely to yield a different
+   > set of resources per request. The order of the query commands is important. In this example, the
+   > `order by` comes after the `limit`. This will first limit the query results and then order them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
 

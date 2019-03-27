@@ -23,6 +23,8 @@ Azure HDInsight provides a configuration method called **script actions** that i
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. For more information on HDInsight applications, see [Publish an HDInsight application in the Azure Marketplace](hdinsight-apps-publish-applications.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Permissions
 
 For a domain-joined HDInsight cluster, there are two Apache Ambari permissions that are required when you use script actions with the cluster:
@@ -51,7 +53,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
     * An Azure Data Lake Storage account that's accessible by the HDInsight cluster. For information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        The URI format for scripts stored in Data Lake Storage is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
@@ -127,7 +129,7 @@ A failure in a script run on an already running cluster doesn't automatically ca
 >
 > Scripts actions run with root privileges. Make sure that you understand what a script does before you apply it to your cluster.
 
-When you apply a script to a cluster, the cluster state changes from **Running** to **Accepted**. Then it changes to **HDInsight configuration** and, finally, back to **Running** for successful scripts. The script status is logged in the script action history. This information tells you whether the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet shows the status of a script. It returns information similar to the following text:
+When you apply a script to a cluster, the cluster state changes from **Running** to **Accepted**. Then it changes to **HDInsight configuration** and, finally, back to **Running** for successful scripts. The script status is logged in the script action history. This information tells you whether the script succeeded or failed. For example, the `Get-AzHDInsightScriptActionHistory` PowerShell cmdlet shows the status of a script. It returns information similar to the following text:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -153,7 +155,6 @@ HDInsight provides scripts to install the following components on HDInsight clus
 | Add an Azure Storage account |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. See [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md). |
 | Install Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. See [Install and use Hue on HDInsight Hadoop clusters](hdinsight-hadoop-hue-linux.md). |
 | Install Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. See [Install and use Presto on Hadoop-based HDInsight clusters](hdinsight-hadoop-install-presto.md). |
-| Install Solr |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. See [Install and use Apache Solr on HDInsight Hadoop clusters](hdinsight-hadoop-solr-install-linux.md). |
 | Install Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. See [Install Apache Giraph on HDInsight Hadoop clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Preload Hive libraries |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. See [Add custom Apache Hive libraries when creating your HDInsight cluster](hdinsight-hadoop-add-hive-libraries.md). |
 | Install or update Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. See [Install or update Mono on HDInsight](hdinsight-hadoop-install-mono.md). |
@@ -220,7 +221,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -365,13 +366,13 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 | cmdlet | Function |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Retrieve a history of script actions applied to the cluster or details for a specific script. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Promote an ad hoc script action to a persisted script action. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Demote a persisted script action to an ad hoc action. |
+| `Get-AzHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. |
+| `Get-AzHDInsightScriptActionHistory` |Retrieve a history of script actions applied to the cluster or details for a specific script. |
+| `Set-AzHDInsightPersistedScriptAction` |Promote an ad hoc script action to a persisted script action. |
+| `Remove-AzHDInsightPersistedScriptAction` |Demote a persisted script action to an ad hoc action. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` doesn't undo the actions performed by a script. This cmdlet only removes the persisted flag.
+> `Remove-AzHDInsightPersistedScriptAction` doesn't undo the actions performed by a script. This cmdlet only removes the persisted flag.
 
 The following example script demonstrates using the cmdlets to promote and then demote a script.
 
@@ -407,9 +408,9 @@ Two types of open-source components are available in the HDInsight service:
 
 * **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. The following components belong to this category:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
 
@@ -522,7 +523,6 @@ There are two exceptions:
 ## Next steps
 
 * [Develop script action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 

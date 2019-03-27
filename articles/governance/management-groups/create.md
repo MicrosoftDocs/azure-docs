@@ -1,6 +1,6 @@
 ---
-title: Create management groups to organize Azure resources
-description: Learn how to create Azure management groups to manage multiple resources. 
+title: Create management groups to organize Azure resources - Azure Governance
+description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -22,6 +22,8 @@ groups, see [Organize your resources with Azure management groups](overview.md).
 The first management group created in the directory could take up to 15 minutes to complete. There
 are processes that run the first time to set up the management groups service within Azure for your
 directory. You receive a notification when the process is complete.
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Create a management group
 
@@ -49,10 +51,10 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in PowerShell
 
-Within PowerShell, you use the New-AzureRmManagementGroup cmdlet:
+Within PowerShell, you use the New-AzManagementGroup cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 The **GroupName** is a unique identifier being created. This ID is used by other commands to
@@ -64,7 +66,7 @@ group with the GroupName of Contoso and the display name of "Contoso Group", you
 following cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 Use the **ParentId** parameter to have this management group be created under a different
@@ -84,6 +86,6 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](create.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
-- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
-- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)
+- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
+- [Review management groups in REST API](/rest/api/resources/managementgroups)
+- [Review management groups in Azure CLI](/cli/azure/account/management-group)

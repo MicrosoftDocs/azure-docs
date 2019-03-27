@@ -50,7 +50,7 @@ The following diagram shows how authorization works for service to service calls
 The self-test API contains a single endpoint that supports only the POST method.  It has the following structure.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -257,7 +257,7 @@ Use the following steps to register the client app.
 
    - **Name** – Enter a friendly name for the app. For example, “SelfTestClient”.
    - **Application type** – Select **Web App/API**
-   - **Sign-on URL** – Type "https://isvapp.azurewebsites.net/selftest-vm"
+   - **Sign-on URL** – Type "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Select **Create**.
 5. Under **App registrations** or **Registered app**, copy the **Application ID**.
@@ -294,8 +294,8 @@ Use the following steps to register the client app.
     - Select **Save** to generate the key.
     - Under **VALUE**, copy the key.
 
-     >[!Important]
-     >You won’t be able to see the key value after you exit the **Keys** form.
+      >[!Important]
+      >You won’t be able to see the key value after you exit the **Keys** form.
 
     ![Key value form](./media/stclient-create-key.png)
 

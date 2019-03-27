@@ -52,7 +52,7 @@ Where the following table describes the fields in this tab:
 |  App type             | Select the type of trial that is enabled for the app on AppSource. **Free** indicates your app can be used without charge; **Trial** indicates that customers can try your app for a short period without charge; and **Contact me** indicates that customers can request a trial of the app on AppSource.  |
 | Help link for your app | URL for online documentation or other help resource for the app.  |
 | Supported countries/regions | A popup dialog enables the selection of the geographic regions where the app is offered.  Worldwide distribution is the default. |
-| Supported languages   | Select the languages that your app supports. Currently only a few language options are supported.  (If your app supports additional languages that are not on this list, continue to publish your offer and email this information to: appsource@microsoft.com.)  |
+| Supported languages   | Select the languages that your app supports. Currently only a few language options are supported.  (If your app supports additional languages that are not on this list, continue to publish your offer and email this information to: appsource\@microsoft.com.)  |
 | App version           | Version number for the app    |
 | App Release Date      | Release/publishing date of the app |
 | Products your app works with | Products or services that your app inter-operates with. You can list maximum of three products. To list a product, click on **+New** and enter the name of a product in the displayed text box.  |

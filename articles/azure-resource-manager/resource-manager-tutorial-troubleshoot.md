@@ -18,8 +18,6 @@ ms.author: jgao
 
 # Tutorial: Troubleshoot Resource Manager template deployments
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Learn how to troubleshoot Resource Manager template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
 
 There are two types of errors that are related to template deployment:

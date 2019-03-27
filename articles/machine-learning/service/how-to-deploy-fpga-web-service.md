@@ -24,7 +24,7 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
@@ -42,12 +42,8 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
     pip install "tensorflow==1.10"
     ```
 
-### Get the notebook
-
-For your convenience, this tutorial is available as a Jupyter notebook. Follow the code here or run the [quickstart notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
-
 ## Create and deploy your model
-Create a pipeline to preprocess the input image, featurize it using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
+Create a pipeline to preprocess the input image, make it a feature using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 
 Follow the instructions to:
 
