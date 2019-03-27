@@ -331,8 +331,6 @@
       items:
       - name: Task preset
         href: indexer-task-preset.md
-    - name: Process with Hyperlapse
-      href: media-services-hyperlapse-content.md
     - name: Process with Face Detector
       href: media-services-face-and-emotion-detection.md
     - name: Process with Motion Detector
