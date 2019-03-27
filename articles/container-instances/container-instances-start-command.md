@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 03/27/2019
 ms.author: danlep
 ---
 
@@ -20,26 +20,25 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 * By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
 
-* To execute multiple commands, begin your command line by setting a shell environment in the container operating system (for example, `bin/sh`, `/bin/bash`, or `cmd`). Follow the conventions of the shell to run multiple commands in sequence.
+* To execute multiple commands, begin your command line by setting a shell environment in the container operating system (examples: `bin/sh`, `/bin/bash`, `cmd`). Follow the conventions of the shell to combine multiple commands to run in sequence.
 
 * Depending on the container configuration, you might need to set a full path to the command line executable or arguments.
 
 * Set an appropriate [restart policy](container-instances-restart-policy.md) for the container instance, depending on whether the command-line specifies a long-running task or a run-once task.
 
-* If you need information about the default entrypoint set in a container image, use the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/
-) command.
+* If you need information about the default entrypoint set in a container image, use the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command.
 
 ## Command line syntax
 
-The command-line syntax varies depending on the Azure API or tool used to create the instances. If you specify a shell environment, also follow the command syntax conventions of the shell.
+The command line syntax varies depending on the Azure API or tool used to create the instances. If you specify a shell environment, also observe the command syntax conventions of the shell.
 
 * [az container create][az-container-create] command: Pass a string with the `--command-line` parameter. Example: `--command-line "python myscript.py arg1 arg2"`).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Pass a string with the `-Command` parameter. Example: `-command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Pass a string with the `-Command` parameter. Example: `-Command "echo hello"`.
 
 * Azure portal: In the **Command override** property of the container configuration, provide a comma-separated list of strings, without quotes. Example: `python, myscript.py, arg1, arg2`). 
 
-* Resource Manager template or YAML file, or one of the Azure SDKs: Specify the command line property as an array of strings. Example: the JSON array `["python", "myscript.py", "arg1", "arg2"]` in a template. 
+* Resource Manager template or YAML file, or one of the Azure SDKs: Specify the command line property as an array of strings. Example: the JSON array `["python", "myscript.py", "arg1", "arg2"]` in a Resource Manager template. 
 
   If you're familiar with [Dockerfile](https://docs.docker.com/engine/reference/builder/) syntax, this format is similar to the *exec* form of the CMD instruction.
 
@@ -52,9 +51,9 @@ The command-line syntax varies depending on the Azure API or tool used to create
 
 ## Azure CLI example
 
-As an example, you can modify the behavior of the [microsoft/aci-wordcount][aci-wordcount] container image, which analyzes text in Shakespeare's *Hamlet* to find the most frequently occurring words. Instead of analyzing *Hamlet*, you could set a command line that points to a different text source.
+As an example, modify the behavior of the [microsoft/aci-wordcount][aci-wordcount] container image, which analyzes text in Shakespeare's *Hamlet* to find the most frequently occurring words. Instead of analyzing *Hamlet*, you could set a command line that points to a different text source.
 
-To see the output of the [microsoft/aci-wordcount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] command. No start command line  is specified, so the default container command runs. For illustration purposes, this example sets [environment variables](container-instances-environment-variables.md) to find the top 3 five-letter words:
+To see the output of the [microsoft/aci-wordcount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] command. No start command line is specified, so the default container command runs. For illustration purposes, this example sets [environment variables](container-instances-environment-variables.md) to find the top 3 words that are at least five letters long:
 
 ```azurecli-interactive
 az container create \
@@ -77,9 +76,9 @@ Output:
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-Now set up a second example container to analyze different text  by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and processes that page's content instead of the default.
+Now set up a second example container to analyze different text by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and processes that page's content instead of the default.
 
-For example, to determine the top 3 five-letter words in *Romeo and Juliet*:
+For example, to determine the top 3 words that are at least five letters long in *Romeo and Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -105,7 +104,7 @@ Output:
 
 ## Next steps
 
-Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom environment variables or command lines at runtime. For more information about running task-based containers, see [Run containerized tasks with restart policies](container-instances-restart-policy.md).
+Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom command lines at runtime. For more information about running task-based containers, see [Run containerized tasks with restart policies](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/

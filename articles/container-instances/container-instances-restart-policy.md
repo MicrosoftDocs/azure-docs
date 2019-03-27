@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: danlep
 ---
 
@@ -109,7 +109,7 @@ After you manually start or restart a container group, the container group runs 
 
 ## Next steps
 
-### Persist task output
+Task-based scenarios, such as batch processing a large dataset with several containers, can take advantage of [custom environment variables](container-instances-environment-variables.md) or [command lines](container-instances-start-command.md) at runtime.
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
