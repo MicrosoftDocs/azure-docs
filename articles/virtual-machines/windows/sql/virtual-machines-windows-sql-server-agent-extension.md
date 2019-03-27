@@ -74,21 +74,21 @@ If you need to reinstall the extension manually on one of these SQL Server VMs, 
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
-> [!IMPORTANT]
+> [!WARNING]
 > If the extension is not already installed, installing the extension restarts the SQL Server service. However, updating the SQL IaaS extension does not restart the SQL Server service. 
 
 > [!NOTE]
 > While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).
 
-### Using a single named instance
-The SQL IaaS extension will work with a named instance on a SQL Server image if the default instance was uninstalled properly. 
+### Use a single named instance
+The SQL IaaS extension will work with a named instance on a SQL Server image if the default instance is uninstalled properly, and if the IaaS extension is reinstalled.
 
-To use a named instance, do the following:
+To use a named instance of SQL Server, do the following:
    1. Deploy a SQL Server VM from the marketplace. 
-   1. Uninstall the IaaS extension.
-   1. Uninstall SQL Server completely.
-   1. Install SQL Server with a named instance. 
-   1. Install the IaaS extension. 
+   1. Uninstall the IaaS extension from within the [Azure portal](https://portal.azure.com).
+   1. Uninstall SQL Server completely within the SQL Server VM.
+   1. Install SQL Server with a named instance within the SQL Server VM. 
+   1. Install the IaaS extension from within the Azure portal.  
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then click on **Extensions**. You should see the **SqlIaasExtension** extension listed.
