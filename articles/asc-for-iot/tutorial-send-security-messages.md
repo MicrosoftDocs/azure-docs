@@ -54,9 +54,8 @@ The **Send security messages** API is currently available in C and C#.
 #### C# API
 
 ```cs
-private static async Task SendSecurityMessageAsync()
+private static async Task SendSecurityMessageAsync(string messageContent)
 {
-    string messageContent = "Security Data";
     ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
     Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
     securityMessage.SetAsSecurityMessage();

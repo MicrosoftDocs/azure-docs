@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 For other platforms and agent flavours, see [Choose the right security agent](tutorial-deploy-agent.md).
 
-1. To deploy the security agent, local admin rights are required on the machine you wish to install on.
+1. To deploy the security agent, local admin rights are required on the machine you wish to install on (sudo).
 
 1. [Create a security module](quickstart-create-security-twin.md) for the device.
 
@@ -47,7 +47,7 @@ To install and deploy the security agent, do the following:
 
 1. Download the most recent version to your machine from [Github](https://aka.ms/iot-security-github-cs).
 
-1. Extract the contents of the package and navigate to the _/installation_ folder.
+1. Extract the contents of the package and navigate to the _/Install_ folder.
 
 1. Add running permissions to the **InstallSecurityAgent script** by running the following:
     
@@ -58,7 +58,7 @@ To install and deploy the security agent, do the following:
 1. Next, run: 
 
    ```
-   ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
+   ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i
    ```
    
    See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
@@ -71,9 +71,7 @@ This script does the following:
 
 3. Installs the agent as a **Daemon** - assumes the device uses **systemd** for service management.
 
-4. Configures **sudoers** to allow the agent to perform certain tasks as root.
-
-5. Configures the agent with the authentication parameters provided. 
+4. Configures the agent with the authentication parameters provided. 
 
 For additional help, run the script with the –help parameter: 
     

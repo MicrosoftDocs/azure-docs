@@ -20,7 +20,7 @@ ms.author: mlottner
 # Quickstart: Create an azureiotsecurity module twin
 
 > [!IMPORTANT]
-> ATP for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> ASC for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart explanations of how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
 
@@ -45,7 +45,7 @@ _azureiotsecurity_ module twins can be created in two ways:
 2. Manually editing each module twin individually with specific configurations for each device.
 
 >[!NOTE] 
-> Using the batch method will not overwrite existing module twins. Using the batch method ONLY creates new module twins for devices that do not already have a module twin. 
+> Using the batch method will not overwrite existing security module twins. Using the batch method ONLY creates new module twins for devices that do not already have a security module twin. 
 
 See [Modify a security module twin](how-to-modify-security-module-twin.md) to learn how to modify or change the configuration of an existing module twin. 
 
