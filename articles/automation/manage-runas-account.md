@@ -198,10 +198,10 @@ This PowerShell script includes support for the following configurations:
         return
     }
 
-    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
 
     # Import-Module Az.Automation
-    # Enable-AzureRmAlias 
+    # Enable-AzureRmAlias
 
 
     Connect-AzureRmAccount -Environment $EnvironmentName 
@@ -358,7 +358,7 @@ To renew the certificate, do the following:
 
     ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu. 
+1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
 ## Limiting Run As account permissions
 
@@ -395,4 +395,3 @@ You can quickly resolve these Run As account issues by deleting and re-creating 
 
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-
