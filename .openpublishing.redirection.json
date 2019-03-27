@@ -33384,11 +33384,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/howto-create-webhooks",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
       "redirect_document_id": false
