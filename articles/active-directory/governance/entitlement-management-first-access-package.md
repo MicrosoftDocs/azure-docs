@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
-In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a web project that internal users can self-service request. Requests require approval and user's access expires after 30 days. For this tutorial, the web project resources is just a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
+In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a web project that internal users can self-service request. Requests require approval and user's access expires after 30 days. For this tutorial, the web project resources are just a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
 
 ![Scenario overview](./media/entitlement-management-first-access-package/elm-scenario-overview.png)
 
@@ -68,7 +68,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | **Admin1** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | Administrator and approver<br/>This user might be the user you are already signed in as. |
     | **User1** | User | Internal user |
 
-    For this tutorial, the administrator and approver is the same person, but you typically designate one or more people to be approvers.
+    For this tutorial, the administrator and approver are the same person, but you typically designate one or more people to be approvers.
 
 1. Create an Azure AD security group named **Engineering Group** with a membership type of **Assigned**.
 
@@ -166,7 +166,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. In the Select approvers pane, select the **Admin1** you created earlier and then click **Select**.
 
-    For this tutorial, the administrator and approver is the same person, but you can designate another person as an approver.
+    For this tutorial, the administrator and approver are the same person, but you can designate another person as an approver.
 
 1. In the **Expiration** section, set **Access package expires** to **Number of days**.
 
@@ -210,7 +210,7 @@ In this step, you perform the steps as the **internal user** and request access 
 
 1. Set the **Request for specific period** toggle to **Yes**.
 
-1. Set the **Start date** date to today and **End date** date to tomorrow.
+1. Set the **Start date** to today and **End date** to tomorrow.
 
     ![My Access portal - Request access](./media/entitlement-management-first-access-package/my-access-request-access.png)
 
