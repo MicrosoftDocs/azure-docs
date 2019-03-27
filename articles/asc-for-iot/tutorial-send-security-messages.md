@@ -34,18 +34,62 @@ In this tutorial, you learn how to:
 
 ## ASC for IoT 
 
-ASC for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ASC for IoT schema](https://github.com/Azure/ASC-for-IoT-Schemas). 
+ASC for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ASC for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
+
+## Security message
+
+ASC for IoT defines a security message by the following criteria:
+- The message was sent from the Azure IoT C/C# SDK
+- The message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
+- The message was set as a security message prior to sending
+
+Security message encapsulates the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and an array of security events.
+The schema defines the valid and required properties of a security message including the types of events.
+
+[!NOTE]
+> Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
+> Messages sent that were not set as a seucrity message using the Azure IoT C/C# SDK will not be routed to ASC for IoT pipeline
+
+## Example for a valid message
+
+The example below shows a valid security message object, the example contains the message metadata and one `ProcessCreate` security event
+Once set as a security message and sent, this message will be processed by the ASC for IoT
+
+```json
+"AgentVersion": "0.0.1",
+"AgentId": "e89dc5f5-feac-4c3e-87e2-93c16f010c25",
+"MessageSchemaVersion": "1.0",
+"Events": [
+    {
+        "EventType": "Security",
+        "Category": "Triggered",
+        "Name": "ProcessCreate",
+        "IsEmpty": false,
+        "PayloadSchemaVersion": "1.0",
+        "Id": "21a2db0b-44fe-42e9-9cff-bbb2d8fdf874",
+        "TimestampLocal": "2019-01-27 15:48:52Z",
+        "TimestampUTC": "2019-01-27 13:48:52Z",
+        "Payload":
+            [
+                {
+                    "Executable": "/usr/bin/echo",
+                    "ProcessId": 11750,
+                    "ParentProcessId": 1593,
+                    "UserName": "nginx",
+                    "CommandLine": "./backup .htaccess"
+                }
+            ]
+    }
+]
+```
 
 ## Send security messages 
 
-Send security messages without using the ASC for IoT agent, by using the [Azure IoT device SDK](https://github.com/Azure/azure-iot-sdk-csharp).
+Send security messages without using the ASC for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp) or [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 To send the device data from your devices for processing by ASC for IoT, use one of the following APIs to mark messages for correct routing to ASC for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ASC for IoT within both IoT Hub or within Azure Security Center. 
 
 All data that is sent, even if marked with the correct header, must also comply with the [ASC for IoT message schema](https://github.com/Azure/ASC-for-IoT-Schemas). 
-
-> [!NOTE]
-> Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
 
 ### Send security message API
 
@@ -54,6 +98,7 @@ The **Send security messages** API is currently available in C and C#.
 #### C# API
 
 ```cs
+
 private static async Task SendSecurityMessageAsync(string messageContent)
 {
     ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
@@ -108,8 +153,6 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 }
 ```
 
-
-
 ## Next steps
 - Read the ASC for IoT service [Overview](overview.md)
 - Learn more about ASC for IoT [Architecture](architecture.md)
@@ -117,4 +160,7 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
-- Understand [alerts](concept-security-alerts.md)
+- Understand [alerts](concept-security-alerts.md) for IoT defines a security message by the following criteria:
+- The message was sent from the Azure IoT C/C# SDK
+- The message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
+- The message was set as a security message prior to sending
