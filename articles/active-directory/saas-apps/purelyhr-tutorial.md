@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with PurelyHR, perform the following steps:
 
 ### Configure PurelyHR Single Sign-On
 
-1. To configure single sign-on on **PurelyHR** side, login to their website as an administrator.
+1. To configure single sign-on on **PurelyHR** side, sign in to their website as an administrator.
 
 2. Open the **Dashboard** from the options in the toolbar and click **SSO Settings**.
 
@@ -200,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create PurelyHR test user
 
-To enable Azure AD users to log in to PurelyHR, they must be provisioned into PurelyHR. In PurelyHR, provisioning is an automatic task and no manual steps are required when automatic user provisioning is enabled.
+To enable Azure AD users to sign in to PurelyHR, they must be provisioned into PurelyHR. In PurelyHR, provisioning is an automatic task and no manual steps are required when automatic user provisioning is enabled.
 
 ### Test single sign-on 
 
