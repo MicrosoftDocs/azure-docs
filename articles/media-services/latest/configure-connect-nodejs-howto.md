@@ -106,7 +106,14 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 });
 ```
+## Run you app
 
+Open command prompt, browse to the sample's directory, and execute the following commands.
+
+```
+npm install 
+node index.js
+```
 ## Also see
 
 [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
