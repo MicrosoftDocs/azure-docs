@@ -298,7 +298,7 @@ function Get-ProtectionContainerToBeModified([ref] $ContainerMappingList)
 
             if($Mapping.Properties.State -ine "Paired")
             {
-                Write-InformationTracing ("Ignoring container mapping: {0} as the the state is not paired." -f ($Mapping.Id))
+                Write-InformationTracing ("Ignoring container mapping: {0} as the state is not paired." -f ($Mapping.Id))
                 continue;
             }
 

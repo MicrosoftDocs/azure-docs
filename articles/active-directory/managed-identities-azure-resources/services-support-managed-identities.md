@@ -2,13 +2,13 @@
 title: Azure Services that support managed identities for Azure resources
 description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: markvi
 ms.collection: M365-identity-device-management
 ---
 
