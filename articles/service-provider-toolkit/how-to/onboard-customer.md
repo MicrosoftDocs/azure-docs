@@ -159,7 +159,7 @@ To onboard your customer, you’ll need to create an [Azure Resource Manager](ht
 |Field  |Definition  |
 |---------|---------|
 |**mspName**     |Service provider name         |
-|**description**     |A brief description of your offer (for example, “Contoso VM management offer”)      |
+|**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer")      |
 |**managedByTenantId**     |Your tenant ID         |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
@@ -240,7 +240,7 @@ az deployment create –-name <deploymentName \
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
+When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
 
 ### Azure portal
 
