@@ -109,7 +109,7 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
     $Alerts
 
     #Filter for active alerts
-    $Active = $Alerts | Where { $_.State -eq "active" }
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
