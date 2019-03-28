@@ -1,3 +1,18 @@
+---
+title: How To Monitor Cluster Availability With Ambari and Azure Monitor Logs
+description: Learn how to use Ambari and Azure Monitor Logs to monitor cluster health and availability.
+keywords: monitoring, ambari, monitor, log analytics, alert, availability, health
+services: hdinsight
+ms.reviewer: jasonh
+author: tylerfox
+
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 03/28/2019
+ms.author: tyfox
+
+---
 # How To Monitor Cluster Availability With Ambari and Azure Monitor Logs
 
 HDInsight clusters include both Apache Ambari, which provides health information
