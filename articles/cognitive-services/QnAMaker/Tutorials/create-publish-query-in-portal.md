@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 03/28/2018
+ms.date: 03/28/2019
 ms.author: diberry
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
@@ -206,6 +206,7 @@ Create a bot as a client application for the knowledge base.
 1.  Enter the settings to create the bot:
 
     |Setting|Value|Purpose|
+    |--|--|--|
     |Bot name|`my-tutorial-kb-bot`|This is the Azure resource name for the bot.|
     |Subscription|See purpose.|Select the same subscription as you used to create the QnA Maker resources.|
     |Resource group|`my-tutorial-rg`|The resource group used for all the bot-related Azure resources.|
@@ -224,6 +225,8 @@ Create a bot as a client application for the knowledge base.
 1. Open the new bot resource from the notification. 
 1. From **Bot management**, select **Test in Web Chat** and enter the same query as you entered for testing with the Curl command: `How large can my KB be?`. The bot will response with the same answer: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
     ![Test the new knowledge base bot.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
+
+    For more information about Azure Bots, see [Use QnA Maker to answer questions](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## Clean up resources
 
