@@ -20,11 +20,11 @@ The following Jenkins plugins support various features for use with Azure.
 | [Azure AD plugin](https://plugins.jenkins.io/azure-ad)                       | Jenkins Plugin that supports authentication & authorization via Azure Active Directory. | 
 | [Azure Artifact Manager plugin](https://plugins.jenkins.io/azure-artifact-manager) | Azure Artifact Manager plugin is an Artifact Manager that allows you store your artifacts into Azure Blob Storage. Azure Artifact Manager plugin works transparently to Jenkins and your jobs, it is like the default Artifact Manager. | 
 | [Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) | Azure Container Agents Plugin can help you to run a container as an agent in Jenkins | 
-| [Azure Container Registry Task plugin](https://plugins.jenkins.io/azure-container-registry-tasks)       | Jenkins plugin to send a docker build request to [Azure Container Registry](/azure/container-registry/container-registry-tasks-overview). |
+| [Azure Container Registry Task plugin](https://plugins.jenkins.io/azure-container-registry-tasks)       | Jenkins plugin to send a docker-build request to [Azure Container Registry](/azure/container-registry/container-registry-tasks-overview). |
 | [Azure Container Service plugin](https://plugins.jenkins.io/azure-acs)       | Jenkins Plugin to deploy configurations to Azure Container Service (AKS). | 
 | [Azure Credential plugin](https://plugins.jenkins.io/azure-credentials)      | Jenkins plugin to manage Azure credentials. | 
 | [Azure Function plugin](https://plugins.jenkins.io/azure-function)           | Jenkins plugin to deploy an Azure Function. | 
-| [Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge)           | Azure IoT Edge Plugin makes it easy to setup a CI/CD pipeline for developing an IoT Edge solution on Jenkins. | 
+| [Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge)           | Azure IoT Edge Plugin makes it easy to set up a CI/CD pipeline for developing an IoT Edge solution on Jenkins. | 
 | [Azure Service Fabric plugin](https://plugins.jenkins.io/service-fabric)     | Jenkins Plugin for Linux Azure Service Fabric projects. |
 | [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)     | plugin for uploading build artifacts to, or downloading build dependencies from, Microsoft Azure Blob storage. | 
 | [Azure VM agents plugin](https://plugins.jenkins.io/azure-vm-agents)         | Jenkins Plugin to create Jenkins agents in Azure virtual machines (via Azure Resource Manager template). | 
