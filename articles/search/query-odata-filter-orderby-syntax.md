@@ -1,7 +1,7 @@
 ---
 title: OData expression syntax for filters and order-by clauses - Azure Search
 description: Filter and order-by expression OData syntax for Azure Search queries.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -201,7 +201,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Find all hotels with name equal to either Roach motel' or 'Budget hotel'):  
+Find all hotels with name equal to either 'Roach motel' or 'Budget hotel'). Phrases contain spaces, which is a default delimiter. To specify a delimiter override, enclose the new delimiter in single quotes as part of the filter expression:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -217,6 +217,12 @@ Find all hotels with the tag 'wifi' or 'pool':
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Find a match on multiple tags, 'heated towel racks' or 'hairdryer included'. Remember to specify an alternative delimiter when the default space delimiter is unworkable. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Find all hotels without the tag 'motel' nor 'cabin':  
