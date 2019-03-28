@@ -169,7 +169,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
    
-    Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing AlwaysOn availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
+    Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
 
 ## Resources
 
