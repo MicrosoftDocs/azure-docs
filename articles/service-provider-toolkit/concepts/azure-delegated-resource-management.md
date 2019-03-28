@@ -24,7 +24,7 @@ Azure Delegated Resource Management lets authorized users in one Azure Active Di
 
 With Azure Delegated Resource Management, authorized users can work directly in the context of a customer subscription without needing an account in into that customer's tenant. They can also [view and manage all delegated customer subscriptions in the new **My customers** page](../how-to/view-manage-customers.md) in the Azure portal.
 
-The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log in the customer's tenant, so both the customer and service provider can easily identify the user associated with any changes.
+The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log, which is stored in the customer's tenant. This lets both the customer and service provider can easily identify the user associated with any changes.
 
 When you onboard a customer to Azure Delegated Resource Management, they’ll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 
