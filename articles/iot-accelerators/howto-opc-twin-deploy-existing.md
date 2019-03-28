@@ -45,7 +45,7 @@ cd azure-iiot-components
 
 2. Follow the prompts to assign a name to the resource group of the deployment and a name to the website.   The script deploys the micro services and their Azure platform dependencies into the resource group in your Azure subscription.  The script also registers an Application in your Azure Active Directory (AAD) tenant to support OAUTH-based authentication.  Deployment will take several minutes.  An example of what you'd see once the solution is successfully deployed:
 
-   ![Industrial IoT OPC Twin deploy to existing project](./media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
+   ![Industrial IoT OPC Twin deploy to existing project](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
    The output includes the  URL of the public endpoint.  If you run into issues, follow the steps [below](#Troubleshooting-deployment-failures).
 
@@ -68,7 +68,7 @@ The deployment script tries to register two AAD applications in Azure Active Dir
 1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
 2. Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
 
-**WARNING**:  NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](../howto-deployment-dependencies.md) to kick the tires.
+**WARNING**:  NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-deployment-dependencies.md) to kick the tires.
 
 ## Deploy an all-in-one Industrial IoT Services Demo
 
