@@ -84,7 +84,7 @@ You can create a resource group and deploy resources to the group by using a Res
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./resource-group-template-deploy.md/#redeploy-when-deployment-fails).
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
 
 ## Move to another resource group or subscription
 
