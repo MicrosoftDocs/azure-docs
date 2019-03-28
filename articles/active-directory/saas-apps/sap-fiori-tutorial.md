@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 
 2. Make sure that **http** and **https** services are active and appropriate ports are assigned in **SMICM** T-Code.
 
-3. Log on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
+3. Sign in to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
 
 	a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
 	```
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 
 	b. Click on **Metadata**.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto populate the **Identifier** and **Reply URL** values in Azure portal.
 
 8. In the [Azure portal](https://portal.azure.com/), on the **SAP Fiori** application integration page, select **Single sign-on**.
 
@@ -215,7 +215,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 
 ### Configure SAP Fiori Single Sign-On
 
-1. Logon to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
+1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
 
 2. For configuring End points for trusted Identity provider (Azure AD) go to **Trusted Providers** tab.
 
@@ -265,7 +265,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 
 	![Configure Single Sign-On](./media/sapfiori-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. Note that **user ID Source** and **user id mapping mode** values determine the link between SAP user and Azure AD claim.  
+14. Note that **user ID Source** and **user ID mapping mode** values determine the link between SAP user and Azure AD claim.  
 
 	#### Scenario: SAP User to Azure AD user mapping.
 
@@ -277,7 +277,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 
 	![Configure Single Sign-On](./media/sapfiori-tutorial/claimsaad1.png)
 
-	#### Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
+	#### Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.
 
 	a.  NameID details screenshot from SAP.
 
