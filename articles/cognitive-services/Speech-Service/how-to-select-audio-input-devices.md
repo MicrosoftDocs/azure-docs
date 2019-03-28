@@ -219,7 +219,7 @@ A sample device ID is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-
 
 The device IDs are selected using standard ALSA device IDs.
 The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
-Alternatively, they can be obtained using the [ALSA C library](http://www.alsa-project.org/alsa-doc/alsa-lib/).
+Alternatively, they can be obtained using the [ALSA C library](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 Sample IDs are `hw:1,0` and `hw:CARD=CC,DEV=0`.
 
 ## Audio device IDs on macOS

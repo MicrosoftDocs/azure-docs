@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 030/25/2019
 ms.author: cshoe
 ---
 
@@ -40,7 +40,7 @@ To set up your environment, create a Function and test app. The following steps 
 2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *HttpTrigger*.
 3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *TimerTrigger*.
 4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio by clicking **File > New > Project > Visual C# > .NET Core > xUnit Test Project** and  name it *Functions.Test*. 
-5. Use Nuget to add a references from the test app to [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) and  [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Use Nuget to add a references from the test app [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Test* app.
 
 ### Create test classes
@@ -51,11 +51,28 @@ Each function takes an instance of [ILogger](https://docs.microsoft.com/dotnet/a
 
 The `ListLogger` class is meant to implement the `ILogger` interface and hold in internal list of messages for evaluation during a test.
 
-**Right-click** on the *Functions.Test* application and select **Add > Class**, name it **ListLogger.cs** and enter the following code:
+**Right-click** on the *Functions.Test* application and select **Add > Class**, name it **NullScope.cs** and enter the following code:
+
+```csharp
+using System;
+
+namespace Functions.Tests
+{
+    public class NullScope : IDisposable
+    {
+        public static NullScope Instance { get; } = new NullScope();
+
+        private NullScope() { }
+
+        public void Dispose() { }
+    }
+}
+```
+
+Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **ListLogger.cs** and enter the following code:
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -90,7 +107,7 @@ namespace Functions.Tests
 
 The `ListLogger` class implements the following members as contracted by the `ILogger` interface:
 
-- **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) class to allow the test to function.
+- **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the `NullScope` class to allow the test to function.
 
 - **IsEnabled**: A default value of `false` is provided.
 
@@ -284,10 +301,10 @@ Next, add a new file, name it **defaultTimer.js**, and add the following code:
 
 ```javascript
 module.exports = {
-    isPastDue: false
+    IsPastDue: false
 };
 ```
-This module implements the `isPastDue` property to stand is as a fake timer instance.
+This module implements the `IsPastDue` property to stand is as a fake timer instance.
 
 Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](https://code.visualstudio.com/tutorials/functions-extension/getting-started) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 

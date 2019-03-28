@@ -4,7 +4,7 @@ description: Learn how to collect Azure ATP data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
 
 ---
@@ -43,6 +43,7 @@ If Azure ATP is deployed and ingesting your data, the suspicious alerts can easi
 
 2. Click **Connect**.
 
+6. To use the relevant schema in Log Analytics for the Azure ATP alerts, search for **SecurityAlert**.
 
 ## Next steps
 In this document, you learned how to connect Azure Advanced Threat Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

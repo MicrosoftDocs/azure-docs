@@ -44,7 +44,7 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 |After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ### Learn more about Install Azure AD Connect
-You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-operations.md#staging-mode) server.
+You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-staging-server.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-staging-server.md) server.
 
 |Topic |Link|  
 | --- | --- |

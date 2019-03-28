@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/04/2017
+ms.date: 02/28/2019
 ms.author: todorb
 
 ---
@@ -51,9 +51,7 @@ Once complete, you receive a Government Azure Tenant. The validation includes th
 Once the preceding process is complete, credentials are provided via email to the authorized users. Use these credentials and navigate to the [CSP Partner Center for Gov application](https://partnercenter.microsoft.com/pcv/register/joinnow/enrollmentwelcome/ResellerNationalCloud/migrate?cloudInstance=UnitedStatesGovernment) page and “Sign In” to apply to join for the CSP Government seller program.  It takes 5-6 days to process the application and once approved you receive an email to log on to [Partner Center](https://partnercenter.microsoft.com) to accept the Terms and Conditions.
 
 > [!NOTE]
-Terms and Conditions are not negotiated for the Cloud Solution Provider Program. If you wish to discuss customer terms that you have in place for your Commercial agreement, work with your Microsoft Account Representative to achieve so.
->
->
+> Terms and Conditions are not negotiated for the Cloud Solution Provider Program. If you wish to discuss customer terms that you have in place for your Commercial agreement, work with your Microsoft Account Representative to achieve so.
 
 The application process includes:
  * Credit check

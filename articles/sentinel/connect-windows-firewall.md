@@ -4,7 +4,7 @@ description: Learn how to collect Windows firewall data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/28/2019
 ms.author: rkarlin
 
 ---
@@ -28,7 +28,7 @@ The Windows firewall connector allows you to easily connect your Windows firewal
 
 
 > [!NOTE]
-
+> 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Enable the connector 
@@ -36,6 +36,7 @@ The Windows firewall connector allows you to easily connect your Windows firewal
 1. In the Azure Sentinel portal, select **Data collection** and then click on the **Windows firewall** tile. 
 1. Select which data types you want to stream.
 1. Click **Install**.
+6. To use the relevant schema in Log Analytics for the Windows firewall, search for **SecurityEvent**.
 
 ## Validate connectivity
 

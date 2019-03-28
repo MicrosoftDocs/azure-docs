@@ -39,7 +39,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 ## Prerequisites
 
 
-* To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+* To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -87,7 +87,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
     
-* Attach an AKS cluster
++ Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

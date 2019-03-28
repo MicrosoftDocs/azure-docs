@@ -11,6 +11,8 @@
     href: quickstart-create-server-database-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
+  - name: Create DB - Azure CLI up command
+    href: quickstart-create-server-up-azure-cli.md
   - name: Connect & query
     items: 
     - name: Python
@@ -182,6 +184,8 @@
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
+    - name: Azure CLI
+      href: howto-restart-server-cli.md
   - name: Replication
     items:
     - name: Manage read replicas Azure portal

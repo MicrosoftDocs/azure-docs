@@ -4,7 +4,7 @@ description: Learn how to collect Windows security event data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
@@ -31,8 +31,8 @@ You can stream all security events from the Windows Servers connected to your Az
 - **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.
 - **None** - No security or AppLocker events.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Set up the Windows security events connector
@@ -42,7 +42,7 @@ To fully integrate your Windows security events with Azure Sentinel:
 1. In the Azure Sentinel portal, select **Data collection** and then click on the **Windows security events** tile. 
 1. Select which data types you want to stream.
 1. Click **Update**.
-
+6. To use the relevant schema in Log Analytics for the Windows security events, search for **SecurityEvent**.
 
 ## Validate connectivity
 

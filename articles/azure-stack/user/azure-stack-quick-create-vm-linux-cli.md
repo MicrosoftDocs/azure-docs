@@ -42,8 +42,8 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure CLI.
 
 A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
 
->[!NOTE]
- Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
+> [!NOTE]
+>  Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
 
 The following example creates a resource group named myResourceGroup in the local location.
 
@@ -78,7 +78,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## Use SSH to connect to the virtual machine
 
-From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](http://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
+From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](https://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
 
 ```bash
 ssh <publicIpAddress>

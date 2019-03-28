@@ -118,7 +118,7 @@ The following matrix maps each possible _reason_ to the responsible
 ## Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history is available for all Azure
-resource that support [complete mode
+resources that support [complete mode
 deletion](../../../azure-resource-manager/complete-mode-deletion.md). Change history provides
 details about when a change was detected and a _visual diff_ for each change. A change detection is
 triggered when the Resource Manager properties are added, removed, or altered.

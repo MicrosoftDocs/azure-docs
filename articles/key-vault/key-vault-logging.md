@@ -51,7 +51,7 @@ The first step in setting up key logging is to point Azure PowerShell to the key
 
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -59,13 +59,13 @@ In the pop-up browser window, enter your Azure account user name and password. A
 
 You might have to specify the subscription that you used to create your key vault. Enter the following command to see the subscriptions for your account:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Then, to specify the subscription that's associated with the key vault you'll be logging, enter:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -77,7 +77,7 @@ Although you can use an existing storage account for your logs, we'll create a s
 
 For additional ease of management, we'll also use the same resource group as the one that contains the key vault. From the [getting-started tutorial](key-vault-get-started.md), this resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Replace these values with your own, as applicable:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -90,7 +90,7 @@ For additional ease of management, we'll also use the same resource group as the
 
 In the [getting-started tutorial](key-vault-get-started.md), the key vault name was **ContosoKeyVault**. We'll continue to use that name and store the details in a variable named **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -98,7 +98,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Key Vault logging):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -118,7 +118,7 @@ This output confirms that logging is now enabled for your key vault, and it will
 
 Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -137,13 +137,13 @@ Key Vault logs are stored in the **insights-logs-auditevent** container in the s
 
 First, create a variable for the container name. You'll use this variable throughout the rest of the walkthrough.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 To list all the blobs in this container, enter:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -170,19 +170,19 @@ Because you can use the same storage account to collect logs for multiple resour
 
 Create a folder to download the blobs. For example:
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Then get a list of all blobs:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Pipe this list through **Get-AzStorageBlobContent** to download the blobs to the destination folder:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -192,19 +192,19 @@ To selectively download blobs, use wildcards. For example:
 
 * If you have multiple key vaults and want to download logs for just one key vault, named CONTOSOKEYVAULT3:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * If you want to download all the logs for the month of January 2019, use `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -217,7 +217,7 @@ You're now ready to start looking at what's in the logs. But before we move on t
 
 Individual blobs are stored as text, formatted as a JSON blob. Let's look at an example log entry. Run this command:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
@@ -302,11 +302,11 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Use Log Analytics
+## <a id="loganalytics"></a>Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Log Analytics to review Key Vault **AuditEvent** logs. In Log Analytics, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
-For more information, including how to set this up, see [Azure Key Vault solution in Log Analytics](../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Log Analytics preview, where you first routed your logs to an Azure storage account and configured Log Analytics to read from there.
+For more information, including how to set this up, see [Azure Key Vault solution in Azure Monitor logs](../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Azure Monitor logs preview, where you first routed your logs to an Azure storage account and configured Azure Monitor logs to read from there.
 
 ## <a id="next"></a>Next steps
 
