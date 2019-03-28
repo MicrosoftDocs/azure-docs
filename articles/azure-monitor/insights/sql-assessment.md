@@ -157,7 +157,7 @@ Before you can use an assessment solution in Azure Monitor, you must have the so
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
 3. In the **Insights** section of the menu, select **More**.  
 4. On the **Overview** page, click the **SQL Health Check** tile.

@@ -108,7 +108,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | DurationMs |Time it took to service the REST API request, in milliseconds. This time does not include network latency, so the time that you measure on the client side might not match this time. |
 | httpStatusCode_d |HTTP status code returned by the request (for example, *200*) |
 | id_s |Unique ID of the request |
-| identity_claim_appid_g | GUID for the application id |
+| identity_claim_appid_g | GUID for the application ID |
 | OperationName |Name of the operation, as documented in [Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
 | OperationVersion |REST API version requested by the client (for example *2015-06-01*) |
 | requestUri_s |Uri of the request |
