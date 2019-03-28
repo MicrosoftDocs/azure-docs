@@ -72,7 +72,7 @@ __Requirements__:  The script must be applied on the __Head nodes__. You do not 
 
 This script can be used from the Azure PowerShell, Azure CLI, or the Azure portal.
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab2/azure-powershell)
 Using [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Replace `CLUSTERNAME`, `ACCOUNTNAME`, and `ACCOUNTKEY` with the appropriate values.
 
 ```powershell
@@ -92,7 +92,7 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab2/azure-cli)
 
 Using [az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Replace `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, and `ACCOUNTKEY` with the appropriate values.
 
@@ -106,7 +106,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-# [Portal](#tab/azure-portal)
+# [Portal](#tab2/azure-portal)
 See [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ---
@@ -121,7 +121,7 @@ The storage information isn't displayed because the script only modifies the cor
 
 To view storage account information added to the cluster using this script, use the Ambari REST API. Use the following commands to retrieve this information for your cluster:
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab3/azure-powershell)
 
 Replace `CLUSTERNAME` with the properly cased cluster name. First identify the service config version in use by entering the command below:
 
@@ -169,7 +169,7 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
-# [cmd](#tab/azure-cmd)
+# [cmd](#tab3/azure-cmd)
 
 Replace `CLUSTERNAME` with the properly cased cluster name in both scripts. First identify the service config version in use by entering the command below:
 
