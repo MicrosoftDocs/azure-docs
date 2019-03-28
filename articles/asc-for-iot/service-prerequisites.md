@@ -56,7 +56,7 @@ Check your IoT Hub location to verify service availability before you begin.
 
 ## Supported platforms for agents 
 
-ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](select-deploy-agent.md) to check your existing or planned device library.  
+ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](how-to-deploy-agent.md) to check your existing or planned device library.  
 
 ## Next steps
 - [Overview](overview.md)

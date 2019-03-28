@@ -7,17 +7,14 @@ manager: vijayts
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
 ---
 # Restore Azure VMs
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
-To restore a VM make sure you have the required [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission.
 
-> [!NOTE]
-> If you do not have [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission you can perform [restore disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) and create VM using [Deploy Template](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) feature.
 
 ### Restore options
 
@@ -33,6 +30,13 @@ Azure Backup provides a number of ways to restore a VM.
 > You can also recover specific files and folders on an Azure VM. [Learn more](backup-azure-restore-files-from-vm.md).
 >
 > If you're running the [latest version](backup-instant-restore-capability.md) of Azure Backup for Azure VMs (known as Instant Restore), snapshots are kept for up to seven days, and you can restore a VM from snapshots before the backup data is sent to the vault. If you want to restore a VM from a backup from the last seven days, it's quicker to restore from the snapshot and not from the vault.
+
+## Before you start
+
+To restore a VM (create a new VM) make sure you have the correct role-based access control (RBAC) [permissions](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) for the Restore VM operation.
+
+If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
+
 
 
 ## Select a restore point
@@ -55,7 +59,7 @@ Azure Backup provides a number of ways to restore a VM.
 
 2. Specify settings for your selected restore option.
 
-## Create new-Create a VM
+## Create a VM
 
 As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point.
 
@@ -70,7 +74,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 6. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
 
 
-## Create new-Restore disks
+## Restore disks
 
 As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following:
 
@@ -126,11 +130,11 @@ There are a number of common scenarios in which you might need to restore VMs.
 --- | ---
 **Restore VMs using Hybrid Use Benefit** | If a Windows VM uses [Hybrid Use Benefit (HUB) licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore the disks, and create a new VM using the provided template (with **License Type** set to **Windows_Server**), or PowerShell.  This setting can also be applied after creating the VM.
 **Restore VMs during an Azure datacenter disaster** | If the vault uses GRS and the primary datacenter for the VM goes down, Azure Backup supports restoring backed-up VMs to the paired datacenter. You select a storage account in the paired datacenter, and restore as normal. Azure Backup uses the compute service in the paired location to create the restored VM. [Learn more](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) about datacenter resiliency.
-**Restore single domain controller VM in single domain** | Restore the VM like any other VM. Note that:<br/><br/> rom an Active Directory perspective, the Azure VM is like any other VM.<br/><br/> Directory Services Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable. [Learn more](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) about backup and restore considerations for virtualized domain controllers.
-**Restore multiple domain controller VMs in single domain** | f  other domain controllers in the same domain can be reached over the network, the domain controller can be restored like any VM. If it's the last remaining domain controller in the domain, or a recovery in an isolated network is performed, use a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Restore single domain controller VM in single domain** | Restore the VM like any other VM. Note that:<br/><br/> From an Active Directory perspective, the Azure VM is like any other VM.<br/><br/> Directory Services Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable. [Learn more](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) about backup and restore considerations for virtualized domain controllers.
+**Restore multiple domain controller VMs in single domain** | If other domain controllers in the same domain can be reached over the network, the domain controller can be restored like any VM. If it's the last remaining domain controller in the domain, or a recovery in an isolated network is performed, use a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restore multiple domains in one forest** | We recommend a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Bare-metal restore** | The major difference between Azure VMs and on-premises hypervisors is that there's no VM console available in Azure. A console is required for certain scenarios, such as recovering by using a bare-metal recovery (BMR)-type backup. However, VM restore from the vault is a full replacement for BMR.
-**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#create-new-restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) or [external](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) load balancer, [multiple NICS](../virtual-machines/windows/multiple-nics.md), or [multiple reserved IP addresses](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration.
+**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) or [external](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) load balancer, [multiple NICS](../virtual-machines/windows/multiple-nics.md), or [multiple reserved IP addresses](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration.
 **Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports Backup and Restore of NSG information at vnet, subnet, and NIC level.
 
 ## Track the restore operation
