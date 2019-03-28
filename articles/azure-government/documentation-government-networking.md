@@ -144,6 +144,11 @@ Azure Firewall is available in Azure Government in the following regions:
 
 The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
 
+### Limitations
+
+- Traffic Manager service tags do not work, by design.
+- App Service Environment FQDN tags currently do not work.
+
 For more information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 ## Next Steps
