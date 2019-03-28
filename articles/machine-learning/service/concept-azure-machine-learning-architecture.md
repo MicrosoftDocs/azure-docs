@@ -42,11 +42,13 @@ The workspace keeps a list of compute targets that you can use to train your mod
 
 You register models with the workspace. You use a registered model and scoring scripts to create an image. You can then deploy the image to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module.
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning the following roles to users:
+You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
 
 * Owner
 * Contributor
 * Reader
+
+For more information on these roles, see the [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
