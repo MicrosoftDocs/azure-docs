@@ -44,6 +44,8 @@
     href: supported-languages.md
   - name: Supported Map styles
     href: supported-map-styles.md
+  - name: Web SDK supported browsers
+    href: supported-browsers.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -84,6 +86,8 @@
         href: map-add-shape.md
       - name: Add a heat map layer
         href: map-add-heat-map-layer.md   
+      - name: Cluster point data
+        href: clustering-point-data-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers
@@ -98,7 +102,7 @@
         href: map-accessibility.md
     - name: Services module
       items:
-      - name: Using the services module
+      - name: Use the services module
         href: how-to-use-services-module.md
       - name: Show search results
         href: map-search-location.md
@@ -106,8 +110,6 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
-    - name: Supported browsers
-      href: supported-browsers.md
   - name: Develop with the Android SDK
     items:
     - name: How to use Android map control
