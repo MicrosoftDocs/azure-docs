@@ -81,8 +81,8 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Overlays
     * Cropping
     * Thumbnail Sprites
-    * The InsertSilence flag 
-    * The InsertVideo flag 
+    * Inserting a silent audio track when input has no audio
+    * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
 
 > [!NOTE]
