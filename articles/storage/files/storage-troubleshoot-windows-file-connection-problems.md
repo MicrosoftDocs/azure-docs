@@ -199,7 +199,7 @@ You can use either of the following steps to work around the problem:
 
 - Run the following PowerShell command:
 
-  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
+  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
   From a batch file, you can run the command this way:
 

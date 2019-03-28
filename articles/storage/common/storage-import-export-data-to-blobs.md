@@ -49,7 +49,7 @@ Perform the following steps to prepare the drives.
     `cd C:\WaImportExportV1`
 5.  To get the BitLocker key of the drive, run the following command:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
 6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** 
 
     ```
@@ -65,7 +65,7 @@ Perform the following steps to prepare the drives.
     |/id:     |The session ID. Use a unique session number for each instance of the command.      |
     |/sk:     |The Azure Storage account key.         |
     |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
-    |/bk:     |The BitLocker key for the drive. Its numerical password from output of ` manage-bde -protectors -get D: `      |
+    |/bk:     |The BitLocker key for the drive. Its numerical password from output of `manage-bde -protectors -get D:`      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
     |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |

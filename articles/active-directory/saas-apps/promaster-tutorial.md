@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| |
 	| - |-|
-	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
+	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
 	| `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
 	| |
 

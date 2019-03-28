@@ -360,7 +360,7 @@ You can choose to create omsagent DaemonSets with or without secrets.
         KEY:    88 bytes
         ```
 
-    5. Create your omsagent daemon-set by running ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Create your omsagent daemon-set by running ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Verify that the Log Analytics agent DaemonSet is running, similar to the following:
 
@@ -404,7 +404,7 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Create your omsagent daemon-set by running ``` kubectl create -f omsagentsecret.yaml ```
+    3. Create your omsagent daemon-set by running ```kubectl create -f omsagentsecret.yaml```
     4. To check, run the following:
 
         ```
