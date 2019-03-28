@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/29/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/22/2019
+ms.lastreviewed: 03/29/2019
 ---
 
 # Azure Stack 1903 update
@@ -30,7 +30,7 @@ This article describes the contents of the 1903 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1903 update build number is **1.1903.x.xx**.
+The Azure Stack 1903 update build number is **1.1903.0.34**.
 
 ## Hotfixes
 
@@ -142,6 +142,12 @@ The following are post-installation known issues for this build version.
 
 <!-- 1663805 - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+
+<!-- Daniel 3/28 -->
+- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load.
+
+<!-- Daniel 3/28 -->
+- In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message. To work around this issue, upload the blob using the **SAS** option.
 
 <!-- ### Health and monitoring -->
 
