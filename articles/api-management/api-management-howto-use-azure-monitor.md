@@ -73,21 +73,28 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 
 To configure alerts:
 
-1. Select **Alerts (classic)** from the menu bar near the bottom of the page.
+1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Select **Add metric alert**.
-3. Enter a **Name** for this alert.
-4. Select **Unauthorized Gateway Requests** as the metric to monitor.
-5. Select **Email owners, contributors, and readers**.
-6. Press **OK**.
-7. Try to call the Conference API without an API key. As the owner of this API Management service, you receive an email alert. 
+2. Click on a **New alert rule** for this alert.
+3. Click on **Add condition**.
+4. Select **Metrics** in the Signal type drop down.
+5. Select **Unauthorized Gateway Request** as the signal to monitor.
 
-    > [!TIP]
-    > The alert rule can also call a Web Hook or an Azure Logic App when it is triggered.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Provide a name, description of the alert rule and choose the severity level. 
+9. Press **Create alert rule**.
+10. Now, try to call the Conference API without an API key. The alert will be triggered an email will be sent to the admins. 
 
 ## Activity Logs
 
