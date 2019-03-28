@@ -1,514 +1,515 @@
 {
-    "redirections": [
-      {
-        "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
-        "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/machine-learning/service/quickstart-get-started.md",
-        "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/machine-learning/service/quickstart-create-workspace-with-python.md",
-        "redirect_url": "/azure/machine-learning/service/quickstart-run-local-notebook",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
-        "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/virtual-machines/linux/high-performance-computing.md",
-        "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
-        "redirect_url": "/azure/machine-learning/studio/consume-web-services",
-        "redirect_document_id": false
-      },
-      {
-          "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
-          "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
-          "redirect_document_id": true
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-1-create-ml-workspace.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-2-upload-data.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-3-create-new-experiment.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-4-train-and-evaluate-models.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part2-credit-risk-train",
-          "redirect_document_id": true
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-5-publish-web-service.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
-          "redirect_document_id": true
-        },
-        {
-          "source_path": "articles/machine-learning/studio/walkthrough-6-access-web-service.md",
-          "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
-          "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/service/how-to-migrate.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-custom-container.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-overview.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-service-deploy.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-tools.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/reference-logging-api.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/reference-python-package-overview.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/roaming-and-collaboration.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-aerial-image-classification.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-big-data.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-churn-prediction.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-document-collection-analysis.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-image-classification-using-cntk.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-predictive-maintenance.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-qna-matching.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-sentiment-analysis-deep-learning.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-classifying-us-incomes.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/scenario-time-series-forecasting.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/tutorial-bikeshare-dataprep.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/tutorial-iris-azure-cli.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/using-git-ml-project.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-mmlspark.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-model-data-collection.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-run-history-model-metrics.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-tdsp-in-azure-ml.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-data-collection-api-reference.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-api-reference.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-cli-reference.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-configuration.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/model-management-consumption.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-configure-your-IDE.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-create-dsvm-hdi.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-deploy-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-find-best-accuracy-cli.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-read-write-files.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-scale-clusters.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-setup-ssl-on-mlc.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-gpu.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-use-jupyter-notebooks.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/export-delete-experimentation-model-management-data-dsr.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/frequently-asked-questions.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-user-guide.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-source-wizard.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/deploy-to-iot-edge-device.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/deployment-setup-configuration.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration-reference.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-template.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-derive-column-by-example.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-expand-json.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-getting-started.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-load-azure-cosmos-db.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-execution-api.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-extensibility-overview.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-split-column-by-example.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-supported-runtime-data-environments.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix5-supported-destinations.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix8-sample-source-connections-python.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-combine-columns-by-example.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/service/reference-fpga-package-overview.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/cli-for-azure-machine-learning.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix2-supported-data-sources.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix3-supported-transforms.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors.md",
-            "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-            "redirect_document_id": false
-        },
+  "redirections": [
+    {
+      "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
+      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/quickstart-get-started.md",
+      "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/quickstart-create-workspace-with-python.md",
+      "redirect_url": "/azure/machine-learning/service/quickstart-run-local-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/high-performance-computing.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
+      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
+      "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-1-create-ml-workspace.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-2-upload-data.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-3-create-new-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-4-train-and-evaluate-models.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part2-credit-risk-train",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-5-publish-web-service.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/studio/walkthrough-6-access-web-service.md",
+      "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-migrate.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-custom-container.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-overview.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-service-deploy.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-tools.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/reference-logging-api.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/reference-python-package-overview.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/roaming-and-collaboration.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-aerial-image-classification.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-big-data.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-churn-prediction.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-document-collection-analysis.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-image-classification-using-cntk.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-qna-matching.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-sentiment-analysis-deep-learning.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-tdsp-classifying-us-incomes.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/scenario-time-series-forecasting.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/tutorial-bikeshare-dataprep.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/tutorial-iris-azure-cli.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/using-git-ml-project.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-mmlspark.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-model-data-collection.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-run-history-model-metrics.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-tdsp-in-azure-ml.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-data-collection-api-reference.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-api-reference.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-cli-reference.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-configuration.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/model-management-consumption.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-configure-your-IDE.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-create-dsvm-hdi.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-deploy-troubleshooting-guide.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-find-best-accuracy-cli.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-read-write-files.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-scale-clusters.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-setup-ssl-on-mlc.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-gpu.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-jupyter-notebooks.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/export-delete-experimentation-model-management-data-dsr.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/frequently-asked-questions.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-user-guide.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-source-wizard.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/deploy-to-iot-edge-device.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/deployment-setup-configuration.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration-reference.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-template.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-derive-column-by-example.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-expand-json.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-getting-started.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-load-azure-cosmos-db.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-execution-api.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-extensibility-overview.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-split-column-by-example.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-supported-runtime-data-environments.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix5-supported-destinations.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix8-sample-source-connections-python.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-combine-columns-by-example.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/reference-fpga-package-overview.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/cli-for-azure-machine-learning.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix2-supported-data-sources.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix3-supported-transforms.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors.md",
+      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
       "redirect_url": "/azure/cognitive-services/Labs/Conversation-Learner/overview",
@@ -894,32 +895,32 @@
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/virtual-machines/windows/hpcpack-cluster-options.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/virtual-machines/windows/hpcpack-2016-cluster.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
       "redirect_document_id": false
     },
-		{
+    {
       "source_path": "articles/virtual-machines/windows/hpcpack-cluster-active-directory.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-active-directory",
       "redirect_document_id": false
     },
-		{
+    {
       "source_path": "articles/virtual-machines/windows/hpcpack-cluster-headnode.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure",
       "redirect_document_id": false
     },
-		{
+    {
       "source_path": "articles/virtual-machines/windows/hpcpack-cluster-submit-jobs.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure",
       "redirect_document_id": false
     },
-		{
+    {
       "source_path": "articles/virtual-machines/windows/excel-cluster-hpcpack.md",
       "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster",
       "redirect_document_id": false
@@ -4542,6 +4543,11 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-schedules.md",
+      "redirect_url": "/azure/automation/shared-resources/schedules",
       "redirect_document_id": false
     },
     {
@@ -9192,7 +9198,7 @@
       "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-intro",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/azure-stack/user/azure-stack-kv-manage-portal.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-key-vault-manage-portal",
       "redirect_document_id": false
@@ -12218,9 +12224,9 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-collections.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-collections.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-gallery-competitions.md",
@@ -12228,29 +12234,29 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-competitions.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-competitions.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
-        "redirect_url": "/azure/machine-learning/studio/competition-faq",
-        "redirect_document_id": false
-      },
-      {
-          "source_path": "articles/machine-learning/studio/competition-faq.md",
-          "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-          "redirect_document_id": false
-      },
-      {
+      "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
+      "redirect_url": "/azure/machine-learning/studio/competition-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/competition-faq.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-custom-modules.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-custom-modules",
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-custom-modules.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-custom-modules.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-gallery-experiments.md",
@@ -12258,11 +12264,11 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-experiments.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-experiments.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
       "redirect_document_id": false
@@ -12273,29 +12279,29 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-industries.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-industries.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
-{
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-jupyter-notebooks",
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-jupyter-notebooks.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-jupyter-notebooks.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-solutions.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-solutions",
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-solutions.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-solutions.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-gallery-tutorials.md",
@@ -12303,9 +12309,9 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/machine-learning/studio/gallery-tutorials.md",
-        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
-        "redirect_document_id": false
+      "source_path": "articles/machine-learning/studio/gallery-tutorials.md",
+      "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-how-to-deploy-to-multiple-regions.md",
@@ -13146,7 +13152,7 @@
       "source_path": "articles/service-bus-messaging/service-bus-pricing-billing.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/service-bus-messaging/service-bus-sas-overview.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -13826,7 +13832,8 @@
       "source_path": "articles/sql-database/sql-database-logical-servers.md",
       "redirect_url": "/azure/sql-database/sql-database-servers",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
       "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
       "redirect_document_id": false
@@ -17066,7 +17073,7 @@
       "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/active-directory/hybrid/how-to-connect-sync-operations.md",
       "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
       "redirect_document_id": false
@@ -20450,7 +20457,7 @@
       "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/virtual-machines/windows/migrate-single-classic-to-resource-manager.md",
       "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
       "redirect_document_id": false
@@ -21826,6 +21833,16 @@
     {
       "source_path": "articles/virtual-machines/linux/deis-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/tutorial-elastic-query-with-sql-database-and-sql-data-warehouse.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/how-to-use-elastic-query-with-sql-data-warehouse.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
       "redirect_document_id": false
     },
     {
@@ -30615,14 +30632,14 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
-        "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
-        "redirect_document_id": false
+      "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
-        "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
-        "redirect_document_id": false
+      "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Entities-Search/endpoint-entities.md",
@@ -31334,7 +31351,7 @@
       "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
-	   {
+    {
       "source_path": "articles/virtual-machines/linux/dockerextension.md",
       "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
@@ -32337,7 +32354,7 @@
       "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-msi.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities",
       "redirect_document_id": true
-    },        
+    },
     {
       "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
@@ -34783,7 +34800,7 @@
       "redirect_url": "/azure/azure-monitor/app/asp-net-trace-logs",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path": "articles/application-insights/app-insights-live-stream.md",
       "redirect_url": "/azure/azure-monitor/app/live-stream",
       "redirect_document_id": true
@@ -35149,69 +35166,69 @@
       "redirect_document_id": true
     },
     {
-      "source_path":  "articles/application-insights/app-insights-separate-resources.md",
-      "redirect_url":  "/azure/azure-monitor/app/separate-resources",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-separate-resources.md",
+      "redirect_url": "/azure/azure-monitor/app/separate-resources",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-sharepoint.md",
-        "redirect_url":  "/azure/azure-monitor/app/sharepoint",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-sharepoint.md",
+      "redirect_url": "/azure/azure-monitor/app/sharepoint",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-troubleshoot-faq.md",
-        "redirect_url":  "/azure/azure-monitor/app/troubleshoot-faq",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-troubleshoot-faq.md",
+      "redirect_url": "/azure/azure-monitor/app/troubleshoot-faq",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-cohorts.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-cohorts",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-cohorts.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-cohorts",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-flows.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-flows",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-flows.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-flows",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/usage-funnels.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-funnels",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/usage-funnels.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-funnels",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-impact.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-impact",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-impact.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-impact",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-overview.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-overview",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-overview.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-overview",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-retention.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-retention",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-retention.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-retention",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-segmentation.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-segmentation",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-segmentation.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-segmentation",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-send-user-context.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-send-user-context",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-send-user-context.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-send-user-context",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-troubleshoot.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-troubleshoot",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-troubleshoot",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-visual-studio.md",
-        "redirect_url":  "/azure/azure-monitor/app/visual-studio",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-visual-studio.md",
+      "redirect_url": "/azure/azure-monitor/app/visual-studio",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/common/storage-lifecycle-managment-concepts.md",
@@ -35239,184 +35256,184 @@
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/application-insights/app-insights-proactive-diagnostics.md",
-      "redirect_url":  "/azure/azure-monitor/app/proactive-diagnostics",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-proactive-diagnostics.md",
+      "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-usage-workbooks.md",
-        "redirect_url":  "/azure/azure-monitor/app/usage-workbooks",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-usage-workbooks.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-workbooks",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-visual-studio-codelens.md",
-        "redirect_url":  "/azure/azure-monitor/app/visual-studio-codelens",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-visual-studio-codelens.md",
+      "redirect_url": "/azure/azure-monitor/app/visual-studio-codelens",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-visual-studio-trends.md",
-        "redirect_url":  "/azure/azure-monitor/app/visual-studio-trends",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-visual-studio-trends.md",
+      "redirect_url": "/azure/azure-monitor/app/visual-studio-trends",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-vsts-continuous-monitoring.md",
-        "redirect_url":  "/azure/azure-monitor/app/continuous-monitoring",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-vsts-continuous-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/continuous-monitoring",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-web-monitor-performance.md",
-        "redirect_url":  "/azure/azure-monitor/app/web-monitor-performance",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-web-monitor-performance.md",
+      "redirect_url": "/azure/azure-monitor/app/web-monitor-performance",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-windows-desktop.md",
-        "redirect_url":  "/azure/azure-monitor/app/windows-desktop",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-windows-desktop.md",
+      "redirect_url": "/azure/azure-monitor/app/windows-desktop",
+      "redirect_document_id": true
     },
     {
-      "source_path":  "articles/application-insights/app-insights-dotnetcore-quick-start.md",
-      "redirect_url":  "/azure/azure-monitor/learn/dotnetcore-quick-start",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-dotnetcore-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/learn/dotnetcore-quick-start",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-java-quick-start.md",
-        "redirect_url":  "/azure/azure-monitor/learn/java-quick-start",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-java-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/learn/java-quick-start",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-mobile-center-quickstart.md",
-        "redirect_url":  "/azure/azure-monitor/learn/mobile-center-quickstart",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-mobile-center-quickstart.md",
+      "redirect_url": "/azure/azure-monitor/learn/mobile-center-quickstart",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-nodejs-quick-start.md",
-        "redirect_url":  "/azure/azure-monitor/learn/nodejs-quick-start",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-nodejs-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/learn/nodejs-quick-start",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/quick-monitor-portal.md",
-        "redirect_url":  "/azure/azure-monitor/learn/quick-monitor-portal",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/quick-monitor-portal.md",
+      "redirect_url": "/azure/azure-monitor/learn/quick-monitor-portal",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-tutorial-alert.md",
-        "redirect_url":  "/azure/azure-monitor/learn/tutorial-alert",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-tutorial-alert.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-alert",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-tutorial-dashboards.md",
-        "redirect_url":  "/azure/azure-monitor/learn/tutorial-app-dashboards",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-tutorial-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-app-dashboards",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-tutorial-runtime-exceptions.md",
-        "redirect_url":  "/azure/azure-monitor/learn/tutorial-runtime-exceptions",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-tutorial-runtime-exceptions.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-runtime-exceptions",
+      "redirect_document_id": true
     },
     {
-      "source_path":  "articles/application-insights/app-insights-profiler-cloudservice.md",
-      "redirect_url":  "/azure/azure-monitor/app/profiler-cloudservice ",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-cloudservice.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-cloudservice ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-overview.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-overview ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-overview.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-overview ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-servicefabric.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-servicefabric ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-servicefabric.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-servicefabric ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-settings.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-settings ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-settings.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-settings ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-trackrequests.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-trackrequests ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-trackrequests.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-trackrequests ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-troubleshooting.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-troubleshooting ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-troubleshooting.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-troubleshooting ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-profiler-vm.md",
-        "redirect_url":  "/azure/azure-monitor/app/profiler-vm",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-profiler-vm.md",
+      "redirect_url": "/azure/azure-monitor/app/profiler-vm",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-website-monitoring.md",
-        "redirect_url":  "/azure/azure-monitor/app/website-monitoring ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-website-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/website-monitoring ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/azure-functions-supported-features.md",
-        "redirect_url":  "/azure/azure-monitor/app/azure-functions-supported-features ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/azure-functions-supported-features.md",
+      "redirect_url": "/azure/azure-monitor/app/azure-functions-supported-features ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-windows-services.md",
-        "redirect_url":  "/azure/azure-monitor/app/windows-services",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-windows-services.md",
+      "redirect_url": "/azure/azure-monitor/app/windows-services",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-create-new-resource.md",
-        "redirect_url":  "/azure/azure-monitor/app/create-new-resource ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-create-new-resource.md",
+      "redirect_url": "/azure/azure-monitor/app/create-new-resource ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-export-power-bi.md",
-        "redirect_url":  "/azure/azure-monitor/app/export-power-bi ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-export-power-bi.md",
+      "redirect_url": "/azure/azure-monitor/app/export-power-bi ",
+      "redirect_document_id": true
     },
     {
-      "source_path":  "articles/application-insights/app-insights-devops.md",
-      "redirect_url":  "/azure/azure-monitor/app/devops",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-devops.md",
+      "redirect_url": "/azure/azure-monitor/app/devops",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-tutorial-performance.md",
-        "redirect_url":  "/azure/azure-monitor/learn/tutorial-performance",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-tutorial-performance.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-performance",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-tutorial-users.md",
-        "redirect_url":  "/azure/azure-monitor/learn/tutorial-users",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-tutorial-users.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-users",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/app-insights-nuget.md",
-        "redirect_url":  "/azure/azure-monitor/app/nuget ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-nuget.md",
+      "redirect_url": "/azure/azure-monitor/app/nuget ",
+      "redirect_document_id": true
     },
     {
-        "source_path":  "articles/application-insights/micrometer-java.md",
-        "redirect_url":  "/azure/azure-monitor/app/micrometer-java ",
-        "redirect_document_id":  true
+      "source_path": "articles/application-insights/micrometer-java.md",
+      "redirect_url": "/azure/azure-monitor/app/micrometer-java ",
+      "redirect_document_id": true
     },
     {
-      "source_path":  "articles/application-insights/app-insights-overview.md",
-      "redirect_url":  "/azure/azure-monitor/app/app-insights-overview",
-      "redirect_document_id":  true
+      "source_path": "articles/application-insights/app-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
+      "redirect_document_id": true
     },
     {
-      "source_path":  "articles/azure-monitor/platform/dashboards.md",
-      "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
-      "redirect_document_id":  false
+      "source_path": "articles/azure-monitor/platform/dashboards.md",
+      "redirect_url": "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+      "redirect_document_id": false
     },
     {
-      "source_path":  "articles/azure-monitor/azure-monitor-rebrand.md",
-      "redirect_url":  "/azure/azure-monitor/terminology",
-      "redirect_document_id":  false
+      "source_path": "articles/azure-monitor/azure-monitor-rebrand.md",
+      "redirect_url": "/azure/azure-monitor/terminology",
+      "redirect_document_id": false
     },
     {
-      "source_path":  "articles/azure-monitor/platform/quick-audit-notify-action-subscription.md",
-      "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
-      "redirect_document_id":  false
+      "source_path": "articles/azure-monitor/platform/quick-audit-notify-action-subscription.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-activity-log",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
@@ -35819,9 +35836,11 @@
       "redirect_url": "/azure/application-insights/app-insights-pricing",
       "redirect_document_id": false
     },
-	{ "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md",
-	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general",
-	"redirect_document_id": true },
+    {
+      "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#how-do-i-programmatically-get-the-luis-region-of-a-resource",
@@ -35848,29 +35867,30 @@
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/aks/autoscaler.md",
-      "redirect_url":  "/azure/aks/cluster-autoscaler",
-      "redirect_document_id":  "false"
+      "source_path": "articles/aks/autoscaler.md",
+      "redirect_url": "/azure/aks/cluster-autoscaler",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
     },
-	{ "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md",
-	"redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
-	"redirect_document_id": true
+    {
+      "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
-        "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
-        "redirect_document_id": true
+      "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
-        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
-        "redirect_document_id": true
-      },
+      "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/aks/configure-advanced-networking.md",
       "redirect_url": "/azure/aks/configure-azure-cni",
@@ -36231,7 +36251,8 @@
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
       "redirect_document_id": false
     },
-    {      "source_path": "articles/azure-signalr/signalr-authenticate-oauth.md",
+    {
+      "source_path": "articles/azure-signalr/signalr-authenticate-oauth.md",
       "redirect_url": "/azure/azure-signalr/signalr-concept-authenticate-oauth",
       "redirect_document_id": true
     },
@@ -36533,6 +36554,11 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-hyperlapse-content.md",
+      "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
       "redirect_document_id": false
     }
   ]
