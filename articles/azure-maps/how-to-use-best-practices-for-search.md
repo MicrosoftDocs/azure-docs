@@ -161,13 +161,14 @@ https://atlas.microsoft.com/search/poi/json?subscription-key=[you_key]&api-versi
 To retrieve only POI results around a specific location, the nearby search method may be the right choice. This endpoint will only return POI results, and does not take in a search query parameter. To limit the results, it is recommended to set the radius.
 
 ### Understanding the responses
-Lets make a fuzzy search request to the Azure Maps search service for the geographic region and Point of interests with name Seattle. If you look carefully at the request URL below, we have used the `idxSet` parameter to define the result type we want in the response.
+
+Lets make a Address search request to the Azure Maps search service for an address in Seattle. If you look carefully at the request URL below, we have set the `countrySet` parameter to **US** to search for the address in the United States of America.
 
 ```
-https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=Seattle&countrySet=US&radius=20&idxSet=Geo,POI
+https://atlas.microsoft.com/search/address/json?subscription-key=tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
 ```
 
-Further lets have a look at the response structure below. The result type of both the result objects in the response are different. One of them is a POI object with name seattle in it and the other is the Geographic region representing the city of Seattle. See [Get Search fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#definitions) to know more about response object parameters. 
+Further lets have a look at the response structure below. The result type of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are Point Address, Street, and Cross Street. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
 
 Supported types of result:
 
@@ -183,140 +184,226 @@ Supported types of result:
 
 **Cross Street:** Intersections. Representations of junctions; places where two streets intersect.
 
-The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response.
-
 
 ```JSON
 {
     "summary": {
-        "query": "seattle",
+        "query": "400 broad st seattle wa",
         "queryType": "NON_NEAR",
-        "queryTime": 24,
-        "numResults": 2,
+        "queryTime": 129,
+        "numResults": 6,
         "offset": 0,
-        "totalResults": 2,
-        "fuzzyLevel": 1,
-        "geoBias": {
-            "lat": 47.6101,
-            "lon": -122.33596
-        }
+        "totalResults": 6,
+        "fuzzyLevel": 1
     },
     "results": [
         {
-            "type": "POI",
-            "id": "US/POI/p0/7442170",
-            "score": 2.359,
-            "dist": 13.899993284447241,
-            "info": "search:ta:840539000253054-US",
-            "poi": {
-                "name": "Taphandles",
-                "phone": "+(1)-(206)-4626800",
-                "url": "www.taphandles.com",
-                "categories": [
-                    "advertising/marketing",
-                    "company"
-                ],
-                "classifications": [
-                    {
-                        "code": "COMPANY",
-                        "names": [
-                            {
-                                "nameLocale": "en-US",
-                                "name": "advertising/marketing"
-                            },
-                            {
-                                "nameLocale": "en-US",
-                                "name": "company"
-                            }
-                        ]
-                    }
-                ]
-            },
+            "type": "Point Address",
+            "id": "US/PAD/p0/43076024",
+            "score": 9.894,
             "address": {
-                "streetNumber": "1424",
-                "streetName": "4th Ave",
-                "municipalitySubdivision": "Seattle, Central Business District",
+                "streetNumber": "400",
+                "streetName": "Broad Street",
+                "municipalitySubdivision": "Seattle, South Lake Union, Lower Queen Anne",
                 "municipality": "Seattle",
                 "countrySecondarySubdivision": "King",
                 "countryTertiarySubdivision": "Seattle",
                 "countrySubdivision": "WA",
-                "postalCode": "98101",
-                "extendedPostalCode": "981011431",
+                "postalCode": "98109",
                 "countryCode": "US",
                 "country": "United States Of America",
                 "countryCodeISO3": "USA",
-                "freeformAddress": "1424 4th Ave, Seattle, WA 98101",
+                "freeformAddress": "400 Broad Street, Seattle, WA 98109",
                 "countrySubdivisionName": "Washington"
             },
             "position": {
-                "lat": 47.61013,
-                "lon": -122.33614
+                "lat": 47.62039,
+                "lon": -122.34928
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.61103,
-                    "lon": -122.33747
+                    "lat": 47.62129,
+                    "lon": -122.35061
                 },
                 "btmRightPoint": {
-                    "lat": 47.60923,
-                    "lon": -122.33481
+                    "lat": 47.61949,
+                    "lon": -122.34795
                 }
             },
             "entryPoints": [
                 {
                     "type": "main",
                     "position": {
-                        "lat": 47.61,
-                        "lon": -122.33644
+                        "lat": 47.61982,
+                        "lon": -122.34886
                     }
                 }
             ]
         },
         {
-            "type": "Geography",
-            "id": "US/GEO/p0/192486",
-            "score": 2.351,
-            "dist": 0,
-            "entityType": "MunicipalitySubdivision",
+            "type": "Street",
+            "id": "US/STR/p0/2440854",
+            "score": 8.129,
             "address": {
-                "municipalitySubdivision": "Seattle, Pioneer Square, Pike Market, First Hill, Downtown, Central Business District, Broadway, Belltown",
+                "streetName": "Broad Street",
+                "municipalitySubdivision": "Seattle, Westlake, South Lake Union",
                 "municipality": "Seattle",
                 "countrySecondarySubdivision": "King",
                 "countryTertiarySubdivision": "Seattle",
                 "countrySubdivision": "WA",
+                "postalCode": "98109",
+                "extendedPostalCode": "981094347,981094700,981094701,981094702",
                 "countryCode": "US",
                 "country": "United States Of America",
                 "countryCodeISO3": "USA",
-                "freeformAddress": "Seattle, WA",
+                "freeformAddress": "Broad Street, Seattle, WA 98109",
                 "countrySubdivisionName": "Washington"
             },
             "position": {
-                "lat": 47.6101,
-                "lon": -122.33596
+                "lat": 47.62553,
+                "lon": -122.33936
             },
             "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.61846,
-                    "lon": -122.34426
+                    "lat": 47.62545,
+                    "lon": -122.33861
                 },
                 "btmRightPoint": {
-                    "lat": 47.60174,
-                    "lon": -122.32766
+                    "lat": 47.62574,
+                    "lon": -122.33974
                 }
+            }
+        },
+        {
+            "type": "Street",
+            "id": "US/STR/p0/8450985",
+            "score": 8.129,
+            "address": {
+                "streetName": "Broad Street",
+                "municipalitySubdivision": "Seattle, Belltown",
+                "municipality": "Seattle",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle",
+                "countrySubdivision": "WA",
+                "postalCode": "98109,98121",
+                "extendedPostalCode": "981094991,981211117,981211237,981213206",
+                "countryCode": "US",
+                "country": "United States Of America",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Broad Street, Seattle, WA",
+                "countrySubdivisionName": "Washington"
             },
-            "boundingBox": {
+            "position": {
+                "lat": 47.61691,
+                "lon": -122.35251
+            },
+            "viewport": {
                 "topLeftPoint": {
-                    "lat": 47.61846,
-                    "lon": -122.34426
+                    "lat": 47.61502,
+                    "lon": -122.35041
                 },
                 "btmRightPoint": {
-                    "lat": 47.60174,
-                    "lon": -122.32766
+                    "lat": 47.61857,
+                    "lon": -122.35484
                 }
+            }
+        },
+        {
+            "type": "Cross Street",
+            "id": "US/XSTR/p0/1745589",
+            "score": 6.759,
+            "address": {
+                "streetName": "Broad Street & John Street",
+                "municipalitySubdivision": "South Lake Union, Seattle",
+                "municipality": "Seattle",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle",
+                "countrySubdivision": "WA",
+                "postalCode": "98109",
+                "countryCode": "US",
+                "country": "United States Of America",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Broad Street & John Street, Seattle, WA 98109",
+                "countrySubdivisionName": "Washington"
             },
-            "dataSources": {
-                "geometry": {
-                    "id": "00005557-4100-4600-0000-00004788a7a1"
+            "position": {
+                "lat": 47.61978,
+                "lon": -122.34873
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.62068,
+                    "lon": -122.35006
+                },
+                "btmRightPoint": {
+                    "lat": 47.61888,
+                    "lon": -122.3474
+                }
+            }
+        },
+        {
+            "type": "Cross Street",
+            "id": "US/XSTR/p0/2337718",
+            "score": 6.759,
+            "address": {
+                "streetName": "Broad Street & Roy Street",
+                "municipalitySubdivision": "Westlake, South Lake Union, Seattle",
+                "municipality": "Seattle",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle",
+                "countrySubdivision": "WA",
+                "postalCode": "98109",
+                "countryCode": "US",
+                "country": "United States Of America",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Broad Street & Roy Street, Seattle, WA 98109",
+                "countrySubdivisionName": "Washington"
+            },
+            "position": {
+                "lat": 47.62545,
+                "lon": -122.33974
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.62635,
+                    "lon": -122.34107
+                },
+                "btmRightPoint": {
+                    "lat": 47.62455,
+                    "lon": -122.33841
+                }
+            }
+        },
+        {
+            "type": "Cross Street",
+            "id": "US/XSTR/p1/3816818",
+            "score": 6.759,
+            "address": {
+                "streetName": "Broad Street & Valley Street",
+                "municipalitySubdivision": "South Lake Union, Seattle",
+                "municipality": "Seattle",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle",
+                "countrySubdivision": "WA",
+                "postalCode": "98109",
+                "countryCode": "US",
+                "country": "United States Of America",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Broad Street & Valley Street, Seattle, WA 98109",
+                "countrySubdivisionName": "Washington"
+            },
+            "position": {
+                "lat": 47.62574,
+                "lon": -122.33861
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lat": 47.62664,
+                    "lon": -122.33994
+                },
+                "btmRightPoint": {
+                    "lat": 47.62484,
+                    "lon": -122.33728
                 }
             }
         }
