@@ -19,7 +19,7 @@ This guide shows you how to specify a face recognition model for face detection,
 
 The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations while avoiding model conflicts. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set.
+If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations while avoiding model conflicts. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
 ## Prerequisites
 
