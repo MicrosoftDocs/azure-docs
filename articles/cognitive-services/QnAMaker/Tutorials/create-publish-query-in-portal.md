@@ -196,7 +196,7 @@ Any question that QnA Maker is not confident in an answer receives the default a
     }
     ```
     
-    QnA Maker returned a score of 0 which means no confidence but it also returned the default answer. 
+    QnA Maker returned a score of `0`, which means no confidence but it also returned the default answer. 
 
 ## Create a knowledge base bot
 
@@ -223,7 +223,7 @@ Create a bot as a client application for the knowledge base.
     ![Create the knowledge base bot with these settings.](../media/qnamaker-tutorial-create-publish-query-in-portal/create-bot-from-published-knowledge-base.png)
 1. Wait a couple of minutes until the bot creation process notification reports success. 
 1. Open the new bot resource from the notification. 
-1. From **Bot management**, select **Test in Web Chat** and enter the same query as you entered for testing with the Curl command: `How large can my KB be?`. The bot will response with the same answer: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
+1. From **Bot management**, select **Test in Web Chat** and enter the same query as you entered for testing with the Curl command: `How large can my KB be?`. The bot will respond with the same answer: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
     ![Test the new knowledge base bot.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
     For more information about Azure Bots, see [Use QnA Maker to answer questions](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
@@ -236,7 +236,7 @@ When you are done with the knowledge base, in the QnA Maker portal, select **My 
 
 ## Next steps
 
-See [Data sources supported](../Concepts/data-sources-supported.md) for more information about support file formats. 
+For more information, see [Data sources supported](../Concepts/data-sources-supported.md) for more information about support file formats. 
 
 Learn more about Chit-chat [personalities](../Concepts/best-practices.md#chit-chat).
 
