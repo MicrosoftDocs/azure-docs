@@ -53,7 +53,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 The backup extension running on the VM needs outbound access to Azure public IP addresses.
 
 Generally, you don't need to explicitly allow outbound network access for an Azure VM so it can communicate with Azure Backup.
-If your VMs have difficulty connecting, and if you see the error **ExtensionSnapshotFailedNoNetwork** when they're trying to connect, you should explicitly allow access. The backup extension can then communicate with Azure public IP addresses for backup traffic.
+If your VMs can't connect, and if you see the error **ExtensionSnapshotFailedNoNetwork**, you should explicitly allow access. The backup extension can then communicate with Azure public IP addresses for backup traffic.
 
 
 #### Explicitly allow outbound access
@@ -145,10 +145,10 @@ On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any inte
 The following PowerShell script provides an example for allowing traffic.
 Instead of allowing outbound to all public internet addresses, you can specify an IP address range (`-DestinationPortRange`), or use the storage.region service tag.   
 
-    ```powershell
-    Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
-    Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
-    ```
+```powershell
+Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
+Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
+```
 
 ### Allow firewall access by using an FQDN tag
 
