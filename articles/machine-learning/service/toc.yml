@@ -53,6 +53,9 @@
   - name: Model management
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
+  - name: Model interpretability
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
