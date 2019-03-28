@@ -43,14 +43,14 @@ The following are general instructions about how to prepare a virtual machine to
 6. Search for the security group to which you added the session host virtual machines, then make sure that group has **Full Control**.
 7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
-For more information about permissions, see the [FSLogix documentation](https://docs.fslogix.com/).
+For more information about permissions, see the [FSLogix documentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## Configure the FSLogix profile container
 
 To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to the following [link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
+2. Launch an internet browser and navigate to [this link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
 3. Install the FSLogix agent.
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
 5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**
