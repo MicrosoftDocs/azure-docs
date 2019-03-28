@@ -21,9 +21,9 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 Open **Performance Recommendations** from the **Intelligent Performance** section of the menu bar on the Azure portal page for your PostgreSQL server.
 
-![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
+![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Select **Analyze** and choose a database, which will begin the analysis. Depending on your workload, this may take several minutes to complete. Once the analysis is done, there will be a notification in the portal. Analysis performs a deep examination of your database. We recommend you perform analysis during off-peak periods. 
+Select **Analyze** and choose a database, which will begin the analysis. Depending on your workload, th analysis may take several minutes to complete. Once the analysis is done, there will be a notification in the portal. Analysis performs a deep examination of your database. We recommend you perform analysis during off-peak periods. 
 
 The **Recommendations** window will show a list of recommendations if any were found.
 
