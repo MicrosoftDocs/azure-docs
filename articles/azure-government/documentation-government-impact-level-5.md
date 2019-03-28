@@ -64,8 +64,9 @@ Azure Event Hubs can be used in Azure Government supporting Impact Level 5 workl
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-  <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs in the noted regions.
+| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+  
+<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs in the noted regions.
 
 ### [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
 
@@ -137,8 +138,9 @@ All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Virtual Machines** | X<sup>1</sup>  | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-| **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-  <sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
+| **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+  
+<sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
 
 #### Isolated Virtual Machines
 
@@ -192,8 +194,9 @@ Azure Service Bus can be used in Azure Government supporting Impact Level 5 work
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-  <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus in the noted regions
+| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+
+<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus in the noted regions
 
 ### [Azure API Management](https://azure.microsoft.com/services/api-management/)
 
@@ -370,7 +373,8 @@ When using an Azure Storage account, you must follow the steps for using **Stora
 | **Blobs** | X | X | X | X | X | X |
 | **Files** | X | X | X | X | X | X |
 | **Tables** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-| **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
+| **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+
 <sup>1</sup>Tables and Queues when used outside the **USDoD Regions** must encrypt the data before inserting into the Table and Queue (instructions [here](../storage/common/storage-client-side-encryption-java.md)).
 
 #### Storage Encryption with Key Vault Managed Keys
