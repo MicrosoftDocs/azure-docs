@@ -20,7 +20,7 @@ if(!atlas.isSupported()) {
 } else if(!atlas.isSupported(true)) {
     alert('Your browser is supported by Azure Maps, but may have major performance caveats.');
 } else {
-    //Your browser is supported. Add you map code here.
+    //Your browser is supported. Add your map code here.
 }
 ```
 

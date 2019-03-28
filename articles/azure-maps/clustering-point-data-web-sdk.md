@@ -3,7 +3,7 @@ title: Clustering point data in Azure Maps | Microsoft Docs
 description: How to cluster point data in the Web SDK
 author: rbrundritt
 ms.author: richbrun
-ms.date: 3/27/2019
+ms.date: 27/3/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -47,7 +47,7 @@ The `DataSource` class also has the following methods related to clustering:
 
 ## Display clusters using a bubble layer
 
-A bubble layer is a great way to render clustered points as you can easily scale the radius and change the color them based on the number of points in the cluster by using an expression. When displaying clusters using a bubble layer, you should also use a separate layer for rendering unclustered data points. It is often nice to also be able to display the size of the cluster on top of the bubbles. A symbol layer with text and no icon can be used to achieve this behaviour. 
+A bubble layer is a great way to render clustered points as you can easily scale the radius and change the color them based on the number of points in the cluster by using an expression. When displaying clusters using a bubble layer, you should also use a separate layer for rendering unclustered data points. It is often nice to also be able to display the size of the cluster on top of the bubbles. A symbol layer with text and no icon can be used to achieve this behavior. 
 
 <br/>
 

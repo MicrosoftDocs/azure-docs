@@ -93,7 +93,7 @@ The last block of code adds the polygon and line layers to the map. The data sou
 
 ## Fill a polygon with a pattern
 
-In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polyogn layer.
+In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
 
 <br/>
 

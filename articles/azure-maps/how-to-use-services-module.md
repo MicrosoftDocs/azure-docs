@@ -29,7 +29,7 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
     
 	> npm install azure-maps-rest
     
-    Then add a script references to the `<head>` element of the file:
+    Then add a script reference to the `<head>` element of the file:
     
 	```html
 	<script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
