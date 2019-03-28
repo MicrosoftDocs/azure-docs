@@ -84,12 +84,12 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
-[denodo_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/denodo.denodo-platform-7_0
+[denodo_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0
 [informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
-[informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica.powercenter/
+[informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/
 [snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
-[omnigen_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informationbuilders.omni-gen-mdm
-[qubole_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview
-[talend_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview
-[trifacta_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview
-[wherescape_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview
+[omnigen_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm
+[qubole_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview
+[talend_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview
+[trifacta_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview
+[wherescape_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview

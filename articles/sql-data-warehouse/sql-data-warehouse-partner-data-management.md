@@ -54,4 +54,4 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 
 [infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
 [redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sentryone.sentryoneeval
+[sql_sentry_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/sentryone.sentryoneeval

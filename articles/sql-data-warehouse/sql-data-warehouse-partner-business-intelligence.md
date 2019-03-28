@@ -87,4 +87,4 @@ To learn more about some of our other partners, see [Data Integration partners][
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
-[microstrategy_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm
+[microstrategy_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm
