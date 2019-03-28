@@ -18,7 +18,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## Message Routing
+## Message routing
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
@@ -86,7 +86,7 @@ These values are used in the template, and are mostly derived from parameters.
 
 **sbVersion**: THe version of the Service Bus API to use. In this case, it is "2017-04-01".
 
-### Resources - storage account and container
+### Resources: storage account and container
 
 The first resource created is the storage account, along with the container to which messages are routed. The container is a resource under the storage account. It has a `dependsOn` clause for the storage account, requiring  the storage account be created before the container.
 
@@ -120,7 +120,7 @@ Here's what this section looks like:
 }
 ```
 
-### Resources - Service Bus namespace and queue
+### Resources: Service Bus namespace and queue
 
 The second resource created is the Service Bus namespace, along with the Service Bus queue to which messages are routed. The SKU is set to standard. The API version is retrieved from the variables. It is also set to activate the Service Bus namespace when it deploys this section (status:Active). 
 
@@ -297,7 +297,7 @@ This json shows the rest of the IoT Hub section, which contains default informat
 }
 ```
 
-### Resources - Service Bus queue authorization rules
+### Resources: Service Bus queue authorization rules
 
 The Service Bus queue authorization rule is used to retrieve the connection string for the Service Bus queue. It uses a `dependsOn` clause to ensure it is not created before the Service Bus namespace and the Service Bus queue.
 
@@ -320,7 +320,7 @@ The Service Bus queue authorization rule is used to retrieve the connection stri
 },
 ```
 
-### Resources -- consumer group
+### Resources: consumer group
 
 In this section, you create a Consumer Group for the IoT Hub data to be used by the Azure Stream Analytics in the second part of this tutorial.
 
@@ -335,7 +335,7 @@ In this section, you create a Consumer Group for the IoT Hub data to be used by 
 }
 ```
 
-### Resources -- outputs
+### Resources: outputs
 
 If you want to send a value back to the deployment script to be displayed, you use an output section. This part of the template returns the connection string for the Service Bus queue. Returning a value isn't required, it's included as an example of how to return results to the calling script.
 
@@ -348,7 +348,7 @@ If you want to send a value back to the deployment script to be displayed, you u
   }
 ```
 
-## Deploying the RM template
+## Deploy the RM template
 
 To deploy the template to Azure, upload the template and the parameters file to Azure Cloud Shell, and then execute a script to deploy the template. Open Azure Cloud Shell and sign in. This example uses PowerShell.
 

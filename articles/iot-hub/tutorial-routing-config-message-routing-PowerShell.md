@@ -130,7 +130,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 To create a routing endpoint, use [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). To create the messaging route for the endpoint, use [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
 
-### Routing to a storage account 
+### Route to a storage account 
 
 First, set up the endpoint for the storage account, then create the message route.
 
@@ -202,7 +202,7 @@ Add-AzIotHubRoute `
    -Enabled 
 ```
 
-### Routing to a Service Bus queue
+### Route to a Service Bus queue
 
 Now set up the routing for the Service Bus queue. To retrieve the connection string for the Service Bus queue, you must create an authorization rule that has the correct rights defined. The following script creates an authorization rule for the Service Bus queue called `sbauthrule`, and sets the rights to `Listen Manage Send`. Once this authorization rule is set up, you can use it to retrieve the connection string for the queue.
 

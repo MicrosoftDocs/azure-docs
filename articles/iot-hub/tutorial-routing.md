@@ -120,7 +120,7 @@ Now that the base resources are set up, you can configure the message routing us
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-### Routing to a storage account
+### Route to a storage account
 
 Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this routing is set up, messages where the **level** property is set to **storage** are written to a storage account automatically. 
 
@@ -132,11 +132,11 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![Screenshot showing how to start adding an endpoint for a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![How to start adding an endpoint for a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
 4. Select **Blob storage**. You see the **Add a storage endpoint** pane.
 
-   ![Screenshot showing adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
@@ -166,11 +166,11 @@ Now set up the routing for the storage account. You go to the Message Routing pa
    
    **Routing query**: Enter `level="storage"` as the query string.
 
-   ![Screenshot showing creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   ![Creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
    Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
-### Routing to a Service Bus queue
+### Route to a Service Bus queue
 
 Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
 
@@ -180,7 +180,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 3. On the **Add a Route** pane, click +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
 
-   ![Screenshot adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+   ![Adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. Fill in the fields:
 
@@ -202,21 +202,21 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Routing query**: Enter `level="critical"` as the query string. 
 
-   ![Screenshot showing creating a routing query for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Create a routing query for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
 7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
-   ![Screenshot showing the routes you just set up.](./media/tutorial-routing/message-routing-show-both-routes.png)
+   ![The routes you just set up.](./media/tutorial-routing/message-routing-show-both-routes.png)
 
 8. You can see the custom endpoints you set up by clicking on the **Custom Endpoints** tab.
 
-   ![Screenshot showing the custom z you just set up.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![The custom endpoint you just set up.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
 
 9. Close the Message Routing pane, which returns you to the Resource group pane.
 
 ## Create a simulated device
 
-[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## Next steps
 

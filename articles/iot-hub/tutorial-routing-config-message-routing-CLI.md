@@ -145,7 +145,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint.md?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
-### Routing to a storage account 
+### Route to a storage account
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -221,7 +221,7 @@ az iot hub route create \
   --condition $condition
 ```
 
-### Routing to a Service Bus queue
+### Route to a Service Bus queue
 
 Now set up the routing for the Service Bus queue. To retrieve the connection string for the Service Bus queue, you must create an authorization rule that has the correct rights defined. The following script creates an authorization rule for the Service Bus queue called `sbauthrule`, and sets the rights to `Listen Manage Send`. Once this authorization rule is defined, you can use it to retrieve the connection string for the queue.
 
