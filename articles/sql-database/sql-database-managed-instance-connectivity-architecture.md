@@ -4,7 +4,7 @@ description: Learn about Azure SQL Database managed instance communication and c
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft
