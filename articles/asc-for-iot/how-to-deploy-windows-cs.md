@@ -46,7 +46,7 @@ For other platforms and agent flavours, see [Choose the right security agent](ho
 
 To install the security agent, do the following:
 
-1. To install the ASC for IoT agent on the device, download the most recent version to your machine from the ASC for IoT GitHub repository(../../releases) folder.
+1. To install the ASC for IoT Windows C# agent on the device, download the most recent version to your machine from the ASC for IoT [GitHub repository](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
 
 2. Extract the contents of the package, and navigate to the /Install folder.
 
