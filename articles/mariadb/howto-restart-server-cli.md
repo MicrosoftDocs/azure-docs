@@ -35,4 +35,4 @@ az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 
 ## Next steps
 
-Learn about [how to set parameters in Azure Database for MariaDB](howto-configure-server-parameters-using-cli.md)
+Learn about [how to set parameters in Azure Database for MariaDB](howto-configure-server-parameters-cli.md)
