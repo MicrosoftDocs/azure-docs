@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: danlep
 ---
 
@@ -23,17 +23,17 @@ ACR Tasks supports multi-step task declaration in standard YAML syntax. You defi
 The top-level `acr-task.yaml` primitives are **task properties**, **step types**, and **step properties**:
 
 * [Task properties](#task-properties) apply to all steps throughout task execution. There are several global task properties, including:
-  * version
-  * stepTimeout
-  * workingDirectory
+  * `version`
+  * `stepTimeout`
+  * `workingDirectory`
 * [Task step types](#task-step-types) represent the types of actions that can be performed in a task. There are three step types:
-  * build
-  * push
-  * cmd
+  * `build`
+  * `push`
+  * `cmd`
 * [Task step properties](#task-step-properties) are parameters that apply to an individual step. There are several step properties, including:
-  * startDelay
-  * timeout
-  * when
+  * `startDelay`
+  * `timeout`
+  * `when`
   * ...and many more.
 
 The base format of an `acr-task.yaml` file, including some common step properties, follows. While not an exhaustive representation of all available step properties or step type usage, it provides a quick overview of the basic file format.
@@ -77,8 +77,8 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | No | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. | No | None |
-| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
+| `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
+| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
 | `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `$HOME` |
 | `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | None |
 | `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | None |
@@ -106,8 +106,6 @@ The network object has the following properties.
 | `skipCreation` | bool | Yes | Whether to skip network creation. | `false` |
 | `isDefault` | bool | Yes | Whether the network is a default network provided with Azure Container Registry | `false` |
 
-
-
 ## Task step types
 
 ACR Tasks supports three step types. Each step type supports several properties, detailed in the section for each step type.
@@ -115,7 +113,7 @@ ACR Tasks supports three step types. Each step type supports several properties,
 | Step type | Description |
 | --------- | ----------- |
 | [`build`](#build) | Builds a container image using familiar `docker build` syntax. |
-| [`push`](#push) | Executes a `docker push` of newly built or retagged images to a container registry. Azure Container Registry, other private registries, and the public Docker Hub are supported.
+| [`push`](#push) | Executes a `docker push` of newly built or retagged images to a container registry. Azure Container Registry, other private registries, and the public Docker Hub are supported. |
 | [`cmd`](#cmd) | Runs a container as a command, with parameters passed to the container's `[ENTRYPOINT]`. The `cmd` step type supports parameters like `env`, `detach`, and other familiar `docker run` command options, enabling unit and functional testing with concurrent container execution. |
 
 ## build
@@ -141,7 +139,7 @@ The `build` step type supports the parameters in the following table. The `build
 
 ### Properties: build
 
-The `build` step type supports the following properties. You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
+The `build` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
@@ -172,8 +170,11 @@ The `build` step type supports the following properties. You can find details of
 az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample.git
 ```
 
-<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml -->
-[!code-yml[task](~/acr-tasks/build-hello-world.yaml)]
+```yaml
+version: 1.0.0
+steps:
+  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile .
+```
 
 #### Build image - context in subdirectory
 
@@ -211,7 +212,7 @@ steps:
 
 ### Properties: push
 
-The `push` step type supports the following properties. You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
+The `push` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
