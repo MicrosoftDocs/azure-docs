@@ -74,7 +74,7 @@ Azure Files offers two performance tiers: standard and premium.
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 * **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md)
 
-Premium file shares is still in preview and is only available in a subset of regions with Azure Backup support being available in an even smaller subset:
+Premium file shares are still in preview and are only available in a subset of regions with Azure Backup support being available in select regions:
 
 |Available region  |Azure Backup support  |
 |---------|---------|
@@ -98,17 +98,16 @@ On a best effort basis, all shares can burst up to three IOPS per GiB of provisi
 
 All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s. Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
 
-Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS)
-
-Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS)
-
-Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s)
+> [!TIP]
+> Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS)
+> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS)
+> Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s)
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-Currently, sizes up to 5 TiB are in open public preview, while sizes up to 100 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
+(Sizes denoted by an * are in limited public preview)
 
 |Capacity (GiB) | Baseline IOPS | Burst limit | Throughput (MiB/s) |
 |---------|---------|---------|---------|
@@ -116,10 +115,12 @@ Currently, sizes up to 5 TiB are in open public preview, while sizes up to 100 T
 |500         | 500     | Up to 1,500   | 150   |
 |1,000       | 1,024   | Up to 3,072   | 202   |
 |5,000       | 5,120   | Up to 15,360  | 612   |
-|10,000      | 10,240  | Up to 30,720  | 1,124 |
-|33,333      | 33,792  | Up to 100,000 | 3,479 |
-|50,000      | 51,200  | Up to 100,000 | 5,000 |
-|100,000     | 100,000 | Up to 100,000 | 5,000 |
+|10,000 *     | 10,240  | Up to 30,720  | 1,124 |
+|33,333 *     | 33,792  | Up to 100,000 | 3,479 |
+|50,000 *     | 51,200  | Up to 100,000 | 5,000 |
+|100,000 *    | 100,000 | Up to 100,000 | 5,000 |
+
+Currently, file share sizes up to 5 TiB are in public preview, while sizes up to 100 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
 
 ### Bursting
 

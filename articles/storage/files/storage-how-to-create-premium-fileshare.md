@@ -63,7 +63,7 @@ Once your storage account resource has been created, navigate to it.
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the pricing page for more details.
 
-    ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
+   ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### Clean up resources
 
@@ -103,6 +103,16 @@ To create a FileStorage (preview) storage account from PowerShell, use the [New-
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus" -Kind "FileStorage"
+```
+
+## Create a premium file share
+
+Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+
+```powershell
+New-AzStorageShare `
+   -Name myshare `
+   -Context $storageAcct.Context
 ```
 
 ### Clean up resources
@@ -150,6 +160,28 @@ az storage account create `
     --location westus `
     --sku Premium_LRS `
     --kind FileStorage
+```
+
+### Get the storage account key
+
+Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. The keys are automatically created when you create a storage account. You can get the storage account keys for your storage account by using the [az storage account keys list](/cli/azure/storage/account/keys) command:
+
+```azurecli-interactive 
+STORAGEKEY=$(az storage account keys list \
+    --resource-group "myResourceGroup" \
+    --account-name $STORAGEACCT \
+    --query "[0].value" | tr -d '"')
+```
+
+### Create a premium file share
+
+Now that you have a FileStorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
+
+```azurecli-interactive
+az storage share create \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" 
 ```
 
 ### Clean up resources
