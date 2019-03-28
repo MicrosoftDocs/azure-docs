@@ -65,7 +65,7 @@ Azure Event Hubs can be used in Azure Government supporting Impact Level 5 workl
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs in the noted regions.
+  <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs in the noted regions.
 
 ### [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
 
@@ -138,7 +138,7 @@ All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk
 | --- | --- | --- | --- | --- | --- | --- |
 | **Virtual Machines** | X<sup>1</sup>  | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 | **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-<sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
+  <sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
 
 #### Isolated Virtual Machines
 
@@ -193,7 +193,7 @@ Azure Service Bus can be used in Azure Government supporting Impact Level 5 work
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |  
-<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus in the noted regions
+  <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus in the noted regions
 
 ### [Azure API Management](https://azure.microsoft.com/services/api-management/)
 
