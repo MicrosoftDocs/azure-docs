@@ -21,7 +21,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET framework](https://www.newtonsoft.com/json), available as a NuGet package.
-* If you are using Linux/MacOS, you can run this application using [Mono](https://www.mono-project.com/).
+* If you're using Linux/MacOS, you can run this application using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
