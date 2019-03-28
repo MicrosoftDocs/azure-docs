@@ -138,9 +138,11 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
 	d. Select Source as **Transformation**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Transformation** list, type the attribute value shown for that row.
+	
+	f. From the **Parameter 1** list, type the attribute value shown for that row.
 
-	f. Click **Save**.
+	g. Click **Save**.
 
 7. On the **Set up PolicyStat** section, copy the appropriate URL(s) as per your requirement.
 
