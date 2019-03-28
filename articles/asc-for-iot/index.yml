@@ -36,7 +36,7 @@ sections:
   - type: paragraph
     text: Learn how to define security policies, protect your devices against malicious activity, and respond to security alerts and incidents.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detect threats with ASC for IoT</a>
 - title: Build your skills with Microsoft Learn
