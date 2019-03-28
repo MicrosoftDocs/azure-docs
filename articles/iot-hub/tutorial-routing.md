@@ -132,11 +132,11 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 3. Click **Message Routing**. In the **Message Routing** pane, click +**Add**. On the **Add a Route** pane, click +**Add** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![How to start adding an endpoint for a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
 4. Select **Blob storage**. You see the **Add a storage endpoint** pane.
 
-   ![Adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
@@ -166,7 +166,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
    
    **Routing query**: Enter `level="storage"` as the query string.
 
-   ![Creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   ![Creating a routing query for the storage account](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
    Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
@@ -202,15 +202,15 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Routing query**: Enter `level="critical"` as the query string. 
 
-   ![Create a routing query for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
 7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
-   ![The routes you just set up.](./media/tutorial-routing/message-routing-show-both-routes.png)
+   ![The routes you just set up](./media/tutorial-routing/message-routing-show-both-routes.png)
 
 8. You can see the custom endpoints you set up by clicking on the **Custom Endpoints** tab.
 
-   ![The custom endpoint you just set up.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![The custom endpoint you just set up](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
 
 9. Close the Message Routing pane, which returns you to the Resource group pane.
 

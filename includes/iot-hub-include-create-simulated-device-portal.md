@@ -21,8 +21,8 @@ Next, create a device identity and save its key for later use. This device ident
 
 4. Click **+ Add**. On the Add Device pane, fill in the device ID. This tutorial uses **Contoso-Test-Device**. Leave the keys empty, and check **Auto Generate Keys**. Make sure **Connect device to IoT hub** is enabled. Click **Save**.
 
-   ![The add-device screen.](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
+   ![The add-device screen](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
 
 5. Now that it's been created, click on the device to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
 
-   ![The device details, including the keys.](./media/iot-hub-include-create-simulated-device-portal/device-details.png)
+   ![The device details, including the keys](./media/iot-hub-include-create-simulated-device-portal/device-details.png)

@@ -43,7 +43,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Log Analytics**: This toggle should be turned off.
 
-   ![The Create Logic App screen.](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
+   ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
    Click **Create**.
 
@@ -51,33 +51,33 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 3. Select **Service Bus** from the list of connectors.
 
-   ![The list of connectors.](./media/tutorial-routing-view-message-routing-results/logic-app-connectors.png)
+   ![The list of connectors](./media/tutorial-routing-view-message-routing-results/logic-app-connectors.png)
 
 4. A list of triggers is displayed. Select **When a message is received in a queue (auto-complete) / Service Bus**.
 
-   ![The list of triggers for the Service Bus.](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
+   ![The list of triggers for the Service Bus](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
 5. On the next screen, fill in the Connection Name. This tutorial uses **ContosoConnection**.
 
-   ![Setting up the connection for the Service Bus queue.](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
+   ![Setting up the connection for the Service Bus queue](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
 
    Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**.
 
-   ![Finishing setting up the connection.](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
+   ![Finishing setting up the connection](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
 
 6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue**) from the dropdown list. You can use the defaults for the rest of the fields.
 
-   ![The queue options.](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
+   ![The queue options](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
 7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, click **+ New step** to add a step, then click **All** to see all of the options. In the **Choose an action** pane, find and click **Office 365 Outlook**. On the triggers screen, select **Send an e-mail / Office 365 Outlook**.  
 
-   ![The Office365 options.](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
+   ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
 8. Sign in to your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
    Click **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
 
-   ![The e-mail options for the logic app.](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
+   ![The e-mail options for the logic app](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
 9. Click **Save**. Then close the Logic App Designer.
 
@@ -99,7 +99,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Location**: Use the same location used in the setup script. This tutorial uses **West US**.
 
-   ![Create the stream analytics job.](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
+   ![Create the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
 3. Click **Create** to create the job. To get back to the job, click **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then click the Stream Analytics job in the list of resources.
 
@@ -125,7 +125,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
    
    For the rest of the fields, accept the defaults. 
 
-   ![Set up the inputs for the stream analytics job.](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
+   ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
 6. Click **Save**.
 
@@ -145,7 +145,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 3. Click **Authorize**, and sign in to your Power BI account. (This may take more than one try).
 
-   ![Set up the outputs for the stream analytics job.](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
+   ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
 4. Click **Save**.
 
@@ -157,7 +157,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 3. Replace `[YourOutputAlias]` with the output alias of the job. This tutorial uses **contosooutputs**.
 
-   ![Set up the query for the stream analytics job.](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
+   ![Set up the query for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
 
 4. Click **Save**.
 
@@ -197,7 +197,7 @@ If everything is set up correctly, at this point you should see the following re
 
 1. You start getting e-mails about critical messages.
 
-   ![The resulting emails.](./media/tutorial-routing-view-message-routing-results/results-in-email.png)
+   ![The resulting emails](./media/tutorial-routing-view-message-routing-results/results-in-email.png)
 
    This result means the following statements are true. 
 
@@ -207,7 +207,7 @@ If everything is set up correctly, at this point you should see the following re
 
 2. In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
 
-   ![The result files in storage.](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
+   ![The result files in storage](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
 This result means the following statement is true.
 
@@ -227,13 +227,13 @@ Now with the application still running, set up the Power BI visualization to see
 
 4. Under **ACTIONS**, click the first icon to create a report.
 
-   ![Power BI workspace with Actions and report icon highlighted.](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
+   ![Power BI workspace with Actions and report icon highlighted](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
 
 5. Create a line chart to show real-time temperature over time.
 
    * On the report creation page, add a line chart by clicking the line chart icon.
 
-     ![The visualizations and fields.](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
+     ![The visualizations and fields](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
 
    * On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosotable**.
 
@@ -245,7 +245,7 @@ Now with the application still running, set up the Power BI visualization to see
 
 6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same steps above and place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
 
-   ![The final Power BI report with the two charts.](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
+   ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
 7. Click **Save** to save the report.
 
