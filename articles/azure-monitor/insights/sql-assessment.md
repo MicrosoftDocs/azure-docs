@@ -169,7 +169,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 If you have recommendations that you want to ignore, you can create a text file that Azure Monitor will use to prevent recommendations from appearing in your assessment results.
 
 ### To identify recommendations that you will ignore
-1. In the Azure Monitor menu, click the **Logs**.
+1. In the Azure Monitor menu, click **Logs**.
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
     ```

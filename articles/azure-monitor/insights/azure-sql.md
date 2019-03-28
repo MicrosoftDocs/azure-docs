@@ -38,18 +38,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 | [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by the solution. |
 
 ## Configuration
-
-Perform the following steps to add the Azure SQL Analytics solution to your Azure dashboard.
-
-1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
-2. In the Azure portal, click **+ Create a resource**, then search for **Azure SQL Analytics**.  
-    ![Monitoring + Management](./media/azure-sql/monitoring-management.png)
-3. Select **Azure SQL Analytics (Preview)** from the list
-4. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
-    ![Create](./media/azure-sql/portal-create.png)
-5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.
-
-    ![add to workspace](./media/azure-sql/add-to-workspace.png)
+Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add the Azure SQL Analytics (Preview) solution to your Log Analytics workspace.
 
 ### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 

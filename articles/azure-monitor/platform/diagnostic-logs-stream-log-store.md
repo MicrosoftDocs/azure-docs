@@ -35,9 +35,8 @@ The Log Analytics workspace does not have to be in the same subscription as the 
 >
 
 ## Stream diagnostic logs using the portal
-1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
+1. In the portal, navigate to Azure Monitor and click on **Diagnostic settings** in the **Settings** menu.
 
-    ![Monitoring section of Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 

@@ -33,7 +33,7 @@ To use the solution, you need to enable logging of Azure Key Vault diagnostics a
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
 
-1. Enable the Azure Key Vault solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) or by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add the Azure Key Vault solution to your Log Analytics workspace.
 2. Enable diagnostics logging for the Key Vault resources to monitor, using either the [portal](#enable-key-vault-diagnostics-in-the-portal) or [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### Enable Key Vault diagnostics in the portal
