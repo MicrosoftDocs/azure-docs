@@ -29,7 +29,7 @@ You need the Azure CLI version 2.0.59 or later installed and configured. Run `a
 
 ### Install aks-preview CLI extension
 
-AKS clusters are updated to enable pod security policies using the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+You create AKS clusters with Availability Zones using the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
 
 ```azurecli-interactive
 az extension add --name aks-preview
