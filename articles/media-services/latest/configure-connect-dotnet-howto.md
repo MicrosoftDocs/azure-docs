@@ -136,6 +136,8 @@ namespace ConsoleApp1
 
 ## Connect to the .NET client
 
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code below, the GetCredentialsAsync function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file.
+
 1. Open `Program.cs`.
 1. Paste the following code:
 
