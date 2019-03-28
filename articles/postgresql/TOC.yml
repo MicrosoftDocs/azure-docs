@@ -184,6 +184,8 @@
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
+    - name: Azure CLI
+      href: howto-restart-server-cli.md
   - name: Replication
     items:
     - name: Manage read replicas Azure portal
