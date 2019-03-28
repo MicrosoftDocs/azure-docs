@@ -234,7 +234,7 @@ The developer portal is not available in the Consumption tier.
 ##  <a name="Parameter"></a> Parameter  
  This section describes the `parameter` representation.  
   
-|Property|Description|Type|  
+|Property|Type|Description|  
 |--------------|-----------------|----------|  
 |`name`|string|Parameter name.|  
 |`description`|string|Parameter description.|  
