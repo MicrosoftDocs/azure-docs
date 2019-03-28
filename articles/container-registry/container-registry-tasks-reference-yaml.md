@@ -150,7 +150,7 @@ The `build` step type supports the following properties. Find details of these p
 | `expose` | [string, string, ...] | Optional |
 | `id` | string | Optional |
 | `ignoreErrors` | bool | Optional |
-| `isolation` | string |
+| `isolation` | string | Optional |
 | `keep` | bool | Optional |
 | `network` | object | Optional |
 | `ports` | [string, string, ...] | Optional |
@@ -267,7 +267,7 @@ The `cmd` step type supports the following properties:
 | `expose` | [string, string, ...] | Optional |
 | `id` | string | Optional |
 | `ignoreErrors` | bool | Optional |
-| `isolation` | string |
+| `isolation` | string | Optional |
 | `keep` | bool | Optional |
 | `network` | object | Optional |
 | `ports` | [string, string, ...] | Optional |
