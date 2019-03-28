@@ -24,11 +24,7 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
->[!NOTE]
->If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
->
-
-In this topic, the custom presets that perform the following encoding tasks are demonstrated.
+If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
 ## Support for relative sizes
 
