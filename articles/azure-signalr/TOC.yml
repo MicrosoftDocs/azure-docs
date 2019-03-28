@@ -57,6 +57,10 @@
 
 - name: How-to guides
   items:
+  - name: Scale
+    items:
+    - name: Multiple instances
+      href: signalr-howto-scale-multi-instances.md
   - name: Secure
     items:
     - name: Access key rotation
