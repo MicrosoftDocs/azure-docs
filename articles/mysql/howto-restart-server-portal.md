@@ -1,6 +1,6 @@
 ---
 title: Restart Azure Database for MySQL server using Azure portal
-description: This article describes how you can restart an Azure Database for MySQL server using the Azure Portal.
+description: This article describes how you can restart an Azure Database for MySQL server using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
