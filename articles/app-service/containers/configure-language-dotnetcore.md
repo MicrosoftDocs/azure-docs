@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 
 ---
 
-# Configure a Linux ASP.NET Core app in Azure App Service
+# Configure a Linux ASP.NET Core app for Azure App Service
 
 ASP.NET Core apps need be deployed as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET Core developers using in App Service. If you've never used Azure App Service, you should follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+This guide provides key concepts and instructions for ASP.NET Core developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
 
 ## Show .NET Core version
 
 To show the current .NET Core version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 To show all supported .NET Core versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -42,7 +42,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 2.1:
 
 ```azurecli-interactive
-az webapp config set --name <app_name> --resource-group <resource_group_name> --linux-fx-version "DOTNETCORE|2.1"
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
 
 ## Access environment variables
@@ -64,7 +64,7 @@ If you configure an app setting with the same name in App Service and in *Web.co
 When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** error or **An error occurred while processing your request.** message. To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group <resource_group_name> --settings ASPNETCORE_ENVIRONMENT="Development"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
 ```
 
 ## Deploy multi-project solutions
@@ -79,15 +79,15 @@ Add a *.deployment* file to the repository root and add the following code:
 
 ```
 [config]
-project = <project_name>/<project_name>.csproj
+project = <project-name>/<project-name>.csproj
 ```
 
 ### Using app settings
 
-In the <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, add an app setting to your App Service app by running the following CLI command. Replace *\<app_name>*, *\<resource_group_name>*, and *\<project_name>* with the appropriate values.
+In the <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, add an app setting to your App Service app by running the following CLI command. Replace *\<app-name>*, *\<resource-group-name>*, and *\<project-name>* with the appropriate values.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group <resource_group_name> --settings PROJECT="<project_name>/<project_name>.csproj"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
 ```
 
 ## Access diagnostic logs

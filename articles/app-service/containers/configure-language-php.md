@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 
 ---
 
-# Configure your PHP app for Azure App Service
+# Configure a Linux PHP app for Azure App Service
 
 This guide shows you how to configure the built-in PHP runtime for web apps, mobile back ends, and API apps in Azure App Service.
 
-This guide provides key concepts and instructions for PHP developers using in App Service. If you've never used Azure App Service, you should follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
+This guide provides key concepts and instructions for PHP developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
 
 ## Show PHP version
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -42,7 +42,7 @@ az webapp list-runtimes --linux | grep PHP
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
 
 ```azurecli-interactive
-az webapp config set --name <app_name> --resource-group <resource_group_name> --linux-fx-version "PHP|7.2"
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
 ## Run Composer
@@ -162,7 +162,7 @@ To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group <resource_group_name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf./home/site/ini"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf./home/site/ini"
 ```
 
 `/usr/local/etc/php/conf.d` is the default dir where php.ini exists. `/home/site/ini` is the custom dir in which you will add a custom *.ini* file. You separate the values with a `.`.
@@ -199,7 +199,7 @@ Deploy your changes.
 Run the following command in the [Cloud Shell](https://shell.azure.com) to add the relative paths to the *.dll* files using the `PHP_EXTENSIONS` and/or `PHP_ZENDEXTENSIONS` (for Zend extensions) app settings:
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group <resource_group_name> --settings PHP_EXTENSIONS="bin/php_mongo.dll,bin/php_xdebug.dll" PHP_ZENDEXTENSIONS="bin/ZendLoader.dll"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_EXTENSIONS="bin/php_mongo.dll,bin/php_xdebug.dll" PHP_ZENDEXTENSIONS="bin/ZendLoader.dll"
 ```
 
 Separate multiple extensions with the comma.

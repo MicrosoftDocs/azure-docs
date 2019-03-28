@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ---
 
-# Configure your custom container for Azure App Service
+# Configure a custom Linux container for Azure App Service
 
 This article shows you how to configure a custom Linux container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization in App Service. If you've never used Azure App Service, you should follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md)
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, you should follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md)
 
 ## Configure port number
 

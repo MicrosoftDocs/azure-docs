@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Configure your Python app for Azure App Service
+# Configure a Linux Python app for Azure App Service
 
 This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on.
 
-This guide provides key concepts and instructions for Python developers using in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [tutorial](tutorial-python-postgresql-app.md) first.
+This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [tutorial](tutorial-python-postgresql-app.md) first.
 
 > [!NOTE]
 > [Python on the Windows flavor of App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service) is deprecated and is not recommended for use.
@@ -35,7 +35,7 @@ This guide provides key concepts and instructions for Python developers using in
 To show the current Python version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 To show all supported Python versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -51,7 +51,7 @@ You can run an unsupported version of Python by building your own container imag
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the Python version to 3.7:
 
 ```azurecli-interactive
-az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.7"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
 
 ## Container characteristics

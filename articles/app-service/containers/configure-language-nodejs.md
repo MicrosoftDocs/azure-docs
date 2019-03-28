@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ---
 
-# Configure your Node.js app for Azure App Service
+# Configure a Linux Node.js app for Azure App Service
 
 Node.js apps needs to be deployed with all the required NPM dependencies. The App Service deployment engine (Kudu) automatically runs `npm install --production` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on. If you deploy your files using [FTP/S](../deploy-ftp.md), however, you need to upload the required packages manually.
 
-This guide provides key concepts and instructions for Node.js developers using in App Service. If you've never used Azure App Service, you should follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
+This guide provides key concepts and instructions for Node.js developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
 ## Show Node.js version
 
 To show the current Node.js version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -39,7 +39,7 @@ az webapp list-runtimes --linux | grep NODE
 To see the corresponding NPM version for each supported Node.js version, navigate to the following URL in the browser:
 
 ```
-https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
+https://<app-name>.scm.azurewebsites.net/api/diagnostics/runtime
 ```
 
 ## Set Node.js version
@@ -47,7 +47,7 @@ https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource_group_name> --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=<x.y.z>
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITE_NODE_DEFAULT_VERSION=<x.y.z>
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
@@ -73,7 +73,7 @@ The Node.js containers come with [PM2](http://pm2.keymetrics.io/), a production 
 App Service can start your app using a custom command, such as an executable like *run.sh*. For example, to run `npm run start:prod`, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource_group_name> --name <app_name> --startup-file "npm run start:prod"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
 ```
 
 ### Run `npm start`
@@ -94,7 +94,7 @@ To start your app using `npm start`, just make sure a `start` script is in the *
 To use a custom *package.json* in your project, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource_group_name> --name <app_name> --startup-file "<filname>.json"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname>.json"
 ```
 
 ### Run with PM2
@@ -116,7 +116,7 @@ You can also configure a custom start file with the following extensions:
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource_group_name> --name <app_name> --startup-file "<filname-with-extension>"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
 ```
 
 ## Debug remotely

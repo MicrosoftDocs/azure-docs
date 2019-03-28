@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
 
 ---
 
-# Configure your Java app for Azure App Service
+# Configure a Linux Java app for Azure App Service
 
 Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first. General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](app-service-linux-faq.md).
+This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first. General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](app-service-linux-faq.md).
 
 ## Logging and debugging apps
 
@@ -84,14 +84,14 @@ Turn on support for web sockets in the Azure portal in the **Application setting
 Turn on web socket support using the Azure CLI with the following command:
 
 ```azurecli-interactive
-az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true
+az webapp config set --name <app-name> --resource-group <resource-group-name> --web-sockets-enabled true
 ```
 
 Then restart your application:
 
 ```azurecli-interactive
-az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
-az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
+az webapp stop --name <app-name> --resource-group <resource-group-name>
+az webapp start --name <app-name> --resource-group <resource-group-name>
 ```
 
 ### Set default character encoding
@@ -101,12 +101,12 @@ In the Azure portal, under **Application Settings** for the web app, create a ne
 Alternatively, you can configure the app setting using the App Service Maven plugin. Add the setting name and value tags in the plugin configuration:
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>JAVA_OPTS</name> 
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value> 
-    </property> 
-</appSettings> 
+<appSettings>
+    <property>
+        <name>JAVA_OPTS</name>
+        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+    </property>
+</appSettings>
 ```
 
 ## Secure applications
@@ -152,8 +152,8 @@ This section shows how to connect Java applications deployed on Azure App Servic
 1. [SSH into your App Service instance](/azure/app-service/containers/app-service-linux-ssh-support) and create a new directory `/home/site/wwwroot/apm`. 
 1. Upload the Java agent files into a directory under `/home/site/wwwroot/apm`. The files for your agent should be in `/home/site/wwwroot/apm/appdynamics`.
 1. IIn the Azure portal, browse to your application in App Service and create a new Application Setting.
-    - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<YOUR_SITE_NAME>` where `<YOUR_SITE_NAME>` is your App Service name.
-    - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<YOUR_SITE_NAME>` where `<YOUR_SITE_NAME>` is your App Service name.
+    - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+    - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
 
 ## Configure Tomcat
 
@@ -257,13 +257,13 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
     1. Install the Azure App Service webpp extension:
 
       ```azurecli-interactive
-      az extension add –name webapp
+      az extension add -–name webapp
       ```
 
     2. Run the following CLI command to create a SSH tunnel from your local system to App Service:
 
       ```azurecli-interactive
-      az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
+      az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
       ```
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.

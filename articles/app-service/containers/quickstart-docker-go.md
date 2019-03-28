@@ -10,7 +10,7 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18

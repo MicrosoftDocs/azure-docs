@@ -13,25 +13,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
 ms.custom: seodec18
 
 ---
 
-# Configure your Ruby app for Azure App Service
+# Configure a Linux Ruby app for Azure App Service
 
 This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-This guide provides key concepts and instructions for Ruby developers using in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
+This guide provides key concepts and instructions for Ruby developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
 
 ## Show Ruby version
 
 To show the current Ruby version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config show --resource-group <resource_group_name> --name <app_name> --query linuxFxVersion
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
 To show all supported Ruby versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -47,7 +47,7 @@ You can run an unsupported version of Ruby by build your own container image ins
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the Ruby version to 2.3:
 
 ```azurecli-interactive
-az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "RUBY|2.3"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "RUBY|2.3"
 ```
 
 > [!NOTE]
