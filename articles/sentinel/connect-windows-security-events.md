@@ -42,7 +42,7 @@ To fully integrate your Windows security events with Azure Sentinel:
 1. In the Azure Sentinel portal, select **Data collection** and then click on the **Windows security events** tile. 
 1. Select which data types you want to stream.
 1. Click **Update**.
-
+6. To use the relevant schema in Log Analytics for the Windows security events, search for **SecurityEvent**.
 
 ## Validate connectivity
 
