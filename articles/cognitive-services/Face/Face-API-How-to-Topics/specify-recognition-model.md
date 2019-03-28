@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/28/2019
 ms.author: longl
 ---
 
