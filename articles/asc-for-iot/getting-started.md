@@ -64,7 +64,7 @@ Make use of ASC for IoT enhanced security capabilities, such as monitoring remot
 1. If your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Create an azureiotsecurity security module](quickstart-create-security-twin.md) for your devices.
 1. To install the agent on an Azure simulated device instead of installing on an actual device, [spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
-1. [Deploy an ASC for IoT security agent](tutorial-deploy-linux-cs.md) on your IoT device, or new VM.
+1. [Deploy an ASC for IoT security agent](how-to-deploy-linux-cs.md) on your IoT device, or new VM.
 1. Follow the instructions for [trigger_events](https://aka.ms/iot-security-github-trigger-events) to run a simulation of a harmless attack.
 1. Verify ASC for IoT alerts in response to the simulated attack in the previous step. 
     - Begin verification five minutes after running the script.
@@ -76,4 +76,4 @@ Make use of ASC for IoT enhanced security capabilities, such as monitoring remot
 - Configure your [solution](quickstart-configure-your-solution.md)
 - [Create security modules](quickstart-create-security-twin.md)
 - Configure [custom alerts](quickstart-create-custom-alerts.md)
-- [Deploy a security agent](select-deploy-agent.md)
+- [Deploy a security agent](how-to-deploy-agent.md)

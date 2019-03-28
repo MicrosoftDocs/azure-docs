@@ -1089,9 +1089,7 @@ You now have a fully transformed and prepared dataflow object to use in a machin
 ```python
 import os
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-
-package = dprep.Package([final_df])
-package.save(file_path)
+final_df.save(file_path)
 ```
 
 ## Clean up resources

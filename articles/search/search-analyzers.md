@@ -4,7 +4,7 @@ description: Assign analyzers to searchable text fields in an index to replace d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
@@ -92,16 +92,18 @@ If a search fails to return expected results, the most likely scenario is token 
 
 The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
-## Examples
+<a name="examples"></a>
+
+## REST examples
 
 The examples below show analyzer definitions for a few key scenarios.
 
-+ [Custom analyzer example](#Example1)
-+ [Assign analyzers to a field example](#Example2)
-+ [Mixing analyzers for indexing and search](#Example3)
-+ [Language analyzer example](#Example4)
++ [Custom analyzer example](#Custom-analyzer-example)
++ [Assign analyzers to a field example](#Per-field-analyzer-assignment-example)
++ [Mixing analyzers for indexing and search](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Language analyzer example](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### Custom analyzer example
 
@@ -175,7 +177,7 @@ Walking through this example:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### Per-field analyzer assignment example
 
@@ -208,7 +210,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### Mixing analyzers for indexing and search operations
 
@@ -236,7 +238,7 @@ The APIs include additional index attributes for specifying different analyzers 
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### Language analyzer example
 
@@ -268,6 +270,69 @@ Fields containing strings in different languages can use a language analyzer, wh
      ],
   }
 ~~~~
+
+## C# examples
+
+If you are using the .NET SDK code samples, you can append these examples to use or configure analyzers.
+
++ [Assign a built-in analyzer](#Assign-a-language-analyzer)
++ [Configure an analyzer](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### Assign a language analyzer
+
+Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an analyzer construct. 
+
+This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
+
+Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specifying the [AnalyzerName class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) that provides all of the text analyzers supported in Azure Search.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### Define a custom analyzer
+
+When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
+
+Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) to create the object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
 
 ## Next steps
 

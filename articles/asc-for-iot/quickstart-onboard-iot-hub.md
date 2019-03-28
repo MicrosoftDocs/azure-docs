@@ -35,7 +35,7 @@ This article provides an explanation of how to enable the ASC for IoT preview se
 ## Prerequisites for enabling the service
 
 - Log Analytics workspace
-  - Two types of information are stored by default in your Log Analytics workspace by by ASC for IoT; **security alerts** and **recommendations**. 
+  - Two types of information are stored by default in your Log Analytics workspace by ASC for IoT; **security alerts** and **recommendations**. 
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs. 
 - IoT Hub (standard tier or higher)
 
