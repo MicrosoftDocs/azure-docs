@@ -85,7 +85,7 @@ To find cross street addresses, that is, 1st Avenue & Union Street, Seattle, spe
 
 **Usage Examples**:
 
-* Get Search Address:
+Get Search Address:
 
 
 ```
@@ -153,7 +153,7 @@ We strongly advise you to use the `countrySet` parameter to specify countries wh
 POI Search supports searching Airports by using the official Airport codes. For example, **SEA** (Seattle-Tacoma International Airport). 
 
 ```
-https://atlas.microsoft.com/search/poi/json?subscription-key=[you_key]&api-version=1.0&query=SEA 
+https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=SEA 
 ```
 
 ### Nearby search
@@ -165,7 +165,7 @@ To retrieve only POI results around a specific location, the nearby search metho
 Lets make a Address search request to the Azure Maps search service for an address in Seattle. If you look carefully at the request URL below, we have set the `countrySet` parameter to **US** to search for the address in the United States of America.
 
 ```
-https://atlas.microsoft.com/search/address/json?subscription-key=tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
 ```
 
 Further lets have a look at the response structure below. The result type of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are Point Address, Street, and Cross Street. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
@@ -413,7 +413,7 @@ Supported types of result:
 
 ### Geometry Data
 
-Search Address or Search Fuzzy APIs response can include the geometry ID that is returned in the dataSources object under "geometry" and "id".  For example, Get Polygon  service allows you to request the geometry data such as a city or airport outline for a set of entities, previously retrieved from an Online Search request in GeoJSON format. You can also use boundary data with Geofencing service. 
+Search Address or Search Fuzzy APIs response can include the geometry ID that is returned in the dataSources object under "geometry" and "id".  For example, Get Polygon service allows you to request the geometry data such as a city or airport outline for a set of entities, previously retrieved from an Online Search request in GeoJSON format. You can also use boundary data with Geofencing service. 
 
 
 ```JSON 
