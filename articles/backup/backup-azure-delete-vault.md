@@ -20,10 +20,9 @@ Before you start, it's important to understand that you can't delete a Recovery 
 
 - To delete a vault gracefully, you unregister servers in it, remove vault data, and then delete the vault.
 - If you try to delete a vault that still has dependencies, an error message is issued. and you need to manually remove the vault dependencies, including:
-    - Backup items, including Azure Storage (Azure Files) backups
-    - Azure virtual machines backups
-    - Microsoft Azure Backup Server (MABS) backups
-    - System Center DPM backups
+    - Backed up items
+    - Protected servers
+    - Backup management servers (Azure Backup Server, DPM) 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - If you don't want to retain any data in the Recovery Services vault, and want to delete the vault, you can delete the vault by force.
 - If you try to delete a vault, but can't, the vault is still configured to receive backup data.
@@ -86,6 +85,9 @@ To delete a vault by force:
 10. In the Azure portal, verify that the vault is deleted.
 
 
+## Remove vault items and delete the vault
+
+These procedure provide some examples for removing backup data and infrastructure servers. After everything's removed from a vault, you can delete it.
 
 ### Remove backup items
 
