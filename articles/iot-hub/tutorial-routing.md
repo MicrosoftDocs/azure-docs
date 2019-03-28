@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using CLI and the Azure portal| Microsoft Docs
-description: Configure message routing for Azure IoT Hub using CLI and the Azure portal
+title: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal| Microsoft Docs
+description: Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -12,15 +12,15 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using PowerShell.
 ---
 
-# Tutorial: Configure IoT Hub message routing using CLI and the Azure portal
+# Tutorial: Configure IoT Hub message routing using the Azure CLI and the Azure portal
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## Create your resources using Azure CLI
+## Create your resources using the Azure CLI
 
-This tutorial creates the base resources using Azure CLI, then uses the [Azure portal](https://portal.azure.com) to show how to configure message routing and set up the virtual device for testing.
+This tutorial creates the base resources using the Azure CLI, then uses the [Azure portal](https://portal.azure.com) to show how to configure message routing and set up the virtual device for testing.
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 

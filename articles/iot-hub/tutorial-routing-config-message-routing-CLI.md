@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using Azure CLI | Microsoft Docs
-description: Configure message routing for Azure IoT Hub using Azure CLI
+title: Configure message routing for Azure IoT Hub using the Azure CLI | Microsoft Docs
+description: Configure message routing for Azure IoT Hub using the Azure CLI
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using Azure CLI.
+#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using the Azure CLI.
 ---
 
-# Tutorial: Configure IoT Hub message routing using Azure CLI
+# Tutorial: Configure IoT Hub message routing using the Azure CLI
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -24,7 +24,7 @@ For the second part of this tutorial, you download and run a Visual Studio appli
 
 If you want to view the finished script, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Unzip the master.zip file. The Azure CLI script is in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **iothub_routing_cli.azcli**.
 
-## Create your resources using Azure CLI
+## Create your resources using the Azure CLI
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value. 
 

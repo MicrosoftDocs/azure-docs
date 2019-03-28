@@ -30,7 +30,7 @@ Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Sample
 
 ## Create your resources
 
-You're going to create all of your resources using an Azure Resource Manager (RM) template. Unlike Azure CLI or PowerShell, you deploy the whole template at one time. This article shows you the sections separately to help you understand each one. Then it will show you how to deploy the template, and create the virtual device for testing. After the template is deployed, you can view the message routing configuration in the portal.
+You're going to create all of your resources using an Azure Resource Manager (RM) template. The Azure CLI and PowerShell scripts can be run a few lines at a time. An RM template is deployed in one step. This article shows you the sections separately to help you understand each one. Then it will show you how to deploy the template, and create the virtual device for testing. After the template is deployed, you can view the message routing configuration in the portal.
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make naming the resources easier, those resource names are set up to append a random alphanumeric value generated from the current date/time. 
 
