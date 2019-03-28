@@ -22,18 +22,18 @@ This image illustrates an application that has three listeners. The first two ar
 
 ### Azure Virtual Network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the Application Gateway subnet.
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
 
 > [!NOTE]
-> You can't mix Standard_v2 and Standard Application Gateway on the same subnet.
+> You can't mix Standard_v2 and Standard Azure Application Gateway on the same subnet.
 
 #### Size of the subnet
 
 Application Gateway consumes one private IP address per instance, plus another private IP address if a private front-end IP is configured.
 
-Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 instances of Application Gateway with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the Application Gateway instances. So, you need a /27 subnet size or larger.
+Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 application gateway instances with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the application gateway instances. So, you need a /27 subnet size or larger.
 
-Consider a subnet that has 27 Application Gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the Application Gateway instances, 1 for the private front end, and 5 for internal use. So, you need a /26 subnet size or larger.
+Consider a subnet that has 27 application gateway instances and an IP address for a private front-end IP. In this case, you need 33 IP addresses: 27 for the application gateway instances, 1 for the private front end, and 5 for internal use. So, you need a /26 subnet size or larger.
 
 We recommend that you use a subnet size of at least /28. This size gives you 11 usable IP addresses. If your application load requires more than 10 IP addresses, consider a /27 or /26 subnet size.
 
@@ -71,7 +71,7 @@ For the v2 SKU, UDRs aren't supported on the Application Gateway subnet. For mor
 
 ## Front-end IP
 
-You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint. An Application Gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
+You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the internet via an internet-facing virtual IP (VIP). A public IP isn't required for an internal endpoint that's not exposed to the internet. That's known as an *internal load-balancer* (ILB) endpoint. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the internet but that require round-robin load distribution, session stickiness, or SSL termination.
 
 Only 1 public IP address or 1 private IP address is supported. You choose the front-end IP when you create the application gateway.
 
@@ -93,7 +93,7 @@ When you create a new listener, you choose between [*basic* and *multi-site*](ht
 
 - If you're hosting a single site behind an application gateway, choose basic. Learn [how to create an application gateway with a basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you're configuring more than one web application or multiple subdomains of the same parent domain on the same Application Gateway instance, choose multi-site listener. For a multi-site listener, you must also enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
+- If you're configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, choose multi-site listener. For a multi-site listener, you must also enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
 
 #### Order of processing listeners
 
@@ -127,7 +127,7 @@ See [certificates supported for SSL termination](https://docs.microsoft.com/azur
 
 #### HTTP2 support
 
-HTTP/2 protocol support is available to clients that connect to Application Gateway listeners only. The communication to back-end server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet shows how to enable this:
+HTTP/2 protocol support is available to clients that connect to application gateway listeners only. The communication to back-end server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet shows how to enable this:
 
 ```azurepowershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
