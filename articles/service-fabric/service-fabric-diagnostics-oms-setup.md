@@ -46,7 +46,7 @@ If you want to add a Log Analytics workspace after you have deployed a cluster, 
 If you are using Windows, continue with the following steps to connect Azure Monitor logs to the storage account where your cluster events are stored. 
 
 >[!NOTE]
->The Service Fabric Analytics solution is only supported for Windows clusters. Check out our article on [how to set up Azure Monitor logs for Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md).  
+>The Service Fabric Analytics solution is only supported for Windows clusters. For Linux clusters, check out our article on [how to set up Azure Monitor logs for Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md).  
 
 ### Connect the Log Analytics workspace to your cluster 
 
