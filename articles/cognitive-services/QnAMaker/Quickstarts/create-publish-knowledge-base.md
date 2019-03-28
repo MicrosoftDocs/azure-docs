@@ -77,7 +77,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 ## Create a bot
 
 1. In the QnA Maker portal, on the **Publish** page, select **Create bot**. This button appears only after the knowledge base is published.
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. For more information on these configuration settings, see [Create a knowledge base bot](create-publish-query-in-portal.md#create-a-knowledge-base-bot)
+1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. For more information on these configuration settings, see [Create a knowledge base bot](../Tutorials/create-publish-query-in-portal.md#create-a-knowledge-base-bot)
     
     * Do not change the **QnA Auth Key**, which is pre-populated with the correct key.
     * The bot and QnA Maker can share the web app service _plan_ but can't share the web app. This means the **app name** must be different from the app name you used when you create the QnA Maker service. 
