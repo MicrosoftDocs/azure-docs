@@ -25,7 +25,7 @@ You can exchange your reservation with three quick steps in the [Azure portal](h
 
 1. Select the reservations that you want to refund and click **Exchange**.  
     ![Example image showing reservations to return ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](../virtual-machines/windows/prepay-reserved-vm-instances.mdn#determine-the-right-vm-size-before-you-buy).  
+2. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Example image showing the VM product to purchase with an exchange ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Review and complete the transaction.  
     ![Example image showing the VM product to purchase with an exchange, completing the return ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
@@ -77,7 +77,7 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage Azure Reservations](.billing-manage-reserved-vm-instance.md).
+- To learn how to manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 - To learn more about Azure Reservations, see the following articles:
     - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
     - [Manage Reservations in Azure](billing-manage-reserved-vm-instance.md)
