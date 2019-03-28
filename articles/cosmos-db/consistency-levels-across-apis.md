@@ -30,6 +30,8 @@ The following table illustrates how the native Cassandra consistency levels are 
 
 ![Cassandra consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)
 
+[ ![Cassandra consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+
 ## <a id="mongo-mapping"></a>Mapping between MongoDB and Azure Cosmos DB consistency levels
 
 Unlike Azure Cosmos DB, the native MongoDB does not provide precisely defined consistency guarantees. Instead, native MongoDB allows users to configure the following consistency guarantees: a write concern, a read concern, and the isMaster directive - to direct the read operations to either primary or secondary replicas to achieve the desired consistency level. 
@@ -46,7 +48,7 @@ While using Azure Cosmos DB’s API for MongoDB:
 
 The following table illustrates how the native MongoDB write/read concerns are mapped to the Azure Cosmos consistency levels when using Azure Cosmos DB’s API for MongoDB:
 
-![MongoDB consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)
+[ ![MongoDB consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## Next steps
 
