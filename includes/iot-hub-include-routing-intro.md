@@ -18,7 +18,7 @@ In this 2-part tutorial, you learn how to set up and use these custom routing qu
 
 **Part I: Create resources, set up message routing**
 > [!div class="checklist"]
-> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device. This can be done using the portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
+> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device. This can be done using the portal, the Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 > * Configure the endpoints and message routes in IoT Hub for the storage account and Service Bus queue.
 
 **Part II: Send messages to the hub, view routed results**

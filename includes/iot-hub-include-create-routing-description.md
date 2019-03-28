@@ -9,7 +9,7 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ---
-<!-- description of message routing used in the CLI, PowerShell, and RM routing articles.-->
+<!-- description of message routing used in the Azure CLI, PowerShell, and RM routing articles.-->
 
 You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events). In the next tutorial, you send messages to the IoT Hub and see them routed to the different destinations.
 
