@@ -1,14 +1,11 @@
 ---
 title: Create users in Azure Database for PostgreSQL server
 description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL server.
-services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
-manager: jhubbard
-ms.service: postgresql-database
-ms.topic: article
-ms.date: 02/28/2018
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 10/16/2018
 ---
 
 # Create users in Azure Database for PostgreSQL server 
@@ -34,7 +31,7 @@ The server admin user account can be used to create additional users and grant t
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal. 
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
-   If you are unsure of how to connect, see [Connect to the PostgreSQL Database by using psql in Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   If you are unsure of how to connect, see [the quickstart](./quickstart-create-server-database-portal.md)
 
 3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password. 
 

@@ -1,20 +1,13 @@
 ---
-title: What's New in Azure Data Catalog | Microsoft Docs
+title: What's New in Azure Data Catalog
 description: This article provides an overview of new capabilities added to Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # What's new in Azure Data Catalog
 Updates to **Azure Data Catalog** are released regularly. Not every release includes new user-facing features, as some releases are focused on back-end service capabilities. This page highlights new user-facing capabilities added to the Azure Data Catalog service.
@@ -46,7 +39,7 @@ As of August 2017, the following capabilities have been added to Azure Data Cata
 
 ## What's new for July 2017 
 As of July 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for more granular control over permited metadata operations including:
+*	Support for more granular control over permitted metadata operations including:
     - Catalog administrators can restrict users’ ability to contribute tags and related metadata to the catalog, enabling read-only access to the catalog.
     - Catalog administrators can restrict users’ ability to register new data sources in the catalog.
     - Catalog administrators can restrict users’ ability to take ownership of data asset metadata in the catalog.
@@ -241,7 +234,7 @@ As of September 2015, the following capabilities have been added to Azure Data C
 * A new "getting started" data source discovery experience in the Azure Data Catalog portal. When users enter the "discover" page of the Azure Data Catalog portal without entering a search term, they are presented with an overview of the catalog contents including the most frequently used tags, experts, data source types, and object types.
 * Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, Azure Data Catalog creates an entry for the SSAS model and SSRS server, and for the reports and other objects. The containers can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
-* Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+* Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https:\//servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 * Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS, Azure Data Catalog creates an entry for the database, tables, and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
 * Support for manually registering unknown data source types. Users can manually enter data source information using the Azure Data Catalog portal, so that data sources not explicitly supported by the data source registration tool can be annotated and discovered.

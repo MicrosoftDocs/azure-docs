@@ -7,15 +7,15 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 
 ---
 
@@ -29,14 +29,16 @@ You can create a Windows Server 2016 virtual machine by using Azure Stack PowerS
 * Install the IIS web server and view the default home page.
 * Clean up your resources.
 
->[!NOTE]
- You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
+> [!NOTE]
+>  You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
 
 ## Prerequisites
 
-* Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.
+* Make sure that your Azure Stack operator has added the **Windows Server 2016** image to the Azure Stack marketplace.
 
-* Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) and [configure](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) PowerShell.
+
+* With the Azure Stack PowerShell set up, you will need to connect to your Azure Stack environment. For instruction, see [Connect to Azure Stack with PowerShell as a user](azure-stack-powershell-configure-user.md).
 
 ## Create a resource group
 

@@ -3,7 +3,7 @@ title: Azure Relay API overview | Microsoft Docs
 description: Overview of available Azure Relay APIs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
+ms.author: spelluru
 ---
 
 # Available Relay APIs
@@ -39,7 +39,7 @@ The .NET ecosystem has multiple runtimes, hence there are multiple .NET
 libraries for the Relay. The .NET Standard library can be run using either
 .NET Core or the .NET Framework, while the .NET Framework library can only be
 run in a .NET Framework environment. For more information on .NET Frameworks,
-see [framework versions](/dotnet/articles/standard/frameworks#framework-versions).
+see [framework versions](/dotnet/articles/standard/frameworks).
 
 The .NET Framework library only supports the WCF programming model and relies
 on a proprietary binary protocol based on the WCF `net.tcp` transport. This

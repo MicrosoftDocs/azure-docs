@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Tidemark
 
@@ -110,12 +111,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following patterns: 
+
 	| |
 	|--|
 	| `https://<subdomain>.tidemark.com/login` |
 	| `https://<subdomain>.tidemark.net/login` |
 
 	b. In the **Identifier** textbox, type a URL using the following patterns: 
+	
 	| |
 	|--|
 	| `https://<subdomain>.tidemark.com/saml` |

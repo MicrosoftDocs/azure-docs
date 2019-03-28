@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 11/05/2018
 
 ---
 # Recover from catastrophic data loss
 
 *Applies to: Azure Stack integrated systems.*
 
-Azure Stack runs Azure services in your datacenter. Azure Stack can run on environments as small as four nodes installed in a single rack. In contrast, Azure runs in more than 40 regions in multiple datacenters and multiple zones in each region. User resources can span multiple servers, racks, datacenters, and regions. With Azure Stack, you currently  only have the choice to deploy your entire cloud to a single rack. This exposes your cloud to the risk of catastrophic events at your datacenter or failures due to major product bugs. When a disaster strikes, the Azure Stack instance goes offline. All of the data is potentially unrecoverable.
+Azure Stack runs Azure services in your datacenter and can run on environments as small as four nodes installed in a single rack. In contrast, Azure runs in more than 40 regions in multiple datacenters and multiple zones in each region. User resources can span multiple servers, racks, datacenters, and regions. With Azure Stack, you currently  only have the choice to deploy your entire cloud to a single rack. This exposes your cloud to the risk of catastrophic events at your datacenter or failures due to major product bugs. When a disaster strikes, the Azure Stack instance goes offline. All of the data is potentially unrecoverable.
 
 Depending on the root cause of the data loss, you may need to repair a single infrastructure service or restore the entire Azure Stack instance. You may even need to restore to different hardware in the same location or in a different location.
 
@@ -36,11 +37,11 @@ This scenario addresses recovering your entire installation in the event of a fa
 
 The journey of protecting Azure Start starts with backing up the infrastructure and app/tenant data separately. This document covers how to protect the infrastructure. 
 
-![Initial deployment of Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Initial deployment of Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 In worst case scenarios where all data is lost, recovering Azure Stack is the process of restoring the infrastructure data unique to that deployment of Azure Stack and all user data. 
 
-![Redeploy Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Redeploy Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## Restore
 
@@ -69,4 +70,4 @@ None of the user Infrastructure as a Service (IaaS) or Platform as a Service (Pa
 
 ## Next steps
 
- - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).
+Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).

@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create a VM by attaching a managed disk as OS d
 description: Azure CLI Script Sample - Create a VM by attaching a managed disk as OS disk
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -48,8 +48,8 @@ This script uses the following commands to get managed disk properties, attach a
 
 | Command | Notes |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a VM using a managed OS disk |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates a VM using a managed OS disk |
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).

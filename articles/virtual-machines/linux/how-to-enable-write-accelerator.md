@@ -14,10 +14,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 5/9/2018
+ms.date: 2/20/2019
 ms.author: raiye
 ms.custom: H1Hack27Feb2017
-
+ms.subservice: disks
 ---
 
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

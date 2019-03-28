@@ -103,7 +103,7 @@ In our example, both Factory-Y and Technician-Z interact with the Smart-X-Widget
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-This is a good point to review the value of the X.509 CA method.  Instead of pre-generating and handing off certificates for every Smart-X-Widget into the supply chain, Company-X only hand to sign Factory-Y once.  Instead of having to track every device throughout the devices life-cycle, Company-X may not track and manage devices through groups that naturally emerge from the supply chain process, for example,  devices installed by Technician-Z after July of some year.
+This is a good point to review the value of the X.509 CA method.  Instead of pre-generating and handing off certificates for every Smart-X-Widget into the supply chain, Company-X only had to sign Factory-Y once.  Instead of having to track every device throughout the device's life-cycle, Company-X may now track and manage devices through groups that naturally emerge from the supply chain process, for example,  devices installed by Technician-Z after July of some year.
 
 Last but not least, the CA method of authentication infuses secure accountability into the device manufacturing supply chain. Because of the certificate chain process, the actions of every member in the chain is cryptographically recorded and verifiable.
 

@@ -4,12 +4,12 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: ba25fade-e152-42dd-8377-a30bbc48c3ed
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Rally Software
 
@@ -202,7 +203,7 @@ For Azure AD users to be able to sign in, they must be provisioned to the Rally 
 
 	a. In the **User Name** textbox, type the name of user like **Brittsimon**.
    
-    b. In **E-mail Address** textbox, enter the email of user like **brittasimon@contoso.com**.
+    b. In **E-mail Address** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	c. In **First Name** text box, enter the first name of user like **Britta**.
 

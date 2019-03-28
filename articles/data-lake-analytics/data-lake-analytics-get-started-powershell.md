@@ -5,10 +5,10 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/04/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
@@ -17,6 +17,8 @@ ms.date: 05/04/2017
 Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts and then submit and run U-SQL jobs. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Before you begin this tutorial, you must have the following information:
 
@@ -30,13 +32,13 @@ This tutorial assumes you are already familiar with using Azure PowerShell. In p
 To log in with a subscription name:
 
 ```
-Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Instead of the subscription name, you can also use a subscription id to log in:
 
 ```
-Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 If  successful, the output of this command looks like the following text:
@@ -90,7 +92,7 @@ OUTPUT @a
 Submit the script text with the `Submit-AdlJob` cmdlet and the `-Script` parameter.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 As an alternative, you can submit a script file using the `-ScriptPath` parameter:
@@ -98,7 +100,7 @@ As an alternative, you can submit a script file using the `-ScriptPath` paramete
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 ```
 
 Get the status of a job with `Get-AdlJob`. 

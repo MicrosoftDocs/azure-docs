@@ -13,16 +13,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
+ms.lastreviewed: 08/30/2018
 ---
 
 # Network connectivity
 This article provides Azure Stack network infrastructure information to help you decide how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
-> To resolve external DNS names from Azure Stack (for example, www.bing.com), you need to provide DNS servers to forward DNS requests. For more information about Azure Stack DNS requirements, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
+> To resolve external DNS names from Azure Stack (for example, www\.bing.com), you need to provide DNS servers to forward DNS requests. For more information about Azure Stack DNS requirements, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ## Physical network design
 The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Uplinks from ToR to Border switches are limited to SFP+ or SFP28 media and 1 GB, 10 GB, or 25 GB speeds. Check with your original equipment manufacturer (OEM) hardware vendor for availability. The following diagram presents our recommended design:
@@ -37,11 +38,11 @@ The following table shows the logical networks and associated IPv4 subnet ranges
 
 | Logical Network | Description | Size | 
 | -------- | ------------- | ------------ | 
-| Public VIP | Azure Stack uses a total of 32 addresses from this network. Eight public IP addresses are used for a small set of Azure Stack services, and the rest are used by tenant virtual machines. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
+| Public VIP | Azure Stack uses a total of 31 addresses from this network. Eight public IP addresses are used for a small set of Azure Stack services, and the rest are used by tenant virtual machines. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. The remaining 15 IPs are reserved for future Azure services. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
 | Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
 | Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
 | Private | Used for the storage network and private VIPs. | /24 | 
-| BMC | Used to communicate with the BMCs on the physical hosts. | /27 | 
+| BMC | Used to communicate with the BMCs on the physical hosts. | /26 | 
 | | | |
 
 ## Network infrastructure
@@ -62,9 +63,6 @@ This /24 (254 host IPs) network is private to the Azure Stack region (does not e
 
 ### Azure Stack infrastructure network
 This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs). It isn’t expected to be routed beyond the border switches except for a small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
-
-### Public infrastructure network
-This /27 network is the small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and during infrastructure backups. The ERCS VM should be routable to your management network for troubleshooting purposes.
 
 ### Public VIP network
 The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure reserves the first 31 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.

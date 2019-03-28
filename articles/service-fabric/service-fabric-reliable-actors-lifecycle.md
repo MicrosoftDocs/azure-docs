@@ -1,5 +1,5 @@
 ---
-title: Overview of actor-based Azure microservices lifecycle | Microsoft Docs
+title: Overview the Azure Service Fabric actor lifecycle | Microsoft Docs
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 services: service-fabric
 documentationcenter: .net
@@ -119,7 +119,7 @@ Garbage collection of deactivated actors only cleans up the actor object, but it
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

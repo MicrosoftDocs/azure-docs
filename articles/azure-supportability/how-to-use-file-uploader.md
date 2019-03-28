@@ -4,7 +4,7 @@ description: Describes the guidelines when using Microsoft Azure new support req
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager:
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---

@@ -3,7 +3,7 @@ title: Resource provider API versions supported by profiles in Azure Stack | Mic
 description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,9 +11,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
-ms.author: mabrigg
+ms.date: 01/05/2019
+ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/05/2019
 
 ---
 
@@ -22,14 +23,15 @@ ms.reviewer: sijuman
 You can find the resource provider and version numbers for each API profile used by Azure Stack in this article. The tables in this article list the versions supported for each resource provider and the API versions of the profiles. Each resource provider contains a set of resource types and specific version numbers.
 
 The API profile uses three naming conventions:
- - latest
- - yyyy-mm-dd-hybrid
- - yyyy-mm-dd-profile
+
+ - **latest**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 For an explanation of API profiles and version release cadence for Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
+> The **latest** API profile contains the latest version of the resource provider API, and is not listed in this article.
 
 ## Overview of 2018 – 03-01-hybrid
 
@@ -51,35 +53,13 @@ For an explanation of API profiles and version release cadence for Azure Stack, 
 | Resources_Locks | 2016-10-01 |
 | Subscriptions | 2016-10-01 |
 
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
-
-## Overview of 2017-03-09-profile
-
-| Resource provider | Api-version |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (Data Plane) | 2015-04-05  |
-| Microsoft.Storage (Control Plane) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Not changing) |
-| Microsoft.Resources<br>(Azure Resource Manager itself) | 2016-02-01 |
-| Microsoft.Authorization<Br>(policy operations) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Policy | 2015-10-01-preview |
-| Resources | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Subscriptions | 2016-06-1 |
-
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2017-03-09-profile](#details-for-the-2017-03-09-profile)
+For more a list of the versions for each resource type for the providers in the API profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
 
 ## Details for the 2018-03-01-hybrid
 
 ### Microsoft.Authorization
 
-You use role-based access control to manage the actions users in your organization can take on resources. This set of operations enables you to define roles, assign roles to users or groups, and get information about permissions. For more information, see [Authorization](https://docs.microsoft.com/rest/api/authorization/).
+You use role-based access control to manage the actions users in your organization can take on resources. This set of operations enables you to define roles, assign roles to users or groups, and get information about permissions. For more information, see [Authorization](/rest/api/authorization/).
 
 | Resource Types | API Versions |
 |---------------------|--------------------|
@@ -105,7 +85,7 @@ You use role-based access control to manage the actions users in your organizati
 
 ### Microsoft.Compute
 
-The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
+The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](/rest/api/compute/).
 
 | Resource Type | API Version |
 |---------------------------------------------------------------|-------------|
@@ -152,7 +132,7 @@ The Azure Compute APIs give you programmatic access to virtual machines and thei
 
 ### Microsoft.KeyVault
 
-Managing your key vaults as well as the keys, secrets, and certificates within your key vaults. For more information, see [Azure Key Vault REST API reference](https://docs.microsoft.com/rest/api/keyvault/).
+Managing your key vaults as well as the keys, secrets, and certificates within your key vaults. For more information, see the [Azure Key Vault REST API reference](/rest/api/keyvault/).
 
 | Resource Types | API Versions |
 |-------------------------|--------------|
@@ -163,7 +143,7 @@ Managing your key vaults as well as the keys, secrets, and certificates within y
 
 ### Microsoft.Network
 
-Operations call result is a representation of available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).
+The operations call result is a representation of the available network cloud operations list. For more information, see [Operation REST API](/rest/api/operation/).
 
 | Resource Types | API Versions |
 |---------------------------|--------------|
@@ -185,39 +165,39 @@ Operations call result is a representation of available Network cloud operations
 
 ### Microsoft.Resources
 
-Azure Resource Manager enables you to deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups, and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager enables you to deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups, and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 | Resource Types | API Versions |
 |-----------------------------------------|-------------------|
 | Application Registrations | 2015-01-01 |
-| Check Resource Name | 2015-012016-09-01 |
+| Check Resource Name | 2016-09-01 |
 | Delegated Providers | 2015-01-01 |
 | Delegated Providers/offers | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Deployments | 2016-0209-01 |
-| Deployments/operations | 2016-0209-01 |
+| Deployments | 2016-09-01 |
+| Deployments/operations | 2016-09-01 |
 | Extensions Metadata | 2015-01-01 |
-| Links | 2015-012016-09-01 |
+| Links | 2016-09-01 |
 | Locations | 2015-01-01 |
 | Offers | 2015-01-01 |
 | Operations | 2015-01-01 |
-| Providers | 2015-012017-08-01 |
-| Resource Groups | 2015-012016-09-01 |
-| Resources | 2015-012016-09-01 |
-| Subscriptions | 2015-012016-09-01 |
-| Subscriptions/location | 2015-012016-09-01 |
-| Subscriptions/operation results | 2015-012016-09-01 |
-| Subscriptions/providers | 2015-012017-08-01 |
-| Subscriptions/Resource Groups | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Subscriptions/resources | 2015-012016-09-01 |
-| Subscriptions/tagNames | 2016-0609-01 |
-| Subscriptions/tagNames/tagValues | 2016-0609-01 |
-| Tenants | 2015-012017-08-01 |
+| Providers | 2017-08-01 |
+| Resource Groups | 2016-09-01 |
+| Resources | 2016-09-01 |
+| Subscriptions | 2016-09-01 |
+| Subscriptions/location | 2016-09-01 |
+| Subscriptions/operation results | 2016-09-01 |
+| Subscriptions/providers | 2017-08-01 |
+| Subscriptions/Resource Groups | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| Subscriptions/resources | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
+| Tenants | 2017-08-01 |
 
 ### Microsoft.Storage 
 
-The Storage Resource Provider (SRP) enables you to manage your storage account and keys programmatically. For more information, see [Azure Storage Resource Provider REST API Reference](https://docs.microsoft.com/rest/api/storagerp/).
+The Storage Resource Provider (SRP) enables you to manage your storage account and keys programmatically. For more information, see the [Azure Storage Resource Provider REST API reference](/rest/api/storagerp/).
 
 | Resource Types | API Versions |
 |-------------------------|--------------|
@@ -228,7 +208,7 @@ The Storage Resource Provider (SRP) enables you to manage your storage account a
 | StorageAccounts | 2016-01-01 |
 | Usages | 2016-01-01 |
 
-## Details for the 2017-03-09-profile
+## Details for the 2018-03-01-hybrid
 
 ### Microsoft Authorization
 
@@ -308,7 +288,7 @@ The Storage Resource Provider (SRP) enables you to manage your storage account a
 | Subscriptions/Resource Groups | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Subscriptions/resources | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Tenants | 2017-08-01 |
 

@@ -11,7 +11,8 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: aaddev, vs-azure
+ms.collection: M365-identity-device-management
 ---
 # Diagnosing errors with the Azure Active Directory Connected Service
 

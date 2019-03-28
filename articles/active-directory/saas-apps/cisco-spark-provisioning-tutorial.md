@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cisco Spark for automatic user provisioning
@@ -24,7 +25,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ci
 
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## Prerequisites
 
@@ -108,29 +109,29 @@ This section guides you through the steps to configure the Azure AD provisioning
 	*   In the **Secret Token** field, populate the Secret Token as described in step 6.
 
 1. The **Tenant ID** and **Secret Token** for your Cisco Spark account can be found by logging into the [Cisco Spark developer site](https://developer.webex.com/) with your Admin account. Once logged in -
-	* Go to the [Getting Started page](https://developer.webex.com/getting-started.html)
-	* Scroll down to the [Authentication Section](https://developer.webex.com/getting-started.html#authentication)
-	![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-	* The alphanumeric string in the box is your **Secret Token**. Copy this token to the clipboard
-	* Go to the [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)
-		* Make sure that Test Mode is ON
-		* Type the word "Bearer" followed by a space, and then paste the Secret Token into the Authorization field
-    ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-		* Click Run
-	* In the response text to the right, the **Tenant ID** appears as "orgId":
+   * Go to the [Getting Started page](https://developer.webex.com/getting-started.html)
+   * Scroll down to the [Authentication Section](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * The alphanumeric string in the box is your **Secret Token**. Copy this token to the clipboard
+   * Go to the [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)
+       * Make sure that Test Mode is ON
+       * Type the word "Bearer" followed by a space, and then paste the Secret Token into the Authorization field
+     ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Click Run
+   * In the response text to the right, the **Tenant ID** appears as "orgId":
 
-	```json
-	{
-		"id": "(...)",
-		"emails": [
-			"admin.user@contoso.com"
-		],
-		"displayName": "John Smith",
-		"nickName": "John",
-		"orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-		(...)
-	}
-	```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cisco Spark. If the connection fails, ensure your Cisco Spark account has Admin permissions and try again.
 
@@ -150,7 +151,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cisco Spark Provisioning](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../active-directory-saas-scoping-filters.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Cisco Spark, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -167,7 +168,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cisco Spark.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
 
@@ -181,7 +182,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

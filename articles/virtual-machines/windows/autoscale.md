@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale Azure VMs | Microsoft Docs
 description: Learn about automatically scaling Windows and Linux virtual machines in Azure.
 services: virtual-machines-windows
@@ -14,6 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.date: 08/21/2017
 ms.author: cynthn
+ms.topic: conceptual
 ---
 
 # Automatically scale virtual machines in Azure

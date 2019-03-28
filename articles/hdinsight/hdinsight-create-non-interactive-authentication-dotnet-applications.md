@@ -1,15 +1,15 @@
 ---
 title: Create non-interactive authentication .NET applications in Azure HDInsight 
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Create a non-interactive authentication .NET HDInsight application
@@ -17,9 +17,9 @@ You can run your Microsoft .NET Azure HDInsight application either under the app
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* The Azure AD application secret key. See [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## Prerequisites
 * An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -30,16 +30,17 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 **To add the Owner role to the Azure AD application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left menu, select **Resource Group**.
+2. In the left menu, select **Resource groups**.
 3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this tutorial. If you have a large number of resource groups, you can use the filter to find the one you want.
 4. On the resource group menu, select **Access control (IAM)**.
-5. Under **Users**, select **Add**.
-6. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under **Users**, with the Owner role. 
+5. Select the **Role assignments** tab to see the current role assignments.
+6. At the top of the page, select **Add role assignment**.
+7. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under the Owner role. 
 
 ## Develop an HDInsight client application
 
 1. Create a C# console application.
-2. Add the following NuGet packages:
+2. Add the following [NuGet](https://www.nuget.org/) packages:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -115,6 +116,6 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 
 
 ## Next steps
-* [Create an Azure Active Directory application and service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* Learn how to [authenticate a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Create an Azure Active Directory application and service principal in the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+* Learn how to [authenticate a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Learn about [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).

@@ -3,18 +3,18 @@ title: Create a Relay namespace using the Azure portal | Microsoft Docs
 description: How to create a Relay namespace using the Azure portal.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
-ms.author: sethm
+ms.author: spelluru
 ---
 
 # Create a Relay namespace using the Azure portal

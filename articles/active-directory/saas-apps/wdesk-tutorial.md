@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Wdesk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Wdesk
 
@@ -216,7 +217,7 @@ To enable Azure AD users to log in to Wdesk, they must be provisioned into Wdesk
    
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser1.png)  
 
-1. In **User** text box, enter the username of user like **brittasimon@contoso.com** and click **Continue** button.
+1. In **User** text box, enter the username of user like **brittasimon\@contoso.com** and click **Continue** button.
 
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser3.png)
 
@@ -224,7 +225,7 @@ To enable Azure AD users to log in to Wdesk, they must be provisioned into Wdesk
   
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser4.png)
  
-    a. In **E-mail** text box, enter the email of user like **brittasimon@contoso.com**.
+    a. In **E-mail** text box, enter the email of user like **brittasimon\@contoso.com**.
 
     b. In **First Name** text box, enter the first name of user like **Britta**.
 

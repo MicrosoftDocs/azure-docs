@@ -4,7 +4,7 @@ description: Describes how to pay for Azure subscriptions by invoice
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: banders
 
 ---
 # Submit a request to pay Azure subscription by invoice
@@ -23,7 +23,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
 > [!IMPORTANT]
 > * Invoice pay is only available for business accounts.
-> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like ClearDB or SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
+> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
 > * Once you switch to invoice pay, you can't switch back to credit or debit card payment.
 
 ## Request pay by invoice
@@ -40,12 +40,12 @@ You can change the payment method for your Azure subscription to invoice by subm
 
     * Company name
     * Billing address
-    * [Account administrator's email address](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Account administrator's email address](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. Verify your contact information and preferred contact method, and then click **Create**.
 
 If we need to run a credit check because of the amount of credit that you need, we send you a credit check application. After you submit the application, the credit application can take 5-7 days to process.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

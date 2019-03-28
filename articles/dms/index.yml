@@ -1,0 +1,74 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Database Migration Service Documentation
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Azure Database Migration Service Documentation - Tutorials | Microsoft Docs
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: HJToland3
+  ms.author: jtoland
+  manager: craigg
+  ms.reviewer: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 03/12/2019
+abstract:
+  description: Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. When you're ready to begin the migration process, the Azure Database Migration Service performs all of the required steps.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250  
+    title: Introduction to Azure DMS (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to migrate an on-premises SQL Server to Azure SQL Database with Database Migration Service:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to migrate databases with Database Migration Service:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrate SQL Server to Azure SQL Database offline using DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrate SQL Server to Azure SQL Database online using DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrate SQL Server to Azure SQL Database Managed Instance online using DMS</a>
+    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrate RDS SQL Server to Azure SQL Database or Azure SQL Database Managed Instance online using DMS</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrate MySQL to Azure Database for MySQL online using DMS</a> 
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS</a> 
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrate MongoDB to Azure Cosmos DB Mongo API offline using DMS</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrate MongoDB to Azure Cosmos DB Mongo API online using DMS</a>  
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Migrate SQL Server on-premises to Azure SQL DB Managed Instance using Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/resource-scenario-status">Status of migration scenarios supported by the Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/pre-reqs">Overview of prerequisites for using the Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/faq">FAQ about using the Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Known issues/migration limitations with online migrations to Azure SQL DB</a>
+    - html: <a href="/azure/dms/dms-tools-matrix">Services and tools for data migration scenarios</a>

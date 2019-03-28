@@ -1,10 +1,10 @@
 ---
-title: Interpret the Azure Active Directory sign-in log schema in Azure Monitor (preview) | Microsoft Docs
+title: Azure Active Directory sign-in log schema in Azure Monitor (preview) | Microsoft Docs
 description: Describe the Azure AD sign in log schema for use in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 07/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 11/13/2018
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD sign-in logs schema in Azure Monitor (preview)
@@ -164,9 +165,9 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Identity | The identity from the token that was presented when you made the request. It can be a user account, system account, or service principal. |
 | Level | Provides the type of message. For audit, it's always *Informational*. |
 | Location | Provides the location of the sign-in activity. |
-| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the same attribute names as the sign-in resource, for readability.
+| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). This schema uses the same attribute names as the sign-in resource, for readability.
 
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Read more about Azure diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Read more about Azure diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md)

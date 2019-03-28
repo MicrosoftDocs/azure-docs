@@ -1,23 +1,26 @@
 ---
-title: How to publish a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to publish a knowledge base 
+title: Publish a knowledge base
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Publishing your knowledge base with QnA Maker API service is the final step to make your knowledge base available as a question-answering endpoint. When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: nitinme
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
+ms.date: 03/11/2019
+ms.author: tulasim
+ms.custom: seodec18
 ---
-# Publish a knowledge base
+# Publish a knowledge base using the QnA Maker API service portal
 
-Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint. 
+Publishing your knowledge base with QnA Maker API service is the final step to make your knowledge base available as a question-answering endpoint. 
 
-When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
+When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search.
 
 ![Publish prod test index](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Publish a knowledge base
 
@@ -27,8 +30,12 @@ When you publish a knowledge base, the QnA contents of your knowledge base moves
 
 2. Select **Publish** again to see the endpoint details that can be used in your application or bot code.
 
-    ![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Successfully published knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
 	
+## Clean up resources
+
+When you are done with the knowledge base, remove it in the QnA Maker portal.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

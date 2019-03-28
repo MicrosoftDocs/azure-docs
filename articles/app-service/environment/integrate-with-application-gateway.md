@@ -1,5 +1,5 @@
 ---
-title: Integrate your ILB App Service Environment with the Azure Application Gateway
+title: Integrate ILB App Service Environment with Application Gateway - Azure
 description: Walkthrough on how to integrate an app in your ILB App Service Environment with an Application Gateway
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway #
 
@@ -59,7 +60,7 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
 1. In the Azure portal, go to **New** > **Network** > **Application Gateway**.
 
-1. In the **Basics** area:
+2. In the **Basics** area:
 
    a. For **Name**, enter the name of the Application Gateway.
 
@@ -73,7 +74,7 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
    ![New Application Gateway creation basics][2]
 
-1. In the **Settings** area:
+3. In the **Settings** area:
 
    a. For **Virtual network**, select the App Service Environment virtual network.
 
@@ -89,25 +90,25 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
    ![New Application Gateway creation settings][3]
 	
-1. In the **Summary** section, review the settings and select **OK**. Your Application Gateway can take a little more than 30 minutes to complete setup.  
+4. In the **Summary** section, review the settings and select **OK**. Your Application Gateway can take a little more than 30 minutes to complete setup.  
 
-1. After your Application Gateway completes setup, go to your Application Gateway portal. Select **Backend pool**. Add the ILB address for your ILB App Service Environment.
+5. After your Application Gateway completes setup, go to your Application Gateway portal. Select **Backend pool**. Add the ILB address for your ILB App Service Environment.
 
    ![Configure backend pool][4]
 
-1. After the process of configuring your back-end pool is completed, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
+6. After the process of configuring your back-end pool is completed, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
 
    ![Configure health probes][5]
 	
-1. After the process of configuring your health probes is completed, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
+7. After the process of configuring your health probes is completed, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
 
    ![Configure HTTP settings][6]
 	
-1. Go to the Application Gateway's **Overview** section, and copy the public IP address that your Application Gateway uses. Set that IP address as an A record for your app domain name, or use the DNS name for that address in a CNAME record. It's easier to select the public IP address and copy it from the public IP address's UI rather than copy it from the link in the Application Gateway's **Overview** section. 
+8. Go to the Application Gateway's **Overview** section, and copy the public IP address that your Application Gateway uses. Set that IP address as an A record for your app domain name, or use the DNS name for that address in a CNAME record. It's easier to select the public IP address and copy it from the public IP address's UI rather than copy it from the link in the Application Gateway's **Overview** section. 
 
    ![Application Gateway portal][7]
 
-1. Set the custom domain name for your app in your ILB App Service Environment. Go to your app in the portal, and under **Settings**, select **Custom domains**.
+9. Set the custom domain name for your app in your ILB App Service Environment. Go to your app in the portal, and under **Settings**, select **Custom domains**.
 
    ![Set custom domain name on the app][8]
 
@@ -128,6 +129,6 @@ After setup is completed and you have allowed a short amount of time for your DN
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

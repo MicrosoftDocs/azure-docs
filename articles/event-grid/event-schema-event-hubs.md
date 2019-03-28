@@ -2,18 +2,19 @@
 title: Azure Event Grid event hubs event schema
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
 services: event-grid
-author: tfitzmac
-manager: timlt
+author: spelluru
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
-ms.author: tomfitz
+ms.date: 01/17/2019
+ms.author: spelluru
 ---
 
 # Azure Event Grid event schema for event hubs
 
 This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+For a list of sample scripts and tutorials, see [Event Hubs event source](event-sources.md#event-hubs).
 
 ### Available event types
 

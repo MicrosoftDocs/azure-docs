@@ -1,18 +1,17 @@
 ---
-title: Azure Key Vault customer data features | Microsoft Docs
+title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data in Key Vault
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 01/07/2019
 ms.author: barclayn
 
 ---
@@ -33,7 +32,7 @@ The following information identifies customer data within Azure Key Vault:
 - Certificate contacts may contain user email addresses, names, or phone numbers
 - Certificate issuers may contain email addresses, names, phone numbers, account credentials, and organizational details
 - Arbitrary tags can be applied to Objects in Azure Key Vault. These objects include vaults, keys, secrets, certificates, and storage accounts. The tags used may contain personal data
-- Azure Key Vault access logs contain object-IDs, [UPNs](../active-directory/connect/active-directory-aadconnect-userprincipalname.md), and IP addresses for each REST API call
+- Azure Key Vault access logs contain object-IDs, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md), and IP addresses for each REST API call
 - Azure Key Vault diagnostic logs may contain object-IDs and IP addresses for REST API calls
 
 ## Deleting customer data

@@ -3,7 +3,7 @@ title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
 description: Walkthrough of how Bash in Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: juluk
+ms.date: 09/04/2018
+ms.author: damaerte
 ---
 
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
@@ -38,9 +38,7 @@ With Bash in Cloud Shell, you can run a command called `clouddrive`, which enabl
 #### Prerequisites for manual mounting
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
-If you mount an existing file share, the storage accounts must be:
-* Locally redundant storage or geo-redundant storage to support file shares.
-* Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
+If you mount an existing file share, the storage accounts must be located in your select Cloud Shell region. Retrieve the location by running `env` from Bash and checking the `ACC_LOCATION`.
 
 #### The `clouddrive mount` command
 
@@ -100,8 +98,11 @@ The `Dismount-CloudDrive` cmdlet unmounts an Azure file share from the current s
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
+Note: If you need to define a function in a file and call it from the PowerShell cmdlets, then the dot operator must be included. 
+For example: . .\MyFunctions.ps1
+
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: 
 ---
 
 # Tutorial: Connect virtual networks with virtual network peering using the Azure portal
 
-You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this tutorial, you learn how to:
+You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as Global VNet peering). Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create two virtual networks
@@ -78,7 +78,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
     |Subscription| Select your subscription.|
-    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2**.|
+    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2**. You can select a virtual network in the same region or in a different region.|
 
     ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -117,6 +117,7 @@ Create a VM in each virtual network so that you can communicate between them in 
     |Location| Select **East US**.|
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1** under **Choose virtual network**.|

@@ -1,20 +1,15 @@
 ---
-title: Create logic apps from Azure Resource Manager templates | Microsoft Docs
-description: Create and deploy logic app workflows with Azure Resource Manager templates
+title: Create logic apps with Azure Resource Manager templates - Azure Logic Apps | Microsoft Docs
+description: Create and deploy logic app workflows with Azure Resource Manager templates in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
+ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.author: LADocs; estfan
 ---
 
 # Create and deploy logic apps with Azure Resource Manager templates
@@ -25,7 +20,7 @@ but also to define the resources and parameters that are used for deployment.
 You can use this template for your own business scenarios or 
 customize the template to meet your requirements. Learn more about the 
 [Resource Manager template for logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 
-and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md).
+and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md). For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 ## Define the logic app
 
@@ -93,7 +88,7 @@ Here are descriptions for the parameters in the template:
 | Parameter | Description | JSON definition example | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Defines the name of the logic app that template creates. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Learn more about [REST API for Logic Apps Workflow definition and properties](https://docs.microsoft.com/rest/api/logic/workflows) 
@@ -123,8 +118,10 @@ For example, the Azure portal prompts you for these details:
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### Azure CLI
@@ -136,7 +133,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

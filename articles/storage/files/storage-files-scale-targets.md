@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Azure Files scalability and performance targets
@@ -41,6 +41,7 @@ For Azure File Sync, performance is critical in two stages:
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
+
 | System configuration |  |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |
@@ -54,8 +55,8 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects | 10 million objects | 
 | Dataset Size| ~4 TiB |
 | Average File Size | ~500 KiB (Largest File: 100 GiB) |
-| Upload Throughput | 15 objects per second |
-| Namespace Download Throughput* | 350 objects per second |
+| Upload Throughput | 20 objects per second |
+| Namespace Download Throughput* | 400 objects per second |
  
 *When a new server endpoint is created, the Azure File Sync agent does not download any of the file content. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
@@ -64,8 +65,8 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects synced| 125,000 objects (~1% churn) | 
 | Dataset Size| 50 GiB |
 | Average File Size | ~500 KiB |
-| Upload Throughput | 20 objects per second |
-| Full Download Throughput* | 30 objects per second |
+| Upload Throughput | 30 objects per second |
+| Full Download Throughput* | 60 objects per second |
  
 *If cloud tiering is enabled, you are likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user. 
  

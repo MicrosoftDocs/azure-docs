@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tangoe Command Premium Mobile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 2b0b544c-9c2c-49cd-862b-ec2ee9330126
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile
 
@@ -71,7 +72,7 @@ To configure the integration of Tangoe Command Premium Mobile into Azure AD, you
 
 1. In the search box, type **Tangoe Command Premium Mobile**, select **Tangoe Command Premium Mobile** from result panel then click **Add** button to add the application.
 
-	![Add Tangoe Command Premium Mobile from gallery ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+	![Add Tangoe Command Premium Mobile from gallery](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Tangoe Command Premium Mobile based on a test user called "Britta Simon".

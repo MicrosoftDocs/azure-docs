@@ -1,25 +1,27 @@
 ---
-title: Azure Active Directory Identity Protection - How to unblock users | Microsoft Docs
+title: How to unblock users with Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how unblock users that were blocked by an Azure Active Directory Identity Protection policy.
 services: active-directory
 keywords: azure active directory identity protection, unblock user
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.date: 09/13/2018
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection - How to unblock users
+# How To: Unblock users
+
 With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This article explains the steps you can perform to unblock a blocked user.
 
 ## Determine the reason for blocking
@@ -48,8 +50,8 @@ To unblock a suspicious sign-in, you have the following options:
 ## Unblocking accounts at risk
 To unblock an account at risk, you have the following options:
 
-1. **Reset password** - You can reset the user's password. For more information, see [manual secure password reset](overview.md#manual-secure-password-reset).
-2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more information, see [closing risk events manually](overview.md#closing-risk-events-manually).
+1. **Reset password** - You can reset the user's password. 
+2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. 
 3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

@@ -1,14 +1,11 @@
 ---
 title: Access server logs in Azure Database for MySQL by using Azure CLI
 description: This article describes how to access the server logs in Azure Database for MySQL by using the Azure CLI command-line utility.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Configure and access server logs by using Azure CLI
@@ -17,7 +14,7 @@ You can download the Azure Database for MySQL server logs by using Azure CLI, th
 ## Prerequisites
 To step through this how-to guide, you need:
 - [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- The [Azure CLI 2.0](/cli/azure/install-azure-cli) or Azure Cloud Shell in the browser
+- The [Azure CLI](/cli/azure/install-azure-cli) or Azure Cloud Shell in the browser
 
 ## Configure logging for Azure Database for MySQL
 You can configure the server to access the MySQL slow query log by taking the following steps:

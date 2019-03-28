@@ -12,8 +12,8 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 10/01/2016
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: crdun
 
 ---
@@ -65,9 +65,14 @@ project for a simple "todo list" backend and publish it to Azure.
    >
    >
 
+## Troubleshooting
+If you have problems building the solution, run the NuGet package manager and update the `Xamarin.Android` support packages. Quickstart projects might not always include the latest versions.
+
+Please note that all the support packages referenced in your project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
+
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Add authentication to your app](app-service-mobile-xamarin-android-get-started-users.md)
 * [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
 * [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 

@@ -1,18 +1,15 @@
 ---
-title: Learn how to secure access to data in Azure Cosmos DB | Microsoft Docs
+title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
-services: cosmos-db
-author: rafats
-manager: kfile
-
+author: rimman
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
-ms.author: rafats
+ms.date: 08/19/2018
+ms.author: rimman
 
 ---
-# Securing access to Azure Cosmos DB data
+# Secure access to data in Azure Cosmos DB
+
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources. 
@@ -36,7 +33,7 @@ Each account consists of two Master keys: a primary key and secondary key. The p
 
 In addition to the two master keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-account.md#keys).
+Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
 
 ![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -171,13 +168,26 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
+## Add users and assign roles
+
+To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
+
+1. Open the Azure portal, and select your Azure Cosmos DB account.
+2. Click the **Access control (IAM)** tab, and then click  **+ Add role assignment**.
+3. In the **Add role assignment** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
+4. In the **Assign access to box**, select **Azure AD user, group, or application**.
+5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
+    The selected user, group, or application appears in the selected members list.
+6. Click **Save**.
+
+The entity can now read Azure Cosmos DB resources.
+
 ## Delete or export user data
 Azure Cosmos DB enables you to search, select, modify and delete any personal data located in database or collections. Azure Cosmos DB provides APIs to find and delete personal data however, it’s your responsibility to use the APIs and define logic required to erase the personal data. 
-Each multi-model API (SQL API, MongoDB API, Gremlin API, Cassandra API, Table API) provides different language SDKs that contain methods to search and delete personal data. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any additional cost.
+Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, Table) provides different language SDKs that contain methods to search and delete personal data. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any additional cost.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
-* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

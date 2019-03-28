@@ -3,9 +3,9 @@ title: Azure Service Bus authentication and authorization | Microsoft Docs
 description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
-ms.author: sethm
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Service Bus authentication and authorization

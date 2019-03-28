@@ -5,7 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
@@ -36,7 +36,7 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
      * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this option if you want to use Log Analytics to gather and analyze logs.
+     * Select __Send to Log Analytics__ to send the data to the Azure Monitor service. Use this option if you want to use Azure Monitor logs to gather and analyze logs.
    * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request. An audit log records all operations that are triggered by that API request.
 
    * For __Archive to a storage account__, specify the number of days to retain the data.

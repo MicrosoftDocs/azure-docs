@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Privileged Identity Management documentation
+metadata:
+  document_id: 
+  title: Azure AD Privileged Identity Management (PIM) documentation | Microsoft Docs
+  description: Learn about Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
+  services: active-directory
+  author: rolyon
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/04/2018
+  ms.author: rolyon
+abstract:
+  description: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-pim.png
+      width: 200  
+    title: Protect the keys to your kingdom (42:45)
+    href: https://www.youtube.com/embed/w7wTpZYJJeQ
+    width: 200
+sections:
+  - title: How-to guides for eligible and active role users
+    items:
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/Azure Active Directory_COLOR.svg
+          title: Azure AD roles
+        - image:
+            src: media/index/Cubes.svg
+          title: Azure resources
+      rows:
+        - title: Activate my roles
+          values:
+            - href: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
+            - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
+  - title: How-to guides for administrators
+    items:
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/Azure Active Directory_COLOR.svg
+          title: Azure AD roles
+        - image:
+            src: media/index/Cubes.svg
+          title: Azure resources
+      rows:
+        - title: Assign roles
+          values:
+            - href: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
+            - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-assign-roles
+        - title: Approve requests
+          values:
+            - href: /azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow
+            - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-approval-workflow
+        - title: Configure role settings
+          values:
+            - href: /azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings
+            - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings

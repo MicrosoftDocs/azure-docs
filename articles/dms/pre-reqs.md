@@ -4,13 +4,13 @@ description: Learn about an overview of the prerequisites for using the Azure Da
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 03/12/2019
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service

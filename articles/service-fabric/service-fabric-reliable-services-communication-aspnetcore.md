@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 10/12/2018
 ms.author: vturecek
 ---
 
@@ -23,15 +23,13 @@ ASP.NET Core is a new open-source and cross-platform framework for building mode
 
 This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services using the **Microsoft.ServiceFabric.AspNetCore.*** set of NuGet packages.
 
-For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Create a .NET application](service-fabric-tutorial-create-dotnet-app.md).
+For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment setup, see [Create a .NET application](service-fabric-tutorial-create-dotnet-app.md).
 
 The rest of this article assumes you are already familiar with ASP.NET Core. If not, we recommend reading through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
 ## ASP.NET Core in the Service Fabric environment
 
-While ASP.NET Core apps can run on .NET Core or on the full .NET Framework, Service Fabric services currently can only run on the full .NET Framework. This means when you build an ASP.NET  Core Service Fabric service, you must still target the full .NET Framework.
-
-ASP.NET Core can be used in two different ways in Service Fabric:
+Both ASP.NET Core and Service Fabric apps can run on .NET Core as well as full .NET Framework. ASP.NET Core can be used in two different ways in Service Fabric:
  - **Hosted as a guest executable**. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
  - **Run inside a Reliable Service**. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
@@ -52,12 +50,12 @@ Typically, self-hosted ASP.NET Core applications create a WebHost in an applicat
 
 However, the application entry point is not the right place to create a WebHost in a Reliable Service, because the application entry point is only used to register a service type with the Service Fabric runtime, so that it may create instances of that service type. The WebHost should be created in a Reliable Service itself. Within the service host process, service instances and/or replicas can go through multiple lifecycles. 
 
-A Reliable Service instance is represented by your service class deriving from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HttpSys in a Reliable Service.
+A Reliable Service instance is represented by your service class deriving from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HttpSys in a Reliable Service.
 
 ![Hosting ASP.NET Core in a Reliable Service][1]
 
 ## ASP.NET Core ICommunicationListeners
-The `ICommunicationListener` implementations for Kestrel and HttpSys in the  `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet packages have similar use patterns but perform slightly different actions specific to each web server. 
+The `ICommunicationListener` implementations for Kestrel and HttpSys in the  `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages have similar use patterns but perform slightly different actions specific to each web server. 
 
 Both communication listeners provide a constructor that takes the following arguments:
  - **`ServiceContext serviceContext`**: The `ServiceContext` object that contains information about the running service.
@@ -65,10 +63,10 @@ Both communication listeners provide a constructor that takes the following argu
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: a lambda that you implement in which you create and return an `IWebHost`. This allows you to configure `IWebHost` the way you normally would in an ASP.NET Core application. The lambda provides a URL which is generated for you depending on the Service Fabric integration options you use and the `Endpoint` configuration you provide. That URL can then be modified or used as-is to start the web server.
 
 ## Service Fabric integration middleware
-The `Microsoft.ServiceFabric.Services.AspNetCore` NuGet package includes the `UseServiceFabricIntegration` extension method on `IWebHostBuilder` that adds Service Fabric-aware middleware. This middleware configures the Kestrel or HttpSys `ICommunicationListener` to register a unique service URL with the Service Fabric Naming Service and then validates client requests to ensure clients are connecting to the right service. This is necessary in a shared-host environment such as Service Fabric, where multiple web applications can run on the same physical or virtual machine but do not use unique host names, to prevent clients from mistakenly connecting to the wrong service. This scenario is described in more detail in the next section.
+The `Microsoft.ServiceFabric.AspNetCore` NuGet package includes the `UseServiceFabricIntegration` extension method on `IWebHostBuilder` that adds Service Fabric-aware middleware. This middleware configures the Kestrel or HttpSys `ICommunicationListener` to register a unique service URL with the Service Fabric Naming Service and then validates client requests to ensure clients are connecting to the right service. This is necessary in a shared-host environment such as Service Fabric, where multiple web applications can run on the same physical or virtual machine but do not use unique host names, to prevent clients from mistakenly connecting to the wrong service. This scenario is described in more detail in the next section.
 
 ### A case of mistaken identity
-Service replicas, regardless of protocol, listen on a unique IP:port combination. Once a service replica has started listening on an IP:port endpoint, it reports that endpoint address to the Service Fabric Naming Service where it can be discovered by clients or other services. If services use dynamically-assigned application ports, a service replica may coincidentally use the same IP:port endpoint of another service that was previously on the same physical or virtual machine. This can cause a client to mistakely connect to the wrong service. This can happen if the following sequence of events occur:
+Service replicas, regardless of protocol, listen on a unique IP:port combination. Once a service replica has started listening on an IP:port endpoint, it reports that endpoint address to the Service Fabric Naming Service where it can be discovered by clients or other services. If services use dynamically-assigned application ports, a service replica may coincidentally use the same IP:port endpoint of another service that was previously on the same physical or virtual machine. This can cause a client to mistakenly connect to the wrong service. This can happen if the following sequence of events occurs:
 
  1. Service A listens on 10.0.0.1:30000 over HTTP. 
  2. Client resolves Service A and gets address 10.0.0.1:30000
@@ -84,20 +82,23 @@ To prevent this, services can post an endpoint to the Naming Service with a uniq
 
 In a trusted environment, the middleware that's added by the `UseServiceFabricIntegration` method automatically appends a unique identifier to the address that is posted to the Naming Service and validates that identifier on each request. If the identifier does not match, the middleware immediately returns an HTTP 410 Gone response.
 
-Services that use a dynamically-assigned port should make use of this middleware.
+Services that use a dynamically assigned port should make use of this middleware.
 
-Services that use a fixed unique port do not have this problem in a cooperative environment. A fixed unique port is typically used for externally-facing services that need a well-known port for client applications to connect to. For example, most Internet-facing web applications will use port 80 or 443 for web browser connections. In this case, the unique identifier should not be enabled.
+Services that use a fixed unique port do not have this problem in a cooperative environment. A fixed unique port is typically used for externally facing services that need a well-known port for client applications to connect to. For example, most Internet-facing web applications will use port 80 or 443 for web browser connections. In this case, the unique identifier should not be enabled.
 
 The following diagram shows the request flow with the middleware enabled:
 
 ![Service Fabric ASP.NET Core integration][2]
 
-Both Kestrel and HttpSys `ICommunicationListener` implementations use this mechanism in exactly the same way. Although HttpSys can internally differentiate requests based on unique URL paths using the underlying *http.sys* port sharing feature, that functionality is *not* used by the HttpSys `ICommunicationListener` implementation because that will result in HTTP 503 and HTTP 404 error status codes in the scenario described earlier. That in turn makes it very difficult for clients to determine the intent of the error, as HTTP 503 and HTTP 404 are already commonly used to indicate other errors. Thus, both Kestrel and HttpSys `ICommunicationListener` implementations standardize on the middleware provided by the `UseServiceFabricIntegration` extension method so that clients only need to perform a service endpoint re-resolve action on HTTP 410 responses.
+Both Kestrel and HttpSys `ICommunicationListener` implementations use this mechanism in exactly the same way. Although HttpSys can internally differentiate requests based on unique URL paths using the underlying *http.sys* port sharing feature, that functionality is *not* used by the HttpSys `ICommunicationListener` implementation because that will result in HTTP 503 and HTTP 404 error status codes in the scenario described earlier. That in turn makes it difficult for clients to determine the intent of the error, as HTTP 503 and HTTP 404 are already commonly used to indicate other errors. Thus, both Kestrel and HttpSys `ICommunicationListener` implementations standardize on the middleware provided by the `UseServiceFabricIntegration` extension method so that clients only need to perform a service endpoint re-resolve action on HTTP 410 responses.
 
 ## HttpSys in Reliable Services
 HttpSys can be used in a Reliable Service by importing the **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet package. This package contains `HttpSysCommunicationListener`, an implementation of `ICommunicationListener`, that allows you to create an ASP.NET Core WebHost inside a Reliable Service using HttpSys as the web server.
 
 HttpSys is built on the [Windows HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). This uses the *http.sys* kernel driver used by IIS to process HTTP requests and route them to processes running web applications. This allows multiple processes on the same physical or virtual machine to host web applications on the same port, disambiguated by either a unique URL path or hostname. These features are useful in Service Fabric for hosting multiple websites in the same cluster.
+
+>[!NOTE]
+>HttpSys implementation works only on Windows platform.
 
 The following diagram illustrates how HttpSys uses the *http.sys* kernel driver on Windows for port sharing:
 
@@ -184,7 +185,7 @@ To use a dynamically assigned port with HttpSys, omit the `Port` property in the
   </Resources>
 ```
 
-Note that a dynamic port allocated by an `Endpoint` configuration only provides one port *per host process*. The current Service Fabric hosting model allows multiple service instances and/or replicas to be hosted in the same process, meaning that each one will share the same port when allocated through the `Endpoint` configuration. Multiple HttpSys instances can share a port using the underlying *http.sys* port sharing feature, but that is not supported by `HttpSysCommunicationListener` due to the complications it introduces for client requests. For dynamic port usage, Kestrel is the recommended web server.
+A dynamic port allocated by an `Endpoint` configuration only provides one port *per host process*. The current Service Fabric hosting model allows multiple service instances and/or replicas to be hosted in the same process, meaning that each one will share the same port when allocated through the `Endpoint` configuration. Multiple HttpSys instances can share a port using the underlying *http.sys* port sharing feature, but that is not supported by `HttpSysCommunicationListener` due to the complications it introduces for client requests. For dynamic port usage, Kestrel is the recommended web server.
 
 ## Kestrel in Reliable Services
 Kestrel can be used in a Reliable Service by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`, that allows you to create an ASP.NET Core WebHost inside a Reliable Service using Kestrel as the web server.
@@ -246,7 +247,51 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 In this example, a singleton instance of `IReliableStateManager` is provided to the WebHost dependency injection container. This is not strictly necessary, but it allows you to use `IReliableStateManager` and Reliable Collections in your MVC controller action methods.
 
-Note that an `Endpoint` configuration name is **not** provided to `KestrelCommunicationListener` in a stateful service. This is explained in more detail in the following section.
+An `Endpoint` configuration name is **not** provided to `KestrelCommunicationListener` in a stateful service. This is explained in more detail in the following section.
+
+### Configure Kestrel to use HTTPS
+When enabling HTTPS with Kestrel in your service, you will need to set several listening options.  Update the `ServiceInstanceListener` to use an EndpointHttps endpoint and listen on a specific port (such as port 443). When configuring the web host to use Kestrel server, you must configure Kestrel to listen for IPv6 addresses on all network interfaces: 
+
+```csharp
+new ServiceInstanceListener(
+serviceContext =>
+    new KestrelCommunicationListener(
+        serviceContext,
+        "EndpointHttps",
+        (url, listener) =>
+        {
+            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+
+            return new WebHostBuilder()
+                .UseKestrel(opt =>
+                {
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
+                    {
+                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.NoDelay = true;
+                    });
+                })
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton<HttpClient>(new HttpClient())
+                        .AddSingleton<FabricClient>(new FabricClient())
+                        .AddSingleton<StatelessServiceContext>(serviceContext))
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                .UseUrls(url)
+                .Build();
+        }))
+```
+
+For a full example used in a tutorial, see [Configure Kestrel to use HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#configure-kestrel-to-use-https).
+
 
 ### Endpoint configuration
 An `Endpoint` configuration is not required to use Kestrel. 
@@ -277,13 +322,131 @@ If an `Endpoint` configuration is not used, omit the name in the `KestrelCommuni
 #### Use Kestrel with a dynamic port
 Kestrel cannot use the automatic port assignment from the `Endpoint` configuration in ServiceManifest.xml, because automatic port assignment from an `Endpoint` configuration assigns a unique port per *host process*, and a single host process can contain multiple Kestrel instances. Since Kestrel does not support port sharing, this does not work as each Kestrel instance must be opened on a unique port.
 
-To use dynamic port assignment with Kestrel, simply omit the `Endpoint` configuration in ServiceManifest.xml entirely, and do not pass an endpoint name to the `KestrelCommunicationListener` constructor:
+To use dynamic port assignment with Kestrel, omit the `Endpoint` configuration in ServiceManifest.xml entirely, and do not pass an endpoint name to the `KestrelCommunicationListener` constructor:
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
+
+## Service Fabric Configuration Provider
+App configuration in ASP.NET Core is based on key-value pairs established by configuration providers, read 
+[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+
+This section describes the Service Fabric Configuration Provider to integrate with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
+
+### AddServiceFabricConfiguration Startup extensions
+After you've import `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package, you need to register the Service Fabric Configuration source with ASP.NET Core configuration API by **AddServiceFabricConfiguration** extensions in `Microsoft.ServiceFabric.AspNetCore.Configuration` namespace against `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+Now the ASP.NET Core service can access the Service Fabric configuration settings just like any other application settings. For example, you can use the options pattern to load settings into strongly typed objects.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### Default Key Mapping
+By default, Service Fabric configuraiton provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### Service Fabric Configuration Options
+Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
+
+#### Encrypted settings
+Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are't descrypted by default to ASP.NET Core `IConfiguration`, the encrypted value are stored there instead. However, if you want to decrypt the value to store in ASP.NET Core IConfiguration you could set DecryptValue flag to false in `AddServiceFabricConfiguration` extensions as follows:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### Multiple Configuration Packages
+Service Fabric supports multiple configuration packages. By default, the package name is included in the configuration Key. You could set the `IncludePackageName` flag to change the default behavior.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### Custom Key Mapping, Value Extraction, and Data Population
+Besides above 2 flags to change the default behavior, Service Fabric Configuration Provider also supports more advanced scenarios to custom the key mapping via `ExtractKeyFunc` and to custom extract the values via `ExtractValueFunc`. You could even change the whole process to populate data from Service Fabric configuration to ASP.NET Core configuration via `ConfigAction`.
+
+The following examples illustrate to use `ConfigAction` to customize data population.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### Configuration Update
+Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+This is supported by default and no further coding are needed to enable configuration update.
 
 ## Scenarios and configurations
 This section describes the following scenarios and provides the recommended combination of web server, port configuration, Service Fabric integration options, and miscellaneous settings to achieve a properly functioning service:

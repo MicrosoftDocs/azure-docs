@@ -12,13 +12,14 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.topic: conceptual
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Thomas.Roettinger
+ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
 
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
+
 # Manage physical memory capacity for Azure Stack
 
 *Applies to: Azure Stack integrated systems*
@@ -30,16 +31,16 @@ To increase the total available memory capacity for Azure Stack, you can add add
 
 The following flow diagram shows the general process to add memory to each scale unit node.
 
-![Add memory into each scale unit node](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Add memory into each scale unit node](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## Add memory to an existing node
 The following steps provide a high-level overview of the add memory process. 
 
-> [!Warning]  
-Do not follow these steps without referring to your OEM-provided documentation.
-
-> [!Warning]  
-The entire scale unit must be shut down as a rolling memory upgrade is not supported.
+> [!Warning]
+> Do not follow these steps without referring to your OEM-provided documentation.
+> 
+> [!Warning]
+> The entire scale unit must be shut down as a rolling memory upgrade is not supported.
 
 1. Stop Azure Stack using the steps documented in the [Start and stop Azure Stack](azure-stack-start-and-stop.md) article.
 2. Upgrade the memory on each physical computer using your hardware manufacturer’s documentation.

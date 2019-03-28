@@ -12,7 +12,7 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
 
@@ -90,7 +90,7 @@ The following TCP ports are used by Hybrid Connections:
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## See Also
-[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)  
 [Create a BizTalk Service](biztalk-provision-services.md)  
 [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)  

@@ -1,13 +1,13 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-ms.topic: quickstart
+ms.service: jenkins
+keywords: jenkins, azure, devops, portal, virtual machine, solution template
+author: tomarchermsft
+manager: jeconnoc
 ms.author: tarcher
-author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
-ms.date: 07/31/2018
+ms.topic: quickstart
+ms.date: 6/7/2017
 ---
 
 # Create a Jenkins server on an Azure Linux VM from the Azure portal
@@ -17,7 +17,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 ## Prerequisites
 
 * An Azure subscription
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](http://www.putty.org/))
+* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +38,7 @@ Set up the tunnel using the `ssh` command on the page from the command line, rep
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-After you have started the tunnel, navigate to http://localhost:8080/ on your local machine. 
+After you have started the tunnel, navigate to `http://localhost:8080/` on your local machine. 
 
 Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
 
@@ -70,7 +70,7 @@ Select the **Build** tab, then select **Add build step**, **Invoke Gradle script
 
 ![Use the Gradle wrapper to build](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Select **Advanced..** and then enter `complete` in the **Root Build script** field. Select **Save**.
+Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
 
 ![Set advanced settings in the Gradle wrapper build step](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

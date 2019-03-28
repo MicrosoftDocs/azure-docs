@@ -1,18 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Python API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Python API, SDK & resources'
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-services: cosmos-db
-author: rnagpal
-manager: kfile
-editor: cgronlun
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.date: 11/29/2018
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
@@ -26,26 +22,44 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Get started**|[Get started with the Python SDK](sql-api-python-application.md)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)|
 
 ## Release notes
+
+### <a name="3.0.2"/>3.0.2
+* Added support for MultiPolygon datatype
+* Bug fix in session read retry policy
+* Bug fix for incorrect padding issues while decoding base 64 strings
+
+### <a name="3.0.1"/>3.0.1
+* Bug fix in LocationCache
+* Bug fix endpoint retry logic
+* Fixed documentation
+
+### <a name="3.0.0"/>3.0.0
+* Support for multi-region writes.
+* Namespace changed to azure.cosmos.
+* Collection and document concepts renamed to container and item, document_client renamed to cosmos_client. 
+
+### <a name="2.3.3"/>2.3.3
+* Added support for proxy
+* Added support for reading change feed
+* Added support for collection quota headers
+* Bugfix for large session tokens issue
+* Bugfix for ReadMedia API
+* Bugfix in partition key range cache
+
 ### <a name="2.3.2"/>2.3.2
 * Added support for default retries on connection issues.
 
@@ -135,6 +149,9 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |Nov 15, 2018 |--- |
+| [3.0.1](#3.0.1) |Oct 04, 2018 |--- |
+| [2.3.3](#2.3.3) |Sept 08, 2018 |--- |
 | [2.3.2](#2.3.2) |May 08, 2018 |--- |
 | [2.3.1](#2.3.1) |December 21, 2017 |--- |
 | [2.3.0](#2.3.0) |November 10, 2017 |--- |
@@ -150,7 +167,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 | [1.6.0](#1.6.0) |March 29, 2016 |--- |
 | [1.5.0](#1.5.0) |January 03, 2016 |--- |
 | [1.4.2](#1.4.2) |October 06, 2015 |--- |
-| [1.4.1](#1.4.1) |October 06, 2015 |--- |
+| 1.4.1 |October 06, 2015 |--- |
 | [1.2.0](#1.2.0) |August 06, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
 | [1.0.1](#1.0.1) |May 25, 2015 |--- |

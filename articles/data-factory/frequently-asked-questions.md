@@ -11,7 +11,7 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
@@ -78,10 +78,10 @@ Since the initial Public Preview release in 2017, Data Factory has added the fol
 -	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
 -	Azure SQL DB with VNet service endpoints
 -	Managed Instance (MI)
--	Elastic Pool
+-	Elastic pool
 -	Support for Azure Resource Manager Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
-https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
--	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
+https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF managed identity for Azure resources
 -	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from Azure Hybrid Benefit (AHB) option
 -	Support for Enterprise Edition of Azure-SSIS IR that lets you use advanced/premium features, custom setup to install additional components/extensions, and 3rd party ecosystem, see: 
 https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
@@ -175,6 +175,33 @@ Yes. An activity output can be consumed in a subsequent activity with the `@acti
  
 ### How do I gracefully handle null values in an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
+
+## Mapping data flows
+
+### Which ADF version do I use to create Data Flows?
+Use the ADF V2 version to create Data Flows
+  
+### I was a previous private preview customer using Data Flows and I used the ADF V2 w/Data Flows preview version
+This version is now obsolete. Use ADF V2 for Data Flows
+  
+### What has changed from private preview to limited public preview in Data Flows?
+You will no longer have to bring your own Databricks clusters. ADF will manage cluster creation and tear-down. Blob datasets and ADLS datasets are separated into Delimited Text and Parquet datasets. You can still use ADLS & Blob Store to store those files. Use the appropriate Linked Service for those storage engines.
+
+### Can I migrate my private preview factories to ADF V2?
+
+[Yes, follow the instructions here](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### I need help troubleshooting my data flow logic, what do you need?
+
+When Microsoft provides help or troubleshooting with Data Flows, please provide the "DSL Code Plan". To do this, follow these steps:
+
+* From the Data Flow Designer, click "Code" in the top-right corner. This will display the editable JSON code for the data flow.
+* From the code view, click "Plan" on the top-right corner. The Plan toggle will switch from JSON to the read-only formatted DSL script plan.
+* Copy & paste this script or save it in a text file.
+
+### How do I access data using the other 80 dataset types in ADF?
+
+Data Flow currently allows Azure SQL DB, Azure SQL DW, Delimited Text files from Blob or ADLS, and Parquet files from Blob or ADLS natively for Source and Sink. Use the Copy Activity to stage data from any of the other connectors and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first Copy into Blob and then a Data Flow activity will use a dataset in Source to transform that data.
 
 ## Next steps
 For step-by-step instructions to create a data factory, see the following tutorials:

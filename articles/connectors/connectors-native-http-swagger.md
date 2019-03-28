@@ -1,24 +1,19 @@
 ---
-title: Call REST endpoints with HTTP + Swagger connector for Azure Logic Apps | Microsoft Docs
-description: Connect to REST endpoints from logic apps through Swagger with the HTTP + Swagger connector
+title: Call REST endpoints from Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that communicate with REST endpoints by using the HTTP + Swagger connector in Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-
 ---
-# Get started with the HTTP + Swagger action
+
+# Call REST endpoints with HTTP + Swagger connector in Azure Logic Apps
 
 You can create a first-class connector to any REST endpoint through a 
 [Swagger document](https://swagger.io) when you use the HTTP + Swagger action 
@@ -49,7 +44,7 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 4. Type the URL for a Swagger document:
    
    * To work from the Logic App Designer, the URL must be an HTTPS endpoint and have CORS enabled.
-   * If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
+   * If the Swagger document doesn't meet this requirement, you can use Azure Storage with CORS enabled to store the document.
 5. Click **Next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
    
@@ -71,7 +66,7 @@ To perform this step, set permissions to **Public Access**.
 
 3. Upload the Swagger file to the blob. 
 
-   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](https://storageexplorer.com/).
 
 4. Reference an HTTPS link to the document in Azure Blob storage. 
 

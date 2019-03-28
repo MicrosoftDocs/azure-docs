@@ -7,21 +7,21 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Preparing hard drives for an import job
 To prepare one or more hard drives for an import job, follow these steps:
 
--   Identify the data to import into the Blob service
+- Identify the data to import into the Blob service
 
--   Identify target virtual directories and blobs in the Blob service
+- Identify target virtual directories and blobs in the Blob service
 
--   Determine how many drives you'll need
+- Determine how many drives you'll need
 
--   Copy the data to each of your hard drives
+- Copy the data to each of your hard drives
 
- For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## Identify the data to be imported
  The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
@@ -38,19 +38,19 @@ To prepare one or more hard drives for an import job, follow these steps:
 
 |Source file or directory|Destination blob or virtual directory|
 |------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
-|\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|
+|K:\Temp\FavoriteVideo.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
+|\\\myshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|
 
 ## Determine how many drives are needed
  Next, you need to determine:
 
--   The number of hard drives needed to store the data.
+- The number of hard drives needed to store the data.
 
--   The directories and/or standalone files that will be copied to each of your hard drive.
+- The directories and/or standalone files that will be copied to each of your hard drive.
 
- Ensure that you have the number of hard drives you will need to store the data you are transferring.
+  Ensure that you have the number of hard drives you will need to store the data you are transferring.
 
 ## Copy data to your hard drive
  This section describes how to call the Azure Import/Export Tool to copy your data to one or more hard drives. Each time you call the Azure Import/Export Tool, you create a new *copy session*. You create at least one copy session for each drive to which you copy data; in some cases, you may need more than one copy session to copy all of your data to single drive. Here are some reasons that you may need multiple copy sessions:
@@ -103,7 +103,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 |**/csas:**<ContainerSas\>|`Optional`. The container SAS to use to import data to the storage account. You must include either **/sk:**<StorageAccountKey\> or **/csas:**<ContainerSas\> in the command.<br /><br /> The value for this parameter must begin with the container name, followed by a question mark (?) and the SAS token. For example:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> The permissions, whether specified on the URL or in a stored access policy, must include Read, Write, and Delete for import jobs, and Read, Write and List for export jobs.<br /><br /> When this parameter is specified, all blobs to be imported or exported must be within the container specified in the shared access signature.|
 |**/t:**<TargetDriveLetter\>|`Required.` The drive letter of the target hard drive for the current copy session, without the trailing colon.|
 |**/format**|`Optional.` Specify this parameter when the drive needs to be formatted; otherwise, omit it. Before the tool formats the drive, it will prompt for a confirmation from console. To suppress the confirmation, specify the /silentmode parameter.|
-|**/silentmode**|`Optional.` Specify this parameter to suppress the confirmation for formatting the targert drive.|
+|**/silentmode**|`Optional.` Specify this parameter to suppress the confirmation for formatting the target drive.|
 |**/encrypt**|`Optional.` Specified this parameter when the drive has not yet been encrypted with BitLocker and needs to be encrypted by the tool. If the drive has already been encrypted with BitLocker, then omit this parameter and specify the `/bk` parameter, providing the existing BitLocker key.<br /><br /> If you specify the `/format` parameter, then you must also specify the `/encrypt` parameter.|
 |**/bk:**<BitLockerKey\>|`Optional.` If `/encrypt` is specified, omit this parameter. If `/encrypt` is omitted, you need to have already have encrypted the drive with BitLocker. Use this parameter to specify the BitLocker key. BitLocker encryption is required for all hard drives for import jobs.|
 |**/logdir:**<LogDirectory\>|`Optional.` The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory.|

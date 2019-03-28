@@ -3,8 +3,8 @@ title: Quickstart - Integrate an Azure storage account with Azure CDN | Microsof
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---
@@ -93,9 +93,10 @@ You can enable Azure CDN for your storage account directly from your storage acc
 
     | Setting  | Value |
     | -------- | ----- |
-    | **CDN profile** | Select **Create new** and enter *my-cdn-profile-123* for your profile name. This name must be globally unique; if it is already in use, you may enter a different name.  |
+    | **CDN profile** | Select **Create new** and enter your profile name, for example, *my-cdn-profile-123*. This name must be globally unique.  |
     | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
-	| **CDN endpoint name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different name. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net. By default, a new CDN endpoint uses the hostname of your storage account as the origin server.|
+	| **CDN endpoint name** | Enter your endpoint hostname, i.e. *my-endpoint-123*. This name must be globally unique. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net. |
+	| **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
 
 3. Select **Create**. After the endpoint is created, it appears in the endpoint list.
 

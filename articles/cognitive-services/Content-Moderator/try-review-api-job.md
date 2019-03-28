@@ -1,14 +1,17 @@
 ---
-title: Run content moderation jobs in Azure Content Moderator | Microsoft Docs
-description: Learn how to run content moderation jobs in the API console.
+title: Run content moderation jobs with the API console - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Use the Review API's job operations to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 08/03/2017
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Start a moderation job from the API console

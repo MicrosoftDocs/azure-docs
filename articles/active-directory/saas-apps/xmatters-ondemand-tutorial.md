@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with xMatters OnDemand
 
@@ -110,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
 	
 	a. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<companyname>.au1.xmatters.com.au/`|
@@ -119,6 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.xmatters.com.au/`|
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.au1.xmatters.com.au`|
@@ -199,15 +202,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a xMatters OnDemand test user
 
-The objective of this section is to create a user called Britta Simon in xMatters OnDemand. xMatters OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](xmatters-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called Britta Simon in xMatters OnDemand.
 
 **If you need to create user manually, perform following steps:**
 
 1. Log in to your **XMatters OnDemand** tenant.
 
-1.  Click **Users** tab. and then click **Add User**.
+1. Click **Users** tab. and then click **Add User**.
 
-    ![Users](./media/xmatters-ondemand-tutorial/IC781048.png "Users")
+   ![Users](./media/xmatters-ondemand-tutorial/IC781048.png "Users")
 
 1. In the **Add a User** section, perform the following steps:
 
@@ -266,7 +269,6 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

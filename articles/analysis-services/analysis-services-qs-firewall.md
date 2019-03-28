@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.
@@ -19,15 +19,15 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 - An Analysis Services server in your subscription. To learn more, see [Quickstart: Create a server - Portal](analysis-services-create-server.md) or [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
 - One or more IP address ranges for client computers (if needed).
 
-## Log in to the Azure portal 
+## Sign in to the Azure portal 
 
-[Log in to the portal](https://portal.azure.com)
+[Sign in to the portal](https://portal.azure.com)
 
 ## Configure a firewall
 
 1. Click on your server to open the Overview page. 
 2. In **SETTINGS** > **Firewall** > **Enable firewall**, click **On**.
-3. To allow DirectQuery access from Power BI service, in **Allow accesss from Power BI**, click **On**.  
+3. To allow DirectQuery access from Power BI service, in **Allow access from Power BI**, click **On**.  
 4. (Optional) Specify one or more IP address ranges. Enter a name, starting, and ending IP address for each range. 
 5. Click **Save**.
 

@@ -1,21 +1,17 @@
 ---
-# required metadata
 title: Create logic apps that automate workflows with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Quickstart for how to automate tasks, processes, and workflows with Azure Logic Apps in Visual Studio
 services: logic-apps
 ms.service: logic-apps
-ms.technology: vs-azure
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.date: 07/31/2018
 ---
 
 # Quickstart: Create and automate tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -117,13 +113,13 @@ create and build your logic app starting
 from the **Blank Logic App** template.
 
 1. In Solution Explorer, open the shortcut menu for the **LogicApp.json** file. 
-Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+   Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
 
    ![Open logic app .json file with Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
 2. For **Subscription**, select the Azure subscription that you to use. 
-For **Resource Group**, select **Create New...**, 
-which creates a new Azure resource group. 
+   For **Resource Group**, select **Create New...**, 
+   which creates a new Azure resource group. 
 
    ![Select Azure subscription, resource group, and resource location](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -140,9 +136,9 @@ which creates a new Azure resource group.
    ||||
 
 3. The Logic Apps Designer opens and shows a page with 
-an introduction video and commonly used triggers. 
-Scroll past the video and triggers. Under **Templates**, 
-select **Blank Logic App**.
+   an introduction video and commonly used triggers. 
+   Scroll past the video and triggers. Under **Templates**, 
+   select **Blank Logic App**.
 
    ![Select "Blank Logic App"](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -207,6 +203,13 @@ then save your settings, for example:
 
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   If the connectors you selected need any input from you, 
+   a PowerShell window might open in the background and prompt 
+   for necessary passwords or secret keys. After you enter this information, 
+   deployment continues.
+   
+   ![Deployment powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    After deployment finishes, your logic app is 
    live in the Azure portal and checks the RSS 
    feed based on your specified schedule (every minute). 
@@ -256,7 +259,7 @@ and choose **Delete**.
 ## Get support
 
 * For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
+* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
 
 ## Next steps
 

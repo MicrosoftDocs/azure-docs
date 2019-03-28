@@ -3,22 +3,23 @@ title: Azure Active Directory conditional access settings reference | Microsoft 
 description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 services: active-directory.
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
-ms.author: markvi
+ms.date: 03/22/2019
+ms.author: joflore
 ms.reviewer: spunukol
 
-#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory conditional access settings reference
 
@@ -48,23 +49,43 @@ With conditional access policies, you control how your users access your [cloud 
 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
-- Azure Information Protection - [Learn more](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
+- Azure Analysis Services
+- Azure DevOps
+- Azure SQL Database and Data Warehouse - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [Learn more](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Management - [Learn more](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure Subscription Management
+- Microsoft Cloud App Security
+- Microsoft Commerce Tools Access Control Portal
+- Microsoft Commerce Tools Authentication Service
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune Enrollment
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Microsoft Search in Bing
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype for Business Online
+- Virtual Private Network (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft Dynamics 365
 
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
-
-- Microsoft Power BI 
-
-- Microsoft Visual Studio Team Services
-
-- Microsoft Teams
 
 
 ### Other applications 
@@ -121,20 +142,25 @@ In your conditional access policy, you can select **Browsers** as client app.
 This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
-| OS                     | Browsers                            | Support     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Check][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Check][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Check][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Check][1] |
-| Windows Server 2016    | Chrome                              | Coming soon |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| macOS                  | Chrome, Safari                      | ![Check][1] |
+| OS                     | Browsers                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### Why do I see a certificate prompt in the browser
+
+On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.
 
 
 #### Chrome support
@@ -173,26 +199,36 @@ In your conditional access policy, you can select **Mobile apps and desktop clie
 This setting has an impact on access attempts made from the following mobile apps and desktop clients: 
 
 
-|Client apps|Target Service|Platform|
-|---|---|---|
-|Azure Remote app|Azure Remote App service|Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
-|Dynamics CRM app|Dynamics CRM|Windows 10, Windows 8.1, iOS, and Android|
-|Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)|Office 365 Exchange Online|Windows 10|
-|MFA and location policy for apps. Device based policies are not supported. |Any My Apps app service|Android and iOS|
-|Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS |
-|Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future|Office 365 SharePoint Online|Windows 10|
-|Office 2016 for macOS (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future|Office 365 SharePoint Online|Mac OS X|
-|Office mobile apps|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer app|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office for macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook mobile app|Office 365 Exchange Online|Android, iOS|
-|PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, Android and iOS|
-|Skype for Business|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+| Client apps| Target Service| Platform |
+| --- | --- | --- |
+| Azure Remote app| Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS|
+| Dynamics CRM app| Dynamics CRM| Windows 10, Windows 8.1, iOS, and Android|
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online| Windows 10|
+| MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS|
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS|
+| Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Office mobile apps| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer app| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office for macOS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook mobile app| Office 365 Exchange Online| Android, iOS|
+| PowerBI app| PowerBI service| Windows 10, Windows 8.1, Windows 7, Android and iOS|
+| Skype for Business| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
 
 
+
+## Support for legacy authentication
+
+By selecting **Other clients**, you can specify a condition that affects apps that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication.  
+
+![Other clients](./media/technical-reference/11.png)
+
+For more information, see [Client apps](conditions.md#client-apps).
 
 ## Approved client app requirement 
 
@@ -203,24 +239,33 @@ In your conditional access policy, you can require that an access attempt to the
 This setting applies to the following client apps:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
+- Microsoft Yammer
+
+
 
 
 
@@ -230,7 +275,7 @@ This setting applies to the following client apps:
 
 - The **Require approved client app** requirement:
 
-    - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
+    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
 
 
 ## Next steps
