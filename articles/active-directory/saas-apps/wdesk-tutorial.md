@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with Wdesk, perform the following steps:
     `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
 
 	> [!NOTE]
-	These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You get these values from WDesk portal when you configure the SSO.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You get these values from WDesk portal when you configure the SSO.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
