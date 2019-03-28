@@ -97,18 +97,28 @@ To configure Azure AD single sign-on with Recognize, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+
+	>[!NOTE]
+	>You will get the **Service Provider metadata file** from the **Configure Recognize Single Sign-On** section of the tutorial.
+
+	a. Click **Upload metadata file**.
+
+	![Upload metadata file](common/upload-metadata.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![choose metadata file](common/browse-upload-metadata.png)
+
+	c. After the metadata file is successfully uploaded, the **Identifier** value get auto populated in Basic SAML Configuration section.
 
     ![Recognize Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	 In the **Sign on URL** text box, type a URL using the following pattern:
     `https://recognizeapp.com/<your-domain>/saml/sso`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://recognizeapp.com/<your-domain>`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get Sign-On URL and you can get Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!Note]
+	> If the **Identifier** value do not get auto populated, you will get the Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the **Configure Recognize Single Sign-On** section of the tutorial. The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
