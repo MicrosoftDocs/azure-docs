@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
+title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 ms.service: log-analytics
@@ -18,7 +18,7 @@ ms.date: 12/17/2018
 
 Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions through a single pane of glass. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
 
-By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
+By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Azure Monitor views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Azure Monitor helps you to collect, correlate, and visualize structured and unstructured data.
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
@@ -27,29 +27,18 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL databases: single, pooled, and Managed Instance databases. As the solution does not use agents to connect to the Log Analytics service, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
+Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL databases: single, pooled, and Managed Instance databases. As the solution does not use agents to connect to Azure Monitor, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Log Analytics doesn't read the data from a storage account. |
+| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
+| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
-| [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
+| [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by the solution. |
 
 ## Configuration
-
-Perform the following steps to add the Azure SQL Analytics solution to your Azure dashboard.
-
-1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
-2. In the Azure portal, click **+ Create a resource**, then search for **Azure SQL Analytics**.  
-    ![Monitoring + Management](./media/azure-sql/monitoring-management.png)
-3. Select **Azure SQL Analytics (Preview)** from the list
-4. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
-    ![Create](./media/azure-sql/portal-create.png)
-5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.
-
-    ![add to workspace](./media/azure-sql/add-to-workspace.png)
+Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add the Azure SQL Analytics (Preview) solution to your Log Analytics workspace.
 
 ### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 
@@ -75,9 +64,9 @@ To view Azure SQL Analytics monitoring dashboard for Azure SQL Databases and ela
 
 ### Viewing Azure SQL Analytics data
 
-The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
+The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Log Analytics workspace.
 
-Note that if some metrics or logs are not streamed into Azure Log Analytics, the tiles in the solution are not populated with monitoring information.
+Note that if some metrics or logs are not streamed into Azure Monitor, the tiles in the solution are not populated with monitoring information.
 
 ### Azure SQL Database and elastic pool view
 
@@ -297,6 +286,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](../log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
+- Use [log queries](../log-query/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
 - [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
