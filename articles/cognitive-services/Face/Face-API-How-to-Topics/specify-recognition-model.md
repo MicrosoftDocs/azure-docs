@@ -66,7 +66,7 @@ string personGroupId = "mypersongroupid";
 await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-In this code, a **PersonGroup** with id `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
+In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
 
 Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
@@ -88,7 +88,7 @@ There is no change in the [Face - Find Similar] API; you only specify the model 
 
 ## Verify faces with specified model
 
-The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but note that you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using `recognition_01` or `recognition_02`.
+The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using `recognition_01` or `recognition_02`.
 
 ## Evaluate different models
 
@@ -98,7 +98,13 @@ If you'd like to compare the performances of the _recognition_01_ and _recogniti
 1. Use your image data to detect faces and register them to **Person**s for these two **PersonGroup**s, and trigger the training process with [PersonGroup - Train] API.
 1. Test with [Face - Identify] on both **PersonGroup**s and compare the results.
 
-If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), note that you may need to use different thresholds for different models. A threshold for one model is not meant to be shared to another and will not necessarily produce the same results.
+If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), you may need to use different thresholds for different models. A threshold for one model is not meant to be shared to another and will not necessarily produce the same results.
+
+## Next steps
+
+In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
+
+* [Detect faces in an image](../quickstarts/csharp-detect-sdk.md)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
