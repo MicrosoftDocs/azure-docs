@@ -3,7 +3,7 @@ title: Azure Active Directory device management FAQ | Microsoft Docs
 description: Azure Active Directory device management FAQ.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
