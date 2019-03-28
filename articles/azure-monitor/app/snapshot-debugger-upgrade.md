@@ -6,7 +6,7 @@ author: MarioHewardt
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: Mario.Hewardt
 ms.reviewer: mbullwin
 ---
@@ -29,7 +29,7 @@ If you enabled the Snapshot debugger using the site extension, you can easily up
 
    ![Screenshot of three buttons. Center button with name Application Insights is selected](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. A new blade will open with the current settings. Unless you want to take the opportunity to change your settings, you can leave them as is. The **Apply** button on the bottom of the blade is not enabled by default and you will have to toggle one of the settings to activate the button. You don’t have to change any actual settings, rather you can change the setting and then immediately change it back. We recommend toggling the Profiler or Snapshot Debugger setting and then selecting **Apply**.  
+4. A new blade will open with the current settings. Unless you want to take the opportunity to change your settings, you can leave them as is. The **Apply** button on the bottom of the blade is not enabled by default and you will have to toggle one of the settings to activate the button. You don’t have to change any actual settings, rather you can change the setting and then immediately change it back. We recommend toggling the Profiler setting and then selecting **Apply**.
 
    ![Screenshot of Application Insights App Service Configuration page with Apply button highlighted in red](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
