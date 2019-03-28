@@ -70,11 +70,6 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 ### Output file
 A friendly name that lets you identify the output content. 
 
-## Azure Media Hyperlapse
-Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This section gives some details about options that you specify for this MP.
-
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
-
 ### Speed
 Specify the speed with which to speed up the input video. The output is a stabilized and time-lapsed rendition of the input video.
 

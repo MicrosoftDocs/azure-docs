@@ -22,12 +22,12 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 
 | Azure Functions                   	| V1            	| V2 (Ignite 2018) 	| 
 |-----------------------------------	|---------------	|------------------	|
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.7.2**         |
+| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Automatic  collection of**        |               	|                  	|           	
 | &bull; Requests                     | Yes           	| Yes              	| 
 | &bull; Exceptions                   | Yes           	| Yes              	| 
-| &bull; Performance Counters         | Yes             |                   |
+| &bull; Performance Counters         | Yes             | Yes               |
 | &bull; Dependencies           	    |               	|                  	|           	
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               	| Yes              	| 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               	| Yes              	| 

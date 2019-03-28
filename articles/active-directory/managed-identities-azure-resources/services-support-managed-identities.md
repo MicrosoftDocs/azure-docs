@@ -212,7 +212,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Preview |
-| Azure Government |  | Not Available |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
+| Azure Global | `https://storage.azure.com/` | Available |
+| Azure Government | `https://storage.azure.com/` | Available |
+| Azure Germany | `https://storage.azure.com/` | Available |
+| Azure China 21Vianet | `https://storage.azure.com/` | Available |
