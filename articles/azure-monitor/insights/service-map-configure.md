@@ -51,13 +51,11 @@ The following section list the supported operating systems for the Dependency ag
 - Windows 7
 
 ## Supported Linux operating systems
-The following section list the supported operating systems for the Dependency agent on Red Hat Enterprise Linux, CentOS Linux, and Oracle Linux (with RHEL Kernel).  
+The following section list the supported operating systems for the Dependency agent on Linux.  
 
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
 - Custom kernels, including recompiles of standard kernels, are not supported.
-- CentOSPlus kernel is supported.
-- Oracle Unbreakable Enterprise Kernel (UEK) is covered in a later section of this article.
 
 ### Red Hat Linux 7
 
