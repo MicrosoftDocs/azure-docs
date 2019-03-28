@@ -104,7 +104,7 @@ Power BI Embedded can be used in Azure Government supporting Impact Level 5 work
 
 Azure Batch can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation [here](../batch/batch-account-create-portal.md).
+- Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation [here](../batch/batch-account-create-portal.md)).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,13 +112,13 @@ Azure Batch can be used in Azure Government supporting Impact Level 5 workloads 
 
 ### [Azure Functions](https://azure.microsoft.com/services/functions/)
 
-Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Functions can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - To accommodate proper network and workload isolation, deploy your Azure Functions on App Service Plans configured to leverage the **Isolated SKU**. More information can be found [here](../app-service/overview-hosting-plans.md).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Azure Web Apps** | X | X | X | X | X | X |
+| **Azure Functions** | X | X | X | X | X | X |
 
 ### [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/)
 
