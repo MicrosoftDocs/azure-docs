@@ -6,7 +6,7 @@ documentationcenter: na
 author: ggailey777
 manager: cfowler
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture, python
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: multiple

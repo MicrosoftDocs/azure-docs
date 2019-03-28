@@ -86,12 +86,12 @@ To register a new application using the Azure portal, perform the following step
      and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
      The same application can also expose both a client and resource/API.
    - **Sign-On URL**: For Web app/API applications, provide the base
-     URL of your app. For example, **http://localhost:31544** might
+     URL of your app. For example, **http:\//localhost:31544** might
      be the URL for a web app running on your local machine. Users
      would then use this URL to sign in to a web client application.
    - **Redirect URI**: For Native applications, provide the URI used
      by Azure AD to return token responses. Enter a value specific to
-     your application, for example **http://MyFirstAADApp**.
+     your application, for example **http:\//MyFirstAADApp**.
 
      ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1-2.png)
 
@@ -650,15 +650,13 @@ A SaaS webhook is used for notifying changes proactively to the SaaS service. Th
 *Body*
 
 ``` json
-  { 
+  {
     "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "sampleSaaSOffer", // Provided with "Update" action
-    "publisherId": "contoso", 
-    "planId": "silver",     // Provided with "Update" action
-    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
-    "timeStamp": "2018-12-01T00:00:00"
+    "action": "Subscribe", // Subscribe/Unsubscribe/ChangePlan
+    "operationRequestSource":"Azure",
+    "timeStamp":"2018-12-01T00:00:00"
   }
 ```
 

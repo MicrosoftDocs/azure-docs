@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
+| **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during an interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
 ```XML 
@@ -387,7 +387,6 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -395,7 +394,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example

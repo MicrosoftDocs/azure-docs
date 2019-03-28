@@ -194,11 +194,11 @@ Each template comes with sample code included, which takes simulated sensor data
 11. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
 
    ```json
-      "NodeModule": {
-          "properties.desired":{
-              "TemperatureThreshold":25
-          }
-      }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)

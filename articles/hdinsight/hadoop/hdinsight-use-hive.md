@@ -64,7 +64,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see the [How to use a custom JSON SerDe with HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
+Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see the [How to use a custom JSON SerDe with HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) document.
 
 For more information on file formats supported by Hive, see the [Language manual (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -198,8 +198,6 @@ These statements perform the following actions:
 
 The [Apache Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.
 
-To aid in debugging jobs ran using Tez, HDInsight provides the following web UI that allows you to view details of Tez jobs: [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md).
-
 ### Low Latency Analytical Processing (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (sometimes known as Live Long and Process) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
@@ -250,8 +248,7 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

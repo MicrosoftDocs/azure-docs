@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 03/15/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
@@ -87,7 +87,7 @@ You also need a _service connection string_ to enable the back-end service appli
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Make a note of the service connection string, which looks like:

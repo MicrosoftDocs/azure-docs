@@ -142,7 +142,7 @@ Now that the *adhocreporting* database is set up, go ahead and run some distribu
 
 When inspecting the execution plan, hover over the plan icons for details. 
 
-Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to a individual database, filtering is easily done remotely, returning only the data needed.
+Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to an individual database, filtering is easily done remotely, returning only the data needed.
 
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SSMS.
 2. Ensure you are connected to the **adhocreporting** database.

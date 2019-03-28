@@ -3,7 +3,7 @@ title: Rollover an Azure Service Fabric cluster certificate | Microsoft Docs
 description: Learn how to rollover a Service Fabric cluster certificate identified by the certificate common name.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Manually roll over a Service Fabric cluster certificate

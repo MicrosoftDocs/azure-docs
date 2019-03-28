@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -107,7 +107,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copy the value of the `cs` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.
+3. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.
 
    ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
