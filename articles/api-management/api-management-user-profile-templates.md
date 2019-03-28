@@ -105,7 +105,7 @@ Azure API Management provides you the ability to customize the content of develo
 |`lastName`|string|Last name of the current user.|  
 |`companyName`|string|The company name of the current user.|  
 |`addresserEmail`|string|Email address of the current user.|  
-|`developersUsageStatisticsLinkk`|string|Relative URL to view analytics for the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
 |`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
 |`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
 |`changePasswordUrl`|string|The relative URL to change the current user's password.|  
@@ -326,7 +326,7 @@ Azure API Management provides you the ability to customize the content of develo
 |`lastName`|string|Last name of the current user.|  
 |`companyName`|string|The company name of the current user.|  
 |`addresserEmail`|string|Email address of the current user.|  
-|`developersUsageStatisticsLinkk`|string|Relative URL to view analytics for the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
 |`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
 |`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
 |`changePasswordUrl`|string|The relative URL to change the current user's password.|  
@@ -489,7 +489,7 @@ Azure API Management provides you the ability to customize the content of develo
 |`lastName`|string|Last name of the current user.|  
 |`companyName`|string|The company name of the current user.|  
 |`addresserEmail`|string|Email address of the current user.|  
-|`developersUsageStatisticsLinkk`|string|Relative URL to view analytics for the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
 |`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
 |`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
 |`changePasswordUrl`|string|The relative URL to change the current user's password.|  
