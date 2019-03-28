@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-restore-backup-Azure SQL database | Microsoft Docs
-description: Azure PowerShell example script to restore an Azure SQL single database from geo-redundant backups
+description: Azure PowerShell example script to restore an Azure SQL single database to an earlier point in time from automatic backups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,11 +11,11 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/27/2019
 ---
-# Use PowerShell to restore an Azure SQL single database from backups
+# Use PowerShell to restore an Azure SQL single database to an earlier point in time
 
-This PowerShell script example restores an Azure SQL database from a geo-redundant backup, restores a deleted Azure SQL database to its latest backup, and restores an Azure SQL database to a specific point in time.  
+This PowerShell script example restores an Azure SQL database to a specific point in time.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
