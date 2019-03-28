@@ -215,7 +215,7 @@
       href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
-    - name: Filter and OrderBy expression syntax
+    - name: Filter and OrderBy expression syntax and examples
       href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
     items:

@@ -96,12 +96,10 @@ The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app 
 
 The examples below show analyzer definitions for a few key scenarios.
 
-+ [Custom analyzer example](#Example1)
-+ [Assign analyzers to a field example](#Example2)
-+ [Mixing analyzers for indexing and search](#Example3)
-+ [Language analyzer example](#Example4)
-
-<a name="Example1"></a>
++ [Custom analyzer example](#Custom-analyzer-example)
++ [Assign analyzers to a field example](#Per--field-analyzer-assignment-example)
++ [Mixing analyzers for indexing and search](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Language analyzer example](#Language-analyzer-example)
 
 ### Custom analyzer example
 
@@ -175,8 +173,6 @@ Walking through this example:
   }
 ~~~~
 
-<a name="Example2"></a>
-
 ### Per-field analyzer assignment example
 
 The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
@@ -208,8 +204,6 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
   }
 ~~~~
 
-<a name="Example3"></a>
-
 ### Mixing analyzers for indexing and search operations
 
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The **searchAnalyzer** and **indexAnalyzer** attributes must be specified as a pair, replacing the single **analyzer** attribute.
@@ -235,8 +229,6 @@ The APIs include additional index attributes for specifying different analyzers 
      ],
   }
 ~~~~
-
-<a name="Example4"></a>
 
 ### Language analyzer example
 
@@ -273,10 +265,8 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 If you are using the .NET SDK code samples, you can append these examples to use or configure analyzers.
 
-+ [Assign a built-in analyzer](#csharp-assign)
-+ [Configure an analyzer](#csharp-create)
-
-<a name="csharp-assign"></a>
++ [Assign a built-in analyzer](#Assign-a-language-analyzer)
++ [Configure an analyzer](#Define-a-custom-analyzer)
 
 ### Assign a language analyzer
 
@@ -305,13 +295,11 @@ Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.mod
     }
 ```
 
-<a name="csharp-create"></a>
-
 ### Define a custom analyzer
 
 When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
 
-Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) to create the object.
+Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) to create the object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -332,8 +320,6 @@ Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.searc
 
    serviceClient.Indexes.Create(definition);
 ```
-
-For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ## Next steps
 
