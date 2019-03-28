@@ -140,8 +140,7 @@
   items:
   - name: Overview
     href: iot-accelerators-connected-factory-features.md
-  - name: What is industrial IoT
-    href: overview-iot-industrial.md
+  
 
     items:
     - name: Architecture
@@ -164,6 +163,16 @@
       href: iot-accelerators-connected-factory-configure.md
     - name: Customize the solution accelerator
       href: iot-accelerators-connected-factory-customize.md
+  
+  - name: Resources
+    items:
+    - name: GitHub repository
+      href: https://github.com/Azure/azure-iot-connected-factory
+    - name: Connected Factory FAQ
+      href: iot-accelerators-faq-cf.md
+      
+  - name: What is industrial IoT
+    href: overview-iot-industrial.md 
 
   - name: OPC Twin
     items:
@@ -197,12 +206,6 @@
       - name: Deploy OPC Vault from scratch
         href: howto-opc-vault-deploy-scratch.md
 
-  - name: Resources
-    items:
-    - name: GitHub repository
-      href: https://github.com/Azure/azure-iot-connected-factory
-    - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md
 
 - name: Device Simulation
   items:
