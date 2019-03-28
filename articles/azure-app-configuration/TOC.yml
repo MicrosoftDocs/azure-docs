@@ -46,7 +46,9 @@
     - name: .NET Framework configuration builder
       href: https://go.microsoft.com/fwlink/?linkid=2074663
     - name: Java Spring configuration provider
-      href: https://go.microsoft.com/fwlink/?linkid=2074659
+      href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
+    - name: .NET Azure SDK
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
     - name: REST
       href: https://go.microsoft.com/fwlink/?linkid=2078296
 - name: Resources
