@@ -81,7 +81,7 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |
 |---------|----------|------|-------------|
-| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. | The type for the parameter |
+| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
 | defaultValue | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |
 | metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |
