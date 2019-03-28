@@ -3,7 +3,7 @@ title: Update an Azure Service Fabric cluster to use certificate common name | M
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Change cluster from certificate thumbprint to common name
