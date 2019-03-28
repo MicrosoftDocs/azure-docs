@@ -156,7 +156,7 @@ Application Insights SDK looks for the key in this order:
 
 You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
-```Java
+```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
 
     if (instrumentationKey != null)
