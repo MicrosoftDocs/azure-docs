@@ -12,13 +12,13 @@ ms.author: danlep
 
 # ACR Tasks reference: YAML
 
-Multi-step task definition in ACR Tasks provides a container-centric compute primitive focused on building, testing, and patching containers. This article covers the commands, parameters, properties, and syntax for the YAML files that define your multi-step  tasks.
+Multi-step task definition in ACR Tasks provides a container-centric compute primitive focused on building, testing, and patching containers. This article covers the commands, parameters, properties, and syntax for the YAML files that define your multi-step tasks.
 
 This article contains reference for creating multi-step task YAML files for ACR Tasks. If you'd like an introduction to ACR Tasks, see the [ACR Tasks overview](container-registry-tasks-overview.md).
 
 ## acr-task.yaml file format
 
-ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file that you can then run manually, or have triggered automatically on Git commit or base image update. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
+ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit or base image update. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
 
 The top-level `acr-task.yaml` primitives are **task properties**, **step types**, and **step properties**:
 
@@ -173,7 +173,7 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 ```
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml -->
-[!code-yml[task](~/acr-tasks/build-hello-world.yaml)
+[!code-yml[task](~/acr-tasks/build-hello-world.yaml)]
 
 #### Build image - context in subdirectory
 
@@ -488,4 +488,5 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-configure]: /cli/azure/reference-index#az-configure
