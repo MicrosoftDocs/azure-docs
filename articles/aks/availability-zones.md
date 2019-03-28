@@ -27,6 +27,19 @@ This article shows you how to create an AKS cluster and distribute the node comp
 
 You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+### Install aks-preview CLI extension
+
+AKS clusters are updated to enable pod security policies using the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
+> [!NOTE]
+> If you have previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
+
+### Register pod security policy feature provider
+
 To create an AKS cluster that availability zones, first enable two feature flags on your subscription. Clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *AvailabilityZonePreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
