@@ -12,7 +12,7 @@ ms.author: thweiss
 
 This article explains how to find the request unit charge for operations executed against Azure Cosmos DB's Table API.
 
-The only SDK currently returning request unit charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that gets populated by the SDK when used against Cosmos DB's Table API.
+The only SDK currently returning request unit charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) (see [this quickstart](create-table-dotnet.md) regarding its usage). The `TableResult` object exposes a `RequestCharge` property that gets populated by the SDK when used against Azure Cosmos DB's Table API.
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");
@@ -22,3 +22,10 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
     double requestCharge = tableResult.RequestCharge.Value;
 }
 ```
+
+## Next steps
+
+See the following articles to learn about Azure Cosmos DB's Table API:
+
+* [Developing with Azure Cosmos DB Table API and Azure Table storage](table-support.md)
+* [Azure Storage Table Design Guide: Designing Scalable and Performant Tables](table-storage-design-guide.md)

@@ -10,9 +10,9 @@ ms.author: thweiss
 
 # How to find the request unit charge
 
-This article presents the different ways to find the request unit consumption for any operation executed against a container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Cosmos DB through one of the SDK.
+This article presents the different ways to find the request unit consumption for any operation executed against a container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDK.
 
-## From the Azure portal
+## Using the Azure portal
 
 The Azure portal currently lets you find the request charge for a SQL query only.
 
@@ -30,9 +30,9 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 ![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-ru-charge/portal-sql-query.png)
 
-## From the .NET SDK v2
+## Using the .NET SDK v2
 
-Objects returned from the .NET SDK v2 expose a `RequestCharge` property.
+Objects returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (see [this quickstart](create-sql-api-dotnet.md) regarding its usage) expose a `RequestCharge` property.
 
 ```csharp
 ResourceResponse<Document> fetchDocumentResponse = await client.ReadDocumentAsync(
@@ -65,9 +65,9 @@ while (query.HasMoreResults)
 }
 ```
 
-## From the Java SDK
+## Using the Java SDK
 
-Objects returned from the Java SDK expose a `getRequestCharge()` method.
+Objects returned from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) expose a `getRequestCharge()` method.
 
 ```java
 RequestOptions requestOptions = new RequestOptions();
@@ -93,9 +93,9 @@ feedResponse.forEach(result -> {
 });
 ```
 
-## From the JavaScript SDK
+## Using the Node.js SDK
 
-Objects returned from the JavaScript SDK expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
+Objects returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this quickstart](create-sql-api-nodejs.md) regarding its usage) expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
 
 ```javascript
 const item = await client
@@ -126,9 +126,9 @@ while (query.hasMoreResults()) {
 }
 ```
 
-## From the Python SDK
+## Using the Python SDK
 
-The `CosmosClient` object from the Python SDK exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
+The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this quickstart](create-sql-api-python.md) regarding its usage) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
 
 ```python
 response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
