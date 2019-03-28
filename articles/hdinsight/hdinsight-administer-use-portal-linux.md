@@ -53,7 +53,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Access control (IAM)|Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.|
     |Diagnose and solve problems|Display troubleshooting information.|
-    |Quick Start|Displays information that helps you get started using HDInsight.|
+    |Quickstart|Displays information that helps you get started using HDInsight.|
     |Tools|Help information for HDInsight related tools.|
 
   - **Settings menu**  
@@ -228,7 +228,7 @@ From the [cluster home page](#homePage):
 For more information, see [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Change passwords
-An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can use the portal to change the cluster user account password, and script actions to change the SSH user account.
+An HDInsight cluster can have two user accounts. The HDInsight cluster user account (HTTP user account) and the SSH user account are created during the creation process. You can use the portal to change the cluster user account password, and script actions to change the SSH user account.
 
 ### Change the cluster user password
 
