@@ -26,7 +26,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
 
 - User account content collected at registration
 - Training data required to build the models (i.e. intent & entities)
-- User queries logged at runtime to help improve the user models
+- Logged user queries used by [active learning](luis-concept-review-endpoint-utterances.md) to help improve the model
   - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## Deleting customer data
@@ -45,7 +45,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 | --- | --- | --- | --- | --- |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
-## Active learning data
+## Location of active learning
 
 To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in one or more of the following Azure geographies:
 
