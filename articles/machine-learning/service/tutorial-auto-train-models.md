@@ -127,12 +127,10 @@ Use the data flow object created in the previous tutorial. To summarize, part 1 
 
 
 ```python
-import azureml.dataprep as dprep
+from azureml.dataprep import Dataflow
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 
