@@ -34,7 +34,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 **Data encryption**:
 - On-premises, data in transit is encrypted on the on-premises machine using AES256. The data transmitted is protected by HTTPS between storage and backup. The iSCSI protocol secures the data transmitted between backup and the user machine. Secure tunneling is used to protect the iSCSI channel.
 - For on-premises to Azure backup, data in Azure is encrypted at-rest using the passphrase you provide when you set up backup. The passphrase or key it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
-- For Azure VMs, data is encrypted at-reset using Storge Service Encryption (SSE). Bakckup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it.
+- For Azure VMs, data is encrypted at-reset using Storage Service Encryption (SSE). Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it.
 - Backup also supports Azure VMs encrypted using Azure Disk Encryption (ADE). [Learn more](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Application-consistent backup** - An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
@@ -81,8 +81,8 @@ The following table shows Azure Backup components supported for Linux.
 
 **Component** | **Linux (Azure endorsed)**
 --- | ---
-Azure Backup (MARS) agent | No ( Windows-based agent only)
-System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
+Azure Backup (MARS) agent | No (Windows-based agent only)
+System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restores of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
 Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs
 Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-a-vm).
 
