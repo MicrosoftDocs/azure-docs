@@ -119,7 +119,7 @@ Your dashboard displays the various settings that are required to configure and 
     > [!IMPORTANT] 
     > The resiliency can only be configured before you activate the device. 
 
-    ![Local web UI "Storage settings" page](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+    ![Local web UI "Storage settings" page](./media/data-box-edge-deploy-connect-setup-activate/storage-settings)
 
 6. In the left pane, select **Cloud settings**, and then activate your device with the Data Box Edge service in the Azure portal.
     
