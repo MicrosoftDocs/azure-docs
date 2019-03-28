@@ -92,6 +92,8 @@ If a search fails to return expected results, the most likely scenario is token 
 
 The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
+<a name="examples"></a>
+
 ## REST examples
 
 The examples below show analyzer definitions for a few key scenarios.
