@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
 
 ---
@@ -160,7 +160,13 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
 
 - If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM.
 
-  ![jit request access](./media/security-center-just-in-time/jit-request-access.png)
+  > When requesting access through Azure VM blade, the access is requested with the following parameters:
+
+    - ‘Any’ (*) source IP
+    - RDP port 3389 for Windows or port 22 for Linux
+    - 3 hours access time range
+
+  >![jit request access](./media/security-center-just-in-time/jit-request-access.png)
 
 ## Auditing JIT access activity
 
