@@ -160,7 +160,7 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
 
 - If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM.
 
-  > When requesting access through Azure VM blade, the access is requested with the following parameters:
+  When requesting access through an Azure VM blade, the access is requested with the following parameters:
 
     - ‘Any’ (*) source IP
     - RDP port 3389 for Windows or port 22 for Linux
