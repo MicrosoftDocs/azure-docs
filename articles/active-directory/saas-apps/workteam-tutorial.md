@@ -201,11 +201,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Workteam test user
 
-To enable Azure AD users to sign to Workteam, they must be provisioned into Workteam. In Workteam, provisioning is a manual task.
+To enable Azure AD users to sign in to Workteam, they must be provisioned into Workteam. In Workteam, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Sign to Workteam as a Security Administrator.
+1. Sign in to Workteam as a Security Administrator.
 
 2. On the top middle of the **Organization settings** page, click **USERS** and then click **NEW USER**.
 
