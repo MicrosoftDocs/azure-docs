@@ -1636,7 +1636,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/asc-for-iot/">
-                                                <img src="media/index/asc-for-iot.png" alt="" />
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
                                                 <p>ASC for IoT</p>
                                             </a>
                                         </li>
@@ -4871,7 +4871,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/asc-for-iot.png" alt="" />
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
