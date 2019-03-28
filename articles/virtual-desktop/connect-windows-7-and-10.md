@@ -16,7 +16,7 @@ ms.author: helohr
 A downloadable client is available that provides access to Windows Virtual Desktop Preview resources from devices running Windows 7 and Windows 10.
 
 > [!IMPORTANT]
-> The **RemoteApp and Desktop Connections** Control Panel item and **Remote Desktop Connections** client that is included with Windows are not supported to access resources from Windows Virtual Desktop.
+> The **RemoteApp and Desktop Connections** Control Panel item and **Remote Desktop Connection** client that is included with Windows are not supported to access resources from Windows Virtual Desktop.
 
 ## Install the client
 
