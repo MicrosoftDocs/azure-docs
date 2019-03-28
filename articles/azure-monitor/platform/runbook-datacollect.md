@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -125,13 +125,13 @@ Azure Automation includes an environment to [test your runbook](../../automation
 
 ![Test runbook](media/runbook-datacollect/test-runbook.png)
 
-6. Click **Save** to save the runbook.
+1. Click **Save** to save the runbook.
 1. Click **Test pane** to open the runbook in the test environment.
-3. Since your runbook has parameters, you're prompted to enter values for them. Enter the name of the resource group and the automation account that your going to collect job information from.
-4. Click **Start** to the start the runbook.
-3. The runbook will start with a status of **Queued** before it goes to **Running**.
-3. The runbook should display verbose output with the jobs collected in json format. If no jobs are listed, then there may have been no jobs created in the automation account in the last hour. Try starting any runbook in the automation account and then perform the test again.
-4. Ensure that the output doesn't show any errors in the post command to Log Analytics. You should have a message similar to the following.
+1. Since your runbook has parameters, you're prompted to enter values for them. Enter the name of the resource group and the automation account that your going to collect job information from.
+1. Click **Start** to the start the runbook.
+1. The runbook will start with a status of **Queued** before it goes to **Running**.
+1. The runbook should display verbose output with the jobs collected in json format. If no jobs are listed, then there may have been no jobs created in the automation account in the last hour. Try starting any runbook in the automation account and then perform the test again.
+1. Ensure that the output doesn't show any errors in the post command to Log Analytics. You should have a message similar to the following.
 
 	![Post output](media/runbook-datacollect/post-output.png)
 
@@ -183,9 +183,9 @@ The most common way to start a runbook that collects monitoring data is to sched
 
 Once the schedule is created, you need to set the parameter values that will be used each time this schedule starts the runbook.
 
-6. Click **Configure parameters and run settings**.
-7. Fill in values for your **ResourceGroupName** and **AutomationAccountName**.
-8. Click **OK**.
+1. Click **Configure parameters and run settings**.
+1. Fill in values for your **ResourceGroupName** and **AutomationAccountName**.
+1. Click **OK**.
 
 ## 9. Verify runbook starts on schedule
 Every time a runbook is started, [a job is created](../../automation/automation-runbook-execution.md) and any output logged. In fact, these are the same jobs that the runbook is collecting. You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.

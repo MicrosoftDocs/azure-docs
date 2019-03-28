@@ -55,10 +55,10 @@ With disk(s) "unattached" to a virtual machine
 #### Azure PowerShell
 User tries to delete a storage account, that is no longer being used, by using classic PowerShell cmdlets. User will see the following message:
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage account myclassicaccount has some active image(s) and/or disk(s), e.g.  
-myclassicaccount. Ensure these image(s) and/or disk(s) are removed before deleting this storage account.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage account myclassicaccount has some active image(s) and/or disk(s), e.g.  
+> myclassicaccount. Ensure these image(s) and/or disk(s) are removed before deleting this storage account.</span>
 
 ## Unable to delete storage container
 
@@ -73,9 +73,9 @@ Azure portal wouldn't allow the user to delete a container if a "Disk(s)" lease 
 #### Azure PowerShell
 If the user chooses to delete using PowerShell, it will result in the following error. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : The remote server returned an error: (412) There is currently a lease on the container and no lease ID was specified in the request.. HTTP Status Code: 412 - HTTP Error Message: There is currently a lease on the container and no lease ID was specified in the request.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : The remote server returned an error: (412) There is currently a lease on the container and no lease ID was specified in the request.. HTTP Status Code: 412 - HTTP Error Message: There is currently a lease on the container and no lease ID was specified in the request.</span>
 
 ## Unable to delete a vhd 
 
@@ -95,9 +95,9 @@ On the portal, there could be two experiences depending on the list of blobs sel
 #### Azure PowerShell 
 If the user chooses to delete using PowerShell, it will result in the following error. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : The remote server returned an error: (412) There is currently a lease on the blob and no lease ID was specified in the request.. HTTP Status Code: 412 - HTTP Error Message: There is currently a lease on the blob and no lease ID was specified in the request.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : The remote server returned an error: (412) There is currently a lease on the blob and no lease ID was specified in the request.. HTTP Status Code: 412 - HTTP Error Message: There is currently a lease on the blob and no lease ID was specified in the request.</span>
 
 
 ## Resolution steps

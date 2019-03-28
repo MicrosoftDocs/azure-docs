@@ -4,8 +4,8 @@ description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: SyntaxC4
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -189,7 +189,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## Deploy app to Azure
 
-To create a an app that uses the image you just pushed, you run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
+To create an app that uses the image you just pushed, you run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
 
 ### Create a resource group
 
@@ -305,12 +305,12 @@ SSH enables secure communication between a container and a client. In order for 
     EXPOSE 8000 2222
     ```
 
-* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) by using a shell script in the /bin directory.
+* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/8.9/startup/init_container.sh#L18) by using a shell script in the /bin directory.
  
 	```bash
 	#!/bin/bash
 	service ssh start
-	```
+    ```
      
 ### Open SSH connection to container
 
@@ -522,6 +522,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://` is required in *\<docker-registry-server-url>*.
 >
+> [!NOTE]
+> When using registry other than dockerhub, `docker-custom-image-name` must include fully-qualified domain name (FQDN) of your registry.  
+> For Azure Container Registry, this will look like `<azure-container-registry>.azurecr.io/mydockerimage`.
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 

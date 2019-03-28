@@ -44,7 +44,7 @@ The following section describes the configuration of auditing on your managed in
 
    1. Provide a container **Name**, set Public access level to **Private**, and then click **OK**.
 
-     ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. After creating the container for the Audit logs there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
@@ -107,7 +107,7 @@ The following section describes the configuration of auditing on your managed in
         GO
         ```
 
-      1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
+        1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
 
    - <a id="blobssms"></a>Configure blob storage for audit logs using the SQL Server Management Studio (SSMS) 18 (Preview):
 
@@ -129,7 +129,7 @@ The following section describes the configuration of auditing on your managed in
 
      1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
 
-        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Select Azure subscription, storage account, and blob container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Click **OK** in the "Create Audit" dialog.
 
@@ -184,7 +184,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Enable the server audit created in step 7:
+10. Enable the server audit created in step 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);

@@ -4,18 +4,15 @@ description: Learn how to add additional Azure storage accounts to an existing H
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-
-ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster.
+Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster. This article applies to [Azure Storage](hdinsight-hadoop-use-blob-storage.md) and only additional storage accounts (not the default cluster storage account). This article does not apply to [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) and [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
@@ -74,7 +71,7 @@ The storage information isn't displayed because the script only modifies the cor
 
 To view storage account information added to the cluster using this script, use the Ambari REST API. Use the following commands to retrieve this information for your cluster:
 
-```PowerShell
+```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
     -Credential $creds

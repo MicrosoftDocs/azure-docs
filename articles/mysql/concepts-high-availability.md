@@ -1,8 +1,8 @@
 ---
 title: High availability concepts in Azure Database for MySQL
 description: This topic provides information of high availability when using Azure Database for MySQL
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019

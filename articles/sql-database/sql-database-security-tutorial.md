@@ -71,11 +71,11 @@ To set up a server-level firewall rule:
 
 1. On the **Overview** page, select **Set server firewall**. The **Firewall settings** page for the database server opens.
 
-    1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. The rule can open port 1433 for a single IP address or a range of IP addresses. Select **Save**.
+   1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. The rule can open port 1433 for a single IP address or a range of IP addresses. Select **Save**.
 
-    ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Select **OK** and close the **Firewall settings** page.
+   1. Select **OK** and close the **Firewall settings** page.
 
 You can now connect to any database in the server with the specified IP address or IP address range.
 
@@ -242,11 +242,11 @@ To enable advanced data security:
 
 1. On the **SQL server** page, find the **Security** section and select **Advanced Data Security**.
 
-    1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
+   1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
-    ![Navigation pane](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigation pane](./media/sql-database-security-tutorial/threat-settings.png)
 
-    You can also configure emails to receive security alerts, storage details, and threat detection types.
+      You can also configure emails to receive security alerts, storage details, and threat detection types.
 
 1. Return to the **SQL databases** page of your database and select **Advanced Data Security** under the **Security** section. Here you'll find various security indicators available for the database.
 
@@ -268,25 +268,25 @@ To enable auditing:
 
 1. Under **Auditing** settings, set the following values:
 
-    1. Set **Auditing** to **ON**.
+   1. Set **Auditing** to **ON**.
 
-    1. Select **Audit log destination** as any of the following:
+   1. Select **Audit log destination** as any of the following:
 
-        - **Storage**, an Azure storage account where event logs are saved and can be downloaded as *.xel* files
+       - **Storage**, an Azure storage account where event logs are saved and can be downloaded as *.xel* files
 
-           > [!TIP]
-           > Use the same storage account for all audited databases to get the most from auditing report templates.
+          > [!TIP]
+          > Use the same storage account for all audited databases to get the most from auditing report templates.
 
-        - **Log Analytics**, which automatically stores events for query or further analysis
+       - **Log Analytics**, which automatically stores events for query or further analysis
 
-            > [!NOTE]
-            > A **Log Analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
+           > [!NOTE]
+           > A **Log Analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
 
-        - **Event Hub**, which allows events to be routed for use in other applications
+       - **Event Hub**, which allows events to be routed for use in other applications
 
-    1. Select **Save**.
+   1. Select **Save**.
 
-    ![Audit settings](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Audit settings](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Now you can select **View audit logs** to view database events data.
 
@@ -328,7 +328,7 @@ To enable or verify encryption:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) view. A state of `3` indicates the database is encrypted.
+> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) view. A state of `3` indicates the database is encrypted.
 
 ## Next steps
 

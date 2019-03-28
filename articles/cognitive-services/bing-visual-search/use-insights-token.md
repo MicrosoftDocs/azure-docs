@@ -282,7 +282,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -369,19 +369,19 @@ To run this application, follow these steps:
 1. Create a folder for your project (or use your favorite IDE or editor).
 2. From a command prompt or terminal, navigate to the folder you just created.
 3. Install the request modules:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Install the form-data modules:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Create a file named GetVisualInsights.js and add the following code to it.
 5. Replace the `subscriptionKey` value with your subscription key.
 7. Run the program.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

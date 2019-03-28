@@ -21,8 +21,8 @@ ms.author: pbutlerm
 
 This article describes how to use the SKUs tab to create SKUs for your Azure application. 
 
->[!IMPORTANT] 
-The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
+> [!IMPORTANT]
+> The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
 
 ## Configure Azure application SKUs
 

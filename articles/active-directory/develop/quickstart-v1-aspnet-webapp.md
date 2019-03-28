@@ -298,7 +298,7 @@ In addition, you see a table including all user claims included in authenticatio
 
 In this step, you test accessing the Claims controller as an anonymous user:<br/>
 Select the link to sign-out the user and complete the sign-out process.<br/>
-Now in your browser, type http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
+Now in your browser, type `http://localhost:{port}/claims` to access your controller that is protected with the `[Authorize]` attribute
 
 #### Expected results
 

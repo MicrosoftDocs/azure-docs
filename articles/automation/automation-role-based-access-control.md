@@ -174,11 +174,11 @@ A Monitoring Contributor can read all monitoring data and update monitoring sett
 |Microsoft.Insights/Metrics/*|Read metrics for a resource.|
 |Microsoft.Insights/Register/Action|Register the Microsoft.Insights provider.|
 |Microsoft.Insights/webtests/*|Manage Application Insights web tests.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Log Analytics solution packs.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Log Analytics saved searches.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Azure Monitor logs solution packs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Azure Monitor logs saved searches.|
 |Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Log Analytics storage insight configurations.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Azure Monitor logs storage insight configurations.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |Microsoft.WorkloadMonitor/workloads/*|Manage Workloads.|
 
@@ -225,6 +225,9 @@ The following tables show the minimum required permissions needed for onboarding
 |Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation account   |
+| Onboarding workspace check for VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+
+<sup>1</sup> This permission is needed to onboard through the VM portal experience.
 
 ### Onboarding from Automation account
 

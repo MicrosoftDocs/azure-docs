@@ -46,7 +46,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
 - Azure Stack 1901 or later:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.0
@@ -85,7 +85,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
 - **Without an internet connection** from the ASDK host computer. In a disconnected scenario, you must first download the PowerShell modules to a machine that has internet connectivity using the following PowerShell commands:
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -97,7 +97,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
   Next, copy the downloaded packages to the ASDK computer and register the location as the default repository and install the AzureRM and AzureStack modules from this repository:
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -112,7 +112,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
 [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) is a GitHub repository that hosts PowerShell modules for managing and deploying resources to Azure Stack. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder by running the following script:
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 
@@ -170,7 +170,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 For deployments using Azure AD, you need to [enable multi-tenancy](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) for your ASDK installation.
 
-> [!NOTE]  
+> [!NOTE]
 > When administrator or user accounts from domains other than the one used to register Azure Stack are used to log in to an Azure Stack portal, the domain name used to register Azure Stack must be appended to the portal url. For example, if Azure Stack has been registered with fabrikam.onmicrosoft.com and the user account logging in is admin@contoso.com, the url to use to log into the user portal would be: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## Next steps

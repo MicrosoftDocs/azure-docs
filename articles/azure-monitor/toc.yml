@@ -281,12 +281,24 @@
             href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
             href: app/profiler-vm.md
+          - name: Profiler for Linux App services (preview)
+            href: app/profiler-aspnetcore-linux.md
           - name: Profiler Settings
             href: app/profiler-settings.md 
           - name: Track Requests for Profiling
             href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
             href: app/profiler-troubleshooting.md 
+        - name: Snapshot Debugger
+          items:
+          - name: Overview
+            href: app/snapshot-debugger.md 
+          - name: Enable Snapshot Debugger for an App Service
+            href: app/snapshot-debugger-appservice.md
+          - name: Enable Snapshot Debugger for other environments
+            href: app/snapshot-debugger-vm.md
+          - name: Snapshot Debugger troubleshooting
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
@@ -304,7 +316,7 @@
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
-          - name: Profiler for Linux App services
+          - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
@@ -326,8 +338,6 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Snapshot Debugger
-          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps
@@ -536,6 +546,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Update to enable metrics
+          href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
@@ -812,6 +824,14 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
+      - name: Migrate classic alerts
+        items:
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
+        - name: Prepare for the migration
+          href: platform/alerts-prepare-migration.md
+        - name: Understand the migration tool
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale

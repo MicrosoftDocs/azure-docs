@@ -64,12 +64,14 @@
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
-      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md      
-    - name: 2- Scale the cluster
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md     
+    - name: 2- Monitor a cluster 
+      href: service-fabric-tutorial-monitor-cluster.md
+    - name: 3- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
-    - name: 3- Upgrade the cluster runtime
+    - name: 4- Upgrade the cluster runtime
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- Delete a cluster
+    - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
   - name: Create a standalone cluster on AWS
     items:
@@ -593,6 +595,8 @@
       items:
       - name: Create
         items:
+        - name: Plan for a cluster deployment
+          href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
         - name: Set up Azure Active Directory authentication
@@ -626,7 +630,11 @@
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
         - name: Patch cluster nodes (Linux)
-          href: service-fabric-patch-orchestration-application-linux.md    
+          href: service-fabric-patch-orchestration-application-linux.md  
+        - name: Enable disk encryption (Windows)
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Enable disk encryption (Linux)
+          href: service-fabric-enable-azure-disk-encryption-linux.md
         - name: Set access control
           href: service-fabric-cluster-security-roles.md      
         - name: Open a port in the load balancer
@@ -828,7 +836,7 @@
   - name: Common Security Attributes
     href: service-fabric-security-attributes.md  
   - name: Sample code
-    href: http://aka.ms/servicefabricsamples
+    href: https://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
   - name: Service Fabric versions

@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -54,21 +54,7 @@ You are only charged for skills that call the Cognitive Services APIs. Non-API-b
 
 1. For **Create new Cognitive Services resource**, a new tab opens so that you can create the resource. Give the resource a unique name.
 
-1. Choose the same location as Azure Search. Currently, cognitive skills indexing is supported in these regions:
-
-  * West Central US
-  * South Central US
-  * East US
-  * East US 2
-  * West US 2
-  * Canada Central
-  * West Europe
-  * UK South
-  * North Europe
-  * Brazil South
-  * Southeast Asia
-  * Central India
-  * Australia East
+1. If you create a new Cognitive Services resource, **choose the same region** as your Azure Search resource.
 
 1. Choose the All-in-one pricing tier, **S0**. This tier provides the Vision and Language features that back the predefined skills in cognitive search.
 

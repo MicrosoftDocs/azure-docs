@@ -55,7 +55,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 10. Log out of the portal as UserA, then log in as UserB.
 11. Click **+ New**, type *Virtual network* in the **Search the Marketplace** box, then click **Virtual network** in the search results.
 12. In the **Virtual Network** blade that appears, select **Classic** in the **Select a deployment model** box, then click **Create**.
-13.   In the Create virtual network (classic) box that appears, enter the following values:
+13. In the Create virtual network (classic) box that appears, enter the following values:
 
     - **Name**: *myVnetB*
     - **Address space**: *10.1.0.0/16*

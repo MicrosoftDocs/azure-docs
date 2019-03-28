@@ -37,10 +37,10 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
 
 4. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the SQL Database server  you want to connect to. Select **Connect** to open the **Navigator**. 
 
-  ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure portal](https://portal.azure.com/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
+   > [!TIP]
+   > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure portal](https://portal.azure.com/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
 
 5. In the **Navigator**, select the database you want to work with from the list, select the tables or views you want to work with (we chose **vGetAllCategories**), and then select **Load** to move the data from your database to your Excel spreadsheet.
 
@@ -69,17 +69,17 @@ Now that you've established the connection, you have several different options w
 To save the connection details permanently, you can create an .odc file and make this connection a selectable option within the **Existing Connections** dialog box. 
 
 1. In the menu bar at the top of the page, select the **Data** tab, and then select **Existing Connections** to launch the **Existing Connections** dialog box. 
-    1. Select **Browse for more** to open the **Select Data Source** dialog box.   
-    2. Select the **+NewSqlServerConnection.odc** file and then select **Open** to open the **Data Connection Wizard**.
+   1. Select **Browse for more** to open the **Select Data Source** dialog box.   
+   2. Select the **+NewSqlServerConnection.odc** file and then select **Open** to open the **Data Connection Wizard**.
 
-    ![New Connection](media/sql-database-connect-excel/new-connection.png)
+      ![New Connection](media/sql-database-connect-excel/new-connection.png)
 
 2. In the **Data Connection Wizard**, type in your server name and your SQL Database credentials. Select **Next**. 
-    1. Select the database that contains your data from the drop-down. 
-    2. Select the table or view you're interested in. We chose vGetAllCategories.
-    3. Select **Next**. 
+   1. Select the database that contains your data from the drop-down. 
+   2. Select the table or view you're interested in. We chose vGetAllCategories.
+   3. Select **Next**. 
 
-    ![Data Connection Wizard](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Data Connection Wizard](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Select the location of your file, the **File Name**, and the **Friendly Name** in the next screen of the Data Connection Wizard. You can also choose to save the password in the file, though this can potentially expose  your data to unwanted access. Select **Finish** when ready. 
 

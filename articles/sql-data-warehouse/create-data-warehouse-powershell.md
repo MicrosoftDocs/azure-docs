@@ -5,13 +5,12 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-
 # Quickstart: Create and query an Azure SQL data warehouse with Azure PowerShell
 
 Quickly create an Azure SQL data warehouse using Azure PowerShell.
@@ -25,19 +24,19 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription using the [Add-AzAccount](/powershell/module/az.profile/add-azaccount) command and follow the on-screen directions.
+Sign in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
 ```powershell
-Add-AzAccount
+Connect-AzAccount
 ```
 
-To see which subscription you're using, run [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+To see which subscription you're using, run [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.profile/set-azcontext).
+If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"

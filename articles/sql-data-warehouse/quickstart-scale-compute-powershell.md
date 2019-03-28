@@ -27,19 +27,19 @@ This quickstart assumes you already have a SQL data warehouse that you can scale
 
 ## Log in to Azure
 
-Log in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) command and follow the on-screen directions.
+Log in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount
 ```
 
-To see which subscription you are using, run [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+To see which subscription you are using, run [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.profile/set-azcontext).
+If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"

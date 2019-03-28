@@ -35,7 +35,7 @@ encrypted and secured with Secure Sockets Layer (SSL) protocol.
 Here are different ways you can secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
-* [Restrict incoming IP addresses](#restrict-incoming-IP)
+* [Restrict incoming IP addresses](#restrict-incoming-ip-addresses)
 * [Add Azure Active Directory, OAuth, or other security](#add-authentication)
 
 <a name="sas"></a>
@@ -61,7 +61,7 @@ Here's more information about securing access with
 Shared Access Signature:
 
 * [Regenerate access keys](#access-keys)
-* [Create expiring callback URLs](#expiring-URLs)
+* [Create expiring callback URLs](#expiring-urls)
 * [Create URLs with primary or secondary key](#primary-secondary-key)
 
 <a name="access-keys"></a>
@@ -350,7 +350,7 @@ a separate parameters file, for example:
          "type": "Http",
          "inputs": {
             "method": "GET",
-            "uri": "http://www.microsoft.com",
+            "uri": "https://www.microsoft.com",
             "authentication": {
                "type": "Basic",
                "username": "@parameters('usernameParam')",
@@ -473,7 +473,7 @@ values for parameters, you can use a separate parameters file.
                      "type": "Http",
                      "inputs": {
                         "method": "GET",
-                        "uri": "http://www.microsoft.com",
+                        "uri": "https://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
                            "username": "@parameters('usernameParam')",

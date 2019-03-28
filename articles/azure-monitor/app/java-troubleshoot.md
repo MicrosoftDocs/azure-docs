@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
 ---
 # Troubleshooting and Q and A for Application Insights for Java
@@ -99,18 +99,39 @@ Using the XML method, you have to restart the application when you change the va
 
 To get more information about what's happening in the API, add `<SDKLogger/>` under the root node of the ApplicationInsights.xml configuration file.
 
+### ApplicationInsights.xml
+
 You can also instruct the logger to output to a file:
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-The files can be found under `%temp%\javasdklogs` or `java.io.tmpdir` in case of Tomcat server.
+### Spring Boot Starter
 
+To enable SDK logging with Spring Boot Apps using the Application Insights Spring Boot Starter, add the following to the `application.properties` file.:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### Java Agent
+
+To enable JVM Agent Logging update the [AI-Agent.xml file](java-agent.md).
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## The Azure start screen
 **I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?**

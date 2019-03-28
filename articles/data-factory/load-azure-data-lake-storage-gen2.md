@@ -35,9 +35,10 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-azure-data-lake-storage-gen2/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
@@ -73,12 +74,12 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 	
 4. In the **Specify Amazon S3 connection** page, do the following steps:
 
-    1. Specify the **Access Key ID** value.
-    2. Specify the **Secret Access Key** value.
-    3. Click **Test connection** to validate the settings, then select **Finish**.
-    4. You will see a new connection gets created. Select **Next**.
+   1. Specify the **Access Key ID** value.
+   2. Specify the **Secret Access Key** value.
+   3. Click **Test connection** to validate the settings, then select **Finish**.
+   4. You will see a new connection gets created. Select **Next**.
    
-    ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. In the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder/file, select **Choose**:
 

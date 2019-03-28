@@ -44,7 +44,7 @@ This tool allows you to easily move data from a wide variety of sources to desti
 5. Review **summary** of Data Factory entities to be created. 
 6. **Edit** the pipeline to update settings for the copy activity as needed. 
 
- The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
+   The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
 
 ![Copy Data tool](./media/copy-data-tool/copy-data-tool.png)
 
