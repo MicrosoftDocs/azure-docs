@@ -24684,6 +24684,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/user-analytics.md",
+      "redirect_url": "/azure/sentinel/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
       "redirect_document_id": false
@@ -33510,7 +33515,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-container-agent-upgrade.md",
-      "redirect_url": "/azure/azure-monitor/insights/container-agent-upgrade",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
       "redirect_document_id": "false"
     },
     {

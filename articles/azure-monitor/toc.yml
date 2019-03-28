@@ -546,6 +546,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Update to enable metrics
+          href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
