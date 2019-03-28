@@ -97,9 +97,11 @@ The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app 
 The examples below show analyzer definitions for a few key scenarios.
 
 + [Custom analyzer example](#Custom-analyzer-example)
-+ [Assign analyzers to a field example](#Per--field-analyzer-assignment-example)
++ [Assign analyzers to a field example](#Per-field-analyzer-assignment-example)
 + [Mixing analyzers for indexing and search](#Mixing-analyzers-for-indexing-and-search-operations)
 + [Language analyzer example](#Language-analyzer-example)
+
+<a name="Custom-analyzer-example"></a>
 
 ### Custom analyzer example
 
@@ -173,6 +175,8 @@ Walking through this example:
   }
 ~~~~
 
+<a name="Per-field-analyzer-assignment-example"></a>
+
 ### Per-field analyzer assignment example
 
 The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
@@ -204,6 +208,8 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
   }
 ~~~~
 
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
+
 ### Mixing analyzers for indexing and search operations
 
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The **searchAnalyzer** and **indexAnalyzer** attributes must be specified as a pair, replacing the single **analyzer** attribute.
@@ -229,6 +235,8 @@ The APIs include additional index attributes for specifying different analyzers 
      ],
   }
 ~~~~
+
+<a name="Language-analyzer-example"></a>
 
 ### Language analyzer example
 
@@ -268,6 +276,8 @@ If you are using the .NET SDK code samples, you can append these examples to use
 + [Assign a built-in analyzer](#Assign-a-language-analyzer)
 + [Configure an analyzer](#Define-a-custom-analyzer)
 
+<a name="Assign-a-language-analyzer"></a>
+
 ### Assign a language analyzer
 
 Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an analyzer construct. 
@@ -294,6 +304,7 @@ Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.mod
       . . .
     }
 ```
+<a name="Define-a-custom-analyzer"></a>
 
 ### Define a custom analyzer
 
