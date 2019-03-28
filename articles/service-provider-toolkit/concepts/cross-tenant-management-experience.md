@@ -32,11 +32,11 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/)
 
-- Use automation accounts within customer tenants
+- Use automation accounts to access and work with delegated customer resources
 
 [Azure Backup](https://docs.microsoft.com/azure/backup/)
 
-- Back up and restore customer data
+- Back up and restore customer data in customer tenants
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/)
 
@@ -46,7 +46,7 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - View alerts for delegated subscriptions and filter on up to 20 subscriptions
 - View activity log details for delegated subscriptions
-- Query data from remote customer workspaces
+- Log analytics: Query data from remote customer workspaces
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -63,19 +63,19 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Ability to filter and see all info for delegated subscriptions
 
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 
 - Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can’t use RunAs accounts to copy VM extensions)
 
-[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
+[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
 
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
-- Use boot diagnostics to troubleshoot Azure VMs in customer tenants 
+- Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
 - Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/)
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
-Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
+Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience. Also, if a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management at this time.

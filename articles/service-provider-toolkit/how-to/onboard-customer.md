@@ -110,7 +110,7 @@ To make management easier, we recommend using Azure AD user groups for each role
 For example, you may want to use a structure like this:
 
 
-|Group name  |Type  |objectId/appId  |Role definition  |Role definition ID  |
+|Group name  |Type  |objectId  |Role definition  |Role definition ID  |
 |---------|---------|---------|---------|---------|
 |Architects     |User group         |\<objectId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Assessment     |User group         |\<objectId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
@@ -245,12 +245,12 @@ When a customer subscription has successfully been onboarded to Azure Delegated 
 ### Azure portal
 
 In the service provider’s tenant:
-1. Open the **My customers** blade.
+1. Navigate to the [My customers page](view-manage-customers.md).
 2. Select **Customers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 In the customer’s tenant:
-1. Open the **Service providers** blade.
+1. Navigate to the [Service providers page](view-manage-service-providers.md).
 2. Select **Providers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
