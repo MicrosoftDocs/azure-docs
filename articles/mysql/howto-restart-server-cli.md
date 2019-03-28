@@ -17,7 +17,7 @@ The time required to complete a restart depends on the MySQL recovery process. T
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MySQL server and database](quickstart-create-server-up-azure-cli.md)
+- An [Azure Database for MySQL server](quickstart-create-server-up-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
