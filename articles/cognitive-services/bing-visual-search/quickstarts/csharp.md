@@ -76,7 +76,7 @@ To upload a local image, you first build the form data to send to the API. The f
     --boundary_1234-abcd--
     ```
 
-1. To format the form data, add boundary strings to format the POST form data correctly. Boundary strings determine the beginning, end, and newline characters for the data:
+1. Add boundary strings to format the POST form data. Boundary strings determine the start, end, and newline characters for the data:
 
     ```csharp
     // Boundary strings for form data in body of POST.
