@@ -10,21 +10,26 @@ editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# Configure security agents
+# Tutorial: Configure security agents
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to configure an agent for use with ASC for IoT.
+This article explains ASC for IoT security agent, how to change them configure ASC for IoT security agents.
+
+> [!div class="checklist"]
+> * Configure security agents
+> * Change agent behavior by editing twin properties
+> * Discover default configuration
 
 ## Agents
 
@@ -38,46 +43,64 @@ Use the ASC for IoT security agent configuration [schema](https://github.com/azu
 
 ## Configuration objects 
 
-Each ASC for IoT security agent related property is located inside the agent configuration object,within the desired properties section, of the azureiotsecurity module. 
+Each ASC for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
 
-To modify the configuration, create and modify this object inside the azureiotsecurity module twin identity. 
-If the agent configuration object does not exist in the azureiotsecurity module twin, all security agent property values are set to default. 
+To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity. 
+
+If the agent configuration object does not exist in the **azureiotsecurity** module twin, all security agent property values are set to default. 
 
 ```json
-"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //Agent configuration object 
-  … 
-} 
+"desired": {
+  "azureiot*com^securityAgentConfiguration^1*0*0": {
+  } 
 }
 ```
 
 Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
 The agent will not launch if the configuration object does not match the schema.
 
+## Configuration schema and validation 
+
+Make sure to validate your agent configuration against this [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+
+ 
+If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
 
 ## Editing a property 
 
-All custom properties must be set inside the agent configuration object within the azureiotsecurity module twin. 
+All custom properties must be set inside the agent configuration object within the **azureiotsecurity** module twin.
+To use a default property value, remove the property from the configuration object.
 
-Setting a property overrides the default value. 
-To set a property, add the property key to the configuration object with the desired value. 
+### Setting a property
 
-To use a default property value, remove the property from the configuration object. 
+1. In your IoT Hub, locate and select the device you wish to change.
 
-```json
-"desired": { //azureiotsecurity Module Identity Twin – desired properties section  
-  "azureiot*com^securityAgentConfiguration^1*0*0": { //ASC for IoT Agent 
-      // configuration section  
-    "lowPriorityMessageFrequency": "PT1H",     
-    "highPriorityMessageFrequency": "PT7M",    
-    "eventPriorityFirewallConfiguration": "High",     
-    "eventPriorityConnectionCreate": "High" 
-  } 
-}, 
-```
+1. Click on your device, and then on **azureiotsecurity** module.
+
+1. Click on **Module Identity Twin**.
+
+1. Edit the desired properties of the security module.
+   
+   For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
+   
+   ```json
+    "desired": {
+      "azureiot*com^securityAgentConfiguration^1*0*0": {
+        "highPriorityMessageFrequency": "PT7M",    
+        "eventPriorityConnectionCreate": "High" 
+      } 
+    }, 
+    ```
+
+1. Click **Save**.
+
+### Using a default value
+
+To use a default property value, remove the property from the configuration object.
 
 ## Default properties 
-Set of controllable properties that control the ASC for IoT security agents.
+
+The following table contains the controllable properties of ASC for IoT security agents.
 
 Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
 
@@ -90,7 +113,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |maxMessageSizeInBytes |Required: false |Valid values: A positive number, larger than 8192, less than 262144 |Default value: 204800 |Maximum allowed size of an agent to cloud message. This setting controls the amount of maximum data sent in each message. |
 |eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent generated event | 
 
-### Events
+### Supported security events
 
 |Event name| PropertyName | Default Value| Snapshot Event| Details Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -110,7 +133,7 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
  
 
-## See Also
+## Next steps
 
 - [Understand ASC for IoT recommendations](concept-recommendations.md)
 - [Explore ASC for IoT alerts](concept-security-alerts.md)

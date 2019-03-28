@@ -1,6 +1,6 @@
 ---
-title: ASC for IoT device investigation tutorial Preview| Microsoft Docs
-description: This article explains how to use ASC for IoT to investigate a suspicious IoT device using Log Analytics.
+title: ASC for IoT device investigation guide Preview| Microsoft Docs
+description: This how to guide explains how to use ASC for IoT to investigate a suspicious IoT device using Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -10,15 +10,15 @@ editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
 ms.service: ascforiot
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 03/27/2019
 ms.author: mlottner
 
 ---
 
-# Tutorial: Investigate a suspicious IoT device
+# Investigate a suspicious IoT device
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.
@@ -27,14 +27,14 @@ ms.author: mlottner
 
 ASC for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. 
 
-In this tutorial, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
+In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
 > [!div class="checklist"]
 > * Find your device data
 > * Investigate using kql queries
 
 
-## Where can I access my data
+## How can I access my data?
 
 By default, ASC for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.
 
@@ -53,11 +53,13 @@ Following configuration, do the following to access data stored in your Log Anal
 
 ## Investigation steps for suspicious IoT devices
 
-To access insights and raw data about your IoT devices, go to your Log Analytics workspace [Where can I access my data](#where-can-i-access-my-data).
+To access insights and raw data about your IoT devices, go to your Log Analytics workspace [to access your data](#how-can-i-access-my-data).
 
-Check and investigate the device data for the following details and activities using the following kql queries:
+Check and investigate the device data for the following details and activities using the following kql queries.
 
-- To find out if other alerts were triggered around the same time use the following kql query:
+### Related alerts
+
+To find out if other alerts were triggered around the same time use the following kql query:
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -67,7 +69,9 @@ Check and investigate the device data for the following details and activities u
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
   ~~~
 
-- To find out which users have access to this device use the following kql query: 
+### Users with access
+
+To find out which users have access to this device use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -84,9 +88,11 @@ Check and investigate the device data for the following details and activities u
   ~~~
 Use this data to discover: 
   1. Which users have access to the device?
-  2. Do the users with access have the permission levels expected? 
+  2. Do the users with access have the permission levels as expected? 
 
-- To find out how users are able to access the device, use the following kql query:
+### Open ports
+
+To find out which ports in the device are currently in use or were used use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -108,9 +114,12 @@ Use this data to discover:
 
     Use this data to discover:
   1. Which listening sockets are currently active on the device?
-  2. Should the listening sockets that are currently be active?
+  2. Should the listening sockets that are currently active be allowed?
+  3. Are there any suspicious remote addresses connected to the device?
 
-- To find out who logged in to the device, use the following kql query: 
+### User logins
+
+To find out users that logged into the device use the following kql query: 
  
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -136,9 +145,12 @@ Use this data to discover:
 
     Use the query results to discover:
   1. Which users logged in to the device?
-  2. Did the users that logged in connect from expected or unexpected IP addresses?
+  2. Are the users that logged in supposed to log in?
+  3. Did the users that logged in connect from expected or unexpected IP addresses?
   
-- To learn if the device is behaving as expected, use the following kql query:
+### Process list
+
+To find out if the process list is as expected use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -174,5 +186,4 @@ Use this data to discover:
   3. Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
-After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](select-deploy-agent.md) or [changing the configuration of an existing device agent](concept-agent-configuration.md) to improve your results. 
- 
+After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](how-to-deploy-agent.md) or [changing the configuration of an existing device agent](how-to-agent-configuration.md) to improve your results. 
