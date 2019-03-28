@@ -58,8 +58,6 @@ Most of these parameters have default values. The ones ending with **_in** are c
 
 **d2c_partitions**: This field is the number of partitions used for the event stream.
 
-**features**: This field is the capabilities and features enabled for the IoT hub. Should be set to None or DeviceManagement.
-
 **storageAccountName_in**: This field is the name of the storage account to be created. Messages are routed to a container in the storage account. This field is concatenated with the randomValue to make it globally unique.
 
 **storageContainerName**: This field is the name of the container in which the messages routed to the storage account are stored.
@@ -290,8 +288,7 @@ This json shows the rest of the IoT Hub section, which contains default informat
                 "ttlAsIso8601": "PT1H",
                 "maxDeliveryCount": 10
             }
-        },
-        "features": "[parameters('features')]"
+        }
     },
     "sku": {
         "name": "[parameters('sku_name')]",
