@@ -11,7 +11,7 @@ ms.date: 3/27/2019
 ---
 # Apache HBase Write Ahead Log
 
-Apache HBase, is a type of data store often called "NoSQL" because it doesn't support many of the traditional relational database features, and does not use SQL as its primary query language. Column-oriented storage allows for better compression in columns where certain values are often repeated. It also allows for faster aggregate operations over specific columns, which are common in analytics engines. The write-ahead log is a key feature for maintaining fault-tolerance in HBase
+This article provides background on the write-ahead log feature for Apache HBase and how it can be used effectively in Azure HDInsight. Apache HBase is a type of database often called "NoSQL", because it focuses on scalability and flexibility of the data store over many of the traditional relational database features. HBase uses column-oriented storage, which allows for better compression in columns where certain values are often repeated. It also allows for faster aggregate operations over specific columns, which are common in analytics engines. The write-ahead log is a key feature for maintaining fault-tolerance and scalability in HBase.
 
 ## Overview of HBase architecture
 
@@ -21,9 +21,9 @@ In HBase, a **row** consists of one or more **columns** and is identified by a *
 
 ## Write-ahead log feature overview
 
-When a data update occurs in HBase, it is first written to a type of commit log called a write-ahead log (WAL). After the update being stored to the WAL, it is written to the in-memory memstore. When the data in memory reaches its maximum capacity, it is written to disk as an HFile.
+When a data update occurs in HBase, it is first written to a type of commit log called a write-ahead log (WAL). After the update is stored to the WAL, it is written to the in-memory **memstore**. When the data in memory reaches its maximum capacity, it's written to disk as an HFile.
 
-The write-ahead log provides fault-tolerance by allowing HBase to replay updates if a RegionServer crashes or becomes unavailable before the MemStore is flushed. Without the write-ahead log, the crash of a RegionServer before flushing updates to an HFile would result in all of those updates being lost.
+The write-ahead log provides fault-tolerance by allowing HBase to replay updates if a RegionServer crashes or becomes unavailable before the MemStore is flushed. Without the write-ahead log, if a RegionServer crashed before flushing updates to an HFile, it would result in all of those updates being lost.
 
 ## Write ahead log feature in Azure HDInsight
 
