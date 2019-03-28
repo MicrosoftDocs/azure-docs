@@ -29,7 +29,7 @@ An application gateway is a dedicated deployment in your virtual network. Within
 
 #### Size of the subnet
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private front-end IP is configured.
+Application Gateway consumes 1 private IP address per instance, plus another private IP address if a private front-end IP is configured.
 
 Azure also reserves 5 IP addresses in each subnet for internal use: the first 4 and the last IP addresses. For example, consider 15 application gateway instances with no private front-end IP. You need at least 20 IP addresses for this subnet: 5 for internal use and 15 for the application gateway instances. So, you need a /27 subnet size or larger.
 
