@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 A development machine:
 
-* You can use your own computer or a virtual machine, depending on your preference.
+* You can use your own computer or a virtual machine, depending on your development preferences.
 * Most operating systems that can run a container engine can be used for IoT Edge development. This tutorial uses a Windows computer, but points out known differences on MacOS or Linux. 
 
 An Azure IoT Edge device:
@@ -50,4 +50,37 @@ When developing IoT Edge modules, it's important to understand the difference be
 
 ## Install container engine
 
+IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage the containers. We recommend using Docker Desktop for development because of its many features and popularity as a container engine. With Docker Desktop on a Windows device, you can switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices. 
 
+Use the Docker documentation to install on your development machine: 
+
+* [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. This decision can be changed at any time using an easy switch. For this tutorial, we assume Linux containers. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
+* [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
+
+* Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms
+
+## Install VS Code and tools
+
+If you're familiar with container development, you can use your preferred editors and tools to develop IoT Edge modules. If not, we recommend using the IoT extensions for Visual Studio Code or Visual Studio 2017 that were built specifically to assist with IoT Edge development. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. 
+
+Visual Studio 2017 currently supports the following development options:
+* Languages: C and C#
+* Device architecture: AMD64
+
+Visual Studio Code currently supports the following development options:
+* Languages: C, C#, Java, Node.js, and Python
+* Device architecture: AMD64, ARM32v7
+* Cloud services: Azure Functions (C#), Azure Machine Learning, Azure Stream Analytics, Azure Marketplace
+
+This tutorial uses Visual Studio Code for development, because it covers more scenarios. If you prefer to use Visual Studio 2017, you can learn more about it in [Use Visual Studio 2017 to develop and debug modules](how-to-visual-studio-develop-csharp-module.md).
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine. 
+
+2. Once the installation is finished, select **View** > **Extensions**. 
+
+3. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules. 
+
+4. Select **Install**. 
