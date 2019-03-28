@@ -34,17 +34,12 @@ In this 2-part tutorial, you learn how to set up and use these custom routing qu
 ## Prerequisites
 
 * For part 1 of this tutorial:
-
   - You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * For part 2 of this tutorial:
-
   - You must have completed Part 1 of this tutorial, and have the resources still available.
-
   - Install [Visual Studio](https://www.visualstudio.com/).
-
   - A Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
-
   - An Office 365 account to send notification e-mails.
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
