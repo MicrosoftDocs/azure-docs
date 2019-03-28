@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 03/28/2019
 ms.author: hrasheed
 ---
 
@@ -16,6 +16,10 @@ Learn how to use script actions to add additional Azure storage accounts to HDIn
 
 > [!IMPORTANT]  
 > The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
+
+## Prerequisites
+* A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+
 
 ## How it works
 
@@ -70,6 +74,25 @@ When viewing the HDInsight cluster in the Azure portal, selecting the __Storage 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 
 To view storage account information added to the cluster using this script, use the Ambari REST API. Use the following commands to retrieve this information for your cluster:
+
+
+# [PowerShell](#tab/azure-powershell)
+
+```powershell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
+```
+
+# [Azure CLI](#tab/bash)
+
+```bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
+```
+---
+
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
