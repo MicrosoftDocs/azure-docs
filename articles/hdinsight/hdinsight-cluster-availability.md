@@ -11,7 +11,7 @@ This doc shows how to use these tools to monitor your cluster and walks through 
 ### Dashboard
 
 The Ambari dashboard can be accessed by clicking the **Ambari home** link in the
-**Cluster dashboards** section of the HDInsight Overview blade in Azure Portal
+**Cluster dashboards** section of the HDInsight Overview blade in Azure portal
 as shown below. Alternatively, it can be accessed by entering the following URL
 in a browser [https://\<clustername\>.azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
@@ -20,7 +20,7 @@ in a browser [https://\<clustername\>.azurehdinsight.net](https://clustername.az
 You will then be prompted for a cluster login username and password. Enter the
 credentials you chose when you created the cluster.
 
-This takes you to the Ambari dashboard, which contains widgets that show a
+You will then be taken to the Ambari dashboard, which contains widgets that show a
 handful of metrics to give you a quick overview of your HDInsight cluster’s
 health. These widgets show metrics such as the number of live DataNodes (worker
 nodes) and JournalNodes (zookeeper node), NameNodes (head nodes) uptime, as well
@@ -81,7 +81,7 @@ Configuration box.
 
 ![](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
-This will let you edit the description and, more importantly, the check interval
+Here, you can edit the description and, more importantly, the check interval
 and thresholds for warning or critical alerts.
 
 ![](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
@@ -98,7 +98,7 @@ upper-left, then **Manage Notifications.**
 
 ![](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-This will open a dialog for managing alert notifications. Click the **+** at the
+A dialog for managing alert notifications will open. Click the **+** at the
 bottom of the dialog and fill out the required fields to provide Ambari with
 email server details from which to send emails.
 
@@ -176,7 +176,7 @@ If all nodes are available, this query should return 0 results for now. Click
 
 ![](media/hdinsight-cluster-availability/portal-logs-newalertrule.png)
 
-There are 3 components to an alert: the *resource* for which to create the rule
+There are three components to an alert: the *resource* for which to create the rule
 (the Log Analytics workspace in this case), the *condition* to trigger the
 alert, and the *action groups* that determine what will happen when the alert is
 triggered.
@@ -192,8 +192,8 @@ Set the **Alert logic** section as follows:
 
 *Based on: Number of results, Condition: Greater than, Threshold: 0.*
 
-Since this query only returns unavailable nodes as results, any time the number
-of results is greater than 0, the alert should fire.
+Since this query only returns unavailable nodes as results, if the number
+of results is ever greater than 0, the alert should fire.
 
 In the **Evaluated based on** section, set the **period** and **frequency**
 based on how often you want to check for unavailable nodes.
@@ -212,8 +212,8 @@ the **Action Groups** section.
 
 ![](media/hdinsight-cluster-availability/portal-create-new-actiongroup.png)
 
-This will open the **Add action group** blade. Choose an **Action group name,
-Short name, Subscription** and **Resource group.** Under the **Actions**
+This will open the **Add action group** blade. Choose an **Action group name**,
+**Short name**, **Subscription**, and **Resource group.** Under the **Actions**
 section, choose an **Action Name** and select **Email/SMS/Push/Voice** as the
 **Action Type.**
 
@@ -252,7 +252,7 @@ the **Alerts** blade in your **Log Analytics Workspace**.
 
 ![](media/hdinsight-cluster-availability/portal-alerts.png)
 
-Clicking on a severity grouping (i.e. **Sev 1,** as highilghted above) will show
+Clicking on a severity grouping (i.e. **Sev 1,** as highlghted above) will show
 records for all alerts of that severity that have fired like below:
 
 ![](media/hdinsight-cluster-availability/portal-alerts-sev1.png)
