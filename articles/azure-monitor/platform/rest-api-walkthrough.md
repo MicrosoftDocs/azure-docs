@@ -651,7 +651,7 @@ Version        : 08586982649483762729
 
 ### Azure CLI
 
-To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the 'az storage account show' command, as shown in the following example:
+To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

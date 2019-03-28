@@ -201,8 +201,8 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
    ```
 8. Update the EDIBridge.config file to include configuration details
    
-   * Under *<behaviors>*, provide the ACS namespace and key associated with the BizTalk Services subscription.
-   * Under *<client>*, provide the endpoint where the EDI send agreement is deployed.
+   * Under *\<behaviors>*, provide the ACS namespace and key associated with the BizTalk Services subscription.
+   * Under *\<client>*, provide the endpoint where the EDI send agreement is deployed.
    
    Save changes and close the configuration file.
 9. From the Toolbox, click the **Connector** and join the **ProcessInvoiceBridge** and **EDIBridge** components. Select the connector, and in Properties box, set **Filter Condition** to **Match All**. This ensures that all messages processed by the EAI bridge are routed to the EDI bridge.

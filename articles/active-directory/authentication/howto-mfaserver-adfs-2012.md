@@ -78,7 +78,7 @@ At this point, Multi-Factor Authentication Server is set up to be an additional 
 Follow these steps to edit the MultiFactorAuthenticationAdfsAdapter.config file:
 
 1. Set the **UseWebServiceSdk** node to **true**.  
-2. Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK. For example: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>*, Where *certificatename* is the name of your certificate.  
+2. Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK. For example: *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, Where *\<certificatename>* is the name of your certificate.  
 3. Edit the Register-MultiFactorAuthenticationAdfsAdapter.ps1 script by adding `-ConfigurationFilePath &lt;path&gt;` to the end of the `Register-AdfsAuthenticationProvider` command, where *&lt;path&gt;* is the full path to the MultiFactorAuthenticationAdfsAdapter.config file.
 
 ### Configure the Web Service SDK with a username and password

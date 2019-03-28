@@ -114,8 +114,8 @@ The cloned repository contains two samples "bulkimport" and "bulkupdate" relativ
    |int getNumberOfDocumentsImported()  |   The total number of documents that were successfully imported out of the documents supplied to the bulk import API call.      |
    |double getTotalRequestUnitsConsumed()   |  The total request units (RU) consumed by the bulk import API call.       |
    |Duration getTotalTimeTaken()   |    The total time taken by the bulk import API call to complete execution.     |
-   |List<Exception> getErrors() |  Gets the list of errors if some documents out of the batch supplied to the bulk import API call failed to get inserted.       |
-   |List<Object> getBadInputDocuments()  |    The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).     |
+   |List\<Exception> getErrors() |  Gets the list of errors if some documents out of the batch supplied to the bulk import API call failed to get inserted.       |
+   |List\<Object> getBadInputDocuments()  |    The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).     |
 
 5. After you have the bulk import application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
@@ -179,7 +179,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |int getNumberOfDocumentsUpdated()  |   The total number of documents that were successfully updated out of the documents supplied to the bulk update API call.      |
    |double getTotalRequestUnitsConsumed() |  The total request units (RU) consumed by the bulk update API call.       |
    |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
-   |List<Exception> getErrors()   |   	Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
+   |List\<Exception> getErrors()   |   	Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
 
 3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
