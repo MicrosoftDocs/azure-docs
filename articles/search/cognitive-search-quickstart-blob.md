@@ -50,7 +50,7 @@ Azure services are used exclusively in this scenario. Creating the services you 
 
 First, sign up for the Azure Search service. 
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in by using your Azure account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time and you need more help.
 

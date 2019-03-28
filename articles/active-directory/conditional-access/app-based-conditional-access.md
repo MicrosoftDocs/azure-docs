@@ -4,7 +4,7 @@ description: Learn how to require approved client apps for cloud app access with
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,9 +16,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/13/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
-#Customer intent: As a It admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
+#Customer intent: As an IT admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
 ms.collection: M365-identity-device-management
 ---

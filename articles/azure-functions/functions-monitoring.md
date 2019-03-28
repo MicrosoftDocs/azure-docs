@@ -20,7 +20,7 @@ ms.author: glenga
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions also has [built-in monitoring that doesn't use Application Insights](#monitoring-without-application-insights). We recommend Application Insights because it offers more data and better ways to analyze the data.
+Azure Functions also has built-in monitoring that doesn't use Application Insights. We recommend Application Insights because it offers more data and better ways to analyze the data.
 
 ## Application Insights pricing and limits
 
@@ -73,7 +73,7 @@ The next step is to [disable built-in logging](#disable-built-in-logging).
 
 ## Disable built-in logging
 
-When you enable Application Insights, disable the [built-in logging that uses Azure Storage](#logging-to-storage). The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
+When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
 
 To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, make sure no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
@@ -121,7 +121,7 @@ In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), you can create 
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
+On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
 
@@ -419,7 +419,7 @@ In C# script functions, you can use the `LogMetric` extension method on `ILogger
 logger.LogMetric("TestMetric", 1234);
 ```
 
-This code is an alternative to calling `TrackMetric` by using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
+This code is an alternative to calling `TrackMetric` by using the Application Insights API for .NET.
 
 ## Write logs in JavaScript functions
 
@@ -437,7 +437,7 @@ When you're running on [version 1.x](functions-versions.md#creating-1x-apps) of 
 context.log.metric("TestMetric", 1234);
 ```
 
-This code is an alternative to calling `trackMetric` by using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
+This code is an alternative to calling `trackMetric` by using the Node.js SDK for Application Insights.
 
 ## Log custom telemetry in C# functions
 
@@ -628,7 +628,7 @@ The `tagOverrides` parameter sets the `operation_Id` to the function's invocatio
 
 ### Dependencies
 
-Dependencies that the function has to other services don't show up automatically. You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
+Dependencies that the function has to other services don't show up automatically. You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](media/functions-monitoring/app-map.png)
 
@@ -675,10 +675,6 @@ Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
 For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
-
-### Local view of log files
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## Next steps
 

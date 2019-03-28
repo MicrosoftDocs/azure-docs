@@ -37,7 +37,7 @@ In this article, you learn how to:
 
 5. A dropdown immediately below the **Targets**  dropdown will appear which will contain a list of your App Services. From this dropdown, choose the App Service you want to add as a backend pool member and click Add.
 
-   ![App service backend](.\media\configure-web-app-portal\backendpool.png)
+   ![App service backend](./media/configure-web-app-portal/backendpool.png)
 
 ## Create HTTP settings for App service
 
@@ -51,9 +51,9 @@ In this article, you learn how to:
 
 5. Click **OK** to create the HTTP setting.
 
-   ![HTTP-setting1](.\media\configure-web-app-portal\http-setting1.png)
+   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](.\media\configure-web-app-portal\http-setting2.png)
+   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
 
 ## Create Rule to tie the Listener, Backend Pool and HTTP Setting
 
@@ -67,7 +67,7 @@ In this article, you learn how to:
 
 5. Click **OK** to save this rule.
 
-   ![Rule](.\media\configure-web-app-portal\rule.png)
+   ![Rule](./media/configure-web-app-portal/rule.png)
 
 ## Restrict access
 

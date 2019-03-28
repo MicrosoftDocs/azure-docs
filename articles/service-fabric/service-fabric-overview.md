@@ -24,6 +24,10 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 This short video introduces Service Fabric and microservices:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
+## Compliance
+Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPPA, and GDRP. Please review the following for a complete list of compliance certs: 
+[Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+
 ## Applications composed of microservices 
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated, lightweight runtime to build distributed, scalable, stateless, and stateful microservices running in containers. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications including containerized services.
 
@@ -46,7 +50,7 @@ Service Fabric runs everywhere. You can create clusters for Service Fabric in ma
 ![Service Fabric platform][Image1]
 
 For Windows development, the Service Fabric .NET SDK is integrated with Visual Studio and Powershell. See [Prepare your development environment on Windows](service-fabric-get-started.md). For Linux development, the Service Fabric Java SDK 
- is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](service-fabric-get-started.md)
+ is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 
 For more information on creating clusters, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
 

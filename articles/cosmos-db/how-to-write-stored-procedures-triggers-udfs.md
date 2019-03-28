@@ -14,6 +14,9 @@ Azure Cosmos DB provides language-integrated, transactional execution of JavaScr
 
 To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
+> [!NOTE]
+> For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
+
 ## <a id="stored-procedures"></a>How to write stored procedures
 
 Stored procedures are written using JavaScript, they can create, update, read, query, and delete items inside an Azure Cosmos container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.

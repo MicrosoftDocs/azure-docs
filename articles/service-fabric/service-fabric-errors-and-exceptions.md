@@ -3,7 +3,7 @@ title: Common FabricClient exceptions thrown | Microsoft Docs
 description: Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: oanapl
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
-ms.author: ryanwi
+ms.author: oanapl
 
 ---
 # Common exceptions and errors when working with the FabricClient APIs

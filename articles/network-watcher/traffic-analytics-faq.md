@@ -160,7 +160,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 

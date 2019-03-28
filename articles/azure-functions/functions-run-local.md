@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 experimental: true
-experiment_id: c80d19c3-428d-4b
+experiment_id: 80e4ff38-5174-43
 ---
 
 # Work with Azure Functions Core Tools
@@ -399,10 +399,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 ```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
-
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publish to Azure
 

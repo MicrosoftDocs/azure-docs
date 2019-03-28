@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/12/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -25,8 +25,10 @@ There are two types of Run As Accounts:
   * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
 * **Azure Classic Run As Account** - This account is used to manage Classic deployment model resources.
+  * Creates a management certificate in the subscription
   * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
+  * Must be a co-administrator on the subscription to create or renew
   
   > [!NOTE]
   > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
@@ -47,6 +49,10 @@ To create or update a Run As account, you must have specific privileges and perm
 <sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
 
 If you aren't a member of the subscription’s Active Directory instance before you're added to the global administrator/co-administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+
+## <a name="permissions-classic"></a>Permissions to configure Classic Run As accounts
+
+To configure or renew Classic Run As accounts, you must have the **Co-administrator** role at the subscription level. To learn more about Classic permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## Create a Run As account in the Portal
 
@@ -191,6 +197,12 @@ This PowerShell script includes support for the following configurations:
         Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
         return
     }
+
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias
+
 
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
@@ -346,7 +358,7 @@ To renew the certificate, do the following:
 
     ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu. 
+1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
 ## Limiting Run As account permissions
 
@@ -383,4 +395,3 @@ You can quickly resolve these Run As account issues by deleting and re-creating 
 
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

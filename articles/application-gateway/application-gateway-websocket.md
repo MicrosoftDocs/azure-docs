@@ -1,21 +1,12 @@
 ---
 title: WebSocket support in Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway WebSocket support.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/11/2019
 ms.author: amsriva
-
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
 ---
 # Overview of WebSocket support in Application Gateway
 
@@ -31,7 +22,7 @@ It's used in apps that benefit from fast, real-time communication, such as chat,
 
 To establish a WebSocket connection, a specific HTTP-based handshake is exchanged between the client and the server. If successful, the application-layer protocol is "upgraded" from HTTP to WebSockets, using the previously established TCP connection. Once this occurs, HTTP is completely out of the picture; data can be sent or received using the WebSocket protocol by both endpoints, until the WebSocket connection is closed. 
 
-![addcert](.\media\application-gateway-websocket\websocket.png)
+![addcert](./media/application-gateway-websocket/websocket.png)
 
 ### Listener configuration element
 
