@@ -1,6 +1,6 @@
 ---
-title: "Prepare for classic alerts migration by updating your logic apps and runbooks"
-description: Learn how to modify your webhook, logic app and runbooks to prepare for for voluntary migration.
+title: "Prepare for Azure Monitor classic alerts migration by updating your logic apps and runbooks"
+description: Learn how to modify your webhook, logic app, and runbooks to prepare for voluntary migration.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -16,7 +16,7 @@ If you choose to voluntarily migrate your classic alert rules to new alert rules
 
 ## API changes
 
-The APIs used to create/manage classic alert rules (`microsoft.insights/alertrules`) are different from the APIs used to create/manage new metric alerts (`microsoft.insights/metricalerts`). If you programmatically create/manage alert rules through REST API, Azure CLI or PS cmdlets will need to update their programs/scripts to ensure they work with new APIs.
+The APIs used to create/manage classic alert rules (`microsoft.insights/alertrules`) are different from the APIs used to create/manage new metric alerts (`microsoft.insights/metricalerts`). If you programmatically create/manage classic alert rules today, update your deployment scripts to work with new APIs.
 
 The following table provides you a reference to programmatic interfaces for both classic and new alerts.
 
@@ -24,14 +24,14 @@ The following table provides you a reference to programmatic interfaces for both
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       | Coming soon        |
-| ARM template | [For classic alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[For new metric alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+|PowerShell      | [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+| Azure Resource Manager template | [For classic alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[For new metric alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## Notification payload changes
 
-The notification payload format is slightly different between [classic alert rules](alerts-webhooks.md) and [new metric alerts](alerts-metric-near-real-time.md#payload-schema). If you have any webhook, logic app or runbook actions being triggered by classic alert rules, you will need to update those to accept the payload format of new metric alerts.
+The notification payload format is slightly different between [classic alert rules](alerts-webhooks.md) and [new metric alerts](alerts-metric-near-real-time.md#payload-schema). If you have any webhook, logic app or runbook actions being triggered by classic alert rules, you will need to update those notification endpoints to accept the payload format of new metric alerts.
 
-While the notification payloads for new metric alerts could be more complex than classic metric alerts as they support multiple criteria and dynamic thresholds, when rules are migrated from classic the alert payloads are very similar. You can use the following table to map the fields between classic alert rule webhook payload and the new metric alert webhook payload.
+You can use the following table to map the fields between classic alert rule webhook payload and the new metric alert webhook payload.
 
 |  |Classic alerts  |New metric alerts |
 |---------|---------|---------|
@@ -56,7 +56,7 @@ While the notification payloads for new metric alerts could be more complex than
 | A direct link to the portal resource summary page | context.portalLink | data.context.portalLink|
 | Custom payload fields to be passed to webhook or logic app | properties |data.properties |
 
-As you can see both the payloads are very similar. Following section has details on sample logic apps and a sample runbook to parse the notification payload for new alerts.
+As you can see, both the payloads are similar. Following section has details on sample logic apps and a sample runbook to parse the notification payload for new alerts.
 
 ## Using a logic app that receives a metric alert notification
 
@@ -64,7 +64,7 @@ If you are using logic apps with classic alerts, you will need to modify your lo
 
 1. Create a new logic app.
 
-2. Use the template "Azure Monitor - Metrics Alert Handler". This has a **HTTP request** trigger with the appropriate schema defined
+2. Use the template "Azure Monitor - Metrics Alert Handler". This template has an **HTTP request** trigger with the appropriate schema defined
 
     ![logic-app-template](media/alerts-migration/logic-app-template.png "Metric alert template")
 

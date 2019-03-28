@@ -12,7 +12,7 @@ ms.subservice: alerts
 
 As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. The migration tool to trigger migration voluntarily is available in Azure portal and is rolling out to customers who use classic alert rules. This article will walk you through on how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in July 2019.
 
-## Benefits of moving to new alerts
+## Benefits of new alerts
 
 Classic alerts are being replaced by new unified alerting in Azure Monitor. The new alerts platform has the following benefits:
 
@@ -23,7 +23,7 @@ Classic alerts are being replaced by new unified alerting in Azure Monitor. The 
   - You will also be able to take advantage of new notification mechanisms like SMS, Voice and ITSM Connector
 - The [unified alert experience](alerts-overview.md) brings all the alerts on different signals (metric, activity log and log) into one place
 
-## Things you should know before you start the migration
+## Before you migrate
 
 As part of the migration, classic alert rules are converted to equivalent new alert rules and action groups are created.
 
@@ -50,7 +50,7 @@ The following procedure describes how to trigger the migration of your classic a
 4. All the subscriptions that can be migrated using the tool will be marked as **Ready to migrate**.
 
     > [!NOTE]
-    > The migration tool is rolling out in phases to all the subscriptions that use classic alert rules. In the early phases of roll-out, you might see some subscriptions as not ready for migration. However, by mid-April, all the subscriptions should be ready for migration.
+    > The migration tool is rolling out in phases to all the subscriptions that use classic alert rules. In the early phases of roll-out, you might see some subscriptions as not ready for migration.
 
 5. Select one or more subscriptions and click on **Preview migration**
 
