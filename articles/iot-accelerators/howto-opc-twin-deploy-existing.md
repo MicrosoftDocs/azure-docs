@@ -68,7 +68,7 @@ The deployment script tries to register two AAD applications in Azure Active Dir
 1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
 2. Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
 
-**WARNING**:  NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-deployment-dependencies.md) to kick the tires.
+**WARNING**:  NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.
 
 ## Deploy an all-in-one Industrial IoT Services Demo
 

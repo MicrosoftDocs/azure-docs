@@ -193,4 +193,4 @@ Guidance on the project code style:
 Now that you have learned how to deploy OPC Vault from scratch, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Deploy OPC Twin from scratch](../howto-opc-twin-deploy-scratch.md)
+> [Deploy OPC Twin from scratch](howto-opc-twin-deploy-modules.md)
