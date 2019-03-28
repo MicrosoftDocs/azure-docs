@@ -41,7 +41,7 @@ To configure Azure AD integration with MobiControl, you need the following items
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* HRworks Single Sign-On supports **SP** initiated SSO
+* MobiControl supports **SP** initiated SSO
 
 ## Adding MobiControl from the gallery
 
