@@ -38,7 +38,7 @@ The top-level `acr-task.yaml` primitives are **task properties**, **step types**
 
 The base format of an `acr-task.yaml` file, including some common step properties, follows. While not an exhaustive representation of all available step properties or step type usage, it provides a quick overview of the basic file format.
 
-```yaml
+```YAML
 version: # acr-task.yaml format version.
 stepTimeout: # Seconds each step may take.
 steps: # A collection of image or container actions.
@@ -122,7 +122,7 @@ Build a container image. The `build` step type represents a multi-tenant, secure
 
 ### Syntax: build
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
     - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
@@ -133,8 +133,8 @@ The `build` step type supports the parameters in the following table. The `build
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Defines the fully qualified `image:tag` of the built image.<br /><br />As images may be used for inner task validations, such as functional tests, not all images require `push` to a registry. However, to instance an image within a Task execution, the image does need a name to reference.<br /><br />Unlike `az acr build`, running ACR Tasks does not provide default push behavior. With ACR Tasks, the default scenario assumes the ability to build, validate, then push an image. See [push](#push) for how to optionally push built images. | Yes |
-| `-f` &#124; `--file` | Specifies the Dockerfile passed to `docker build`. If not specified, the default Dockerfile in the root of the context is assumed. To specify an alternative Dockerfile, pass the filename relative to the root of the context. | Yes |
+| `-t` &#124; `--image` | Defines the fully qualified `image:tag` of the built image.<br /><br />As images may be used for inner task validations, such as functional tests, not all images require `push` to a registry. However, to instance an image within a Task execution, the image does need a name to reference.<br /><br />Unlike `az acr build`, running ACR Tasks doesn't provide default push behavior. With ACR Tasks, the default scenario assumes the ability to build, validate, then push an image. See [push](#push) for how to optionally push built images. | Yes |
+| `-f` &#124; `--file` | Specifies the Dockerfile passed to `docker build`. If not specified, the default Dockerfile in the root of the context is assumed. To specify a Dockerfile, pass the filename relative to the root of the context. | Yes |
 | `context` | The root directory passed to `docker build`. The root directory of each task is set to a shared [workingDirectory](#task-step-properties), and includes the root of the associated Git cloned directory. | No |
 
 ### Properties: build
@@ -152,11 +152,13 @@ The `build` step type supports the following properties. Find details of these p
 | `ignoreErrors` | bool | Optional |
 | `isolation` | string |
 | `keep` | bool | Optional |
+| `network` | object | Optional |
 | `ports` | [string, string, ...] | Optional |
 | `pull` | bool | Optional |
 | `repeat` | int | Optional |
 | `retries` | int | Optional |
 | `retryDelay` | int (seconds) | Optional |
+| `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
 | `when` | [string, string, ...] | Optional |
@@ -170,15 +172,12 @@ The `build` step type supports the following properties. Find details of these p
 az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample.git
 ```
 
-```yaml
-version: 1.0.0
-steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile .
-```
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml -->
+[!code-yml[task](~/acr-tasks/build-hello-world.yaml)
 
 #### Build image - context in subdirectory
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
 - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
@@ -192,7 +191,7 @@ Push one or more built or retagged images to a container registry. Supports push
 
 The `push` step type supports a collection of images. YAML collection syntax supports inline and nested formats. Pushing a single image is typically represented using inline syntax:
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
   # Inline YAML collection syntax
@@ -201,7 +200,7 @@ steps:
 
 For increased readability, use nested syntax when pushing multiple images:
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
   # Nested YAML collection syntax
@@ -249,7 +248,7 @@ The `cmd` step type runs a container.
 
 ### Syntax: cmd
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
     - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
@@ -270,11 +269,13 @@ The `cmd` step type supports the following properties:
 | `ignoreErrors` | bool | Optional |
 | `isolation` | string |
 | `keep` | bool | Optional |
+| `network` | object | Optional |
 | `ports` | [string, string, ...] | Optional |
 | `pull` | bool | Optional |
 | `repeat` | int | Optional |
 | `retries` | int | Optional |
 | `retryDelay` | int (seconds) | Optional |
+| `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
 | `when` | [string, string, ...] | Optional |
@@ -323,19 +324,19 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 
 The `cmd` step type references images using the standard `docker run` format. Images not prefaced with a registry are assumed to originate from docker.io. The previous example could equally be represented as:
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
     - cmd: docker.io/bash:3.0 echo hello world
 ```
 
-By using the standard `docker run` image reference convention, `cmd` can run images residing in any private registry or the public Docker Hub. If you're referencing images in the same registry in which ACR Task is executing, you don't need to specify any registry credentials.
+By using the standard `docker run` image reference convention, `cmd` can run images from any private registry or the public Docker Hub. If you're referencing images in the same registry in which ACR Task is executing, you don't need to specify any registry credentials.
 
-* Run an image residing in an Azure container registry
+* Run an image that's from an Azure container registry
 
     Replace `[myregistry]` with the name of your registry:
 
-    ```yaml
+    ```YAML
     version: 1.0.0
     steps:
         - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
@@ -347,7 +348,7 @@ By using the standard `docker run` image reference convention, `cmd` can run ima
 
     To generalize the preceding task so that it works in any Azure container registry, reference the [Run.Registry](#runregistry) variable in the image name:
 
-    ```yaml
+    ```YAML
     version: 1.0.0
     steps:
         - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
@@ -360,26 +361,27 @@ Each step type supports several properties appropriate for its type. The followi
 | Property | Type | Optional | Description | Default value |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Yes | Whether the container should be detached when running. | `false` |
-| `disableWorkingDirectoryOverride` | bool | Yes | Whether to disables all `workingDirectory` override functionality. Use this in combination with `workingDirectory` to have complete control over the container's working directory. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Yes | Whether to disable `workingDirectory` override functionality. Use this in combination with `workingDirectory` to have complete control over the container's working directory. | `false` |
 | `entryPoint` | string | Yes | Overrides the `[ENTRYPOINT]` of a step's container. | None |
 | `env` | [string, string, ...] | Yes | Array of strings in `key=value` format that define the environment variables for the step. | None |
-| `expose` | [string, string, ...] | Yes | Array of ports that are exposed from the container . |  None |
+| `expose` | [string, string, ...] | Yes | Array of ports that are exposed from the container. |  None |
 | [`id`](#example-id) | string | Yes | Uniquely identifies the step within the task. Other steps in the task can reference a step's `id`, such as for dependency checking with `when`.<br /><br />The `id` is also the running container's name. Processes running in other containers in the task can refer to the `id` as its DNS host name, or for accessing it with docker logs [id], for example. | `acb_step_%d`, where `%d` is the 0-based index of the step top-down in the YAML file |
-| `ignoreErrors` | bool | Yes | When set to `true`, the step is marked as complete regardless of whether an error occurred during its execution. | `false` |
-| `isolation` | string | Yes | The isolation level of the container . | `default` |
+| `ignoreErrors` | bool | Yes | Whether to mark the step as successful regardless of whether an error occurred during container execution. | `false` |
+| `isolation` | string | Yes | The isolation level of the container. | `default` |
 | `keep` | bool | Yes | Whether the step's container should be kept after execution. | `false` |
+| `network` | object | Yes | Identifies a network in which the container runs. | None |
 | `ports` | [string, string, ...] | Yes | Array of ports that are published from the container to the host. |  None |
 | `pull` | bool | Yes | Whether to force a pull of the container before executing it to prevent any caching behavior. | `false` |
 | `privileged` | bool | Yes | Whether to run the container in privileged mode. | `false` |
 | `repeat` | int | Yes | The number of retries to repeat the execution of a container. | 0 |
 | `retries` | int | Yes | The number of retries to attempt if a container fails its execution. A retry is only attempted if a container's exit code is non-zero. | 0 |
 | `retryDelay` | int (seconds) | Yes | The delay in seconds between retries of a container's execution. | 0 |
+| `secret` | object | Yes | Identifies an Azure Key Vault secret or managed identity for Azure resources. | None |
 | `startDelay` | int (seconds) | Yes | Number of seconds to delay a container's execution. | 0 |
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
 | `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `$HOME` |
-
 
 ### Examples: Task step properties
 
@@ -421,7 +423,7 @@ az acr run -f when-sequential-id.yaml https://github.com/Azure-Samples/acr-tasks
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-sequential-id.yaml -->
 [!code-yml[task](~/acr-tasks/when-sequential-id.yaml)]
 
-Parallel image build:
+Parallel images build:
 
 ```azurecli
 az acr run -f when-parallel.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -453,7 +455,7 @@ Each Run, through `az acr run`, or trigger based execution of tasks created thro
 
 Typically used for a uniquely tagging an image:
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
     - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -463,7 +465,7 @@ steps:
 
 The fully qualified server name of the registry. Typically used to generically reference the registry where the task is being run.
 
-```yaml
+```YAML
 version: 1.0.0
 steps:
     - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -483,7 +485,6 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 
 <!-- LINKS - External -->
 [acr-tasks]: https://github.com/Azure-Samples/acr-tasks
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az-acr-run

@@ -88,10 +88,8 @@
     items:
       - name: ACR Tasks
         href: container-registry-tasks-overview.md
-      - name: Multi-step tasks (preview)
+      - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
-      - name: Multi-step task reference (preview)
-        href: container-registry-tasks-reference-yaml.md
   - name: Registries and other Azure services
     items:
       - name: Azure Container Instances
@@ -118,6 +116,8 @@
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: ACR Tasks YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: Webhook schema
     href: container-registry-webhook-reference.md
   - name: Event Grid schema
