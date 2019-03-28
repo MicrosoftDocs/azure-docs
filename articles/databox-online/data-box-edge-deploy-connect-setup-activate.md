@@ -70,7 +70,7 @@ Your dashboard displays the various settings that are required to configure and 
     ![Local web UI "Device name" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Optional) In the left pane, select **Network settings** and then configure the settings.  
-    On your physical device are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. The **Network settings** page is as shown below.
+    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. The **Network settings** page is as shown below.
     
     ![Local web UI "Network settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -134,7 +134,7 @@ Your dashboard displays the various settings that are required to configure and 
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. You may need to wait several minute after the update is successfully completed. The page updates to indicate that the device is successfully activated.
+    4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
