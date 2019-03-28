@@ -1,4 +1,4 @@
-# How To Monitor Cluster Availability With Ambari and Log Analytics
+# How To Monitor Cluster Availability With Ambari and Azure Monitor Logs
 
 HDInsight clusters include both Apache Ambari, which provides health information
 at a glance and predefined alerts, as well as Azure Log Analytics integration,
