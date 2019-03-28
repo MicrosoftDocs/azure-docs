@@ -11,7 +11,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/27/2019
 ---
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
 
@@ -22,8 +22,6 @@ This PowerShell script example configures Transparent Data Encryption (TDE) in B
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-If you choose to install and use the PowerShell locally, this tutorial also requires preview version of AzureRM.Sql PowerShell package *4.11.6-preview*. Run the following command to install it: `Install-Module -Name AzureRM.Sql -RequiredVersion 4.11.6-preview -AllowPrerelease`
 
 ## Sample scripts
 

@@ -1,5 +1,5 @@
 ---
-title: Create and locate anchors using Azure Spatial Anchors in Objective-C | Microsoft Docs
+title: How to create and locate anchors using Azure Spatial Anchors in Objective-C | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Objective-C.
 author: ramonarguelles
 manager: vicenterivera
@@ -7,12 +7,10 @@ services: azure-spatial-anchors
 
 ms.author: ramonarguelles
 ms.date: 02/24/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Objective-C.
 ---
-# Create and locate anchors using Azure Spatial Anchors in Objective-C
+# How to create and locate anchors using Azure Spatial Anchors in Objective-C
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -22,7 +20,21 @@ ms.service: azure-spatial-anchors
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors allow you to share anchors in the world between different devices. It supports several development environments. In this article, we'll dive into how to do it in Objective-C.
+Azure Spatial Anchors allow you to share anchors in the world between different devices. It supports several different development environments. In this article, we'll dive into how to use the Azure Spatial Anchors SDK, in Objective-C, to:
+
+- Correctly set up and manage an Azure Spatial Anchors session.
+- Create and set properties on local anchors.
+- Upload them to the cloud.
+- Locate and delete cloud spatial anchors.
+
+## Prerequisites
+
+To complete this guide, make sure you have:
+
+- Read through the [Azure Spatial Anchors overview](../overview.md).
+- Completed one of the [5-minute Quickstarts](../index.yml).
+- Basic knowledge on Objective-C.
+- Basic knowledge on <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
@@ -70,13 +82,13 @@ Learn more about the [tokenRequired](https://docs.microsoft.com/objectivec/api/s
     }
 ```
 
-[!INCLUDE [AAD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
 
 ```objc
     _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
 ```
 
-[!INCLUDE [AAD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
 
 ```objc
     - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
