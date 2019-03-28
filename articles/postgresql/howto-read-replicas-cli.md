@@ -16,11 +16,7 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 > The read replica feature is in public preview.
 
 ## Prerequisites
-An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the master server.
-
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
-
+- An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the master server.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +46,7 @@ The `az mysql server replica create` command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  The resource group where the replica server will be created.  |
+| resource-group | myresourcegroup |  The resource group where the replica server will be created.  |
 | name | mydemoserver-replica | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. |
 
@@ -75,8 +71,7 @@ az postgres server replica stop --server-name mydemoserver --resource-group myre
 ## Stop replication to a replica server
 You can stop replication between a master server and a read replica.
 
-> [!IMPORTANT]
-> After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
+After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
@@ -85,8 +80,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ## Delete a master or replica server
 To delete a master or replica server, you use the same command as to delete a standalone Azure Database for PostgreSQL server. 
 
-> [!IMPORTANT]
-> When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
+When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 
 ```azurecli-interactive
 az postgres server delete --name myserver --resource-group myresourcegroup
