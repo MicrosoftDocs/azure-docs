@@ -20,7 +20,7 @@ Enhance your operational productivity and profitability with a connected factory
 
 Reduce the time-consuming process of accessing factory floor machines with Azure IoT OPC UA device management (OPC Twin), and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with Azure IoT OPC UA certificate management (OPC Vault), and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/azure-iiot-opc-ua). The service API gives you control of edge module functionality. 
 
-![Industrial IoT overview](media\overview-iot-industrial\overview.png)
+![Industrial IoT overview](../media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
 > For more information about
