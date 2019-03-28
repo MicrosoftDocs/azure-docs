@@ -61,7 +61,7 @@ Here's more information about securing access with
 Shared Access Signature:
 
 * [Regenerate access keys](#access-keys)
-* [Create expiring callback URLs](#expiring-URLs)
+* [Create expiring callback URLs](#expiring-urls)
 * [Create URLs with primary or secondary key](#primary-secondary-key)
 
 <a name="access-keys"></a>
