@@ -149,6 +149,9 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Management.Media;
 using Microsoft.Azure.Management.Media.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
 
 namespace ConsoleApp1
 {
@@ -162,12 +165,11 @@ namespace ConsoleApp1
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build());
-            
 
             try
             {
-
-               IAzureMediaServicesClient client = await CreateMediaServicesClientAsync(config);
+                IAzureMediaServicesClient client = await CreateMediaServicesClientAsync(config);
+                Console.WriteLine("connected");
             }
             catch (Exception exception)
             {
@@ -188,6 +190,31 @@ namespace ConsoleApp1
 
             Console.WriteLine("Press Enter to continue.");
             Console.ReadLine();
+        }
+ 
+        private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
+        {
+            // Use UserTokenProvider.LoginWithPromptAsync or UserTokenProvider.LoginSilentAsync to get a token using user authentication
+            //// ActiveDirectoryClientSettings.UsePromptOnly
+            //// UserTokenProvider.LoginWithPromptAsync
+
+            // Use ApplicationTokenProvider.LoginSilentWithCertificateAsync or UserTokenProvider.LoginSilentAsync to get a token using service principal with certificate
+            //// ClientAssertionCertificate
+            //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
+
+            // Use ApplicationTokenProvider.LoginSilentAsync to get a token using a service principal with symetric key
+            ClientCredential clientCredential = new ClientCredential(config.AadClientId, config.AadSecret);
+            return await ApplicationTokenProvider.LoginSilentAsync(config.AadTenantId, clientCredential, ActiveDirectoryServiceSettings.Azure);
+        }
+
+        private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
+        {
+            var credentials = await GetCredentialsAsync(config);
+
+            return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
+            {
+                SubscriptionId = config.SubscriptionId,
+            };
         }
 
     }
