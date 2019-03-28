@@ -231,7 +231,7 @@ The moderation process returns a list of key frames from the video, along with a
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
 
 > [!NOTE]
-> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails. These thumbnails (images) correspond to the frame timestamps in the [video moderation output](#sample-video-moderation-response).
+> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails. These thumbnails (images) correspond to the frame timestamps in the video moderation output.
 
 |Task|Methods|File|
 |-|-|-|

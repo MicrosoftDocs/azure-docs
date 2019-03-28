@@ -1,6 +1,11 @@
 {
     "redirections": [
       {
+        "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
+        "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/machine-learning/service/quickstart-get-started.md",
         "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
         "redirect_document_id": false
@@ -1233,6 +1238,11 @@
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/search/search-autosuggest-example.md",
+      "redirect_url": "/azure/search/search-autocomplete-tutorial",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-import-data-rest-api.md",
@@ -13133,6 +13143,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-pricing-billing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/service-bus/",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/service-bus-messaging/service-bus-sas-overview.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
@@ -15776,16 +15791,6 @@
     {
       "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
       "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-windows.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
       "redirect_document_id": false
     },
     {
@@ -21572,6 +21577,11 @@
       "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
       "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-auth-aad-rbac.md",
+      "redirect_url": "/azure/storage/common/storage-auth-aad-rbac-portal",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
@@ -31856,7 +31866,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-introduction.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-access",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
       "redirect_document_id": false
     },
     {
@@ -33374,11 +33384,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/howto-create-webhooks",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
       "redirect_document_id": false
@@ -33505,7 +33510,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-container-agent-upgrade.md",
-      "redirect_url": "/azure/azure-monitor/insights/container-agent-upgrade",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
       "redirect_document_id": "false"
     },
     {
@@ -36356,6 +36361,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/gen2-lower-tier-regions.md",
+      "redirect_url": "/azure/sql-data-warehouse/gen2-migration-schedule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
@@ -36389,8 +36399,7 @@
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
       "redirect_document_id": false
-    }
-    ,
+    },
     {
       "source_path": "articles/hdinsight/hdinsight-administer-use-management-portal.md",
       "redirect_url": "/azure/hdinsight/hdinsight-administer-use-portal-linux",
@@ -36422,8 +36431,83 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
-      "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
+      "source_path": "articles/hdinsight/hdinsight-hadoop-access-yarn-app-logs.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-access-yarn-app-logs-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-script-actions.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-script-actions-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hbase-build-java-maven.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-build-java-maven-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-giraph-install-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-mahout.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-mahout-linux-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-monitor-use-ambari-api.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-manage-ambari",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-run-samples.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-use-oozie.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/storm/apache-storm-deploy-monitor-topology.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-ambari-tez-view.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-use-oozie-coordinator-time.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-apps-install-cask.md",
+      "redirect_url": "https://docs.cask.co/cdap/4.3.0-SNAPSHOT/en/admin-manual/installation/azure-hdinsight.html",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-apps-install-dataiku.md",
+      "redirect_url": "https://doc.dataiku.com/dss/latest/hadoop/distributions/hdinsights.html",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-apps-install-h2o.md",
+      "redirect_url": "https://www.h2o.ai/blog/use-h2o-ai-on-azure-hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-apps-install-streamsets.md",
+      "redirect_url": "https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Getting_Started/GettingStarted_Title.html",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-apps-install-datameer.md",
+      "redirect_url": "https://documentation.datameer.com/documentation/display/DAS70/Home",
       "redirect_document_id": false
     },
     {
@@ -36434,6 +36518,16 @@
     {
       "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
       "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
+      "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
     }
   ]
