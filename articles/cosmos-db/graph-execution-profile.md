@@ -1,6 +1,6 @@
 ---
-title: Evaluate your Gremlin queries using the execution profile step
-description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step
+title: Evaluate your Gremlin queries with ExecutionProfile()
+description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step.
 services: cosmos-db
 keywords: graph, gremlin, troubleshoot, evaluate, performance, test, query, profile, executionprofile
 author: luisbosquez
@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 03/27/2019
 ms.author: lbosq
 ms.custom: mvc
 
@@ -118,11 +118,11 @@ Back-end Step|Description
 ---|---
 `GetVertices`| This step obtains a predicated set of objects from the persistence layer. 
 `GetEdges`| This step obtains the edges that are adjacent to a set of vertices. This step can result in one or many store operations.
-`GetNeighboringVertices`| This step obtains the vertices that are connected to a set of edges. The edges contain the partition keys and ID's of both their source and target vertices.
+`GetNeighborVertices`| This step obtains the vertices that are connected to a set of edges. The edges contain the partition keys and ID's of both their source and target vertices.
 `Coalesce`| This step accounts for the evaluation of two operations whenever the `coalesce()` Gremlin step is executed.
 `QueryDerivedTableOperator`| This step executes a storage operation for an object that will be executed on with another operation.
-`CartesianProductOperator`| This step computes a cartesian product between two datasets.
-`ConstantSourceOperator`| This step obtains the edges that are adjacent to a set of vertices. This step can result in one or many store operations.
+`CartesianProductOperator`| This step computes a cartesian product between two datasets. Usually executed whenever the predicates `to()` or `from()` are used.
+`ConstantSourceOperator`| This step computes an expression to produce a constant value as a result.
 `ProjectOperator`| This step prepares and serializes a response using the result of preceding operations.
 `ProjectAggregation`| This step prepares a and serializes a response for an aggregate operation.
 
