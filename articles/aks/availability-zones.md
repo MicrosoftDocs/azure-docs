@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/28/2019
 ms.author: iainfou
 ---
 
@@ -59,6 +59,8 @@ AKS clusters can currently be created using availability zones in the following 
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
+* You can only enable availability zones when the cluster is created.
+* Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availabillity zones.
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
 
@@ -100,8 +102,13 @@ az aks create \
     --generate-ssh-keys \
     --enable-vmss \
     --node-count 3 \
-    --agent-zones 1 2 3
+    --node-zones 1 2 3
 ```
+
+It takes a few minutes to create the AKS cluster.
+
+> [!NOTE]
+> The cluster autoscaler balances the creation of nodes across zones on scale-up operations. On scale-down operations, the cluster autoscaler does not distribute the removal of nodes across zones. An imbalance of nodes may become apparent. For information about this cluster autoscaler behavior, see the [upstream Kubernetes cluster autoscaler doc][upstream-cas].
 
 ## Next steps
 
@@ -110,6 +117,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 <!-- LINKS - external -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aks-github]: https://github.com/azure/aks/issues
+[upstream-cas]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#im-running-cluster-with-nodes-in-multiple-zones-for-ha-purposes-is-that-supported-by-cluster-autoscaler
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
