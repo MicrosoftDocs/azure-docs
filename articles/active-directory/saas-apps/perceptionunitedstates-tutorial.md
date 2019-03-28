@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
 	
 	c. In **Identity Provider Name** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal. 
 
-	d. In **SAML Domain textbox**, enter the domain like **@contoso.com**.
+	d. In **SAML Domain textbox**, enter the domain like @contoso.com.
 
 	e. Click on **Upload Again** to upload the **Metadata XML** file.
 
