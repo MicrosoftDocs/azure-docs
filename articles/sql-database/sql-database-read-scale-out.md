@@ -34,8 +34,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
 
 > [!NOTE]
-> Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas.  
-
+> Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas. 
 ## Data consistency
 
 One of the benefits of replicas is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
@@ -125,6 +124,10 @@ Body:
 ```
 
 For more information, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+
+## Using TempDB on read-only replica
+
+The TempDB database is not replicated to the read-only replicas. Each replica has its own version of TempDB database that is created when the replica is created. It ensures that TempDB is updateable and can be modified during your query execution. If your read-only workload depends on using TempDB objects you should create these objects as part of your query script. 
 
 ## Using Read Scale-Out with geo-replicated databases
 
