@@ -1,21 +1,33 @@
 ---
 title: Apache HBase write ahead log
-description: Provides an overview of the Apache HBase write ahead log feature and how its used in Azure HDInsight
+description: Provides an overview of the Apache HBase write-ahead log feature and how its used in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 3/13/2019
+ms.date: 3/27/2019
 
 ---
 # Apache HBase Write Ahead Log
 
 <!-- Overview of HBase purpose -->
 
+Apache HBase is a type of data store often called "NoSQL" because it does not support many of the traditional relational database features, and does not use SQL as its primary query language. Column oriented storage allows for better compression in columns where certain values are often repeated. It also allows for faster aggregate operations over specific columns, which are common in analytics engines.
+
 <!-- Overview of HBase architecture -->
 
-The Write Ahead Log (WAL) records all changes to data in HBase, to file-based storage. Under normal operations, the WAL is not needed because data changes move from the MemStore to StoreFiles. However, if a RegionServer crashes or becomes unavailable before the MemStore is flushed, the WAL ensures that the changes to the data can be replayed. If writing to the WAL fails, the entire operation to modify the data fails.
+In HBase, a **row** consists of one or more **columns** and is identified by a **row key**. Multiple rows make up a **table**. Columns contain **cells** which are timestamped versions of the value in that column. Columns are grouped into **column families**, and all columns in a column-family are stored together in storage files called **HFiles**.
+
+**Regions** in HBase are used to balance the data processing load. Rows for a table are initially stored in a single region and then are spread across multiple regions as the amount of data in the table increases. **Region servers** can handle requests for multiple regions.
+
+"There are three major components to HBase: the client library, at least one master server, and many region servers. The region servers can be added or removed while the system is up and running to accommodate changing workloads. The master is responsible for assigning regions to region servers and uses Apache ZooKeeper, a reliable, highly available, persistent and distributed coordination service, to facilitate that task."
+
+<!-- Write Ahead Log Feature Overview -->
+
+When a data update occurs in HBase, it is first written to a type of commit log called a write-ahead log (WAL). After the update being stored to the WAL, it is written to the in-memory memstore. When the data in memory reaches its maximum capacity, it is written to disk as an HFile.
+
+The write-ahead log provides fault-tolerance by allowing HBase to replay updates if a RegionServer crashes or becomes unavailable before the MemStore is flushed. Without the write-ahead log, the crash of a RegionServer before flushing updates to an HFile would result in all of those updates being lost.
 
 ## Write ahead log feature in Azure HDInsight
 
@@ -24,7 +36,7 @@ A normal HBase cluster in Azure HDInsight is configured to write data directly t
 ## Use cases and tradeoffs
 
 <!-- When should I enable WAL? When should I disable it? -->
-<!-- What are the implication for the performance of by other HBase queries on the same cluster-->
+<!-- What are the implication for the performance of by other HBase queries on the same cluster?-->
 
 ## How to enable HBase write ahead log
 
