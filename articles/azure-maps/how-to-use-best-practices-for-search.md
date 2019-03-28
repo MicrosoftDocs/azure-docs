@@ -41,9 +41,9 @@ In this section, you will learn how to use Azure Maps search APIs to limit searc
 
 **Geo-bias search results**
 
-In order to geo-bias your results to the relevant area for your user, you should always add the maximum possible detailed location input. To restrict the search results, consider the following:
+In order to geo-bias your results to the relevant area for your user, you should always add the maximum possible detailed location input. To restrict the search results, consider adding the following input types:
 
-1. Set the `countrySet` parameter, for example "US, FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return results from USA and France, since there are cities named **Bellevue** in France and in the the USA.
+1. Set the `countrySet` parameter, for example "US, FR". The default search behavior is to search the entire world, potentially returning unnecessary results. If your query does not include `countrySet` parameter, the search may return inaccurate results. For example, search for a city named **Bellevue** will return results from USA and France, since there are cities named **Bellevue** in France and in the USA.
 
 2. You can use the `btmRight` and `topleft` parameters to set the bounding box to restrict the search to a specific area on the map.
 
@@ -81,7 +81,7 @@ To find more matches for partial queries, such as, "Microsoft", `typeHead` param
 
 ### URI encoding to handle special characters 
 
-To find cross street addresses, I.e. 1st Avenue & Union Street, Seattle, special character '&' needs to be encoded before sending the request. We recommend encoding character data in a URI, where all characters are encoded using a '%' character and a two-character hex value corresponding to their UTF-8 character.
+To find cross street addresses, that is, 1st Avenue & Union Street, Seattle, special character '&' needs to be encoded before sending the request. We recommend encoding character data in a URI, where all characters are encoded using a '%' character and a two-character hex value corresponding to their UTF-8 character.
 
 **Usage Examples**:
 
@@ -158,7 +158,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key=[you_key]&api-versi
 
 ### Nearby search
 
-To retrieve only POI results around a specific location, the nearby search method may be the right choice. This endpoint will only return POI results, and does not take in a search query parameter. To limit the results, it is recommend to set the radius.
+To retrieve only POI results around a specific location, the nearby search method may be the right choice. This endpoint will only return POI results, and does not take in a search query parameter. To limit the results, it is recommended to set the radius.
 
 ### Understanding the responses
 Lets make a fuzzy search request to the Azure Maps search service for the geographic region and Point of interests with name Seattle. If you look carefully at the request URL below, we have used the `idxSet` parameter to define the result type we want in the response.
@@ -173,9 +173,9 @@ Supported types of result:
 
 **Point Address:** Points on a map where specific address with a street name and number. The highest level of accuracy available for addresses. 
 
-**Address Range:**  For some streets there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges. 
+**Address Range:**  For some streets, there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges. 
 
-**Geography:** Areas on a map which represent administrative division of a land, i.e., country, state, city. 
+**Geography:** Areas on a map that represent administrative division of a land, that is, country, state, city. 
 
 **POI - (Points of Interest):** Points on a map that are worth attention and may be interesting.
 
