@@ -33,7 +33,7 @@ To complete this guide, make sure you have:
 
 - Read through the [Azure Spatial Anchors overview](../overview.md).
 - Completed one of the [5-minute Quickstarts](../index.yml).
-- Basic knowledge on C++ and the <a href="https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
+- Basic knowledge on C++ and the <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
