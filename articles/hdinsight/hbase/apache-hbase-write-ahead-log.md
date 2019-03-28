@@ -1,5 +1,5 @@
 ---
-title: Apache HBase write ahead log
+title: Apache HBase write ahead log in Azure HDInsight
 description: Gives an overview of the Apache HBase write-ahead log feature and how it is used in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
@@ -7,9 +7,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 3/27/2019
-
 ---
-# Apache HBase Write Ahead Log
+# Apache HBase write ahead log in Azure HDInsight
 
 This article provides background on the write-ahead log feature for Apache HBase and how it can be used effectively in Azure HDInsight. Apache HBase is a type of database often called "NoSQL", because it focuses on scalability and flexibility of the data store over many of the traditional relational database features. HBase uses column-oriented storage, which allows for better compression in columns where certain values are often repeated. It also allows for faster aggregate operations over specific columns, which are common in analytics engines. The write-ahead log is a key feature for maintaining fault-tolerance and scalability in HBase.
 
@@ -21,9 +20,9 @@ In HBase, a **row** consists of one or more **columns** and is identified by a *
 
 ## Write-ahead log feature overview
 
-When a data update occurs in HBase, it is first written to a type of commit log called a write-ahead log (WAL). After the update is stored to the WAL, it is written to the in-memory **memstore**. When the data in memory reaches its maximum capacity, it's written to disk as an HFile.
+When a data update occurs in HBase, it is first written to a type of commit log called a write-ahead log (WAL). After the update is stored to the WAL, it is written to the in-memory **memstore**. When the data in memory reaches its maximum capacity, it's written to disk as an **HFile**.
 
-The write-ahead log provides fault-tolerance by allowing HBase to replay updates if a RegionServer crashes or becomes unavailable before the MemStore is flushed. Without the write-ahead log, if a RegionServer crashed before flushing updates to an HFile, it would result in all of those updates being lost.
+The write-ahead log provides fault-tolerance by allowing HBase to replay updates if a **RegionServer** crashes or becomes unavailable before the MemStore is flushed. Without the write-ahead log, if a **RegionServer** crashed before flushing updates to an **HFile**, it would result in all of those updates being lost.
 
 ## Write ahead log feature in Azure HDInsight
 
@@ -31,13 +30,12 @@ A normal HBase cluster in Azure HDInsight is configured to write data directly t
 
 ## Use cases and tradeoffs
 
-<!-- When should I enable WAL? When should I disable it? -->
-<!-- What are the implication for the performance of by other HBase queries on the same cluster?-->
+Q: When should I enable WAL? When should I disable it?
+Q: What are the implication for the performance of by other HBase queries on the same cluster?
 
 ## How to enable HBase write ahead log
 
-<!-- Does the enable/disable work for running clusters or only stopped ones? -->
-<!-- Are we going to have our subscription whitelisted for screenshots? -->
+Q: Does the enable/disable work for running clusters or only stopped ones?
 
 To enable write ahead sign in your HBase cluster, do the following steps:
 
@@ -51,7 +49,7 @@ To enable write ahead sign in your HBase cluster, do the following steps:
 1. Expand the node **hbase-site**
 1. To do: Add properties to the list
 
-Use the following properties in the hbase-site.xml configuration file to configure the size and number of WAL files:
+Use the following properties in the hbase-site.xml configuration file to configure the size and number of WAL files [Courtesy: Hortonworks](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/hbase-data-access/content/configure-the-size-and-number-wal-files.html):
 
 | Configuration Property | Description | Default |
 | -- | -- | -- |
@@ -65,13 +63,12 @@ By default, an HDFS block is 64 MB and a WAL is approximately 60 MB. Make sure t
 
 ## How to disable HBase write ahead log
 
-<!-- Does the enable/disable work for running clusters or only stopped ones? -->
-<!-- Are we going to have our subscription whitelisted for screenshots? -->
+Q: Does the enable/disable work for running clusters or only stopped ones?
 
 ## Impact of cluster resize on HBase write ahead log
 
-<!-- How does resize affect WAL? -->
-<!-- Should the WAL feature be disabled before resizing? -->
+Q: How does resize affect WAL?
+Q: Should the WAL feature be disabled before resizing?
 
 ## Next steps
 
