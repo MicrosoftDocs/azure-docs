@@ -53,7 +53,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - Compliance snapshots show details for assigned policies within delegated subscriptions
 - Create and edit policy definitions within a delegated subscription
 - Assign customer-defined policy definitions within the delegated subscription
-- Customers see policies authored by the service provider alongside any policies they’ve authored themselves
+- Customers see policies authored by the service provider alongside any policies they've authored themselves
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
@@ -65,7 +65,7 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 
-- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can’t use RunAs accounts to copy VM extensions)
+- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use RunAs accounts to copy VM extensions)
 
 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
 
