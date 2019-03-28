@@ -85,7 +85,7 @@ Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 wo
 
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found [here](..\sql-database/transparent-data-encryption-byok-azure-sql.md)).
 
-        **Note:** The instructions to enable this are the same as for Azure SQL database.
+    `**Note:** The instructions to enable this are the same as for Azure SQL database.`
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -383,7 +383,7 @@ To implement Impact Level 5 compliant controls on an Azure Storage account runni
 
 For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation [found here](../storage/common/storage-service-encryption-customer-managed-keys.md).
 
-**Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.
+`**Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.`
 
 ### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
