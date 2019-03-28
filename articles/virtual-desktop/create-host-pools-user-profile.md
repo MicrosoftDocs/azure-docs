@@ -13,7 +13,7 @@ ms.author: helohr
 
 The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, and it will be deprecated in future versions of Windows Virtual Desktop.
 
-This section will tell you how to set up a FSLogix profile container share for a host pool.
+This section will tell you how to set up a FSLogix profile container share for a host pool. For general documentation regarding FSLogix, see the [FSLogix site](https://docs.fslogix.com/).
 
 ## Create a new virtual machine that will act as a file share
 
@@ -43,7 +43,7 @@ The following are general instructions about how to prepare a virtual machine to
 6. Search for the security group to which you added the session host virtual machines, then make sure that group has **Full Control**.
 7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
-For best practices on permissions, see the following [FSLogix documentation](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+For more information about permissions, see the [FSLogix documentation](https://docs.fslogix.com/).
 
 ## Configure the FSLogix profile container
 
