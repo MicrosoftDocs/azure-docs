@@ -14,10 +14,7 @@ ms.author: geg
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
-To restore a VM make sure you have the required [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission.
 
-> [!NOTE]
-> If you do not have [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission you can perform [restore disk](backup-azure-arm-restore-vms.md#restore-disks) and create VM using [Deploy Template](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) feature.
 
 ### Restore options
 
@@ -33,6 +30,13 @@ Azure Backup provides a number of ways to restore a VM.
 > You can also recover specific files and folders on an Azure VM. [Learn more](backup-azure-restore-files-from-vm.md).
 >
 > If you're running the [latest version](backup-instant-restore-capability.md) of Azure Backup for Azure VMs (known as Instant Restore), snapshots are kept for up to seven days, and you can restore a VM from snapshots before the backup data is sent to the vault. If you want to restore a VM from a backup from the last seven days, it's quicker to restore from the snapshot and not from the vault.
+
+## Before you start
+
+To restore a VM (create a new VM) make sure you have the correct role-based access control (RBAC) [permissions](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) for the Restore VM operation.
+
+If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
+
 
 
 ## Select a restore point
