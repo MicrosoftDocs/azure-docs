@@ -13,7 +13,7 @@ manager: carmonm
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
-In this article, you’ll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management. 
+In this article, you'll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management. 
 
 > [!NOTE]
 > You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
@@ -25,19 +25,18 @@ Publishing a Managed Services offer is similar to publishing any other type of o
 ## Create your offer in the Cloud Partner Portal
 
 1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2. From the left navigation menu, select **New offer**, then select **Managed services**.
-3. You’ll see an **Editor** section for your offer with four parts to fill in: **Offer Settings**, **Plans**, **Marketplace**, and **Support**. Read on for guidance on how to complete these sections.
+1. From the left navigation menu, select **New offer**, then select **Managed services**.
+1. You'll see an **Editor** section for your offer with four parts to fill in: **Offer Settings**, **Plans**, **Marketplace**, and **Support**. Read on for guidance on how to complete these sections.
 
 ## Enter offer settings
 
 In the **Offer settings** section, provide the following:
 
-
 |Field  |Description  |
 |---------|---------|
-|**Offer ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can’t change this value.        |
-|**Publisher ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can’t change this value.        |
-|**Name**     | The name (up to 50 characters) that customers will see for your offer in Azure Marketplace and in the Azure portal. Use a recognizable brand name that customers will understand—if you’re promoting this offer through your own website, be sure to use the exact same name here.        |
+|**Offer ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.        |
+|**Publisher ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.        |
+|**Name**     | The name (up to 50 characters) that customers will see for your offer in Azure Marketplace and in the Azure portal. Use a recognizable brand name that customers will understand—if you're promoting this offer through your own website, be sure to use the exact same name here.        |
 
 When you've finished, select **Save**. Now you're ready to move on to the **Plans** section.
 
@@ -45,30 +44,29 @@ When you've finished, select **Save**. Now you're ready to move on to the **Plan
 
 Each offer must have one or more plans (sometimes referred to as SKUs). You might add multiple plans to support different feature sets at different prices, to support different billing models, or to customize a specific plan for a limited audience of specific customers. In Azure Marketplace, customers can view plans under the parent offer; however, plans appear as their own purchasable entity in the Azure portal.
 
-In the Plans section, for each plan you want to create, select **New Plan**. Then enter a **Plan ID**. This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. The plan ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can’t change this value. 
+In the Plans section, for each plan you want to create, select **New Plan**. Then enter a **Plan ID**. This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. The plan ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can't change this value.
 
 Next, complete the following sections in the **Plan Details** section:
-
 
 |Field  |Description  |
 |---------|---------|
 |**Title**     | Friendly name for the plan for display. Maximum length of 50 characters.        |
 |**Summary**     | Succinct description of the plan for display under the title. Maximum length of 100 characters.        |
 |**Description**     | Description text that provides a more detailed explanation of the plan.         |
-|**Billing model**     | There are 2 billing models supported for managed services offers. Choose **Bring your own license** if you don’t want to use the Microsoft commerce platform and will bill your customers directly. Choose **% of Azure consumption** if you want to charge your customers a percentage of their monthly Azure consumption.   |
-|**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is No (public). If you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can’t later change it to private. If you want this plan to be available only to specific customers, select Yes. When you do so, you’ll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
+|**Billing model**     | There are 2 billing models supported for managed services offers. Choose **Bring your own license** if you don't want to use the Microsoft commerce platform and will bill your customers directly. Choose **% of Azure consumption** if you want to charge your customers a percentage of their monthly Azure consumption.   |
+|**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is No (public). If you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can't later change it to private. If you want this plan to be available only to specific customers, select Yes. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
 Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management.
 
 - First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
-- Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers’ resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
+- Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers' resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
 - Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must provide this info in order to access resources on behalf of the customer using Azure Delegated Resource Management.
   For each authorization, provide the following. You can then select **New authorization** as many times as needed to add more users/role definitions.
-    - **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers’ resources.
-    - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers’ resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  - **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
+  - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers' resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 > [!TIP]
-> In most cases, you’ll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
+> In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
 
 When you're done adding plans, select **Save**, then continue to the **Marketplace** section.
 
@@ -77,7 +75,6 @@ When you're done adding plans, select **Save**, then continue to the **Marketpla
 The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal.
 
 Provide info for the following fields in the **Overview** section:
-
 
 |Field  |Description  |
 |---------|---------|
@@ -103,15 +100,15 @@ Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (11
 
 The **Hero (815x290)** logo is optional but recommended. If you include a hero logo, follow these guidelines:
 
-- Don’t include any text in the hero logo, and be sure to leave 415 pixels of empty space on the right side of the logo. This is required to leave room for text elements that will be embedded programmatically: your publisher display name, plan title, offer long summary.
-- Your hero logo’s background may not be black, white, or transparent. Make sure your background color isn’t too light, because the embedded text will be displayed in white. 
-- Once you publish your offer with a hero icon, you can’t remove it (although you can update it with a different version if desired).
+- Don't include any text in the hero logo, and be sure to leave 415 pixels of empty space on the right side of the logo. This is required to leave room for text elements that will be embedded programmatically: your publisher display name, plan title, offer long summary.
+- Your hero logo's background may not be black, white, or transparent. Make sure your background color isn't too light, because the embedded text will be displayed in white. 
+- Once you publish your offer with a hero icon, you can't remove it (although you can update it with a different version if desired).
 
 Be sure to save your changes before moving on to the **Support** section.
 
 ## Add support info
 
-In the **Support** section, provide the name, email, and phone number for an engineering contact and a customer support contact. You’ll also need to provide support URLs. Microsoft may use this info when we need to contact you about business and support issues.
+In the **Support** section, provide the name, email, and phone number for an engineering contact and a customer support contact. You'll also need to provide support URLs. Microsoft may use this info when we need to contact you about business and support issues.
 
 Once you've added this info, select **Save.**
 

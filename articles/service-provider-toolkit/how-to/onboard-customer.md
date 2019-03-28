@@ -13,7 +13,7 @@ manager: carmonm
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
-This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we’ll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
@@ -22,33 +22,36 @@ You can associate your Microsoft Partner Network (MPN) ID with your onboarded su
 > [!NOTE]
 > Customers can be onboarded automatically when they purchase a managed services offer that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md).
 
-The onboarding process requires actions to be taken from within both the service provider’s tenant and from the customer’s tenant. All of these steps are described in this article.
+The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
 
 > [!IMPORTANT]
 > If a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management at this time.
 
 ## Gather tenant and subscription details
 
-To onboard a customer’s tenant, it must have an active Azure subscription. You’ll need to know the following:
-- The tenant ID of the service provider’s tenant (where you will be managing the customer’s resources)
-- The tenant ID of the customer’s tenant (which will have resources managed by the service provider)
-- The subscription IDs for each specific subscription in the customer’s tenant that will be managed by the service provider
+To onboard a customer's tenant, it must have an active Azure subscription. You'll need to know the following:
 
-If you don’t have this info already, you can retrieve it in one of the following ways.
+- The tenant ID of the service provider's tenant (where you will be managing the customer's resources)
+- The tenant ID of the customer's tenant (which will have resources managed by the service provider)
+- The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider
+
+If you don't have this info already, you can retrieve it in one of the following ways.
 
 ### PowerShell
 
-```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -subscriptionId <subscriptionId>
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Select-AzContext -Subscription <subscriptionId>
 ```
 
 ### Azure CLI
 
-```azurecli
-az login -u <username> -p <password>
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
 az account set --subscription <subscriptionId/name>
-az account show 
+az account show
 ```
 
 ## Confirm that the customer's subscription is ready for onboarding
@@ -58,18 +61,21 @@ During the limited preview period, each subscription must be authorized for onbo
 ### Azure portal
 
 1. In the Azure portal, select the subscription.
-2. Select **Resource providers**.
-3. Confirm that **Microsoft.ManagedServices** shows as **Registered**.
+1. Select **Resource providers**.
+1. Confirm that **Microsoft.ManagedServices** shows as **Registered**.
 
 ### PowerShell
 
-```powershell
-Select-AzureRmSubscription -SubscriptionId <subscriptionId>
-Get-AzureRmResourceProvider -ProviderNameSpace "Microsoft.ManagedServices"
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
 ```
+
 This should return results similar to the following:
 
-```powershell
+```output
 ProviderNamespace : Microsoft.ManagedServices
 RegistrationState : Registered
 ResourceTypes     : {registrationDefinitions}
@@ -88,14 +94,16 @@ Locations         : {}
 
 ### Azure CLI
 
-```azurecli
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
 az account set –subscription <subscriptionId>
 az provider show –namespace "Microsoft.ManagedServices" –-output table
 ```
 
 This should return results similar to the following:
 
-```azurecli
+```output
 Namespace                  RegistrationState
 -------------------------  -------------------
 Microsoft.ManagedServices  Registered
@@ -103,12 +111,11 @@ Microsoft.ManagedServices  Registered
 
 ## Define roles and permissions
 
-As a service provider, you may have multiple offers with a single customer, requiring different access for different customer scopes. 
+As a service provider, you may have multiple offers with a single customer, requiring different access for different customer scopes.
 
 To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
 
 For example, you may want to use a structure like this:
-
 
 |Group name  |Type  |objectId  |Role definition  |Role definition ID  |
 |---------|---------|---------|---------|---------|
@@ -117,27 +124,31 @@ For example, you may want to use a structure like this:
 |VM Specialists     |User group         |\<objectId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automation     |Service principal name (SPN)         |\<objectId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
-You’ll need to have these ID values ready in order to define authorizations. If you don’t have them already, you can retrieve them in one of the following ways.
+You'll need to have these ID values ready in order to define authorizations. If you don't have them already, you can retrieve them in one of the following ways.
 
 ### PowerShell
 
-```powershell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
 # To retrieve the objectId for an Azure AD group
-(Get-AzureRmADGroup -DisplayName "<yourGroupName> ").id
+(Get-AzADGroup -DisplayName '<yourGroupName>').id
 
 # To retrieve the objectId for an Azure AD user
-(Get-AzureRmADUser -UserPrincipalName "<yourUPN> ").id
+(Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzureRmADApplication -DisplayName "<appDisplayName>").objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
 
 # To retrieve role definition IDs
-(Get-AzureRmRoleDefinition -Name <roleName>).id
+(Get-AzRoleDefinition -Name '<roleName>').id
 ```
 
 ### Azure CLI
 
-```azurecli
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
 # To retrieve the objectId for an Azure AD group
 az ad group list –-query "[?displayName == '<yourGroupName>'].objectId" –-output tsv
 
@@ -153,8 +164,7 @@ az role definition list –-name "<roleName>" | grep name
 
 ## Create an Azure Resource Manager Template
 
-To onboard your customer, you’ll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template that includes the following:
-
+To onboard your customer, you'll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template that includes the following:
 
 |Field  |Definition  |
 |---------|---------|
@@ -199,30 +209,34 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer’s tenant. This must be done by a user with authorization to change role assignments for the subscriptions you’re onboarding, and the template must be deployed as a subscription-level deployment.
+Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant. This must be done by a user with authorization to change role assignments for the subscriptions you're onboarding, and the template must be deployed as a subscription-level deployment.
 
 > [!IMPORTANT]
 > A separate deployment is needed for each subscription that you want to onboard to Azure Delegated Resource Management.
 
-```powershell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
 # Deploy Azure Resource Manager template using template and parameter file locally
-New-AzureRmDeployment -Name <deploymentName> `
-                      -Location <AzureRegion> `
-                      -TemplateFile <pathToTemplateFile> `
-                      -TemplateParameterFile <pathToParameterFile> `
-                      -Verbose
+New-AzDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateFile <pathToTemplateFile> `
+                 -TemplateParameterFile <pathToParameterFile> `
+                 -Verbose
 
 # Deploy Azure Resource Manager template that is located externally
-New-AzureRmDeployment -Name <deploymentName> `
-                      -Location <AzureRegion> `
-                      -TemplateUri <templateUri> `
-                      -TemplateParameterUri <parameterUri> `
-                      -Verbose
+New-AzDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateUri <templateUri> `
+                 -TemplateParameterUri <parameterUri> `
+                 -Verbose
 ```
 
 ### Azure CLI
 
-```azurecli
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
 # Deploy Azure Resource Manager template using template and parameter file locally
 az deployment create –-name <deploymentName> \
                      --location <AzureRegion> \
@@ -240,26 +254,34 @@ az deployment create –-name <deploymentName \
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
+When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
 
 ### Azure portal
 
-In the service provider’s tenant:
-1. Navigate to the [My customers page](view-manage-customers.md).
-2. Select **Customers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+In the service provider's tenant:
 
-In the customer’s tenant:
+1. Navigate to the [My customers page](view-manage-customers.md).
+1. Select **Customers**.
+1. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+
+In the customer's tenant:
+
 1. Navigate to the [Service providers page](view-manage-service-providers.md).
-2. Select **Providers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+1. Select **Providers**.
+1. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 ### PowerShell
 
-```powershell
-Get-AzureRmSubscription
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Get-AzContext
 ```
+
 ### Azure CLI
 
-```azurecli
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
 az account list
+```
