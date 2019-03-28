@@ -28,6 +28,7 @@ Unlike AzureCosmos DB, Apache Cassandra does not natively provide precisely defi
 
 The following table illustrates how the native Cassandra consistency levels are mapped to the Azure Cosmos DB’s consistency levels when using Cassandra API:  
 
+![Cassandra consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)
 
 ## <a id="mongo-mapping"></a>Mapping between MongoDB and Azure Cosmos DB consistency levels
 
@@ -44,6 +45,8 @@ While using Azure Cosmos DB’s API for MongoDB:
 * You can annotate a specific region associated with your Azure Cosmos account as "Master" by making the region as the first writable region. 
 
 The following table illustrates how the native MongoDB write/read concerns are mapped to the Azure Cosmos consistency levels when using Azure Cosmos DB’s API for MongoDB:
+
+![MongoDB consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)
 
 ## Next steps
 
