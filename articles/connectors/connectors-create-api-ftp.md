@@ -1,12 +1,12 @@
 ---
-title: Connect to FTP server - Azure Logic Apps | Microsoft Docs
+title: Connect to FTP server - Azure Logic Apps
 description: Create, monitor, and manage files on an FTP server with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
@@ -34,13 +34,14 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> The FTP connector supports only files that are 50 MB or smaller 
-> unless you use [message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
-> Currently, you can't use chunking for triggers.
->
-> Also, the FTP connector supports only explicit 
-> FTP over SSL (FTPS) and isn't compatible with implicit FTPS. 
+## Limits
+
+* FTP actions support only files that are *50 MB or smaller* unless you use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md), 
+which let you exceed this limit. Currently, FTP triggers don't support chunking.
+
+* The FTP connector supports only explicit FTP over 
+SSL (FTPS) and isn't compatible with implicit FTPS.
 
 ## Prerequisites
 
@@ -57,11 +58,11 @@ If you're new to logic apps, review
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* The logic app where you want to access your FTP account. 
-To start with an FTP trigger, 
+* The logic app where you want to access your 
+FTP account. To start with an FTP trigger, 
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-To use an FTP action, start your logic app with another trigger, 
-for example, the **Recurrence** trigger.
+To use an FTP action, start your logic app with 
+another trigger, for example, the **Recurrence** trigger.
 
 ## Connect to FTP
 
@@ -72,7 +73,7 @@ and open your logic app in Logic App Designer, if not open already.
 
 1. For blank logic apps, in the search box, 
 enter "ftp" as your filter. Under the triggers list, 
-select the trigger you want. 
+select the trigger you want.
 
    -or-
 
@@ -124,7 +125,7 @@ You can then use an FTP action such as **Get file content**,
 so you can get the order's contents for further processing 
 and store that order in an orders database.
 
-When requesting file content, triggers don't get files 
+When requesting file content, triggers can't get files 
 larger than 50 MB. To get files larger than 50 MB, 
 follow this pattern: 
 
@@ -184,7 +185,7 @@ you can add the trigger from the previous example
 and an action that gets the file's content after 
 that file is added or edited. 
 
-When requesting file content, triggers don't get files 
+When requesting file content, triggers can't get files 
 larger than 50 MB. To get files larger than 50 MB, 
 follow this pattern: 
 
@@ -228,7 +229,7 @@ to the FTP folder that your logic app now monitors.
 
 For technical details about triggers, actions, and limits, which are 
 described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/ftpconnector/).
+review the [connector's reference page](/connectors/ftpconnector/).
 
 ## Get support
 

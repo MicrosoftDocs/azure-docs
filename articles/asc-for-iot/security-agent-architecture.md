@@ -29,15 +29,15 @@ ASC for IoT provides reference architecture for security agents that log, proces
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
-Security agents support the following IoT solution features:
+Security agents support the following features:
 
-- Collect raw security events from the underlying OS (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](concept-agent-configuration.md).
+- Collect raw security events from the underlying Operating System (Linux, Windows). To learn more about available security data collectors, see [ASC for IoT agent configuration](how-to-agent-configuration.md).
 
 - Aggregate raw security events into messages sent through IoT hub.
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 
-- Configure remotely through use of the **ascforiot** module twin. To learn more, see [Configure an ASC for IoT agent](concept-agent-configuration.md).
+- Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an ASC for IoT agent](how-to-agent-configuration.md).
 
 ASC for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
@@ -59,10 +59,8 @@ In this article, you learned about ASC for IoT security agent architecture, and 
 
 To continue getting started with ASC for IoT deployment, use the following articles:
 
-
+- Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
+- Select and deploy a [security agent](how-to-deploy-agent.md)
 - Review the ASC for IoT [Service prerequisites](service-prerequisites.md)
 - Learn how to [Enable ASC for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
-- Use the quickstart to [Configure your solution](quickstart-configure-your-solution.md)
-- Understand [Security agent authentication methods](concept-security-agent-authentication-methods.md)
-- Select and deploy a [security agent](select-deploy-agent.md)
 - Learn more about the service from the [ASC for IoT FAQ](resources-frequently-asked-questions.md)
