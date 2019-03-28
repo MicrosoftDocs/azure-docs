@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
