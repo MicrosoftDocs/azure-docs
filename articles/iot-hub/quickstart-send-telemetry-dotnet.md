@@ -53,7 +53,7 @@ Download the sample C# project from https://github.com/Azure-Samples/azure-iot-s
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity.
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
