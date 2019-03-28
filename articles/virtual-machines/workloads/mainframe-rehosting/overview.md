@@ -20,7 +20,7 @@ An Azure virtual machine (VM) is used to isolate and manage the resources for a 
 
 Azure VMs can run mainframe emulation environments and compilers that support lift-and-shift scenarios. Development and testing are often among the first workloads to migrate from a mainframe to an Azure dev/test environment. Common server components that you can emulate include online transaction process (OLTP), batch, and data ingestion systems as the following figure shows.
 
-![](media/01-overview.png)
+![Emulation environments on Azure enable you to run z/OS-based systems.](media/01-overview.png)
 
 Some mainframe workloads can be migrated to Azure with relative ease, while others can be rehosted on Azure using a partner solution. For detailed guidance about choosing a partner solution, the [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/) can help.
 

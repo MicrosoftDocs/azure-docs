@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Access Azure Data Lake Storage Gen2 data with Azure Databricks using Spark | Microsoft Docs'
-description: This tutorial shows how to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
@@ -28,22 +28,22 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Create an Azure Data Lake Storage Gen2 account.
 
-  See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 
 * Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
 * Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-*  Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   There's a couple of specific things that you'll have to do as you perform the steps in that article.
+  There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-   :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-   > [!IMPORTANT]
-   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
+  > [!IMPORTANT]
+  > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 ### Download the flight data
 
@@ -143,12 +143,12 @@ In this section, you'll create a file system and a folder in your storage accoun
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-    > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > [!NOTE]
+   > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-    Keep this notebook open as you will add commands to it later.
+   Keep this notebook open as you will add commands to it later.
 
 ## Ingest data
 
@@ -167,9 +167,10 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 2. To copy data from the *.csv* account, enter the following command.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
+
+   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
    * Replace the `storage-account-name` placeholder value with the name of your storage account.
 
@@ -177,28 +178,28 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## Explore data
 
-In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy. Replace the `<csv-folder-path>` placeholder value with the same value for that placeholder that you used earlier.
+In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
@@ -216,13 +217,11 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 To create data frames for your data sources, run the following script:
 
-* Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
-
-* Replace the `<your-csv-file-name` placeholder value with the name of your *csv* file.
+* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -281,5 +280,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

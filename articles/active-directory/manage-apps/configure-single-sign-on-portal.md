@@ -184,7 +184,6 @@ You did these things:
 To roll out the application to more users in your organization, we recommend using automatic user provisioning.
 
 > [!div class="nextstepaction"]
->[Learn how to as
->sign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
+> [Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
 
 

@@ -36,7 +36,7 @@ Azure provides three different methods to achieve outbound connectivity Classic 
 | --- | --- | --- | --- | --- | --- |
 | [1. VM with an Instance Level Public IP address](#ilpip) | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned Virtual Machine. The instance has all ephemeral ports available. | No | Yes |
 | [2. public load-balanced endpoint](#publiclbendpoint) | SNAT with port masquerading (PAT) to the public endpoint | TCP, UDP | Azure shares the public IP address public endpoint with multiple private endpoints. Azure uses ephemeral ports of the public endpoint for PAT. | Yes | Yes |
-| [3. Standalone VM ](#defaultsnat) | SNAT with port masquerading (PAT) | TCP, UDP | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes |
+| [3. Standalone VM](#defaultsnat) | SNAT with port masquerading (PAT) | TCP, UDP | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes |
 
 This is a subset of outbound connection functionality available for Resource Manager deployments in Azure.  
 

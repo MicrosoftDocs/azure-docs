@@ -35,9 +35,9 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. To create the workspace, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+- An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
 
-- Either the [Continuum Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
+- Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
     > [!IMPORTANT]
     > Anaconda and Miniconda are not required when you're using Azure Notebooks.
@@ -56,7 +56,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 * The Azure Machine Learning SDK is already installed.
 * After you create an Azure Machine Learning service workspace in the Azure portal, you can click a button to automatically configure your Azure Notebook environment to work with the workspace.
 
-To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -296,7 +296,9 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
    |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
 
-   * No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+   > [!Warning]
+   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
 
@@ -317,7 +319,7 @@ SDK for Databricks **_without_** automated machine learning
 ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 SDK for Databricks **WITH** automated machine learning
-![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+![SDK with automated machine learning installed on Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### Start exploring
 
@@ -345,7 +347,7 @@ To use this file from your code, use `ws=Workspace.from_config()`. This code loa
 
 You can create the configuration file in three ways:
 
-* **Follow the [Azure Machine Learning quickstart](quickstart-get-started.md)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
+* **Follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
 * **Create the file manually**: With this method, you use a text editor. You can find the values that go into the configuration file by visiting your workspace in the [Azure portal](https://portal.azure.com). Copy the workspace name, resource group, and subscription ID values and use them in the configuration file.
 

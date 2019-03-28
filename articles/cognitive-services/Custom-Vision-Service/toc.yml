@@ -30,6 +30,12 @@
       href: node-tutorial.md
     - name: Object detection
       href: node-tutorial-object-detection.md
+  - name: Using the Go SDK
+    items:
+    - name: Image classification
+      href: go-tutorial.md
+    - name: Object detection
+      href: go-tutorial-object-detection.md
 - name: Tutorials
   items:
   - name: Logo detector for mobile
@@ -80,7 +86,7 @@
   items:
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Pricing and limits
+  - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service

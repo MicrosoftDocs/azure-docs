@@ -33,7 +33,7 @@ Securely connect Azure CLI with your Azure account by using the **az login** com
     ```azurecli
     az login
     ```
-This command outputs a code to use in the next step.
+   This command outputs a code to use in the next step.
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 

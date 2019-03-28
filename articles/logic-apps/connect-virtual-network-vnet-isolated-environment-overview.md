@@ -8,13 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
+ms.date: 03/11/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
 > [!NOTE]
-> This capability is in *public preview*.
+> This capability is in 
+> [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Sometimes, your logic apps and integration accounts need access to 
 secured resources, such as virtual machines (VMs) and other systems 
@@ -97,18 +98,6 @@ while the other version runs in the global Logic Apps service.
 
 * Connectors that run in an ISE are also 
 available in the global Logic Apps service.
-
-<a name="vnet-access"></a>
-
-## Permissions for virtual network access
-
-Before you can select an Azure virtual network for injecting 
-your environment, you must set up Role-Based Access Control (RBAC) 
-permissions in your virtual network for the Azure Logic Apps service. 
-This task requires that you assign the **Network Contributor** and 
-**Classic Contributor** roles to the Azure Logic Apps service.
-To set up these permissions, see 
-[Connect to Azure virtual networks from logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

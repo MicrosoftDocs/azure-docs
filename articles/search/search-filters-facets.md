@@ -79,7 +79,7 @@ In the .NET API, filtering attributes have to be set explicitly. In the REST API
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Add facet filters to a query
 
@@ -123,4 +123,3 @@ Although this is a common use case, it's not something the facet navigation stru
 + [Filters in Azure Search](search-filters.md)
 + [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

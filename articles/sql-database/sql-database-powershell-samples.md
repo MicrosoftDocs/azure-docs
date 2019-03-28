@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/01/2019
+ms.date: 03/25/2019
 ---
 
 # Azure PowerShell samples for Azure SQL Database
@@ -21,7 +21,7 @@ Azure SQL Database enables you to configure your databases, instances, and pools
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Single Database and Elastic pools
 
@@ -60,7 +60,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Create and configure managed instances**||
-| [Create and manage a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
+| [Create and manage a Managed Instance](scripts/sql-database-create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
 | [Create and manage a Managed Instance using Azure Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell and Azure Resource Manager template.|
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|

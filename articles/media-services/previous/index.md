@@ -10,13 +10,15 @@ ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 02/08/2018
+ms.date: 03/14/2019
 ms.author: carolz
 ---
 
 # Media Services Documentation  
 
 Learn how to stream broadcast-quality video with Media Services, an extensible cloud platform. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+
+**NOTE:** No new features or functionality are being added to Media Services v2. Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md).
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -66,7 +68,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure Media Services using the Azure Portal</h3>
+                        <h3>Get Started with Azure Media Services using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Media Services account using the Azure Portal</h3>
+                        <h3>Create an Azure Media Services account using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content using the Azure Portal</h3>
+                        <h3>Get started delivering content using the Azure portal</h3>
                     </div>
                 </div>
             </div>

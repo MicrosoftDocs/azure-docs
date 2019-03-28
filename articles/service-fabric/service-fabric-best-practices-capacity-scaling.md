@@ -35,7 +35,7 @@ Scaling operations should be performed via Azure Resource template deployment, b
 
 ## Vertical scaling considerations
 
-[Vertical scaling](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) a Node Type in Azure Service Fabric requires a number of steps and considerations. For example:
+[Vertical scaling](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) a Node Type in Azure Service Fabric requires a number of steps and considerations. For example:
 * The cluster must be healthy before scaling. Otherwise you will only destabilize cluster further.
 * **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that host stateful services.
 
@@ -154,6 +154,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> When you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state in the Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> You can:
+> * Call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
+> * Deploy [service fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster which ensures the scaled down nodes are cleared from the Service Fabric Explorer.
 
 ## Reliability levels
 

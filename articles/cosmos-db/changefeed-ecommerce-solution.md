@@ -101,7 +101,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
 3. Next create another collection named **leases** for change feed processing. The leases collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition.  
 
-4.	Return to the **Data Explorer** pane and select **New Collection** and fill the form with the following details:
+4. Return to the **Data Explorer** pane and select **New Collection** and fill the form with the following details:
 
    * For the **Database id** field, select **Use existing**, then enter **changefeedlabdatabase**.  
    * For the **Collection id** field, enter **leases**.  

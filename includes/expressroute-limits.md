@@ -9,22 +9,22 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-#### ExpressRoute Limits
-The following limits apply to ExpressRoute resources per subscription.
+#### ExpressRoute limits
+The following limits apply to Azure ExpressRoute resources per subscription.
 
-| Resource | Default/Max Limit |
+| Resource | Default/maximum limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
-| ExpressRoute circuits per region per subscription (Azure Resource Manager) |10 |
-| Maximum number of routes for Azure private peering with ExpressRoute standard |4,000 |
-| Maximum number of routes for Azure private peering with ExpressRoute premium add-on |10,000 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
+| ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |
+| Maximum number of routes for Azure private peering with ExpressRoute Standard |4,000 |
+| Maximum number of routes for Azure private peering with ExpressRoute Premium add-on |10,000 |
+| Maximum number of routes for Microsoft Azure peering with ExpressRoute Standard |200 |
+| Maximum number of routes for Microsoft Azure peering with ExpressRoute Premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |
-| Number of virtual network links allowed per ExpressRoute circuit |see table below |
+| Number of virtual network links allowed per ExpressRoute circuit |See the following table. |
 
-#### Number of Virtual Networks per ExpressRoute circuit
-| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
+#### Number of virtual networks per ExpressRoute circuit
+| **Circuit size** | **Number of virtual network links for Standard** | **Number of virtual network links with Premium add-on** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |

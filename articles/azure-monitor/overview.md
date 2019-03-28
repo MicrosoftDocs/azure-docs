@@ -127,12 +127,10 @@ You'll often have the requirement to integrate Azure Monitor with other systems 
 ### Event Hub
 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service that allows you to automate tasks and business processes using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor, which allows you to build workflows integrating with a variety of other systems.
 
-![Logic App](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### API
 Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. This provides you with essentially unlimited possibilities to build custom solutions that integrate with Azure Monitor.

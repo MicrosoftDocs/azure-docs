@@ -172,7 +172,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 2. Use the `scp` command to copy the file to the HDInsight cluster.
 
     ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
     ```
 
     Replace `myuser` with the SSH user account for your cluster. Replace `mycluster` with the cluster name. If you used a password to secure the SSH account, you are prompted to enter the password. If you used a certificate, you may need to use the `-i` parameter to specify the private key file.

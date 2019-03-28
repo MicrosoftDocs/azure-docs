@@ -585,4 +585,4 @@ Errors           : {}
 After a failover, when you are ready to go back to the original region, start reverse replication for the replication protected item using the Update-AzureRmRecoveryServicesAsrProtectionDirection cmdlet.
 
 ## Next steps
-View the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
+View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
