@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure. 
 ---
@@ -114,7 +114,14 @@ Your dashboard displays the various settings that are required to configure and 
 
         ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. In the left pane, select **Cloud settings**, and then activate your device with the Data Box Edge service in the Azure portal.
+5. (Optional) In the left pane, select **Storage settings** to configure the storage resiliency on your device. This feature is currently in preview. By default, the storage on the device is not resilient and there is data loss if a data disk fails on the device. When you enable the Resilient option, the storage on the device will be reconfigured and the device can withstand the failure of one data disk with no data loss. Configuring the storage as resilient will reduce the usable capacity of your device.
+
+    > [!IMPORTANT] 
+    > The resiliency can only be configured before you activate the device. 
+
+    ![Local web UI "Storage settings" page](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. In the left pane, select **Cloud settings**, and then activate your device with the Data Box Edge service in the Azure portal.
     
     1. In the **Activation key** box, enter the activation key that you got in [Get the activation key](data-box-edge-deploy-prep.md#get-the-activation-key) for Data Box Edge.
     2. Select **Apply**.
