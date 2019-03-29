@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Edge device via Windows PowerShell
@@ -38,6 +38,20 @@ This article includes the following procedures:
 ## Upload certificate
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+You can also upload IoT Edge certificates to validate the compute modules and enable a secure connection between the IoT Edge runtime and the compute modules it is connecting to. There are three IoT Edge certificates that you may need to install:
+
+- Root CA certificate or the owner CA
+- Device CA certificate
+- Device key certificate
+
+The following example shows the usage of this cmdlet to install IoT Edge certificates:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert\" -DeviceCertificateFilePath "\\hcfs\device-ca-cert\" -DeviceKeyFilePath "\\hcfs\device-key\" -Credential "username/password"
+```
+
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## View device information
  
