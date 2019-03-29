@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/29/2019
+ms.lastreviewed: 03/30/2019
 ---
 
 # Azure Stack 1903 update
@@ -30,7 +30,7 @@ This article describes the contents of the 1903 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1903 update build number is **1.1903.0.34**.
+The Azure Stack 1903 update build number is **1.1903.0.35**.
 
 ## Hotfixes
 
