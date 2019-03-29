@@ -18,6 +18,11 @@ ms.author: spelluru
 ---
 
 # Enable and use remote desktop for Linux virtual machines in a lab in Azure Lab Services
+This article shows you how to do the following tasks:
+
+- Enable remote desktop for Linux VM
+- How teacher can connect to the template VM via Remote Desktop Connection (RDP).
+- How students connect to the student VM via RDP
 
 ## Enable remote desktop for Linux VM
 During lab creation, teachers can enable **remote desktop connection** for **Linux** images. The **Enable Remote Desktop Connection** option is shown when a Linux image is selected for the template. When this option is enabled, teachers can connect to template VM and student VMs via RDP (Remote Desktop). 
@@ -32,7 +37,7 @@ Teachers see the **Remote Desktop** option to connect to the template VM at the 
 
 ![Connect to template via RDP at the time of creation](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
 
-You see the **Remote Desktop** option on the home page of the lab after the lab is created and the template VM is started. Start the template VM if it's not started already. 
+You see the **Remote Desktop** option on the lab's home page after the lab is created and the template VM is started. Start the template VM if it's not started already. 
 
 ![Connect to template via RDP after the lab is created](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
