@@ -56,7 +56,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
     ![Azure Data Catalog--marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
 2. Sign in with a user account that is the owner or co-owner of an Azure subscription. You see the following page after signing in.
-   
+
     ![Azure Data Catalog--provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 3. Specify a **name** for the data catalog, the **subscription** you want to use, and the **location** for the catalog.
 4. Expand **Pricing** and select an Azure Data Catalog **edition** (Free or Standard).
