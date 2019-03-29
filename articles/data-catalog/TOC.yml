@@ -10,6 +10,8 @@
     href: data-catalog-get-started.md
 - name: Tutorials
   items:
+  - name: Create a Powre BI report
+    href: data-catalog-tutorial-power-bi.md
 - name: Concepts
   items:
   - name: Common scenarios
@@ -18,6 +20,8 @@
     href: data-catalog-dsr.md
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
+  - name: Procedure table
+    href: data-catalog-procedure-table.md
   - name: Prerequisites
     href: data-catalog-prerequisites.md
   - name: FAQ
