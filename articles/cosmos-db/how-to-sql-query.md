@@ -1293,7 +1293,7 @@ The following scalar functions perform an operation on a string input value and 
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returns a string expression after converting uppercase character data to lowercase. |
 | [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returns a string expression after converting lowercase character data to uppercase. |
 | [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Replaces all occurrences of a specified string value with another string value. |
-| [REPLICATE (str_expr, num_expr)](sql-api-query-reference#bk_replicate) | Repeats a string value a specified number of times. |
+| [REPLICATE (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | Repeats a string value a specified number of times. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returns the reverse order of a string value. |
 
 Using these functions, you can run queries like the following, which returns the family `id` in uppercase:
