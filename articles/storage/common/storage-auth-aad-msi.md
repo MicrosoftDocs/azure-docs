@@ -37,11 +37,11 @@ To authenticate a managed identity from your Azure Storage application, first co
 
 To authenticate with a managed identity, your application or script must acquire an OAuth token. The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code.
 
-The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials. 
+The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
 
 For more information about the App Authentication library, see [Service-to-service authentication to Azure Key Vault using .NET](../..key-vault/service-to-service-authentication.md). While this article discusses the App Authentication library in the context of Azure Key Vault, the concepts are applicable to Azure Storage.
 
-To use the App Authentication library in an Azure Storage application, install the latest preview package from Nuget, as well as the latest version of the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Add the following **using** statements to your code:
+To use the App Authentication library in an Azure Storage application, install the latest preview package from [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), as well as the latest version of the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Add the following **using** statements to your code:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -49,6 +49,24 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
+The App Authentication library provides the **AzureServiceTokenProvider** class. 
+
+```csharp
+private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+{
+    const string StorageResource = "https://storage.azure.com/";  // Resource ID for requesting AAD tokens for Azure Storage
+
+    // Use the same token provider to request a new token
+    //var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource/*, pass cancellationToken here*/);
+    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource/*, pass cancellationToken here*/);
+
+    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);   // Renew 5 minutes before expiration
+    if (next.Ticks < 0) next = default(TimeSpan);
+
+    // Return new token and next refresh time to refreshing TokenCredential
+    return new NewTokenAndFrequency(authResult.AccessToken, next);
+}
+```
   
 
 The App Authentication library 
