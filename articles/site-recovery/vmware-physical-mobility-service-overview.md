@@ -38,7 +38,8 @@ During push installation of mobility agent, following steps are performed
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, this step will be skipped and agent installation will continue.
 4. If agent installation succeeds but VSS provider installation fails,then job status is marked as "Warning". This does not impact crash consistency points generation.
-    a. To generate application consistent points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete installation of Site Recovery VSS provider manually.
+
+    a. To generate application consistent points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete installation of Site Recovery VSS provider manually. </br>
     b.  If you do not wish application consistent points to be generated, [modify the replication policy](vmware-azure-set-up-replication.md#create-a-policy) to turn off application consistent points.
 
 ### Before 9.22 versions
@@ -119,7 +120,7 @@ Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Usage | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 /PassphraseFilePath |  Mandatory. Location of the passphrase. Use any valid UNC or local file path.
@@ -148,7 +149,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 #### Installation settings
 **Setting** | **Details**
 --- | ---
-Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+Usage | ./install -d \<Install Location> -r <MS|MT> -v VmWare -q
 -r | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 -d | Optional parameter. Specifies the Mobility service installation location: /usr/local/ASR.
 -v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
@@ -157,7 +158,7 @@ Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 -P |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder.
 
