@@ -36560,6 +36560,16 @@
       "source_path": "articles/media-services/previous/media-services-hyperlapse-content.md",
       "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-key-features.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-poc.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
     }
   ]
 }
