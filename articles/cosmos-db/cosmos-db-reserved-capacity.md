@@ -66,7 +66,7 @@ When your reservation expires, your Azure Cosmos DB instances continue to run an
 
 ## Cancellation and exchanges
 
-For help in identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). If you need to cancel or exchange an Azure Cosmos DB reservation,  see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+For help in identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). If you need to cancel or exchange an Azure Cosmos DB reservation, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Next steps
 
