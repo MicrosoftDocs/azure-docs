@@ -156,7 +156,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
 |brands|The [brands](#brands) dimension.|
-|audioEffects|The [audioEffects](#audioEffects) dimension.|
+|audioEffects|The [audioEffects](#audioeffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
