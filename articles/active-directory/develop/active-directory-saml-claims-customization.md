@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 03/30/2019
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
@@ -59,9 +59,9 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 |---------------|-------------|
 | **Default** | Azure AD will use the default source format. |
 | **Persistent** | Azure AD will use Persistent as the NameID format. |
-| **EmailAddress** | Azure AD issues the NameID claim in email address format. |
-| **Unspecified** | Permits Azure AD to select the claim format. Azure AD issues the NameID as a pairwise identifier. |
-| **Transient** | Azure AD issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user. |
+| **EmailAddress** | Azure AD will use EmailAddress as the NameID format. |
+| **Unspecified** | Azure AD will use Unspecified as the NameID format. |
+| **Transient** | Azure AD will use Transient as the NameID format. |
 
 To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
@@ -122,6 +122,8 @@ You can also use the claims transformations functions.
 | **ExtractNumeric() - Suffix** | Returns the suffix numerical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "123". |
 | **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employeeid for a given user is empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employeeid for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
+
+If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) under the *SaaS applicaiton* category.
 
 ## Next steps
 
