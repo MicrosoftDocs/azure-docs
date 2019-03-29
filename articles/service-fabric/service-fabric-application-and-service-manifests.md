@@ -3,7 +3,7 @@ title: Describing Azure Service Fabric apps and services | Microsoft Docs
 description: Describes how manifests are used to describe Service Fabric applications and services.
 services: service-fabric
 documentationcenter: .net
-author: Athinanthny  
+author: athinanthny
 manager: chackdan
 editor: mani-ramaswamy
 
