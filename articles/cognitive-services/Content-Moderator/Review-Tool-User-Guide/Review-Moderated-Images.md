@@ -47,7 +47,7 @@ In this guide, you'll learn how to set up [reviews](../review-api.md#reviews) on
 
 ## Text reviews
 
-Text reviews function similarly to image reviews. Instead of uploading content, you simply write or paste in text (up to 1,024 characters). Then, Content Moderator analyzes the text and applies tags (in addition to other moderation information, such as profanity and personally identifiable information). In text reviews, you can toggle the applied tags and/or apply custom tags before submitting the review.
+Text reviews function similarly to image reviews. Instead of uploading content, you simply write or paste in text (up to 1,024 characters). Then, Content Moderator analyzes the text and applies tags (in addition to other moderation information, such as profanity and personal data). In text reviews, you can toggle the applied tags and/or apply custom tags before submitting the review.
 
 ![Screenshot of the review tool showing flagged text in a Chrome browser window](../images/reviewresults_text.png)
 

@@ -57,7 +57,7 @@ To assign content to a subteam, click the ellipsis in the upper-right corner, se
 
 ### Switch between subteams
 
-If you are a member of more than one subteam, you can switch between those subteams to change which content reviews are displayed for you. In the **Review** tab, select the drop-down menu labelled **Default** and select **Choose Subteam**. You can view the content reviews for different subteams, but only those of which your are a member.
+If you are a member of more than one subteam, you can switch between those subteams to change which content reviews are displayed for you. In the **Review** tab, select the drop-down menu labeled **Default** and select **Choose Subteam**. You can view the content reviews for different subteams, but only those of which your are a member.
 
 ![Switch between subteams](images/3-review-image-subteam-2.png)
 

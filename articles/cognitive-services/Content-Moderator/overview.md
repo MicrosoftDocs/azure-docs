@@ -41,7 +41,7 @@ The Content Moderator service includes APIs for the following scenarios.
 
 | API group | Description |
 | ------ | ----------- |
-|[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personally identifiable information (PII).|
+|[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data.|
 |[**Custom term lists**](try-terms-list-api.md)| Scans text against a custom list of terms in addition to the built-in terms. Use custom lists to block or allow content according to your own content policies.|  
 |[**Image moderation**](image-moderation-api.md)| Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.|
 |[**Custom image lists**](try-image-list-api.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|

@@ -72,7 +72,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Add the following code to the **Main** method. The **ScreenText** method is the essential operation. Its parameters specify which content moderation operations will be done. In this example, the method is configured to:
 - Detect potential profanity in the text.
 - Normalize the text and autocorrect typos.
-- Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
+- Detect personal data such as US and UK phone numbers, email addresses, and US mailing addresses.
 - Use machine-learning-based models to classify the text into three categories.
 
 If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.
