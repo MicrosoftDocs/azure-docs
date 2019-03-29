@@ -54,14 +54,14 @@ If you're brand new to machine learning, the video series [Data Science for Begi
 
 The first thing you need in machine learning is data. There are several sample datasets included with Studio that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
 
-1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the sample datasets.
+1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the available sample datasets.
 
 1. Select the third dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
    ![Drag data to canvas](./media/quickstart-ui-run-experiment/drag-data.png)
 
  > [!TIP]
- > when you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will make use of this shortcut.
+ > when you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use of this shortcut.
 
 ## Visualize the data
 
@@ -87,11 +87,11 @@ Visualize your data to understand more about the information you have to work wi
 A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the normalized-losses column has a large proportion of missing values, so you'll exclude that column from the model altogether. 
 
 > [!TIP]
-> Cleaning the missing values from input data is a prerequisite for using most of the modules.
+> Cleaning the missing values from input data is a prerequisite for using most of the modules.  
 
 ### Remove normalized-losses
 
-First,  remove the normalized-losses column completely. 
+First,  remove the **normalized-losses** column completely. 
 
 1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
@@ -110,7 +110,7 @@ First,  remove the normalized-losses column completely.
     The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
 
 
-1. Select **Select Columns in Dataset**, and in the Properties pane to the right of the canvas, click **Launch column selector**.
+1. Select **Select Columns in Dataset**, and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
     * On the left, select **With rules**.
 
@@ -118,13 +118,13 @@ First,  remove the normalized-losses column completely.
         
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
         
-    * Click the check mark (OK) button to close the column selector (on the lower right).
+    * Click the check mark (OK) button to close the column selector (on the lower-right).
         
     ![Exclude a column](./media/quickstart-ui-run-experiment/exclude-column.png)
         
-    Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except normalized-losses.
+    Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
         
-    The properties pane shows that the "normalized-losses" column is excluded.
+    The properties pane shows that the **normalized-losses** column is excluded.
         
     ![Property pane](./media/quickstart-ui-run-experiment/property-pane.png)
         
@@ -139,19 +139,26 @@ Now add another module that removes any row that has missing data.
 
 1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module. 
 
-1. In the Properties pane, select **Remove entire row** under **Cleaning mode**. These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
+1. In the Properties pane, select **Remove entire row** under **Cleaning mode**. 
+
+    These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. 
+
+1. Double-click the module and type the comment "Remove missing value rows."
  
      ![Remove rows](./media/quickstart-ui-run-experiment/remove-rows.png)
 
+
 ## Run the experiment
 
-To run the experiment, you first need to create a compute target. A compute target is the compute resource that you use to run your experiment.  Once you create a compute target, you can reuse it for future runs.
+At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, if the experiment has not yet been run, the **Visualize** option will be disabled.  In this case, you need to first run the experiment.  
+
+An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
 1. Click **Run** at the bottom to run the experiment. 
 
      ![Run experiment](./media/quickstart-ui-run-experiment/run-experiment.png)
 
-1. In the **Setup Compute Targets** dialog, select **Create new** 
+1. In the **Setup Compute Targets** dialog, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
 
 1. Provide a name for your compute target.
 
@@ -159,7 +166,7 @@ To run the experiment, you first need to create a compute target. A compute targ
 
     ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
 
-    Your compute resource will now be created. This creation may take approximately 10 minutes. Once the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment. 
+    Your compute resource will now be created. This step may take approximately 10 minutes. Once the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
