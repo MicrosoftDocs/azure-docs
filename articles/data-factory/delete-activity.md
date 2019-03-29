@@ -17,7 +17,7 @@ ms.date: 02/25/2019
 
 # Delete Activity in Azure Data Factory
 
-You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
+You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premise storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
 > [!WARNING]
 > Deleted files or folders cannot be restored. Be cautious when using the Delete activity to delete files or folders.
@@ -30,9 +30,9 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure that Data Factory has write permissions to delete folders or files from the storage store.
 
--   Make sure you are not deleting files that are being written at the same time.
+-   Make sure you are not deleting files that are being written at the same time. 
 
--   If you want to delete files or folder from an on-premises system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
+-   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
 
 ## Supported data stores
 
@@ -86,21 +86,21 @@ Here are some recommendations for using the Delete activity:
 
 ## Monitoring
 
-There are two places where you can see and monitor the results of the Delete activity:
+There are two places where you can see and monitor the results of the Delete activity: 
 -   From the output of the Delete activity.
 -   From the log file.
 
 ### Sample output of the Delete activity
 
 ```json
-{
+{ 
   "datasetName": "AmazonS3",
   "type": "AmazonS3Object",
   "prefix": "test",
   "bucketName": "adf",
   "recursive": true,
   "isWildcardUsed": false,
-  "maxConcurrentConnections": 2,
+  "maxConcurrentConnections": 2,  
   "filesDeleted": 4,
   "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
@@ -136,7 +136,7 @@ Now you are using the Delete activity to delete folder or files by the combinati
 
 ### Periodically clean up the time-partitioned folder or files
 
-You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can leverage ADF system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run.
+You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can leverage ADF system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run. 
 
 #### Sample pipeline
 
@@ -256,7 +256,7 @@ You can create a pipeline to periodically clean up the time partitioned folder o
 
 ### Clean up the expired files that were last modified before 2018.1.1
 
-You can create a pipeline to clean up the old or expired files by leveraging file attribute filter: “LastModified” in dataset.
+You can create a pipeline to clean up the old or expired files by leveraging file attribute filter: “LastModified” in dataset.  
 
 #### Sample pipeline
 
@@ -321,7 +321,7 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
 You can move a file by using a copy activity to copy a file and then a delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample:
 
 > [!NOTE]
-> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a copy activity and a the Delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation.  If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been stared, it is possible that the Delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder.
+> If you want to move the entire folder by defining a dataset containing a folder path only, and then using a copy activity and a the Delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation.  If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been stared, it is possible that the Delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
 
 #### Sample pipeline
 

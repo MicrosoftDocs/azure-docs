@@ -4,8 +4,8 @@ description: This topic describes an Azure SQL Database advanced data security a
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom:
-ms.devlang:
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
@@ -104,7 +104,7 @@ The following list outlines the key characteristics of the Business Critical ser
 - Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
 - Built-in [high availability](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Built-in additional [read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
-- [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements
+- [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements  
 
 Find more information about the difference between service tiers in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -122,7 +122,7 @@ A managed instance provides additional security isolation from other tenants in 
 
 The following diagram outlines various connectivity options for your applications:
 
-![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)
+![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 To learn more details about VNet integration and networking policy enforcement at the subnet level, see [VNet architecture for managed instances](sql-database-managed-instance-connectivity-architecture.md) and [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
 
@@ -135,12 +135,12 @@ Azure SQL Database provides a set of advanced security features that can be used
 
 - [Managed instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Data encryption in motion - a managed instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to transport layer security, the managed instance deployment option offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
-- [Threat detection](sql-database-managed-instance-threat-detection.md) complements [auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.
+- [Threat detection](sql-database-managed-instance-threat-detection.md) complements [auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 - [Row-level security](/sql/relational-databases/security/row-level-security) enables you to control access to rows in a database table based on the characteristics of the user executing a query (such as by group membership or execution context). Row-level security (RLS) simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example, ensuring that workers can access only the data rows that are pertinent to their department, or restricting a data access to only the relevant data.
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts managed instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in a managed instance with transparent data encryption. TDE is SQL Server’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media.
 
-Migration of an encrypted database to a managed instance is supported via the Azure Database Migration Service (DMS) or native restore. If you plan to migrate an encrypted database using native restore, migration of the existing TDE certificate from the SQL Server on-premises or SQL Server in a virtual machine to a managed instance is a required step. For more information about migration options, see [SQL Server instance migration to managed instance](sql-database-managed-instance-migrate.md).
+Migration of an encrypted database to a managed instance is supported via the Azure Database Migration Service (DMS) or native restore. If you plan to migrate an encrypted database using native restore, migration of the existing TDE certificate from the SQL Server on-premise or SQL Server in a virtual machine to a managed instance is a required step. For more information about migration options, see [SQL Server instance migration to managed instance](sql-database-managed-instance-migrate.md).
 
 ## Azure Active Directory Integration
 
@@ -154,7 +154,7 @@ The managed instance deployment option enables you to centrally manage identitie
 
 ### Authentication
 
-Managed instance authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:
+Managed instance authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
 
 - **SQL Authentication**:
 
@@ -171,7 +171,7 @@ Authorization refers to what a user can do within an Azure SQL Database, and is 
 
 The managed instance deployment option targets user scenarios with mass database migration from on-premises or IaaS database implementations. Managed instance supports several database migration options:
 
-### Back up and restore
+### Back up and restore  
 
 The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a managed instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -190,8 +190,8 @@ The Azure Database Migration Service is a fully managed service designed to enab
 The managed instance deployment option aims to deliver close to 100% surface area compatibility with on-premises SQL Server coming in stages until service general availability. For a features and comparison list, see [SQL Database feature comparison](sql-database-features.md), and for a list of T-SQL differences in managed instances versus SQL Server, see [managed instance T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
 The managed instance deployment option supports backward compatibility to SQL 2008 databases. Direct migration from SQL 2005 database servers is supported, compatibility level for migrated SQL 2005 databases are updated to SQL 2008.
-
-The following diagram outlines surface area compatibility in managed instance:
+  
+The following diagram outlines surface area compatibility in managed instance:  
 
 ![migration](./media/sql-database-managed-instance/migration.png)
 

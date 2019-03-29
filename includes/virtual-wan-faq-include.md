@@ -16,7 +16,7 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time?
 
-At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
 
 ### What are the Virtual WAN partner automation steps?
 
@@ -30,12 +30,12 @@ No. You can use any VPN-capable device that adheres to the Azure requirements fo
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information, see Virtual WAN partner automation.
 
-### Does Virtual WAN change any existing connectivity features?
+### Does Virtual WAN change any existing connectivity features?   
 
 There are no changes to existing Azure connectivity features.
 
 ### Are there new Resource Manager resources available for Virtual WAN?
-
+  
 Yes, Virtual WAN introduces new Resource Manager resources. For more information, please see the [Overview](https://go.microsoft.com/fwlink/p/?LinkId=2004389).
 
 ### How many VPN devices can connect to a single Hub?
@@ -46,7 +46,7 @@ Up to 1000 connections are supported per virtual hub. Each connection consists o
 
 Yes. Traffic flow when commencing would be from the on-premises device to the closest Microsoft edge and then to the Virtual Hub.
 
-### Is Global VNet peering supported with Azure Virtual WAN?
+### Is Global VNet peering supported with Azure Virtual WAN? 
 
  No.
 
@@ -60,7 +60,7 @@ Yes, you can connect your favorite network virtual appliance (NVA) VNet to the A
 
 ### Can an NVA VNet have a virtual network gateway?
 
-No. The NVA VNet cannot have a virtual network gateway if it is connected to the virtual hub.
+No. The NVA VNet cannot have a virtual network gateway if it is connected to the virtual hub. 
 
 ### Is there support for BGP?
 
@@ -71,12 +71,12 @@ Yes, BGP is supported. When you create a VPN site, you can provide the BGP param
 Yes, you can direct traffic to a VNet using Virtual Hub Route Table.
 
 ### Is there any licensing or pricing information for Virtual WAN?
-
+ 
 Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
 ### How do I calculate price of a hub?
-
-You would pay for the service in the hub. For example, 10 branches or on-premises devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving azure apply.
+ 
+You would pay for the service in the hub. For example, 10 branches or on-premise devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving azure apply. 
 
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
@@ -84,7 +84,7 @@ Send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has
 
 ### What if a device i am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
 
-Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
+Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity. 
 
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 
@@ -108,7 +108,7 @@ Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the
 
 ### Does this Virtual WAN require ExpressRoute from each site?
 
-No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in Virtual Hub (Under Preview), sites can have branch to branch traffic flow between VPN and ExpressRoute.
+No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in Virtual Hub (Under Preview), sites can have branch to branch traffic flow between VPN and ExpressRoute. 
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
