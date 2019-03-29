@@ -39,7 +39,7 @@ This way, any changes being made to the test version of the knowledge base do no
 
 Each of these knowledge bases can be targeted for testing separately. Using the APIs, you can target the test version of the knowledge base with `isTest=true` flag in the generateAnswer call.
 
-Learn how to [publish your knowledge base](../How-To/publish-knowledge-base.md).
+Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## Monitor usage
 To be able to log the chat logs of your service, you would need to enable Application Insights when you [create your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).

@@ -68,6 +68,10 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 ## Publish the knowledge base
 
+When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search.
+
+![Publish prod test index](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+
 1. In the QnA Maker portal, in the menu next to **Edit**, select **Publish**. Then to confirm, select **Publish** on the page.
 
 1. The QnA Maker service is now successfully published. You can use the endpoint in your application or bot code.
