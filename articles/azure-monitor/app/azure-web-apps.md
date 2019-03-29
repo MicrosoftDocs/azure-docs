@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 03/29/2019
 ms.author: mbullwin
 
 ---
@@ -27,7 +27,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires advanced Application Insights SDK configuration directly within your application code. It is sometimes referred to as "build" or "compile" time monitoring.
+    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This also means you have to manage updating to the latest version of the packages yourself. 
 
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
 
@@ -66,7 +66,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
-Targeting the full framework from .NET Core, self-contained deployment, and ASP.NET Core 3.0 are currently **not supported** with agent/extension based monitoring. (Manual instrumentation via code does not have any of these support limitations.)
+Targeting the full framework from .NET Core, self-contained deployment, and ASP.NET Core 3.0 are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code will work in all of the previous scenarios.)
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -79,7 +79,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, and 2.2.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -352,11 +352,13 @@ The table below provides a more detailed explanation of what these values mean, 
 
 |Problem Value|Explanation|Fix
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | This value indicates that extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `System.DiagnosticSource`,  `Microsoft.AspNet.TelemetryCorrelation`, or `Microsoft.ApplicationInsights`  | Remove the references. (Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add referenced to `Microsoft.ApplicationInsights` .)
+| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `System.Diagnostics.DiagnosticSource`,  `Microsoft.AspNet.TelemetryCorrelation`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the above dlls in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| Remove the reference.
 |`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
+
+For the latest information on the Application Insights agent/extension check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
