@@ -345,6 +345,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
+1. **[A]** Configure cloud-netconfig-azure in a HA Cluster
+
+   Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker controls the VIP assignment). For more information see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change the CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
+   </code></pre>
+
 1. **[1]** Enable ssh access
 
    <pre><code>sudo ssh-keygen
