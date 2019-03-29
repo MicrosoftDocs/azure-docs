@@ -21,7 +21,9 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsD
+    className: cardImageOuter
+    image:
+        src: media/index/AMSIcons-encoding.svg
     items:
     - title: Learn concepts
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Cloud upload and storage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live Streaming</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player clients</a></p>
