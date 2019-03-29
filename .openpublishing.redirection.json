@@ -36562,6 +36562,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-key-features.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-poc.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
       "redirect_document_id": true
