@@ -25,7 +25,7 @@ Additionally, you can get many of your questions answered in the [Marketplace ch
 
 ## Onboarding
 
-Open a ticket for with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for all issues with onboarding and getting started.
+Open a ticket with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for issues with onboarding and getting started, or with Microsoft [partner support](https://partner.microsoft.com/support) if you have questions on Microsoft Partner Network.
 
 ## Cloud Partner Portal  
 
