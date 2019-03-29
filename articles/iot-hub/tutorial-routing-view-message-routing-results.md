@@ -1,4 +1,4 @@
----
+ ---
 title: View Azure IoT Hub message routing results (.NET) | Microsoft Docs
 description: View Azure IoT Hub message routing results
 author: robinsh
@@ -265,7 +265,7 @@ If you want to remove all of the resources you've created through both parts of 
 
 Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
-### Clean up resources using Azure CLI
+### Use the Azure CLI to clean up resources
 
 To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
@@ -273,7 +273,7 @@ To remove the resource group, use the [az group delete](https://docs.microsoft.c
 az group delete --name $resourceGroup
 ```
 
-### Clean up resources using PowerShell
+### Use PowerShell to clean up resources
 
 To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
