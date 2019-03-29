@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory certificate-based authentication on Android
 
-Android devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory using a client certificate on their device when connecting to:
+Test test
 
 * Office mobile applications such as Microsoft Outlook and Microsoft Word
 * Exchange ActiveSync (EAS) clients
