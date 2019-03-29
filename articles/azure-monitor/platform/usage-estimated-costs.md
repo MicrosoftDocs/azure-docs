@@ -10,11 +10,11 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ""
 ---
-# Monitoring usage and estimated costs
+# Monitoring usage and estimated costs in Azure Monitor
 
 > [!NOTE]
 > This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
-> - [Manage cost by controlling data volume and retention in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Manage cost by controlling data volume and retention in Log Analytics](manage-cost-storage.md) describes how to control your costs by changing your data retention period.
 > - [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
 > - [Manage pricing and data volume in Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
 

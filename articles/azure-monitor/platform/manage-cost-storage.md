@@ -11,19 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: 
 ---
  
-# Manage usage and costs for Log Analytics
+# Manage usage and costs for Log Analytics in Azure Monitor
 
 > [!NOTE]
 > This article describes how to control your costs in Log Analytics by setting the data retention period.  Refer to the following articles for related information.
 > - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
 > - [Monitoring usage and estimated costs](usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
@@ -110,8 +110,6 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 
 If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
-> [!NOTE]
-> If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
 
 > [!NOTE]
 > You can learn more about [setting the pricing tier via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) and 

@@ -32,10 +32,10 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * Access Application Insights data and view data in AI Analytics.
 * Search Log Analytics workspace data including usage data for the workspace.
 * View Log Analytics management groups.
-* Retrieve the Log Analytics search schema.
-* List Log Analytics intelligence packs.
-* Retrieve and execute Log Analytics saved searches.
-* Retrieve the Log Analytics storage configuration.
+* Retrieve the search schema in Log Analytics workspace.
+* List monitoring packs in Log Analytics workspace.
+* Retrieve and execute saved searches in Log Analytics workspace.
+* Retrieve the Log Analytics workspace storage configuration.
 
 > [!NOTE]
 > This role does not give read access to log data that has been streamed to an event hub or stored in a storage account. [See below](#security-considerations-for-monitoring-data) for information on configuring access to these resources.
@@ -51,9 +51,9 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 * Set alert rules activity and settings via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
-* Enable or disable Log Analytics intelligence packs.
-* Create and delete and execute Log Analytics saved searches.
-* Create and delete the Log Analytics storage configuration.
+* Enable or disable monitoring packs in Log Analytics workspace.
+* Create and delete and execute saved searches in Log Analytics workspace.
+* Create and delete the Log Analytics workspace storage configuration.
 
 \*user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
 
