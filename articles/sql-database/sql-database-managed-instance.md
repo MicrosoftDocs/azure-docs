@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/20/2019
+ms.date: 03/29/2019
 ---
 # Use SQL Database advanced data security with virtual networks and near 100% compatibility
 
@@ -42,6 +42,9 @@ Managed instance combines the best features that are available both in Azure SQL
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
 |Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[threat detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+
+> [!IMPORTANT]
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 The key features of managed instances are shown in the following table:
 
