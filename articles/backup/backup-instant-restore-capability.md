@@ -13,7 +13,7 @@ ms.author: sogup
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
+> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.<br/><br/> All the Azure backup users have now been upgraded to **Instant Restore**.
 
 The new model for Instant Restore provides the following feature enhancements:
 
@@ -55,15 +55,25 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 >[!NOTE]
 > Snapshot retention is fixed to 5 days for weekly policies.
 
-## Configure snapshot retention using the Azure portal
+## Configure snapshot retention
 
-**All the Azure backup users have now been upgraded to Instant restore**.
+### Using Azure portal
 
 In the Azure portal, you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
 
-To configure snapshot retention using Powershell, refer to [this document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### Using PowerShell
+
+>[!NOTE]
+> From Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+The default snapshot retention for each policy is set to 2 days. User can change the value to a minimum of 1 and a maximum of 5 days. For weekly policies, the snapshot retention is fixed to 5 days.
 
 ## Frequently asked questions
 

@@ -46,7 +46,7 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 ## Standard optional claims set
 
-The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. Note that when adding claims to the **access token**, this will apply to access tokens requested *for* the application (a web API), not those *by* the application. This ensures that no matter the client accessing your API, the right data is present in the access token they use to authenticate against your API.
+The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions), below. Note that when adding claims to the **access token**, this will apply to access tokens requested *for* the application (a web API), not those *by* the application. This ensures that no matter the client accessing your API, the right data is present in the access token they use to authenticate against your API.
 
 > [!NOTE]
 > The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Additionally, while optional claims are only supported for AAD users currently, MSA support is being added. When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user. 
