@@ -96,7 +96,7 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-### Azure Portal
+### Azure portal
 
 See [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
