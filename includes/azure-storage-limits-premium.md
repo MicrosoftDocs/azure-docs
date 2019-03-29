@@ -16,7 +16,7 @@ A premium performance block blob storage account is optimized for applications t
 
 ### Premium performance FileStorage (preview)
 
-Premium files use a unique storage account called **filestorage (preview)**, this account has slightly different scale targets than the general-purpose v1 or v2 storage accounts used by standard files.
+Premium files use a unique storage account called **FileStorage (preview)**, this account has slightly different scale targets than the general-purpose v1 or v2 storage accounts used by standard files.
 
 |Area  |Target  |
 |---------|---------|
