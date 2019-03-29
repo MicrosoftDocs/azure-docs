@@ -22,10 +22,10 @@ sections:
   - type: list
     style: cards
     className: cardImageOuter
-    image:
-        src: media/index/AMSIcons-encoding.svg
     items:
-    - title: Learn concepts
+    - title: Learn concepts    
+      image:
+          src: media/index/AMSIcons-encoding.svg
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Cloud upload and storage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live Streaming</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player clients</a></p>
     - title: Develop with v3 API
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Start developing with SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a></p>
