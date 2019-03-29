@@ -113,8 +113,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
             strokeColor: '#2272B9',
             strokeWidth: 5,
             lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
+            lineCap: 'round'
         }), 'labels');
 
         //Add a layer for rendering point data.
@@ -127,12 +126,12 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
                 textField: ['get', 'title'],
                 offset: [0, 1.2]
             },
-            filter: ['==', '$type', 'Point']
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
     });
     ```
     
-    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. A filter is added to ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route line as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. The route line will be rendered a nice shade of blue with a width of 5 pixels and rounded line joins and caps. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
     
 2. For this tutorial, set the start point as Microsoft, and the end point as a gas station in Seattle. In the map load event handler, add the following code.
 

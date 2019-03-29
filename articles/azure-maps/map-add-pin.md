@@ -16,7 +16,7 @@ ms.custom: codepen
 This article shows you how you can render point data from a data source as a Symbol layer on a map. Symbol layers are rendered using WebGL and support significantly more data points than HTML markers, but don't support traditional CSS and HTML elements for styling.  
 
 > [!TIP]
-> Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
+> Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a symbol layer
 

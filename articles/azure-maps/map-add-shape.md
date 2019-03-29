@@ -91,6 +91,9 @@ A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 The last block of code adds the polygon and line layers to the map. The data source and the layers are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that the polygon is displayed after the map loads fully.
 
+> [!TIP]
+> Line layers by default will render the coordinates of polygons as well as lines in a data source. To limit the layer such that it only renders LineString features set the `filter` property of the layer to `['==', ['geometry-type'], 'LineString']` or `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` if you want to include MultiLineString features as well.
+
 ## Fill a polygon with a pattern
 
 In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.

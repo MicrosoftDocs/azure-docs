@@ -20,7 +20,7 @@ Heat maps, also known as point density maps, are a type of data visualization us
 * Visualizing a GPS trace that includes the speed as a weighted height map where the intensity of each data point is based on the speed is a great way to quickly see where the vehicle was speeding.
 
 > [!TIP]
-> Heat map layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` property of the layer to `['==', '$type', 'Point']`
+> Heat map layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a heat map layer
 
@@ -57,7 +57,7 @@ Here is a tool to test out the different heat map layer options.
 </iframe>
 
 > [!TIP]
-> By enabling clustering on the data source, points that are close to one another are grouped together as a clustered point. The point count of each cluster can be used as the weight expression for the heat map and significantly reduce the number of points that have to be render. The point count of a cluster is stored in a `point_count property` of the point feature as shown below. 
+> By enabling clustering on the data source, points that are close to one another are grouped together as a clustered point. The point count of each cluster can be used as the weight expression for the heat map and significantly reduce the number of points that have to be render. The point count of a cluster is stored in a `point_count` property of the point feature as shown below. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
