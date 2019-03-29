@@ -65,6 +65,18 @@ In the Azure portal, you can see a field added in the **VM Backup Policy** blade
 
 To configure snapshot retention using Powershell, refer to [this document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
 
+## Configuring instant restore snapshot retention through PowerShell
+
+>[!NOTE]
+> Starting from Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+The default snapshot retention for each policy is set to 2 days. User can change the value to a minimum of 1 and a maximum of 5 days. For weekly policies, the snapshot retention is fixed to 5 days.
+
 ## Frequently asked questions
 
 ### What are the cost implications of Instant restore?
