@@ -1637,7 +1637,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/asc-for-iot/">
                                                 <img src="media/index/asc-for-iot.svg" alt="" />
-                                                <p>ASC for IoT</p>
+                                                <p>Azure Security Center for IoT</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4875,7 +4875,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>ASC for IoT</h3>
+                                                    <h3>Azure Security Center for IoT</h3>
                                                     <p>Learn how to unify your security management and enable advanced threat protection across your IoT solution</p>
                                                 </div>
                                             </div>
