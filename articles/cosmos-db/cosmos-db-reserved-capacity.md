@@ -15,7 +15,7 @@ Azure Cosmos DB reserved capacity helps you save money by pre-paying for Azure C
 
 Azure Cosmos DB reserved capacity can significantly reduce your Cosmos DB costs&mdash;up to 65 percent on regular prices with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources.
 
-Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../billing/billing-save-compute-costs-reservations.md) article. 
+Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../billing/billing-save-compute-costs-reservations.md) article.
 
 You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). To buy reserved capacity:
 
@@ -43,7 +43,7 @@ The size of the reservation should be based on the total amount of throughput th
 
 4. Fill in the required fields as described in the following table:
 
-   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
+   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
 
    |Field  |Description  |
    |---------|---------|
@@ -56,17 +56,19 @@ The size of the reservation should be based on the total amount of throughput th
 
 5. Review the discount and the price of the reservation in the **Costs** section. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
 
-6. Select **Purchase**. You see the following page when the purchase is successful: 
+6. Select **Purchase**. You see the following page when the purchase is successful:
 
-   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
+   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
 
-After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase. 
+After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
 
 When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
 
 ## Cancellation and exchanges
 
 For help in identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In the event, you need to cancel or exchange an Azure Cosmos DB reservation, please contact the Azure Cosmos DB team at `AskCosmosDB@microsoft.com`.
+
+For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Next steps
 
@@ -85,4 +87,3 @@ The reservation discount is applied automatically to the Azure Cosmos DB resourc
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

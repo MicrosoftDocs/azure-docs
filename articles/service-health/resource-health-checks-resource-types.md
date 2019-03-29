@@ -68,6 +68,21 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Has the database migration service failed to provision?</li><li>Has the database migration service stopped due to inactivity or user request?</li></ul>|
 
+## Microsoft.DBforMariaDB/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+
+## Microsoft.DBforMySQL/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+
+## Microsoft.DBforPostgreSQL/servers
+|Executed Checks|
+|---|
+|<ul><li>Is the server unavailable due to maintenance?</li><li>Is the server unavailable due to reconfiguration?</li></ul>|
+
 ## Microsoft.devices/iothubs
 |Executed Checks|
 |---|
@@ -136,7 +151,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.PowerBI/workspaceCollections
 |Executed Checks|
 |---|
-|<ul><li>Is the host OS up and running?</li><li>Is the workspaceCollection reachable from outside the datacenter?</li><li>Is the PowerBI Resource Provider available?</li><li>Is the PowerBI Service available in the appropriate region?</li></ul>|
+|<ul><li>Is the host OS up and running?</li><li>Is the workspaceCollection reachable from outside the datacenter?</li><li>Is the Power BI Resource Provider available?</li><li>Is the Power BI Service available in the appropriate region?</li></ul>|
 
 ## Microsoft.search/searchServices
 |Executed Checks|

@@ -80,7 +80,7 @@ Service endpoints provide the following benefits:
 - Service endpoints are configured on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
 - You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure SQL Database, for example) on a subnet.
 - For Azure SQL Database, virtual networks must be in the same region as the Azure service resource. If using GRS and RA-GRS Azure Storage accounts, the primary account must be in the same region as the virtual network. For all other services, Azure service resources can be secured to virtual networks in any region. 
-- The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#Provisioning).
+- The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#provisioning).
 - For supported services, you can secure new or existing resources to virtual networks using service endpoints.
 
 ### Considerations
