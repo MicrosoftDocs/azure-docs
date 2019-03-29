@@ -24,11 +24,11 @@ To provide redundancy to your application, we recommend that you group two or mo
 
 ## Ensure availability set fault tolerance
 
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
+To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set. 
 
 ## Use Managed Disks to improve data reliability
 
-Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure.
 
 ## Ensure application gateway fault tolerance
 
@@ -36,7 +36,7 @@ This recommendation ensures the business continuity of mission-critical applicat
 
 ## Protect your virtual machine data from accidental deletion
 
-Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption. Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. 
+Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption. Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup.
 
 ## Ensure you have access to Azure cloud experts when you need it
 
@@ -60,7 +60,7 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
-In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premise VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
+In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
 
 ## How to access High Availability recommendations in Advisor
 

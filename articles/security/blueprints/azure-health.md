@@ -1,7 +1,7 @@
 ---
 
 title: Azure Health Analytics Blueprint
-description: Guidance for deploying a HIPAA/HITRUST Health Analytics Blueprint 
+description: Guidance for deploying a HIPAA/HITRUST Health Analytics Blueprint
 services: security
 documentationcenter: na
 author: RajeevRangappa
@@ -19,7 +19,7 @@ ms.author: rarangap
 ## Overview
 
 **The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI offers a turn-key deployment of
-an Azure PaaS and IaaS solution to demonstrate how to ingest, store, 
+an Azure PaaS and IaaS solution to demonstrate how to ingest, store,
 analyze, interact, identity and Securely deploy solutions with health data while being able to meet industry
 compliance requirements. The blueprint helps accelerate cloud adoption
 and utilization for customers with data that is regulated.**
@@ -28,7 +28,7 @@ The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI B
 deploy a secure,  Health Insurance Portability and Accountability Act (HIPAA), and Health Information Trust Alliance (HITRUST) ready platform-as-a-service
 (PaaS) environment for ingesting, storing, analyzing, and interacting
 with personal and non-personal medical records in a secure,
-multi-tier cloud environment, deployed as an end-to-end solution. 
+multi-tier cloud environment, deployed as an end-to-end solution.
 
 IaaS solution will demonstrate how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation (PAW) to securely manage cloud-based services and solutions. The IaaS SQL Server database adds potential experimentation data is imported into a SQL IaaS VM, and that VM uses MSI authenticated access to interact a SQL Azure PaaS service.Both these showcases a common reference architecture and is designed to simplify
 adoption of Microsoft Azure. This provided architecture illustrates a
@@ -44,19 +44,19 @@ secure manner. Customers can then use Azure Machine Learning Studio to take
 advantage of powerful business intelligence tools and analytics to
 review predictions made on the sample data. As an example of the kind of
 experiment Azure Machine Learning Studio can facilitate, the blueprint includes
-a sample dataset, scripts, and tools for predicting the length of a 
-patient's stay in a hospital facility. 
+a sample dataset, scripts, and tools for predicting the length of a
+patient's stay in a hospital facility.
 
-This blueprint is intended to serve as a modular foundation for customers 
-to adjust to their specific requirements, developing new Azure Machine 
-learning experiments to solve both clinical and operational use case scenarios. 
+This blueprint is intended to serve as a modular foundation for customers
+to adjust to their specific requirements, developing new Azure Machine
+learning experiments to solve both clinical and operational use case scenarios.
 It is designed to be secure and compliant when deployed; however, customers are responsible for
 configuring roles correctly and implementing any modifications. Note the following:
 
 -   This blueprint provides a baseline to help customers use Microsoft
     Azure in a HITRUST, and HIPAA environment.
 
--   Although the blueprint was designed to be aligned with 
+-   Although the blueprint was designed to be aligned with
 HIPAA and HITRUST (through the Common Security Framework
     -- CSF), it should not be considered compliant until certified by an
     external auditor per HIPAA and HITRUST certification requirements.
@@ -67,7 +67,7 @@ HIPAA and HITRUST (through the Common Security Framework
 
 ## Deploying the automation
 
-- To deploy the solution, follow the instructions provided in the [deployment guidance](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
+- To deploy the solution, follow the instructions provided in the [deployment guidance](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md).
 
 - For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
 
@@ -76,7 +76,7 @@ HIPAA and HITRUST (through the Common Security Framework
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-based services and solutions. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-based services and solutions.
 
 ## Solution components
 
@@ -203,7 +203,7 @@ access to the network.
 ## Example Use case
 
 
-The example use case included with this blueprint illustrates how the 
+The example use case included with this blueprint illustrates how the
  Blueprint can be used to enable machine learning and
 analytics on health data in the cloud. Contosoclinic is a small
 hospital located in the United States. The hospital network
@@ -301,7 +301,7 @@ built into the Blueprint outlined to:
 - **SECURITY** enabled features
 
 
-## IDENTITY 
+## IDENTITY
 
 ### Azure Active Directory and role-based access control (RBAC)
 
@@ -375,7 +375,7 @@ built into the Blueprint outlined to:
 -   Permitted cryptographic operations for keys are restricted to the
     ones required
 
-## INGEST 
+## INGEST
 
 ### Azure Functions
 The solution was designed to  use [Azure Functions](/azure/azure-functions/) to process the sample length of stay data used in the analytics demo. Three capabilities in the functions have been created.
@@ -415,11 +415,11 @@ To achieve the storage of the data, a common API schema was implemented  followi
 
 -   [Patient schema](https://www.hl7.org/fhir/patient.html) covers the "who" information about a patient.
 
--   [Observation schema](https://www.hl7.org/fhir/observation.html)  covers the central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics. 
+-   [Observation schema](https://www.hl7.org/fhir/observation.html)  covers the central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics.
 
 -   [Encounter schema](https://www.hl7.org/fhir/encounter.html) covers the types of encounters such as ambulatory, emergency, home health, inpatient, and virtual encounters.
 
--   [Condition schema](https://www.hl7.org/fhir/condition.html) covers detailed information about a condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.  
+-   [Condition schema](https://www.hl7.org/fhir/condition.html) covers detailed information about a condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
 
 
 
@@ -439,9 +439,9 @@ routing of all events from any source to any destination, providing:
 
 -   Auditing
 
-## STORE 
+## STORE
 
-### SQL Database and Server 
+### SQL Database and Server
 
 
 -   [Transparent Data Encryption
@@ -510,7 +510,7 @@ routing of all events from any source to any destination, providing:
 ## SECURITY
 
 ### Azure Security Center
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention. 
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.
 
 - [Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 

@@ -20,13 +20,13 @@ ms.collection: M365-identity-device-management
 # Troubleshoot: Azure AD Connect install issues
 
 ## **Recommended Steps**
-Please check which [Azure AD Connect installation type](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) is suitable for you. If you meet the criteria of express installation, then we highly recommend you to go with the express installation. The express installation gives you minimal options needed to finish the installation, therefore there is less likelihood of any issues. 
+Please check which [Azure AD Connect installation type](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) is suitable for you. If you meet the criteria of express installation, then we highly recommend you to go with the express installation. The express installation gives you minimal options needed to finish the installation, therefore there is less likelihood of any issues.
 
 However, if you don’t meet the express installation criteria and must do the custom installation then here are some best practices you can follow to avoid common issues. For the sake of simplicity only selective options are mentioned here:
 
 * Ensure you are an administrator on the machine on which you are installing AAD Connect. Log in on to the machine with same administrator credentials.
 
-* Let all the options to be default on the following page, except for “Use an existing SQL Server”, if you want to use existing SQL Server. Here are [more details](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) about how to use custom installation options. 
+* Let all the options to be default on the following page, except for “Use an existing SQL Server”, if you want to use existing SQL Server. Here are [more details](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) about how to use custom installation options.
 
     ![Use Existing SQL Server](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
 
@@ -36,11 +36,11 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ### **Common Issues**
 
-* [Connectivity issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Connectivity issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Connectivity issues with online Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Permission issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Permission issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## **Recommended Documents**
 * [Prerequisites for Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)

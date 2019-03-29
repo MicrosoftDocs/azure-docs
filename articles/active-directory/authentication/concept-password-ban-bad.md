@@ -45,7 +45,7 @@ Even if a user’s password contains a banned password, the password may still b
 
 A new password first goes through a normalization process. This allows for a small set of banned passwords to be mapped to a much larger set of potentially weak passwords.
 
-Normalization has two parts.  First, all uppercase letters are changed to lower case.  Second, common character substitutions are performed, for example:  
+Normalization has two parts.  First, all uppercase letters are changed to lower case.  Second, common character substitutions are performed, for example:
 
 | Original letter  | Substituted letter |
 | --- | --- |
@@ -60,7 +60,7 @@ Example: assume that the password “blank” is banned, and a user tries to cha
 
 #### Fuzzy matching behavior
 
-Fuzzy matching is used on the normalized password to identify if it contains a password found on either the global or the custom banned password lists. The matching process is based on an edit distance of one (1) comparison.  
+Fuzzy matching is used on the normalized password to identify if it contains a password found on either the global or the custom banned password lists. The matching process is based on an edit distance of one (1) comparison.
 
 Example: assume that the password “abcdef” is banned, and a user tries to change their password to one of the following:
 
@@ -101,7 +101,7 @@ After normalization, this password becomes “contosoblankf9!”. The matching p
 Since this password is at least 5 points, it is accepted.
 
    > [!IMPORTANT]
-   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premise DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
+   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premises DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
 
 ## License requirements
 
