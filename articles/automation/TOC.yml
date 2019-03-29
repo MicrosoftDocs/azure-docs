@@ -175,7 +175,7 @@
   - name: Manage shared resources
     items:
     - name: Schedules
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Modules
       href: shared-resources/modules.md
     - name: Manage Python 2 packages
