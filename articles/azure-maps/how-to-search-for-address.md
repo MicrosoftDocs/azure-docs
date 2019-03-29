@@ -15,6 +15,13 @@ manager: philmea
 
 The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
 
+This article will teach you how to:
+
+* Search for an address using [Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Search for an address along with properties and coordinates
+* Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to search for a street address
+* Search for a cross street using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+
 ## Prerequisites
 
 To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).

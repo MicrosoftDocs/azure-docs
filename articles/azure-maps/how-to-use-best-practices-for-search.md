@@ -705,13 +705,9 @@ When the response type is **Geometry**, it can include the geometry ID that is r
 
 ```JSON 
 "dataSources": { 
-
         "geometry": { 
-
             "id": "00005557-4100-3c00-0000-000059690938" // The geometry ID is returned in the dataSources object under "geometry" and "id".
-
         }
-
 } 
 ```
 
