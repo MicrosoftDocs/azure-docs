@@ -1,6 +1,96 @@
 {
   "redirections": [
     {
+      "source_path": "articles/batch-ai/cli-samples.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cli-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/clusters.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/cntk-training-python.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cntk-training-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/how-to-migrate.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/migrate-to-new-api.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/index.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/overview.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/overview-what-happened-batch-ai.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-create-cluster-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-create-cluster-portal.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-tensorflow-training-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-tensorflow-training-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quota-limits.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quota-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/resource-concepts.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/tutorial-horovod-tensorflow.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/tutorial-horovod-tensorflow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/use-azure-storage.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/use-azure-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false

@@ -4,7 +4,7 @@ description: Frequently asked questions about Service Fabric and their answers
 services: service-fabric
 documentationcenter: .net
 author: chackdan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12

@@ -4,7 +4,7 @@ description: Describes how to send custom health reports to Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
