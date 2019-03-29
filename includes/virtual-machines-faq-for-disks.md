@@ -214,7 +214,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available as a GA service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -334,7 +334,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Suport for the larger disks up to 32 TiB will be added soon.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
