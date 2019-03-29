@@ -1,12 +1,11 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps | Microsoft Docs
+title: Manage logic apps with Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
@@ -43,29 +42,36 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
 * Download and install these tools, if you don't have them already: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 or Visual Studio 2015 - Community edition or greater</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017, or 2015 - Community edition or greater</a>. 
   This quickstart uses Visual Studio Community 2017, which is free.
+
+    > [!IMPORTANT]
+    > When you install Visual Studio 2019 or 2017, make sure that 
+    > you select the **Azure development** workload.
+    > For more information, see 
+    > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    >
+    > In Visual Studio 2019, Cloud Explorer can open 
+    > the Logic App Designer in the Azure portal, 
+    > but can't yet open the embedded Logic App Designer.
+
+    To install Cloud Explorer for Visual Studio 2015, 
+    [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 or later)</a> 
   and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools for Visual Studio 2017</a> 
-  or the <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 version</a> 
-  
+  * Azure Logic Apps Tools for the Visual Studio version you want:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
-
-* Cloud Explorer for either Visual Studio 2017 or Visual Studio 2015
-
-  * For Visual Studio 2017, run the Visual Studio installer, 
-  and install the **Azure workload**. For more information, see 
-  [Manage resources associated with your Azure accuonts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
-
-  * For Visual Studio 2015, 
-  [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-  For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Access to the web while using the embedded Logic Apps Designer
 

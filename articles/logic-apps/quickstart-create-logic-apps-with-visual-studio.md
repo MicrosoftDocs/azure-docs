@@ -1,6 +1,6 @@
 ---
-title: Create automated enterprise integration workflows with Visual Studio - Azure Logic Apps | Microsoft Docs
-description: Quickstart for how to automate tasks, business processes, and workflows with Azure Logic Apps in Visual Studio
+title: Create automated workflows with Visual Studio - Azure Logic Apps
+description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.workload: azure-vs
@@ -44,18 +44,17 @@ Before you start, make sure that you have these items for following this quickst
 * If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* Download and install these tools, if you don't have them already: 
+* Download and install these tools, if you don't have them already:
 
   * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017, or 2015 - Community edition or greater</a>. 
   This quickstart uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
-    > For Visual Studio 2019, make sure that you 
-    > select the **Azure development** workload.
-    > Cloud Explorer currently supports opening 
+    > When you install Visual Studio 2019 or 2017, make sure 
+    > that you select the **Azure development** workload.
+    > For Visual Studio 2019, Cloud Explorer can open 
     > the Logic App Designer in the Azure portal, 
-    > but not yet available for locally opening the 
-    > embedded Logic App Designer in Visual Studio 2019.
+    > but can't yet open the embedded Logic App Designer.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a> 
   and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
