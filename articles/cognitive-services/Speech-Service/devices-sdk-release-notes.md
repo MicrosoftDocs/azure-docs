@@ -17,9 +17,9 @@ ms.author: gracez
 
 The following sections list changes in the most recent releases.
 
-## Cognitive Services Speech Devices SDK 1.3.1: 2019-Mar release 
+## Cognitive Services Speech Devices SDK 1.4.0: 2019-March release 
 
-* Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.3.1. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 
+* Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.4.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 
 *	Updated wake word handling, see Breaking Changes.
 *	Sample application adds choice of language for both speech recognition and translation.
 
