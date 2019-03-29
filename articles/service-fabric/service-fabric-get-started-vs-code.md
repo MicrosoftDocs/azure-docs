@@ -4,7 +4,7 @@ description: This article is an overview of creating Service Fabric applications
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

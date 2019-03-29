@@ -4,7 +4,7 @@ description: Learn how to package an existing application as a guest executable,
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
