@@ -93,15 +93,15 @@ An application manifest has multiple attributes which are referred to as collect
 ### Unsupported attributes
 The application manifest represents the schema of underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result you may notice new attributes showing up in the application manifest. In rare occasions you may notice a syntactic or semantic change in the existing attributes or you may find attribute that existed previously are not supported any more. For example, you will see new attributes in the [App Registrations (Preview)]((https://developer.microsoft.com/en-us/graph/blogs/new-app-registration/)) in the Azure portal which are known with a different name in the App Registrations (GA) experience.
 
-| App Registrations (Preview) | App Registrations (GA) |
-|-----------------------------|------------------------|
-| `availableToOtherTenants`   | `signInAudience`       |
-| `displayName`               | `name`                 |
-| `errorUrl`                  | -                      |
-| `homepage`                  | `signInUrl`            |
-| `objectId`                  | `Id`                   |
-| `publicClient`              | `allowPublicClient`    |
-| `replyUrls`                 | `replyUrlsWithType`    |
+| App Registrations (GA)    | App Registrations (Preview) |
+|---------------------------|-----------------------------|
+| `availableToOtherTenants` | `signInAudience`            |
+| `displayName`             | `name`                      |
+| `errorUrl`                | -                           |
+| `homepage`                | `signInUrl`                 |
+| `objectId`                | `Id`                        |
+| `publicClient`            | `allowPublicClient`         |
+| `replyUrls`               | `replyUrlsWithType`         |
 
 _Please refer the [Manifest reference](#manifet-reference) above for the descriptions for these attributes._
 
