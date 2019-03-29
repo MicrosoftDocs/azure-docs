@@ -148,7 +148,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	> [!TIP]
 	> If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
 
-    ```
+    ```powershell
 	$realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
 	$wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
 	$filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -309,11 +309,12 @@ The configuration works for a single web application, but needs additional confi
 
 5. On the SharePoint server, open the **SharePoint 2016 Management Shell** and execute the following commands, using the name of the trusted identity token issuer that you used previously.
 
-    ```
+    ```powershell
 	$t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
 	$t.UseWReplyParameter=$true
 	$t.Update()
     ```
+
 6. In Central Administration, go to the web application and enable the existing trusted identity provider. Remember to also configure the sign-in page URL as a custom sign in page `/_trust/`.
 
 7. In Central Administration, click the web application and choose **User Policy**. Add a user with the appropriate permissions as demonstrated previously in this article.
