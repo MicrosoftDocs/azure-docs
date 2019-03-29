@@ -33,7 +33,7 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 >
 > If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) for ports 11000-12000. If this is not an option for you, switch server explicitly to `Proxy`.
 > [!NOTE]
-> This topic applies to Azure SQL Database servers hosting single databases and elastic pools and SQL Data Warehouse databases. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This topic applies to Azure SQL Database servers hosting single databases and elastic pools, SQL Data Warehouse databases, Azure Database for MySQL, Azure Database for MariaDB, and Azure Database for PostgreSQL. For simplicity, SQL Database is used when referring to SQL Database, SQL Data Warehouse, Azure Database for MySQL, Azure Database for MariaDB, and Azure Database for PostgreSQL.
 
 ## Connectivity architecture
 

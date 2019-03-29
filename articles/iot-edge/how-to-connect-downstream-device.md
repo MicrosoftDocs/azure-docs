@@ -38,7 +38,7 @@ Before following the steps in this article, you should have two devices ready to
     Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported.
     
 > [!NOTE]
-> The "gateway name" used  to create the certificates in this instruction, needs to be the same name as used as hostname in your IoT Edge config.yaml file and as GatewayHostName in the connection string of the downstream device. The "gateway name" needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
+> The "gateway name" used in this article needs to be the same name as used as hostname in your IoT Edge config.yaml file. The gateway name needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
 ## Prepare a downstream device
 
@@ -192,6 +192,14 @@ This is a sample command which tests that everything has been set up correctly. 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## Troubleshoot the gateway connection
+
+If your leaf device has intermittent connection to its gateway device, try the following steps for resolution. 
+
+1. Is the gateway name appended to the connection string the same as the hostname in the IoT Edge config.yaml file on the gateway device?
+2. Is the gateway name resolvable to an IP Address? You can resolve intenmittent connections either by using DNS or by adding a host file entry on the leaf device.
+3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge.
 
 ## Next steps
 

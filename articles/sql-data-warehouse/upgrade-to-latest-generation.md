@@ -29,8 +29,8 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
 ## Before you begin
 
 1. Check if your [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
-2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
-3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) to a supported region.
+3. If your region is supported, [upgrade through the Azure portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
    | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |

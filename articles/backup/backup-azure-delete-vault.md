@@ -1,6 +1,6 @@
 ---
 title: Delete a Recovery Services vault in Azure
-description: Describes how to delete a Recovery Services vault. 
+description: Describes how to delete a Recovery Services vault.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -22,7 +22,7 @@ Before you start, it's important to understand that you can't delete a Recovery 
 - If you try to delete a vault that still has dependencies, an error message is issued. and you need to manually remove the vault dependencies, including:
     - Backed up items
     - Protected servers
-    - Backup management servers (Azure Backup Server, DPM) 
+    - Backup management servers (Azure Backup Server, DPM)
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - If you don't want to retain any data in the Recovery Services vault, and want to delete the vault, you can delete the vault by force.
 - If you try to delete a vault, but can't, the vault is still configured to receive backup data.
@@ -103,7 +103,7 @@ This procedure provides an example that shows you how to remove backup data from
 
 
 3. In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
-4. Type the name of the item, and click **Stop backup**. 
+4. Type the name of the item, and click **Stop backup**.
    - This verifies that you want to delete the item.
    - The **Stop Backup** button activates after you verify.
    - If you retain and don't delete the data, you won't be able to delete the vault.
@@ -121,7 +121,7 @@ This procedure provides an example that shows you how to remove backup data from
 ### Remove backup infrastructure servers
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
-2. Click **Backup Management Servers** to view servers. 
+2. Click **Backup Management Servers** to view servers.
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -130,7 +130,7 @@ This procedure provides an example that shows you how to remove backup data from
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
-4. Type the name of the item, and click **Stop backup**. 
+4. Type the name of the item, and click **Stop backup**.
    - This verifies that you want to delete the item.
    - The **Stop Backup** button activates after you verify.
    - If you retain and don't delete the data, you won't be able to delete the vault.
