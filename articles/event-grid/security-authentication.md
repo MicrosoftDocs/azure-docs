@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
