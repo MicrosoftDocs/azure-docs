@@ -24,8 +24,8 @@ In this example, we will create a build and release pipeline to deploy an Azure 
 
 To follow the steps in this article, you need an Azure DevOps organization and a team project.
 
-* [Create an Azure DevOps Organization](../azure/devops/organizations/accounts/create-organization.md?view=azure-devops)
-* [Create a project in Azure DevOps](../azure/devops/organizations/projects/create-project.md?view=azure-devops&tabs=new-nav)
+* [Create an Azure DevOps Organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Create a project in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### Source control for your environment
 
@@ -44,8 +44,8 @@ The codebase structure used in this sample resembles the following;
 
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
 
-* [What is source control?](../azure/devops/user-guide/source-control.md)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure/azure-resource-manager/resource-group-authoring-templates)
+* [What is source control?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
+* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 #### Azure Resource Manager templates
 
@@ -305,7 +305,7 @@ Now that the source code is set up, we can begin the first build.
 
 ## Continuous integration
 
-[Azure Pipelines](../devops/pipelines/get-started/index.md?view=azure-devops), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
+[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
 
 In this stage of your pipeline, tests are typically run to validate code and build the appropriate pieces of the software. The number and types of tests, and any additional tasks that you run will depend on your wider build and release strategy.
 
@@ -319,9 +319,9 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
 1. You have two options to create a Build pipeline:
 
-    a. [Using the Visual Designer](../devops/pipelines/get-started-designer.md?view=azure-devops&tabs=new-nav). To use this, click "Use the visual designer" on the **New pipeline** page.
+    a. [Using the Visual Designer](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). To use this, click "Use the visual designer" on the **New pipeline** page.
 
-    b. [Using YAML Builds](../devops/pipelines/get-started-yaml.md?view=azure-devops). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
+    b. [Using YAML Builds](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -353,15 +353,15 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
     ![View live outputs from your build](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](../devops/pipelines/get-started/index.md?view=azure-devops) documentation.
+> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) documentation.
 
 ## Continuous deployment
 
-Azure Pipelines also used to deploy your application and underlying infrastructure. [Release pipelines](../devops/pipelines/release/what-is-release-management.md?view=azure-devops) is the component that enables continuous deployment and automates your release process.
+Azure Pipelines also used to deploy your application and underlying infrastructure. [Release pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) is the component that enables continuous deployment and automates your release process.
 
 ### Deploying your application and underlying infrastructure
 
-There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure/azure-resource-manager/resource-group-linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
+There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/resource-group-linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
 1. Create a **New Release Definition**, and select an empty definition. We then need to rename the newly created environment to something relevant for our pipeline.
 
