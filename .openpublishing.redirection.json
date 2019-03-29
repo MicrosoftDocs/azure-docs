@@ -36642,6 +36642,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/tags.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images#text-reviews",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/credentials.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#credentials",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/connectors.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#connectors",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop#review-tool-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/SubTeams.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#manage-team-and-subteams",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/workflow-api.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-api#workflows",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
