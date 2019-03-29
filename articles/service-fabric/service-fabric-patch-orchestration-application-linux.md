@@ -4,7 +4,7 @@ description: Application to automate operating system patching on a Linux Servic
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d

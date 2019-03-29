@@ -4,7 +4,7 @@ description: This article describes the fabric settings and the fabric upgrade p
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2

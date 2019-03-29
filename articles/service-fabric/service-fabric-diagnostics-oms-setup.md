@@ -4,7 +4,7 @@ description: Learn how to set up Azure Monitor logs for visualizing and analyzin
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

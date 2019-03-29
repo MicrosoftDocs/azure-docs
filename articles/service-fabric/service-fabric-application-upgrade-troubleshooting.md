@@ -4,7 +4,7 @@ description: This article covers some common issues around upgrading a Service F
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
