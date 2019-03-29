@@ -21,6 +21,7 @@ By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB s
 * [Create Database](#create-database)
 * [Update Database](#update-database)
 * [Get Database](#get-database)
+* [Create Collection][#create-collection]
 * [Update Collection](#update-collection)
 * [Get Collection](#get-collection)
 
@@ -52,7 +53,7 @@ Returns a default custom command response. See the [default output](#default-out
 
 To create a database named "test", use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "CreateDatabase"});
 ```
@@ -61,7 +62,7 @@ db.runCommand({customAction: "CreateDatabase"});
 
 To create a database named "test" and provisioned throughput of 1000 RUs, use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
@@ -94,7 +95,7 @@ Returns a default custom command response. See the [default output](#default-out
 
 To update the provisioned throughput of a database with name "test" to 1200 RUs, use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
@@ -134,9 +135,56 @@ If the command fails, a default custom command response is returned. See the [de
 
 To get the database object for a database named "test", use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "GetDatabase"});
+```
+
+## <a id="create-collection"></a> Create Collection
+
+The create collection custom command creates a new MongoDB collection. The database name is used from the databases context against which the command is executed. The format of the CreateCollection command is as follows:
+
+```
+{
+  customAction: "CreateCollection",
+  collection: <string>,
+  offerThroughput: <int>,
+  shardKey: <string>  
+}
+```
+
+The following table describes the parameters within the command:
+
+|**Field**|**Type** |**Description** |
+|---------|---------|---------|
+| customAction    | string | Name of the custom command. Must be "CreateDatabase"     |
+| collection      | string | Name of the collection                                   |
+| offerThroughput | int    | Provisioned Throughput to set on the database. It's an Optional parameter |
+| shardKey        | string | Shard Key path to create a sharded collection. It's an Optional parameter |
+
+	
+### Output
+
+Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
+
+### Examples
+
+**Create a unsharded collection**
+
+To create a unsharded collection with name "testCollection" and provisioned throughput of 1000 RUs, use the following command: 
+
+```shell
+use test
+db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000});
+``` 
+
+**Create a sharded collection**
+
+To create a sharded collection with name "testCollection" and provisioned throughput of 1000 RUs, use the following command:
+
+```shell
+use test
+db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
 ## <a id="update-collection"></a> Update Collection
@@ -169,7 +217,7 @@ Returns a default custom command response. See the [default output](#default-out
 
 To update the provisioned throughput of a collection with name "testCollection" to 1200 RUs, use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
@@ -214,7 +262,7 @@ If the command fails, a default custom command response is returned. See the [de
 
 To get the collection object for a collection named "testCollection", use the following command:
 
-```bash
+```shell
 use test
 db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
