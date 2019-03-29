@@ -60,19 +60,37 @@ sections:
     style: cards
     className: cardsM
     columns: 1
-    items: 
-    - image: 
-        src: media/index/AMSIcons-encoding.svg
-      text: Upload, encode, and stream videos
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-live.svg
-      text: Broadcast live
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analyze your videos
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+    items:
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
+      href: /azure/media-services/latest/stream-files-tutorial-with-api.md
+      title: Encode uploaded file and stream video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>The tutorial explains how to set up for a live event. It then shows how to use .NET to create a pass-through type of a live event.</p>
+      href: /azure/media-services/latest/stream-live-tutorial-with-api.md
+      title: Broadcast  live
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
+      href: /azure/media-services/latest/analyze-videos-tutorial-with-api.md
+      title: Analyze your video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128.md
+      title: Encrypt dynamically with AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm.md
+      title: Encrypt dynamically with multi-DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
+      href: stream-files-tutorial-with-rest.md
+      title: Encode remote file and stream video 
 - title: Samples
   items:
   - type: paragraph
