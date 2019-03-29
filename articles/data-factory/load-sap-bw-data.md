@@ -36,7 +36,7 @@ This article shows how to use Azure Data Factory to copy data from SAP Business 
 
   1. Install and register the self-hosted integration runtime, version 3.13 or later. (This process is described later in this article.)
 
-  2. Download the [64-bit SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the same computer as the self-hosted IR. During installation, make sure that you select **Install Assemblies to GAC** in the **Optional setup steps** dialog box, as shown in the following image:
+  2. Download the [64-bit SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the same computer as the self-hosted IR. During installation, make sure that you select **Install Assemblies to GAC** in the **Optional setup steps** dialog box, as the following image shows:
 
      ![Set up SAP .NET Connector dialog box](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
@@ -52,13 +52,13 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
 4. On the **Specify SAP BW Open Hub connection** page, follow these steps to create a new connection.
 
-   ![Create SAP BW Open Hub linked service page](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
+   ![Create SAP BW Open Hub-linked service page](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
    1. From the **Connect via integration runtime** list, select an existing self-hosted IR. Or, choose to create one if you don't have one yet.
 
-      To create a new self-hosted IR, select **+New**, and then select **Self-hosted**. Enter a **Name** and then select click **Next**. Select **Express setup** to install on the current computer, or follow the **Manual setup** steps that are provided.
+      To create a new self-hosted IR, select **+New**, and then select **Self-hosted**. Enter a **Name**, and then select click **Next**. Select **Express setup** to install on the current computer, or follow the **Manual setup** steps that are provided.
 
-      As mentioned in [Prerequisites](#prerequisites), make sure that you have SAP .NET connector 3.0 installed on same computer where the self-hosted IR is running.
+      As mentioned in [Prerequisites](#prerequisites), make sure that you have SAP Connector for Microsoft .NET 3.0  installed on the same computer where the self-hosted IR is running.
 
    2. Fill in the SAP BW **Server name**, **System number**, **Client ID,** **Language** (if other than "EN"), **User name**, and **Password**.
 
@@ -66,11 +66,13 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
    4. A new connection is created. Select **Next**.
 
-5. On the **Select Open Hub destinations** page, browse the Open Hub Destinations that are available on your SAP BW. Select the OHD to copy data from, and then select **Next**.
+5. On the **Select Open Hub Destinations** page, browse the Open Hub Destinations that are available in your SAP BW. Select the OHD to copy data from, and then select **Next**.
 
    ![Select SAP BW Open Hub Destination table](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
 
-6. Specify a filter, if you need one. If your OHD only contains data from a single data-transfer process (DTP) execution with a single request ID, or you're sure that your DTP is finished and you want to copy the data, clear the **Exclude Last Request** check box. Learn more about these settings in the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article. Select **Validate** to double-check what data will be returned. Then select **Next**.
+6. Specify a filter, if you need one. If your OHD only contains data from a single data-transfer process (DTP) execution with a single request ID, or you're sure that your DTP is finished and you want to copy the data, clear the **Exclude Last Request** check box.
+
+   Learn more about these settings in the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article. Select **Validate** to double-check what data will be returned. Then select **Next**.
 
    ![Configure SAP BW Open Hub filter](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -103,7 +105,7 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
 14. Notice that the **Monitor** tab on the left side of the page is automatically selected. The **Actions** column includes links to view activity-run details and to rerun the pipeline.
 
-    ![Pipeline monitoring](media/load-sap-bw-data/pipeline-monitoring.png)
+    ![Pipeline monitoring view](media/load-sap-bw-data/pipeline-monitoring.png)
 
 15. To view activity runs that are associated with the pipeline run, select **View Activity Runs** in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline-runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list.
 
@@ -137,7 +139,7 @@ On the Data factory **Let's get started** page, select **Create pipeline from te
 
 2. On the template's main page, select or create the following three connections, and then select **Use this template** in the lower-right corner of the window.
 
-   - **Azure Blob**: In this walkthrough, we use Azure Blob Storage to store the high watermark, which is the max copied request ID.
+   - **Azure Blob**: In this walkthrough, we use Azure Blob Storage to store the high watermark, which is the *max copied request ID*.
    - **SAP BW Open Hub**: This is the source to copy data from. Refer to the previous full-copy walkthrough for detailed configuration.
    - **ADLS Gen2**: This is the sink to copy data to. Refer to the previous full-copy walkthrough for detailed configuration.
 
@@ -145,7 +147,7 @@ On the Data factory **Let's get started** page, select **Create pipeline from te
 
 3. This template generates a pipeline with the following three activities and makes them chained on-success: *Lookup*, *Copy Data*, and *Web*.
 
-Go to the pipeline **Parameters** tab. You see all the configurations that you need to provide.
+   Go to the pipeline **Parameters** tab. You see all the configurations that you need to provide.
 
    ![Incremental copy from SAP BW configuration](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
@@ -155,7 +157,7 @@ Go to the pipeline **Parameters** tab. You see all the configurations that you n
 
    - **HighWatermarkBlobPath**: Specify the path to store the high-watermark value, such as `container/path`.
 
-   - **HighWatermarkBlobName**: Specify the blob name to store the high watermark value, such as `requestIdCache.txt`. In your blob storage, go to the corresponding path of HighWatermarkBlobPath+HighWatermarkBlobName, such as *container/path/requestIdCache.txt*. Create a blob with content 0.
+   - **HighWatermarkBlobName**: Specify the blob name to store the high watermark value, such as `requestIdCache.txt`. In Blob storage, go to the corresponding path of HighWatermarkBlobPath+HighWatermarkBlobName, such as *container/path/requestIdCache.txt*. Create a blob with content 0.
 
       ![Blob content](media/load-sap-bw-data/blob.png)
 
@@ -194,14 +196,12 @@ This section introduces configuration of the SAP BW side to use the SAP BW Open 
 
 If you need both historical copy and incremental copy or only incremental copy, configure delta extraction in SAP BW.
 
-1. Create the Open Hub Destination.
+1. Create the Open Hub Destination. You can create the OHD in SAP Transaction RSA1, which automatically creates the required transformation and data-transfer process. Use the following settings:
 
-   You can create the OHD in SAP Transaction RSA1, which automatically creates the required transformation and data-transfer process. Use the following settings:
-
-   - You can use any object type. Here, we use InfoCube as an example.
-   - **Destination Type:** Database table.
-   - **Key of the Table:** Technical key.
-   - **Extraction:** Keep data and insert records into table.
+   - **ObjectType**: You can use any object type. Here, we use InfoCube as an example.
+   - **Destination Type**: Database Table.
+   - **Key of the Table**: Technical Key.
+   - **Extraction**: Keep Data and Insert Records into Table.
 
    ![Create SAP BW OHD delta extraction dialog box](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
 
@@ -213,13 +213,13 @@ If you need both historical copy and incremental copy or only incremental copy, 
 
 2. Schedule the DTP in process chains.
 
-   A delta DTP for a cube only works if the necessary rows have not been compressed. Make sure that BW cube compression isn't running before the DTP to the Open Hub table. The easiest way to do this is to integrate the DTP into your existing process chains. In the following example, the DTP (to the OHD) is inserted into the process chain between the *Adjust* (aggregate rollup) and *Collapse* (cube compression) steps.
+   A delta DTP for a cube only works if the necessary rows haven't been compressed. Make sure that BW cube compression isn't running before the DTP to the Open Hub table. The easiest way to do this is to integrate the DTP into your existing process chains. In the following example, the DTP (to the OHD) is inserted into the process chain between the *Adjust* (aggregate rollup) and *Collapse* (cube compression) steps.
 
    ![Create SAP BW process chain flow chart](media/load-sap-bw-data/create-sap-bw-process-chain.png)
 
 ### Configure full extraction in SAP BW
 
-In addition to delta extraction, you might want a full extraction of the same SAP BW InfoProvider. This usually applies if you want to do full copy but not incremental, or you want to [resync delta extraction](#re-sync-delta-extraction).
+In addition to delta extraction, you might want a full extraction of the same SAP BW InfoProvider. This usually applies if you want to do full copy but not incremental, or you want to [re-sync delta extraction](#re-sync-delta-extraction).
 
 You can't have more than one DTP for the same OHD. So, you must create an additional OHD before delta extraction.
 
@@ -229,7 +229,7 @@ For a full load OHD, choose different options than for delta extraction:
 
 - In OHD: Set the **Extraction** option to *Delete Data and Insert Records*. Otherwise, data will be extracted many times when you repeat the DTP in a BW process chain.
 
-- In the DTP: Set **Extraction Mode** to *Full*. You must change the automatically created DTP from *Delta* to *Full* immediately after the OHD is created, as shown here:
+- In the DTP: Set **Extraction Mode** to *Full*. You must change the automatically created DTP from *Delta* to *Full* immediately after the OHD is created, as this image shows:
 
    ![Create SAP BW OHD dialog box configured for "Full" extraction](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
 
@@ -244,14 +244,14 @@ The first delta extraction is technically a *full extraction*. By default, the S
 - Turn off the **Exclude last request** option for the first delta extraction. Make sure that the first delta DTP is finished before you start the delta extraction the first time.
 -  Use the procedure for resyncing the delta extraction, as described in the next section.
 
-### Resync delta extraction
+### Re-sync delta extraction
 
 The following scenarios change the data in SAP BW cubes but are not considered by the delta DTP:
 
 - SAP BW selective deletion (of rows by using any filter condition)
 - SAP BW request deletion (of faulty requests)
 
-An SAP Open Hub Destination isn't a data-mart-controlled data target (in all SAP BW support packages since 2015). So, you can delete data from a cube without changing the data in the OHD. You must then resync the data of the cube with the data in Data Factory:
+An SAP Open Hub Destination isn't a data-mart-controlled data target (in all SAP BW support packages since 2015). So, you can delete data from a cube without changing the data in the OHD. You must then resync the data of the cube with Data Factory:
 
 1. Run a full extraction in Data Factory (by using a full DTP in SAP).
 2. Delete all rows in the Open Hub table for the delta DTP.
@@ -261,7 +261,7 @@ After this, all subsequent delta DTPs and Data Factory delta extractions work as
 
 To set the status of the delta DTP to *Fetched*, you can use the following option to run the delta DTP manually:
 
-  *No Data Transfer; Delta Status in Source: Fetched*
+    *No Data Transfer; Delta Status in Source: Fetched*
 
 ## Next steps
 
