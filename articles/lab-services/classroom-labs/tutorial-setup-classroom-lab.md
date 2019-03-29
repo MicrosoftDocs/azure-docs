@@ -45,7 +45,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
     1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
-    3. Select the **VM image** to be used to create VMs in the lab. 
+    3. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable Remote Desktop Connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
     4. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -65,7 +65,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    1. Connect to the template VM by selecting **Connect**. 
+    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     2. Install and configure software on your template VM.     
     3. Enter a **description** for the template
 9. Select **Next** on the template page. 

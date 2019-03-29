@@ -54,6 +54,8 @@ A lab owner (teacher/professor) can connect to a student VM by switching to the 
     
     ![Student VM - SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
 
+    Copy and save the SSH connection string on the **Connect to your virtual machine** dialog box. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine. 
+
 ## Next steps
 See the following articles:
 
