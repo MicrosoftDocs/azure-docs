@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ---
 
@@ -22,6 +22,7 @@ This article covers known issues with Azure Monitor for VMs, a solution in Azure
 ## Health 
 The following are known issues with the current release of the Health feature:
 
+- The VM property panel displays Windows Server 2019 operating system as Windows Server 2016. This will be fixed in an upcoming release.
 - If an Azure VM is removed or deleted, it's displayed in the VM list view for sometime. Additionally, clicking the state of a removed or deleted VM opens the **Health Diagnostics** view and then initiates a loading loop. Selecting the name of the deleted VM opens a pane with a message stating that the VM has been deleted.
 - Configuration changes, such as updating a threshold, take up to 30 minutes even if the portal or Workload Monitor API might update them immediately. 
 - The Health Diagnostics experience updates faster than the other views. The information might be delayed when you switch between them. 

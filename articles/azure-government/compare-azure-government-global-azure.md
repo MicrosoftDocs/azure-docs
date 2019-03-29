@@ -85,7 +85,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## AI + Cognitive Services
 
-* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) (Preview) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).)
+* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md)
 
 ## Internet of Things
 
@@ -110,11 +110,11 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Monitoring + Management
 
-* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) (Preview)
+* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
 * [Backup](documentation-government-services-backup.md)
 * [Policy](documentation-government-services-monitoringandmanagement.md#policy)
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
+* [Azure Monitor logs](documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler)
 * [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)

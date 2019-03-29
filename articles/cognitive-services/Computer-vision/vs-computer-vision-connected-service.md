@@ -4,11 +4,11 @@ titleSuffix: "Azure Cognitive Services"
 description: Connect to the Computer Vision API from an ASP.NET Core web application using the Visual Studio Connected Service feature.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
@@ -87,7 +87,7 @@ This article and its companion articles provide details for using the Visual Stu
       }
    ```
 
-1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Computer Vision API page](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Right-click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer: 
+1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Computer Vision API page](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Right-click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choose **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer: 
   
    ![Screenshot of the solution explorer view with an image file selected](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

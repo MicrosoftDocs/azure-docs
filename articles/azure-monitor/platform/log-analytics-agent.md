@@ -11,13 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/12/2019
 ms.author: magoedte
 ---
 
 # Collect log data with the Azure Log Analytics agent
 
-The Azure Log Analytics (OMS) agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. 
+The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. 
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.   
 
@@ -36,7 +36,7 @@ The agent for Linux and Windows isn't only for connecting to Log Analytics, it a
 ## Supported Windows operating systems
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
-* Windows Server 2008 Service Pack 1 (SP1) or later
+* Windows Server 2008 R2 or later
 * Windows 7 SP1 and later.
 
 ## Supported Linux operating systems
@@ -73,11 +73,12 @@ The information below list the proxy and firewall configuration information requ
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Inbound and outbound|Yes |  
-|*.azure-automation.net |Port 443 |Inbound and outbound|Yes |  
+|*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.azure-automation.net |Port 443 |Outbound|Yes |  
 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

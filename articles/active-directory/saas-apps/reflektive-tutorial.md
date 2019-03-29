@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Reflektive
 
@@ -108,6 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Reflektive Domain and URLs single sign-on information](./media/reflektive-tutorial/tutorial_reflektive_url.png)
 
     In the **Identifier** textbox, use one of the below URL as per confirmation from the reflective support team:
+	
 	| |
 	|--|
 	| `reflektive.com` |

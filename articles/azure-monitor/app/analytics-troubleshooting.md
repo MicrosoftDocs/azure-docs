@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
 
 ---
@@ -30,9 +30,9 @@ Disable the extension or use a different browser.
 ## <a name="e-a"></a> "Unexpected error"
 ![Unexpected error screen](media/analytics-troubleshooting/010.png)
 
-Internal error occurred during portal runtime � unhandled exception.
+Internal error occurred during portal runtime unhandled exception.
 
-* Clean the browser's cache. 
+* Clean the browser's cache.
 
 ## <a name="e-b"></a>403 ... please try to reload
 ![403 ... please try to reload](media/analytics-troubleshooting/020.png)
@@ -67,7 +67,7 @@ An authentication related error occurred (during authentication or during access
 ## <a name="e-d"></a>404 ... Resource not found
 ![404 ... resource not found](media/analytics-troubleshooting/040.png)
 
-Application resource was deleted from Application Insights and isn�t available anymore. This can happen if you saved the URL to the Analytics page.
+Application resource was deleted from Application Insights and isn't available anymore. This can happen if you saved the URL to the Analytics page.
 
 ## <a name="e-e"></a>403 ... No authorization
 ![403 ... not authorized](media/analytics-troubleshooting/050.png)

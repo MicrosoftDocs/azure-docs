@@ -1,10 +1,10 @@
 ---
 title: Work with large data sets
-description: Understand how to get large data sets back from Azure Resource Graph.
+description: Understand how to get and control large data sets while working with Azure Resource Graph.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -23,6 +23,10 @@ sets. This event most often happens as a customer is experimenting with queries 
 resources in the way that suits their particular needs. This control is different than using the
 [top](/azure/kusto/query/topoperator) or [limit](/azure/kusto/query/limitoperator) Azure Data
 Explorer language operators to limit the results.
+
+> [!NOTE]
+> When using **First**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
 
 The default limit can be overridden through all methods of interacting with Resource Graph. The
 following examples show how to change the data set size limit to _200_:
@@ -53,6 +57,10 @@ useful for queries that sort results in a meaningful way where the intent is to 
 somewhere in the middle of the result set. If the results needed are at the end of the returned
 data set, it's more efficient to use a different sort configuration and retrieve the results from
 the top of the data set instead.
+
+> [!NOTE]
+> When using **Skip**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
 
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
@@ -85,7 +93,7 @@ matched the query.
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response will not include the **$skipToken**.
+> the query, the REST API response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.

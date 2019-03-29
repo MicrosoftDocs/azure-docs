@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -136,7 +136,7 @@ Get a test token based on the token restriction that was used for the key author
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-You can use the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
+You can use the [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
 
 ## <a id="client_request"></a>How can your client request a key from the key delivery service?
 In the previous step, you constructed the URL that points to a manifest file. Your client needs to extract the necessary information from the streaming manifest files to make a request to the key delivery service.
@@ -160,7 +160,7 @@ The client needs to extract the URL (that also contains content key ID [kid]) va
 
 In the case of HLS, the root manifest is broken into segment files. 
 
-For example, the root manifest is: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). It contains a list of segment file names.
+For example, the root manifest is: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). It contains a list of segment file names.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -169,7 +169,7 @@ For example, the root manifest is: http://test001.origin.mediaservices.windows.n
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-If you open one of the segment files in a text editor (for example, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it contains #EXT-X-KEY, which indicates that the file is encrypted.
+If you open one of the segment files in a text editor (for example, http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it contains #EXT-X-KEY, which indicates that the file is encrypted.
 
     #EXTM3U
     #EXT-X-VERSION:4

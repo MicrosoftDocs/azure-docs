@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.author: spelluru
 
 ---
@@ -24,7 +24,7 @@ In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Create a classroom lab
-> * Configure the classroom lab
+> * Add users to the lab
 > * Send registration link to students
 
 ## Prerequisites
@@ -39,13 +39,12 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify the maximum **number of users** allowed into the lab. 
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decreate the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
     1. Select a **size** for virtual machines (VMs) created in the lab. 
-    2. Select the **region** in which you want the VMs to be created. 
     3. Select the **VM image** to be used to create VMs in the lab. 
     4. Select **Next**.
 
@@ -65,17 +64,13 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 7. After the configuration of the template is complete, you see the following page: 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. The following steps are optional steps in this tutorial: 
-    1. Start the template VM by selecting **Start**.
-    2. Connect to the template VM by selecting **Connect**. 
-    3. Install and configure software on your template VM. 
-    4. **Stop** the VM.  
-    5. Enter a **description** for the template
-
-        ![Next on Configure template page](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
+    1. Connect to the template VM by selecting **Connect**. 
+    2. Install and configure software on your template VM.     
+    3. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
-    1. To publish the template immediately, select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**.  
+    1. To publish the template immediately, and select **Publish**.  
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
@@ -99,7 +94,9 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
 1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
 2. Select **Add users** on the toolbar. 
-3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
+1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
 
     ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
@@ -107,15 +104,15 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## Send registration link to students
-
+## Send an email with the registration link
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select **Get registration link** on the toolbar.
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard.
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
+3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
 
-    ![Registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. On the **User registration** dialog box, select **Close**. 
-2. Share the registration link with a student so that the student can register for the class.
+    ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. On the **Send registration link by email** page, follow these steps: 
+    1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
+    2. On the **Send registration link by email** page, select **Send**. 
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

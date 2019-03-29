@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
 ---
 
@@ -28,6 +28,18 @@ The following video introduces the various capabilities and different offers typ
 **Building Apps and Services for Azure Marketplace and AppSource - Build 2018**
 
 For more information about these marketplaces, see [Azure Marketplace and AppSource publishing guide](../marketplace-publishers-guide.md).
+
+
+## Common offer operations
+
+The process of creating a new offer differs greatly across offer types, for example between an [Azure application offer](./azure-applications/cpp-azure-app-offer.md) and a [consulting service offer](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  In contrast, many of the other operations you perform on an offer in the [Cloud Partner Portal](https://cloudpartner.azure.com) are fairly standardized across offer types.  These common operations—including publish, view status, update, and delete—are covered in the section [Manage offers](./manage-offers/cpp-manage-offers.md)
+
+
+## Test Drive
+
+*Test Drive* is a marketplace feature that provides customers a "try before you buy" demonstration option for each offer so enabled.  The Test Drive capability is limited to the following subset of offer types: [Azure applications](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS applications](./saas-app/cpp-saas-offer.md), and [virtual machines](./virtual-machine/cpp-virtual-machine-offer.md).  This capability requires the publisher to create a Test Drive template, customized for its offer.  For more information, see the section [Test Drive](./test-drive/what-is-test-drive.md).
+
+You can browse the existing marketplace offers that have Test Drive demonstrations by applying the [test drive filter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## Azure Marketplace and AppSource offer types

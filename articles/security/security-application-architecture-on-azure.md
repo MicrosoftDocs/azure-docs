@@ -4,7 +4,7 @@ description: " This article will help you understand the application and service
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 4f2d9386-bda3-4ec8-8b1a-cd0c11242ffc

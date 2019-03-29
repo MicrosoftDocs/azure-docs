@@ -13,6 +13,7 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # What is the Azure Active Directory architecture?
@@ -34,7 +35,7 @@ The most common way to build an accessible and usable, data-rich system is throu
 
 The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed data centers. 
 
-  ![Single Directory Partitions](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Single-directory partition diagram](./media/active-directory-architecture/active-directory-architecture.png)
 
 The components of Azure AD architecture include a primary replica and secondary replicas.
 

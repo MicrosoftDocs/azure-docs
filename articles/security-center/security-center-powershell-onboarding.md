@@ -4,7 +4,7 @@ description: This document walks you through the process of onboarding Azure Sec
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67

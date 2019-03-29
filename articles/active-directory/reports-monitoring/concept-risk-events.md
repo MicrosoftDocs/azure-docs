@@ -3,7 +3,7 @@ title: Azure Active Directory risk events | Microsoft Docs
 description: This artice gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory risk events
 
@@ -160,7 +161,7 @@ This risk event identifies IP addresses, not user devices. If several devices ar
 
 We recommend that you contact the user and scan all the user's devices. It is also possible that a user's personal device is infected or that someone else was using an infected device from the same IP address as the user. Infected devices are often infected by malware that have not yet been identified by anti-virus software, and may also indicate any bad user habits that may have caused the device to become infected.
 
-For more information about how to address malware infections, see the [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+For more information about how to address malware infections, see the [Malware Protection Center](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### Sign-ins from IP addresses with suspicious activity
 

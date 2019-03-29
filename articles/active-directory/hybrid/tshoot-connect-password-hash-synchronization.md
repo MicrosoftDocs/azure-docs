@@ -17,6 +17,7 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot password hash synchronization with Azure AD Connect sync
 This topic provides steps for how to troubleshoot issues with password hash synchronization. If passwords are not synchronizing as expected, it can be either for a subset of users or for all users.
@@ -220,7 +221,7 @@ To troubleshoot issues where no passwords are synchronized for a user:
 ## No passwords are synchronized: manual troubleshooting steps
 Follow these steps to determine why no passwords are synchronized:
 
-1. Is the Connect server in [staging mode](how-to-connect-sync-operations.md#staging-mode)? A server in staging mode does not synchronize any passwords.
+1. Is the Connect server in [staging mode](how-to-connect-sync-staging-server.md)? A server in staging mode does not synchronize any passwords.
 
 2. Run the script in the [Get the status of password sync settings](#get-the-status-of-password-sync-settings) section. It gives you an overview of the password sync configuration.  
 
@@ -234,7 +235,7 @@ Follow these steps to determine why no passwords are synchronized:
 
 5. If you see no heartbeat or if nothing else worked, run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). Run the script only once.
 
-6. See the [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords) section.
+6. See the Troubleshoot one object that is not synchronizing passwords section.
 
 ### Connectivity problems
 
@@ -300,7 +301,7 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     ![Object log details](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    If the object log is empty, Azure AD Connect has been unable to read the password hash from Active Directory. Continue your troubleshooting with [Connectivity Errors](#connectivity-errors). If you see any other value than **success**, refer to the table in [Password sync log](#password-sync-log).
+    If the object log is empty, Azure AD Connect has been unable to read the password hash from Active Directory. Continue your troubleshooting with Connectivity Errors. If you see any other value than **success**, refer to the table in [Password sync log](#password-sync-log).
 
     h. Select the **lineage** tab, and make sure that at least one sync rule in the **PasswordSync** column is **True**. In the default configuration, the name of the sync rule is **In from AD - User AccountEnabled**.  
 

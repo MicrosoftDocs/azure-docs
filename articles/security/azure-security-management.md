@@ -4,7 +4,7 @@ description: "This article discusses steps for enhancing remote management secur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3

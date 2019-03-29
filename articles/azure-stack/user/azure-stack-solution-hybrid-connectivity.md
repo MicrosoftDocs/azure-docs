@@ -57,7 +57,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure
 
  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
- - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
+ - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
 
 ### Azure Stack
 
@@ -115,7 +115,7 @@ Use the following steps to create a virtual network by using the portal. You can
 
 To create a vNet in Azure:
 
-1. Use your browser to connect to the [Azure portal](http://portal.azure.com/) and sign in with your Azure account.
+1. Use your browser to connect to the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 2. Select **Create a resource**. In the **Search the marketplace** field, enter `virtual network`'`. Find **Virtual network** in the results list, and then select **Virtual Network**.
 3. From the **Select a deployment model** list, select **Resource Manager**, and then select **Create**.
 4. On **Create virtual network**, configure the VNet settings. The required fields names are prefixed with a red asterisk.  When you enter a valid value, the asterisk changes to a green check mark.
@@ -128,7 +128,7 @@ To create a vNet in Azure Stack:
 
 Before connecting your virtual network to a gateway, you need to create the gateway subnet for the virtual network that you want to connect to. The gateway services use the IP addresses you specify in the gateway subnet.
 
-In the [Azure portal](http://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
+In the [Azure portal](https://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
 
 1. Select the vNet to open the **Virtual network** page.
 2. In **SETTINGS**, select **Subnets**.
@@ -148,12 +148,12 @@ Use the following steps to create a virtual network gateway in Azure.
 3. In **Virtual network gateway**, select **Create** to open the **Create virtual network gateway** page.
 4. On **Create virtual network gateway**, specify the values for your network gateway, as shown in **Tutorial example values**, and the following additional values:
 
-    - **SKU**: basic
-    - **Virtual Network**: Select the Virtual Network you created earlier. The gateway subnet you created is automatically selected.
-    - **First IP Configuration**:  This is the public IP of your Gateway.
-        - Select **Create gateway IP configuration**, which takes you to the **Choose public IP address** page.
-        - Select **+Create new** to open the **Create public IP address** page.
-        - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, and then select **OK** to save your changes.
+   - **SKU**: basic
+   - **Virtual Network**: Select the Virtual Network you created earlier. The gateway subnet you created is automatically selected.
+   - **First IP Configuration**:  This is the public IP of your Gateway.
+     - Select **Create gateway IP configuration**, which takes you to the **Choose public IP address** page.
+     - Select **+Create new** to open the **Create public IP address** page.
+     - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, and then select **OK** to save your changes.
 
        > [!Note]
        > Currently, VPN Gateway only supports Dynamic Public IP address allocation. However, this doesn't mean that the IP address changes after it's assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. Resizing, resetting, or other internal maintenance/upgrades to your VPN gateway don't change the IP address.

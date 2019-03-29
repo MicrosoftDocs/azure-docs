@@ -4,7 +4,7 @@ description: Learn how to access Azure Key Vault from an application behind a fi
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5

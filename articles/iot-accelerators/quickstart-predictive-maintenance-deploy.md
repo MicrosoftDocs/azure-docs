@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can use predictive maintenance with my IoT devices.
@@ -39,7 +39,7 @@ On the **Create Predictive Maintenance solution** page, enter a unique **Solutio
 
 Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. For this quickstart, we're using **Visual Studio Enterprise** and **East US**. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
 
-Click **Create Solution** to begin the deployment. This process takes at least five minutes to run:
+Click **Create** to begin the deployment. This process takes at least five minutes to run:
 
 ![Predictive Maintenance solution details](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -47,9 +47,13 @@ Click **Create Solution** to begin the deployment. This process takes at least f
 
 When the deployment to your Azure subscription is complete, you see a green checkmark and **Ready** on the solution tile. You can now sign in to your Predictive Maintenance solution accelerator dashboard.
 
-On the **Provisioned solutions** page, click your new Predictive Maintenance solution accelerator. You can view information about the solution accelerator in the panel that appears. Choose **Solution dashboard** to view your Predictive Maintenance solution accelerator:
+On the **Provisioned solutions** page, click your new Predictive Maintenance solution accelerator.
 
-![Solution panel](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Solution panel](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ You can view information about the solution accelerator in the page that appears. Choose **Go to your solution accelerator** to view your Predictive Maintenance solution accelerator:
+
+![Solution panel](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 Click **Accept** to accept the permissions request, the Predictive Maintenance solution dashboard displays in your browser:
 

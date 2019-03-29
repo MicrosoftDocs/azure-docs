@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
@@ -246,10 +246,10 @@ In addition to adding a transcript to a video review, you also add the result of
 1. Your Content Moderator team name.
 1. The video review ID returned by **CreateVideoReviews**.
 1. An IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
-- **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
-- **Index**. The zero-based index of the term.
-- **Term**. A string that contains the term.
-- **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
+1. **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
+1. **Index**. The zero-based index of the term.
+1. **Term**. A string that contains the term.
+1. **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 

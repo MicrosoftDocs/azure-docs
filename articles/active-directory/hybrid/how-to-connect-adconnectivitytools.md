@@ -11,6 +11,7 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is the ADConnectivityTool PowerShell Module?
@@ -42,7 +43,7 @@ For example, when we are attempting to add a directory on the **Connect your dir
 
 What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is called when the validation of credentials fails due to a network connectivity issue.
 
-Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>-\<time>.log**
 
 ## ADConnectivityTools post installation
 After Azure AD Connect has been installed, any of the functions in the ADConnectivityTools PowerShell module can be used.  

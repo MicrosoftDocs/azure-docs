@@ -108,7 +108,7 @@ A failback is performed just like a manual failover. These are the steps:
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   The banners are displayed as explained in the [perform a failover](#perform-a-failover) section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+   The banners are displayed as explained in the perform a failover section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
 ## Clean up resources 
 
@@ -134,4 +134,4 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Manage the state of an IoT device](tutorial-device-twins.md)
+> [Manage the state of an IoT device](tutorial-device-twins.md)

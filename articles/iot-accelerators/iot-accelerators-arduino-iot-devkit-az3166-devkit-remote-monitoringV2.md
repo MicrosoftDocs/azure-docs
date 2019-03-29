@@ -34,7 +34,7 @@ To open the Remote Monitoring sample in VS Code:
 
 1. Find **Remote Monitoring** and click **Open Sample**. A new VS Code window opens showing the project folder:
 
-  ![IoT Workbench, select Remote Monitoring example](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench, select Remote Monitoring example](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## Configure the device
 
@@ -73,7 +73,7 @@ To verify that the sample application you uploaded to the DevKit device is worki
 
 When the sample app runs, the DevKit device sends telemetry from its sensors data over Wi-Fi to your solution accelerator. To see the telemetry:
 
-1. Go to your solution dashboard, and click **Devices**.
+1. Go to your solution dashboard, and click **Device Explorer**.
 
 1. Click on the device name of your DevKit device. on the right-hand tab, you can see the telemetry from the DevKit in real time:
 
@@ -81,7 +81,7 @@ When the sample app runs, the DevKit device sends telemetry from its sensors dat
 
 ### Control the DevKit device
 
-The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Devices** page:
+The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Device Explorer** page:
 
 ![IoT DevKit Methods](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -93,11 +93,11 @@ To change the color of one of the DevKit LEDs, use the **LedColor** method:
 
 1. Configure the Jobs using the following values and click **Apply**:
 
-    * Select Job: **Run method**
-    * Method name: **LedColor**
-    * Job Name: **ChangeLedColor**
+   * Select Job: **Run method**
+   * Method name: **LedColor**
+   * Job Name: **ChangeLedColor**
 
-    ![Job settings](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Job settings](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. After a couple of seconds, the color of the RGB LED (below the button A) on your DevKit changes:
 

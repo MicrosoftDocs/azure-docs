@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the Bing Image Search API to search for .gif images across the web.
 services: cognitive-services
 author: MikeDodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
@@ -42,6 +42,7 @@ For more information about query parameters and options, see the [Image Search A
 - *AnimatedGifHttps* only returns animated gif images that are from an https address. For security, many applications require connection to external web links over https. For example, the Apple App Store requires connection to web services over HTTPS, which encrypts user data secure while in transit.
 
 <a name="gifExample" />
+
 ## Example search for animated gif using Java
 
 The following URL searches for animated .gif images: `q=interesting`

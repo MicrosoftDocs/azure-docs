@@ -46,7 +46,7 @@ To set up a Windows IoT Core device please follow the step by step guide at [Set
 In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
  > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial.
 
 ## Prepare the Windows 10 IoT Core device
 
@@ -68,10 +68,10 @@ To deploy the client application from the previous step to your Windows 10 IoT d
 Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
 
 From there and, as shown in the if below, you'll want to:
-1. Expand the "Apps" node on the left.
-2. Click "Quick-run samples".
-3. Click "Azure IoT Hub Client".
-4. Click "Deploy and run".
+1. Expand the **Apps** node on the left.
+2. Select **Quick-run samples**.
+3. Select **Azure IoT Hub Client**.
+4. Select **Deploy and run**.
 
 ![Gif of Azure IoT Hub Client on Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Bonusly
 
@@ -215,7 +216,7 @@ In order to enable Azure AD users to log in to Bonusly, they must be provisioned
 
     b. In the **Last name** textbox, enter the last name of user like **Simon**.
  
-    c. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+    c. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Click **Save**.
    

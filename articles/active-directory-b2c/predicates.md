@@ -346,7 +346,7 @@ The following shows how the elements are organized when Azure AD B2C displays th
 
 ![Predicate process](./media/predicates/predicates-pass.png)
 
- ## Configure a date range
+## Configure a date range
 
 With the **Predicates** and **PredicateValidations** elements you can control the minimum and maximum date values of the **UserInputType** by using a `DateTimeDropdown`. To do this, create a **Predicate** with the `IsDateRange` method and provide the minimum and maximum parameters.
 

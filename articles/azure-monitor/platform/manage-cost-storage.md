@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -108,10 +108,14 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
+
+> [!NOTE]
+> You can learn more about [setting the pricing tier via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) and 
+> how to ensure that your ARM deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
@@ -124,31 +128,19 @@ When data collection stops, the OperationStatus is Warning. When data collection
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
-|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in [manage the maximum daily data volume](#manage-the-maximum-daily-volume). The daily cap reset time is shows on the **Data volume management** page. |
+|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Data volume management** page. |
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
 To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
 
 ## Troubleshooting why usage is higher than expected
 Higher usage is caused by one, or both of:
-- More data than expected being sent to Log Analytics
 - More nodes than expected sending data to Log Analytics
+- More data than expected being sent to Log Analytics
 
-### Data volume 
-On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. The query used to generate this is
+The next sections explor
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Note that the clause "where IsBillable = true" filters out data types from certain solutions for which there is no ingestion charge. 
-
-You can drill in further to see data trends for specific data types, for example if you want to study the data due to IIS logs:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### Nodes sending data
+## Understanding nodes sending data
 
 To understand the number of computers (nodes) reporting data each day in the last month, use
 
@@ -156,7 +148,7 @@ To understand the number of computers (nodes) reporting data each day in the las
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#isbillable) property:
+To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#_isbillable) property:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -164,9 +156,9 @@ To get a list of computers sending **billed data types** (some data types are fr
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. 
+Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
 
-This can be extended to return the count of computers per hour that are sending billed data types:
+This can be extended to return the count of computers per hour that are sending billed data types (which is how Log Analytics calculates billable nodes for the legacy Per Node pricing tier):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -174,13 +166,30 @@ This can be extended to return the count of computers per hour that are sending 
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-To see the **size** of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
+## Understanding ingested data volume 
+
+On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. The query used to generate this is
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Note that the clause "where IsBillable = true" filters out data types from certain solutions for which there is no ingestion charge. 
+
+You can drill in further to see data trends for specific data types, for example if you want to study the data due to IIS logs:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### Data volume by computer
+
+To see the **size** of billable events ingested per computer, use the `_BilledSize` property ([log-standard-properties#_billedsize.md](learn more)) which provides the size in bytes:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-This query replaces the old way of querying this with the Usage data type. 
+The `_IsBillable` property specifies whether the ingested data will incur charges ([log-standard-properties.md#_isbillable](Learn more).)
 
 To see the **count** of events ingested per computer, use
 
@@ -200,9 +209,30 @@ If you want to see counts for billable data types are sending data to a specific
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### Data volume by Azure resource, resource group or subscription
+
+For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the `_ResourceId` property which provides the full path to the resource ([log-standard-properties.md#_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+For data from nodes hosted in Azure you can get the **size** of billable events ingested __per Azure subscription__, parse the `_ResourceId` property as:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resouurce group. 
+
+
 > [!NOTE]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
 > These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
+
+### Querying for common data types
 
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
@@ -235,7 +265,7 @@ Some suggestions for reducing the volume of logs collected include:
 | AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 
-### Getting node counts 
+### Getting Security and Automation node counts 
 
 If you are on "Per node (OMS)" pricing tier, then you are charged based on the number of nodes and solutions you use, the number of Insights and Analytics nodes for which you are being billed will be shown in table on the **Usage and Estimated Cost** page.  
 
@@ -276,6 +306,7 @@ To see the number of distinct Automation nodes, use the query:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## Create an alert when data collection is higher than expected
+
 This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
 - Data volume is predicted to exceed a specified amount.

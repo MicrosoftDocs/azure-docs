@@ -1,26 +1,29 @@
 ---
 
-  title: Product names and service plan identifiers for licensing - Azure AD | Microsoft Docs
-  description: Identifier map to manage Azure Active Directory licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
-  services: active-directory
-  keywords: Azure Active Directory licensing service plans
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
-  editor: ''
+title: Product names and service plan identifiers for licensing - Azure AD | Microsoft Docs
+description: Identifier map to manage Azure Active Directory licensing in the Azure portal, the Microsoft 365 admin center, PowerShell, or Microsoft Graph
+services: active-directory
+keywords: Azure Active Directory licensing service plans
+documentationcenter: ''
+author: ajayanti1
+manager: mtillman
+editor: ''
 
-  ms.service: active-directory
-  ms.topic: article
-  ms.workload: identity
-  ms.date: 01/28/2019
-  ms.author: curtand
-  ms.reviewer: sumitp
-  ms.custom: "it-pro;seo-update-azuread-jan"
+ms.service: active-directory
+ms.topic: article
+ms.workload: identity
+ms.subservice: users-groups-roles
+ms.date: 01/28/2019
+ms.author: curtand
+ms.reviewer: ajayanti1
+ms.custom: "it-pro;seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
+#Aruna Jayanti is minding this reference until it can be automated
 ---
 
 # Product names and service plan identifiers for licensing
 
-When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values. These tables are for reference purposes and are accurate only as of the date when this article was last updated. Microsoft does not plan to update them for newly added services periodically.
+When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the [Microsoft 365 admin center](https://admin.microsoft.com), you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values. These tables are for reference purposes and are accurate only as of the date when this article was last updated. Microsoft does not plan to update them for newly added services periodically.
 
 - **Product name**: Used in management portals
 - **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses

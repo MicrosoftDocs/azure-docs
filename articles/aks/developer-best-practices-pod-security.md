@@ -66,10 +66,12 @@ Work with your cluster operator to determine what security context settings you 
 
 To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Credentials or keys shouldn't be included directly in your code. If these credentials are exposed, the application needs to be updated and redeployed. A better approach is to give pods their own identity and way to authenticate themselves, or automatically retrieve credentials from a digital vault.
 
-AKS includes two ways to automatically authenticate pods or request credentials and keys from a digital vault:
+The following [associated AKS open source projects][aks-associated-projects] let you automatically authenticate pods or request credentials and keys from a digital vault:
 
 * Managed identities for Azure resources, and
 * Azure Key Vault FlexVol driver
+
+Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use.
 
 ### Use pod managed identities
 
@@ -79,7 +81,7 @@ A managed identity for Azure resources lets a pod authenticate itself against an
 
 With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
 
-For more information about pod identities, see [Configure an AKS cluster to use pod managed identities][aad-pod-identity] and [Assign and use pod managed identities in your code][aad-pod-identity].
+For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications][aad-pod-identity]
 
 ### Use Azure Key Vault with FlexVol
 
@@ -103,6 +105,7 @@ This article focused on how to secure your pods. To implement some of these area
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

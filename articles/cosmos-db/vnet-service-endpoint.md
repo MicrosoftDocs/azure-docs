@@ -40,10 +40,10 @@ Once service endpoint for Azure Cosmos DB is enabled on a subnet, the source of 
 Only virtual network and their subnets added to Azure Cosmos account have access. Their peered VNets cannot access the account until the subnets within peered virtual networks are added to the account.
 
 ### What is the maximum number of subnets allowed to access a single Cosmos account? 
-Currently, you can have at most 64 subnets allowed for a Azure Cosmos account.
+Currently, you can have at most 64 subnets allowed for an Azure Cosmos account.
 
 ### Can I enable access from VPN and Express Route? 
-For accessing Azure Cosmos account over Express route from on prem, you would need to enable Microsoft peering. Once you put IP firewall or virtual network access rules, you can add the public IP addresses used for Microsoft peering on your Azure Cosmos account IP firewall to allow on premises services access to Azure Cosmos account. 
+For accessing Azure Cosmos account over Express route from on premises, you would need to enable Microsoft peering. Once you put IP firewall or virtual network access rules, you can add the public IP addresses used for Microsoft peering on your Azure Cosmos account IP firewall to allow on premises services access to Azure Cosmos account. 
 
 ### Do I need to update the Network Security Groups (NSG) rules? 
 NSG rules are used to limit connectivity to and from a subnet with virtual network. When you add service endpoint for Azure Cosmos DB to the subnet, there is no need to open outbound connectivity in NSG for your Azure Cosmos account. 

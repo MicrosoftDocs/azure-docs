@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory version 2 cmdlets for group management
 
@@ -214,15 +215,15 @@ To disable group creation for non-admin users:
 
 1. Verify that non-admin users are allowed to create groups:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## Manage owners of groups
 To add owners to a group, use the Add-AzureADGroupOwner cmdlet:
@@ -247,7 +248,7 @@ If you want to remove an owner from a group, use the Remove-AzureADGroupOwner cm
 
 ## Reserved aliases 
 When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
-  
+  
 * abuse 
 * admin 
 * administrator 

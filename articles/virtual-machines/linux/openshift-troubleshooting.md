@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 02/02/2019
 ms.author: haroldw
 ---
 
@@ -115,5 +115,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 For some errors, you can also use the following commands to get more information:
 
-1. systemctl status <service>
+1. systemctl status \<service>
 2. journalctl -xe

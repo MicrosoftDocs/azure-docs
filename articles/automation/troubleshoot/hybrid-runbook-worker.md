@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -40,7 +40,7 @@ The following are potential possible causes:
 
 * The runbooks can't authenticate with local resources
 
-* The computer configured to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.
+* The computer configured to run the Hybrid Runbook Worker feature does not meet the minimum hardware requirements.
 
 #### Resolution
 
@@ -181,6 +181,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
+
+#### Issue
+
+You receive the following message when trying to add a Hybrid Runbook Worker using the `Add-HybridRunbookWorker` cmdlet.
+
+```
+Machine is already registered to a different account
+```
+
+#### Cause
+
+This can be caused if the machine is already registered with a different Automation Account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+
+#### Resolution
+
+To resolve this issue, remove the following registry key and restart the `HealthService` and try the `Add-HybridRunbookWorker` cmdlet again:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## Next steps
 

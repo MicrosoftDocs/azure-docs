@@ -63,7 +63,7 @@ docker-compose up --build -d
 
 ## Test the application locally
 
-To verify that the updated container image shows your changes, open a local web browser to http://localhost:8080.
+To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -71,7 +71,7 @@ The updated values provided in the *config_file.cfg* file are displayed in your 
 
 ## Tag and push the image
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr) command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

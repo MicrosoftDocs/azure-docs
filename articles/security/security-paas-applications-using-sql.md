@@ -4,7 +4,7 @@ description: "Learn about Azure SQL Database and SQL Data Warehouse security bes
 services: security
 documentationcenter: na
 author: techlake
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

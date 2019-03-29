@@ -64,9 +64,11 @@ First we'll need to deploy a baseline of our services. This deployment will repr
 >
 > ![Example CI/CD diagram](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
-At this point your baseline should be running. Run the `azds list-up` command, and you'll see output similar to the following:
+At this point your baseline should be running. Run the `azds list-up --all` command, and you'll see output similar to the following:
 
 ```
+$ azds list-up --all
+
 Name                          DevSpace  Type     Updated  Status
 ----------------------------  --------  -------  -------  -------
 mywebapi                      dev       Service  3m ago   Running

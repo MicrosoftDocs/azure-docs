@@ -16,13 +16,13 @@ This article demonstrates how to use Azure Active Directory (AAD) security ident
 
 This article covers the following tasks:
 > [!div class="checklist"]
-- Create AAD groups and users
-- Associate the user with the group you have created
-- Cache the new groups
-- Index documents with associated groups
-- Issue a search request with group identifiers filter
-
->[!NOTE]
+> - Create AAD groups and users
+> - Associate the user with the group you have created
+> - Cache the new groups
+> - Index documents with associated groups
+> - Issue a search request with group identifiers filter
+> 
+> [!NOTE]
 > Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## Prerequisites
@@ -58,7 +58,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### Step 1: Create [AAD Group](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -72,7 +72,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### Step 2: Create [AAD User](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### Step 2: Create [AAD User](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -133,7 +133,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

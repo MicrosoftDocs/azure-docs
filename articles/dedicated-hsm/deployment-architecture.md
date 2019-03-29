@@ -3,19 +3,19 @@ title: Deployment architecture - Azure Dedicated HSM | Microsoft Docs
 description: Basic design considerations when using Azure Dedicated HSM as part of an application architecture
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
 
 ---
 
-# Azure Dedicated HSM Deployment architecture
+# Azure Dedicated HSM deployment architecture
 
 Azure Dedicated HSM provides cryptographic key storage in Azure. It meets stringent security requirements. Customers will benefit from using Azure Dedicated HSM if they:
 
@@ -29,10 +29,16 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * East US 2
 * West US
 * South Central US
-* South East Asia
+* Southeast Asia
 * East Asia
 * North Europe
 * West Europe
+* UK South
+* UK West
+* Canada Central
+* Canada East
+* Australia East
+* Australia Southeast
 
 Each of these regions has HSM racks deployed in either two independent data centers or at least two independent availability zones. South East Asia has three availability zones and East US 2 has two. There is a total of eight regions across Europe, Asia, and the USA that offer the Dedicated HSM service. For more information on Azure regions, see the official  [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
 Some design factors for any Dedicated HSM-based solution are location/latency, high availability, and support for other distributed applications.

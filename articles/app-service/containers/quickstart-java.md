@@ -51,21 +51,18 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.3</version>
         <configuration>
-   
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
-   
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -107,7 +104,8 @@ Once deployment has completed, browse to the deployed application using the foll
 In this quickstart, you used Maven to create a Java app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. Refer to the following tutorials and how-to articles for more information hosting Java applications on App Service on Linux.
 
 - [Tutorial: Deploy a Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configure a Tomcat data source](app-service-linux-java.md#connecting-to-data-sources)
+- [Configure a Tomcat data source](app-service-linux-java.md#tomcat)
 - [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Set up application performance monitoring tools](how-to-java-apm-monitoring.md)
+- [Java developer's guide for App Service on Linux](app-service-linux-java.md)
 

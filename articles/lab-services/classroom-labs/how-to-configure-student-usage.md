@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: spelluru
 
 ---
@@ -25,16 +25,31 @@ If you have the **Restrict access** enabled, add users (email addresses) to the 
 
 1. Select **Users** on the left menu.
 2. Select **Add users** on the toolbar. 
-3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
+1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
 
     ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
-## Send registration link to students
-The following procedure has steps to send a registration link to users. If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. 
+## Share registration link with students
+To send the registration link to students, use one of the following methods. The first method shows you how to send emails to students with the registration link and an optional message. The second method shows you how to get the registration link that you can share with others any way you want. 
 
+If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. This option is enabled by default. 
+
+### Send email to users
+1. Switch to the **Users** view if you are not on the page already. 
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
+3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
+
+    ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. On the **Send registration link by email** page, follow these steps: 
+    1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
+    2. On the **Send registration link by email** page, select **Send**. 
+
+## Get registration link
 1. Switch to the **Users** view by selecting **Users** on the left menu. 
 2. Select **Get registration link** tile.
 
@@ -43,11 +58,7 @@ The following procedure has steps to send a registration link to users. If the *
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. On the **User registration** dialog box, select **Close**. 
-4. Share the registration link with a student so that the student can register for the class. If you have the **Restrict option** setting enabled and have a list of users in the list, do the following actions:
-    1. Select the **email address** of the user in the list. 
-    2. You see a window from your default email program with the **TO** address filled in. 
-    3. Paste the **registration URL** you copied earlier. 
-    4. Send the **email**. 
+4. Share the **registration link** with a student so that the student can register for the class. 
 
 ## View users registered with the lab
 
@@ -60,11 +71,14 @@ You can set quotas per user by using the following steps:
 
 1. Select **Users** on the left menu.
 2. Select **Quota per user: unlimited** on the toolbar. 
-3. On the **Quota per user** page, select **Limit the number of hours a user can use a VM**. 
-4. For **How many hours do you want to give to each user**, enter the number of hours, and select **Save**. 
+3. On the **Quota per user** page, select one of the following options: 
+    1. **None**. Users can use their virtual machines only during scheduled time or when lab owner turns on virtual machines for them.
+    2. **Unlimited (default)**. Users can use their virtual machines without any time restrictions.
+    3. **Specify number of hours per user**. Users can use their virtual machines for the set number of hours (specified below) in addition to the scheduled time. If you select this option, enter the **number of hours** in the text box. 
 
-    ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. You see the number of hours on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
+        ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Select **Save**. 
+5. You see the changed values on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -74,8 +88,19 @@ You can set quotas per user by using the following steps:
 ### Add users by uploading a CSV file
 You can also add users by uploading a CSV file with email addresses of users.
 
-1. Select **Upload CSV** on the toolbar.
-2. Select the CSV file with user email addresses. All the email addresses should be in one column when you open it with Excel. 
+1. Create a CSV file with email addresses of users in one column.
+
+    ![Quota per user](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. On the **Users** page of the lab, select **Upload CSV** on the toolbar.
+
+    ![Upload CSV button](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Select the CSV file with user email addresses. When you select **Open** after selecting the CSV file, you see the following **Add users** window. The email address list is filled with email addresses from the CSV file. 
+
+    ![Add users window populated with email addresses from CSV file](../media/how-to-configure-student-usage/add-users-window.png)
+4. Select **Save** in the **Add users** window. 
+5. Confirm that you see users in the list of users. 
+
+    ![List of added users](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## Manage user VMs
 Once students register with Azure Lab Services using the registration link you provided to them, you see the VMs assigned to students on the **Virtual machines** tab. 

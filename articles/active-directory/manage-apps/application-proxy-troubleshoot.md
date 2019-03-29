@@ -3,8 +3,8 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 
@@ -33,7 +34,7 @@ For more information about the Azure AD Troubleshooting tool, see [Troubleshooti
 ## The page is not rendered correctly
 You may have problems with your application rendering or functioning incorrectly without receiving specific error messages. This can occur if you published the article path, but the application requires content that exists outside that path.
 
-For example, if you publish the path https://yourapp/app but the application calls images in https://yourapp/media, they won't be rendered. Make sure that you publish the application using the highest level path you need to include all relevant content. In this example, it would be http://yourapp/.
+For example, if you publish the path `https://yourapp/app` but the application calls images in `https://yourapp/media`, they won't be rendered. Make sure that you publish the application using the highest level path you need to include all relevant content. In this example, it would be `http://yourapp/`.
 
 If you change your path to include referenced content, but still need users to land on a deeper link in the path, see the blog post [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 
@@ -74,10 +75,11 @@ This list covers errors that your end users might encounter when they try to acc
 | Error | Recommended steps |
 | ----- | ----------------- |
 | The website cannot display the page. | Your user may get this error when trying to access the app you published if the application is an IWA application. The defined SPN for this application may be incorrect. For IWA apps, make sure that the SPN configured for this application is correct. |
-| The website cannot display the page. | Your user may get this error when trying to access the app you published if the application is an OWA application. This could be caused by one of the following:<br><li>The defined SPN for this application is incorrect. Make sure that the SPN configured for this application is correct.</li><li>The user who tried to access the application is using a Microsoft account rather than the proper corporate account to sign in, or the user is a guest user. Make sure the user signs in using their corporate account that matches the domain of the published application. Microsoft Account users and guest cannot access IWA applications.</li><li>The user who tried to access the application is not properly defined for this application on the on-prem side. Make sure that this user has the proper permissions as defined for this backend application on the on-prem machine. |
-| This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. | Your users may get this error when trying to access the app you published if they use Microsoft accounts instead of their corporate account to sign in. Guest users may also get this error. Microsoft Account users and guests cannot access IWA applications. Make sure the user signs in using their corporate account that matches the domain of the published application.<br><br>You may not have assigned the user for this application. Go to the **Application** tab, and under **Users and Groups**, assign this user or user group to this application. |
-| This corporate app can’t be accessed right now. Please try again later…The connector timed out. | Your users may get this error when trying to access the app you published if they are not properly defined for this application on the on-prem side. Make sure that your users have the proper permissions as defined for this backend application on the on-prem machine. |
-| This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure that the user has a license for Azure Active Directory Premium or Basic. | Your users may get this error when trying to access the app you published if they weren't explicitly assigned with a Premium/Basic license by the subscriber’s administrator. Go to the subscriber’s Active Directory **Licenses** tab and make sure that this user or user group is assigned a Premium or Basic license. |
+| The website cannot display the page. | Your user may get this error when trying to access the app you published if the application is an OWA application. This could be caused by one of the following:<br><li>The defined SPN for this application is incorrect. Make sure that the SPN configured for this application is correct.</li><li>The user who tried to access the application is using a Microsoft account rather than the proper corporate account to sign in, or the user is a guest user. Make sure the user signs in using their corporate account that matches the domain of the published application. Microsoft Account users and guest cannot access IWA applications.</li><li>The user who tried to access the application is not properly defined for this application on the on premises side. Make sure that this user has the proper permissions as defined for this backend application on the on premises machine. |
+| This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. | Your user may get this error when trying to access the app you published if they use Microsoft accounts instead of their corporate account to sign in. Guest users may also get this error. Microsoft Account users and guests cannot access IWA applications. Make sure the user signs in using their corporate account that matches the domain of the published application.<br><br>You may not have assigned the user for this application. Go to the **Application** tab, and under **Users and Groups**, assign this user or user group to this application. |
+| This corporate app can’t be accessed right now. Please try again later…The connector timed out. | Your user may get this error when trying to access the app you published if they are not properly defined for this application on the on-premises side. Make sure that your users have the proper permissions as defined for this backend application on the on premises machine. |
+| This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure that the user has a license for Azure Active Directory Premium or Basic. | Your user may get this error when trying to access the app you published if they weren't explicitly assigned with a Premium/Basic license by the subscriber’s administrator. Go to the subscriber’s Active Directory **Licenses** tab and make sure that this user or user group is assigned a Premium or Basic license. |
+| A server with the specified host name could not be found. | Your user may get this error when trying to access the app you published if the application's custom domain is not configured correctly. Make sure you've uploaded a certificate for the domain and configured the DNS record correctly by following the steps in [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md) |
 
 ## My error wasn't listed here
 

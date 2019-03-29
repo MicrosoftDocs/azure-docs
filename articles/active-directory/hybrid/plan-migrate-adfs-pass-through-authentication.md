@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Migrate from federation to pass-through authentication for Azure Active Directory
@@ -122,9 +123,9 @@ Before you convert from federated identity to managed identity, look closely at 
 |-|-|
 | You plan to keep using AD FS with other applications (other than Azure AD and Office 365). | After you convert your domains, you'll use both AD FS and Azure AD. Consider the user experience. In some scenarios, users might be required to authenticate twice: once to Azure AD (where a user gets SSO access to other applications, like Office 365), and again for any applications that are still bound to AD FS as a relying party trust. |
 | Your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file (for example, if you changed the sign-in experience so that users use only a **SamAccountName** format for their username instead of a User Principal Name (UPN), or your organization has heavily branded the sign-in experience). The onload.js file can't be duplicated in Azure AD. | Before you continue, you must verify that Azure AD can meet your current customization requirements. For more information and for guidance, see the sections on AD FS branding and AD FS customization.|
-| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [conditional access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR). |
+| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [conditional access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR). |
 | You require users to perform multi-factor authentication against an on-premises multi-factor authentication server solution when users authenticate to AD FS.| In a managed identity domain, you can't inject a multi-factor authentication challenge via the on-premises multi-factor authentication solution into the authentication flow. However, you can use the Azure Multi-Factor Authentication service for multi-factor authentication after the domain is converted.<br /><br /> If your users don't currently use Azure Multi-Factor Authentication, a onetime user registration step is required. You must prepare for and communicate the planned registration to your users. |
-| You currently use access control policies (AuthZ rules) in AD FS to control access to Office 365.| Consider replacing the policies with the equivalent Azure AD [conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR).|
+| You currently use access control policies (AuthZ rules) in AD FS to control access to Office 365.| Consider replacing the policies with the equivalent Azure AD [conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR).|
 
 ### Common AD FS customizations
 
@@ -254,11 +255,11 @@ First, change the sign-in method:
    ![Screenshot of the Ready to configure page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 8. Verify these settings:
-  * **Federation** is set to **Disabled**.
-  * **Seamless single sign-on** is set to **Enabled**.
-  * **Pass-through authentication** is set to **Enabled**.<br />
+   * **Federation** is set to **Disabled**.
+   * **Seamless single sign-on** is set to **Enabled**.
+   * **Pass-through authentication** is set to **Enabled**.<br />
 
-  ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Next. deploy additional authentication methods:
 
@@ -266,16 +267,16 @@ Next. deploy additional authentication methods:
 2. On the **Pass-through authentication** page, select the **Download** button.
 3. On the **Download agent** page, select **Accept terms and download**.
 
-  Additional authentication agents start to download. Install the secondary authentication agent on a domain-joined server. 
+   Additional authentication agents start to download. Install the secondary authentication agent on a domain-joined server. 
 
-  > [!NOTE]
-  > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the **User sign-in** section of the Azure AD Connect tool. Install any additional authentication agents on a separate server. We recommend that you have two or three additional authentication agents available. 
+   > [!NOTE]
+   > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the **User sign-in** section of the Azure AD Connect tool. Install any additional authentication agents on a separate server. We recommend that you have two or three additional authentication agents available. 
 
 4. Run the authentication agent installation. During installation, you must enter the credentials of a Global Administrator account.
 
-  ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Screenshot that shows the sign-in page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Screenshot that shows the sign-in page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. When the authentication agent is installed, you can return to the pass-through authentication agent health page to check the status of the additional agents.
 
@@ -371,7 +372,7 @@ When your tenant used federated identity, users were redirected from the Azure A
 To test pass-through authentication:
 
 1. Open Internet Explorer in InPrivate mode so that seamless SSO doesn't sign you in automatically.
-2. Go to the Office 365 sign-in page ([http://portal.office.com](http://portal.office.com/)).
+2. Go to the Office 365 sign-in page ([https://portal.office.com](https://portal.office.com/)).
 3. Enter a user UPN, and then select **Next**. Make sure that you enter the UPN of a hybrid user who was synced from your on-premises Active Directory instance, and who previously used federated authentication. A page on which you enter the username and password appears:
 
    ![Screenshot that shows the sign-in page in which you enter a username](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)

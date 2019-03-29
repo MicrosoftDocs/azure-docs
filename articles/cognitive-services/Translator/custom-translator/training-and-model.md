@@ -5,9 +5,9 @@ description: A model is the system, which provides translation for a specific la
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 #Customer intent: As a Custom Translator user, I want to concept of a model and training, so that I can efficiently use training, tuning and testing datasets the helps me build a translation model.
 ---

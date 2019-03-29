@@ -600,4 +600,4 @@ Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $
 Once reprotection is complete, you can initiate failover in reverse direction (West US to East US) and failback to source region.
 
 ## Next steps
-View the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
+View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.

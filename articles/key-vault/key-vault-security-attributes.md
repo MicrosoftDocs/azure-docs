@@ -4,7 +4,7 @@ description: A checklist of common security attributes for evaluating Azure Key 
 services: key-vault
 documentationcenter: ''
 author: msmbaldwin
-manager: mbaldwin
+manager: barbkess
 
 ms.service: key-vault
 ms.topic: conceptual

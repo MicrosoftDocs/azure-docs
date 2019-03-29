@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
@@ -25,7 +25,7 @@ We recommend that you review the information carefully before you connect to the
 |    Service encryption for data at Rest                  |    256-bit AES encryption                             |    256-bit AES encryption |
 |    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
-|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Data Box v 1.7 onwards.|
+|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Data Box v 1.8 onwards.|
 |    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
 |    Page blob page size                                  |    512 bytes                                          |    4 KB                   |
 
@@ -33,8 +33,10 @@ We recommend that you review the information carefully before you connect to the
 
 The following versions of Azure Storage service APIs are supported with Data Box Blob storage:
 
-Public preview release (Azure Data Box 1.7 onwards)
+Public preview release (Azure Data Box 1.8 onwards)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -46,7 +48,7 @@ Public preview release (Azure Data Box 1.7 onwards)
 |     Client library     |     Data Box Blob storage supported version     |     Link             |     Endpoint specification         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    From 6.2.0 to 8.7.0.                         |    Nuget package:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub release:   https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config file                 |
-|    Java                |    From 4.1.0 to 6.1.0                          |    Maven package:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases                                                      |    Connection string setup         |
+|    Java                |    From 4.1.0 to 6.1.0                          |    Maven package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases                                                      |    Connection string setup         |
 |    Node.js             |    From 1.1.0 to 2.7.0                          |    NPM link:   https://www.npmjs.com/package/azure-storage   (For example: run "npm install azure-storage@2.7.0")   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases                            |    Service instance declaration    |
 |    C++                 |    From 2.4.0 to 3.1.0                          |    Nuget package:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub release:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Connection string setup         |
 |    PHP                 |    From 0.15.0 to 1.0.0                         |    GitHub release:   https://github.com/Azure/azure-storage-php/releases   <br>Install via Composer (see details below)                                                                                                   |    Connection string setup         |
@@ -55,16 +57,14 @@ Public preview release (Azure Data Box 1.7 onwards)
 
 ## Supported Azure client libraries
 
-For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements.
+For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API, see the [supported versions for Azure Data Box 1.8 onwards](#supported-api-versions). For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
 
-The supported REST API versions for Data Box Blob storage are 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, and 2015-04-05 for the Azure Data Box version 1.7 onwards. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API. For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
-
-### Azure Data Box 1.7 onwards
+### Azure Data Box 1.8 onwards
 
 | Client library     |Data Box Blob storage supported version     | Link   |     Endpoint specification      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Nuget package:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub release:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config file                 |
-|    Java                |    6.1.0                                           |    Maven package:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Connection string setup         |
+|    Java                |    6.1.0                                           |    Maven package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Connection string setup         |
 |    Node.js             |    2.7.0                                           |    NPM link:   https://www.npmjs.com/package/azure-storage   (Run: npm install azure-storage@2.7.0)   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Service instance declaration    |
 |    C++                 |    3.1.0                                           |    Nuget package:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Connection string setup         |
 |    PHP                 |    1.0.0                                           |    GitHub release:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Install via Composer (To learn more, See   the details below.)                                                                                                             |    Connection string setup         |
@@ -91,7 +91,7 @@ Run: php composer.phar install.
 
 ### Endpoint declaration
 
-An Azure Data Box Blob storage endpoint includes two parts: the name of a region and the Data Box domain. In the Data Box Blob storage SDK, the default endpoint is <serial no. of the device>.microsoftdatabox.com.  For more information on blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
+An Azure Data Box Blob storage endpoint includes two parts: the name of a region and the Data Box domain. In the Data Box Blob storage SDK, the default endpoint is \<serial no. of the device>.microsoftdatabox.com.  For more information on blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
  
 ## Examples
 

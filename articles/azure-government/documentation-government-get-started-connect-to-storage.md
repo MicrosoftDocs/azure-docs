@@ -68,7 +68,7 @@ These endpoint differences must be taken into account when you connect to storag
 	var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
 
     var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
-	```
+    ```
 
     -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?view=azure-dotnet) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
@@ -110,7 +110,7 @@ These endpoint differences must be taken into account when you connect to storag
             }
     
     	}
-	``` 
+    ``` 
 3. Create a "test" class where we will access Azure Table Storage using the Azure Storage API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
 
@@ -170,7 +170,7 @@ These endpoint differences must be taken into account when you connect to storag
 	// Container exists and is private
 	}
 	});
-	```
+    ```
 
 #### Python
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
@@ -184,7 +184,7 @@ These endpoint differences must be taken into account when you connect to storag
 	generator = block_blob_service.list_blobs(container_name)
 	for blob in generator:
 		print(blob.name)
-	```
+    ```
 
 #### PHP
 1. Download the [Azure Storage SDK for PHP](../php-download-sdk.md).
@@ -192,32 +192,32 @@ These endpoint differences must be taken into account when you connect to storag
    In the `connectionString` variable, you will notice that there is a `TableEndpoint` parameter. 
    Depending on which service you are using, you must define the parameter and set it to the endpoint for that service:
    
-	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-	- QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-	>[!Note]
-	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-	> **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-	>
+   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
+   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
+   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
+     >[!Note]
+     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
+     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
+     >
 	
-	```php
-	<?php
-	require_once "vendor/autoload.php";
-	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;	
-	$connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
+     ```php
+     <?php
+     require_once "vendor/autoload.php";
+     use WindowsAzure\Common\ServicesBuilder;
+     use MicrosoftAzure\Storage\Common\ServiceException; 
+     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
 
-	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	try {
-	// Create table.
-	$tableRestProxy->createTable("test");
-	}
-	catch(ServiceException $e){
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	}
-	?>
-	```
+     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+     try {
+     // Create table.
+     $tableRestProxy->createTable("test");
+     }
+     catch(ServiceException $e){
+     $code = $e->getCode();
+     $error_message = $e->getMessage();
+     }
+     ?>
+     ```
 
 ## Get help and provide feedback
 

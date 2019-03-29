@@ -241,7 +241,7 @@ The following table lists the parameters required to configure Azure Key Vault I
 
 | PARAMETER | DESCRIPTION | EXAMPLE |
 | --- | --- | --- |
-| **Key Vault URL** |The location of the key vault. |https://contosokeyvault.vault.azure.net/ |
+| **Key Vault URL** |The location of the key vault. |https:\//contosokeyvault.vault.azure.net/ |
 | **Principal name** |Azure Active Directory service principal name. This name is also referred to as the Client ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Principal secret** |Azure Active Directory service principal secret. This secret is also referred to as the Client Secret. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Credential name** |**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential. |mycred1 |

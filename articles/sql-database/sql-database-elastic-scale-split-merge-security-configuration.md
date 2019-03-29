@@ -115,24 +115,29 @@ The default configuration denies all access to the HTTP endpoint. This is the re
 The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
 
 ### Changing the Configuration
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+The group of access control rules that apply to and endpoint are configured in the **\<EndpointAcls>** section in the **service configuration file**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+The rules in an access control group are configured in a \<AccessControl name=""> section of the service configuration file. 
 
 The format is explained in Network Access Control Lists documentation.
 For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## Denial of service prevention
 There are two different mechanisms supported to detect and prevent Denial of Service attacks:
@@ -148,22 +153,29 @@ These are based on the features further documented in Dynamic IP Security in IIS
 ## Restricting number of concurrent accesses
 The settings that configure this behavior are:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
 
 ## Restricting rate of access
 The settings that configure this behavior are:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## Configuring the response to a denied request
 The following setting configures the response to a denied request:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 Refer to the documentation for Dynamic IP Security in IIS for other supported values.
 
 ## Operations for configuring service certificates
@@ -228,12 +240,16 @@ Only client certificate-based authentication is supported and disabling it will 
 
 Change these settings to false in the service configuration file to turn off the feature:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
@@ -276,11 +292,15 @@ Upload certificate with the existing or generated .CER file with the CA public k
 ## Update CA certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Update the value of the following setting with the same thumbprint:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## Issue client certificates
 Each individual authorized to access the service should have a client certificate issued for their exclusive use and should choose their own strong password to protect its private key. 
@@ -335,18 +355,22 @@ Each individual for whom a client certificate has been issued must follow these 
 * Make sure Show is displaying All
 * Select the field named Thumbprint in the list
 * Copy the value of the thumbprint
-  ** Delete non-visible Unicode characters in front of the first digit
-  ** Delete all spaces
+  * Delete non-visible Unicode characters in front of the first digit
+  * Delete all spaces
 
 ## Configure Allowed clients in the service configuration file
 Update the value of the following setting in the service configuration file with a comma-separated list of the thumbprints of the client certificates allowed access to the service:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## Configure client certificate revocation check
 The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority that issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## Create PFX file for self-signed encryption certificates
 For an encryption certificate, execute:
@@ -379,7 +403,9 @@ Upload certificate with the existing or generated .PFX file with the encryption 
 ## Update encryption certificate in service configuration file
 Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Common certificate operations
 * Configure the SSL certificate
@@ -450,7 +476,9 @@ In the [Azure portal](https://portal.azure.com/)
 ## Other security considerations
 The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 

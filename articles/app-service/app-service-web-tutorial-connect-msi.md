@@ -72,7 +72,7 @@ az ad sp show --id <principalid>
 
 ## Grant database access to identity
 
-Next, you grant database access to your app's managed identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
+Next, you grant database access to your app's managed identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -92,7 +92,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```PowerShell
+```powershell
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 

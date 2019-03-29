@@ -18,11 +18,13 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Register applications
+  - name: 2 - Register an application
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
-  - name: 4 - Customize the UI
+  - name: Add identity providers
+    href: tutorial-add-identity-providers.md
+  - name: Customize the UI
     href: tutorial-customize-ui.md
   - name: Authenticate accounts
     items:
@@ -68,13 +70,19 @@
     href: manage-user-data.md
   - name: User flows
     href: active-directory-b2c-reference-policies.md
+  - name: User flows with JavaScript
+    href: user-flow-javascript-overview.md
   - name: User interface customization
     href: customize-ui-overview.md
 - name: How-to guides
   items:
   - name: Access audit logs 
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Age gating
+  - name: Add a web API application
+    href: add-web-application.md
+  - name: Add a native client application
+    href: add-native-application.md
+  - name: Configure age gating
     href: basic-age-gating.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
@@ -92,7 +100,7 @@
     items:
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
-    - name: Confgure ROPC
+    - name: Configure ROPC
       href: ropc-custom.md
     - name: Configure user input
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
@@ -229,7 +237,7 @@
           href: relyingparty.md
       - name: JavaScript samples
         href: javascript-samples.md
-      - name: Release notes
+      - name: Developer notes
         href: active-directory-b2c-developer-notes-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
@@ -289,8 +297,6 @@
       href: active-directory-b2c-how-to-enable-billing.md
     - name: Threat management
       href: active-directory-b2c-reference-threat-management.md
-    - name: Issue when creating a directory
-      href: active-directory-b2c-support-create-directory.md
     - name: Extensions app
       href: active-directory-b2c-reference-extensions-app.md
     - name: User flow versions

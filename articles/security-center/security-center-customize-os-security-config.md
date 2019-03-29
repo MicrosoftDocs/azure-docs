@@ -4,7 +4,7 @@ description: This article demonstrates how to customize security center assessme
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -109,7 +109,7 @@ Each category has its own set of attributes. You can change the following attrib
 
     - List of allowed user groups, for example: *Administrators*, *Backup Operators*
 
--   **state**: The string can contain the options *Disabled* or *Enabled*. For this private preview release, the string is case-sensitive.
+-   **state**: The string can contain the options *Disabled* or *Enabled*. For this release, the string is case-sensitive.
 
 These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. You will receive an error telling you that you need to upload a valid JSON configuration file.
 
@@ -278,7 +278,7 @@ All potential errors are listed in the following table:
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |
 | BaselineRuleEmptyProperty                | The property *{0}* is missing or invalid.                                                                                                       |
 | BaselineRuleIdNotInDefault               | The rule has a source property *Microsoft* but it was not found in the Microsoft default ruleset.                                                   |
-| BaselineRuleIdNotUniqueError             | The rule Id is not unique.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | The rule ID is not unique.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | The property *{0}* was found invalid. The value is not a valid GUID.                                                                             |
 | BaselineRuleInvalidHive                  | The hive must be LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | The rule name is not unique.                                                                                                                 |

@@ -4,7 +4,7 @@ description: Send custom metrics for an Azure resource to the Azure Monitor metr
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
@@ -33,7 +33,7 @@ Give the app created as part of step 1, Monitoring Metrics Publisher, permission
 Open a command prompt and run the following command:
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Save the access token from the response.
 
@@ -72,13 +72,13 @@ Save the access token from the response.
     ``` 
 
 1. In your command prompt window, post the metric data: 
-    - **azureRegion**. Must match the deployment region of the resource you're emitting metrics for. 
-    - **resourceID**.  Resource ID of the Azure resource you're tracking the metric against.  
-    - **AccessToken**. Paste the token that you acquired previously.
+   - **azureRegion**. Must match the deployment region of the resource you're emitting metrics for. 
+   - **resourceID**.  Resource ID of the Azure resource you're tracking the metric against.  
+   - **AccessToken**. Paste the token that you acquired previously.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Change the timestamp and values in the JSON file. 
 1. Repeat the previous two steps a few times, so you have data for several minutes.
 

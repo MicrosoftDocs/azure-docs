@@ -4,7 +4,7 @@ description: Learn about Azure Security Center, its key capabilities, and how it
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -135,7 +135,7 @@ recommendations for how to mitigate them.
 
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Log Analytics) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
 onboard and roll out.
 
 In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.

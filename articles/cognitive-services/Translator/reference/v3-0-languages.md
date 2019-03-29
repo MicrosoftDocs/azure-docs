@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Languages method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
@@ -33,7 +33,7 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
+    <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>

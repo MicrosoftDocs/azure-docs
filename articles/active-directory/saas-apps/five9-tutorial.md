@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents)
 

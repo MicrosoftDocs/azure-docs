@@ -10,7 +10,7 @@ ms.author: rimman
 
 ---
 
-# Build a console app using Azure Cosmos DB's API for MongoDB and Golang SDK
+# Quickstart: Build a console app using Azure Cosmos DB's API for MongoDB and Golang SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

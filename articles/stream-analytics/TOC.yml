@@ -31,21 +31,25 @@
 - name: Concepts
   items:
   - name: Input types for a job
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Inputs overview
+      href: stream-analytics-add-inputs.md
     - name: Streaming data inputs
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
   - name: Output types for a job
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Outputs overview
+      href: stream-analytics-define-outputs.md
     - name: Output to Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Output to Azure SQL DB
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: States of a job
+    href: job-states.md
   - name: Window functions
     href: stream-analytics-window-functions.md
   - name: Geospatial functions
@@ -56,8 +60,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
-  - name: Event ordering considerations
-    href: stream-analytics-out-of-order-and-late-events.md
+  - name: Time handling considerations
+    href: stream-analytics-time-handling.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
@@ -68,8 +72,12 @@
     items:
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configure event ordering policies
+      href: event-ordering.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
+    - name: Start a job
+      href: start-job.md
     - name: Test a job
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
@@ -80,6 +88,8 @@
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity
       href: stream-analytics-managed-identities-adls.md
+    - name: Use SQL reference data
+      href: sql-reference-data.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -107,7 +117,7 @@
       href: stream-analytics-monitoring.md
     - name: Monitor jobs- PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .Net SDK
+    - name: Monitor jobs- Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -115,9 +125,10 @@
     items:
     - name: Scale with streaming units
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Scale with query parallelization
-      href: stream-analytics-parallelization.md
+    - name: Scale with parallelization
       items:
+      - name: Query parallelization
+        href: stream-analytics-parallelization.md
       - name: Increase throughput
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
@@ -128,7 +139,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API
+    - name: Using API for Edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
@@ -209,14 +220,16 @@
           items: 
             - name: Analytic Functions Overview
               href: /stream-analytics-query/analytic-functions-azure-stream-analytics 
+            - name: AnomalyDetection_SpikeAndDip
+              href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+            - name: AnomalyDetection_ChangePoint
+              href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
             - name: ISFIRST
               href: /stream-analytics-query/isfirst-azure-stream-analytics 
             - name: LAG
               href: /stream-analytics-query/lag-azure-stream-analytics 
             - name: LAST
               href: /stream-analytics-query/last-azure-stream-analytics 
-            - name: AnomalyDetection
-              href: /stream-analytics-query/anomaly-detection-azure-stream-analytics 
         - name: Array Functions
           items: 
             - name: Array Functions Overview
@@ -393,7 +406,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.streamanalytics
+    href: /powershell/module/az.streamanalytics
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST
@@ -419,11 +432,10 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-
