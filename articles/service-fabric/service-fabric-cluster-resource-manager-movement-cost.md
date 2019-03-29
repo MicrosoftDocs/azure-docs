@@ -4,7 +4,7 @@ description: Overview of movement cost for Service Fabric services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
