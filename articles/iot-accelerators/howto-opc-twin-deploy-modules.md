@@ -14,10 +14,10 @@ manager: philmea
 
 The OPC Device Twin module runs on IoT Edge and provides several edge services to the OPC Device Twin and Registry services. 
 
-There are several options to deploy modules to your [Azure IoT Edge](https://azure.microsoft.com/en-us/services/iot-edge/) Gateway, among them
+There are several options to deploy modules to your [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, among them
 
-- [Deploying from Azure portal's IoT Edge blade](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-modules-portal)
-- [Deploying using AZ CLI](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Deploying from Azure portal's IoT Edge blade](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
+- [Deploying using AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
 
 > [!NOTE]
 > For more information on deployment details and instructions, see the GitHub [repository](https://github.com/Azure/azure-iiot-components).
@@ -106,7 +106,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 1. Deploy the OPC UA Device management [dependencies](howto-opc-twin-deploy-dependencies.md) and obtained the resulting `.env` file. Note the deployed `hub name` of the `PCS_IOTHUBREACT_HUB_NAME` variable in the resulting `.env` file.
 
-2. Register and start a [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) or [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge gateway and note its `device id`.
+2. Register and start a [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) or [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge gateway and note its `device id`.
 
 ### Deploy to an edge device
 
@@ -132,7 +132,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
    {"HostConfig":{"NetworkMode":"host","CapAdd":["NET_ADMIN"]}}
    ```
 
-   Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](https://docs.microsoft.com/en-us/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 7. Select **Save** and repeat step **5**.  
 
@@ -167,11 +167,11 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 12. Once you've deployed modules to your device, you can view all of them in the **Device details** page of the portal. This page displays the name of each deployed module, as well as useful information like the deployment status and exit code.
 
-## Deploying using AZ CLI
+## Deploying using Azure CLI
 
 ### Prerequisites
 
-1. Install the latest version of the [Azure command line interface (AZ)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install the latest version of the [Azure command line interface (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) from [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Quickstart
 
@@ -184,7 +184,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
    ```
 
    The `device id` parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/en-us/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Once you've deployed modules to your device, you can view all of them with the following command:
 
@@ -192,7 +192,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   The device ID parameter is case-sensitive. ![az iot hub module-identity list output](https://docs.microsoft.com/en-us/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   The device ID parameter is case-sensitive. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## Run and debug locally
 
@@ -214,13 +214,13 @@ For trouble shooting and debugging it is useful to run the Edge modules locally 
    pip install --upgrade iotedgehubdev
    ```
 
-   **Note**: Install `iotedgehubdev` to **root** on Linux/macOS (*Don't use '--user' option in the 'pip install' command*).
-
-**Make sure there is no Azure IoT Edge runtime running on the same machine with iotedgehubdev since they require the same ports.**
+> [!NOTE]
+> Install `iotedgehubdev` to **root** on Linux/macOS (*Don't use '--user' option in the 'pip install' command*).
+> Make sure there is no Azure IoT Edge runtime running on the same machine with iotedgehubdev since they require the same ports.
 
 ### Quickstart
 
-1. Follow the instructions to [create a Edge Device in the Azure portal](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal).  Copy the edge device connection string.
+1. Follow the instructions to [create a Edge Device in the Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).  Copy the edge device connection string.
 
 2. Set up the simulator using the edge connection string.
 

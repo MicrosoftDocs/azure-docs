@@ -15,7 +15,7 @@
   - name: Overview
     href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
-    - name: Architecural choices
+    - name: Architectural choices
       href: iot-accelerators-remote-monitoring-architectural-choices.md
 
   - name: Quickstarts

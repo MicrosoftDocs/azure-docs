@@ -10,13 +10,13 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Deploying Dependencies for local Development
+# Deploying dependencies for local development
 
 This article explains how to deploy only the Azure Platform Services need to do local development and debugging.   At the end, you will have a resource group deployed that contains everything you need for local development and debugging.
 
-## Deploy Azure Platform Services
+## Deploy Azure platform services
 
-1. Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed (Linux support is coming soon).  Open a command prompt or terminal and run:
+1. Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed.  Open a command prompt or terminal and run:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -37,7 +37,7 @@ This article explains how to deploy only the Azure Platform Services need to do 
 
 Ensure you use a short and simple resource group name.  The name is used also to name resources as such it must comply with resource naming requirements.  
 
-### Azure Active Directory (AAD) Registration
+### Azure Active Directory (AAD) registration
 
 The deployment script tries to register AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, this might fail.   There are 3 options:
 

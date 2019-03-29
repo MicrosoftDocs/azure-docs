@@ -26,16 +26,16 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 ## Prerequisites
 
 > [!NOTE]
-> Note: Due the dependency on the AzureRM module, deployment currently is only supported on Windows.  We will add support for Linux soon.
+> Note: Due the dependency on the AzureRM module, deployment currently is only supported on Windows.
 
-Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed.   If you have not done so yet, clone this GitHub repository.  Open a command prompt or terminal and run:
+Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed.   If you have not done so yet, clone this GitHub repository.  Open a command prompt or terminal and run:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
 cd azure-iiot-components
 ```
 
-## Deploy Industrial IoT Services to Azure
+## Deploy industrial IoT services to Azure
 
 1. On the open command prompt or terminal run:
 
@@ -61,16 +61,17 @@ Ensure you use a short and simple resource group name.  The name is used also to
 
 It is possible that the name of the website is already in use.  If you run into this error, you need to use a different application name.
 
-### Azure Active Directory (AAD) Registration
+### Azure Active Directory (AAD) registration
 
 The deployment script tries to register two AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, the deployment might fail. There are two options:
 
 1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
 2. Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
 
-**WARNING**:  NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.
+> [!WARNING]
+> NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.
 
-## Deploy an all-in-one Industrial IoT Services Demo
+## Deploy an all-in-one industrial IoT services demo
 
 Instead of just the services and dependencies you can also deploy an all-in-one demo.  The all in one demo contains three OPC UA servers, the OPC Twin module, all micro services and a sample Web Application.  It is intended for demonstration purposes.
 

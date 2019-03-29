@@ -21,9 +21,7 @@ For example, ​a manufacturing company needs to connect their OPC UA server mac
 ## Application security management
 A security professional uses OPC Vault microservice to easily enable OPC UA server to communicate with any client application, because OPC Vault has all the functions for certificate registry, storage, and lifecycle management. ​Now the OPC UA server is securely connected, it can communicate to the newly built client application
 
-## Next steps
+## The complete OPC Vault architecture
+The following diagram illustrates the complete OPC Vault architecture.
 
-Now that you have learned about OPC Vault, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [OPC Vault architecture](overview-opc-vault-architecture.md)
+![OPC Vault architecture](media/overview-opc-vault-architecture/opc-vault.png)

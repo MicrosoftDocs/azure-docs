@@ -35,7 +35,7 @@ Azure Industrial IoT services, see the GitHub [repository ](https://github.com/A
 
 ## Factory floor connectivity
 
-Azure IoT OPC UA device management, also known as OPC Twin, is an IIoT component that automates device discovery and registration, and offers remote control of industrial devices through REST APIs. OPC Twin, uses Azure IoT Edge and IoT Hub to connect the cloud and the factory network. OPC Twin allows IIoT developers to focus on building IIoT applications without worrying about how to securely access the on-premise machines.
+Azure IoT OPC UA device management, also known as OPC Twin, is an IIoT component that automates device discovery and registration, and offers remote control of industrial devices through REST APIs. OPC Twin, uses Azure IoT Edge and IoT Hub to connect the cloud and the factory network. OPC Twin allows IIoT developers to focus on building IIoT applications without worrying about how to securely access the on-premises machines.
 
 ## Security
 
