@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/30/2018
+ms.date: 3/29/2019
 ms.author: jawalte
 
 ---
@@ -132,7 +132,21 @@ The URLs for accessing and managing the Service Bus service are different:
 | --- | --- | --- |
 | Service Bus | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
 
+## Support for Azure Firewall
 
+Azure Firewall is available in Azure Government in the following regions:
+- usgovarizona
+- usgovtexas
+- usgovvirginia
+
+The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
+
+### Limitations
+
+- Traffic Manager service tags do not work, by design.
+- App Service Environment FQDN tags currently do not work.
+
+For more information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 ## Next Steps
 For supplemental information and updates please subscribe to the
