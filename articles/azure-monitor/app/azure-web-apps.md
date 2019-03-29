@@ -27,7 +27,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This also means you have to manage updating to the latest version of the packages yourself. 
+    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
 
@@ -62,6 +62,12 @@ There are two ways to enable application monitoring for Azure App Services hoste
        * Collects exceptions unhandled by the host process.
        * Improves APM metrics accuracy under load, when sampling is used.
 
+3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix. 
+
+    * For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
+
+    * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+
 # [.NET Core](#tab/netcore)
 
 The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
@@ -79,7 +85,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, and 2.2.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, and 2.2.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -100,9 +106,9 @@ Java App Service based web applications do not currently support automatic agent
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
 * Select **Settings** >** **Application settings****
-   * Under Application settings, add a new key value pair:
+   * Under Application settings, add a new **app setting name** and **value**:
 
-     Key: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `true`
 
@@ -116,12 +122,12 @@ To disable client-side monitoring either remove the associated key value pair fr
 
 Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
-To disable client-side monitoring:
+If for some reason you would like to disable client-side monitoring:
 
 * Select **Settings** > **Application settings**
-   * Under Application settings, add a new key value pair:
+   * Under Application settings, add a new **app setting name** and **value**:
 
-     Key: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `false`
 
@@ -329,6 +335,11 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 ## Troubleshooting
 
+Below is our step-by-step troubleshooting guide for extension/agent based monitoring for .NET and .NET Core based applications running on Azure App Services.
+
+> [!NOTE]
+> Java and Node.js applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     * Check that `ApplicationInsightsAgent_EXTENSION_AGENT app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.
@@ -358,7 +369,7 @@ The table below provides a more detailed explanation of what these values mean, 
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| Remove the reference.
 |`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
 
-For the latest information on the Application Insights agent/extension check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
