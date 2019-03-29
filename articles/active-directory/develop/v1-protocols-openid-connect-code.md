@@ -43,12 +43,12 @@ OpenID Connect describes a metadata document that contains most of the informati
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net). Note that providing tenant rather than `common` in place of {tenant} above will result in tenant-specific URIs in the JSON object returned.
+The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net). Note that providing a tenant ID rather than `common` in place of {tenant} above will result in tenant-specific URIs in the JSON object returned.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -60,6 +60,8 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
     ...
 }
 ```
+
+If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## Send the sign-in request
 
