@@ -4,7 +4,7 @@ title: How to search for an address using the Azure Maps Search service  | Micro
 description: Learn how to search for an address using the Azure Maps Search service
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/25/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,7 +15,7 @@ manager: philmea
 
 The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
 
-This article will teach you how to:
+In this article you will learn, how to:
 
 * Search for an address using [Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * Search for an address along with properties and coordinates
