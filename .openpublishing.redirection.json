@@ -36553,32 +36553,32 @@
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/tags.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/configure#tags",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#tags",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/review-moderated-images#text-reviews",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images#text-reviews",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/credentials.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/configure#credentials",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#credentials",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/connectors.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/configure#connectors",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#connectors",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/human-in-the-loop#review-tool-dashboard",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop#review-tool-dashboard",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/SubTeams.md",
-      "redirect_url": "/azure/cognitive-services/content-moderator/configure#manage-team-and-subteams",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#manage-team-and-subteams",
       "redirect_document_id": true
     },
     {
