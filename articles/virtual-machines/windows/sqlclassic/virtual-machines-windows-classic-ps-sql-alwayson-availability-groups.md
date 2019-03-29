@@ -99,7 +99,7 @@ This tutorial is intended to show you the steps that are required to set up the 
 
     The configuration file contains the following XML document. In brief, it specifies a virtual network called **ContosoNET** in the affinity group called **ContosoAG**. It has the address space **10.10.0.0/16** and has two subnets, **10.10.1.0/24** and **10.10.2.0/24**, which are the front subnet and back subnet, respectively. The front subnet is where you can place client applications such as Microsoft SharePoint. The back subnet is where you'll place the SQL Server VMs. If you change the **$affinityGroupName** and **$virtualNetworkName** variables earlier, you must also change the corresponding names below.
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>

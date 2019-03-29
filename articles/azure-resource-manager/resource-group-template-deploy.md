@@ -1,6 +1,6 @@
-﻿---
+---
 title: Deploy resources with PowerShell and template | Microsoft Docs
-description: Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template.
+description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
 
 ---
@@ -19,25 +19,38 @@ ms.author: tomfitz
 
 Learn how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. For more information about the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
-To deploy a template, you typically need two steps:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Create a resource group. Resource group serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
-2. Deploy a template. The template defines the resources to create.  The deployment creates the resources in the resource group specified.
+## Deployment scope
 
-This two-step deployment method is used in this article.  The other option is to deploy a resource group and the resources at the same time.  For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+You can target your deployment to either an Azure subscription or a resource group within a subscription. In most cases, you'll target deployment to a resource group. Use subscription deployments to apply policies and role assignments across the subscription. You also use subscription deployments to create a resource group and deploy resources to it. Depending on the scope of the deployment, you use different commands.
+
+To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+To deploy to a **subscription**, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
 ## Prerequisites
 
-Unless you use the [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) to deploy templates, you need to install Azure PowerShell and connect to Azure:
+You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
+
+Unless you use the Azure Cloud shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
+
 - **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
-- *Download and save a [quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Deploy local template
 
-## Deploy templates stored locally
-
-The following example creates a resource group, and deploys a template from your local machine:
+The following example creates a resource group, and deploys a template from your local machine. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -48,11 +61,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Note *c:\MyTemplates\azuredeploy.json* is a quickstart template.  See [Prerequisites](#prerequisites).
-
 The deployment can take a few minutes to complete.
 
-## Deploy templates stored externally
+## Deploy remote template
 
 Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
@@ -69,7 +80,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md). To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md).
 
-## Deploy templates from Azure Cloud shell
+## Deploy from Azure Cloud shell
 
 You can use the [Azure Cloud Shell](https://shell.azure.com) to deploy your template. To deploy an external template, provide the URI of the template. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. To upload files to the shell, select the **Upload/Download files** menu icon from the shell window.
 
@@ -86,13 +97,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 To paste the code into the shell, right-click inside the shell and then select **Paste**.
 
-## Deploy to multiple resource groups or subscriptions
-
-Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. You can deploy to only five resource groups in a single deployment. For more information, see [Deploy Azure resources to multiple resource groups and subscriptions](resource-manager-cross-resource-group-deployment.md).
-
 ## Redeploy when deployment fails
 
-When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use either the `-RollbackToLastDeployment` or `-RollBackDeploymentName` parameter in the deployment command.
+This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use either the `-RollbackToLastDeployment` or `-RollBackDeploymentName` parameter in the deployment command. This functionality is useful if you have got a known good state for your infrastructure deployment and want this to be reverted to. There are a number of caveats and restrictions:
+
+- The redeployment is run exactly as it was run previously with the same parameters. You can not change the parameters.
+- The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
+- The redeployment only affects the resources, any data changes are not affected.
+- This feature is only supported on Resource Group deployments, not subscription level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 
 To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
 

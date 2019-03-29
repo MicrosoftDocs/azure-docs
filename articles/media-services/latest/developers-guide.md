@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: 
 ---
@@ -30,6 +30,7 @@ This topic provides links to the SDKs, tools, documentation. It also provides so
 To start developing against Media Services, you need:
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- [Learn about fundamental concepts](concepts-overview.md)
 - [Create a Media Services account](create-account-cli-how-to.md)
 
 ## Start developing
@@ -91,7 +92,7 @@ Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) document
 - [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
 - [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
 - [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](http://aka.ms/ams3functions)
+- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
 ## Java
 

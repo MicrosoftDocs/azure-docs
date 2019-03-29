@@ -4,7 +4,7 @@ description: Learn how to create a Resource Manager template for a Service Fabri
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -197,7 +197,7 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         ...
@@ -236,13 +236,13 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 ## Test your template
 Use the following PowerShell command to test your Resource Manager template with a parameter file:
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 

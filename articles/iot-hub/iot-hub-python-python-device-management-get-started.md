@@ -34,8 +34,8 @@ To complete this tutorial, you need the following:
         `pip install azure-iothub-device-client`
     * Install the [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) package, using the command
         `pip install azure-iothub-service-client`
-* If you are using Windows OS, then [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* If you are using Windows OS, then [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 ## Create an IoT hub
 

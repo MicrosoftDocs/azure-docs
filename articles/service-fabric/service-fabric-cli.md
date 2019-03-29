@@ -3,7 +3,7 @@ title: Get started with Azure Service Fabric CLI
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 
 ms.service: service-fabric
 ms.topic: conceptual

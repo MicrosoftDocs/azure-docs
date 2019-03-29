@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 12, 2019 | Supported (recommended version) |
+| March 2019 update rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | March 7, 2019 | Supported (recommended version) |
+| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 12, 2019 | Supported |
 | January 2019 update rollup - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | January 14, 2019 | Supported |
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December 2018 update rollup | 4.1.0.0 | December 4, 2018 | Supported |
@@ -33,13 +34,23 @@ The following versions are supported for the Azure File Sync agent:
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## Agent version 5.1.0.0
+The following release notes are for version 5.1.0.0 of the Azure File Sync agent released March 7, 2019. These notes are in addition to the release notes listed for version 5.0.2.0.
+
+List of issues fixed in this release:  
+- Files may fail to sync with error 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) if change enumeration is failing on the server
+- If a sync session or file receives an error 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), sync will now retry the operation
+- Files may fail to sync with error 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- High memory usage may occur when recalling files
+- Cloud tiering telemetry improvements 
+
 ## Agent version 5.0.2.0
 The following release notes are for version 5.0.2.0 of the Azure File Sync agent (released February 12, 2019).
 
 ### Improvements and issues that are fixed
 
 - Support for Azure Government cloud
-    - We have added preview support for the Azure Government cloud. This requires a white-listed subscription and a special agent download from Microsoft. To get access to the preview, please email us directly at [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - We have added preview support for the Azure Government cloud. This requires a white-listed subscription and a special agent download from Microsoft. To get access to the preview, please email us directly at [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Support for Data Deduplication
     - Data Deduplication is now fully supported with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
 - Support for offline data transfer (e.g. via Data Box)

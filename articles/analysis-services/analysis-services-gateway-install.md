@@ -85,22 +85,22 @@ After you've installed and registered your gateway, you need to create a gateway
 
 2. In **Create connection gateway**, enter these settings:
 
-    * **Name**: Enter a name for your gateway resource. 
+   * **Name**: Enter a name for your gateway resource. 
 
-    * **Subscription**: Select the Azure subscription 
-    to associate with your gateway resource. 
+   * **Subscription**: Select the Azure subscription 
+     to associate with your gateway resource. 
    
-      The default subscription is based on the 
-      Azure account that you used to sign in.
+     The default subscription is based on the 
+     Azure account that you used to sign in.
 
-    * **Resource group**: Create a resource group or select an existing resource group.
+   * **Resource group**: Create a resource group or select an existing resource group.
 
-    * **Location**: Select the region you registered your gateway in.
+   * **Location**: Select the region you registered your gateway in.
 
-    * **Installation Name**: If your gateway installation isn't already selected, 
-    select the gateway registered. 
+   * **Installation Name**: If your gateway installation isn't already selected, 
+     select the gateway registered. 
 
-    When you're done, click **Create**.
+     When you're done, click **Create**.
 
 ## <a name="connect-servers"></a>Connect servers to the gateway resource
 

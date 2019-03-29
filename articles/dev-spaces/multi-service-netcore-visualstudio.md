@@ -5,7 +5,6 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "07/09/2018"
@@ -29,7 +28,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 1. Open the project `mywebapi` in a *separate Visual Studio window*.
 1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than creating a new AKS cluster this time, select the same one you already created. As before, leave the Space defaulted to `default` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your dev space in order to speed up things when you start debugging.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the Visual Studio status bar turns orange
-1. Take note of the endpoint URL displayed in the **Azure Dev Spaces for AKS** pane in the **Output** window. It will look something like http://localhost:\<portnumber\>. It might seem like the container is running locally, but actually it's running in the dev space in Azure.
+1. Take note of the endpoint URL displayed in the **Azure Dev Spaces for AKS** pane in the **Output** window. It will look something like `http://localhost:<portnumber>`. It might seem like the container is running locally, but actually it's running in the dev space in Azure.
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 3. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 

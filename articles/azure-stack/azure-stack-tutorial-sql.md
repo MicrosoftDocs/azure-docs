@@ -61,7 +61,7 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 - One availability set containing the SQL and file share witness VMs  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Select **\+** **Create a resource** > **Custom**, and then **Template deployment**.
 
@@ -152,7 +152,7 @@ After the SQL AlwaysOn availability group has been created, configured, and adde
 > Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Select **\+** **Create a resource** > **Data \+ Storage**, and then **SQL Database**.<br><br>Provide the required database property information including name, collation, maximum size, and the subscription, resource group, and location to use for the deployment. 
 

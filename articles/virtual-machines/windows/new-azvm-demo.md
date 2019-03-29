@@ -22,7 +22,7 @@ ROBOTS: NOINDEX
 
 # Create a Windows virtual machine with the simplified New-AzVM cmdlet in Cloud Shell 
 
-The [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) cmdlet has added a simplified set of parameters for creating a new VM using PowerShell. This topic shows you how to use PowerShell in Azure Cloud Shell, with the latest version of the New-AzureVM cmdlet preinstalled, to create a new VM. We will use a simplified parameter set that automatically creates all the necessary resources using smart defaults. 
+The [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet has added a simplified set of parameters for creating a new VM using PowerShell. This topic shows you how to use PowerShell in Azure Cloud Shell, with the latest version of the New-AzureVM cmdlet preinstalled, to create a new VM. We will use a simplified parameter set that automatically creates all the necessary resources using smart defaults. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-You can use the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) cmdlet to create a VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM with just the **-Name** parameter and it will use that value for all of the resource names. In this example, we set the **-Name** parameter as *myVM*. 
+You can use the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet to create a VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM with just the **-Name** parameter and it will use that value for all of the resource names. In this example, we set the **-Name** parameter as *myVM*. 
 
 Make sure that **PowerShell** is selected in Cloud Shell and type:
 

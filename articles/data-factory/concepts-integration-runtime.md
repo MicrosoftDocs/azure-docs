@@ -49,7 +49,7 @@ The following diagram shows how the different integration runtimes can be used i
 An Azure integration runtime is capable of:
 
 - Running copy activity between cloud data stores
-- Dispatching the following transform activities in public network: HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .Net custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities in public network: HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
 
 ### Azure IR network environment
 Azure Integration Runtime supports connecting to data stores and compute services in public network with public accessible endpoints. Use a self-hosted integration runtime for Azure Virtual Network environment.
@@ -67,7 +67,7 @@ For information about creating and configuring an Azure IR, see How to create an
 A self-hosted IR is capable of:
 
 - Running copy activity between a cloud data stores and a data store in private network.
-- Dispatching the following transform activities against compute resources in On-Premise or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .Net custom activity, Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities against compute resources in On-Premise or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Lookup activity, and Get Metadata activity.
 
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that requires bring-your-own driver such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

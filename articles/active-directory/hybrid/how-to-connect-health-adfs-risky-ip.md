@@ -33,14 +33,14 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 > 
 
 ## What is in the report?
-Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
+The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
 ![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4a.png)
 
 | Report Item | Description |
 | ------- | ----------- |
 | Time Stamp | Shows the time stamp based on Azure portal local time when the detection time window starts.<br /> All daily events are generated at mid-night UTC time. <br />Hourly events have the timestamp rounded to the beginning of the hour. You can find first activity start time from “firstAuditTimestamp” in the exported file. |
 | Trigger Type | Shows the type of detection time window. The aggregation trigger types are per hour or per day. This is helpful to detect versus a high frequency brute force attack versus a slow attack where the number of attempts is distributed throughout the day. |
-| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. This could be a IPv4 or an IPv6 address. |
+| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. This could be an IPv4 or an IPv6 address. |
 | Bad Password Error Count | The count of Bad Password error occurred from the IP address during the detection time window. The Bad Password errors can happen multiple times to certain users. Notice this does not include failed attempts due to expired passwords. |
 | Extranet Lock Out Error Count | The count of Extranet Lockout error occurred from the IP address during the detection time window. The Extranet Lockout errors can happen multiple times to certain users. This will only be seen if Extranet Lockout is configured in AD FS (versions 2012R2 or higher). <b>Note</b> We strongly recommend turning this feature on if you allow extranet logins using passwords. |
 | Unique Users Attempted | The count of unique user accounts attempted from the IP address during the detection time window. This provides a mechanism to differentiate a single user attack pattern versus multi-user attack pattern.  |

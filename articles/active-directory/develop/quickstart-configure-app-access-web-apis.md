@@ -71,11 +71,11 @@ To add a redirect URI to your application:
 
 1. To add a custom redirect URI for web and public client applications, follow these steps:
 
-    1. Locate the **Redirect URI** section.
-    1. Select the type of application you're building, **Web** or **Public client (mobile & desktop)**.
-    1. Enter the Redirect URI for your application.
-        * For web applications, provide the base URL of your application. For example, http://localhost:31544 might be the URL for a web application running on your local machine. Users would use this URL to sign into a web client application.
-        * For public applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example https://MyFirstApp.
+   1. Locate the **Redirect URI** section.
+   1. Select the type of application you're building, **Web** or **Public client (mobile & desktop)**.
+   1. Enter the Redirect URI for your application.
+      * For web applications, provide the base URL of your application. For example, `http://localhost:31544` might be the URL for a web application running on your local machine. Users would use this URL to sign into a web client application.
+      * For public applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example https://MyFirstApp.
 
 1. To choose from suggested Redirect URIs for public clients (mobile, desktop), follow these steps:
 

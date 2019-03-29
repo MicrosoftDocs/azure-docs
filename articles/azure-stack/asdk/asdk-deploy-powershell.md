@@ -136,6 +136,7 @@ If your environment does not have DHCP enabled, then you must include the follow
 ```
 
 ### ASDK InstallAzureStackPOC.ps1 optional parameters
+
 |Parameter|Required/Optional|Description|
 |-----|-----|-----|
 |AdminPassword|Required|Sets the local administrator account and all other user accounts on all the virtual machines created as part of development kit deployment. This password must match the current local administrator password on the host.|

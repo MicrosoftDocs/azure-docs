@@ -34,7 +34,7 @@ The Visual Studio solution also builds an installer for the application. You nee
 
 You also need a subscription key for the Translator Speech service, which you can obtain from the Microsoft Azure dashboard. A free pricing tier is available that allows you to translate up to 10 hours of speech per month at no charge. This tier is sufficient for this tutorial.
 
-The third-party [JSON.Net library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
+The third-party [JSON.NET library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
 
 ## Trying the translation app
 

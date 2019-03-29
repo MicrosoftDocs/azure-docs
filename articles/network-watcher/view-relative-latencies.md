@@ -115,8 +115,8 @@ Get-AzureRmNetworkWatcherReachabilityReport `
   -EndTime "2017-12-15"
 ```
 
->[!NOTE]
-Unlike when you specify a single location, if you don't specify a location, or specify multiple locations, such as "West US2", "West US", you must specify an Internet service provider when running the command. 
+> [!NOTE]
+> Unlike when you specify a single location, if you don't specify a location, or specify multiple locations, such as "West US2", "West US", you must specify an Internet service provider when running the command. 
 
 ## <a name="view-available"></a>View available countries, states, cities, and providers
 

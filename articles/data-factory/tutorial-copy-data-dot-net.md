@@ -53,7 +53,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     Jane|Doe
 	```
 
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
 
 #### Create a sink SQL table
 
@@ -232,7 +232,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 - The data structure, including column names and data types which in this case map to the sink SQL table.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -270,7 +270,7 @@ Add the following code to the **Main** method that creates an **Azure SQL Databa
 You define a dataset that represents the sink data in Azure SQL Database. This dataset refers to the Azure SQL Database linked service you create in the previous step. It also specifies the SQL table that holds the copied data. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

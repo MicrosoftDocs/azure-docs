@@ -64,4 +64,4 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 * [App services](security-center-virtual-machine-protection.md#app-services):  View a list of your App service environments with health summaries.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.

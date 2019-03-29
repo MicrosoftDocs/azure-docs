@@ -2239,13 +2239,13 @@ Update an existing person group's name and userData. The properties keep unchang
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Delete a eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Delete an eventSubscription |
 > | Action | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Get full url for the event subscription |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for eventSubscriptions |
-> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
-> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update a eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
@@ -2731,8 +2731,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes a Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads a Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Lists database principals. |
@@ -3395,7 +3395,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Writes a snapshot resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | Writes a volume resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/write | Writes a pool resource. |
-> | Action | Microsoft.NetApp/netAppAccounts/delete | Deletes a account resource. |
+> | Action | Microsoft.NetApp/netAppAccounts/delete | Deletes an account resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Action | Microsoft.NetApp/Operations/read | Reads an operation resources. |
@@ -4736,7 +4736,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | Executes planned failover in an existing instance failover group. |
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Executes forced failover in an existing instance failover group. |
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/read | Returns the list of instance failover groups or gets the properties for the specified instance failover group. |
-> | Action | Microsoft.Sql/locations/instanceFailoverGroups/write | Creates a instance failover group with the specified parameters or updates the properties or tags for the specified instance failover group. |
+> | Action | Microsoft.Sql/locations/instanceFailoverGroups/write | Creates an instance failover group with the specified parameters or updates the properties or tags for the specified instance failover group. |
 > | Action | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Gets the status of an instance pool operation. |
 > | Action | Microsoft.Sql/locations/instancePoolOperationResults/read | Gets the result of an instance pool operation. |
 > | Action | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Returns the details of a specific interface endpoint Azure async operation |
@@ -4998,7 +4998,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/servers/importExportOperationResults/read | Gets in-progress import/export operations |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Deletes the specified interface endpoint profile |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Returns the properties for the specified interface endpoint profile |
-> | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Creates a interface endpoint profile with the specified parameters or updates the properties or tags for the specified interface endpoint |
+> | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Creates an interface endpoint profile with the specified parameters or updates the properties or tags for the specified interface endpoint |
 > | Action | Microsoft.Sql/servers/jobAgents/delete | Deletes an Azure SQL DB job agent |
 > | Action | Microsoft.Sql/servers/jobAgents/read | Gets an Azure SQL DB job agent |
 > | Action | Microsoft.Sql/servers/jobAgents/write | Creates or updates an Azure SQL DB job agent |

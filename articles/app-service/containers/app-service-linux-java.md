@@ -155,14 +155,11 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 
 ### Tomcat
 
->[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
-
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Drvier`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
@@ -249,21 +246,21 @@ Next, determine if the data source should be available to one application or to 
 #### Finally, place the driver JARs in the Tomcat classpath and restart your App Service
 
 1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. (Create this directory if it does not already exist.) To upload these files to your App Service instance, perform the following steps:  
-    1. Install the Azure App Service webpp extension:
+   1. Install the Azure App Service webpp extension:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    1. Run the following CLI command to create a SSH tunnel from your local system to App Service:
+   1. Run the following CLI command to create a SSH tunnel from your local system to App Service:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    1. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
+   1. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 

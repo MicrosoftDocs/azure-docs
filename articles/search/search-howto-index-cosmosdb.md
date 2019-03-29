@@ -18,7 +18,7 @@ This article shows you how to configure an Azure Cosmos DB [indexer](search-inde
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-You can use the [portal](#cosmos-indexer-portal), [REST APIs](#cosmos-indexer-rest), or [.NET SDK](#cosmos-indexer-dotnet) to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
+You can use the [portal](#cosmos-indexer-portal), REST APIs, or .NET SDK to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search support for this API is in public preview)  

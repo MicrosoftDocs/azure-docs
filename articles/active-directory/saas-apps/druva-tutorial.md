@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -203,7 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -256,7 +256,7 @@ In order to enable Azure AD users to log in to Druva, they must be provisioned i
    
 	![Create NewUser](./media/druva-tutorial/ic795099.png "Create NewUser")
    
-    a. In the **Email address** textbox, enter the email of user like **brittasimon@contoso.com**.
+    a. In the **Email address** textbox, enter the email of user like **brittasimon\@contoso.com**.
    
     b. In the **Name** textbox, enter the name of user like **BrittaSimon**.
    

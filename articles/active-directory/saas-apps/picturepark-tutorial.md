@@ -221,7 +221,7 @@ In order to enable Azure AD users to log into Picturepark, they must be provisio
    
     ![Create User](./media/picturepark-tutorial/ic795069.png "Create User")
    
-    a. In the **Email Address** textbox, type the **email address** of the user **BrittaSimon@contoso.com**.  
+    a. In the **Email Address** textbox, type the **email address** of the user **BrittaSimon\@contoso.com**.  
    
     b. In the **Password** and **Confirm Password** textboxes, type the **password** of BrittaSimon. 
    

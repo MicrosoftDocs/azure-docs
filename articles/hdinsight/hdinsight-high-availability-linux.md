@@ -107,7 +107,50 @@ When you arrive on the Ambari page, the installed services are listed on the lef
 
 ![Installed services](./media/hdinsight-high-availability-linux/services.png)
 
-There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page. You can select each service to view more information on it.
+There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page.  Ambari offers several predefined alerts.
+
+The following alerts help monitor the availability of a cluster:
+
+| Alert Name                               | Description                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Metric Monitor Status                    | This alert indicates the status of the Metrics Monitor process as determined by the monitor status script.                                                                                   |
+| Ambari Agent Heartbeat                   | This alert is triggered if the server has lost contact with an agent.                                                                                                                        |
+| ZooKeeper Server Process                 | This host-level alert is triggered if the ZooKeeper server process cannot be determined to be up and listening on the network.                                                               |
+| IOCache Metadata Server Status           | This host-level alert is triggered if the IOCache Metadata Server cannot be determined to be up and responding to client requests                                                            |
+| JournalNode Web UI                       | This host-level alert is triggered if the JournalNode Web UI is unreachable.                                                                                                                 |
+| Spark2 Thrift Server                     | This host-level alert is triggered if the Spark2 Thrift Server cannot be determined to be up.                                                                                                |
+| History Server Process                   | This host-level alert is triggered if the History Server process cannot be established to be up and listening on the network.                                                                |
+| History Server Web UI                    | This host-level alert is triggered if the History Server Web UI is unreachable.                                                                                                              |
+| ResourceManager Web UI                   | This host-level alert is triggered if the ResourceManager Web UI is unreachable.                                                                                                             |
+| NodeManager Health Summary               | This service-level alert is triggered if there are unhealthy NodeManagers                                                                                                                    |
+| App Timeline Web UI                      | This host-level alert is triggered if the App Timeline Server Web UI is unreachable.                                                                                                         |
+| DataNode Health Summary                  | This service-level alert is triggered if there are unhealthy DataNodes                                                                                                                       |
+| NameNode Web UI                          | This host-level alert is triggered if the NameNode Web UI is unreachable.                                                                                                                    |
+| ZooKeeper Failover Controller Process    | This host-level alert is triggered if the ZooKeeper Failover Controller process cannot be confirmed to be up and listening on the network.                                                   |
+| Oozie Server Web UI                      | This host-level alert is triggered if the Oozie server Web UI is unreachable.                                                                                                                |
+| Oozie Server Status                      | This host-level alert is triggered if the Oozie server cannot be determined to be up and responding to client requests.                                                                      |
+| Hive Metastore Process                   | This host-level alert is triggered if the Hive Metastore process cannot be determined to be up and listening on the network.                                                                 |
+| HiveServer2 Process                      | This host-level alert is triggered if the HiveServer cannot be determined to be up and responding to client requests.                                                                        |
+| WebHCat Server Status                    | This host-level alert is triggered if the templeton server status is not healthy.                                                                                                            |
+| Percent ZooKeeper Servers Available      | This alert is triggered if the number of down ZooKeeper servers in the cluster is greater than the configured critical threshold. It aggregates the results of ZooKeeper process checks.     |
+| Spark2 Livy Server                       | This host-level alert is triggered if the Livy2 Server cannot be determined to be up.                                                                                                        |
+| Spark2 History Server                    | This host-level alert is triggered if the Spark2 History Server cannot be determined to be up.                                                                                               |
+| Metrics Collector Process                | This alert is triggered if the Metrics Collector cannot be confirmed to be up and listening on the configured port for number of seconds equal to threshold.                                 |
+| Metrics Collector - HBase Master Process | This alert is triggered if the Metrics Collector's HBase master processes cannot be confirmed to be up and listening on the network for the configured critical threshold, given in seconds. |
+| Percent Metrics Monitors Available       | This alert is triggered if a percentage of Metrics Monitor processes are not up and listening on the network for the configured warning and critical thresholds.                             |
+| Percent NodeManagers Available           | This alert is triggered if the number of down NodeManagers in the cluster is greater than the configured critical threshold. It aggregates the results of NodeManager process checks.        |
+| NodeManager Health                       | This host-level alert checks the node health property available from the NodeManager component.                                                                                              |
+| NodeManager Web UI                       | This host-level alert is triggered if the NodeManager Web UI is unreachable.                                                                                                                 |
+| NameNode High Availability Health        | This service-level alert is triggered if either the Active NameNode or Standby NameNode are not running.                                                                                     |
+| DataNode Process                         | This host-level alert is triggered if the individual DataNode processes cannot be established to be up and listening on the network.                                                         |
+| DataNode Web UI                          | This host-level alert is triggered if the DataNode Web UI is unreachable.                                                                                                                    |
+| Percent JournalNodes Available           | This alert is triggered if the number of down JournalNodes in the cluster is greater than the configured critical threshold. It aggregates the results of JournalNode process checks.        |
+| Percent DataNodes Available              | This alert is triggered if the number of down DataNodes in the cluster is greater than the configured critical threshold. It aggregates the results of DataNode process checks.              |
+| Zeppelin Server Status                   | This host-level alert is triggered if the Zeppelin server cannot be determined to be up and responding to client requests.                                                                   |
+| HiveServer2 Interactive Process          | This host-level alert is triggered if the HiveServerInteractive cannot be determined to be up and responding to client requests.                                                             |
+| LLAP Application                         | This alert is triggered if the LLAP Application cannot be determined to be up and responding to requests.                                                                                    |
+
+You can select each service to view more information on it.
 
 While the service page provides information on the status and configuration of each service, it does not provide information on which head node the service is running on. To view this information, use the **Hosts** link at the top of the page. This page displays hosts within the cluster, including the head nodes.
 
@@ -201,6 +244,8 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 ## How to configure the node size
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure Classic CLI][azure-cli]:
@@ -211,7 +256,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 * **Azure Classic CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
 
-* **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: When using the `New-AzHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
 
 ## Next steps
 

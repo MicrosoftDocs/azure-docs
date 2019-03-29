@@ -7,17 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
 
-# Azure Data Box Edge limits (Preview)
+# Azure Data Box Edge limits
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Edge solution.
-
-> [!IMPORTANT]
-> Data Box Edge is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
 
 ## Data Box Edge service limits
 

@@ -209,7 +209,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parameter | Description |
-| --- | --- | --- |
+| --- | --- |
 | `tenant` | The directory tenant that granted your application the permissions it requested, in GUID format. |
 | `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | `admin_consent` | Will be set to `True`. |
@@ -223,7 +223,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parameter | Description |
-| --- | --- | --- |
+| --- | --- |
 | `error` | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | `error_description` | A specific error message that can help a developer identify the root cause of an error. |
 

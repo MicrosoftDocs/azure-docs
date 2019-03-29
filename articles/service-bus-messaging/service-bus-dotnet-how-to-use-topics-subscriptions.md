@@ -10,7 +10,7 @@ editor: spelluru
 ms.assetid: 
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019

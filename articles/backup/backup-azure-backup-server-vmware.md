@@ -59,10 +59,10 @@ Set up a secure channel as follows:
 4. Save the file on the Azure Backup Server machine with a .zip extension.
 
 5. Right-click **download.zip** > **Extract All**. The .zip file extracts its contents to the **certs** folder, which contains:
-    - The root certificate file with an extension that begins with a numbered sequence like .0 and .1.
-    - The CRL file has an extension that begins with a sequence like .r0 or .r1. The CRL file is associated with a certificate.
+   - The root certificate file with an extension that begins with a numbered sequence like .0 and .1.
+   - The CRL file has an extension that begins with a sequence like .r0 or .r1. The CRL file is associated with a certificate.
 
-    ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+     ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 5. In the **certs** folder, right-click the root certificate file > **Rename**.
 
@@ -79,7 +79,7 @@ Set up a secure channel as follows:
 
 9. On the **Certificate Store** page, select **Place all certificates in the following store**, and then click **Browse** to choose the certificate store.
 
-    ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+     ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 10. In **Select Certificate Store**, select **Trusted Root Certification Authorities** as the destination folder for the certificates, and then click **OK**.
 
@@ -128,11 +128,11 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 4. In **Create Role** > **Role name**, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
 5. Select the privileges as summarized in the table below, and then click **OK**.  The new role appears on the list in the **Roles** panel.
-    - Click the icon next to the parent label to expand the parent and view the child privileges.
-    - To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy.
-    - You don't need to select all child privileges within a parent privilege.
+   - Click the icon next to the parent label to expand the parent and view the child privileges.
+   - To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy.
+   - You don't need to select all child privileges within a parent privilege.
 
-    ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+     ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### Role permissions
 **6.5/6.0** | **5.5**
@@ -165,7 +165,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    The **vCenter Users and Groups** panel appears.
+    The **vCenter Users and Groups** panel appear.
 
 
 2. In the **vCenter Users and Groups** panel, select the **Users** tab, and then click the add users icon (the + symbol).
@@ -259,7 +259,7 @@ Add the vCenter Server to Azure Backup Server.
 
 8. Verify settings on the **Finish** page.
 
-  ![Finish page](./media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Finish page](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
 If you have multiple ESXi hosts that aren't managed by vCenter server, or you have multiple instances of vCenter Server, you need to rerun the wizard to add the servers.
 
@@ -275,77 +275,77 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     ![Open the Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-2. In the **Create New Protection Group** wizard welcome page, click **Next**.
+1. In the **Create New Protection Group** wizard welcome page, click **Next**.
 
     ![Create New Protection Group wizard dialog box](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-3. On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
+1. On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
 
-3. In **Select group members** > select the VMs (or VM folders) that you want to back up. Then click **Next**.
+1. In **Select group members** > select the VMs (or VM folders) that you want to back up. Then click **Next**.
 
     - When you select a folder, or VMs or folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up.
-- If a VM or folder is already being backed up, you can't select it. This ensure that duplicate recovery points aren't created for a VM. .
+1. If a VM or folder is already being backed up, you can't select it. This ensure that duplicate recovery points aren't created for a VM. .
 
-    ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+     ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-4. In **Select Data Protection Method** page, enter a name for the protection group, and protection settings. To back up to Azure, set short-term protection to **Disk** and enable online protection. Then click **Next**.
+1. In **Select Data Protection Method** page, enter a name for the protection group, and protection settings. To back up to Azure, set short-term protection to **Disk** and enable online protection. Then click **Next**.
 
     ![Select data protection method](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-5. In **Specify Short-Term Goals**, specify how long you want to keep data backed up to disk.
-    - In **Retention Range**, specify how many days disk recovery points should be kept.
-    - In **Synchronization frequency**, specify how often disk recovery points are taken.
-        - If you don't want to set a back up interval you can check **Just before a recovery point** so that a backup runs just before each recovery point is scheduled.
-        - Short-term backups are full backups and not incremental.
-        - Click **Modify** to change the times/dates when short-term backups occur.
+1. In **Specify Short-Term Goals**, specify how long you want to keep data backed up to disk.
+   - In **Retention Range**, specify how many days disk recovery points should be kept.
+   - In **Synchronization frequency**, specify how often disk recovery points are taken.
+       - If you don't want to set a back up interval you can check **Just before a recovery point** so that a backup runs just before each recovery point is scheduled.
+       - Short-term backups are full backups and not incremental.
+       - Click **Modify** to change the times/dates when short-term backups occur.
 
-    ![Specify short-term goals](./media/backup-azure-backup-server-vmware/short-term-goals.png)
+     ![Specify short-term goals](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
-6. In **Review Disk Allocation**, review the disk space provided for the VM backups. for the VMs.
+1. In **Review Disk Allocation**, review the disk space provided for the VM backups. for the VMs.
 
-    - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then click **Next**.
-    -  **Data size:** Size of the data in the protection group.
-    - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
-    - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
-    - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, Azure Backup Server tries to increase the disk size by 25 percent.
-    - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
+   - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then click **Next**.
+   - **Data size:** Size of the data in the protection group.
+   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+   - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
+   - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, Azure Backup Server tries to increase the disk size by 25 percent.
+   - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-    ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+     ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-7. In **Choose Replica Creation Method** page, specify how you want to take the initial backup, and then click **Next**.
-    - The default is **Automatically over the network** and **Now**.
-    - If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
-    - For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
+1. In **Choose Replica Creation Method** page, specify how you want to take the initial backup, and then click **Next**.
+   - The default is **Automatically over the network** and **Now**.
+   - If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
+   - For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
 
-    ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
+     ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-8. In **Consistency Check Options**, select how and when to automate the consistency checks. Then click **Next**.
-    - You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
-    - If you don't want to configure automatic consistency checks, you can run a manual check. To do this, right-click the protection group > **Perform Consistency Check**.
+1. In **Consistency Check Options**, select how and when to automate the consistency checks. Then click **Next**.
+      - You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
+      - If you don't want to configure automatic consistency checks, you can run a manual check. To do this, right-click the protection group > **Perform Consistency Check**.
 
-9. In **Specify Online Protection Data** page, select the VMs or VM folders that you want to back up. You can select the members individually, or click **Select All** to choose all members. Then click **Next**.
+1. In **Specify Online Protection Data** page, select the VMs or VM folders that you want to back up. You can select the members individually, or click **Select All** to choose all members. Then click **Next**.
 
-    ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. On the **Specify Online Backup Schedule** page, specify how often you want to back up data from local storage to Azure.
+1. On the **Specify Online Backup Schedule** page, specify how often you want to back up data from local storage to Azure.
 
     - Cloud recovery points for the data will be generated according to the schedule. Then click **Next**.
     - After the recovery point is generated, it is transferred to the Recovery Services vault in Azure.
 
-    ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-11. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that are created from the daily/weekly/monthly/yearly backups to Azure. then click **Next**.
+1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that are created from the daily/weekly/monthly/yearly backups to Azure. then click **Next**.
 
     - There's no time limit for how long you can keep data in Azure.
     - The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
-    ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
-12. On the **Summary** page, review the settings, and then click **Create Group**.
+1. On the **Summary** page, review the settings, and then click **Create Group**.
 
-    ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## VMWare vSphere 6.7
 
@@ -359,13 +359,13 @@ To backup vSphere 6.7 do the following:
 
   Windows Registry Editor Version 5.00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
 
 
 ## Next steps

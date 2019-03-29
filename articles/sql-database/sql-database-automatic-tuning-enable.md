@@ -19,6 +19,12 @@ Azure SQL Database is an automatically managed data service that constantly moni
 
 Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) commands.
 
+> [!NOTE]
+> For Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can be configured through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) only. Portal based configuration and automatic index tuning options described in this article do not apply to Managed Instance.
+
+> [!NOTE]
+> Configuring Automatic tuning options through ARM (Azure Resource Manager) template is not supported at this time.
+
 ## Enable automatic tuning on server
 
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
@@ -45,7 +51,7 @@ Find out more about using REST API to enable Automatic tuning on a server, see [
 
 The Azure SQL Database enables you to individually specify the automatic tuning configuration for each database. On the database level you can choose to inherit automatic tuning configuration from the parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
-> [!NOTE]
+> [!TIP]
 > The general recommendation is to manage the automatic tuning configuration at **server level** so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database only if you need that database to have different settings than others inheriting settings from the same server.
 >
 

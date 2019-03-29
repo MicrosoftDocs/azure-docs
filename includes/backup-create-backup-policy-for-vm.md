@@ -26,13 +26,11 @@ To create a policy:
     Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
    > [!NOTE]
-   >
-  - When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
-  - Recovery point is generated on the date and time when the backup snapshot is completed regardless when the backup job was schedule.
-    - Ex. If the backup frequency is scheduled at 11:30 PM and due to any issue snapshot is completed at 12:01 AM, then the recovery point will be created with the next date and 12:01 AM.
-  - In case of monthly backup if backup is set to run on first day of every month and if the snapshot is completed on the next day due to some issue then the recovery point created for monthly backup will be tagged with the next day (i.e second of that month).
-   >
-   >
+   > 
+   > - When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+   > - Recovery point is generated on the date and time when the backup snapshot is completed regardless when the backup job was schedule.
+   >   - Ex. If the backup frequency is scheduled at 11:30 PM and due to any issue snapshot is completed at 12:01 AM, then the recovery point will be created with the next date and 12:01 AM.
+   > - In case of monthly backup if backup is set to run on first day of every month and if the snapshot is completed on the next day due to some issue then the recovery point created for monthly backup will be tagged with the next day (i.e second of that month).
 
 
 4. After setting all options for the policy, at the top of the blade click **Save**.

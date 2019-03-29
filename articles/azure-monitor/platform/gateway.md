@@ -15,32 +15,32 @@ ms.date: 03/04/2019
 ms.author: magoedte
 ---
 
-# Connect computers without internet access by using the Log Analytics gateway
+# Connect computers without internet access by using the Log Analytics gateway in Azure Monitor
 
 >[!NOTE]
 >As Microsoft Operations Management Suite (OMS) transitions to Microsoft Azure Monitor, terminology is changing. This article refers to OMS Gateway as the Azure Log Analytics gateway. 
 >
 
-This article describes how to configure communication with Azure Automation and Log Analytics by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
+This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
-The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway can collect data and send it to Azure Automation and Log Analytics on behalf of the computers that are not connected to the internet.  
+The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway can collect data and send it to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that are not connected to the internet.  
 
 The Log Analytics gateway supports:
 
 * Reporting up to the same four Log Analytics workspace agents that are behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
-* Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace.
-* Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace.  
+* Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
+* Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
 
-Some IT security policies don't allow internet connection for network computers. These unconnected computers could be point of sale (POS) devices or servers supporting IT services, for example. To connect these devices to Azure Automation or Log Analytics so you can manage and monitor them, configure them to communicate directly with the Log Analytics gateway. The Log Analytics gateway can receive configuration information and forward data on their behalf. If the computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, the computers instead communicate with the Log Analytics gateway.  
+Some IT security policies don't allow internet connection for network computers. These unconnected computers could be point of sale (POS) devices or servers supporting IT services, for example. To connect these devices to Azure Automation or a Log Analytics workspace so you can manage and monitor them, configure them to communicate directly with the Log Analytics gateway. The Log Analytics gateway can receive configuration information and forward data on their behalf. If the computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, the computers instead communicate with the Log Analytics gateway.  
 
 The Log Analytics gateway transfers data from the agents to the service directly. It doesn't analyze any of the data in transit.
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data, depending on the solution you have enabled.  Operations Manager agents send some data to the management server. For example, agents might send Operations Manager alerts, configuration assessment data, instance space data, and capacity data. Other high-volume data, such as Internet Information Services (IIS) logs, performance data, and security events, is sent directly to the Log Analytics gateway. 
 
-If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
+If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect log data for Azure Monitor, even if the setting is empty.    
 
-To provide high availability for directly connected or Operations Management groups that communicate with Log Analytics through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
+To provide high availability for directly connected or Operations Management groups that communicate with a Log Analytics workspace through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
 
 The computer that runs the Log Analytics gateway requires the Log Analytics Windows agent to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace.
 
@@ -168,7 +168,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
 
 > [!NOTE]
-> Configuring the The Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/windows/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/windows/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  

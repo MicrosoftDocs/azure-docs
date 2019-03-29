@@ -1,6 +1,6 @@
 ---
 title: What happened to my WebJob project (Visual Studio Azure Storage connected service)? | Microsoft Docs
-description: Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services
+description: Describes what happened in an Azure WebJob project after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
 manager: douge

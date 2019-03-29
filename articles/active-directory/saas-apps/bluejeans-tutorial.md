@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -179,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -241,7 +241,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	e. In **Company** text box, enter your Company.
 
-	f. In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+	f. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	g. In **Create a BlueJeans Meeting I.D** text box, enter your meeting ID.
 

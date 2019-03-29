@@ -36,13 +36,13 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 2. Select **Azure Active Directory** > **Enterprise applications**. 
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**. 
-5.       Fill out the required fields with information about your new app. Use the following guidance for the settings: 
-	- **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 
-	- **Pre-authentication method**: Azure Active Directory (Recommended but not required) 
-1.       Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
-2.       In the quick start menu, select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
-3.       Select **Assign** to save the test user assignment. 
-4.       (Optional) On the app management blade, select Single sign-on. Choose **Kerberos Constrained Delegation** from the drop-down menu, and fill out the required fields based on your Qlik configuration. Select **Save**. 
+5. Fill out the required fields with information about your new app. Use the following guidance for the settings: 
+   - **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 
+   - **Pre-authentication method**: Azure Active Directory (Recommended but not required) 
+1. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
+2. In the quick start menu, select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
+3. Select **Assign** to save the test user assignment. 
+4. (Optional) On the app management blade, select Single sign-on. Choose **Kerberos Constrained Delegation** from the drop-down menu, and fill out the required fields based on your Qlik configuration. Select **Save**. 
 
 ### Application #2: 
 Follow the same steps as for Application #1, with the following exceptions: 

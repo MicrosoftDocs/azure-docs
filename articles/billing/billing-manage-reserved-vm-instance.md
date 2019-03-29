@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
 
-After you buy an Azure Reservation, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
+After you buy an reservation for Azure, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
 
 If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size.
 
 ## Change the scope for a reservation
 
- Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation.
+ Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run in the reservation scope. The billing context is dependent on the subscription used to buy the reservation.
 
 To update the scope of a reservation:
 
@@ -109,22 +109,30 @@ To update the optimize setting for the reservation:
 4. Select **Settings** > **Configuration**.
 5. Change the **Optimize for** setting.
 
+## Need help? Contact us.
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+
+Buy a service plan:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Buy a software plan:
+- [Prepay for Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Understand discount and usage:
 - [Understand how the VM reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the Red Hat Enterprise Linux software plan discount is applied](../billing/billing-understand-rhel-reservation-charges.md)
 - [Understand how the SUSE Linux Enterprise software plan discount is applied](../billing/billing-understand-suse-reservation-charges.md)
 - [Understand how other reservation discounts are applied](billing-understand-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## Need help? Contact us.
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

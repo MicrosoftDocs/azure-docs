@@ -57,7 +57,7 @@ The following steps will register the SQL resource provider with your Azure subs
 1. Type `sql` in the filter to bring up the SQL-related resource providers. 
 1. Select either *Register*, *Re-register*, or *Unregister* for the  **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
 
-  ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
+   ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### With Azure CLI
 The following code snippet will register the SQL resource provider with your Azure subscription. 
@@ -141,7 +141,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 You can use PowerShell to change your licensing model. 
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit): 
-```PowerShell
+```powershell
 # Switch  your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
@@ -155,7 +155,7 @@ $SqlVm | Set-AzResource -Force
 ```
 
 The following code snippet switches your BYOL model to pay-as-you-go:
-```PowerShell
+```powershell
 # Switch  your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
@@ -173,7 +173,7 @@ $SqlVm | Set-AzResource -Force
 
 The following code snippet allows you to view your current licensing model for your SQL Server VM. 
 
-```PowerShell
+```powershell
 # View current licensing model for your SQL Server VM
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 
@@ -199,7 +199,7 @@ You may encounter this error when attempting to change your SQL Server VM licens
 `Set-AzResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
 
 To resolve this error, uncomment these lines in the previously mentioned PowerShell code snippet when switching your licensing model: 
-```PowerShell
+```powershell
 # the following code snippet is necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
@@ -208,11 +208,11 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 
 Use the following code to verify your Azure PowerShell version:
 
-```PowerShell
+```powershell
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
-### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/<resource-group>' under resource group '<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
+### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
 This error occurs when the SQL Server VM has not been registered with the SQL resource provider. You'll need to register the resource provider with your [subscription](#register-sql-resource-provider-with-your-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
 
 ## Next steps

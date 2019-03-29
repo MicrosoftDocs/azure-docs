@@ -6,7 +6,7 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -115,11 +115,13 @@ A saved search can have one or more schedules with each schedule representing a 
 		}
 	}
 The properties for schedule resources are described in the following table.
+
 | Element name | Required | Description |
 |:--|:--|:--|
 | enabled       | Yes | Specifies whether the alert is enabled when it's created. |
 | interval      | Yes | How often the query runs in minutes. |
 | queryTimeSpan | Yes | Length of time in minutes over which to evaluate results. |
+
 The schedule resource should depend on the saved search so that it's created before the schedule.
 > [!NOTE]
 > Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
@@ -226,7 +228,7 @@ Every schedule has one **Alert** action. This defines the details of the alert a
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| Recipients | Yes | Comma-delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Recipients | Yes | Comma-delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | Yes | Subject line of the mail. |
 | Attachment | No | Attachments are not currently supported. If this element is included, it should be **None**. |
 
@@ -261,6 +263,7 @@ If your alert will call a webhook, then it will need an action resource with a t
       }
     }
 The properties for Webhook action resources are described in the following tables.
+
 | Element name | Required | Description |
 |:--|:--|:--|
 | type | Yes | Type of the action. This is **Webhook** for webhook actions. |

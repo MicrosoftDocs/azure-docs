@@ -85,7 +85,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## AI + Cognitive Services
 
-* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) (Preview) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).)
+* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md)
 
 ## Internet of Things
 

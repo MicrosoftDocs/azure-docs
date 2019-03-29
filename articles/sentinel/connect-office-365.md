@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
 
 ---
@@ -30,7 +30,7 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/office365
 ## Prerequisites
 
 - You must be a global administrator or security administrator on your tenant
-
+- On your computer, from which you logged into Azure Sentinel to create the connection, make suretha port 4433 is open to web traffic.
 
 ## Connect to Office 365
 

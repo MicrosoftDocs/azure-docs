@@ -1,6 +1,6 @@
 ---
 title: Monitor your ASP.NET Web App  with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup a ASP.NET Web App for monitoring with Application Insights
+description: Provides instructions to quickly set up an ASP.NET Web App for monitoring with Application Insights
 services: application-insights
 keywords:
 author: mrbullwinkle
@@ -19,8 +19,8 @@ performance, and usage.  You can also quickly identify and diagnose errors in yo
 app, you can make informed choices to maintain and improve your application.
 
 This quickstart shows how to add Application Insights to an existing ASP.NET web application and start
-analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have a ASP.NET web application, you can create one following the
-[Create a ASP.NET Web App quickstart](../../app-service/app-service-web-get-started-dotnet-framework.md).
+analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have an ASP.NET web application, you can create one following the
+[Create an ASP.NET Web App quickstart](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## Prerequisites
 To complete this quickstart:
@@ -102,6 +102,10 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 To learn more, visit the GitHub repository for our [open-source JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS).
+
+## Video
+
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 In this quick start, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.

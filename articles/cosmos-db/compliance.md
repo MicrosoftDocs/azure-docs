@@ -31,7 +31,7 @@ To help customers meet their own compliance obligations across regulated industr
 Azure Cosmos DB is continually expanding its certification coverage. Currently, Azure Cosmos DB is certified with the following certificates:
 
 | **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
 
 To learn more about each of these compliance offerings and how they benefit you, see [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) page.
