@@ -39,7 +39,7 @@ This article includes the following procedures:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-You can also upload IoT Edge certificates to validate the compute modules and enable a secure connection between the IoT Edge runtime and the compute modules it is connecting to. There are three IoT Edge certificates that you may need to install:
+You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates that you may need to install:
 
 - Root CA certificate or the owner CA
 - Device CA certificate
