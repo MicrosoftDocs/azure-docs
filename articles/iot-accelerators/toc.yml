@@ -152,8 +152,6 @@
       items:
         - name: What is OPC Vault
           href: overview-opc-vault.md 
-        - name: OPC Vault Architecture
-          href: overview-opc-vault-architecture.md
     - name: Connected Factory
       items:
       - name: Connected Factory Overview
