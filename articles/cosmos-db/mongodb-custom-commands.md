@@ -12,11 +12,11 @@ ms.author: sngun
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits of the MongoDB that you're already used to, along with the enterprise capabilities that Azure Cosmos DB provides such as global distribution, automatic sharding, availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and many more.
+By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cosmos DB such as global distribution, automatic sharding, high availability, latency guarantees, automatic, encryption at rest, backups, and many more, while preserving your investments in your MongoDB app.
 
 ## MongoDB protocol support
 
-By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2. The following custom commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
+By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2, for more details, see [supported features and syntax](mongodb-feature-support.md). The features or query operators added in MongoDB version 3.4 are currently available as a preview in the Azure Cosmos DB’s API for MongoDB. The following custom commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
 
 * [Create Database](#create-database)
 * [Update Database](#update-database)
@@ -279,4 +279,7 @@ If not specified, a custom response contains a document with the following field
 
 ## Next steps
 
-* 
+Next you can proceed to learn the following Azure Cosmos DB concepts: 
+
+* [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
