@@ -50,7 +50,7 @@ To enable monitoring your device identity management, device to cloud, and cloud
 
 1. [Enable ASC for IoT service on your IoT Hub](quickstart-onboard-iot-hub.md)
 1. If your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Create an ascforiot security module](quickstart-create-security-twin.md) for your devices. 
+1. [Create an azureiotsecurity security module for your devices](quickstart-create-security-twin.md) for your devices. 
 1. Define normal device and system behavior through [custom alerts](quickstart-create-custom-alerts.md). 
 1. Perform system testing to verify service and device status. 
 1. Explore [alerts](concept-security-alerts.md), [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub. 
