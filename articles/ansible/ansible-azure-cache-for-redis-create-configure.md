@@ -1,0 +1,324 @@
+---
+title: Create, scale and reboot Azure Cache for Redis using Ansible
+description: Learn how to use Ansible to create, scale and reboot Azure Cache for Redis
+ms.service: azure
+keywords: ansible, azure, devops, bash, playbook, cache, redis
+author: tomarchermsft
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+---
+
+# Create, scale and reboot Azure Cache for Redis using Ansible
+
+[Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
+
+This quickstart shows you how use Ansible to create an Azure Cache for Redis, scale it up, reboot, add firewall rule and delete it.
+
+## Prerequisites
+
+- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+
+> [!Note]
+> Ansible 2.8 is required to run the following sample playbooks in this tutorial.
+
+## Create resource group and Azure Cache for Redis
+
+The first two tasks in the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) create a resource group and the Azure Cache for Redis.
+
+```yaml
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+
+  - name: Create Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      sku:
+        name: basic
+        size: C1 
+```
+
+It takes several minutes to provision the necessary resources because of that, we include codes in the playbook to wait for Redis provisioning to complete.
+
+```yaml
+  - name: Wait for Redis provisioning to complete
+    azure_rm_rediscache_facts:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+    register: facts
+    until: "{{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}"
+    retries: 100
+    delay: 60
+```
+
+Do not be alarmed to see output like below during this stage. It took about 25 minutes for us.
+
+```Output
+FAILED - RETRYING: Get facts (100 retries left).
+FAILED - RETRYING: Get facts (99 retries left).
+FAILED - RETRYING: Get facts (98 retries left).
+FAILED - RETRYING: Get facts (97 retries left).
+FAILED - RETRYING: Get facts (96 retries left).
+FAILED - RETRYING: Get facts (95 retries left).
+FAILED - RETRYING: Get facts (94 retries left).
+FAILED - RETRYING: Get facts (93 retries left).
+FAILED - RETRYING: Get facts (92 retries left).
+FAILED - RETRYING: Get facts (91 retries left).
+ok: [localhost]
+```
+
+## Scale up
+
+The previous task creates a C1 Basic Azure Cache for Redis. This next task allows you to scale up to Standard cache:
+
+```yaml
+- name: Scale up Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      sku:
+        name: standard
+        size: C1
+```
+
+Scaling up takes several minutes. The complete sample playbook includes codes to wait for the operation to complete.
+
+```yaml
+  - name: Wait for Redis scaling up to complete
+    azure_rm_rediscache_facts:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+    register: facts
+    until: "{{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}"
+    retries: 100
+    delay: 60
+```
+
+Similar to the task to provision Azure Cache for Redis, output like **FAILED - RETRYING: Get facts (100 retries left)** is normal.
+
+## Reboot
+
+The next sample playbook section includes codes to reboot Azure Cache for Redis.
+
+```yaml
+  - name: Reboot Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      reboot:
+        reboot_type: all
+```
+
+### Add firewall rule
+
+To add firewall rule, refer to the sample playbook section:
+
+```yaml
+  - name: Add Firewall rule
+    azure_rm_rediscachefirewallrule:
+      resource_group: "{{ resource_group }}"
+      cache_name: "{{ redis_name }}"
+      name: rule1
+      start_ip_address: 168.1.1.1
+      end_ip_address: 168.1.1.4
+```
+
+## Delete Azure Cache for Redis
+
+Finally, you can delete the Azure Cache for Redis:
+
+```yaml
+  - name: Delete Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      state: absent
+```
+
+## Complete Sample Ansible playbook
+
+This is the complete playbook you have built. [Download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) or save below as *rediscache.yml*. Make sure you replace the placeholder **{{ resoruce_group_name }}** in the ```vars``` section with your own resource group name.
+
+```yml
+- name: Manage Azure Cache for Redis
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: "{{ resource_group_name }}"
+    redis_name: "redis{{ resource_group_name }}"
+    location: eastus2
+
+  roles:
+    - azure.azure_preview_modules
+
+  tasks:
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+
+  - name: Create Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      sku:
+        name: basic
+        size: C1
+
+  - name: Wait for Redis provisioning to complete
+    azure_rm_rediscache_facts:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+    register: facts
+    until: "{{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}"
+    retries: 100
+    delay: 60
+
+  - name: Scale up Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      sku:
+        name: standard
+        size: C1
+
+  - name: Wait for Redis scaling up to complete
+    azure_rm_rediscache_facts:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+    register: facts
+    until: "{{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}"
+    retries: 100
+    delay: 60
+
+  - name: Reboot Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      reboot:
+        reboot_type: all
+
+  - name: Add Firewall rule
+    azure_rm_rediscachefirewallrule:
+      resource_group: "{{ resource_group }}"
+      cache_name: "{{ redis_name }}"
+      name: rule1
+      start_ip_address: 168.1.1.1
+      end_ip_address: 168.1.1.4
+
+  - name: Delete Azure Cache for Redis
+    azure_rm_rediscache:
+      resource_group: "{{ resource_group }}"
+      name: "{{ redis_name }}"
+      state: absent
+```
+
+To run the playbook, use the **ansible-playbook** command as follows:
+
+```bash
+ansible-playbook rediscache.yml
+```
+
+After running the playbook, output similar to the following example shows that the Azure Cache for Redis was successfully created, then scaled out, rebooted, with firewall rule added and finally deleted:
+
+```Output
+TASK [create resource group] *****************************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:21:07 +0800 (0:00:00.054)       0:00:01.503 *********
+ok: [localhost]
+
+TASK [Create Azure Cache for Redis] **********************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:21:09 +0800 (0:00:01.950)       0:00:03.454 *********
+ [WARNING]: Azure API profile latest does not define an entry for RedisManagementClient
+
+changed: [localhost]
+
+TASK [Dump host name] ************************************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:21:49 +0800 (0:00:40.125)       0:00:43.580 *********
+ok: [localhost] =>
+  output['host_name']: redis0312.redis.cache.windows.net
+
+TASK [Get facts] *****************************************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:21:49 +0800 (0:00:00.056)       0:00:43.636 *********
+ [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}
+
+FAILED - RETRYING: Get facts (100 retries left).
+FAILED - RETRYING: Get facts (99 retries left).
+FAILED - RETRYING: Get facts (98 retries left).
+FAILED - RETRYING: Get facts (97 retries left).
+FAILED - RETRYING: Get facts (96 retries left).
+FAILED - RETRYING: Get facts (95 retries left).
+FAILED - RETRYING: Get facts (94 retries left).
+FAILED - RETRYING: Get facts (93 retries left).
+FAILED - RETRYING: Get facts (92 retries left).
+FAILED - RETRYING: Get facts (91 retries left).
+FAILED - RETRYING: Get facts (90 retries left).
+ok: [localhost]
+
+TASK [Scale up Azure Cache for Redis] *********************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:33:20 +0800 (0:11:31.296)       0:12:14.933 *********
+changed: [localhost]
+
+TASK [Get facts] ******************************************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:33:29 +0800 (0:00:09.164)       0:12:24.097 *********
+ [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}
+
+FAILED - RETRYING: Get facts (100 retries left).
+FAILED - RETRYING: Get facts (99 retries left).
+FAILED - RETRYING: Get facts (98 retries left).
+FAILED - RETRYING: Get facts (97 retries left).
+FAILED - RETRYING: Get facts (96 retries left).
+FAILED - RETRYING: Get facts (95 retries left).
+FAILED - RETRYING: Get facts (94 retries left).
+FAILED - RETRYING: Get facts (93 retries left).
+FAILED - RETRYING: Get facts (92 retries left).
+FAILED - RETRYING: Get facts (91 retries left).
+ok: [localhost]
+
+TASK [Reboot Azure Cache for Redis] ***********************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:43:57 +0800 (0:10:27.740)       0:22:51.838 *********
+ok: [localhost]
+
+TASK [Add Firewall rule] **********************************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:44:02 +0800 (0:00:05.432)       0:22:57.271 *********
+changed: [localhost]
+
+TASK [Delete Azure Cache for Redis] ***********************************************************************************************************************************************************************
+Tuesday 12 March 2019  16:44:08 +0800 (0:00:05.137)       0:23:02.409 *********
+changed: [localhost]
+
+PLAY RECAP ************************************************************************************************************************************************************************************************
+localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626 *********
+===============================================================================
+
+```
+
+## Clean up resources
+
+If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myResourceGroup**. 
+
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+  tasks:
+    - name: Delete a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        state: absent
+```
+
+Save the preceding playbook as *rg_delete.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+
+```bash
+ansible-playbook rg_delete.yml
+```
+
+## Next steps
+> [!div class="nextstepaction"] 
+> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
