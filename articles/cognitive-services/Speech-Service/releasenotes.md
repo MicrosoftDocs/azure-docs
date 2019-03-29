@@ -17,7 +17,21 @@ ms.custom: seodec18
 
 ## Speech SDK 1.4.0: 2019-March release
 
-currently maintained on our onenote page...
+**New Features** 
+
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained mac0S support. The Objective-C support is currently in Beta. 
+* iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod. 
+* Python: Additional properties of recognition results are now exposed via the `properties` property. 
+ 
+**Samples**
+
+* Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added. 
+ 
+**Improvements / Changes**
+
+**Bug Fixes**
+
+* Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed. 
 
 
 ## Speech SDK 1.3.1: 2019-February refresh
