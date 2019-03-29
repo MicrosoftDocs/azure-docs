@@ -49,6 +49,9 @@ ms.custom: H1Hack27Feb2017
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
 [sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-rhel-ascs-ha]:high-availability-guide-rhel
+[high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs
+[high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -89,6 +92,7 @@ ms.custom: H1Hack27Feb2017
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
+[Logo_RHEL]:media/virtual-machines-shared-sap-shared/RHEL.png
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
@@ -191,7 +195,7 @@ This series of articles covers:
     >
 * SAP high availability on:
   * ![Windows][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
-  * ![Linux][Logo_Linux] **Linux**, using **Linux Cluster Framework**
+  * ![Linux][Logo_Linux] ![RHEL][Logo_RHEL] **Linux**, using **Linux Cluster Framework**
 
 In these articles, you learn how to help protect single point of failure (SPOF) components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
 
@@ -203,7 +207,7 @@ In these articles, you learn how to help protect single point of failure (SPOF) 
 
 * [Azure Virtual Machines high availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
-The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] **Linux**.
+The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] ![RHEL][Logo_RHEL] **Linux**.
 
 
 ## Azure infrastructure preparation for SAP NetWeaver high-availability deployment
@@ -220,6 +224,10 @@ The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_L
 
 * ![Linux][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp files][sap-suse-ascs-ha-setting-ha-anf]
 
+* ![RHEL][Logo_RHEL] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - setup GlusterFS on RHEL][high-availability-guide-rhel-glusterfs]
+
+* ![RHEL][Logo_RHEL] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - setup Pacemaker on RHEL ][high-availability-guide-rhel-pacemaker]
+
 ## Installation of an SAP NetWeaver high availability system in Azure
 
 **Summary:** The articles listed here present step-by-step examples of the installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster and Linux cluster framework in Azure.
@@ -233,3 +241,5 @@ The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_L
 * ![Linux][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-sap-installation]
 
 * ![Linux][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+
+* ![RHEL][Logo_RHEL] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL][sap-rhel-ascs-ha]
