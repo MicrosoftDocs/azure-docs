@@ -52,7 +52,7 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Korea Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | North Central US | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| South Central US | "https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| South Central US | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | UK South | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
