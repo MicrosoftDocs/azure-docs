@@ -30,7 +30,8 @@ The Speech Devices SDK facilitates a variety of voice-enabled scenarios, such as
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/ai/).
-
 > [!div class="nextstepaction"]
-> Choose your [Speech Device](get-speech-devices-sdk.md).
+> [Choose your Speech Device](get-speech-devices-sdk.md)
+>
+> [!div class="nextstepaction"]
+> [Get a Speech Services subscription key for free](get-started.md)

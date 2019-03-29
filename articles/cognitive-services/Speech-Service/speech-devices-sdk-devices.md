@@ -27,4 +27,5 @@ Currently, these complete, complete system reference designs are available:
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/ai/) .
+> [!div class="nextstepaction"]
+> [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md)

@@ -146,4 +146,5 @@ To validate your development kit setup, build and install the sample application
 
 ## Next steps
 
-* [Review the release notes](devices-sdk-release-notes.md)
+> [!div class="nextstepaction"]
+> [Review the release notes](devices-sdk-release-notes.md)
