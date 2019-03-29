@@ -214,7 +214,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available as a GA service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
