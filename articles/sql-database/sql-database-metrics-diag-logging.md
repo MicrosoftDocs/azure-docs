@@ -143,7 +143,7 @@ You can set up a managed instance resource to collect the following diagnostics 
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Managed instance** | ResourceUsageStats contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+| **Managed instance** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
 
 To configure streaming of diagnostics telemetry for managed instance and instance databases, you will need to separately configure **both** of the following:
 
