@@ -3,7 +3,7 @@ title: Application lifecycle in Service Fabric | Microsoft Docs
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: athinanthny
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # Service Fabric application lifecycle

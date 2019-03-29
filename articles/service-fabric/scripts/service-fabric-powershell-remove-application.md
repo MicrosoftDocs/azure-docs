@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Remove application from a cluster| Micro
 description: Azure PowerShell Script Sample - Remove an application from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: rwike77
+author: athinanthny
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
 ---
 

@@ -3,7 +3,7 @@ title: Connect securely to an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Connect to a secure cluster
