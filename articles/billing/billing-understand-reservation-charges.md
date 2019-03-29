@@ -1,6 +1,6 @@
 ---
-title: Understand Azure Reservations discount | Microsoft Docs
-description: Learn how a reservation discount is applied to running SQL Databases. 
+title: Understand reservations discount for Azure SQL Databases | Microsoft Docs
+description: Learn how a reservation discount is applied to running Azure SQL Databases. 
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -15,7 +15,7 @@ ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
 ---
-# Understand how an Azure reservation discount is applied to SQL Databases
+# Understand how a reservation discount is applied to Azure SQL Databases
 
 After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reservation. A reservation covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -49,6 +49,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
