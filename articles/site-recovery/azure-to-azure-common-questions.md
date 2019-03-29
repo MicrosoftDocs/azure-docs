@@ -142,6 +142,9 @@ Because it is CPU intensive, enabling Multi-VM consistency can affect workload p
 
 ## Failover
 
+### How is capacity guaranteed in target region for Azure VMs?
+The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
+
 ### Is failover automatic?
 
 Failover isn't automatic. You start failovers with a single click in the portal, or you can use [PowerShell](azure-to-azure-powershell.md) to trigger a failover.

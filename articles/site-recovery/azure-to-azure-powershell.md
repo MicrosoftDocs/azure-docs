@@ -589,11 +589,13 @@ After a failover, when you are ready to go back to the original region, start re
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
 
 ```azurepowershell
 #Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
 Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
 
 Once reprotection is complete, you can initiate failover in reverse direction (West US to East US) and failback to source region.
 
