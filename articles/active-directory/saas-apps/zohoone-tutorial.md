@@ -169,7 +169,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 	![Zoho One add domain](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
-	a. In the **Domain Name** textbox, type domain like **contoso.com**.
+	a. In the **Domain Name** textbox, type domain like contoso.com.
 
 	b. Click **Add**.
 
