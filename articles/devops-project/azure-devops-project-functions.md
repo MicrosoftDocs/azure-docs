@@ -37,7 +37,7 @@ In this tutorial, you will:
 
 - Clean up resources
 
-Currently the supported runtime are **.NET** and **Node.js** for functions.
+Currently the supported runtimes for functions are **.NET** and **Node.js**. For this tutorial we are using .NET runtime to deploy to Azure Functions. 
 
 ## Prerequisites
 
