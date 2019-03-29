@@ -19,6 +19,11 @@ The Speech Devices SDK is a pretuned library that's paired with purpose-built, m
 
 ## Choose your development kit
 
+![Linear mic array](media/speech-devices-sdk/linear_mic_array_8b.png)
+![Circular mic array](media/speech-devices-sdk/circular_mic_array_8b.png)
+![Circular mic array with camera](media/speech-devices-sdk/Azure_Kinect_8b.png)
+![Circular mic array with 360 camera](media/speech-devices-sdk/circular_mic_360_cam_prince_8b.png)
+
 ToDo add graphic and text on how to choose the DK, and how to buy it.
 
 ## Download the Speech Devices SDK
