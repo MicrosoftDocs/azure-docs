@@ -94,6 +94,7 @@ The first thing you need to do is create an Azure Automation account that hosts 
 * [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Import Azure Automation Vertical Scale runbooks into your subscription
+
 The runbooks needed to vertically scale your virtual machine scale sets are already published in the Azure Automation Runbook Gallery. To import them into your subscription follow the steps in this article:
 
 * [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
@@ -107,6 +108,7 @@ The runbooks that need to be imported are shown. Select the runbook based on whe
 ![Runbooks gallery][gallery]
 
 ## Add a webhook to your runbook
+
 Once you've imported the runbooks, add a webhook to the runbook so it can be triggered by an alert from a virtual machine scale set. The details of creating a webhook for your Runbook are described in this article:
 
 * [Azure Automation webhooks](../automation/automation-webhooks.md)
@@ -117,10 +119,11 @@ Once you've imported the runbooks, add a webhook to the runbook so it can be tri
 > 
 
 ## Add an alert to your virtual machine scale set
+
 Below is a PowerShell script that shows how to add an alert to a virtual machine scale set. Refer to the following article to get the name of the metric to fire the alert on:
 [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -157,6 +160,7 @@ For more information on how to create alerts, see the following articles:
 * [Azure Monitor Cross-platform CLI quickstart samples](../azure-monitor/platform/cli-samples.md)
 
 ## Summary
+
 This article showed simple vertical scaling examples. With these building blocks - Automation account, runbooks, webhooks, alerts - you can connect a rich variety of events with a customized set of actions.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

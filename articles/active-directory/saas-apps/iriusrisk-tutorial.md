@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with IriusRisk, you need to comple
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create an IriusRisk test user](#create-a-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
+1. **[Create an IriusRisk test user](#create-an-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
