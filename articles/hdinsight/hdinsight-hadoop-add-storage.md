@@ -22,20 +22,9 @@ Learn how to use script actions to add additional Azure storage *accounts* to HD
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Storage account name and key. See [Manage storage account settings in the Azure portal](../storage/common/storage-account-manage.md).
 * [Correctly cased cluster name](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
-
-# [PowerShell](#tab/a1)
-
-If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-
-# [Azure CLI](#tab/a2)
-
-If you haven't installed the Azure CLI, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
-
-# [bash](#tab/a3)
-If using bash or a windows command prompt, you'll also need **jq**, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). For bash on Ubuntu on Windows 10 see [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
-
----
-
+* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* If you haven't installed the Azure CLI, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* If using bash or a windows command prompt, you'll also need **jq**, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). For bash on Ubuntu on Windows 10 see [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
 
 ## How it works
 
@@ -72,7 +61,8 @@ __Requirements__:  The script must be applied on the __Head nodes__. You do not 
 
 This script can be used from the Azure PowerShell, Azure CLI, or the Azure portal.
 
-# [PowerShell](#tab/b1)
+### PowerShell
+
 Using [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Replace `CLUSTERNAME`, `ACCOUNTNAME`, and `ACCOUNTKEY` with the appropriate values.
 
 ```powershell
@@ -92,7 +82,7 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-# [Azure CLI](#tab/b2)
+### Azure CLI
 
 Using [az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Replace `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, and `ACCOUNTKEY` with the appropriate values.
 
@@ -106,10 +96,9 @@ az hdinsight script-action execute ^
     --script-parameters "ACCOUNTNAME ACCOUNTKEY"
 ```
 
-# [Portal](#tab/b3)
-See [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+### Azure Portal
 
----
+See [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## Known issues
 
@@ -121,7 +110,7 @@ The storage information isn't displayed because the script only modifies the cor
 
 To view storage account information added to the cluster using this script, use the Ambari REST API. Use the following commands to retrieve this information for your cluster:
 
-# [PowerShell](#tab/c1)
+### PowerShell
 
 Replace `CLUSTERNAME` with the properly cased cluster name. First identify the service config version in use by entering the command below:
 
@@ -149,7 +138,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
 ```
 
-# [bash](#tab/c2)
+### bash
 Replace `myCluster` with the properly cased cluster name.
 
 ```bash
@@ -169,7 +158,7 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
-# [cmd](#tab/c3)
+### cmd
 
 Replace `CLUSTERNAME` with the properly cased cluster name in both scripts. First identify the service config version in use by entering the command below:
 
@@ -184,7 +173,6 @@ Replace `ACCOUNTNAME` with the actual storage account name. Then replace `4` wit
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
 jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
 ```
-
 ---
 
  Information returned from this command appears similar to the following text:
