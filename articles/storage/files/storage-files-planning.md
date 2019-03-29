@@ -109,18 +109,18 @@ The following table illustrates a few examples of these formulae for the provisi
 
 (Sizes denoted by an * are in limited public preview)
 
-|Capacity (GiB) | Baseline IOPS | Burst limit | Throughput (MiB/s) |
-|---------|---------|---------|---------|
-|100         | 100     | Up to 300     | 110   |
-|500         | 500     | Up to 1,500   | 150   |
-|1,000       | 1,024   | Up to 3,072   | 202   |
-|5,000       | 5,120   | Up to 15,360  | 612   |
-|10,000 *     | 10,240  | Up to 30,720  | 1,124 |
-|33,333 *     | 33,792  | Up to 100,000 | 3,479 |
-|50,000 *     | 51,200  | Up to 100,000 | 5,000 |
-|100,000 *    | 100,000 | Up to 100,000 | 5,000 |
+|Capacity (GiB) | Baseline IOPS | Burst limit | eGress (MiB/s) | inGress (MiB/s) |
+|---------|---------|---------|---------|---------|
+|100         | 100     | Up to 300     | 66   | 44   |
+|500         | 500     | Up to 1,500   | 90   | 60   |
+|1,024       | 1,024   | Up to 3,072   | 122   | 81   |
+|5,120       | 5,120   | Up to 15,360  | 368   | 245   |
+|10,240 *     | 10,240  | Up to 30,720  | 675 | 450   |
+|33,792 *     | 33,792  | Up to 100,000 | 2,088 | 1,392   |
+|51,200 *     | 51,200  | Up to 100,000 | 3,132 | 2,088   |
+|102,400 *    | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
-Currently, file share sizes up to 5 TiB are in public preview, while sizes up to 100 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
+Currently, file share sizes up to 5 TiB are in public preview, while sizes up to 102 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
 
 ### Bursting
 

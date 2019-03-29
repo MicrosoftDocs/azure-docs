@@ -54,7 +54,7 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 |Area  |Target  |
 |---------|---------|
 |Min size                        |100 GiB      |
-|Max size                        |100 TiB      |
+|Max size                        |102 TiB      |
 |Minimum size increase/decrease    |1 GiB      |
 |Baseline IOPS    |1 IOPS per GiB up to 100,000|
 |IOPS bursting    |3x IOPS per GiB up to 100,000|

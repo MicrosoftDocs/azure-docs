@@ -79,7 +79,7 @@ Then, upgrade your powershell module, sign in to your Azure subscription, create
 
 ### Upgrade your powershell module
 
-To interact with premium files with PowerShell, you'll need to install module Az.Storage version **0.7** or later.
+To interact with premium files with PowerShell, you'll need to install the latest Az.Storage module.
 
 Start by opening a PowerShell session with elevated permissions.
 
@@ -104,7 +104,7 @@ To create a new resource group with PowerShell, use the [New-AzResourceGroup](/p
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
-$resourceGroup = "storage-quickstart-resource-group"
+$resourceGroup = "storage-how-to-resource-group"
 $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -114,7 +114,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 To create a FileStorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus" -Kind "FileStorage"
+New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
 ```
 
 ## Create a premium file share

@@ -20,7 +20,7 @@ Premium files use a unique storage account called **filestorage (preview)**, thi
 
 |Area  |Target  |
 |---------|---------|
-|Max size     |5 TiB (public preview), 100 TiB (private preview)     |
+|Max size     |5 TiB (public preview), 102 TiB (private preview)     |
 |Shares   |Unlimited  |
 |IOPS     |100,000 (private preview)    |
 |Bandwidth|5 GB/s     |
