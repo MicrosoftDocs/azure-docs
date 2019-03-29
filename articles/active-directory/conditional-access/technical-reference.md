@@ -3,7 +3,7 @@ title: Azure Active Directory conditional access settings reference | Microsoft 
 description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 services: active-directory.
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
 
 #Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs

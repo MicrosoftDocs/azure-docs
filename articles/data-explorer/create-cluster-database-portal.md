@@ -7,10 +7,11 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 3/25/2019
 
 #Customer intent: As a database administrator, I want to create an Azure Data Explorer cluster and database so that I can understand whether Azure Data Explorer is suitable for my analytics projects.
 ---
+
 
 # Quickstart: Create an Azure Data Explorer cluster and database
 

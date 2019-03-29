@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using the CLI'
+title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Azure CLI'
 description: Learn how to create an Azure Data Explorer cluster and database by using the Azure CLI
 services: data-explorer
 author: radennis
@@ -7,10 +7,10 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ---
 
-# Create an Azure Data Explorer cluster and database by using the CLI
+# Create an Azure Data Explorer cluster and database by using Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -18,9 +18,9 @@ ms.date: 2/4/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-This quickstart describes how to create an Azure Data Explorer cluster and database by using the Azure CLI.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Azure CLI.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The following steps are not required if you're running commands in Azure Cloud S
     az login
     ```
 
-2. Set the subscription where you want your cluster to be created. Replace `MyAzureSub` with the name of the Azure subscription that you want to use:
+1. Set the subscription where you want your cluster to be created. Replace `MyAzureSub` with the name of the Azure subscription that you want to use:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -62,7 +62,7 @@ The following steps are not required if you're running commands in Azure Cloud S
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 
-2. Run the following command to check whether your cluster was successfully created:
+1. Run the following command to check whether your cluster was successfully created:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -86,7 +86,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
    | soft-delete-period | *3650:00:00:00* | The amount of time that data will be kept available to query. |
    | hot-cache-period | *3650:00:00:00* | The amount of time that data will be kept in cache. |
 
-2. Run the following command to see the database that you created:
+1. Run the following command to see the database that you created:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

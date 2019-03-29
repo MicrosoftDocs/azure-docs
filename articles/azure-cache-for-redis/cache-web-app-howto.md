@@ -95,7 +95,7 @@ Next, you create the cache for the app.
 
 In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
 
-* [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configure the application to use the StackExchange.Redis client
 * Update the HomeController and Layout
 * Add a new RedisCache view

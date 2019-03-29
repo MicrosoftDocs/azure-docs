@@ -211,12 +211,10 @@
         href: vmware-azure-set-up-replication.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service installation
+        - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Enable replication for VMware VMs
@@ -243,6 +241,8 @@
         href: vmware-azure-install-linux-master-target.md
     - name: Manage
       items: 
+      - name: Manage mobility agent for VMware 
+        href: vmware-physical-manage-mobility-service.md 
       - name: Manage the configuration server for VMware 
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers
@@ -275,8 +275,6 @@
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Walkthrough-Set up disaster recovery
@@ -285,6 +283,8 @@
       href: physical-to-azure-failover-failback.md
     - name: Manage
       items:
+      - name: Manage mobility agent for physical server 
+        href: vmware-physical-manage-mobility-service.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
       - name: Manage process servers

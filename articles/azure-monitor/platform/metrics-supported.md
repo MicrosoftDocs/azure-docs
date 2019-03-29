@@ -1281,8 +1281,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MessageCount|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |InboundTraffic|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions|
 |OutboundTraffic|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
-|UserErrors|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-|SystemErrors|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
+|UserErrors|User Errors|Percent|Average|The percentage of user errors|No Dimensions|
+|SystemErrors|System Errors|Percent|Average|The percentage of system errors|No Dimensions|
 
 ## Microsoft.Sql/servers/databases
 
