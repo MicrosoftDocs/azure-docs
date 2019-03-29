@@ -128,7 +128,7 @@ There is no additional charge for using service endpoints. The current pricing m
 
 There is no limit on the total number of service endpoints in a virtual network.
 
-For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. Refer to the documentation for various services in [Next steps](#next-steps) for details.
+Certain Azure services, such as Azure Storage Accounts, may enforce limits on the number of subnets used for securing the resource. Refer to the documentation for various services in [Next steps](#next-steps) for details.
 
 ## Virtual Network Service Endpoint Policies 
 
