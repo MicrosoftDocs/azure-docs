@@ -63,6 +63,8 @@ In the Azure portal, you can see a field added in the **VM Backup Policy** blade
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
 
+To configure snapshot retention using Powershell, refer to [this document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+
 ## Frequently asked questions
 
 ### What are the cost implications of Instant restore?

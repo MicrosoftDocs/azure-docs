@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/30/2018
+ ms.date: 03/28/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -334,7 +334,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Suport for the larger disks up to 32 TiB will be added soon.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
