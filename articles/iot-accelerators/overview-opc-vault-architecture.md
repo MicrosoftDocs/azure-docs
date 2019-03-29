@@ -17,10 +17,3 @@ The following diagram illustrates the complete OPC Vault architecture.
 ## The complete OPC Vault architecture
 
 ![OPC Vault architecture](media/overview-opc-vault-architecture/opc-vault.png)
-
-## Next steps
-
-Now that you have learned about OPC Vault, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [OPC Twin architecture](overview-opc-twin-architecture.md)

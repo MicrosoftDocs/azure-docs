@@ -33,10 +33,3 @@ The following diagrams illustrate the OPC Twin architecture.
 1. The twin service REST interface can also be used to create monitored items and subscriptions in the OPC Publisher. The OPC Publisher allows telemetry to be sent from OPC UA server systems to IoT Hub. For more information about OPC Publisher, see the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) repository on GitHub.
 
    ![How OPC Twin works](media/overview-opc-twin-architecture/opc-twin4.png)
-
-## Next steps
-
-Now that you have learned about OPC Twin and its uses, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [What is OPC Vault](overview-opc-vault.md)
