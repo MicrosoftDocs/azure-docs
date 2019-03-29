@@ -153,7 +153,7 @@
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
     - name: Enhanced writes
-      href: ../hbase/apache-house-enhanced-writes.md
+      href: ../hbase/apache-hbase-enhanced-writes.md
       maintainContext: true
     - name: Scale an HDInsight cluster
       href: ../hdinsight-scaling-best-practices.md
