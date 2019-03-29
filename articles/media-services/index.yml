@@ -25,22 +25,27 @@ sections:
       columns: 2
       items:
         - href: /azure/media-services/latest/
-          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          html: <p>Encode, package, protect your content, stream videos on-demand, broadcast live, analyze with Media Services v3.</p>
           image:
             src: media/index/AMSIcons-media_servicesV3.svg
           title: Azure Media Services v3 
         - href: /azure/media-services/video-indexer/
-          html: <p>Learn how to extract the insights from your video and audio files using Video Indexer.</p>
+          html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
           image:
             src: media/index/AMSIcons-media_analytics.svg
           title: Video Indexer
         - href: /azure/media-services/previous/
-          html: <p>No new features or functionality are being added to Media Services v2. Checkout the latest Media Services v3 version.</p>          
+          html: <p>No new features or functionality are being added to Media Services v2. </p>          
           image:
-            src: media/index/AMSIcons-media_servicesV2.svg
+            src:
           title: Azure Media Services v2 (legacy)
         - href: /azure/cdn/
-          html: <p>Learn how to use CDN to cache static objects and accelerate dynamic content, which cannot be cached.</p>
+          html: <p>Use CDN to cache static objects and accelerate dynamic content, which cannot be cached.</p>
           image:
             src: /azure/cdn/media/index/cdn.svg
           title: CDN
+        - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+          html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
+          image:
+            src: 
+          title: Azure Media Player

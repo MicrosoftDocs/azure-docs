@@ -41,19 +41,6 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Use Azure Media Services together with [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
 
-## v3 capabilities
-
-v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. 
-
-This version provides the following capabilities:  
-
-* **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
-* **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage. Currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
-* **Notifications** that monitor job progress or states, or Live Events start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
-* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Live Events, and more.
-* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Live Events, and more.
-* **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
-
 ## Naming conventions
 
 Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
@@ -76,6 +63,8 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 
 ## How can I get started with v3? 
+
+Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
 ### Quickstarts  
 
