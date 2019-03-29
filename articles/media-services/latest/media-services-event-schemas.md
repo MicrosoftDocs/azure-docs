@@ -93,7 +93,7 @@ The track-level event types are:
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media server receives first data chunk for each track in the stream or connection. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media server detects audio and video streams are out of sync. Use as a warning because user experience may not be impacted. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server detects any of the two video streams coming from external encoder are out of sync. Use as a warning because user experience may not be impacted. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary.<br/><br/>The heartbeat event continues to emit every 20 sec whether the encoder is connected or not. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary.<br/><br/>The heartbeat event continues to emit every 20 sec whether the encoder is connected or not (after it has successfully connected for the first time). |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
 See [Schema examples](#event-schema-examples) that follow.
