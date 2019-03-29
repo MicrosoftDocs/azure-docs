@@ -4,7 +4,7 @@ description: Secure communication within an Azure Service Fabric standalone or o
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
