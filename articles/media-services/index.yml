@@ -45,7 +45,7 @@ sections:
             src: /azure/cdn/media/index/cdn.svg
           title: CDN
         - href: http://amp.azure.net/libs/amp/latest/docs/index.html
-          html: <p>Use Azure Media Player to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
+          html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
           image:
             src: 
           title: Azure Media Player
