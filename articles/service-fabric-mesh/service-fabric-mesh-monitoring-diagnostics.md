@@ -55,8 +55,8 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu as a percentage | % |
 | MemoryUtilization | ActualMem/AllocatedMem as a percentage | % |
-| AllocatedCpu | Cpu allocated as per ARM template | Millicores |
-| AllocatedMemory | Memory allocated as per ARM template | MB |
+| AllocatedCpu | Cpu allocated as per Azure Resource Manager template | Millicores |
+| AllocatedMemory | Memory allocated as per Azure Resource Manager template | MB |
 | ActualCpu | CPU usage | Millicores |
 | ActualMemory | Memory usage | MB |
 | ContainerStatus | 0 - Invalid: The container status is unknown <br> 1 - Pending: The container has scheduled to start <br> 2 - Starting: The container is in the process of starting <br> 3 - Started: The container has started successfully <br> 4 - Stopping: The container is being stopped <br> 5 - Stopped: The container has stopped successfully | N/A |
@@ -81,7 +81,7 @@ Each dimension corresponds to different components of the [Service Fabric Applic
 
 A full list of commands is available in the [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) but we have included a few helpful examples below 
 
-In each example, the Resource id follows this pattern
+In each example, the Resource ID follows this pattern
 
 `"/subscriptions/<your sub ID>/resourcegroups/<your RG>/providers/Microsoft.ServiceFabricMesh/applications/<your App name>"`
 
@@ -122,5 +122,5 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 -->
 
 ## Next steps
-* To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
-* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)
+* To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
+* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
