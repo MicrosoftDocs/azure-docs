@@ -27,7 +27,6 @@ Customer usage attribution is for new deployment and does NOT support tagging ex
 Customer usage attribution is required on [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): solution template offer published to Azure Marketplace.
 
 ## Use Resource Manager templates
-
 Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution should be straight forward.
 
 For more information on creating and publishing Solution Templates, see
@@ -59,6 +58,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 To enable tracking resources for your template, you need to add the following additional resource under the resources section. Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
 The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
@@ -105,7 +105,7 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 If you deploy resources via Azure PowerShell, append your GUID by using the following method:
 
-```
+```powershell
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 ```
 
@@ -209,7 +209,7 @@ The **GUID** and **resourceGroup** name of the deployment are required parameter
 
 You can get [the original script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) on GitHub.
 
-```
+```powershell
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
     [string][Parameter(Mandatory=$true)]$resourceGroupName

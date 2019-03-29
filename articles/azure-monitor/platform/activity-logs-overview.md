@@ -42,9 +42,11 @@ The Activity Log contains several categories of data. For full details on the sc
 * **Policy** - This category contains records of all effect action operations performed by Azure Policy. Examples of the types of events you would see in this category include Audit and Deny. Every action taken by Policy is modeled as an operation on a resource.
 
 ## Event schema per category
+
 [See this article to understand the Activity Log event schema per category.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## What you can do with the Activity Log
+
 Here are some of the things you can do with the Activity Log:
 
 ![Azure Activity log](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,6 +60,7 @@ Here are some of the things you can do with the Activity Log:
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
 ## Query the Activity Log in the Azure portal
+
 Within the Azure portal, you can view your Activity Log in several places:
 * The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
 * **Monitor** appears by default in the left-hand navigation pane. The Activity Log is one section of Azure Monitor.
@@ -80,6 +83,7 @@ Once you have defined a set of filters, you can pin a query to your Azure dashbo
 For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Collect and analyze Activity Logs solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but the Azure Monitor logs feature enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
+
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
@@ -103,6 +107,7 @@ You can use a storage account or event hub namespace that is not in the same sub
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
 ### Configure log profiles using the Azure portal
+
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export to Event Hub” option in the Azure portal.
 
 1. Navigate to **Activity Log** using the menu on the left side of the portal.
@@ -126,13 +131,13 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
 #### Get existing log profile
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### Add a log profile
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -146,7 +151,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Category |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
 #### Remove a log profile
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -179,6 +185,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## Next Steps
+
 * [Learn more about the Activity Log (formerly Audit Logs)](../../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

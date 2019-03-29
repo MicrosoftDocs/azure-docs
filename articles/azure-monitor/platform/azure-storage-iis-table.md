@@ -14,7 +14,6 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ---
-
 # Use Azure blob storage for IIS and Azure table storage for events with Azure Monitor
 
 Azure Monitor can read the logs for the following services that write diagnostics to table storage or IIS logs written to blob storage:
@@ -49,9 +48,11 @@ For Azure Monitor to collect these Azure Diagnostics logs, the logs must be in t
 For virtual machines, you have the option of installing the [Log Analytics agent](../../azure-monitor/learn/quick-collect-azurevm.md) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection
+
 Use the following procedure to enable Azure diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure portal.
 
 ### To enable Azure diagnostics in a virtual machine with the Azure portal
+
 1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
 
    * In the Azure portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
@@ -67,6 +68,7 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
    6. Click **OK**.
 
 ## Enable Azure diagnostics in a Web role for IIS log and event collection
+
 Refer to [How To Enable Diagnostics in a Cloud Service](../../cloud-services/cloud-services-dotnet-diagnostics.md) for general steps on enabling Azure diagnostics. The instructions below use this information and customize it for use with Log Analytics.
 
 With Azure diagnostics enabled:
@@ -75,11 +77,12 @@ With Azure diagnostics enabled:
 * Windows Event Logs are not transferred by default.
 
 ### To enable diagnostics
+
 To enable Windows Event Logs, or to change the scheduledTransferPeriod, configure Azure Diagnostics using the XML configuration file (diagnostics.wadcfg), as shown in [Step 4: Create your Diagnostics configuration file and install the extension](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 The following example configuration file collects IIS Logs and all Events from the Application and System logs:
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -103,7 +106,7 @@ The following example configuration file collects IIS Logs and all Events from t
 
 Ensure that your ConfigurationSettings specifies a storage account, as in the following example:
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -114,6 +117,7 @@ The **AccountName** and **AccountKey** values are found in the Azure portal in t
 Once the updated diagnostic configuration is applied to your cloud service and it is writing diagnostics to Azure Storage, then you are ready to configure the Log Analytics workspace.
 
 ## Use the Azure portal to collect logs from Azure Storage
+
 You can use the Azure portal to configure a Log Analytics workspace in Azure Monitor to collect the logs for the following Azure services:
 
 * Service Fabric clusters
@@ -156,7 +160,7 @@ The script uses cmdlets for classic virtual machines.
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -189,6 +193,7 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 
 ## Next steps
+
 * [Collect logs and metrics for Azure services](collect-azure-metrics-logs.md) for supported Azure services.
 * [Enable Solutions](../../azure-monitor/insights/solutions.md) to provide insight into the data.
 * [Use search queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data.
