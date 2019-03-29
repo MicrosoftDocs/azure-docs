@@ -51,13 +51,15 @@ sections:
     - image:
         src: media/index/logo_nodejs.svg
       text: Encode and stream with Node.js
-      href: /azure/media-services/latest/stream-files-nodejs-quickstart    
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services v3:'
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items: 
     - image: 
         src: media/index/AMSIcons-encoding.svg
@@ -74,7 +76,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: 'Samples that show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
+    text: 'The following GitHub samples show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
   - type: list
     style: icon48
     items: 
