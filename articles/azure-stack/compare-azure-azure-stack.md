@@ -20,7 +20,7 @@ ms.custom:
 ms.lastreviewed: 03/29/2019
 ---
 
-# Differences between global Azure, Azure Stack, Azure Stack HCI
+# Differences between global Azure, Azure Stack, and Azure Stack HCI
 
 Microsoft provides Azure and the Azure Stack family of services in one Azure ecosystem. Use the same application model, self-service portals, and APIs with Azure Resource Manager to deliver cloud-based capabilities whether your business uses global Azure or on-premises resources.
 
