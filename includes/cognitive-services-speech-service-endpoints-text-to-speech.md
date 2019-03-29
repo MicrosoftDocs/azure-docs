@@ -38,7 +38,7 @@ Standard voices are available in these regions:
 | Korea Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | North Central US | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
-| South Central US | "https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1 |
+| South Central US | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | UK South | https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1 |
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -64,7 +64,7 @@ If you've created a custom voice font, use the endpoint that you've created, not
 | Korea Central | https://koreacentral.voice.speech.microsoft.com |
 | North Central US | https://northcentralus.voice.speech.microsoft.com |
 | North Europe | https://northeurope.voice.speech.microsoft.com |
-| South Central US | "https://southcentralus.voice.speech.microsoft.com |
+| South Central US | https://southcentralus.voice.speech.microsoft.com |
 | Southeast Asia | https://southeastasia.voice.speech.microsoft.com |
 | UK South | https://uksouth.voice.speech.microsoft.com |
 | West Europe | https://westeurope.voice.speech.microsoft.com |
