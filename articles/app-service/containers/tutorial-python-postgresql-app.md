@@ -191,7 +191,6 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 > [!NOTE]
 > Remember \<admin-username> and \<admin-password> for later. You need them to sign in to the Postgre server and its databases.
 
-
 ### Create firewall rules for the PostgreSQL server
 
 In the Cloud Shell, run the following Azure CLI commands to allow access to the database from Azure resources.
@@ -310,22 +309,21 @@ For more information on configuring WhiteNoise, see the [WhiteNoise documentatio
 > [!IMPORTANT]
 > The database settings section already follows the security best practice of using environment variables. For the complete deployment recommendations, see [Django Documentation: deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
-
 Commit your changes into the repository.
 
 ```bash
 git commit -am "configure for App Service"
 ```
 
-### Configure a deployment user
+### Configure deployment user
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
-### Create an App Service plan 
+### Create App Service plan
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### Create a web app 
+### Create web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
@@ -340,6 +338,8 @@ The following example specifies the database connection details as app settings.
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="manager@<postgresql-name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
+
+For information on how these app settings are accessed in your code, see [Access environment variables](how-to-configure-python.md#access-environment-variables).
 
 ### Push to Azure from Git
 

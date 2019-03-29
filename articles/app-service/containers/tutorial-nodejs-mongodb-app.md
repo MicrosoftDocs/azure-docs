@@ -261,7 +261,7 @@ The following example configures a `MONGODB_URI` app setting in your Azure app. 
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
+In Node.js code, you [access this app setting](configure-language-nodejs.md#access-environment-variables) with `process.env.MONGODB_URI`, just like you would access any environment variable.
 
 In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. The default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
@@ -301,7 +301,7 @@ You may notice that the deployment process runs [Gulp](https://gulpjs.com/) afte
 - _.deployment_ - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 - _deploy.sh_ - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`.
 
-You can use this approach to add any step to your Git-based deployment. If you restart your Azure app at any point, App Service doesn't rerun these automation tasks.
+You can use this approach to add any step to your Git-based deployment. If you restart your Azure app at any point, App Service doesn't rerun these automation tasks. For more information, see [Run Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
 ### Browse to the Azure app
 

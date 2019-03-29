@@ -31,17 +31,7 @@ You can also connect to the container directly from your local development machi
 
 ## Open SSH session in browser
 
-To make an SSH client connection with your container, your app should be running.
-
-Paste the following URL into your browser and replace \<app_name> with your app name:
-
-```
-https://<app_name>.scm.azurewebsites.net/webssh/host
-```
-
-If you are not already authenticated, you are required to authenticate with your Azure subscription to connect. Once authenticated, you see an in-browser shell, where you can run commands inside your container.
-
-![SSH connection](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## Use SSH support with custom Docker images
 
@@ -57,10 +47,10 @@ Using TCP tunneling you can create a network connection between your development
 
 To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription\_id>_, _\<group\_name>_ and \_<app\_name>_ for your app.
+Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_<app-name>_ for your app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
+az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

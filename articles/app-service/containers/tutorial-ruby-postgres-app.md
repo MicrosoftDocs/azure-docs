@@ -183,7 +183,7 @@ CREATE DATABASE sampledb;
 Create a database user called _railsappuser_ and give it all privileges in the `sampledb` database.
 
 ```sql
-CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017'; 
+CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017';
 GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 ```
 
@@ -221,7 +221,7 @@ export DB_USERNAME=railsappuser@<postgres-server-name>
 export DB_PASSWORD=MyPostgresAzure2017
 ```
 
-Run Rails database migrations with the production values you just configured to create the tables in your Postgres database in Azure Database for PostgreSQL. 
+Run Rails database migrations with the production values you just configured to create the tables in your Postgres database in Azure Database for PostgreSQL.
 
 ```bash
 rake db:migrate RAILS_ENV=production
@@ -305,7 +305,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ### Configure Rails environment variables
 
-In the local terminal, generate a new secret key for the Rails production environment in Azure.
+In the local terminal, [generate a new secret](configure-language-ruby.md#set-secret_key_base-manually) for the Rails production environment in Azure.
 
 ```bash
 rails secret
@@ -319,7 +319,7 @@ In the following Cloud Shell command, replace the two _&lt;output-of-rails-secre
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"` tells the default Ruby container to precompile assets at each Git deployment.
+`ASSETS_PRECOMPILE="true"` tells the default Ruby container to precompile assets at each Git deployment. For more information, see [Precompile assets](configure-language-ruby.md#precompile-assets) and [Serve static assets](configure-language-ruby.md#serve-static-assets).
 
 ### Push to Azure from Git
 

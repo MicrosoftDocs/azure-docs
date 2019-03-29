@@ -152,7 +152,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, Kudu runs `npm install --production` when it recognizes a Node.js app is deployed. If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a custom deployment script to run it.
+By default, Kudu runs `npm install --production` when it recognizes a Node.js app is deployed. If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -246,6 +246,10 @@ if (req.secure) {
 ## Access diagnostic logs
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ## Troubleshooting
 

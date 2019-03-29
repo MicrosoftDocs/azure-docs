@@ -266,12 +266,12 @@ Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `co
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
 ```
 
-The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial. 
+The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial.
 
 ### Test the application locally
 
@@ -318,10 +318,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 The Laravel application starts in the _/public_ directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. However, you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
-> [!NOTE] 
-> If you would rather not use _.htaccess_ rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-docker-go.md) instead.
->
->
+For more information, see [Change site root](configure-language-php.md#change-site-root).
 
 ### Configure a deployment user
 
@@ -345,7 +342,7 @@ The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
+You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to [access the app settings](configure-language-php.md#access-environment-variables). The Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [
@@ -414,7 +411,7 @@ remote: Running deployment command...
 > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
 > - `composer.phar` - The Composer package manager.
 >
-> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer).
 >
 
 ### Browse to the Azure app

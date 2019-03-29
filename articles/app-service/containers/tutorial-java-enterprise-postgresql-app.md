@@ -154,7 +154,9 @@ Next, we need to edit our Java Transaction API (JPA) configuration so that our J
 
 ## Configure the WildFly application server
 
-Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. To configure the server, we will need the four files in the  `wildfly_config/` directory:
+Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configurewildfly-server).
+
+To configure the server, we will need the four files in the  `wildfly_config/` directory:
 
 - **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
@@ -168,7 +170,6 @@ We highly suggest reading the contents of these files, especially _jboss_cli_com
 We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Using an FTP tool of your choice, transfer the four files in `wildfly_config/` to `/home/site/deployments/tools/`. (Note that you should not transfer the directory, just the files themselves.)
-
 
 ### Finalize App Service
 

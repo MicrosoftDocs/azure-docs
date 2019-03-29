@@ -165,6 +165,10 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
 ## Troubleshooting
 
 - **You see the default app after deploying your own app code.** The default app appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.

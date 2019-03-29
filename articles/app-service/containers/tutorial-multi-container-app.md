@@ -36,11 +36,6 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Preview feature limitations
-Multi-container is currently in preview, the following App Service platform features are not supported. We expect to enable these features for Multi-container Web App before General Availability (GA):
-* Authentication / Authorization
-* Managed Identities
-
 ## Prerequisites
 
 To complete this tutorial, you need experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
@@ -51,9 +46,7 @@ For this tutorial, you use the compose file from [Docker](https://docs.docker.co
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
-> [!NOTE]
-> For supported configuration options, see [Docker Compose options (multi-container)](configure-custom-container.md#docker-compose-options).
->
+For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 In Cloud Shell, create a tutorial directory and then change to it.
 
@@ -255,6 +248,8 @@ When the app setting has been created, Cloud Shell shows information similar to 
 ]
 ```
 
+For more information on environment variables, see [Configure environment variables](configure-custom-container.md#configure-environment-variables).
+
 ### Use a custom image for MySQL SSL and other configurations
 
 By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://hub.docker.com/r/microsoft/multicontainerwordpress/builds/) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
@@ -314,7 +309,7 @@ Browse to the deployed app at (`http://<app-name>.azurewebsites.net`). The app i
 
 ## Add persistent storage
 
-Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This happens because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container don't persist beyond app restart. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This happens because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container don't persist beyond app restart. In this section, you'll [add persistent storage](configure-custom-container.md#use-persistent-shared-storage) to your WordPress container.
 
 ### Configure environment variables
 
@@ -495,7 +490,7 @@ You'll use *kubernetes-wordpress.yml* for this portion of the tutorial. It is di
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
-For supported configuration options, see [Kubernetes configuration options (multi-container)](configure-custom-container.md#kubernetes-configuration-options)
+For supported configuration options, see [Kubernetes configuration options](configure-custom-container.md#kubernetes-configuration-options)
 
 ### Create an Azure Database for MySQL server
 
@@ -617,7 +612,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 ### Add persistent storage
 
-Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll [add persistent storage](configure-custom-container.md#use-persistent-shared-storage) to your WordPress container.
 
 ### Configure environment variables
 

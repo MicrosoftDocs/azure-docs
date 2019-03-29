@@ -127,6 +127,10 @@ To use your own `secret_key_base` value instead of letting App Service generate 
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
 ## More resources
 
 [Create a Ruby on Rails App in App Service on Linux](quickstart-ruby.md)  

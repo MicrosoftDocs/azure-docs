@@ -16,7 +16,7 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Deploy a custom Linux container to Azure App Service
+# Run a custom Linux container in Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that is not already defined in Azure. This quickstart shows how to create a web app and deploy a Go image from Docker Hub. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 

@@ -103,6 +103,7 @@ SSH enables secure communication between a container and a client. In order for 
 ## Configure multi-container apps
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
+- [Preview limitations](#preview-limitations)
 - [Docker Compose options](#docker-compose-options)
 - [Kubernetes configuration options](#kubernetes-configuration-options)
 
@@ -126,6 +127,13 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
 ```
+
+### Preview limitations
+
+Multi-container is currently in preview. The following App Service platform features are not supported:
+
+- Authentication / Authorization
+- Managed Identities
 
 ### Docker Compose options
 

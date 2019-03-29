@@ -28,7 +28,7 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### SSH console access
 
-SSH connectivity to the Linux environment running your app is available. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### Stream diagnostic logs
 
@@ -349,7 +349,6 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 3. Pass the shared access policy key to your code either by URL-encoding the primary key of your policy or [Use the Service Bus SDK](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
 
 4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
-
 
 ### Configure session management caching
 

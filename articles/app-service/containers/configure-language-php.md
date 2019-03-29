@@ -47,7 +47,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Run Composer
 
-By default, Kudu doesn't run [Composer](https://getcomposer.org/). To enable Composer automation during Kudu deployment, you need to supply a custom deployment script.
+By default, Kudu doesn't run [Composer](https://getcomposer.org/). To enable Composer automation during Kudu deployment, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 From a local terminal window, change directory to your repository root. Follow the [command-line installation steps](https://getcomposer.org/download/) to download *composer.phar*.
 
@@ -207,6 +207,10 @@ Separate multiple extensions with the comma.
 ## Access diagnostic logs
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ## Troubleshooting
 
