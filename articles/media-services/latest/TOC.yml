@@ -86,7 +86,7 @@
           href: widevine-license-template-overview.md
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
-    - name: Streaming Endpoints
+    - name: Streaming Endpoints/Origin
       displayName: origins, cdn 
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
@@ -143,15 +143,16 @@
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
-    - name: Start developing
-      href: developers-guide.md
-    - name: REST with Postman
-      href: media-rest-apis-with-postman.md       
-    - name: Configure and connect to SDKs
+    - name: Develop with REST
       items:
-      - name: .NET 
+      - name: Connect to API with Postman
+        href: media-rest-apis-with-postman.md       
+    - name: Develop with SDKs
+      href: developers-guide.md
+      items:
+      - name: Connect to API with .NET 
         href: configure-connect-dotnet-howto.md
-      - name: Node.js
+      - name: Connect to API with Node.js
         href: configure-connect-nodejs-howto.md
   - name: Upload content
     items:
