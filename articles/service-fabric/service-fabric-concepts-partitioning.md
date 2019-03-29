@@ -4,7 +4,7 @@ description: Describes how to partition Service Fabric stateful services. Partit
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b

@@ -4,7 +4,7 @@ description: Azure PowerShell Samples - Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 tags: 
 

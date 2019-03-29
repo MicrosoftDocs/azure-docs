@@ -4,7 +4,7 @@ description: Use an Azure Service Fabric cluster to host an existing Node.js app
 services: service-fabric
 documentationcenter: nodejs
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ''

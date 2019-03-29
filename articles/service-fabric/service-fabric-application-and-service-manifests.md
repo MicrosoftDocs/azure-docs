@@ -4,7 +4,7 @@ description: Describes how manifests are used to describe Service Fabric applica
 services: service-fabric
 documentationcenter: .net
 author: Athinanthny  
-manager: timlt
+manager: chackdan
 editor: mani-ramaswamy
 
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02

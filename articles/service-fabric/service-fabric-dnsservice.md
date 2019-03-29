@@ -4,7 +4,7 @@ description: Use Service Fabric's dns service for discovering microservices from
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3

@@ -4,7 +4,7 @@ description: Learn how to run a service as a gMSA on a Service Fabric Windows st
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732

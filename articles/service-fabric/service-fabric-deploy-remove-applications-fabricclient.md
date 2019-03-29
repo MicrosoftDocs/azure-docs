@@ -4,7 +4,7 @@ description: Use the FabricClient APIs to deploy and remove applications in Serv
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b

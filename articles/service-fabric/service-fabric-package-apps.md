@@ -4,7 +4,7 @@ description: How to package a Service Fabric application before deploying to a c
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: mani-ramaswamy
 
 ms.assetid:

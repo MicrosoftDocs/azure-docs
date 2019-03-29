@@ -4,7 +4,7 @@ description: Learn how to develop unit tests for Service Fabric Stateful Service
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 

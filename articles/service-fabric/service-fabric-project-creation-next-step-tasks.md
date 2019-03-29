@@ -4,7 +4,7 @@ description: Learn about the application project you just created in Visual Stud
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df

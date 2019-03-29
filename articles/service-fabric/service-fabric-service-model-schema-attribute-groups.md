@@ -4,7 +4,7 @@ description: Describes the attribute groups in the XML schema of the Service Fab
 services: service-fabric
 documentationcenter: na
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric

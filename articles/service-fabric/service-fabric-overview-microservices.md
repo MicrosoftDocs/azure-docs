@@ -4,7 +4,7 @@ description: An overview of why building cloud applications with a microservices
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b

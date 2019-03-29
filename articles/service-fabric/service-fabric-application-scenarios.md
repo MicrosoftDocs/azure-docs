@@ -4,7 +4,7 @@ description: Overview of categories of cloud applications in Service Fabric. Dis
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e

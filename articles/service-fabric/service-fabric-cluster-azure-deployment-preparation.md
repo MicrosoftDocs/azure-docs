@@ -4,7 +4,7 @@ description: Learn about planning and preparing for a production Service Fabric 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: aljo
 
 ms.assetid: 

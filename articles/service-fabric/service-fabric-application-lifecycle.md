@@ -4,7 +4,7 @@ description: Describes developing, deploying, testing, upgrading, maintaining, a
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097

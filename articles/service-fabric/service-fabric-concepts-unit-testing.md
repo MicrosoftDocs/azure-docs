@@ -4,7 +4,7 @@ description: Learn about the concepts and practices of unit testing Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 

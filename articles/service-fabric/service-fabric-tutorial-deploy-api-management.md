@@ -4,7 +4,7 @@ description: Learn how to quickly get started with Azure API Management and rout
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

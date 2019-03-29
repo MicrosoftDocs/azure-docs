@@ -4,7 +4,7 @@ description: Describes how to authenticate client access to a Service Fabric clu
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10

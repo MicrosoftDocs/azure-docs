@@ -4,7 +4,7 @@ description: Learn how to create and deploy a Java Service Fabric reliable actor
 services: service-fabric
 documentationcenter: java
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e

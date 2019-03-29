@@ -4,7 +4,7 @@ description: Describes how to query, view, and evaluate Azure Service Fabric ent
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5

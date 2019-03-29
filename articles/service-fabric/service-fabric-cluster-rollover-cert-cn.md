@@ -4,7 +4,7 @@ description: Learn how to rollover a Service Fabric cluster certificate identifi
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: aljo
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48

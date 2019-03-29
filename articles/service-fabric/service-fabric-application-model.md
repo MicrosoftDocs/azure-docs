@@ -4,7 +4,7 @@ description: How to model and describe applications and services in Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: mani-ramaswamy
 
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02

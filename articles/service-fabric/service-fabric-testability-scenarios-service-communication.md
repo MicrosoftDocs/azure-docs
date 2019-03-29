@@ -4,7 +4,7 @@ description: Service-to-service communication is a critical integration point of
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8

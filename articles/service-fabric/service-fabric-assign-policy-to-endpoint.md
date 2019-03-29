@@ -4,7 +4,7 @@ description: Learn how to assign security access polices to HTTP or HTTPS endpoi
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732

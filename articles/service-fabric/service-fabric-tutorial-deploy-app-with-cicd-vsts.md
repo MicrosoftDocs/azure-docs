@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to set up continuous integration an
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

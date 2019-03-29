@@ -4,7 +4,7 @@ description: An overview of Service Fabric and the use of containers to deploy m
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab

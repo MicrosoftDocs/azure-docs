@@ -4,7 +4,7 @@ description: Overview of additional placement policies and rules for Service Fab
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38

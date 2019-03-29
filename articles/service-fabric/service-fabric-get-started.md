@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f

@@ -4,7 +4,7 @@ description: Describes the XML schema of the Service Fabric service model.
 services: service-fabric
 documentationcenter: na
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -63,7 +63,7 @@ def writeOverviewFile(filename, namedElements, namedComplexTypes, namedElementGr
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')
@@ -133,7 +133,7 @@ def writeElementGroupsFile(filename, namedElementGroups):
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')
@@ -202,7 +202,7 @@ def writeElementsFile(filename, namedElements):
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')
@@ -341,7 +341,7 @@ def writeComplexTypesFile(filename, namedComplexTypes):
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')
@@ -446,7 +446,7 @@ def writeAttributesFile(filename, namedAttributeGroups):
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')
@@ -514,7 +514,7 @@ def writeSimpleTypesFile(filename, namedSimpleTypes):
         file.write('services: service-fabric\n')
         file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
-        file.write('manager: timlt\n')
+        file.write('manager: chackdan\n')
         file.write('editor: ''\n')
 
         file.write('ms.assetid: \n')

@@ -4,7 +4,7 @@ description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
 services: service-fabric
 documentationcenter: service-fabric
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 tags: 
 

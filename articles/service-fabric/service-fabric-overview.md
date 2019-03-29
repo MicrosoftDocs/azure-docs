@@ -4,7 +4,7 @@ description: An overview of Service Fabric, where applications are composed of m
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: masnider
 
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0

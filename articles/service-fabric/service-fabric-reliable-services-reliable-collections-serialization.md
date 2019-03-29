@@ -4,7 +4,7 @@ description: Azure Service Fabric Reliable Collections object serialization
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak
 
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956

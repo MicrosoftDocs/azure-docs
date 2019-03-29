@@ -4,7 +4,7 @@ description: Describes the health reports sent by Azure Service Fabric component
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625

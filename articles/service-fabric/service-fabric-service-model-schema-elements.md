@@ -4,7 +4,7 @@ description: Describes the elements in the XML schema of the Service Fabric serv
 services: service-fabric
 documentationcenter: na
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric

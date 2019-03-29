@@ -4,7 +4,7 @@ description: Learn how to configure a policy for a Service Fabric service setup 
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

@@ -4,7 +4,7 @@ description: Learn about the core concepts and major areas of Azure Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 
 ms.assetid: 

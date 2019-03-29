@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use PowerShell to upgrade the ru
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

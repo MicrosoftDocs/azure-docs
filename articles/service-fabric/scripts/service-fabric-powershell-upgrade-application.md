@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Upgrade a Service Fabric applicati
 services: service-fabric
 documentationcenter: 
 author: athinanthny
-manager: timlt
+manager: chackdan
 editor: 
 tags: azure-service-management
 
