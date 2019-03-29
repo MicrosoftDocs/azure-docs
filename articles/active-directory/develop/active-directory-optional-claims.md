@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/08/2018
+ms.date: 03/27/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
@@ -30,31 +30,28 @@ This feature is used by application developers to specify which claims they want
 > [!NOTE]
 > This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
-For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](v1-id-and-access-tokens.md). 
+For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation. 
 
-One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
+While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
 
 **Table 1: Applicability**
 
-| Account Type | V1.0 Endpoint | V2.0 Endpoint  |
+| Account Type | V1.0 tokens | V2.0 tokens  |
 |--------------|---------------|----------------|
-| Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
-| Azure AD account          | Supported                          | Supported with caveats |
+| Personal Microsoft account  | N/A  | Supported|
+| Azure AD account      | Supported | Supported |
 
-> [!IMPORTANT]
-> Apps that support both personal accounts and Azure AD (registered through the [app registration portal](https://apps.dev.microsoft.com)) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. In the Azure portal, you can use the application manifest editor in the existing **App registrations** experience to edit your optional claims. However, this functionality is not yet available using the application manifest editor in the new **App registrations (Preview)** experience.
-
-## Standard optional claims set
+## V1.0 and V2.0 optional claims set
 
 The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. Note that when adding claims to the **access token**, this will apply to access tokens requested *for* the application (a web API), not those *by* the application. This ensures that no matter the client accessing your API, the right data is present in the access token they use to authenticate against your API.
 
 > [!NOTE]
-> The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Additionally, while optional claims are only supported for AAD users currently, MSA support is being added. When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user. 
+> The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).  
 
-**Table 2: Standard optional claim set**
+**Table 2: V1.0 and V2.0 optional claim set**
 
-| Name                        | Description   | Token Type | User Type | Notes  |
-|-----------------------------|----------------|------------|-----------|--------|
+| Name                       |  Description   | Token Type | User Type | Notes  |
+|----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
 | `home_oid`                 | For guest users, the object ID of the user in the user’s home tenant.| JWT        |           | |
@@ -65,19 +62,19 @@ The set of optional claims available by default for applications to use are list
 | `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user. | JWT |  |  |
 | `vnet`                     | VNET specifier information. | JWT        |           |      |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `ctry`                     | User’s country | JWT |           | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country code, such as FR, JP, SZ, and so on. |
+| `ctry`                     | User’s country | JWT |  | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country code, such as FR, JP, SZ, and so on. |
 | `tenant_ctry`              | Resource tenant’s country | JWT | | |
 | `xms_pdl`		     | Preferred data location   | JWT | | For Multi-Geo tenants, this is the 3-letter code showing which geographic region the user is in. For more details, see the [Azure AD Connect documentation about preferred data location](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC (“en-us”). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant’s preferred language, if set. Formatted LL (“en”). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-|`email`                     | The addressable email for this user, if the user has one.  | JWT, SAML | | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, AAD | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`   		     | Users account status in tenant. | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
 
 ### v2.0 optional claims
 
-These claims are always included in v1.0 tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for  JWTs (ID tokens and Access Tokens). 
+These claims are always included in v1.0 AAD tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for JWTs (ID tokens and Access Tokens). 
 
 **Table 3: V2.0-only optional claims**
 
@@ -89,9 +86,10 @@ These claims are always included in v1.0 tokens, but not included in v2.0 tokens
 | `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `nickname`    | Nickname                        | An additional name for the user, separate from first or last name. | 
-| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the Azure AD user object. <br>"family_name":"Miller" |       |
-| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the Azure AD user object.<br>"given_name": "Frank"                   |       |
-| `upn`       | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
+| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and AAD   |
+| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and AAD  |
+| `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
+| `sid`         | Session ID                      | GUID session identifier, used for tracking authentication session with MSA. | MSA only.  Will not be included for Azure AD accounts. | 
 
 ### Additional properties of optional claims
 
