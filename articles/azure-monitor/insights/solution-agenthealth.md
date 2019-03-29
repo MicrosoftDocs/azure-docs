@@ -56,7 +56,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Distribution by OS Type | A partition of how many Windows and Linux agents you have in your environment.|
 | Distribution by Agent Version | A partition of the different agent versions installed in your environment and a count of each one.|
 | Distribution by Agent Category | A partition of the different categories of agents that are sending up heartbeat events: direct agents, OpsMgr agents, or the OpsMgr Management Server.|
-| Distribution by Management Group | A partition of the different SCOM Management groups in your environment.|
+| Distribution by Management Group | A partition of the different Operations Manager Management groups in your environment.|
 | Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
 | Count of Gateways Installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers.|
 
