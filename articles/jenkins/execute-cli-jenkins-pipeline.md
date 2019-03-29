@@ -110,9 +110,9 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 ### Configure Java 
 
-Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update) command.
+Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/webapp/config) command.
 
-The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set \ 

@@ -3,8 +3,8 @@ title: Problem configuring password single sign-on for a non-gallery application
 description: Understand the common problems people face when configuring Password Single Sign-on for custom non-gallery applications that are not listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring password single sign-on for a non-gallery application
@@ -42,25 +43,25 @@ In general, **if automatic sign-in field capture does not work, try the manual o
 
 To configure **Password-based Single Sign-on** for an application using **automatic sign-in field capture**, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Select the mode **Password-based Sign-on.**
+8. Select the mode **Password-based Sign-on.**
 
-9.  Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
+9. Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
 
 10. Click the **Save** button.
 
@@ -72,25 +73,25 @@ To manually capture sign-in fields, you must first have the Access Panel Browser
 
 To configure **Password-based Single Sign-on** for an application using **manual sign-in field capture**, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Select the mode **Password-based Sign-on.**
+8. Select the mode **Password-based Sign-on.**
 
-9.  Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
+9. Enter the **Sign-on URL**, the URL where users enter their username and password to sign in. **Ensure the sign-in fields are visible at the URL you provide**.
 
 10. Click the **Save** button.
 
@@ -170,22 +171,22 @@ You may also download the extension for Chrome and Firefox from the direct links
 
 You can see the details of any portal notification by following the steps below:
 
-1.  click the **Notifications** icon (the bell) in the upper right of the Azure portal
+1. click the **Notifications** icon (the bell) in the upper right of the Azure portal
 
-2.  Select any notification in an **Error** state (those with a red (!) next to them).
+2. Select any notification in an **Error** state (those with a red (!) next to them).
 
-  >!NOTE]
-  >You cannot click notifications in a **Successful** or **In Progress** state.
-  >
-  >
+   >!NOTE]
+   >You cannot click notifications in a **Successful** or **In Progress** state.
+   >
+   >
 
-3.  The **Notification Details** pane opens.
+3. The **Notification Details** pane opens.
 
-4.  Use the information yourself to understand more details about the problem.
+4. Use the information yourself to understand more details about the problem.
 
-5.  If you still need help, you can also share the information with a support engineer or the product group to get help with your problem.
+5. If you still need help, you can also share the information with a support engineer or the product group to get help with your problem.
 
-6.  Click the **copy** **icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group engineer.
+6. Click the **copy** **icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group engineer.
 
 ## How to get help by sending notification details to a support engineer
 
@@ -223,7 +224,7 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **UPN** – the user who performed the operation
 
-    -   Example – **tperkins@f128.info**
+    -   Example – **tperkins\@f128.info**
 
 -   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 
@@ -237,11 +238,11 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **Display Name** – **(can be empty)** a more detailed display name for the error
 
-    -   Example *– **Application proxy settings**
+    -   Example – **Application proxy settings**
 
 -   **Status** – the specific status of the notification
 
-    -   Example *– **Failed**
+    -   Example – **Failed**
 
 -   **Object ID** – **(can be empty)** the object ID against which the operation was performed
 
@@ -249,7 +250,7 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **Details** – the detailed description of what occurred as a result of the operation
 
-    -   Example – **Internal url 'https://bing.com/' is invalid since it is already in use**
+    -   Example – **Internal url '<https://bing.com/>' is invalid since it is already in use**
 
 -   **Copy error** – Click the **copy icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group engineer
 

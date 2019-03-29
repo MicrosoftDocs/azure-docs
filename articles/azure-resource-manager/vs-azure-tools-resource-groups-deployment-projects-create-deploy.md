@@ -1,6 +1,6 @@
 ---
 title: Visual Studio Azure resource group projects | Microsoft Docs
-description: Use Visual Studio to create a Azure resource group project and deploy the resources to Azure.
+description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
 
 ---
@@ -21,8 +21,6 @@ ms.author: tomfitz
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app and SQL Database.  
 
 This article shows how to use [Visual Studio 2017 with the Azure development and ASP.NET workloads installed](/dotnet/azure/dotnet-tools). If you use Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Create Azure Resource Group project
 
@@ -97,7 +95,7 @@ The **storageType** parameter is pre-defined with allowed types and a default ty
 }
 ```
 
-Visual Studio also provides intellisense to help you understand what properties are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the **HostingPlan** resource, and add a value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
+Visual Studio also provides intellisense to help you understand the properties that are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the **HostingPlan** resource, and add a value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
 
 ![show intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -144,7 +142,9 @@ You're now ready to deploy your project. When you deploy an Azure Resource Group
 5. Choose the **Deploy** button to deploy the project to Azure. A PowerShell console opens outside of the Visual Studio instance. Enter the SQL Server administrator password in the PowerShell console when prompted. **Your PowerShell console may be hidden behind other items or minimized in the task bar.** Look for this console and select it to provide the password.
    
    > [!NOTE]
-   > Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+   > Visual Studio may ask you to install the Azure PowerShell cmdlets. If prompted, install them. You need the Azure PowerShell modules to successfully deploy resource groups. The PowerShell script in the project doesn't work with the new [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). 
+   >
+   > For more information, see [Install and configure Azure PowerShell modules](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
@@ -218,7 +218,7 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. Open the WebsiteSqlDeploy.json file and add the following JSON after the storage account resource but before the closing `]` of the resources section.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -293,7 +293,7 @@ You aren't limited to only the resources that are available through the Visual S
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Redeploy your resource group. Look at your dashboard on the Azure portal, and notice the shared dashboard has been added to your list of choices.
 

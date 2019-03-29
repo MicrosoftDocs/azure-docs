@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -46,7 +46,7 @@ A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box ord
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  Data Box Disks are currently available in US, Canada, Australia, and all the countries in European Union.  
+A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
@@ -121,11 +121,14 @@ A.  No. Only one storage account, general or classic, is currently supported wit
 A. The toolset available with the Data Box Disk contains three tools:
  - **Data Box Disk Unlock tool**: Use this tool to unlock the encrypted disks that are shipped from Microsoft. When unlocking the disks using the tool, you need to provide a passkey available in the Data Box Disk order in the Azure portal. 
  - **Data Box Disk Validation tool**: Use this tool to validate the size, format, and blob names as per the Azure naming conventions. It also generates checksums for the copied data which are then used to verify the data uploaded to Azure.
- - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows.
+ - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows. This tool is not supported with managed disks. This tool also validates as it copies the data, hence you can skip the validation step when using this tool.
 
 The toolset is available both for Windows and Linux. You can download the toolset here:
- - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
- - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+- [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
+- [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+ 
+  ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+  A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## Verify and upload
@@ -134,10 +137,10 @@ The toolset is available both for Windows and Linux. You can download the toolse
 A.  Once the order status for Data Copy shows as complete, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account.
+A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account. When you copy the data into a folder under *AzureFile* folder, a fileshare is created.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
+A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
 ### Q. How do I verify the data I copied onto multiple Data Box Disks?
 A.  After the data copy is complete, you can run `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
@@ -152,7 +155,13 @@ A.  The Data Box Disks are encrypted with AES-128 Microsoft BitLocker encryption
 A. Yes. If you decide to validate your data (we recommend you do!), you need to rerun validation if you added more data to the disks.
 
 ### Q. I used all my disks to transfer data and need to order more disks. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details.
+
+### Q. I copied data to ManagedDisk folder. I don't see any managed disks with the resource group specified for managed disks. Was my data uploaded to Azure and how can I locate it?
+A. Yes. Your data was uploaded to Azure but if you don't see any managed disks with the specified resource groups, it is likely because the data was not valid. If the page blobs, block blobs, Azure Files, and managed disks were not valid, these would go to the following folders:
+ - Page blobs would go to a block blob container starting with *databoxdisk-invalid-pb-*.
+ - Azure Files would go to a block blob container starting with *databoxdisk-invalid-af-*.
+ - Managed disks would go to a block blob container starting with *databoxdisk-invliad-md-*.
 
 ## Next steps
 

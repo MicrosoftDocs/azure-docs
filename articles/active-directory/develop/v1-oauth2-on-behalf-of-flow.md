@@ -18,6 +18,7 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Service-to-service calls that use delegated user identity in the On-Behalf-Of flow
@@ -59,12 +60,12 @@ Register both the middle-tier service and the client application in Azure AD.
     1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
     1. Select **Create** to create the application.
 1. Generate a client secret before exiting the Azure portal.
-    1. In the Azure portal, choose your application and select **Settings**.
-    1. Select **Keys** in the Settings menu and add a key with a key duration of either one year or two years.
-    1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
+   1. In the Azure portal, choose your application and select **Settings**.
+   1. Select **Keys** in the Settings menu and add a key with a key duration of either one year or two years.
+   1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
 
-    > [!IMPORTANT]
-    > You need the key to configure the application settings in your implementation. This key value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
+      > [!IMPORTANT]
+      > You need the key to configure the application settings in your implementation. This key value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
 
 ### Register the client application
 

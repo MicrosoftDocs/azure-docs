@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cisco Spark for automatic user provisioning
@@ -108,29 +109,29 @@ This section guides you through the steps to configure the Azure AD provisioning
 	*   In the **Secret Token** field, populate the Secret Token as described in step 6.
 
 1. The **Tenant ID** and **Secret Token** for your Cisco Spark account can be found by logging into the [Cisco Spark developer site](https://developer.webex.com/) with your Admin account. Once logged in -
-	* Go to the [Getting Started page](https://developer.webex.com/getting-started.html)
-	* Scroll down to the [Authentication Section](https://developer.webex.com/getting-started.html#authentication)
-	![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-	* The alphanumeric string in the box is your **Secret Token**. Copy this token to the clipboard
-	* Go to the [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)
-		* Make sure that Test Mode is ON
-		* Type the word "Bearer" followed by a space, and then paste the Secret Token into the Authorization field
-    ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-		* Click Run
-	* In the response text to the right, the **Tenant ID** appears as "orgId":
+   * Go to the [Getting Started page](https://developer.webex.com/getting-started.html)
+   * Scroll down to the [Authentication Section](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * The alphanumeric string in the box is your **Secret Token**. Copy this token to the clipboard
+   * Go to the [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)
+       * Make sure that Test Mode is ON
+       * Type the word "Bearer" followed by a space, and then paste the Secret Token into the Authorization field
+     ![Cisco Spark Authentication Token](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Click Run
+   * In the response text to the right, the **Tenant ID** appears as "orgId":
 
-	```json
-	{
-		"id": "(...)",
-		"emails": [
-			"admin.user@contoso.com"
-		],
-		"displayName": "John Smith",
-		"nickName": "John",
-		"orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-		(...)
-	}
-	```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cisco Spark. If the connection fails, ensure your Cisco Spark account has Admin permissions and try again.
 

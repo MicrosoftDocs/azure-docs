@@ -51,8 +51,7 @@ The following database solutions are supported with backup feature:
   about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md).  
   **Premium** tier allows a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that 
-  you want to back up. For more information on Azure storage accounts, see the 
-  [links](#moreaboutstorage) at the end of this article.
+  you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of SSL enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
 * Backups of SSL enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.

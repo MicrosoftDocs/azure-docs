@@ -18,10 +18,14 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # App registration reference
 This document provides context and descriptions of various features found in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE]
+> We will no longer support registering and managing converged and Azure AD applications in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) starting May 2019. We recommend that you manage your existing applications and register new applications by using the [App registrations (Preview)](https://aka.ms/appregistrations) experience in the Azure portal.
 
 ## My Applications or Converged applications
 This list contains all of your applications registered for use with the Azure AD v2.0 endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the Azure AD v2.0 endpoint, see the [v2.0 overview](active-directory-appmodel-v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.

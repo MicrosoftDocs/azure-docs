@@ -19,7 +19,7 @@ Azure Migrate has a limit of 1500 machines per project, this article describes h
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server version 5.5, 6.0, 6.5 or 6.7. Additionally, you need one ESXi host running version 5.5 or later to deploy the collector VM.
 - **vCenter account**: You need a read-only account to access vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: In vCenter Server, you need permissions to create a VM by importing a file in OVA format.
-- **Statistics settings**: This requirement is only applicable to the [one-time discovery model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) which is deprecated now. For one-time discovery model, the statistics settings for vCenter Server should be set to level 3 before you start deployment. The statistics level is to be set to 3 for each of the day, week, and month collection intervals. If the level is lower than 3 for any of the three collection intervals, the assessment will work, but the performance data for storage and network won't be collected. The size recommendations will then be based on performance data for CPU and memory, and configuration data for disk and network adapters.
+- **Statistics settings**: This requirement is only applicable to the [one-time discovery model](https://docs.microsoft.com/azure/migrate/concepts-collector) which is deprecated now. For one-time discovery model, the statistics settings for vCenter Server should be set to level 3 before you start deployment. The statistics level is to be set to 3 for each of the day, week, and month collection intervals. If the level is lower than 3 for any of the three collection intervals, the assessment will work, but the performance data for storage and network won't be collected. The size recommendations will then be based on performance data for CPU and memory, and configuration data for disk and network adapters.
 
 > [!NOTE]
 > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
@@ -35,7 +35,7 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 
 If you're deploying in a tenant environment, here's one way to set this up:
 
-1.  Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
+1. Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
 2. You set up RBAC for different tenant users as described in the following example for User #1 and User #2:
 
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in

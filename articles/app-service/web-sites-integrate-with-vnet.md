@@ -77,7 +77,7 @@ To create a gateway:
 * 172.16.0.0/12 - This means an IP address range from  172.16.0.0 to 172.31.255.255 
 * 192.168.0.0/16 - This means an IP address range from  192.168.0.0 to 192.168.255.255
 
-If your are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
+If you are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
 
 ### Configure VNet Integration with your app ###
 
@@ -244,7 +244,7 @@ There are three features that enable access to VNet hosted resources. They are:
 
 Hybrid Connections requires you to install a relay agent called the Hybrid Connection Manager(HCM) in your network. The HCM needs to be able to connect to Azure and also to your application. Hybrid Connections doesn't require an inbound internet accessible endpoint for your remote network, as is required for a VPN connection. The HCM only runs on Windows and you can have up to five instances running to provide high availability. Hybrid Connections only supports TCP though and each HC endpoint has to match to a specific host:port combination. 
 
-The App Service Environment feature allows you to run a single tenant instance of the Azure App Service in your VNet. If your apps are in an App Service Environment, then your apps can access resources in your VNet without any extra steps. With and App Service Environment your apps run on more powerful workers and can scale up to 100 ASP instances. App Service Environments work with all of the networking features including ExpressRoute and Service Endpoints.  
+The App Service Environment feature allows you to run a single tenant instance of the Azure App Service in your VNet. If your apps are in an App Service Environment, then your apps can access resources in your VNet without any extra steps. With an App Service Environment your apps run on more powerful workers and can scale up to 100 ASP instances. App Service Environments work with all of the networking features including ExpressRoute and Service Endpoints.  
 
 While there is some use case overlap, none of these features can replace any of the others. Knowing what feature to use is tied to your needs. For example:
 
@@ -274,19 +274,20 @@ The new version is in Preview and has the following characteristics.
 * The new VNet Integration feature doesn't work for apps in an App Service Environment.
 * You cannot delete a VNet with an integrated app.  
 * Route tables and global peering are not yet available with the new VNet Integration.  
-* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.  You can consume Service Endpoint secured resources using the new VNet Integration capability. To do so, enable service endpoints on the subnet used for VNet Integration.
+* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
+* You can consume Service Endpoint secured resources using the new VNet Integration capability. To do so, enable service endpoints on the subnet used for VNet Integration.
 
 To use the new feature:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see a capability to use the new preview feature.  
 
- ![Select the new preview VNet Integration][6]
+   ![Select the new preview VNet Integration][6]
 
 1. Select **Add VNet (preview)**.  
 
 1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet. The integration takes less than a minute to complete. During the integration, your app is restarted.  When integration is completed, you will see details on the VNet you are integrated with and a banner at the top that tells you the feature is in preview.
 
- ![Select the VNet and subnet][7]
+   ![Select the VNet and subnet][7]
 
 To enable your app to use the DNS server that your VNet is configured with, create an Application setting for your app where the name is WEBSITE_DNS_SERVER and the value is the IP address of the server.  If you have a secondary DNS server, then create another Application setting where the name is WEBSITE_DNS_ALT_SERVER and the value is the IP address of the server. 
 

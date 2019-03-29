@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
@@ -112,7 +112,7 @@ To enable or disable telemetry after deployment, you need to have access to the 
 
 PARAMETER Detail:
 > .PARAMETER Enable - Turn On telemetry data upload
-
+> 
 > .PARAMETER Disable - Turn Off telemetry data upload  
 
 **Script to enable telemetry:**

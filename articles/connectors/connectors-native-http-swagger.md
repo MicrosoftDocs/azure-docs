@@ -44,7 +44,7 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 4. Type the URL for a Swagger document:
    
    * To work from the Logic App Designer, the URL must be an HTTPS endpoint and have CORS enabled.
-   * If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
+   * If the Swagger document doesn't meet this requirement, you can use Azure Storage with CORS enabled to store the document.
 5. Click **Next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
    
@@ -66,7 +66,7 @@ To perform this step, set permissions to **Public Access**.
 
 3. Upload the Swagger file to the blob. 
 
-   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](https://storageexplorer.com/).
 
 4. Reference an HTTPS link to the document in Azure Blob storage. 
 

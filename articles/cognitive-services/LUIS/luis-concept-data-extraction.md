@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -190,7 +190,7 @@ The data returned from the endpoint includes the entity name and child name, the
 ```
 
 |Data object|Parent|Child|Value|
-|--|--|--|--|--|
+|--|--|--|--|
 |Hierarchical Entity|Location|ToLocation|"paris"|
 
 ## Composite entity data

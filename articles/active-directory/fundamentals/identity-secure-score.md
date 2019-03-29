@@ -19,6 +19,7 @@ ms.reviewer: nigu
 ms.custom: "it-pro"
 
 #Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.
+ms.collection: M365-identity-device-management
 ---
 
 # What is the identity secure score in Azure Active Directory? (Public preview)

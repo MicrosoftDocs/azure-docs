@@ -4,13 +4,13 @@ description: Explains planning to do before deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
 ---
 
 # Plan your Avere vFXT system
 
-This article explains how to plan a new Avere vFXT for Azure cluster to make sure the cluster you create is positioned and sized appropriately for your needs. 
+This article explains how to plan a new Avere vFXT for Azure cluster that is positioned and sized appropriately for your needs. 
 
 Before going to the Azure Marketplace or creating any VMs, consider how the cluster will interact with other elements in Azure. Plan where cluster resources will be located in your private network and subnets, and decide where your back-end storage will be. Make sure that the cluster nodes you create are powerful enough to support your workflow. 
 
@@ -27,13 +27,22 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
 * All elements should be managed with a new subscription created for the Avere vFXT deployment. Benefits include: 
   * Simpler cost tracking - View and audit all costs from resources, infrastructure, and compute cycles in one subscription.
   * Easier cleanup - You can remove the entire subscription when finished with the project.
-  * Convenient partitioning of resource quotas - Protect other critical workloads from possible resource throttling when bringing up the large number of clients used for your high-performance computing workflow by isolating the Avere vFXT clients and cluster in a single subscription.
+  * Convenient partitioning of resource quotas - Protect other critical workloads from possible resource throttling by isolating the Avere vFXT clients and cluster in a single subscription. This avoids conflict when bringing up a large number of clients for a high-performance computing workflow.
 
 * Locate your client compute systems close to the vFXT cluster. Back-end storage can be more remote.  
 
-* For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. (The cluster controller creates the cluster, and also can be used for command-line cluster management.)  
+* The vFXT cluster and the cluster controller VM should be located in the same virtual network (vnet), in the same resource group, and use the same storage account. The automated cluster creation template handles this for most situations.
 
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or compute resources. 
+
+* The cluster creation template can create most of the needed infrastructure resources for the cluster, including resource groups, virtual networks, subnets, and storage accounts. If you want to use resources that already exist, make sure they meet the requirements in this table. 
+
+  | Resource | Use existing? | Requirements |
+  |----------|-----------|----------|
+  | Resource group | Yes, if empty | Must be empty| 
+  | Storage account | Yes if connecting an existing Blob container after cluster creation <br/>  No if creating a new Blob container during cluster creation | Existing Blob container must be empty <br/> &nbsp; |
+  | Virtual network | Yes | Must include a storage service endpoint if creating a new Azure Blob container | 
+  | Subnet | Yes |   |
 
 ## IP address requirements 
 
@@ -54,22 +63,20 @@ If you use Azure Blob storage, it also might require IP addresses from your clus
 
 You have the option to locate network resources and Blob storage (if used) in different resource groups from the cluster.
 
-## vFXT node sizes 
+## vFXT node size
 
-The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. You can choose from two instance types, with different memory, processor, and local storage characteristics. 
+The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Each vFXT node will be identical. That is, if you create a three-node cluster you will have three VMs of the same type and size. 
 
 | Instance type | vCPUs | Memory  | Local SSD storage  | Max data disks | Uncached disk throughput | NIC (count) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 GiB  | 128 GiB  | 32 | 25,600 IOPS <br/> 384 MBps | 8,000 MBps (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51,200 IOPS <br/> 768 MBps | 16,000 MBps (8)  |
 
-Disk cache per node is configurable and can rage from 1000 GB to 8000 GB. 1 TB per node is the recommended cache size for Standard_D16s_v3 nodes, and 4 TB per node is recommended for Standard_E32s_v3 nodes.
+Disk cache per node is configurable and can rage from 1000 GB to 8000 GB. 4 TB per node is the recommended cache size for Standard_E32s_v3 nodes.
 
-For additional information about these VMs, read the following Microsoft Azure documents:
+For additional information about these VMs, read the Microsoft Azure documentation:
 
-* [General purpose virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## Account quota
@@ -112,7 +119,7 @@ For details about these options, read the [Azure Virtual Network documentation a
 
 If you set a public IP address on the cluster controller, you can use it as a jump host to contact the Avere vFXT cluster from outside the private subnet. However, because the controller has access privileges to modify cluster nodes, this creates a small security risk.  
 
-For improved security with a public IP address, use a network security group to allow inbound access only through port 22. Optionally, you can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
+To improve security for a controller with a public IP address, the deployment script automatically creates a network security group that restricts inbound access to port 22 only. You can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
 When creating the cluster, you can choose whether or not to create a public IP address on the cluster controller. 
 

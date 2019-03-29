@@ -3,7 +3,7 @@ title: Azure Application offer prerequisites | Microsoft Docs
 description: The prerequisites for publishing an Azure application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler  
 editor:
 
@@ -13,13 +13,16 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
 ---
 
 # Azure application prerequisites
 
-This article describes the technical and business prerequisites for publishing a managed application offer on the Azure Marketplace.
+This article describes the technical and business prerequisites for publishing a managed application offer on the Azure Marketplace.  If you have not already done so, review the following sources of information:
+- Depending upon your SKU type, either [Azure Applications: Solution Template Offer Publishing Guide](../../marketplace-solution-templates.md) or [Azure Applications: Managed Application Offer Publishing Guide](../../marketplace-managed-apps.md)
+- [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) video
+
 
 ## Technical requirements
 
@@ -35,11 +38,12 @@ For more information, see:
 * Create UI Definition<br>
 For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). This article introduces the core concepts of the createUiDefinition.json file. The Azure portal uses this file to generate the user interface for creating a managed application.
 
+
 ## Business requirements
 
 The business requirements include the following procedural, contractual, and legal obligations:
 
-* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article Become a Cloud Marketplace Publisher.
+* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](../../become-publisher.md).
 
 >[!NOTE]
 >You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn’t be specific to individual services or offers.
@@ -50,7 +54,8 @@ The business requirements include the following procedural, contractual, and leg
 * You’re responsible for licensing your software and any third-party software dependencies.
 * You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal.
 * You must agree to the terms of the Microsoft Azure Marketplace Participation Policies and Publisher Agreement.
-* You must comply with the Microsoft Azure Website Terms of Use, Microsoft Privacy Statement and Microsoft Azure Certified Program Agreement.
+* You must comply with the Microsoft Azure Website Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
+
 
 ## Publishing requirements
 
@@ -60,10 +65,12 @@ To publish a new Azure application offer, you must meet the following prerequisi
   * A title
   * A description (in HTML format)
   * A logo image (in PNG format) and in these fixed image sizes: 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels, and 255 x 115 pixels.
-* A Terms of Use and a Privacy policy
-* Documentation
+* A *Terms of Use* and a *Privacy Policy* documents
+* Application documentation
 * Support contacts
+
 
 ## Next steps
 
-[Create an Azure application offer](./cpp-create-offer.md) 
+Once you've met all the requirements, you'll be ready to [create an Azure application offer](./cpp-create-offer.md). 
+ 

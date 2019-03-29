@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
@@ -27,7 +27,7 @@ It is not recommended to simply restart the ASDK host computer. Instead, you sho
 ## Stop Azure Stack 
 To properly shut down Azure Stack services, and the ASDK host computer, use the following PowerShell commands:
 
-1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+1. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session: 
 
@@ -47,7 +47,7 @@ ASDK services should start automatically when the host computer is started. Howe
 Regardless of how the ASDK was shut down, you should use the following steps to verify that all Azure Stack services are started and fully operational after the host computer is powered on: 
 
 1. Power on the ASDK host computer. 
-2. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+2. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 3. Open PowerShell as an administrator (not PowerShell ISE).
 4. Run the following commands to establish a privileged endpoint (PEP) session:
 
@@ -66,7 +66,7 @@ To learn more about the recommended procedures to properly shut down and restart
 ## Troubleshoot startup and shutdown 
 Perform these steps if Azure Stack services don't successfully start within two hours after you power on your ASDK host computer:
 
-1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+1. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session:
 

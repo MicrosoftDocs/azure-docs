@@ -11,20 +11,23 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 10/15/2018
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
 # Azure Media Services overview 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 2](media-services-overview.md)
 > * [Version 3](../latest/media-services-overview.md)
+> * [Version 2](media-services-overview.md)
 
 Microsoft Azure Media Services (AMS) is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services. You can choose to stream your content live or deliver content on-demand. 
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. 
 
 ## Prerequisites
 

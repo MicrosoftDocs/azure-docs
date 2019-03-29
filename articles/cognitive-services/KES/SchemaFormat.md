@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the schema format in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration

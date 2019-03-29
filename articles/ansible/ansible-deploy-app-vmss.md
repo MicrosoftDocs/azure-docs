@@ -1,7 +1,7 @@
 ---
 title: Deploy applications to virtual machine scale sets in Azure using Ansible
 description: Learn how to use Ansible to configure a virtual machine scale set and deploy application on the virtual machine scale set in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarchermsft
 manager: jeconnoc
@@ -11,24 +11,24 @@ ms.date: 09/11/2018
 ---
 
 # Deploy applications to virtual machine scale sets in Azure using Ansible
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to deploy your applications to Azure. This article shows you how to deploy a Java application to an Azure virtual machine scale set (VMSS).  
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to deploy your applications to Azure. This article shows you how to deploy a Java application to an Azure virtual machine scale set (VMSS).
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md). 
+- **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md).
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
 - **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
 - **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
 
 > [!Note]
-> Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
+> Ansible 2.6 is required to run the following the sample playbooks in this tutorial.
 
 ## Get host information
 
-This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory. 
+This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory.
 
-Save the following sample playbook as `get-hosts-tasks.yml`: 
+Save the following sample playbook as `get-hosts-tasks.yml`:
 
   ```yml
   - name: Get facts for all Public IPs within a resource groups
@@ -54,7 +54,7 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## Prepare an application for deployment  
+## Prepare an application for deployment
 
 In this section, you use git to clone a Java sample project from GitHub and build the project. Save the following playbook as `app.yml`:
 
@@ -64,7 +64,7 @@ In this section, you use git to clone a Java sample project from GitHub and buil
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
       workspace: ~/src/helloworld
 
-    tasks: 
+    tasks:
     - name: Git Clone sample app
       git:
         repo: "{{ repo_url }}"
@@ -101,7 +101,7 @@ The output from the ansible-playbook command displays out similar to the followi
 
 ## Deploy the application to VMSS
 
-The following section in an Ansible playbook installs the JRE (Java Runtime Environment) on a host group named **saclesethosts**, and deploys the Java application to a host group named **saclesethosts**: 
+The following section in an Ansible playbook installs the JRE (Java Runtime Environment) on a host group named **saclesethosts**, and deploys the Java application to a host group named **saclesethosts**:
 
 (Change the `admin_password` to your own password.)
 
@@ -113,7 +113,7 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
       loadbalancer_name: myVMSSlb
       admin_username: azureuser
       admin_password: "your_password"
-    tasks:   
+    tasks:
     - include: get-hosts-tasks.yml
 
   - name: Install JRE on VMSS
@@ -142,9 +142,9 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
       poll: 0
   ```
 
-You can save the preceding sample Ansible playbook as `vmss-setup-deploy.yml`, or [download the entire sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
+You can save the preceding sample Ansible playbook as `vmss-setup-deploy.yml`, or [download the entire sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss).
 
-To use the ssh connection type with passwords, you must install the sshpass program. 
+To use the ssh connection type with passwords, you must install the sshpass program.
   - For Ubuntu 16.04, run the command `apt-get install sshpass`.
   - For CentOS 7.4, run the command `yum install sshpass`.
 
@@ -202,5 +202,5 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 ![Java app running in a virtual machine scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## Next steps
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

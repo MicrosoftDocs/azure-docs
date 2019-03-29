@@ -4,7 +4,7 @@ description: Learn how to run web apps in App Service by deploying a basic Java 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: mbaldwin
+manager: routlaw
 editor: ''
 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
@@ -122,7 +122,7 @@ In the **Create App Service** dialog box:
   * **Location**: Select **West Europe** or a location near you.
   * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-   ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+    ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 

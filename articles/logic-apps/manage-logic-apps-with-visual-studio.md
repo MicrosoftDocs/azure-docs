@@ -57,6 +57,16 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
 
+* Cloud Explorer for either Visual Studio 2017 or Visual Studio 2015
+
+  * For Visual Studio 2017, run the Visual Studio installer, 
+  and install the **Azure workload**. For more information, see 
+  [Manage resources associated with your Azure accuonts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
+
+  * For Visual Studio 2015, 
+  [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+  For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
 * Access to the web while using the embedded Logic Apps Designer
 
   The designer requires an internet connection to create resources in Azure 
@@ -107,12 +117,12 @@ or as Azure Resource Manager projects with Visual Studio.
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open with Logic App Editor**.
+   select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
-  ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 

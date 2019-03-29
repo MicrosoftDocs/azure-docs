@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Rally Software
 
@@ -202,7 +203,7 @@ For Azure AD users to be able to sign in, they must be provisioned to the Rally 
 
 	a. In the **User Name** textbox, type the name of user like **Brittsimon**.
    
-    b. In **E-mail Address** textbox, enter the email of user like **brittasimon@contoso.com**.
+    b. In **E-mail Address** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	c. In **First Name** text box, enter the first name of user like **Britta**.
 

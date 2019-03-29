@@ -1,6 +1,6 @@
 ---
 title: Sample - Audit SQL Server audit settings
-description: This sample policy audits SQL server audit settings.
+description: This sample policy definition audits the SQL server audit settings with auditIfNotExists.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit SQL server audit settings
+# Sample - Audit SQL server audit settings
 
 This built-in policy audits SQL server based on whether the audit settings are enabled.
 
@@ -57,7 +57,7 @@ When assigning a policy, select **Audit SQL Server Level Audit Setting** from th
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9

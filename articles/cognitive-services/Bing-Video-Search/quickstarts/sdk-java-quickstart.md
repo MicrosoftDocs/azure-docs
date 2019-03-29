@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests using the Bing Video Search SDK for Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
@@ -36,7 +36,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
   </dependencies> 
 ```
 
-## Create and initalize a project
+## Create and initialize a project
 
 
 Create a new Java project in your favorite IDE or editor, and import the following libraries.
@@ -56,7 +56,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
 
 ## Create a search client
 
-2. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+1. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -110,7 +110,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
         //...
         ```
 
-## Send a search request and recieve the response 
+## Send a search request and receive the response 
 
 1. Create a function called `VideoSearch()` that takes your subscription key as a string. Instantiate the search client created earlier.
     

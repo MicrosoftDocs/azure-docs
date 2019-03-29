@@ -3,7 +3,7 @@ title: Azure Service Fabric cluster scaling | Microsoft Docs
 description: Learn about scaling Azure Service Fabric clusters in or out and up or down.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Scaling Azure Service Fabric clusters
@@ -77,7 +77,7 @@ When scaling an Azure cluster, keep the following guideline in mind:
 The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
 
 ### Scaling non-primary node types
-Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommisioned.
+Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommissioned.
 
 ### Scaling the primary node type
 We recommend that you do not change the VM SKU of the primary node type. If you need more cluster capacity, we recommend adding more instances. 

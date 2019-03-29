@@ -1,6 +1,6 @@
 ---
-title: Copy data from Azure Data Lake Storage Gen1 to Gen2 (Preview) with Azure Data Factory
-description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2 (Preview)'
+title: Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
+description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 02/15/2019
 ms.author: jingwang
 ---
 
-# Copy data from Azure Data Lake Storage Gen1 to Gen2 (Preview) with Azure Data Factory
+# Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 If you are currently using Azure Data Lake Storage Gen1, you can evaluate the Gen2 new capability by copying data from Data Lake Storage Gen1 to Gen2 using Azure Data Factory.
 
@@ -34,9 +34,10 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
@@ -88,7 +89,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
 	
-7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2 (Preview)**, and select **Continue**:
+7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2**, and select **Continue**:
 
     ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 

@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -48,7 +48,7 @@ Access to query the endpoint is controlled by a setting on the **Application Inf
 A private app's endpoint is only available to the following:
 
 |Key and user|Explanation|
-|--|--|--|
+|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
 |Any key assigned to LUIS by an author or collaborator|Based on key usage tier|

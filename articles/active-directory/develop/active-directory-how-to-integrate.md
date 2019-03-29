@@ -18,6 +18,7 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Integrating with Azure Active Directory

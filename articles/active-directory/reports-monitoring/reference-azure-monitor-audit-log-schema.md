@@ -3,7 +3,7 @@ title: Interpret the Azure Active Directory audit log schema in Azure Monitor (p
 description: Describe the Azure AD audit log schema for use in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 12/14/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD audit logs schema in Azure Monitor (preview)

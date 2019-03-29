@@ -6,17 +6,16 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 editor: ''
-
 ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
+ms.lastreviewed: 02/20/2019
 ---
 
 # Azure Stack storage capacity planning
@@ -34,7 +33,9 @@ Operators can choose between either an all flash or a hybrid storage configurati
 
 ![Azure storage capacity planning](media/azure-stack-capacity-planning/storage.png)
 
-In the all flash configuration, the cache is NVMe with a choice of either SATA SSD or NVMe for capacity. In the hybrid configuration, the cache is a choice between NVMe and SATA SSD while the capacity is HDD.
+In the all flash configuration, the configuration can either be a two-tier or single-tier configuration.  If the configuration is single-tier, all capacity devices will be of the same type (e.g. NVMe or SATA SSD or SAS SSD) and cache devices are not used. In a two-tier all flash configuration, the typical configuration is NVMe as the cache devices and then either SATA or SAS SSDs as the capacity devices.
+
+In the hybrid, two-tier configuration, the cache is a choice between NVMe, SATA or SAS SSD and the capacity is HDD. 
 
 A brief summary of the Storage Spaces Direct and Azure Stack storage configuration is as follows:
 - One Storage Spaces Pool per Scale Unit (all storage devices are configured within a single pool)
@@ -44,9 +45,6 @@ A brief summary of the Storage Spaces Direct and Azure Stack storage configurati
 - Each ReFS file system will have BitLocker enabled for data-at-rest encryption. 
 
 The virtual-disks created automatically and their capacities are as follows:
-
-
-
 
 |Name|Capacity calculation|Description|
 |-----|-----|-----|

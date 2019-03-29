@@ -6,10 +6,7 @@ description: Azure Monitor can collect different sources as log data and store i
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
-ms.assetid:	
 ms.service: azure-monitor
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: magoedte

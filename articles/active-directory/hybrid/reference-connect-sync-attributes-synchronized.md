@@ -16,6 +16,7 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
 This topic lists the attributes that are synchronized by Azure AD Connect sync.  

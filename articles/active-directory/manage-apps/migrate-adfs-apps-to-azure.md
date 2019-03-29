@@ -2,8 +2,8 @@
 title: 'Move apps from AD FS to Azure AD. | Microsoft Docs'
 description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,7 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: barbkess
+ms.author: celested
+ms.collection: M365-identity-device-management
 ---
 
 # Move applications from AD FS to Azure AD 
@@ -93,7 +94,7 @@ Migration starts with assessing how the application is configured on-premises an
 |App configuration element|Description|Location in AD FS configuration|Corresponding location in Azure AD configuration|SAML token element|
 |-----|-----|-----|-----|-----|
 |App sign-on URL|URL of the sign-in page of this application. This is where the user goes to sign in to the app in an SP-initiated SAML flow.|N/A|In Azure AD, the sign-on URL is configured within the Azure portal in the application’s **Single sign-on** properties as the sign-on URL.</br></br>(You might have to select **Show advanced URL settings** to see the sign-on URL.)|N/A|
-|App reply URL|URL of the app from the identity provider's (IdP’s) perspective. This is where the user and token are sent after the user has signed on at the IdP.</br></br> This is sometimes called the “SAML assertion consumer endpoint.”|Find it in the AD FS relying party trust for the app. Right-click the relying party, select **Properties**, and then select the **Endpoints** tab.|In Azure AD, the reply URL is configured within the Azure portal in the application’s **Single sign-on** properties as the reply URL.</br></br>(You might have to select **Show advanced URL settings** to see the reply URL.)|Maps to the **Destination** element in the SAML token.</br></br> Example value: https://contoso.my.salesforce.com|
+|App reply URL|URL of the app from the identity provider's (IdP’s) perspective. This is where the user and token are sent after the user has signed on at the IdP.</br></br> This is sometimes called the “SAML assertion consumer endpoint.”|Find it in the AD FS relying party trust for the app. Right-click the relying party, select **Properties**, and then select the **Endpoints** tab.|In Azure AD, the reply URL is configured within the Azure portal in the application’s **Single sign-on** properties as the reply URL.</br></br>(You might have to select **Show advanced URL settings** to see the reply URL.)|Maps to the **Destination** element in the SAML token.</br></br> Example value: `https://contoso.my.salesforce.com`|
 |App sign-out URL|URL to which “sign-out cleanup” requests are sent when a user signs out from an app, to sign out all other apps to which the IdP has signed on the user.|Find it in AD FS Management under **Relying Party Trusts**. Right-click the relying party, select **Properties**, and then select the **Endpoints** tab.|N/A. Azure AD does not support “single logout,” meaning sign-out of all apps. It simply signs out the user from Azure AD itself.|N/A|
 |App identifier|Identifier of the app from the IdP’s perspective. The sign-on URL value is often used for the identifier (but not always).</br></br> Sometimes the app calls this the “entity ID."|In AD FS, this is the relying party ID. Right-click the relying party trust, select **Properties**, and then select the **Identifiers** tab.|In Azure AD, the identifier is configured within the Azure portal in the application’s **Single sign-on** properties as the identifier under **Domain and URLs**. (You might need to select the **Show advanced URL settings** check box.)|Corresponds to the **Audience** element in the SAML token.|
 |App federation metadata|Location of the app’s federation metadata. The IdP uses it to automatically update specific configuration settings, such as endpoints or encryption certificates.|Find the app’s federation metadata URL in the AD FS relying party trust for the app. Right-click the trust, select **Properties**, and then select the **Monitoring** tab.|N/A. Azure AD does not support consuming application federation metadata directly.|N/A|

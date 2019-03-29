@@ -4,12 +4,12 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -215,10 +215,6 @@ A successful response is returned in JSON. The sample application parses and dis
   "textAngle": 0
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the compiled package and the file from which the package was compiled, then close the command prompt window and the text editor.
 
 ## Next steps
 

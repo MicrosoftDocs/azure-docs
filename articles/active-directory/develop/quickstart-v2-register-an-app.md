@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to register an app with the Azure Active Directory v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v2.0 endpoint
@@ -57,4 +58,4 @@ Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To d
 
 Now that you have a Microsoft app, you can complete one of the v2.0 quickstart2. Here are a few recommendations:
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

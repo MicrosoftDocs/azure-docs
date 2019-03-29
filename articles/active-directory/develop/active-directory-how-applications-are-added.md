@@ -18,6 +18,7 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
+ms.collection: M365-identity-device-management
 ---
 
 # How and why applications are added to Azure AD
@@ -129,8 +130,9 @@ If you still want to prevent users in your directory from registering applicatio
 * To prevent users from consenting to applications on their own behalf:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise applications.
   2. Change **Users can consent to apps accessing company data on their behalf** to **No**. 
-      > [!NOTE]
-      > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.    
+     
+     > [!NOTE]
+     > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.    
 * To prevent users from registering their own applications:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) section under Azure Active Directory
   2. Change **Users can register applications** to **No**.

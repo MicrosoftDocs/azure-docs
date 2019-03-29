@@ -34,10 +34,10 @@ Service principals are preferable to running the app under your own credentials 
 
 Depending on how you have deployed Azure Stack, you start by creating a service principal. This document describes creating a service principal for:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
-- [Active Directory Federation Services (AD FS)](#create-service-principal-for-ad-fs). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
+- Azure Active Directory (Azure AD). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
+- Active Directory Federation Services (AD FS). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
 
-Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](#assign-role-to-service-principal) to the role.
+Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to delegate permissions to the role.
 
 ## Manage service principal for Azure AD
 
@@ -59,7 +59,7 @@ When programmatically logging in, you use the ID for your application, and for a
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications section refer to this value as the client ID.
 
      ![Client id](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
@@ -70,7 +70,7 @@ After saving the key, the value of the key is displayed. Copy this value to Note
 
 ![Saved key](./media/azure-stack-create-service-principal/image15.png)
 
-Once complete, you can [assign your application a role](#assign-role-to-service-principal).
+Once complete, you can assign your application a role.
 
 ## Manage service principal for AD FS
 
@@ -85,11 +85,11 @@ Tasks for managing AD FS service principals.
 | Type | Action |
 | --- | --- |
 | AD FS Certificate | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS Client Secret | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS Client Secret | [Update](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### Create a service principal using a certificate
 
@@ -120,7 +120,7 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -169,7 +169,7 @@ The following information is required as input for the automation parameters:
    > [!Note]  
    > For validation purposes a self-signed certificate can be created using the below example:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -250,7 +250,7 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -268,7 +268,7 @@ The following information is required as input for the automation parameters:
 
 2. After cmdlets run, the shell displays the required details to use the SPN. Make sure you store the client secret.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -300,7 +300,7 @@ The example uses the **ResetClientSecret** parameter, which immediately changes 
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -314,7 +314,7 @@ The example uses the **ResetClientSecret** parameter, which immediately changes 
 
 2. After the automation finishes, it displays the newly generated secret required for SPN authentication. Make sure you store the new client secret.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

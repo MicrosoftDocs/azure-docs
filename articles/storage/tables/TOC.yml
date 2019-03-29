@@ -1,4 +1,7 @@
-- name: Azure Table storage Documentation
+- name: Azure Storage Documentation
+  href: /azure/storage/
+- name: Overview
+  expanded: true
   items: 
   - name: Azure Table storage overview
     href: table-storage-overview.md
@@ -8,6 +11,7 @@
 - name: Quickstarts
   items:
   - name: Create a storage account
+    displayName: resource manager, resource manager template, template, ARM
     href: /azure/storage/common/storage-quickstart-create-account  
     maintainContext: true 
   - name: Create a table in the Azure portal

@@ -1,6 +1,6 @@
 ---
-title: Threat Detection - Azure SQL Database | Microsoft Docs
-description: Threat Detection detects anomalous database activities indicating potential security threats to the Azure SQL database. 
+title: Threat detection - Azure SQL Database | Microsoft Docs
+description: Threat detection detects anomalous database activities indicating potential security threats in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,28 +11,28 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ---
-# Azure SQL Database Threat Detection
+# Azure SQL Database threat detection
 
-Azure SQL Threat Detection for [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Threat detection for [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Threat Detection is part of the [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ADS portal.
+Threat detection is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat detection can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
-## What is Threat Detection
+## What is threat detection
 
-SQL Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. SQL Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which includes details of suspicious activity and recommend action on how to investigate and mitigate the threat. SQL Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+Threat detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Threat detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which includes details of suspicious activity and recommend action on how to investigate and mitigate the threat. Threat detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
 For a full investigation experience, it is recommended to enable [SQL Database Auditing](sql-database-auditing.md), which writes database events to an audit log in your Azure storage account.  
 
-## Azure SQL Database Threat Detection alerts
+## Threat detection alerts
 
-Threat Detection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger the following alerts:
+Threat detection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger the following alerts:
 
-- **Vulnerability to SQL Injection**: This alert is triggered when an application generates a faulty SQL statement in the database. This alert may indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for the generation of a faulty statement:
+- **Vulnerability to SQL injection**: This alert is triggered when an application generates a faulty SQL statement in the database. This alert may indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for the generation of a faulty statement:
 
   - A defect in application code that constructs the faulty SQL statement
   - Application code or stored procedures don't sanitize user input when constructing the faulty SQL statement, which may be exploited for SQL Injection
@@ -61,7 +61,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 ## Explore threat detection alerts for your database in the Azure portal
 
-SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection tiles within the database and SQL ADS blades in the Azure portal track the status of active threats.
+Threat detection integrates its alerts with [Azure security center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection tiles within the database and SQL ADS blades in the Azure portal track the status of active threats.
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database or data warehouse.
 
@@ -71,9 +71,9 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-- Learn more about [Threat Detection in standalone and pooled databases](sql-database-threat-detection.md).
-- Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).
-- Learn more about [SQL Advanced Data Security](sql-advanced-threat-protection.md).
-- Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
-- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Learn more about [threat detection in single and pooled databases](sql-database-threat-detection.md).
+- Learn more about [threat detection in managed instance](sql-database-managed-instance-threat-detection.md).
+- Learn more about [advanced data security](sql-database-advanced-data-security.md).
+- Learn more about [Azure SQL Database auditing](sql-database-auditing.md)
+- Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- For more information on pricing, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

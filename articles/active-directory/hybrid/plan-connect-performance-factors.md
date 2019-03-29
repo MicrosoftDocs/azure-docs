@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Factors influencing the performance of Azure AD Connect
 

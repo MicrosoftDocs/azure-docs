@@ -13,7 +13,7 @@ ms.author: v-erkell
 Follow these steps to connect client machines to your vFXT cluster.
 
 1. Decide how to load-balance client traffic among your cluster nodes. Read [Balance client load](#balance-client-load), below, for details. 
-1. Identify the [IP address and junction path](#identify-ip-addresses-and-paths-to-mount) to mount.
+1. Identify the IP address and junction path to mount.
 1. Issue the [mount command](#mount-command-arguments), with appropriate arguments.
 
 ## Balance client load
@@ -63,7 +63,7 @@ From your client, the ``mount`` command maps the virtual server (vserver) on the
 
 There are three elements to the mount command: 
 
-* vFXT path - (a combination of IP address and namespace junction path described [below](#junction-and-ip-address))
+* vFXT path - (a combination of IP address and namespace junction path described below)
 * local path - the path on the client 
 * mount command options - (listed in [Mount command arguments](#mount-command-arguments))
 

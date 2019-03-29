@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 
 ---
 
-# Use Azure AD authentication to access the Azure Media Services API with REST
+# Use Azure AD authentication to access the Media Services API with REST
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -57,8 +57,8 @@ To access Media Services API, you need to collect the following data points.
 
 |Setting|Example|Description|
 |---|-------|-----|
-|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
-|REST API endpoint|https://amshelloworld.restv2.westus.media.azure.net/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
+|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD issues a JWT in order to access resources (an access token).|
+|REST API endpoint|<https://amshelloworld.restv2.westus.media.azure.net/api/>|This is the endpoint against which all Media Services REST API calls in your application are made.|
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 
@@ -66,7 +66,7 @@ To access Media Services API, you need to collect the following data points.
 
 To get the information, follow these steps:
 
-1. Log in to the [Azure portal](http://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your AMS instance.
 3. Select **API access**.
 4. Click on **Connect to Azure Media Services API with service principal**.
@@ -80,33 +80,33 @@ To get the information, follow these steps:
 
     If you need to create a new AD app, follow these steps:
     
-    1. Press **Create New**.
-    2. Enter a name.
-    3. Press **Create New** again.
-    4. Press **Save**.
+   1. Press **Create New**.
+   2. Enter a name.
+   3. Press **Create New** again.
+   4. Press **Save**.
 
-    ![API access](./media/connect-with-rest/new-app.png)
+      ![API access](./media/connect-with-rest/new-app.png)
 
-    The new app shows up on the page.
+      The new app shows up on the page.
 
 6. Get the **Client ID** (Application ID).
     
-    1. Select the application.
-    2. Get the **Client ID** from the window on the right. 
+   1. Select the application.
+   2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png)
+      ![API access](./media/connect-with-rest/existing-client-id.png)
 
-7.  Get the application's **Key** (client secret). 
+7. Get the application's **Key** (client secret). 
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
+   1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
+   2. Press **Keys**.
     
-        ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+       ![API access](./media/connect-with-rest/manage-app.png)
+   3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
-        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+       Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
 
-    ![API access](./media/connect-with-rest/connect-with-rest03.png)
+   ![API access](./media/connect-with-rest/connect-with-rest03.png)
 
 You can add values for AD connection parameters to your web.config or app.config file, to later use in your code.
 

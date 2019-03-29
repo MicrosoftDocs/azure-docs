@@ -160,21 +160,21 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
    ![Azure DevOps - Add Command-Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
+   1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
+   2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
+      1. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
 
-         ![Azure DevOps - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Click **Save & queue** to test your build pipeline.
 
@@ -184,7 +184,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
 6. If the **Build** is correct, you have to see this screen:
 
-  ![Azure DevOps - Build succeeded](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - Build succeeded](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## Step 3: Create the release pipeline
 
@@ -224,20 +224,22 @@ The release workflow is composed of two tasks that you add.
 
 2. Configure a second task to execute a bash command to run `docker` and `docker stack deploy` commands on the master node. See the following screen for details.
 
-    ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
+    ```
+    docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
+    ```
 
     ![Azure DevOps - Release Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
     The command executed on the master uses the Docker CLI and the Docker-Compose CLI to do the following tasks:
 
-    - Log in to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
-    - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
-    - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
-    - Execute `docker stack deploy` commands that pull the new images and create the containers.
+   - Log in to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
+   - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
+   - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
+   - Execute `docker stack deploy` commands that pull the new images and create the containers.
 
-    >[!IMPORTANT]
-    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
-    >
+     >[!IMPORTANT]
+     > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
+     >
 3. Save this new release pipeline.
 
 ## Step 4: Test the CI/CD pipeline

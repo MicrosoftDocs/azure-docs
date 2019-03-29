@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
 
----  
+---
 
 # Support for AppSource  
 The support options for AppSource.  
@@ -31,4 +31,4 @@ The support options for AppSource.
 ## Next steps
 Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

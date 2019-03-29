@@ -17,6 +17,7 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Technical Concepts
 This article is a summary of the topic [Understanding architecture](how-to-connect-sync-technical-concepts.md).

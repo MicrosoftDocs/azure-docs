@@ -44,7 +44,7 @@ Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-
 You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
-> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store.
+> For older versions of on-premises Hadoop Distributions that don't have the "wasbs" certificate, they need to be imported to the Java trust store.
 
 The following methods can be used to import certificates into the Java trust store:
 
@@ -217,7 +217,6 @@ Additional storage account can be added in one on the following ways:
 
 For more information, see the following articles:
 - [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## Next steps
 
