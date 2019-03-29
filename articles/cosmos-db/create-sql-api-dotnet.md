@@ -141,28 +141,32 @@ The following snippets are all taken from the DocumentDBRepository.cs file.
 * A new collection is created by using the `CreateDocumentCollectionAsync` as shown in the following code:
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```
