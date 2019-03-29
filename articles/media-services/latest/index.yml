@@ -17,22 +17,31 @@ metadata:
 abstract:
   description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
 sections:
-- items:
+- title: Learn concepts 
+  items:
+  - type: paragraph
+    text: 'Learn about Media Services fundamental concepts.'
   - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+    style: unordered
+    className: spaced noBullet    
     items:
-      - image:
-          src: media/index/AMSIcons-encoding.svg
-        html: <p>Learn about Media Services fundamental concepts.</p>
-        href:  /azure/media-services/latest/concepts-overview/
-        title: Learn concepts 
-      - image:
-          src:  
-        html: <p>Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs.</p>
-        href:  /azure/media-services/latest/developers-guide/  
-        title: Develop with v3 API
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Cloud upload and storage</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media analytics</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live Streaming</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player clients</a>
+- title: Develop with v3 API
+  items:
+  - type: paragraph
+    text: 'Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs.'
+  - type: list
+    style: unordered
+    className: spaced noBullet    
+    items:
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Start developing with SDKs</a>
+    - html: <a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
