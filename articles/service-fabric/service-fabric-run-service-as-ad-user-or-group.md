@@ -3,7 +3,7 @@ title: Run an Azure Service Fabric service as an AD user or group | Microsoft Do
 description: Learn how to run a service as an Active Directory user or group on a Service Fabric Windows standalone cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
+ms.author: dekapur
 
 ---
 # Run a service as an Active Directory user or group

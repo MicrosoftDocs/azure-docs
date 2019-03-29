@@ -3,7 +3,7 @@ title: Partitioning Service Fabric services | Microsoft Docs
 description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: athinanthny
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
-ms.author: msfussell
+ms.author: atsenthi
 
 ---
 # Partition Service Fabric reliable services

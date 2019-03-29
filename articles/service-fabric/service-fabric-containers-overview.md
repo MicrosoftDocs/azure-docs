@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo, msfussell
+ms.author: aljo
 ---
 
 # Service Fabric and containers
