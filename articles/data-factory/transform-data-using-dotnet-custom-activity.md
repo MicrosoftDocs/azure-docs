@@ -261,7 +261,7 @@ $result.Error -join "`r`n"
 
 The **stdout** and **stderr** of your custom application are saved to the **adfjobs** container in the Azure Storage Linked Service you defined when creating Azure Batch Linked Service with a GUID of the task. You can get the detailed path from Activity Run output as shown in the following snippet:
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname

@@ -54,7 +54,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 
 Specifies the name of the forest to test against.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -70,7 +70,7 @@ Accept wildcard characters: False
 
 Specify DCs to test against.
 
-```yaml
+```yml
 Type: Array
 Parameter Sets: (All)
 Aliases:
@@ -88,7 +88,7 @@ Returns the result of this diagnosis in the form of a PSObject.
 Not necessary during manual interaction with
 this tool.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -135,7 +135,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 Specifies the name of the forest to test against.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -205,7 +205,7 @@ Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCre
 Target forest.
 Default value is the Forest of the currently logged in user.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: SamAccount
 Aliases:
@@ -221,7 +221,7 @@ Accept wildcard characters: False
 
 Target ForestFQDN Object.
 
-```yaml
+```yml
 Type: Forest
 Parameter Sets: ForestFQDN
 Aliases:
@@ -238,7 +238,7 @@ Accept wildcard characters: False
 The function will use the credentials of the user that is currently logged in the computer, rather than
 requesting custom credentials from the user.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -297,7 +297,7 @@ Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbos
 
 Specify DCs to test against.
 
-```yaml
+```yml
 Type: Array
 Parameter Sets: (All)
 Aliases:
@@ -312,11 +312,11 @@ Accept wildcard characters: False
 #### -SkipDnsPort
 
 If user is not using DNS services provided by the AD Site / Logon DC, then he\she may want
-to skip checking port 53. 
+to skip checking port 53.
 User must still be able to resolve _.ldap._tcp.\<forestfqdn\>
 in order for the Active Directory Connector configuration to succeed.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -334,7 +334,7 @@ Returns the result of this diagnosis in the form of a PSObject.
 Not necessary during manual interaction with
 this tool.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -388,7 +388,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 Specifies the name of the forest to test against.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -404,7 +404,7 @@ Accept wildcard characters: False
 
 Specify DCs to test against.
 
-```yaml
+```yml
 Type: Array
 Parameter Sets: (All)
 Aliases:
@@ -473,7 +473,7 @@ Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCreden
 
 Target forest.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: SamAccount
 Aliases:
@@ -489,7 +489,7 @@ Accept wildcard characters: False
 
 Target ForestFQDN Object.
 
-```yaml
+```yml
 Type: Forest
 Parameter Sets: ForestFQDN
 Aliases:
@@ -506,7 +506,7 @@ Accept wildcard characters: False
 The function will use the credentials of the user that is currently logged in the computer, rather than
 requesting custom credentials from the user.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -562,7 +562,7 @@ Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials
 The function will use the credentials of the user that is currently logged in the computer, rather than
 requesting custom credentials from the user.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -621,7 +621,7 @@ Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInU
 Desired kind of data that will be retrieved.
 Currently limited to "DomainFQDNName" or "RootDomainName".
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -638,7 +638,7 @@ Accept wildcard characters: False
 The function will use the credentials of the user that is currently logged in the computer, rather than
 requesting custom credentials from the user.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -654,7 +654,7 @@ Accept wildcard characters: False
 
 Auxiliary parameter used by Start-NetworkConnectivityDiagnosisTools function
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -709,7 +709,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCreden
 
 Target forest.Default value is the Domain of the currently logged in user.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -726,7 +726,7 @@ Accept wildcard characters: False
 The function will use the credentials of the user that is currently logged in the computer, rather than
 requesting custom credentials from the user.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -774,7 +774,7 @@ Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAcco
 
 Target forest.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -795,7 +795,7 @@ $False if the user chose "Use existing AD account".
 For Express-installations:
     The value of this variable must be $True for Express-installations.
 
-```yaml
+```yml
 Type: Boolean
 Parameter Sets: (All)
 Aliases:
@@ -811,7 +811,7 @@ Accept wildcard characters: False
 
 Parameter that pre-populates the Username field when user's credentials are requested.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -866,7 +866,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TES
 
 Specifies forest name to test against.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -883,7 +883,7 @@ Accept wildcard characters: False
 The user name and password of the user that is running the test.
 It requires the same level of permissions that is required to run the Azure AD Connect Wizard.
 
-```yaml
+```yml
 Type: PSCredential
 Parameter Sets: (All)
 Aliases:
@@ -899,7 +899,7 @@ Accept wildcard characters: False
 
 Specifies a the location of a log file that will contain the output of this function.
 
-```yaml
+```yml
 Type: String
 Parameter Sets: (All)
 Aliases:
@@ -915,7 +915,7 @@ Accept wildcard characters: False
 
 Specify DCs to test against.
 
-```yaml
+```yml
 Type: Array
 Parameter Sets: (All)
 Aliases:
@@ -931,7 +931,7 @@ Accept wildcard characters: False
 
 Flag that allows displaying a message about the purpose of this function.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -949,7 +949,7 @@ Returns the result of this diagnosis in the form of a PSObject.
 Not necessary to specify during manual interaction with
 this tool.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
@@ -967,7 +967,7 @@ Indicates if the credentials the user typed are valid.
 Not necessary to specify during manual interaction with
 this tool.
 
-```yaml
+```yml
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
