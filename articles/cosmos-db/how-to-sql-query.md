@@ -1,16 +1,16 @@
 ---
 title: SQL queries for Azure Cosmos DB
-description: Learn about SQL syntax, concepts, and SQL JSON query language in Azure Cosmos DB.
+description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 03/29/2019
 ms.author: mjbrown
 
 ---
 # SQL query examples for Azure Cosmos DB
 
-Azure Cosmos DB SQL API supports querying items using Structured Query Language (SQL) as a JSON query language. The design goals of the Azure Cosmos DB query language are to:
+Azure Cosmos DB supports querying items using Structured Query Language (SQL) as a JSON query language on SQL API accounts. The design goals of the Azure Cosmos DB query language are to:
 
 * Support SQL, one of the most familiar and popular query languages, instead of inventing a new query language. SQL provides a formal programming model for rich queries over JSON items.  
 
@@ -144,7 +144,7 @@ The following query returns all the given names of children in the family whose 
     ORDER BY f.grade ASC
 ```
 
-The resuls are:
+The results are:
 
 ```json
     [
@@ -157,11 +157,11 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 * Since SQL API works on JSON values, it deals with tree-shaped entities instead of rows and columns. You can refer to the tree nodes at any arbitrary depth, like `Node1.Node2.Node3…..Nodem`, similar to the two-part reference of `<table>.<column>` in ANSI SQL.
 
-* Because the query language works with schemaless data, the type system must be bound dynamically. The same expression could yield different types on different items. The result of a query is a valid JSON value, but is not guaranteed to be of a fixed schema.  
+* Because the query language works with schemaless data, the type system must be bound dynamically. The same expression could yield different types on different items. The result of a query is a valid JSON value, but isn't guaranteed to be of a fixed schema.  
 
 * Azure Cosmos DB supports strict JSON items only. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).  
 
-* A Cosmos DB container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This is important for the intra-item joins discussed later in this article.
+* A Cosmos DB container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins discussed later in this article.
 
 ## <a id="SelectClause"></a>SELECT clause
 
@@ -311,9 +311,9 @@ The results are:
 
 ## Aliasing
 
-You can explicitly alias values in queries. In case a query has two properties with the same name, use aliasing to rename one or both of the properties so they are disambiguated in the projected result.
+You can explicitly alias values in queries. In case a query has two properties with the same name, use aliasing to rename one or both of the properties so they're disambiguated in the projected result.
 
-The AS keyword used for aliasing is optional, as shown while projecting the second value as `NameInfo` in the following example:
+The `AS` keyword used for aliasing is optional, as shown when projecting the second value as `NameInfo` in the following example:
 
 ```sql
     SELECT 
@@ -345,9 +345,9 @@ The FROM clause enforces the following rules per query:
 
 * The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. `AS` is an optional keyword to alias the identifier.  
 
-* Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and cannot be resolved anymore.  
+* Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and can't be resolved anymore.  
 
-* All referenced properties must be fully qualified, to avoid any ambiguous bindings in the absence of strict schema adherence. For example, `SELECT id FROM Families f` is syntactically invalid because the property `id` is not bound.
+* All referenced properties must be fully qualified, to avoid any ambiguous bindings in the absence of strict schema adherence. For example, `SELECT id FROM Families f` is syntactically invalid because the property `id` isn't bound.
 
 ### Get subitems by using the FROM clause
 
@@ -411,7 +411,7 @@ The results are:
 
 The optional WHERE clause (**`WHERE <filter_condition>`**) specifies condition(s) that the source JSON items must satisfy to be included in the query results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result. For more information about the syntax, see [WHERE syntax](sql-api-query-reference.md#bk_where_clause).
 
-The following query requests items that contain an `id` property whose value is `AndersenFamily`. Any item that does not have an `id` property or where the value does not match `AndersenFamily` is excluded.
+The following query requests items that contain an `id` property whose value is `AndersenFamily`. Any item that does not have an `id` property or where the value doesn't match `AndersenFamily` is excluded.
 
 ```sql
     SELECT f.address
@@ -491,7 +491,7 @@ The following table shows the result of equality comparisons in the SQL API betw
 
 For comparison operators such as `>`, `>=`, `!=`, `<`, and `<=`, comparison across types or between two objects or arrays produces `Undefined`.  
 
-If the result of the scalar expression is `Undefined`, the item is not included in the result, because `Undefined` doesn't equal `true`.
+If the result of the scalar expression is `Undefined`, the item isn't included in the result, because `Undefined` doesn't equal `true`.
 
 ### Logical (AND, OR and NOT) operators
 
@@ -678,7 +678,7 @@ The special operator `*` projects the entire item as is. When used, it must be t
 
 The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use `TOP` with the `ORDER BY` clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows are affected by `TOP`. 
 
-You can use `TOP` with a constant value, as in the following example, or with a variable value using parameterized queries. For more details, see [Parameterized queries](#parameterized-queries).
+You can use `TOP` with a constant value, as in the following example, or with a variable value using parameterized queries. For more information, see [Parameterized queries](#parameterized-queries).
 
 ```sql
     SELECT TOP 1 *
@@ -862,7 +862,7 @@ The results are:
 
 ## <a id="Joins"></a>Joins
 
-In a relational database, joins across tables are the the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
+In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
 The language supports the syntax `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. This query returns a set of tuples with `N` values. Each tuple has values produced by iterating all container aliases over their respective sets. In other words, this query does a full cross product of the sets participating in the join.
 
@@ -881,7 +881,7 @@ The result is:
     }]
 ```
 
-In the following example, the join is a cross product between two JSON objects, the item root `id` and the `children` subroot. The fact that `children` is an array is not effective in the JOIN, because it deals with a single root that is the `children` array. The result contains only two results, because the cross product of each item with the array yields exactly only one item.
+In the following example, the join is a cross product between two JSON objects, the item root `id` and the `children` subroot. The fact that `children` is an array isn't effective in the JOIN, because it deals with a single root that is the `children` array. The result contains only two results, because the cross product of each item with the array yields exactly only one item.
 
 ```sql
     SELECT f.id
@@ -1122,9 +1122,9 @@ The results are:
     ]
 ```
 
-If the properties referred to by the UDF parameters are not available in the JSON value, the parameter is considered as undefined and the UDF invocation is skipped. Similarly, if the result of the UDF is undefined, it's not included in the result.
+If the properties referred to by the UDF parameters aren't available in the JSON value, the parameter is considered as undefined and the UDF invocation is skipped. Similarly, if the result of the UDF is undefined, it's not included in the result.
 
-As the preceding examples show, UDFs integrate the power of JavaScript language with the SQL API. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The SQL API provides the arguments to the UDFs for each source item at the current `WHERE` or `SELECT` clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline . In summary, UDFs are great tools to do complex business logic as part of queries.
+As the preceding examples show, UDFs integrate the power of JavaScript language with the SQL API. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The SQL API provides the arguments to the UDFs for each source item at the current `WHERE` or `SELECT` clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline. In summary, UDFs are great tools to do complex business logic as part of queries.
 
 ## <a id="Aggregates"></a>Aggregate functions
 
@@ -1214,7 +1214,7 @@ The mathematical functions each perform a calculation, based on input values tha
 | CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
 | EXP (num_expr) | Returns the exponent of the specified numeric expression. |
-| LOG (num_expr ,base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base. |
+| LOG (num_expr, base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base. |
 | LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
 | ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
 | TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
@@ -1224,7 +1224,7 @@ The mathematical functions each perform a calculation, based on input values tha
 | SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
 | ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
 | ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
-| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
+| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This function is also called arctangent. |
 | ATN2 (num_expr) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
 | COS (num_expr) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
 | COT (num_expr) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
@@ -1248,7 +1248,7 @@ The result is:
 
 ### Type-checking functions
 
-The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they are variable or unknown. Here’s a table of supported built-in type-checking functions:
+The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. Here’s a table of supported built-in type-checking functions:
 
 | **Usage** | **Description** |
 |-----------|------------|
@@ -1285,7 +1285,7 @@ The following scalar functions perform an operation on a string input value and 
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returns a Boolean indicating whether the first string expression contains the second. |
-| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string isn't found. |
 | [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returns the left part of a string with the specified number of characters. |
 | [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returns the right part of a string with the specified number of characters. |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returns a string expression after it removes leading blanks. |
@@ -1293,7 +1293,7 @@ The following scalar functions perform an operation on a string input value and 
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returns a string expression after converting uppercase character data to lowercase. |
 | [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returns a string expression after converting lowercase character data to uppercase. |
 | [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Replaces all occurrences of a specified string value with another string value. |
-| [REPLICATE (str_expr, num_expr)](sql-api-sql-query-reference#bk_replicate) | Repeats a string value a specified number of times. |
+| [REPLICATE (str_expr, num_expr)](sql-api-query-reference#bk_replicate) | Repeats a string value a specified number of times. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returns the reverse order of a string value. |
 
 Using these functions, you can run queries like the following, which returns the family `id` in uppercase:
@@ -1486,7 +1486,7 @@ Azure Cosmos DB provides a programming model for executing JavaScript-based appl
 * High-performance transactional CRUD operations and queries against items in a container, by virtue of the deep integration of the JavaScript runtime within the database engine.
 * A natural modeling of control flow, variable scoping, and assignment and integration of exception-handling primitives with database transactions. 
 
-For more details about Azure Cosmos DB JavaScript integration, see [JavaScript server-side API](#JavaScriptServerSideApi).
+For more information about Azure Cosmos DB JavaScript integration, see [JavaScript server-side API](#JavaScriptServerSideApi).
 
 ### Operator evaluation
 
@@ -1494,7 +1494,7 @@ Cosmos DB, by the virtue of being a JSON database, draws parallels with JavaScri
 
 In the SQL API, unlike in traditional SQL, the types of values are often not known until the values are retrieved from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
 
-Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. Any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0` will not be matched. This is in contrast to JavaScript, where string values are implicitly casted to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
+Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. Any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0` will not be matched. This is in contrast to JavaScript, where string values are implicitly cast to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
 
 ## <a id="ExecutingSqlQueries"></a>Execute SQL queries
 
@@ -1632,7 +1632,7 @@ If a query has an aggregation function like `COUNT`, the query page may return a
 
 To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. Session consistency also requires echoing the latest `x-ms-session-token` cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings for containers, the index is always current with the item contents and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB consistency levels][consistency-levels].
 
-If the configured indexing policy on the container can't support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. You can specify the `x-ms-documentdb-query-enable-scan` header to allow the query to perform a scan when an index is not available.
+If the configured indexing policy on the container can't support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. You can specify the `x-ms-documentdb-query-enable-scan` header to allow the query to perform a scan when an index isn't available.
 
 You can get detailed metrics on query execution by setting the `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 
