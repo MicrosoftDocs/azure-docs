@@ -16,7 +16,7 @@ ms.date: 04/15/2019
 
 Use the drag-and-drop user interface to create your first machine learning experiment without writing any code.
 
-In this quickstart you'll explore and prepare data in preparation for training a model:
+In this quickstart you'll explore and prepare data:
 
 - Create your first experiment
 - Add data
@@ -29,11 +29,15 @@ After you complete this quickstart, you can use this experiment to [train a mode
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](https://docs.microsoft.com/en-us/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers) is a great introduction to machine learning using everyday language and concepts.
 
+## Prerequisite
+
+1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  See how to [find your workspace](how-to-manage-workspace.md#view).
+
 ## Create your first experiment
 
-1. To create your experiment, open your Machine Learning workspace in the [Azure portal](https://portal.azure.com). If you don't have a Machine Learning service workspace yet, [create your workspace](setup-create-workspace.md) now.
-
-1. After you open your Machine Learning service workspace in the Azure portal, you see **Machine Learning Studio(Preview)** on the left side. Click  **Launch Studio Workspace**, then click **Launch Workspace in Studio**.   Studio V2 will open in a new browser tab.
+1. In your workspace, click on some section whose name I do not yet know.  Then click on some button whose name I also do not know.  This will open up some page whose title I do not know.  When I do know these things they will be added here, along with a screenshot.
 
 1. Select  **Add New**  in the left bottom corner.
 ![Add new experiment](./media/quickstart-ui-run-experiment/add-new.png)
