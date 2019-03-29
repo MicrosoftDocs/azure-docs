@@ -163,7 +163,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
     and select **Next**
 
-11. Review your deployment information and manifest.  It should look like the above [deployment manifest](#Deployment-manifest).  Select **Submit**.
+11. Review your deployment information and manifest.  It should look like the above deployment manifest.  Select **Submit**.
 
 12. Once you've deployed modules to your device, you can view all of them in the **Device details** page of the portal. This page displays the name of each deployed module, as well as useful information like the deployment status and exit code.
 
@@ -171,13 +171,11 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 ### Prerequisites
 
-1. Ensure you have the prerequisites for [deploying modules using Azure portal](#Deploying-from-Azure-Portal).
-
-2. Install the latest version of the [Azure command line interface (AZ)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install the latest version of the [Azure command line interface (AZ)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Quickstart
 
-1. Save the above [deployment manifest](#Deployment-manifest) into a `deployment.json` file.  
+1. Save the above deployment manifest into a `deployment.json` file.  
 
 2. Use the following command to apply the configuration to an IoT Edge device:
 

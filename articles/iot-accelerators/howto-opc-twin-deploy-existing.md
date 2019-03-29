@@ -47,7 +47,7 @@ cd azure-iiot-components
 
    ![Industrial IoT OPC Twin deploy to existing project](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
-   The output includes the  URL of the public endpoint.  If you run into issues, follow the steps [below](#Troubleshooting-deployment-failures).
+   The output includes the  URL of the public endpoint. 
 
 3. Once the script completes successfully, select whether you want to save the .env file.  You need the .env environment file if you want to connect to the cloud endpoint using tools such as the Console or deploy modules for development and debugging.
 
@@ -80,7 +80,7 @@ Instead of just the services and dependencies you can also deploy an all-in-one 
    deploy -type demo
    ```
 
-2. Follow the prompts to assign a new name to the resource group and a name to the website.  Once deployed successfully, the script will display the URL of the web application endpoint.  Follow the steps [above](#Troubleshooting-deployment-failures) if you run into any deployment failures.
+2. Follow the prompts to assign a new name to the resource group and a name to the website.  Once deployed successfully, the script will display the URL of the web application endpoint.
 
 ## Deployment script options
 

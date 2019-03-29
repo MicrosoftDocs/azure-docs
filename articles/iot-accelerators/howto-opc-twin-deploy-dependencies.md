@@ -27,7 +27,7 @@ This article explains how to deploy only the Azure Platform Services need to do 
    deploy -type local
    ```
 
-2. Follow the prompts to assign a name to the resource group for your deployment.  The script deploys only the dependencies to this resource group in your Azure subscription, but not the micro services.  The script also registers an Application in Azure Active Directory.  This is needed to support OAUTH-based authentication.  Deployment can take several minutes.  In case you run into issues please follow the steps [below](#Troubleshooting-deployment-failures).
+2. Follow the prompts to assign a name to the resource group for your deployment.  The script deploys only the dependencies to this resource group in your Azure subscription, but not the micro services.  The script also registers an Application in Azure Active Directory.  This is needed to support OAUTH-based authentication.  Deployment can take several minutes.
 
 3. Once the script completes, you can select to save the .env file.  The .env environment file is the configuration file of all services and tools you want to run on your development machine.  
 
