@@ -84,7 +84,7 @@ Azure VMs support a configurable MTU just as any other operating system. However
 
 Azure doesn't encourage customers to increase their VM MTU. This discussion is intended to explain in detail how Azure implements MTU and performs fragmentation today.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >Increasing MTU has not shown to improve performance and could have a negative effect on application performance.
 >
 >
@@ -213,7 +213,7 @@ While these settings are the most likely to affect TCP performance, it should be
 
 A logical question to ask is "can increasing the MTU increase TCP performance as a larger MTU means a larger MSS"? The simple answer is – probably not. As discussed, There are pros and cons to packet size that are applicable beyond just TCP traffic. As discussed above, the most important factors affecting TCP throughput performance is TCP Window Size, packet loss, and RTT.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Azure does not recommend that Azure customers modify the default MTU value on Virtual Machines.
 >
 >
