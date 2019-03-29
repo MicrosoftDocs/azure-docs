@@ -266,7 +266,7 @@ the **Alerts** blade in your **Log Analytics Workspace**.
 
 ![Log Analytics workspace alerts](media/hdinsight-cluster-availability/portal-alerts.png)
 
-Clicking on a severity grouping (i.e. **Sev 1,** as highlghted above) will show
+Clicking on a severity grouping (i.e. **Sev 1,** as highlighted above) will show
 records for all alerts of that severity that have fired like below:
 
 ![Log Analytics workspace sev 1 alerts](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
