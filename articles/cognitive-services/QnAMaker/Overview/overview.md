@@ -62,7 +62,7 @@ The QnA Maker architecture consists of the following two components:
 
 ## Service highlights
 
-- A complete **no-code** experience to [create a FAQ bot](https://aka.ms/qnamaker-docs-create-faqbot).
+- A complete **no-code** experience to [create a bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) from a knowledge base.
 - **No network throttling for predictions**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details.
 - **Scale as needed**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
 

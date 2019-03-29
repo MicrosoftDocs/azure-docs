@@ -86,6 +86,7 @@
     items:
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
+      displayName: create bot, bot, publish to bot, test, edit
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrate a knowledge base
