@@ -231,9 +231,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    </code></pre>
 
 1. **[A]** Create the shared directories
@@ -330,7 +330,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -355,7 +355,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install SAP NetWeaver ASCS  
 
-   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nw1-ascs</b>, <b>10.0.0.11</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
+   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nw1-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -382,7 +382,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
@@ -411,7 +411,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Install SAP NetWeaver ERS  
 
-   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-aers</b>, <b>10.0.0.12</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
+   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-aers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -576,14 +576,11 @@ The steps bellow assume that you install the application server on a server diff
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
-   # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Create the sapmnt directory

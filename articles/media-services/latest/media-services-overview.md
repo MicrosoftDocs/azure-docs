@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -73,6 +73,39 @@ Examples of this include
 * not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
+
+
+## How can I get started with v3? 
+
+### Quickstarts  
+
+The quickstarts show fundamental day-1 instructions for new customers to quickly try out Media Services.
+
+* [Stream video files - .NET](stream-files-dotnet-quickstart.md)
+* [Stream video files - CLI](stream-files-cli-quickstart.md)
+* [Stream video files - Node.js](stream-files-nodejs-quickstart.md)
+    
+### Tutorials 
+
+The tutorials show scenario-based procedures for some of the top Media Services tasks.
+
+* [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
+* [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+    
+### How-to guides
+
+Articles contain code samples that demonstrate how to complete a task. In this section, you will find many examples, here are just a few of them:
+
+* [Create an account - CLI](create-account-cli-how-to.md)
+* [Access APIs - CLI](access-api-cli-how-to.md)
+* [Start developing with SDKs](developers-guide.md)
+* [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
+* [Monitor events - Portal](monitor-events-portal-how-to.md)
+* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
+* [How to encode with a custom transform by using CLI](custom-preset-cli-howto.md)
 
 ## Next steps
 

@@ -24,7 +24,7 @@ sections:
     columns: 2
     items:
       - image:
-          src:  
+          src: media/index/AMSIcons-encoding.svg
         html: <p>Learn about Media Services fundamental concepts.</p>
         href:  /azure/media-services/latest/concepts-overview/
         title: Learn concepts 
@@ -41,32 +41,60 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/AMSIcons-encoding.svg
-      text: Stream video files
+        src: media/index/dotnet.svg
+      text: Encode and stream with .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: Encode and stream with CLI
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Encode and stream with Node.js
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to stream files on demand, broadcast live, and analyze your videos with Media Services v3:'
   - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/AMSIcons-encoding.svg
-      text: Upload, encode, and stream videos
+    style: cards
+    className: cardsM
+    columns: 1
+    items:
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>The tutorial uploads a local video file, encodes the file, and streams the encoded content.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-live.svg
-      text: Broadcast live
+      title: Encode uploaded file and stream video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>The tutorial explains how to set up for a live event. It then shows how to use .NET to create a pass-through type of a live event.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image: 
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analyze your videos
+      title: Broadcast  live
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>This tutorial shows you how to analyze videos with Azure Media Services API.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: Analyze your video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: Encrypt dynamically with AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Learn how to configure and use Media Services APIs to dynamically encrypt your content with multi-DRM (PlayReady, Widevine, and FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: Encrypt dynamically with multi-DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>The tutorial shows how to encode a remote file based on URL and stream the video.</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: Encode remote file and stream video 
 - title: Samples
   items:
   - type: paragraph
-    text: 'Samples that show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
+    text: 'The following GitHub samples show how to use APIs to stream videos, broadcast live, and analyze your videos with Media Services v3:'
   - type: list
     style: icon48
     items: 
