@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
@@ -64,7 +64,7 @@ Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if
 
 You can put a subscription into a **Deprovisoned** state to be deleted in 3 days using the Microsoft 365 admin center.
 
-1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a Global Administrator in the tenant. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
+1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a Global Administrator in the tenant. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign in with a UPN such as admin@contoso.onmicrosoft.com.
 
 2. Go to the **Billing** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   
@@ -79,6 +79,52 @@ You can put a subscription into a **Deprovisoned** state to be deleted in 3 days
 5. Once you have deleted a subscription on your tenant, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your tenant deletion. You should be able to successfully delete your Azure AD tenant.
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
+
+## I have a self-service sign-up product like PowerBi and RMS blocking tenant deletion, how can I delete it?
+
+There are [self-service sign-up products](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Power BI, Rights Management Services (RMS), Microsoft Power Apps, or Dynamics 365, that individual users can sign-up for via Office 365 which will show up in your Azure AD tenant. These self-service products block directory deletion until they are fully deleted, to avoid accidental data loss. They can only be deleted by the IT Admin of the Azure AD regardless if the user signed up individually or was assigned the product.
+
+There are two types of self-service sign-up products in how they are assigned: 
+
+* Org-level assignment: An Azure AD admin assigns the product to the entire organization and a user can be actively using the service with this org-level assignment even if they are not licensed individually.
+* User level assignment: An individual user during self-service sign-up essentially assigns the product to themselves without an admin. Once the organization becomes managed by an admin (see [Administrator takeover of an unmanaged directory](domains-admin-takeover.md), then the admin can directly assign the product to users without self-service sign-up.  
+
+When you begin the deletion of the self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user that was assigned the offer individually or on the tenant level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with the self-service sign-up product like [Power BI dashboards](https://docs.microsoft.com/power-bi/service-export-to-pbix) or [RMS policy configuration](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere. 
+
+For more information about currently available self-service sign-up products and services, see [](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+
+For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+
+Product state | Data | Access to data
+------------- | ---- | --------------
+Active (30 days for trial) | Data accessible to all | Users have normal access to self-service sign-up product, files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources
+Deleted | Data deleted | Users can’t access self-service sign-up product, files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
+
+## How can I delete the self-service sign-up product in the Azure portal?
+
+You can put a self-service sign-up product like Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
+
+1. Sign in to the Azure AD Portal with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” tenant that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
+
+2. Go to the **Licenses** page and select **Self-service sign-up products**. You will see all the self-service sign-up products separately from the seat-based subscriptions. Then choose the product you want to permanently delete, like for example below Power BI.
+
+    ![the username is mistyped or not found](./media/directory-delete-howto/licenses-page.png)
+
+3. Select **Delete** to delete the product and accept the terms that data is deleted immediately and irrevocably. This delete action will remove all users and tenant access to the product. Click Yes to move forward with the deletion.  
+
+    ![the username is mistyped or not found](./media/directory-delete-howto/delete-product.png)
+
+4. When you select **Yes**, the deletion of the self-service product will be initiated. There is a notification that will tell you of the deletion in progress.  
+
+    ![the username is mistyped or not found](./media/directory-delete-howto/progress-message.png)
+
+5. Now the self-service sign-up product state has changed to **Deleted**. When ypu refresh the page, the product should be removed from the **Self-service sign-up products** page.  
+
+    ![the username is mistyped or not found](./media/directory-delete-howto/product-deleted.png)
+
+6. Once you have deleted all the products, you can sign back into the Azure AD admin center again and there should be no required action and no products blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
+
+    ![the username is mistyped or not found](./media/directory-delete-howto/delete-organization.png)
 
 ## Next steps
 
