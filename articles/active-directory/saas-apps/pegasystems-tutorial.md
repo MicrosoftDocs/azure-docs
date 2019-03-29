@@ -206,7 +206,7 @@ To configure Azure AD single sign-on with Pega Systems, perform the following st
 
 	a. Copy the **Entity Identification** value and paste it in to **Identifier** textbox in the **Basic SAML Configuration** in the Azure portal.
 
-	b.  Copy the **Assertion Consumer Service (ACS) location** value and paste it in to **Reply URL** textbox textbox in the **Basic SAML Configuration** in the Azure portal.
+	b. Copy the **Assertion Consumer Service (ACS) location** value and paste it in to **Reply URL** textbox in the **Basic SAML Configuration** in the Azure portal.
 
 	c. Select **Disable request signing**.
 
