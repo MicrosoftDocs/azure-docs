@@ -476,24 +476,25 @@ Connect to the new Azure Batch Account, using the Azure CLI from a PowerShell co
 
 #### List the available applications
 
-    ```azurecli
-    az batch application list -g <resourcegroup> -n <batchaccountname>
-    ```
+```azurecli
+az batch application list -g <resourcegroup> -n <batchaccountname>
+```
 
 #### Check the pool is valid
 
-    ```azurecli
-    az batch pool list
-    ```
-    Note the value of `currentDedicatedNodes` from the output of this command. This value is adjusted in the next test.
+```azurecli
+az batch pool list
+```
+
+Note the value of `currentDedicatedNodes` from the output of this command. This value is adjusted in the next test.
 
 #### Resize the pool
 
-    Resize the pool so there are compute nodes available for job and task testing, check with the pool list command to see the current status until the resizing has completed and there are available nodes
+Resize the pool so there are compute nodes available for job and task testing, check with the pool list command to see the current status until the resizing has completed and there are available nodes
 
-    ```azurecli
-    az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
-    ```
+```azurecli
+az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
+```
 
 ## Next steps
 
