@@ -138,32 +138,32 @@
 
 - name: Industrial IoT
   items:
-  - name: What is industrial IoT
-    href: overview-iot-industrial.md 
-  - name: OPC Twin
-    items:
-      - name: What is OPC Twin
-        href: overview-opc-twin.md
-      - name: OPC Twin Architecture
-        href: overview-opc-twin-architecture.md
-  - name: OPC Vault
-    items:
-      - name: What is OPC Vault
-        href: overview-opc-vault.md 
-      - name: OPC Vault Architecture
-        href: overview-opc-vault-architecture.md
-  - name: Connected Factory
-    items:
-    - name: Connected Factory Overview
-      href: iot-accelerators-connected-factory-features.md
-    - name: Connected Factory Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
-
+  - name: Overview
+    items: 
+    - name: What is industrial IoT
+      href: overview-iot-industrial.md 
+    - name: OPC Twin
+      items:
+        - name: What is OPC Twin
+          href: overview-opc-twin.md
+        - name: OPC Twin Architecture
+          href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+        - name: What is OPC Vault
+          href: overview-opc-vault.md 
+        - name: OPC Vault Architecture
+          href: overview-opc-vault-architecture.md
+    - name: Connected Factory
+      items:
+      - name: Connected Factory Overview
+        href: iot-accelerators-connected-factory-features.md
+      - name: Connected Factory Architecture
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Quickstarts
     items:
     - name: Try a connected factory solution
       href: quickstart-connected-factory-deploy.md
-
   - name: How-to guides
     items:
     - name: Connected Factory    
@@ -196,7 +196,6 @@
           href: howto-opc-vault-deploy-existing-client-server-communication.md
       - name: Deploy OPC Vault from scratch
         href: howto-opc-vault-deploy-scratch.md
-  
   - name: Resources
     items:
     - name: GitHub repository
