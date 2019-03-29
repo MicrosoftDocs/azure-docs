@@ -75,7 +75,19 @@ If you would like to clean up the resources created in this article, you can sim
 
 First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
 
-Then, sign in to your Azure subscription, create a resource group, and then create a storage account.
+Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
+
+### Upgrade your powershell module
+
+To interact with premium files with PowerShell, you'll need to install module Az.Storage version **0.7** or later.
+
+Start by opening a PowerShell session with elevated permissions.
+
+Install the Az.Storage module
+
+```powershell
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+```
 
 ### Sign in to your Azure Subscription
 
