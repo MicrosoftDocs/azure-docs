@@ -17,57 +17,75 @@ ms.collection: M365-identity-device-management
 ---
 # Planning a cloud-based Azure Multi-Factor Authentication
 
-Enterprise users are connecting in increasingly complex scenarios. They connect to resources from enterprise, personal, and public devices on and off the corporate network by using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. A password—no matter the complexity--used across devices, networks, and platforms may no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts, and sophisticated phishing and other social engineering attacks can result in a user name and password being posted and sold across the dark web in minutes to hours.
+Users are connecting to organizational resources in increasingly complicated scenarios. They connect to resources from organization-owned, personal, and public devices on and off the corporate network by using smart phones, tablets, PCs, and laptops, often on multiple platforms. In this always-connected, multi-device and multi-platform world, the security of user accounts is more important than ever. A password no matter the complexity used across devices, networks, and platforms is no longer sufficient to ensure the security of the user account, especially when users tend to reuse passwords across accounts. Sophisticated phishing and other social engineering attacks can result in usernames and passwords being posted and sold across the dark web in minutes to hours.
 
-Azure Multi-Factor Authentication (MFA) safeguards access to data and applications. It provides additional security using a second form of authentication and a range of easy-to-use authentication methods. Users may or may not be challenged for MFA depending on the application configuration. See How MFA works for more introductory information.
+[Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) helps safeguard access to data and applications. It provides an additional layer of security using a second form of authentication. Organizations can use [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs.
 
 ## Prerequisites to deployment
 
-Certain MFA scenarios require that corresponding prerequisites be met. Please see below for these scenarios.
+Before starting a deployment of Azure Multi-Factor Authentication there are prerequisite items that should be considered.
 
-If you are deploying MFA into a cloud-only environment, there are no prerequisites. 
-
-Scenarios requiring prerequisite actions
+Certain MFA scenarios require that corresponding prerequisites be met.
 
 | Scenario | Prerequisite |
 | --- | --- |
-| All hybrid scenarios | Azure AD Connect is deployed and user identities are synchronized from the on-premises Active Directory Forest to the Azure Active Directory tenant. |
-| On-premises applications published for cloud access | Azure Active Directory Application Proxy is deployed. |
-| Azure AD Tenant is federated with AD FS on-premises, and MFA is desired for AD FS applications | Active Directory Federation Services (AD FS) is deployed. |
-| Using Azure MFA with RADIUS Authentication | A Network Policy Server is deployed. |
-| Users have Microsoft Office 2010 or earlier, or Apple Mail for iOS 11 or earlier | Users must upgrade to Microsoft Office 2013 or later and Apple mail for iOS 12 or later. |
+| Cloud-only identity environment with modern authentication | No prerequisite tasks |
+| Hybrid identity scenarios | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) is deployed and user identities are synchronized or federated with the on-premises Active Directory Domain Services with Azure Active Directory. |
+| On-premises legacy applications published for cloud access | Azure AD [Application Proxy](../manage-apps/application-proxy.md) is deployed. |
+| Using Azure MFA with RADIUS Authentication | "What doc should we point to here" A Network Policy Server is deployed. |
+| Users have Microsoft Office 2010 or earlier, or Apple Mail for iOS 11 or earlier | Users must upgrade to Microsoft Office 2013 or later and Apple mail for iOS 12 or later as Conditional Access is not supported by legacy authentication protocols. |
 
 ## MFA Deployment Considerations
 
-Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access and or Identity Protection.
+Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access and or Identity Protection. A [Conditional Access policy](../conditional-access/overview.md) can require users to perform multi-factor authentication when certain criteria are met or are not such as:
 
-Azure Active Directory Conditional Access enables you to create triggers or conditions that require MFA. For example, a Conditional Access policy can require Azure MFA when a user is signing in with a personal device, or from outside the corporate network, but not when they are signing in from an enterprise-owned device within the network. Conditional access can even require MFA for all users and all applications. Conditional access policies also enforce MFA registration, an important security consideration.
+* All users, a specific user, member of a group, or assigned role
+* Specific cloud application being accessed
+* Device platform
+* State of device
+* Network location or geo-located IP address
+* Client applications
+* Sign-in risk (Requires Identity Protection)
+* Compliant device
+* Hybrid Azure AD joined device
+* Approved client application
 
-Azure Active Directory Identity Protection detects risk event types in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to the risk level – a higher level indicates that a sign-in attempt might not have been performed by the legitimate owner of a user account. A risk-based policy can require MFA to mitigate a risky sign-in or a sign-in from a user at risk.
+Conditional access policies enforce registration, requiring unregistered users to complete registration at first sign-in, an important security consideration.
+
+[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contributes both a registration policy for and automated risk detection and remediation policies to the Azure Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or when a sign-in is deemed risky by the following [events](../reports-monitoring/concept-risk-events.md):
+
+* Leaked credentials
+* Sign-ins from anonymous IP addresses
+* Impossible travel to atypical locations
+* Sign-in from unfamiliar locations
+* Sign-ins from infected devices
+* Sign-ins from IP addresses with suspicious activities
+
+Some of the risk events detected by Azure Active Directory Identity Protection occur in real-time and some require offline processing. Administrators can choose to block users who exhibit risky behavior and remediate manually, require a password change, or require a multi-factor authentication "proof up" as part of their conditional access policies.
 
 ## Plan authentication methods
 
-You can choose the authentication methods that you wish to make available for your users. It is important to allow more than a single authentication method so that users can authenticate in different scenarios such as the following:
+Administrators can choose the [authentication methods](../authentication/concept-authentication-methods.md) that they want to make available for users. It is important to allow more than a single authentication method so that users have a backup method available in case their primary method is unavailable. The following methods are available for administrators to enable:
 
 ### Notification through mobile app
 
-Sends a push notification to your phone or registered device. The user views the notification and selects Approve to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.
+A push notification is sent to the Microsoft Authenticator app on your mobile device. The user views the notification and selects **Approve** to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.
 
 ### Verification code from mobile app
 
-The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The mobile app option can be used whether or not the phone has a data or cellular signal.
+A mobile app like the Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The mobile app option can be used whether or not the phone has a data or cellular signal.
 
 ### Call to phone
 
-Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. The call option persists through a phone handset upgrade, allowing the user to register the mobile app on the new device.
+An automated voice call is placed to the user. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. The call option persists through a phone handset upgrade, allowing the user to register the mobile app on the new device.
 
 ### Text message to phone
 
-Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface.
+A text message that contains a verification code is sent to the user, the user is prompted to enter the verification code into the sign-in interface.
 
 ## Define network locations
 
-We recommended that you use Conditional Access to define your network using named locations. If you are using Identity Protection, consider using risk-based policies instead of named locations.
+We recommended that organizations use Conditional Access to define their network using named locations. If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
 ### Configuring a named location
 
@@ -87,22 +105,22 @@ We recommended that you use Conditional Access to define your network using name
 
 ## Plan MFA registration policy
 
-You must determine how your users will register for their second factors. First, you should enable the new registration experience for MFA and Self-Service Password Reset (SSPR). SSPR allows users to reset their own corporate passwords in a secure way. We recommend this combined registration, currently in public preview, because it’s a great new experience for users and users can register once for both services.
+Administrators must determine how users will register for their methods. Organizations should enable the new registration experience for Azure MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration, currently in public preview, because it’s a great experience for users, with the ability to register once for both services.
 
 ### Registration with Identity Protection
 
-If you’re using Azure Active Directory Identity Protection, which is part of the Azure Active Directory P2 license, configure an MFA registration policy that will prompt your users to register the next time they sign in interactively.
+If your organization is using Azure Active Directory Identity Protection, configure the MFA registration policy to prompt your users to register the next time they sign in interactively.
 
 ### Registration without identity Protection
 
-If you do not have licenses that enable Identity Protection and cannot create an MFA registration policy, your users will be prompted to register for MFA the next time that MFA is required at sign-in. This means that, in the future, you may have users that have not registered for MFA. This could occur, for example, if they don't use applications protected with MFA. It's important to get all users registered so that bad actors cannot guess the password of a user and register for MFA on their behalf – effectively taking control of the account.
+If your organization does not have licenses that enable Identity Protection, users are prompted to register the next time that MFA is required at sign-in. This means that users may not have registered for MFA if they don't use applications protected with MFA. It's important to get all users registered so that bad actors cannot guess the password of a user and register for MFA on their behalf, effectively taking control of the account.
 
-### Identifying registered and non-registered users
+#### Enforcing registration
 
-Identify registered and non-registered Azure MFA users with PowerShell commands, which rely on the MSOnline PowerShell module.
+Using the following steps a conditional access policy can force users to register for Multi-Factor Authentication
 
-1. Create a group, add all users not currently registered for MFA. 
-2. Using Azure Conditional Access, enforce MFA for this group for access to all resources. This will block access until the user registers (except from apps using legacy authentication). 
+1. Create a group, add all users not currently registered.
+2. Using Azure Conditional Access, enforce MFA for this group for access to all resources. This will block access until the user registers (except from apps using legacy authentication).
 3. Periodically, re-evaluate the group membership, and remove users who have registered from the group.
 
 You may identify registered and non-registered Azure MFA users with PowerShell commands that rely on the MSOnline PowerShell module.
