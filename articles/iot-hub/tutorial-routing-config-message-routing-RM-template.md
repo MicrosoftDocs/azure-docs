@@ -1,5 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using an Azure Resource Manager template| Microsoft Docs
+title: Configure message routing for Azure IoT Hub using
+ an Azure Resource Manager template| Microsoft Docs
 description: Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 author: robinsh
 manager: philmeagit st
@@ -12,7 +13,7 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my resources using an Azure Resource Manager template.
 ---
 
-# Tutorial: Configure IoT Hub message routing using an Azure Resource Manager template
+# Tutorial: Use an Azure Resource Manager template to configure IoT Hub message routing
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -30,7 +31,7 @@ Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Sample
 
 ## Create your resources
 
-You're going to create all of your resources using an Azure Resource Manager (RM) template. The Azure CLI and PowerShell scripts can be run a few lines at a time. An RM template is deployed in one step. This article shows you the sections separately to help you understand each one. Then it will show you how to deploy the template, and create the virtual device for testing. After the template is deployed, you can view the message routing configuration in the portal.
+You're going to use an Azure Resource Manager (RM) template to create all of your resources. The Azure CLI and PowerShell scripts can be run a few lines at a time. An RM template is deployed in one step. This article shows you the sections separately to help you understand each one. Then it will show you how to deploy the template, and create the virtual device for testing. After the template is deployed, you can view the message routing configuration in the portal.
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make naming the resources easier, those resource names are set up to append a random alphanumeric value generated from the current date/time. 
 
@@ -86,7 +87,7 @@ These values are used in the template, and are mostly derived from parameters.
 
 **sbVersion**: THe version of the Service Bus API to use. In this case, it is "2017-04-01".
 
-### Resources: storage account and container
+### Resources: Storage account and container
 
 The first resource created is the storage account, along with the container to which messages are routed. The container is a resource under the storage account. It has a `dependsOn` clause for the storage account, requiring  the storage account be created before the container.
 
@@ -320,7 +321,7 @@ The Service Bus queue authorization rule is used to retrieve the connection stri
 },
 ```
 
-### Resources: consumer group
+### Resources: Consumer group
 
 In this section, you create a Consumer Group for the IoT Hub data to be used by the Azure Stream Analytics in the second part of this tutorial.
 
@@ -335,7 +336,7 @@ In this section, you create a Consumer Group for the IoT Hub data to be used by 
 }
 ```
 
-### Resources: outputs
+### Resources: Outputs
 
 If you want to send a value back to the deployment script to be displayed, you use an output section. This part of the template returns the connection string for the Service Bus queue. Returning a value isn't required, it's included as an example of how to return results to the calling script.
 
@@ -352,11 +353,11 @@ If you want to send a value back to the deployment script to be displayed, you u
 
 To deploy the template to Azure, upload the template and the parameters file to Azure Cloud Shell, and then execute a script to deploy the template. Open Azure Cloud Shell and sign in. This example uses PowerShell.
 
-To upload the files, click the **Upload/Download files** icon in the menu bar, then select Upload.
+To upload the files, select the **Upload/Download files** icon in the menu bar, then choose Upload.
 
 ![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Use the File Explorer that pops up to find the files on your local disk and select them, then click **Open**.
+Use the File Explorer that pops up to find the files on your local disk and select them, then choose **Open**.
 
 After the files are uploaded, a results dialog shows something like the following image.
 
