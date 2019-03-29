@@ -66,7 +66,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 The minimum access level required by VaaS depends on whether you are creating a Package Validation workflow or scheduling an *interactive* test.
 
-In the case of **Private** and **Blob** access levels, you must temporarily grant access to the package blob by giving VaaS a [shared access signature](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). The **Container** access level does not require you to generate SAS URLs, but allows unauthenticated access to the container and its blobs.
+In the case of **Private** and **Blob** access levels, you must temporarily grant access to the package blob by giving VaaS a [shared access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). The **Container** access level does not require you to generate SAS URLs, but allows unauthenticated access to the container and its blobs.
 
 |Access level | Workflow requirement | Test requirement |
 |---|---------|---------|

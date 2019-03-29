@@ -61,7 +61,7 @@ For details on this service and how to use it, see the [Azure Security Center pu
 ### Azure Security Center FAQs
 
 For Azure Security Center FAQs, see [Azure Security Center frequently asked
-questions public documentation](https://docs.microsoft.com/en-us/azure/security-center/security-center-faq).
+questions public documentation](https://docs.microsoft.com/azure/security-center/security-center-faq).
 
 Additional FAQs for Azure Security Center in Azure Government are listed below.
 

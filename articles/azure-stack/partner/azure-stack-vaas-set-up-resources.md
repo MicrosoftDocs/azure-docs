@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## Configure an Azure AD tenant
 
-An Azure AD tenant is used to register an organization and authenticate users with VaaS. The partner will use the role-based access control (RBAC) features of the tenant to manage who in the partner organization can use VaaS. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
+An Azure AD tenant is used to register an organization and authenticate users with VaaS. The partner will use the role-based access control (RBAC) features of the tenant to manage who in the partner organization can use VaaS. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### Create a tenant
 
@@ -101,7 +101,7 @@ The Azure Storage account is hosted in the Azure public cloud, not on your Azure
 
 3. Under **Resource group**, select **Create new**. Enter a name for your new resource group.
 
-4. Review the [naming conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) for Azure Storage accounts. Enter a name for your storage account.
+4. Review the [naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) for Azure Storage accounts. Enter a name for your storage account.
 
 5. Select the **US West** region for your storage account.
 

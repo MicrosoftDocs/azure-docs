@@ -48,7 +48,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 | $frequencyInHours | The frequency in hours determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4.|
 | $retentionPeriodInDays | The retention period in days determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period get automatically deleted from the external location.|
 | $encryptioncertpath | Applies to 1901 and beyond.  Parameter is available in Azure Stack Module version 1.7 and beyond. The encryption certificate path specifies the file path to the .CER file with public key used for data encryption. |
-| $encryptionkey | Applied to build 1811 or earlier. Parameter is available in Azure Stack Module version 1.6 or earlier. The encryption key used for data encryption. Use the [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet to generate a new key. |
+| $encryptionkey | Applied to build 1811 or earlier. Parameter is available in Azure Stack Module version 1.6 or earlier. The encryption key used for data encryption. Use the [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet to generate a new key. |
 |     |     |
 
 ### Enable backup on 1901 and beyond using certificate

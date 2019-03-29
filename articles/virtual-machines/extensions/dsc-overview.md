@@ -81,7 +81,7 @@ This information can be seen in the
 
 For the Node Configuration name, make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
-[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
 
 ## DSC extension in Resource Manager templates

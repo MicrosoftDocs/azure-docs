@@ -33,9 +33,9 @@ To keep your existing alerts and migrate them to Azure Sentinel, please [launch 
 > [!NOTE]
 > Custom alerts migration to Azure Sentinel is a one-time migration of all your custom alerts in the selected workspace. After migration is completed, the custom alerts for that selected workspace will not be accessible via Azure Security Center.
 >
-> Custom alerts using [Search](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) or [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) statements queries are not supported in Azure Sentinel and will not be migrated. Please edit these alerts before performing the migration.
+> Custom alerts using [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) or [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) statements queries are not supported in Azure Sentinel and will not be migrated. Please edit these alerts before performing the migration.
 
-To re-create your alerts using Azure Monitor log alerts, please see: [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) for instructions on how to create log alerts. For general overview of log alerts in Azure Monitor, click [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
+To re-create your alerts using Azure Monitor log alerts, please see: [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) for instructions on how to create log alerts. For general overview of log alerts in Azure Monitor, click [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## What are custom alert rules in Security Center?
 

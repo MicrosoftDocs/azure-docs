@@ -332,7 +332,7 @@ In this configuration, `KestrelCommunicationListener` will automatically select 
 
 ## Service Fabric Configuration Provider
 App configuration in ASP.NET Core is based on key-value pairs established by configuration providers, read 
-[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+[Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
 
 This section describes the Service Fabric Configuration Provider to integrate with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
 
@@ -444,7 +444,7 @@ public Startup()
 }
 ```
 ### Configuration Update
-Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core Options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 This is supported by default and no further coding are needed to enable configuration update.
 

@@ -37,7 +37,7 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 ### Prerequisites
 
-1. Make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal).
+1. Make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
 1. The ASC for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) installed on the Edge device.
 

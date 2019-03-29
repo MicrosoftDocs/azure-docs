@@ -120,7 +120,7 @@ Select a supported region. If you select a non-supported region, you receive a "
 
 ## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
 
-This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors). 
 
 Please contact support if the problem persists. 
 

@@ -212,7 +212,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 
 - Multiple log files aren't supported.
 - In-memory objects aren't supported in the General Purpose service tier.  
-- There's a limit of 280 files per General Purpose instance implying max 280 files per database. Both data and log files in General Purpose tier are counted toward this limit. [Business Critical tier supports 32,767 files per database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- There's a limit of 280 files per General Purpose instance implying max 280 files per database. Both data and log files in General Purpose tier are counted toward this limit. [Business Critical tier supports 32,767 files per database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Database can't contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed in Azure Blob storage. IO and throughput per file depend on the size of each individual file.  
 
@@ -491,7 +491,7 @@ This illustrates that under certain circumstance, due to a specific distribution
 
 In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
-You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or shitch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or shitch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### Incorrect configuration of SAS key during database restore
 

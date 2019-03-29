@@ -168,9 +168,9 @@ These files can be created, deleted, edited, and managed on your local file syst
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
 >
-> * [Users](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
-> * [Subscriptions](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
-> * [Named Values](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
+> * [Users](https://docs.microsoft.com/rest/api/apimanagement/user)
+> * [Subscriptions](https://docs.microsoft.com/rest/api/apimanagement/subscription)
+> * [Named Values](https://docs.microsoft.com/rest/api/apimanagement/property)
 > * Developer portal entities other than styles
 >
 

@@ -167,7 +167,7 @@ gradle run
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 
