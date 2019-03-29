@@ -36,9 +36,9 @@ az extension add --name aks-preview
 > [!NOTE]
 > If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
 
-### Register scale set feature provider
+### Register multiple node pool feature provider
 
-To create an AKS cluster that can use multiple node pools, first enable two feature flags on your subscription. Multiple-nodepool clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that can use multiple node pools, first enable two feature flags on your subscription. Multi-node pool clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -63,12 +63,12 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
-* You can't delete the first node pool
+* You can't delete the first node pool.
 
 While this feature is in preview, the following additional limitations apply:
 
-* Your AKS cluster can have a maximum of four node pools
-* You can't scale or upgrade two node pools at the same time
+* Your AKS cluster can have a maximum of four node pools.
+* You can't scale or upgrade two node pools at the same time.
 
 ## Create an AKS cluster
 
@@ -125,7 +125,8 @@ VirtualMachineScaleSets  3        110        mynodepool  1.12.5                 
 VirtualMachineScaleSets  1        110        nodepool1   1.12.5                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
 
-If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.12.5* and node size of *Standard_DS2_v2*.
+> [!TIP]
+> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.12.5* and node size of *Standard_DS2_v2*.
 
 ## Upgrade a node pool
 
@@ -204,6 +205,8 @@ AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    
 VirtualMachineScaleSets  5        110        mynodepool  1.12.6                 100             Linux     Deleting             myResourceGroupPools  Standard_DS2_v2
 VirtualMachineScaleSets  1        110        nodepool1   1.12.5                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
+
+It takes a few minutes to delete the nodes and the node pool.
 
 ## Specify a VM size for a node pool
 
@@ -355,7 +358,7 @@ In this article you learned how to create and manage multiple node pools in an A
 [az-aks-nodepool-list]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-list
 [az-aks-nodepool-upgrade]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-upgrade
 [az-aks-nodepool-scale]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-de;ete
+[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-delete
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [gpu-cluster]: gpu-cluster.md
