@@ -97,7 +97,7 @@
     - name: Create an image factory
       href: image-factory-create.md
       items:
-      - name: Run an image factory from AzureDevOps
+      - name: Run an image factory from Azure DevOps
         href: image-factory-set-up-devops-lab.md
       - name: Save custom images and distribute to multiple labs
         href: image-factory-save-distribute-custom-images.md

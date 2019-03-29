@@ -28,7 +28,7 @@ In this tutorial, you do the following actions:
 > * Send registration link to students
 
 ## Prerequisites
-To set up a classroom lab in a lab account, you must a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role.
+To set up a classroom lab in a lab account, you must be a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role.
 
 A lab owner can add other users to the **Lab Creator** role. For example, a lab owner adds professors to the Lab Creator role. Then, the professors create labs with VMs for their classes. Students use the registration link that they receive from professors to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. For detailed steps for adding users to the Lab Creator role, see [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -44,7 +44,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. 
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
     3. Select the **VM image** to be used to create VMs in the lab. 
     4. Select **Next**.
 
