@@ -19,7 +19,7 @@ ms.author: mlottner
 ---
 # ASC for IoT architecture
 
-This article explains the functional system architecture of the ASC for IoT solution. 
+This article explains the functional system architecture of the Azure Security Center for IoT solution. 
 
 > [!IMPORTANT]
 > ASC for IoT is currently in public preview.

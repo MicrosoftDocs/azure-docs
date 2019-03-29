@@ -1137,6 +1137,15 @@ var appInsights = window.appInsights || function(config){ ...
 }) // ...
 ```
 
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
+```
+
 ## TelemetryContext
 
 TelemetryClient has a Context property, which contains values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
