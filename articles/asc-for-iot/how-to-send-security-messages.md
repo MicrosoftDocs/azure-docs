@@ -90,7 +90,7 @@ Send security messages without using the ASC for IoT agent, by using the [Azure 
 
 To send the device data from your devices for processing by ASC for IoT, use one of the following APIs to mark messages for correct routing to ASC for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ASC for IoT within both IoT Hub or within Azure Security Center. 
 
-All data that is sent, even if marked with the correct header, must also comply with the [ASC for IoT message schema](https://github.com/Azure/ASC-for-IoT-Schemas). 
+All data that is sent, even if marked with the correct header, must also comply with the [ASC for IoT message schema](https://aka.ms/iot-security-schemas). 
 
 ### Send security message API
 

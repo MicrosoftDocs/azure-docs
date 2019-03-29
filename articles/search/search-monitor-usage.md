@@ -92,7 +92,7 @@ Logging is enabled once you save the profile. Containers are only created when t
 
 It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container. 
 
-You can use [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) or another JSON editor to view the files. 
+You can use [Visual Studio Code](#download-and-open-in-visual-studio-code) or another JSON editor to view the files. 
 
 ### Example path
 
