@@ -77,6 +77,8 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 ## How can I get started with v3? 
 
+Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+
 ### Quickstarts  
 
 The quickstarts show fundamental day-1 instructions for new customers to quickly try out Media Services.
