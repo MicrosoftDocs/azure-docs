@@ -39,6 +39,7 @@ Barracuda Web Application Firewall can integrate and export logs directly to [AS
 2. In the Azure Sentinel portal, go to the workspace on which you deployed Azure Sentinel and select the ellipsis (...) at the end of the row and select **Advanced settings**. 
 1. Select **Data** and then **Syslog**.
 1. Make sure the facility you set in Barracuda exists and set the severity and click **Save**.
+6. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog**.
 
 
 ## Validate connectivity

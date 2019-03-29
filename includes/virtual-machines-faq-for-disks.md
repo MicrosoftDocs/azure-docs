@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/30/2018
+ ms.date: 03/28/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -214,7 +214,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available as a GA service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -295,7 +295,7 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them, see our [blog post](https://aka.ms/azure-large-disk-32TB-preview-blog).
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks in global Azure, 4 TiB in Azure sovereign clouds.
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
@@ -330,11 +330,11 @@ You can take a snapshot of your small disks and then create a disk to automatica
 
 **Can you resize existing Managed Disks from sizes fewer than 4 tebibytes (TiB) to new newly introduced disk sizes up to 32 TiB?**
 
-New Managed Disk sizes 8 TiB, 16 TiB, and 32 TiB are currently in Preview. We don’t yet support resizing existing disk sizes to the new disk sizes.
+Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 

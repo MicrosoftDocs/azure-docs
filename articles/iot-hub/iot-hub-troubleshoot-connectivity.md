@@ -28,7 +28,7 @@ To log device connection events and errors, turn on diagnostics for IoT Hub.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics**.
 1. Enable **Connections** logs to be collected.
-1. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#Resolve-connectivity-errors).
+1. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#resolve-connectivity-errors).
 
    ![Recommended settings][2]
 
@@ -36,15 +36,14 @@ To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems qu
 
 ### Set up alerts for the _connected devices_ count metric
 
-To get alerts when devices disconnect, configure alerts on the **connected devices** metric.
+To get alerts when devices disconnect, configure alerts on the **connected devices (preview)** metric.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to your IoT hub.
-1. Select **Alerts (classic)**.
-1. Select **Add metric alert (classic)**.
-1. Fill in the form and select **OK**.
-
-   ![Recommended metric alert][3]
+1. Select **Alerts**.
+1. Select **New alert rule**.
+1. Select **Add condition**, then select "Connected devices (preview)".
+1. Finish setting up your desired thresholds and alerting options by following prompts.
 
 To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
