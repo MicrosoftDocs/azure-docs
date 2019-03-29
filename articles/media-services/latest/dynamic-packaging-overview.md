@@ -20,13 +20,13 @@ ms.author: juliako
 
 Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of Dynamic Packaging. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
 
-[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
+[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium).
 
 To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
-As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
+As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
-In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
+In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand.
 
 ## Common on-demand workflow
 
@@ -56,7 +56,7 @@ For a list of Media Encoder Standard formats and codecs, see [formats and codecs
 Here are the steps for a live streaming workflow:
 
 1. Create a [Live Event](live-events-outputs-concept.md).
-1. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
+1. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.
 1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 1. Create a new **Asset**.
 1. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
@@ -97,15 +97,15 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](htt
 
 **Dynamic Encryption** enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [Dynamic Encryption](content-protection-overview.md).
 
-## Manifests 
- 
-Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD), and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols). 
+## Manifests
+
+Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD), and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols).
 
 A manifest file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
 
 ### HLS Master Playlist
 
-Here is an example of an HLS manifest file: 
+Here is an example of an HLS manifest file:
 
 ```
 #EXTM3U

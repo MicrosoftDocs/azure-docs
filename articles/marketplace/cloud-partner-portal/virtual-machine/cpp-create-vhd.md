@@ -1,17 +1,17 @@
 ---
 title: Create an Azure-compatible VHD for the Azure Marketplace | Microsoft Docs
 description: Explains how to create a VHD for a virtual machine offer in the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
+services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter:
 author: pbutlerm
-manager: Patrick.Butler  
+manager: Patrick.Butler
 editor:
 
-ms.assetid: 
+ms.assetid:
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload:
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
@@ -19,11 +19,11 @@ ms.author: pbutlerm
 
 # Create an Azure-compatible VHD
 
-This article details the steps required to create a virtual hard disk (VHD) for a virtual machine (VM) offer in the Azure Marketplace.  It also includes best practices for various aspects, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.  The following sections mainly focus on windows-based VHDs; for more information about creating Linux-based VHDs, see 
-[Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md). 
+This article details the steps required to create a virtual hard disk (VHD) for a virtual machine (VM) offer in the Azure Marketplace.  It also includes best practices for various aspects, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.  The following sections mainly focus on windows-based VHDs; for more information about creating Linux-based VHDs, see
+[Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md).
 
 > [!WARNING]
-> It is strongly recommended that you follow the guidance in this topic to use Azure to create a VM containing an pre-configured, endorsed operating system.  If this is not compatible with your solution, then it is possible to create and configure an on-premise VM using an approved operating system.  You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> It is strongly recommended that you follow the guidance in this topic to use Azure to create a VM containing an pre-configured, endorsed operating system.  If this is not compatible with your solution, then it is possible to create and configure an on-premises VM using an approved operating system.  You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## Select an approved base
@@ -40,13 +40,13 @@ To begin, create a VM from one of the following images, located at the Microsoft
 Alternately, Azure offers a range of approved Linux distributions.  For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 
-## Create VM in the Azure portal 
+## Create VM in the Azure portal
 
 In the Microsoft [Azure portal](https://ms.portal.azure.com/), create the base image using the following steps.
 
 1. Sign in to the portal with the Microsoft account for the Azure subscription you want to publish your VM offer.
 2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-3. Click on **Virtual machines** in the left menubar to display the Virtual machines details page. 
+3. Click on **Virtual machines** in the left menubar to display the Virtual machines details page.
 4. In this new page, click on **+Add** to display the **Compute** blade.  If you do not see the VM type on the initial screen, you can search for the name of your base VM, for example:
 
     ![Compute blade of new VM](./media/publishvm_014.png)
@@ -56,7 +56,7 @@ In the Microsoft [Azure portal](https://ms.portal.azure.com/), create the base i
    * Enter a **User name** and a strong **Password**, which are used to create a local account on the VM.  (Here `adminUser` is used.)  The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [Username and password requirements](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
    * Select the Resource group you created (here `DemoResourceGroup`).
    * Select an Azure Datacenter **Location** (here `West US`).
-   * Click **OK** to save these values. 
+   * Click **OK** to save these values.
 
 6. Select the size of the VM to deploy using the following recommendations:
    * If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
@@ -78,4 +78,4 @@ Azure begins provisioning of the virtual machine you specified.  You can track i
 
 ## Next steps
 
-If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](./cpp-common-vhd-creation-issues.md).  Otherwise, next you must [connect to the VMs](./cpp-connect-vm.md) you created on Azure. 
+If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](./cpp-common-vhd-creation-issues.md).  Otherwise, next you must [connect to the VMs](./cpp-connect-vm.md) you created on Azure.
