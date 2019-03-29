@@ -219,7 +219,7 @@ If you need both historical copy and incremental copy or only incremental copy, 
 
 ### Configure full extraction in SAP BW
 
-In addition to delta extraction, you might want a full extraction of the same SAP BW InfoProvider. This usually applies if you want to do full copy but not incremental, or you want to [re-sync delta extraction](#re-sync-delta-extraction).
+In addition to delta extraction, you might want a full extraction of the same SAP BW InfoProvider. This usually applies if you want to do full copy but not incremental, or you want to [resync delta extraction](#resync-delta-extraction).
 
 You can't have more than one DTP for the same OHD. So, you must create an additional OHD before delta extraction.
 
@@ -244,7 +244,7 @@ The first delta extraction is technically a *full extraction*. By default, the S
 - Turn off the **Exclude last request** option for the first delta extraction. Make sure that the first delta DTP is finished before you start the delta extraction the first time.
 -  Use the procedure for resyncing the delta extraction, as described in the next section.
 
-### Re-sync delta extraction
+### Resync delta extraction
 
 The following scenarios change the data in SAP BW cubes but are not considered by the delta DTP:
 
