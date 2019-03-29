@@ -65,8 +65,10 @@ In order to geo-bias your results to the relevant area for your user, you should
 
 
     **Usage Examples**:
-        * idxSet=POI (search Points Of Interest only) 
-        * idxSet=PAD,Addr (search addresses only, PAD= Point Address, Addr= Address Range)
+
+      * idxSet=POI (search Points Of Interest only) 
+
+      * idxSet=PAD,Addr (search addresses only, PAD= Point Address, Addr= Address Range)
 
 
 ### Search results language
