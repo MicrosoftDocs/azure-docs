@@ -1,4 +1,4 @@
- ---
+---
 title: View Azure IoT Hub message routing results (.NET) | Microsoft Docs
 description: View Azure IoT Hub message routing results
 author: robinsh
