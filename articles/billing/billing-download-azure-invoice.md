@@ -24,7 +24,7 @@ For most subscriptions, you can download your invoice from the [Azure portal](ht
 
 Only certain roles have permission to view invoices, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
-If you have a [Microsoft Customer Agreement](#Check-your-access-to-a-Microsoft-Customer-Agreement), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to get your invoices. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+If you have a [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to get your invoices. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Download your Azure invoices (.pdf)
 
