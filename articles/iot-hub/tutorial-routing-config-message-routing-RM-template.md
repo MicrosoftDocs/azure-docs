@@ -353,11 +353,11 @@ If you want to send a value back to the deployment script to be displayed, you u
 
 To deploy the template to Azure, upload the template and the parameters file to Azure Cloud Shell, and then execute a script to deploy the template. Open Azure Cloud Shell and sign in. This example uses PowerShell.
 
-To upload the files, click the **Upload/Download files** icon in the menu bar, then select Upload.
+To upload the files, select the **Upload/Download files** icon in the menu bar, then choose Upload.
 
 ![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Use the File Explorer that pops up to find the files on your local disk and select them, then click **Open**.
+Use the File Explorer that pops up to find the files on your local disk and select them, then choose **Open**.
 
 After the files are uploaded, a results dialog shows something like the following image.
 
