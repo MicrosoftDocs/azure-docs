@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 8ff7102d-be73-4888-ae81-d8e3d01dd534
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -146,10 +146,10 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 
 	![Service Provider Metadata URL](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
 	
-	* Verify **entityID** matches **Identifier** in the **Basic SAML Configuration** section .
-	* Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
+   * Verify **entityID** matches **Identifier** in the **Basic SAML Configuration** section .
+   * Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
 	
-	![Configure Single Sign-On On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Configure Single Sign-On On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 5. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
@@ -195,7 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

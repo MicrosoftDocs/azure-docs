@@ -58,14 +58,14 @@ If you don't already have a container registry, follow these steps to create a n
 
 2. Provide the following values to create your container registry:
 
-   | Field | Value | 
+   | Field | Value |
    | ----- | ----- |
    | Registry name | Provide a unique name. |
    | Subscription | Select a subscription from the drop-down list. |
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Admin user | Set to **Enable**. |
-   | SKU | Select **Basic**. | **Terminal**
+   | SKU | Select **Basic**. |
 
 5. Select **Create**.
 
@@ -104,7 +104,7 @@ Use **npm** to create a Node.js solution template that you can build on top of.
  
    ![Provide Docker image repository](./media/tutorial-node-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device and **deployment.debug.template.json** file contains the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
@@ -194,11 +194,11 @@ Each template comes with sample code included, which takes simulated sensor data
 11. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)
@@ -219,7 +219,7 @@ In the previous section you created an IoT Edge solution and added code to the N
 
 2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Node.js code, and the push it to the container registry that you specified when you initialized the solution. 
+When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize your Node.js code, and then push it to the container registry that you specified when you initialized the solution. 
 
 You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 

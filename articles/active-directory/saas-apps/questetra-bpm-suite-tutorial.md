@@ -207,9 +207,9 @@ The objective of this section is to create a user called Britta Simon in Questet
    
 	![Create test user][300] 
    
-    a. In the **Name** textbox, type **name** of the user **britta.simon@contoso.com**.
+    a. In the **Name** textbox, type **name** of the user **britta.simon\@contoso.com**.
    
-    b. In the **Email** textbox, type **email** of the user **britta.simon@contoso.com**
+    b. In the **Email** textbox, type **email** of the user **britta.simon\@contoso.com**
    
     c. In the **Password** textbox, type a **password** of the user.
 	

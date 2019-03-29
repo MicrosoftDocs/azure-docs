@@ -83,8 +83,8 @@ In this request, the values that need to be customized are:
 +	`storageProfile/geoRedundantBackup` - Specify Enabled/Disabled depending on Geo-DR requirements.
 +	`sku/tier` - Specify Basic, GeneralPurpose, or MemoryOptimized tier for deployment.
 +	`sku/capacity` - Specify the vCore capacity. Possible values include 2, 4, 8, 16, 32 or 64.
-+	`sku/family` - Specify Gen4 or Gen5 to choose hardware generation for server deployment.
-+	`sku/name` - Specify TierPrefix_family_capacity. For example B_Gen4_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
++	`sku/family` - Specify Gen5 to choose hardware generation for server deployment.
++	`sku/name` - Specify TierPrefix_family_capacity. For example B_Gen5_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
 +	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
 +	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
@@ -123,8 +123,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -203,5 +203,5 @@ In this tutorial you learned to:
 > * Load sample data
 > * Query data
 > * Update data
-
+> 
 > [How to connect applications to Azure Database for MySQL](./howto-connection-string.md)

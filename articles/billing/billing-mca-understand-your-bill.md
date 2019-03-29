@@ -174,7 +174,7 @@ If you've already paid your bill, you can check the status of the payment on the
 
 ## Need help? Contact us
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

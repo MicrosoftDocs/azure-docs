@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,8 +45,7 @@ The completed notebook can be found on [GitHub - Azure Notebooks Samples](https:
 
 ## Create the data file
 
-The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples]
-(https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
+The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
 
 ### Upload the data file
 
@@ -178,7 +177,7 @@ You use a number of these commands as you populate the notebook in the sections 
     ```markdown
     # Example Linear Regression
 
-    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
+    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](https://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
 
     In this example we're using the count of chirps per minute as the independent varible to then predict the dependent variable, temperature. In short, we're using a little data science to make ourselves a cricket thermometer. (You could also reverse the data and use temperature to predict the number of chirps, but it's more fun to use crickets as the thermometer itself!)
 

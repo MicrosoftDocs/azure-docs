@@ -42,7 +42,7 @@ The API offers the following capabilities:
     "sendInvitationMessage": true
     ```
 
-  with a message to the recipient that you can customize
+   with a message to the recipient that you can customize
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -56,7 +56,7 @@ The API offers the following capabilities:
     "sendInvitationMessage": false
     ```
 
-  In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
+   In this case, you get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
 
 6. Finally, if you are an admin, you can choose to invite the user as member.
 

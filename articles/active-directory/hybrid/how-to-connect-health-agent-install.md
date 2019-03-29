@@ -230,6 +230,28 @@ If you completed the configuration, these services should already be running. Ot
 
 ![Verify Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### Quick agent installation in multiple servers
+1. Create a user account in Azure AD with a password.
+2. Assign the **Owner** role for this local AAD account in Azure AD Connect Health via the portal. Follow the steps [here](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Assign the role to all service instances. 
+3. Download the .exe MSI file in local domain controller for installation.
+4. Run the following script to registration. Replace the parameters with the new user account created and its password. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Once you are done, you can remove access for the local account by doing one or more of the following: 
+    * Remove the role assignment for the local account for AAD Connect Health
+    * Rotate the password for the local account. 
+    * Disable the AAD local account
+    * Delete the AAD local account  
 
 ## Agent Registration using PowerShell
 After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:

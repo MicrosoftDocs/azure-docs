@@ -5,7 +5,7 @@ description: Migrate your Hub workspace and projects to Custom Translator.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
@@ -22,12 +22,8 @@ These actions are performed during migration:
 * Any migrated trainings that were not in the deployed state will be put into the migrated draft state. In this state, you will have the option of training a model with the migrated definition, but regular training charges will apply.
 * At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
 
->[!Note]
-For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
-
-## Enable account migration
-
-In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all live id accounts that you would like enabled. These accounts should be the email addresses that you log in with.
+> [!Note]
+> For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## Find Custom Translator Workspace ID
 

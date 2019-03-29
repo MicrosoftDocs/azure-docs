@@ -22,7 +22,7 @@ ms.author: rangv
 Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub that you create. Then you run a sample application on ESP8266 to collect the temperature and humidity data from a DHT22 sensor. Finally, you send the sensor data to your IoT hub.
 
 > [!NOTE]
-> If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you're using, you might need to reconfigure the `LED_PIN`. For example, if you're using ESP8266 from AI-Thinker, you might change it from `0` to `2`. Don't have a kit yet? Get it from the [Azure website](http://azure.com/iotstarterkits).
+> If you're using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you're using, you might need to reconfigure the `LED_PIN`. For example, if you're using ESP8266 from AI-Thinker, you might change it from `0` to `2`. Don't have a kit yet? Get it from the [Azure website](https://azure.com/iotstarterkits).
 
 ## What you learn
 
@@ -175,15 +175,15 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
 12. Click **Install** button for esp8266.
 
-   Boards Manager indicates that ESP8266 with a version of 2.2.0 or later is installed.
+    Boards Manager indicates that ESP8266 with a version of 2.2.0 or later is installed.
 
-   ![The esp8266 package is installed](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![The esp8266 package is installed](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 13. Enter `F1`, then type **Arduino** and select **Arduino: Board Config**.
 
 14. Click box for **Selected Board:** and type **esp8266**, then select **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Select esp8266 board](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Select esp8266 board](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### Install necessary libraries
 

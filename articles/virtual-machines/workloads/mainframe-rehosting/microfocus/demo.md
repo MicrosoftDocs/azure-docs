@@ -65,9 +65,9 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
 
 7. For **Features**, check **Microsoft .NET framework 4.6**, and check the following:
 
-    - Named Pipe Activation
-    - TCP Activation
-    - TCP Port Sharing
+   - Named Pipe Activation
+   - TCP Activation
+   - TCP Port Sharing
 
      ![Add Roles and Features Wizard: Role Services](media/01-demo-roles.png)
 
@@ -153,9 +153,9 @@ The query should run with no errors. When it is complete, you have the sample da
 
 3. At the command prompt, execute **bankdemodbdeploy** and include the parameter for the database to deploy to, for example:
 
-	```
+    ```
     bankdemodbdeploy (local)/sqlexpress
-	```
+    ```
 
 > [!NOTE]
 > Make sure to use a forward slash (/) not a backward slash(\\). This script runs for a while.

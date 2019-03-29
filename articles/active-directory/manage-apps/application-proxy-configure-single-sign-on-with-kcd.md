@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This diagram explains the flow when a user attempts to access an on premises app
 1. The user enters the URL to access the on premises application through Application Proxy.
 2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
 3. The user passes the token to Application Proxy.
-4. Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.
+4. Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then the Connector pulls the UPN, and the Service Principal Name (SPN) through a dually authenticated secure channel.
 5. The Connector performs Kerberos Constrained Delegation (KCD) negotiation with the on premises AD, impersonating the user to get a Kerberos token to the application.
 6. Active Directory sends the Kerberos token for the application to the Connector.
 7. The Connector sends the original request to the application server, using the Kerberos token it received from AD.
@@ -79,7 +79,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
 3. Set the single sign-on mode to **Integrated Windows Authentication**.  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com. This SPN needs to be in the list of services to which the connector can present delegated credentials. 
-5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#Working-with-different-on-premises-and-cloud-identities)
+5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#working-with-different-on-premises-and-cloud-identities)
 
    ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

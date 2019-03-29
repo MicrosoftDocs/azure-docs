@@ -8,12 +8,12 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -110,20 +110,20 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/en-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Zoom application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Zoom application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In addition to above, Zoom application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
     
 	| Name | Namespace  |  Source Attribute|
 	| ---------------| --------------- | --------- |
-	| Email address  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-	| First name  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-	| Last name  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-	| Phone number  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-	| Department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-	| role | 	user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+	| Email address  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+	| First name  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+	| Last name  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+	| Phone number  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+	| Department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+	| role | 	user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
@@ -157,7 +157,7 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -177,13 +177,23 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-    b. In the **Sign-out page URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+    b. For **Sign-out page URL** value, you need to go to the Azure portal and click on **Azure Active Directory** on the left then navigate to **App registrations**.
 
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
+	![The Azure Active Directory button](./media/zoom-tutorial/appreg.png)
 
-    d. In the **Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal. 
+	c. Click on **Endpoints**
 
-    e. Click **Save**.
+	![The End point button](./media/zoom-tutorial/endpoint.png)
+
+	d. Copy the **SAML-P SIGN-OUT ENDPOINT** and paste it into **Sign-out page URL** textbox.
+
+	![The Copy End point button](./media/zoom-tutorial/endpoint1.png)
+
+    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
+
+    f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
+
+    g. Click **Save**.
 
     > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
@@ -206,7 +216,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

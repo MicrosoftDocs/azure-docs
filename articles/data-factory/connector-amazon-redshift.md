@@ -35,7 +35,7 @@ Specifically, this Amazon Redshift connector supports retrieving data from Redsh
 
 ## Prerequisites
 
-* If you are copying data to an on-premises data store using [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md), grant Integration Runtime (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.
+* If you are copying data to an on-premises data store using [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md), grant Integration Runtime (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.
 * If you are copying data to an Azure data store, see [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) for the Compute IP address and SQL ranges used by the Azure data centers.
 
 ## Getting started
@@ -123,7 +123,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AmazonRedshiftSource** | Yes |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
+| query |Use the custom query to read data. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
 | s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying a linked service name of "AmazonS3" type. | Yes if using UNLOAD |
 | bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |
@@ -148,7 +148,7 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
+[UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
 
 **Example: copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
 

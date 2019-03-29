@@ -9,11 +9,19 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 03/25/2019
 ms.author: victorh
 ms.custom: mvc
 ---
 # Enable web application firewall using Azure PowerShell
+
+> [!div class="op_single_selector"]
+>
+> - [Azure portal](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
@@ -261,7 +269,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### Configure diagnostics
 
-Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs using [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting).
+Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs using [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `

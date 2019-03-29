@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ---
@@ -73,9 +73,9 @@ Currently, you can restore a snapshot only to a new volume.
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to the Azure NetApp Files service. 
         You can create a new subnet by selecting **Create new** under the Subnet field.  
-<!--
+   <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
--->
+   -->
 
 5. Click **OK**.   
     The new volume to which the snapshot is restored appears in the Volumes blade.

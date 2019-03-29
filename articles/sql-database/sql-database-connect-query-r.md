@@ -153,7 +153,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *@input_data_1* variable.
+3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *\@input_data_1* variable.
 
     In this script, the names of the output and input variables for the stored procedure have been changed to *SQL_out* and *SQL_in*:
 
@@ -169,7 +169,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     Note that R is case-sensitive, so the case of the input and output variables in `@input_data_1_name` and `@output_data_1_name` have to match the ones in the R code in `@script`. 
 
-    Also, the order of the parameters is important. You must specify the required parameters *@input_data_1* and *@output_data_1* first, in order to use the optional parameters *@input_data_1_name* and *@output_data_1_name*.
+    Also, the order of the parameters is important. You must specify the required parameters *\@input_data_1* and *\@output_data_1* first, in order to use the optional parameters *\@input_data_1_name* and *\@output_data_1_name*.
 
     Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results. 
 
@@ -270,34 +270,34 @@ You can train a model using R and save the model to a table in your SQL database
 
     The requirements of a linear model are simple:
 
-    - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
+   - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
 
-    - Provide input data to use in training the model.
+   - Provide input data to use in training the model.
 
-    > [!TIP]
-    > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    To build the model, you define the formula inside your R code, and pass the data as an input parameter.
+     To build the model, you define the formula inside your R code, and pass the data as an input parameter.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    The first argument to rxLinMod is the *formula* parameter, which defines distance as dependent on speed. The input data is stored in the variable `CarsData`, which is populated by the SQL query. If you don't assign a specific name to your input data, the default variable name would be _InputDataSet_.
+     The first argument to rxLinMod is the *formula* parameter, which defines distance as dependent on speed. The input data is stored in the variable `CarsData`, which is populated by the SQL query. If you don't assign a specific name to your input data, the default variable name would be _InputDataSet_.
 
 2. Next, create a table where you store the model so you can retrain or use it for prediction. The output of an R package that creates a model is usually a **binary object**. Therefore, the table must provide a column of **VARBINARY(max)** type.
 
@@ -396,23 +396,23 @@ Use the model you created in the previous section to score predictions against n
 
     The script above performs the following steps:
 
-    + Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
+   + Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
 
-    + After retrieving the model from the table, call the `unserialize` function on the model.
+   + After retrieving the model from the table, call the `unserialize` function on the model.
 
-        > [!TIP] 
-        > Also check out the new [serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
-    + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
+       > [!TIP] 
+       > Also check out the new [serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
+   + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
 
-    + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
+   + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
 
-    + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
+   + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
 
-    **Results**
+     **Results**
 
-    ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
+     It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
 
 <a name="add-package"></a>
 

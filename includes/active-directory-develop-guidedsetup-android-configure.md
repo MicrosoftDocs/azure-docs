@@ -3,8 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/13/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file 
 
 ---
@@ -41,7 +41,7 @@ You can register your application in either of two ways, as described in the nex
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
 8. In the `manifest\application`, add the following activity. The `BrowserTabActivity` activity that allows Microsoft to call back to your application after it completes the authentication:
 
@@ -61,5 +61,5 @@ You can register your application in either of two ways, as described in the nex
         </intent-filter>
     </activity>
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 9. In the `BrowserTabActivity`, replace `[Enter the application Id here]` with the Application / Client ID.

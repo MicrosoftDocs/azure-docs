@@ -20,6 +20,10 @@ In this quickstart, as part of the Spark job, you analyze a radio channel subscr
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!Note]
+> This tutorial cannot be carried out using **Azure Free Trial Subscription**.
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+
 ## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure Resource Manager template.
@@ -110,7 +114,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
+     For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
    > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).

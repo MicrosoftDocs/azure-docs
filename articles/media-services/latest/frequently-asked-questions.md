@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
@@ -50,8 +50,8 @@ You can use a [live on-premises encoder](recommended-on-premises-live-encoders.m
 1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
-* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
+* For an example of running STS, with either symmetric and asymmetric key, please see [https://aka.ms/jwt](https://aka.ms/jwt). 
+* For an example of a player based on Azure Media Player using such JWT token, see [https://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
 
 ### How do you authorize requests to stream videos with AES encryption?
 
@@ -70,7 +70,7 @@ For more information, see:
 
 ### Can I use the Azure portal to manage v3 resources?
 
-Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
+Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ### Is there an AssetFile concept in v3?
 

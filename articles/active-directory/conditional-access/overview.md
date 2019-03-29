@@ -4,7 +4,7 @@ description: Learn how conditional access in Azure Active Directory helps you to
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,9 +16,9 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
-#Customer intent: As a IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
+#Customer intent: As an IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
 ms.collection: M365-identity-device-management
 ---
 

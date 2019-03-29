@@ -86,7 +86,7 @@ To learn about the circumstances under which an application deployment might res
 
 You have two options for using continuous deployment with Azure DevOps:
 
-*   Use a Git project. Connect via App Service by using the deployment options for that repo.
+*   Use a Git project. Connect via App Service by using the Deployment Center.
 *   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent for App Service.
 
 Continuous code deployment for both these options depends on existing developer workflows and check-in procedures. For more information, see these articles: 

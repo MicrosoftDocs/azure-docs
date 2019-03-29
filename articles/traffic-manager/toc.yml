@@ -102,7 +102,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
+    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python

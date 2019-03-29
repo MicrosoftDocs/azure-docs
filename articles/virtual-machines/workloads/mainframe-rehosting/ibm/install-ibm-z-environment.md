@@ -14,7 +14,7 @@ keywords:
 
 To create a dev/test environment for mainframe workloads on IBM Z Systems, you can deploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
 
-With zD&T, you can take advantage of the cost savings of the x86 platform for your less critical development and test environments, and then push the updates back to a Z System production environment. For more information, see the [IBM ZD&T installation instructions](http://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+With zD&T, you can take advantage of the cost savings of the x86 platform for your less critical development and test environments, and then push the updates back to a Z System production environment. For more information, see the [IBM ZD&T installation instructions](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Azure and Azure Stack support the following versions:
 

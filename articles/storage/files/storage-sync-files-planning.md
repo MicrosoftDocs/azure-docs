@@ -70,7 +70,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 #### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -78,29 +78,29 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 2. Restart PowerShell
 3. Install the modules
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 To test only your dataset:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 To test system requirements only:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 To display the results in CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |

@@ -34,7 +34,7 @@ This is a temporary issue that is planned to be resolved.
 
 * Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
 * The documentation for this cmdlet has not been updated yet.  Until then, please refer to the documentation for the AzureRM module.
-  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
 

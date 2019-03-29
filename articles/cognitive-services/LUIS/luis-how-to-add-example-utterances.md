@@ -160,7 +160,7 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 ### Add pattern.any entity
 
-If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities).
+If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
 ## Train your app after changing model with utterances
 

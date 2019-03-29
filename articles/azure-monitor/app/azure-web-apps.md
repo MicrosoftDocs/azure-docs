@@ -34,25 +34,25 @@ If you're currently running an app service in Azure, you already get some monito
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
-    > [!NOTE]
-    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+     > [!NOTE]
+     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-    ![Instrument your web app](./media/azure-web-apps/create-resource.png)
+     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **Basic collection** level offers essential single-instance APM capabilities.
+   * .NET **Basic collection** level offers essential single-instance APM capabilities.
     
-    * .NET **Recommended collection** level:
-        * Adds CPU, memory, and I/O usage trends.
-        * Correlates micro-services across request/dependency boundaries.
-        * Collects usage trends, and enables correlation from availability results to transactions.
-        * Collects exceptions unhandled by the host process.
-        * Improves APM metrics accuracy under load, when sampling is used.
+   * .NET **Recommended collection** level:
+       * Adds CPU, memory, and I/O usage trends.
+       * Correlates micro-services across request/dependency boundaries.
+       * Collects usage trends, and enables correlation from availability results to transactions.
+       * Collects exceptions unhandled by the host process.
+       * Improves APM metrics accuracy under load, when sampling is used.
     
-    .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
+     .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0 and 2.1.
 
 3. **Instrument your app service** after Application Insights has been installed.
 
@@ -63,9 +63,9 @@ If you're currently running an app service in Azure, you already get some monito
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
 
-    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Key: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    Value: `true`
+     Value: `true`
    * **Save** the settings and **Restart** your app.
 
 4. Explore your app's monitoring data by selecting **Settings** > **Application Insights** > **View more in Application Insights**.

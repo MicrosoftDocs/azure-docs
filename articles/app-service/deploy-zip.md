@@ -28,6 +28,7 @@ This ZIP file deployment uses the same Kudu service that powers continuous integ
 - Option to turn on the default build process, which includes package restore.
 - [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts.  
 - Deployment logs. 
+- A file size limit of 512 MB.
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -97,7 +98,7 @@ curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.s
 
 The following example uses [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send a request that contains the .war file. Replace the placeholders `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, and `<app_name>`.
 
-```PowerShell
+```powershell
 $username = "<deployment_user>"
 $password = "<deployment_password>"
 $filePath = "<war_file_path>"

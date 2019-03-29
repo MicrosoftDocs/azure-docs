@@ -4,7 +4,7 @@ description: An introduction to the Azure Service Fabric health monitoring model
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003

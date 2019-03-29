@@ -90,8 +90,8 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     All outbound flows from private IP addresses inside your virtual network to public IP addresses on the internet can be translated to a frontend IP address of the Load Balancer. When a public front end is tied to a backend VM by way of a load balancing rule, Azure programs outbound connections to be automatically translated to the public frontend IP address.
 
-    * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
-    * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
+  * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
+  * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
 
     For more information, see [outbound connections](load-balancer-outbound-connections.md).
 

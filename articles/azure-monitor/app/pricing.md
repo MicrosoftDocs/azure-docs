@@ -164,15 +164,15 @@ Because this plan is applicable only to customers with an Operations Management 
 ### How the Enterprise plan works
 
 * You pay for each node that sends telemetry for any apps in the Enterprise plan.
- * A *node* is a physical or virtual server machine or a platform-as-a-service role instance that hosts your app.
- * Development machines, client browsers, and mobile devices do not count as nodes.
- * If your app has several components that send telemetry, such as a web service and a back-end worker, the components are counted separately.
- * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
+  * A *node* is a physical or virtual server machine or a platform-as-a-service role instance that hosts your app.
+  * Development machines, client browsers, and mobile devices do not count as nodes.
+  * If your app has several components that send telemetry, such as a web service and a back-end worker, the components are counted separately.
+  * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge divided by 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node that's detected (with hourly granularity). Unused data allocation isn't carried over from one day to the next.
- * If you choose the Enterprise pricing plan, each subscription gets a daily allowance of data based on the number of nodes that send telemetry to the Application Insights resources in that subscription. So, if you have five nodes that send data all day, you'll have a pooled allowance of 1 GB applied to all Application Insights resources in that subscription. It doesn't matter if certain nodes send more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 
- * The daily data allowance is calculated as the number of hours in the day (using UTC) that each node sends telemetry divided by 24 multiplied by 200 MB. So, if you have four nodes that send telemetry during 15 of the 24 hours in the day, the included data for that day would be ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. At the price of 2.30 USD per GB for data overage, the charge would be 1.15 USD if the nodes send 1 GB of data that day.
- * The Enterprise plan daily allowance isn't shared with applications for which you have chosen the Basic plan. Unused allowance isn't carried over from day-to-day. 
+  * If you choose the Enterprise pricing plan, each subscription gets a daily allowance of data based on the number of nodes that send telemetry to the Application Insights resources in that subscription. So, if you have five nodes that send data all day, you'll have a pooled allowance of 1 GB applied to all Application Insights resources in that subscription. It doesn't matter if certain nodes send more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 
+  * The daily data allowance is calculated as the number of hours in the day (using UTC) that each node sends telemetry divided by 24 multiplied by 200 MB. So, if you have four nodes that send telemetry during 15 of the 24 hours in the day, the included data for that day would be ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. At the price of 2.30 USD per GB for data overage, the charge would be 1.15 USD if the nodes send 1 GB of data that day.
+  * The Enterprise plan daily allowance isn't shared with applications for which you have chosen the Basic plan. Unused allowance isn't carried over from day-to-day. 
 
 ### Examples of how to determine distinct node count
 

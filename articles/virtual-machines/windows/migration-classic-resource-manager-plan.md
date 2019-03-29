@@ -76,8 +76,8 @@ Successful customers have detailed plans where the preceding questions are discu
 
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
 
-  - A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
-  - It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
+- A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
+- It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
 
   This can be accomplished by using the AsmMetadataParser tool. [Read more about this tool here](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -119,13 +119,13 @@ The following were issues discovered in many of the larger migrations. This is n
     > These limits need to be raised in the same region as your current environment to be migrated.
     >
 
-    - Network Interfaces
-    - Load Balancers
-    - Public IPs
-    - Static Public IPs
-    - Cores
-    - Network Security Groups
-    - Route Tables
+  - Network Interfaces
+  - Load Balancers
+  - Public IPs
+  - Static Public IPs
+  - Cores
+  - Network Security Groups
+  - Route Tables
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure PowerShell.
 	

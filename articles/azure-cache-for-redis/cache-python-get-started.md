@@ -10,7 +10,7 @@ editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.topic: quickstart

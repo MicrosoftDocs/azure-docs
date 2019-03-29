@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/11/2019
 ms.author: apimpm
 
 ---
@@ -29,7 +29,7 @@ Using API Management in internal mode, you can achieve the following scenarios:
 
 * Make APIs hosted in your private datacenter securely accessible by third parties outside of it by using site-to-site or Azure ExpressRoute VPN connections.
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
-* Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint. 
+* Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -44,7 +44,7 @@ To perform the steps described in this article, you must have:
 + **An Azure API Management instance**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an internal load balancer (ILB).
+The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
 
 ### Enable a virtual network connection using the Azure portal
 
@@ -100,16 +100,16 @@ To access these API Management service endpoints, you can create a virtual machi
 
    * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
-You can then access all the service endpoints from the virtual machine you created. 
-If you use a custom DNS server in a virtual network, you can also create A DNS records and access these endpoints from anywhere in your virtual network. 
+You can then access all the service endpoints from the virtual machine you created.
+If you use a custom DNS server in a virtual network, you can also create A DNS records and access these endpoints from anywhere in your virtual network.
 
 ### Access on custom domain names
 
-   1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image: 
+1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
 
    ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 
-   2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
+2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
 ## <a name="routing"> </a> Routing
 + A load balanced private virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the vnet.

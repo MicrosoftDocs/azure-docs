@@ -23,6 +23,7 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * View filtered data.
 
 <center>
+
 ![Diagram - Tutorial architecture, stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 

@@ -72,8 +72,8 @@ Azure Stack supports specific versions of Azure PowerShell and Azure service API
 
 To make sure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, find out the build of Azure Stack you're using. You can get this information from your Azure Stack administrator.
 
->[!NOTE]
- If you're using the Azure Stack Development Kit, and you have administrative access, see the [Determine the current version](../azure-stack-updates.md#determine-the-current-version) section to determine the Azure Stack build.
+> [!NOTE]
+>  If you're using the Azure Stack Development Kit, and you have administrative access, see the [Determine the current version](../azure-stack-updates.md#determine-the-current-version) section to determine the Azure Stack build.
 
 For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-user.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.
 

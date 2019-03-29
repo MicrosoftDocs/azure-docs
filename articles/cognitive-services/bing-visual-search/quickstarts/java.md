@@ -32,7 +32,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
 * The [Gson library](https://github.com/google/gson)
-* [Apache HttpComponents](http://hc.apache.org/downloads.cgi)
+* [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how you can tie your authentication r
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
 ms.collection: M365-identity-device-management
@@ -161,7 +161,7 @@ To initialize the what if policy evaluation tool, set:
 - **Isabella Simonsen** as user 
 - **Microsoft Azure Management** as cloud app
 
- Clicking **What If** creates a simulation report that shows:
+  Clicking **What If** creates a simulation report that shows:
 
 - **Require MFA for Azure portal access** under **Policies that will apply** 
 - **Require multi-factor authentication** as **Grant Controls**.

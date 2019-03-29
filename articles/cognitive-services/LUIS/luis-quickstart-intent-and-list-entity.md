@@ -130,7 +130,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 1. Go to the end of the URL in the address and enter `shift Joe Smith to IT`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `TransferEmployeeToDepartment` intent with `Department` extracted.
 
-  ```json
+   ```json
     {
       "query": "shift Joe Smith to IT",
       "topScoringIntent": {
@@ -161,7 +161,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
         }
       ]
     }
-  ```
+   ```
 
 ## Clean up resources
 

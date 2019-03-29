@@ -64,7 +64,7 @@ Geo-replication is a feature of [Premium registries](container-registry-skus.md)
 
 ![Switching SKUs in the Azure portal](media/container-registry-skus/update-registry-sku.png)
 
-To configure geo-replication for your Premium registry, log in to the Azure portal at http://portal.azure.com.
+To configure geo-replication for your Premium registry, log in to the Azure portal at https://portal.azure.com.
 
 Navigate to your Azure Container Registry, and select **Replications**:
 

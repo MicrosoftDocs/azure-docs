@@ -561,6 +561,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
+## Pacemaker configuration for Azure scheduled events
+
+Azure offers [scheduled events](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+
+1. **[A]** Install the **azure-events** agent . 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]** Configure the resources in Pacemaker. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > After you configure the Pacemaker resources for azure-events agent, when you place the cluster in or out of maintenance mode, you may get warning messages like:  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong> hostname</strong>'  
+     WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong>hostname</strong>'  
+   > These warning messages can be ignored.
+
 ## Next steps
 
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]

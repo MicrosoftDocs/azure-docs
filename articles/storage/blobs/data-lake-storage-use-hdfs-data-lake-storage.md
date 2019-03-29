@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
+Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
 
 ## HDFS CLI with HDInsight
 
@@ -57,7 +57,7 @@ For example: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.wi
 
 First, establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
 
-```PowerShell
+```powershell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net
 #Execute basic HDFS commands. Display the hierarchy.

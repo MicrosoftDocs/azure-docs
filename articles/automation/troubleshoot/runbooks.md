@@ -33,7 +33,7 @@ This error occurs if the credential asset name isn't valid. This error may also 
 
 To determine what's wrong, take the following steps:  
 
-1. Make sure that you don’t have any special characters. These characters include the **@** character in the Automation credential asset name that you're using to connect to Azure.  
+1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.  
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell
@@ -128,7 +128,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
-###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+### <a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
 
 #### Issue
 
@@ -298,7 +298,7 @@ This error occurs due to one of the following issues:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
 #### Resolution
 

@@ -231,18 +231,18 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 10. Configure the new load balancing rule by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the load balancing rule. 
-   |**Frontend IP address** |Select the IP address you created. 
-   |**Protocol** |TCP
-   |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
-   |**Backend port** |Use the same value as **Port**.
-   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
-   |**Health probe** |Choose the probe you created.
-   |**Session persistence** |None
-   |**Idle timeout (minutes)** |Default (4)
-   |**Floating IP (direct server return)** | Enabled
+    |Setting |Value
+    |:-----|:----
+    |**Name** |A name to identify the load balancing rule. 
+    |**Frontend IP address** |Select the IP address you created. 
+    |**Protocol** |TCP
+    |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+    |**Backend port** |Use the same value as **Port**.
+    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+    |**Health probe** |Choose the probe you created.
+    |**Session persistence** |None
+    |**Idle timeout (minutes)** |Default (4)
+    |**Floating IP (direct server return)** | Enabled
 
 ### Configure the availability group to use the new IP address
 

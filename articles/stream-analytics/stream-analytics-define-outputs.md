@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 3/25/2019
 ms.custom: seodec18
 ---
 
@@ -16,7 +16,7 @@ This article describes the different types of outputs available for an Azure Str
 
 When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
 
-To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
+To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput.
 
@@ -122,6 +122,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
+| Property Columns [optional] | Comma separated columns that need to be attached as user properties of outgoing message instead of the payload. More info about this feature in the section "Custom metadata properties for output" |
 
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation, and metric driven reporting.
@@ -164,7 +165,7 @@ Azure Stream Analytics updates the data model dynamically at runtime if the outp
 This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
 
 From Stream Analytics | To Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
@@ -181,7 +182,7 @@ Previous/Current | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | String | String | String |  | String |
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 
@@ -225,6 +226,7 @@ The table below lists the property names and their description for creating a Qu
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format |Only applicable for JSON type. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. |
+| Property Columns [optional] | Comma separated columns that need to be attached as user properties of outgoing message instead of the payload. More info about this feature in the section "Custom metadata properties for output" |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
@@ -243,6 +245,7 @@ The table below lists the property names and their description for creating a ta
 | Event serialization format |Serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding |If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
+| Property Columns [optional] | [Optional] Comma separated columns that need to be attached as user properties of outgoing message instead of the payload. More info about this feature in the section "Custom metadata properties for output" |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
@@ -256,6 +259,7 @@ Azure Cosmos DB output from Stream Analytics is currently not available in the A
 > Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored.
 
 The following table describes the properties for creating an Azure Cosmos DB output.
+
 | Property name | description |
 | --- | --- |
 | Output alias | An alias to refer this output in your Stream Analytics query. |
@@ -287,6 +291,26 @@ When Azure Stream Analytics receives 413 (http Request Entity Too Large) excepti
 
 Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function is not called. This behavior is consistent with the built-in windowed aggregate functions.
 
+## Custom metadata properties for output 
+
+This feature allows attaching query columns as user properties to your outgoing messages. These columns do not go into the payload. These properties are present in the form of a Dictionary on the output message. Key is the column name and value is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.  
+
+Supported outputs: 
+* Service Bus Queues 
+* Service Bus Topics 
+* Event Hub 
+
+Example: 
+In the following example, we will add the 2 fields DeviceId and DeviceStatus to the metadata. 
+* Query: `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Output Configuration: `DeviceId,DeviceStatus`.
+
+![Property Columns](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+Output Message properties inspected in EventHub using [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Event custom properties](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## Partitioning
 
 The following table summarizes the partition support and the number of output writers for each output type:
@@ -296,7 +320,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Yes | Based on the PARTITION BY clause in the query | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). To learn more about achieving better write throughput performance when you're loading data into SQL Azure Database, visit [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob storage | Yes | Use {date} and {time} tokens from your event fields in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. Blob output can be partitioned by a single custom event attribute {fieldname} or {datetime:\<specifier>}. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). |
-| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.<br /> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. <br /> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
+| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.<br /> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. <br /> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. |
 | Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
 | Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as the number of partitions in the output topic.  |
@@ -326,7 +350,7 @@ The following table explains some of the considerations to output batching:
 
 ## Next steps
 > [!div class="nextstepaction"]
-
+> 
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

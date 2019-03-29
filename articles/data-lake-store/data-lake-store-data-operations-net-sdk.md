@@ -58,7 +58,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
       * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
     
-    Close the **NuGet Package Manager**.
+      Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 

@@ -3,8 +3,8 @@ title: Add an HTTPS endpoint using Kestrel to a Service Fabric app in Azure | Mi
 description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 
 ---
@@ -79,8 +79,8 @@ Launch Visual Studio as an **administrator** and open the Voting solution. In So
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -189,8 +189,8 @@ In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -293,7 +293,7 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -337,9 +337,9 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 ## Run the application locally
 
-In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
+In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https:\//localhost:443".
 
-Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to [https://localhost:443](https://localhost:443). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
+Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to https:\//localhost:443. If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
 ![Voting application][image2]
 

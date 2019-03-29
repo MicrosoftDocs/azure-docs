@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
@@ -39,7 +39,7 @@ You can create an Ubuntu Server 16.04 LTS virtual machine by using the Azure Sta
 
    If you are using the Azure Stack Development Kit (ASDK), you might not have access to an SSH client. If you need a client, there are several packages that include an SSH client. For example, PuTTY includes an SSH client and SSH key generator (puttygen.exe). For more information about available packages,  read the following Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux server virtual machine. To download and install PuTTY, go to [http://www.putty.org/](http://www.putty.org).
+   This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux server virtual machine. To download and install PuTTY, go to [https://www.putty.org/](https://www.putty.org).
 
 ## Create an SSH key pair
 
@@ -73,8 +73,8 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 4. Type the virtual machine information. For **Authentication type**, select **SSH public key**. Paste in the SSH public key that you saved, and then click **OK**.
 
-   >[!NOTE]
- Make sure you remove any leading or trailing white space for they key.
+   > [!NOTE]
+   > Make sure you remove any leading or trailing white space for they key.
 
    ![Basics panel - Configure virtual machine](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -84,10 +84,10 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 6. On the **Settings** page, make any desired changes to the defaults.
    
-    - Beginning with Azure Stack version 1808, you can configure **Storage** where you can choose to use *managed disks*. Prior to version 1808 only unmanaged disks can be used.    
-      ![Configure storage for managed disks](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - Beginning with Azure Stack version 1808, you can configure **Storage** where you can choose to use *managed disks*. Prior to version 1808 only unmanaged disks can be used.    
+     ![Configure storage for managed disks](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    When your configurations are ready, select **OK** to continue.
+     When your configurations are ready, select **OK** to continue.
 
 7. On the **Summary** page, click **OK** to start the virtual machine deployment.  
    ![Deploy](media/azure-stack-quick-linux-portal/deploy.png)

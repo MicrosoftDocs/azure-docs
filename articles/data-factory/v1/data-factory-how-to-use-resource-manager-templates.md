@@ -56,7 +56,7 @@ The following sections provide details about defining Data Factory resources in 
 The top-level template for defining a data factory is:
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },

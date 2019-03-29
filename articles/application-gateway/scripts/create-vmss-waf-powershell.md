@@ -62,7 +62,7 @@ This script uses the following commands to create the deployment. Each item in t
 | [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | Define the network interface for the scale set. |
 | [New-AzVmss](/powershell/module/az.compute/new-azvm) | Create a virtual machine scale set. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a storage account. |
-| [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) | Configures diagnostics to record data. |
+| [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) | Configures diagnostics to record data. |
 | [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Gets the public IP address of an application gateway. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. | 
 ## Next steps

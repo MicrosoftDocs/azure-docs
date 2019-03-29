@@ -17,8 +17,8 @@ HTTP headers allow the client and the server to pass additional information with
 
 Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove, or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard as well as non-standard header fields.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Application Gateway header rewrite support offers:
@@ -91,10 +91,12 @@ This capability supports rewriting headers to the following server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
+| client_ip                  | IP address of the client from which the application gateway received the request. If there is a reverse proxy before the application gateway and the originating client, then *client_ip* will return the IP adress of the reverse proxy. tjsi variable is particularly useful in scenarios where customers intend to rewrite the X-Forwarded-For header set by Application Gateway, so that the header contains only the IP address without the port information. |
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |
 | host                       | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
+| cookie_*name*              | the *name* cookie |
 | http_method                | the method used to make the URL request. For example GET, POST etc. |
 | http_status                | session status, eg: 200, 400, 403 etc.                       |
 | http_version               | request protocol, usually “HTTP/1.0”, “HTTP/1.1”, or “HTTP/2.0” |
@@ -114,11 +116,7 @@ This capability supports rewriting headers to the following server variables:
 
 - The HTTP header rewrite support is only supported on the new SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). The capability will not be supported on the old SKU.
 
-- Rewriting the Connect, Upgrade and Host headers is not supported yet.
-
-- Two important server variables, client_ip (the IP address of the client making the request) and cookie_*name* (the *name* cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
-
-  Both these server variables will soon be supported.
+- Rewriting the Connection, Upgrade and Host headers is not supported yet.
 
 - The capability to conditionally rewrite the http headers will be available soon.
 
