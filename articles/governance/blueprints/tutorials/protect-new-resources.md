@@ -226,6 +226,8 @@ on the assignment details page.
    assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking
    specific actions. The deny assignment affects _All principals_.
 
+   For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Select the deny assignment, then select the **Denied Permissions** page on the left.
 
    The deny assignment is preventing all operations with the **\*** and **Action** configuration,
