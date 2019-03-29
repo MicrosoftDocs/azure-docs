@@ -1,6 +1,6 @@
 ---
 title: Manage storage capacity in Azure Stack | Microsoft Docs
-description: Monitor and manage available storage space for Azure Stack.
+description: Monitor and manage Azure Stack storage capacity and availability storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,7 +15,11 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/19/2019
+
+# Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for my the users that I support.
+
+# Keywords: Azure Stack capacity infrastructure, troubleshoot storage for Azure Stack
 
 ---
 
