@@ -69,7 +69,7 @@
   - name: Knowledge base
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
-  - name: Development lifecyle of a knowledge base
+  - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
     href: Concepts/best-practices.md
@@ -79,7 +79,7 @@
     href: Concepts/confidence-score.md
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
-    displayName: metadata, pair
+    displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
 - name: How-to guides
   items:
   - name: Manage knowledge base
@@ -93,6 +93,9 @@
     - name: Edit a knowledge base
       href: How-To/edit-knowledge-base.md
       displayName: metadata, pair
+    - name: Add a secured Sharepoint file
+      href: How-To/add-sharepoint-datasources.md
+      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
     - name: Collaborate on a knowledge base
       href: How-To/collaborate-knowledge-base.md      
     - name: Create a knowledge base in a different language
@@ -101,7 +104,7 @@
       href: How-To/test-knowledge-base.md
     - name: Use active learning to improve knowledge base
       href: How-to/improve-knowledge-base.md
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning
   - name: Use knowledge base
     items: 
     - name: Use metadata with GenerateAnswer API
@@ -180,7 +183,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
-  - name: Language and region support
+  - name: Language support
     href: Overview/language-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker

@@ -1064,6 +1064,115 @@ The default parameterization template can change, but this is the current templa
 }
 ```
 
+**Example**: Add a Databricks Interactive cluster ID (from a Databricks Linked Service) to the parameters file:
+
+```
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+ 
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "existingClusterId": "-"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
+
 ## Linked Resource Manager templates
 
 If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may observe that, as your factory grows bigger, you run into the Resource Manager template limits, like the maximum number of resources or the maximum payload in a Resource Manager template. For scenarios like these, along with generating the full Resource Manager template for a factory, Data Factory also now generates Linked Resource Manager templates. As a result, you have the entire factory payload broken down into several files, so that you don’t run into the mentioned limits.

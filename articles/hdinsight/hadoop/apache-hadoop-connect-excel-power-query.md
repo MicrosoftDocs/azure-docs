@@ -10,6 +10,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ---
+
 # Connect Excel to Apache Hadoop by using Power Query
 One key feature of the Microsoft big-data solution is the integration of Microsoft business intelligence (BI) components with Apache Hadoop clusters in Azure HDInsight. A primary example is the ability to connect Excel to the Azure Storage account that contains the data associated with your Hadoop cluster by using the Microsoft Power Query for Excel add-in. This article walks you through how to set up and use Power Query to query data associated with a Hadoop cluster managed with HDInsight.
 
@@ -34,22 +35,22 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
 2. Create a new blank workbook.
 3. Perform the following steps based on the Excel version:
 
-    - Excel 2016
+   - Excel 2016
 
-        - Click the **Data** menu, click **Get Data** from the **Get & Transform Data** ribbon, click **From Azure**, and then click **From Azure HDInsight(HDFS)**.
+     - Click the **Data** menu, click **Get Data** from the **Get & Transform Data** ribbon, click **From Azure**, and then click **From Azure HDInsight(HDFS)**.
 
-        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
-    - Excel 2013/2010
+   - Excel 2013/2010
 
-        - Click the **Power Query** menu, click **From Azure**, and then click **From Microsoft Azure HDInsight**.
+     - Click the **Power Query** menu, click **From Azure**, and then click **From Microsoft Azure HDInsight**.
    
-        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+       ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
+       **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
        
-        **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
-4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the [default storage account](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
+       **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
+4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the default storage account or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
 5. For **Account Key**, enter the key for the Blob storage account, and then click **Save**. (You need to enter the account information only the first time you access this store.)
 6. In the **Navigator** pane on the left of the Query Editor, double-click the Blob storage container name. By default, the container name is the same name as the cluster name.
 7. Locate **HiveSampleData.txt** in the **Name** column (the folder path is **../hive/warehouse/hivesampletable/**), and then click **Binary** on the left of HiveSampleData.txt. HiveSampleData.txt comes with all the cluster. Optionally, you can use your own file.

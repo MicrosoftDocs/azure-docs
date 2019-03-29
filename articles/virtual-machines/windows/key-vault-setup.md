@@ -46,7 +46,7 @@ To create a key vault by using the command-line interface (CLI), see [Manage Key
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
 ## Use templates to set up Key Vault
 While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.

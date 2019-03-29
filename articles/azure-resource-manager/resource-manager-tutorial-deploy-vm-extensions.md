@@ -64,13 +64,13 @@ Azure Quickstart Templates is a repository for Resource Manager templates. Inste
 1. To open the file, select **Open**.  
     The template defines five resources:
 
-    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    It's helpful to get some basic understanding of the template before you customize it.
+     It's helpful to get some basic understanding of the template before you customize it.
 
 1. Save a copy of the file to your local computer with the name *azuredeploy.json* by selecting **File** > **Save As**.
 

@@ -182,7 +182,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
     a. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** box, enter **brittasimon@<yourcompanydomain.extension>**.  
+    b. In the **User name** box, enter **brittasimon\@<yourcompanydomain.extension>**.  
     For example, BrittaSimon@contoso.com.
 
     c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.

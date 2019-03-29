@@ -4,7 +4,7 @@ description: In this quickstart, you learn how you can require that your terms o
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, terms of use
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 
 ms.service: active-directory
@@ -15,9 +15,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
-#Customer intent: As a IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
+#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ms.collection: M365-identity-device-management
 ---
 

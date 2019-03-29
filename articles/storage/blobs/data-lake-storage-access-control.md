@@ -274,7 +274,18 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). 
+A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
+
+### How do I set ACLs correctly for a service principal?
+
+When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Azure AD tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
+
+To get the OID for the service principal that corresonds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
@@ -285,13 +296,13 @@ ACLs do not inherit. However, default ACLs can be used to set ACLs for child sub
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-* [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL using access control lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
 

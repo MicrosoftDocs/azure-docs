@@ -125,7 +125,7 @@ Azure Repos
 
 1. Log into Azure Pipelines to confirm ability to create build definitions.
 
-2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
+2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .NET Core.
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -283,7 +283,7 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 2.  Navigate to the **Build Web Application** page for the project.
 
-3.  In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
+3.  In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .NET Core.
 
 4.  Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 

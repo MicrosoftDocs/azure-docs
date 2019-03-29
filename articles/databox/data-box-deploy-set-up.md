@@ -79,10 +79,10 @@ Perform the following steps to set up your device using the local web UI and the
     
 7. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
 8. On the **Dashboard**, ensure that the network interfaces are configured. 
-    - If DHCP is enabled in your environment, network interfaces are automatically configured. 
-    - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
+   - If DHCP is enabled in your environment, network interfaces are automatically configured. 
+   - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
 
-    ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 Once the data network interfaces are configured, you can also use the IP address of any of the DATA 1 - DATA 3 interfaces to access the local web UI at `https://<IP address of a data network interface>`. 
 

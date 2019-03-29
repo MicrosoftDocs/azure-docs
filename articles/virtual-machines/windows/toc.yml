@@ -146,6 +146,7 @@
     - name: Use Python
       href: python.md
     - name: Use a template
+      displayName: Azure Resource Manager template, ARM
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
@@ -440,6 +441,7 @@
   - name: Managed Disks REST
     href: /rest/api/compute/disks
   - name: Resource Manager template
+    displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
@@ -456,7 +458,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-machine
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ

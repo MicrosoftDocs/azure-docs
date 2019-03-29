@@ -20,7 +20,7 @@ ms.author: v-wimarc
 # Developer guide for Azure China 21Vianet
 Microsoft provides tools to help developers create and deploy cloud applications to the global Microsoft Azure services ("global Azure") and Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Most of the currently available technical content, such as the [Azure Documentation Center](https://azure.microsoft.com/documentation/), assumes that applications are being developed for global Azure, so it’s important to learn which [services and features](https://www.azure.cn/home/features/products-by-region) are available in Microsoft Azure China 21Vianet.
 
-When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#Check-endpoints-in-Azure).
+When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#check-endpoints-in-azure).
 
 ## Migrate existing applications and workloads
 Migrating an application or workload hosted elsewhere takes time and planning. To migrate to Microsoft Azure China 21Vianet:
@@ -73,7 +73,7 @@ See also:
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud | | |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)

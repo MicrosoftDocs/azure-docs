@@ -123,7 +123,7 @@ Simple entities need many examples in order to have a high confidence of predict
     |Apply for tile work.|tile|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
 ## Mark job entity in other intents
 

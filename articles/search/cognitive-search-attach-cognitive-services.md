@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---

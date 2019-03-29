@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
@@ -47,7 +47,7 @@ Make sure you replace the following script variables with values from your Azure
 
 ## Connect with Azure AD
 
-```PowerShell  
+```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
@@ -61,7 +61,7 @@ Make sure you replace the following script variables with values from your Azure
 
 ## Connect with AD FS
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
@@ -73,7 +73,7 @@ Make sure you replace the following script variables with values from your Azure
 
 Resource providers aren’t automatically registered for new user subscriptions that don’t have any resources deployed through the portal. You can explicitly register a resource provider by running the following script:
 
-```PowerShell  
+```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -85,19 +85,13 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 When you've got everything set up, test connectivity by using PowerShell to create resources in Azure Stack. As a test, create a resource group for an application and add a virtual machine. Run the following command to create a resource group named "MyResourceGroup":
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## Next steps
 
-<<<<<<< HEAD
 - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
 - [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
- - [Azure Stack PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
-=======
-- [Develop templates for Azure Stack](azure-stack-develop-templates.md)  
-- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)  
-- [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
->>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
+- [Azure Stack PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
 - If you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) article.

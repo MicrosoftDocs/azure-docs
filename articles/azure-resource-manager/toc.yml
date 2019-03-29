@@ -18,6 +18,7 @@
   - name: Utilize template reference
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple instances
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Move resources
     href: resource-manager-tutorial-move-resources.md
@@ -60,8 +61,6 @@
     href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
-  - name: Management groups
-    href: management-groups-overview.md
   - name: Deployment Manager
     href: deployment-manager-overview.md
   - name: Deployment modes
@@ -77,10 +76,12 @@
     - name: Create template
       href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Manage secrets
       displayname: key vault
@@ -94,12 +95,16 @@
   - name: Deploy templates
     items:
     - name: Deploy - portal
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Secure templates with SAS token
       items:

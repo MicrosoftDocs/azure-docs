@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
@@ -48,7 +48,7 @@ The team also monitors questions tagged on Stack Overflow with 'azure-media-serv
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## Contact the team
-Azure Media Services primary support email is: **amshelp@microsoft.com**.
+Azure Media Services primary support email is: **amshelp\@microsoft.com**.
 
 The following table lists email of feature sub teams:
 

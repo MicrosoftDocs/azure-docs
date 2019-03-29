@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -19,19 +19,23 @@ You may encounter errors when onboarding solutions like Update Management or Cha
 
 #### Issue
 
-You receive the following message when you attempt to onboard a virtual machine to a solution:
+You receive one of the following message when you attempt to onboard a virtual machine to a solution:
 
 ```
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
 ```
 
+```
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
+```
+
 #### Cause
 
-This error is caused by incorrect or missing permissions on the virtual machine or for the user.
+This error is caused by incorrect or missing permissions on the virtual machine, the workspace, or for the user.
 
 #### Resolution
 
-Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again.
+Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again. If you receive the error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is onboarded to a workspace.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

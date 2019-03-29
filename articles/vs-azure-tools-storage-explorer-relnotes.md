@@ -72,25 +72,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Previous releases
 
@@ -153,12 +153,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -181,25 +181,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.6.1
 12/18/2018
@@ -222,12 +222,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -250,25 +250,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.6.0
 12/5/2018
@@ -277,12 +277,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -305,25 +305,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.5.0
 10/29/2018
@@ -369,25 +369,25 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 
 ## Version 1.4.4
@@ -433,18 +433,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.3
 10/11/2018
@@ -489,18 +489,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.2
 09/24/2018
@@ -544,18 +544,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.1
 08/28/2018
@@ -604,18 +604,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.3.0
 07/09/2018
@@ -661,18 +661,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.2.0
 06/12/2018
@@ -718,18 +718,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.1.0
 05/09/2018
@@ -772,18 +772,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 
 ## Version 1.0.0
@@ -838,18 +838,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.6
 02/28/2018
@@ -874,18 +874,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.5
 02/06/2018
@@ -923,18 +923,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.4 and 0.9.3
 01/21/2018
@@ -970,18 +970,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.2
 11/01/2017
@@ -1034,18 +1034,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.1 and 0.9.0
 10/20/2017
@@ -1090,18 +1090,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.8.16
 8/21/2017
@@ -1130,18 +1130,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ### Version 0.8.14
 06/22/2017

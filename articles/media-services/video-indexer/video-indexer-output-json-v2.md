@@ -8,14 +8,11 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by v2 API
-
-> [!Note]
-> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
@@ -159,7 +156,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
 |brands|The [brands](#brands) dimension.|
-|audioEffects|The [audioEffects](#audioEffects) dimension.|
+|audioEffects|The [audioEffects](#audioeffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
@@ -241,34 +238,26 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
+|height|The height of the OCR rectangle|
+|top|The top location in px|
+|left| The left location in px|
+|width|The width of the  OCR rectangle|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }
@@ -554,7 +543,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects
+#### <a id="audioEffects"/>audioEffects
 
 |Name|Description|
 |---|---|

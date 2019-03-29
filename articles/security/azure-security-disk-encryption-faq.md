@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/15/2019
 ms.custom: seodec18
 ---
 
@@ -120,7 +120,7 @@ You can't apply Azure Disk Encryption on your custom Linux image. Only the galle
 
 ## Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
-Yes, you can perform an update or patch a Red Hat Linux VM. For more information, see [Applying updates to an encrypted Azure IaaS Red Hat VM by using the yum update](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Linux package management behind a firewall](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall).
 
 ## What is the recommended Azure disk encryption workflow for Linux?
 
@@ -146,6 +146,9 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## Is XFS filesystem supported?
+XFS volumes are supported for data disk encryption only with the EncryptFormalAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

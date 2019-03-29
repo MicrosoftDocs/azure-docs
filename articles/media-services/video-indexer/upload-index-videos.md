@@ -33,6 +33,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 - The byte array option times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 - Indexing Media Services assets has the same limitation as indexing from URL
+- Video Indexer has a max duration limit of 4 hours for a single file
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -60,16 +61,16 @@ A URL that is used to notify the customer (using a POST request) about the follo
         |state|The video state|  
     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
-    - Properties
+  - Properties
     
-        |Name|Description|
-        |---|---|
-        |id| The video id|
-        |faceId|The face ID that appears in the video index|
-        |knownPersonId|The person ID that is unique within a face model|
-        |personName|The name of the person|
+      |Name|Description|
+      |---|---|
+      |id| The video id|
+      |faceId|The face ID that appears in the video index|
+      |knownPersonId|The person ID that is unique within a face model|
+      |personName|The name of the person|
         
-     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### Notes
 

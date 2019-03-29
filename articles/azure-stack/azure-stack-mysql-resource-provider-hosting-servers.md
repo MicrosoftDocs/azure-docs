@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
@@ -40,9 +40,9 @@ Make sure you have the credentials for an account with system admin privileges. 
 4. Provide the connection details of your MySQL Server instance.
 
    * For **MySQL Hosting Server Name**, provide the fully qualified domain name (FQDN) or a valid IPv4 address. Don't use the short VM name.
-   - The default administrator **Username** for the Bitnami MySQL images available in the Azure Stack marketplace is *root*. 
-   - If you do not know the root **Password**, see the [Bitnami documentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) to learn how to get it. 
-   - A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
+   * The default administrator **Username** for the Bitnami MySQL images available in the Azure Stack marketplace is *root*. 
+   * If you do not know the root **Password**, see the [Bitnami documentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) to learn how to get it. 
+   * A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
    * Keep the default setting for **Subscription**.
    * For **Resource group**, create a new one, or use an existing group.
 
@@ -56,8 +56,8 @@ Make sure you have the credentials for an account with system admin privileges. 
    The SKU **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
 
 6. Select **OK** to create the SKU.
-> [!NOTE]
-> SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.
+   > [!NOTE]
+   > SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.
 
 7. Under **Add a MySQL Hosting Server**, select **Create**.
 
@@ -86,17 +86,19 @@ As a best practice, all the hosting servers in a SKU should have the same resour
 
 SKUs can't be assigned to specific users or groups.
 
-SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
-
 To edit a SKU, go to **All services** > **MySQL Adapter** > **SKUs**. Select the SKU to modify, make any necessary changes, and click **Save** to save changes. 
+
 To delete a SKU that is no longer needed, go to **All services** > **MySQL Adapter** > **SKUs**. Right-click the SKU name and select **Delete** to delete it.
 
-> [!TIP]
-> You can edit or delete MySQL resource provider quotas in the same location.
+> [!IMPORTANT]
+> It can take up to an hour for new SKUs to be available in the user portal.
 
 ## Make MySQL database servers available to your users
 
 Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan and create a new quota. MySQL does not allow limiting the size of databases.
+
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
 
 ## Next steps
 
