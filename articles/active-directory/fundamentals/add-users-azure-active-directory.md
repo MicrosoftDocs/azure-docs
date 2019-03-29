@@ -66,12 +66,13 @@ You can delete an existing user using Azure Active Directory portal.
 
     ![Users - All users page with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md).
+    The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md). When a user is deleted, any licenses consumed by the user are made available for other users to be consumed.
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ## Next steps
+
 After you've added your users, you can perform the following basic processes:
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)
