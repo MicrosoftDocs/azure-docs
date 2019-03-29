@@ -4,7 +4,7 @@ description: Learn how to containerize an existing .NET application using Visual
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

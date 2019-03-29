@@ -4,7 +4,7 @@ description: Diagnostic functionality for Stateful Reliable Services in Azure Se
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659

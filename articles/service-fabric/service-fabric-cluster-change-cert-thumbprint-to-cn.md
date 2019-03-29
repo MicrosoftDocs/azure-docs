@@ -4,7 +4,7 @@ description: Learn how to switch a Service Fabric cluster from using certificate
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: aljo
 
 ms.assetid: 

@@ -91,8 +91,8 @@ This update includes the following new features and improvements for Azure Stack
    * **AzureRm.Insights**  
          AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
 
-- **AzureStack 1.7.0**
-   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin Module**  
          Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
    * **Azs.Fabric.Admin Module**  
@@ -116,9 +116,6 @@ To review the reference for the updated modules, see [Azure Stack Module Referen
 
 - <!-- 3235634 – IS, ASDK -->
   Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, required specifying the suffix as **Standard_A2_v2** (lowercase v). As with global Azure, you can now use **Standard_A2_V2** (uppercase V).
-
-<!-- 2869209 – IS, ASDK --> 
-- Fixed an issue when using the [Add-AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), in which you had to use the **-OsUri** parameter as the storage account URI where the disk is uploaded. You can now also use the local path to the disk.
 
 <!--  2795678 – IS, ASDK --> 
 - Fixed an issue that produced a warning when you used the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2). The VM was created in a standard storage account. Although this did not affect functionally, IOPs, or billing, the warning has been fixed.

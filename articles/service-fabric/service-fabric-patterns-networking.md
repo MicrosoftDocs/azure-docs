@@ -4,7 +4,7 @@ description: Describes common networking patterns for Service Fabric and how to 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor:
 
 ms.assetid:
