@@ -1,6 +1,6 @@
 ---
 title: Manage storage capacity in Azure Stack | Microsoft Docs
-description: Monitor and manage available storage space for Azure Stack.
+description: Monitor and manage Azure Stack storage capacity and availability storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,10 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/19/2019
+
+# Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for my the users that I support.
+
+# Keywords: Azure Stack capacity infrastructure, troubleshoot storage for Azure Stack
 
 ---
 
@@ -50,7 +54,6 @@ Shares on volumes hold tenant data. Tenant data includes page blobs, block blobs
 
 When a share is low on free space and actions to [reclaim](#reclaim-capacity) space are not successful or available, the Azure Stack cloud operator can migrate the blob containers from one share to another.
 
-- For more information about containers and blobs, see [Blob storage](azure-stack-key-features.md#blob-storage) in Key features and concepts in Azure Stack.
 - For information about how tenant users work with blob storage in Azure Stack, see [Azure Stack Storage services](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Configure Azure resource role settings in PIM | Microsoft Docs
+title: Configure Azure resource role settings in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure resource role settings in PIM
 
-When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure AD Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
+When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
 
 ## Open role settings
 

@@ -348,7 +348,7 @@ Learn more about:
 For every classification model that you build by using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
 + [Confusion matrix](#confusion-matrix)
 + [Precision-Recall chart](#precision-recall-chart)
-+ [Receiver operating characteristics (or ROC)](#ROC)
++ [Receiver operating characteristics (or ROC)](#roc)
 + [Lift curve](#lift-curve)
 + [Gains curve](#gains-curve)
 + [Calibration plot](#calibration-plot)
