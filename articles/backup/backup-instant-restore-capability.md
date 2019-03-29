@@ -63,12 +63,10 @@ In the Azure portal, you can see a field added in the **VM Backup Policy** blade
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
 
-To configure snapshot retention using PowerShell, refer to [this document](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
-
 ### Using PowerShell
 
 >[!NOTE]
-> Starting from Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
+> From Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
 
 ```powershell
 PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
