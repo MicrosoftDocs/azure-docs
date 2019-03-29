@@ -23,7 +23,8 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) inc
 
 To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
 
-This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
+> [!Tip]
+> To query the search service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls or you can use any API development environment that you prefer.
 
 
 ## Best practices for Geocoding
@@ -34,7 +35,7 @@ See [geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-c
 
 ### Limit search results
 
-    In this section, you will learn how to use Azure Maps search APIs to limit search results. 
+   In this section, you will learn how to use Azure Maps search APIs to limit search results. 
 
    > [!Note]
    > Not all search APIs fully support parameters listed below
