@@ -19,3 +19,6 @@ The following list describes the levels at which you can scope access to Azure b
 - **The storage account.** At this scope, a security principal has access to all containers and their blobs, or to all queues and their messages.
 - **The resource group.** At this scope, a security principal has access to all of the containers or queues in all of the storage accounts in the resource group.
 - **The subscription.** At this scope, a security principal has access to all of the containers or queues in all of the storage accounts in all of the resource groups in the subscription.
+
+> [!IMPORTANT]
+> If your subscription includes an Azure DataBricks namespace, roles assigned at the subscription scope will be blocked from granting access to blob and queue data.
