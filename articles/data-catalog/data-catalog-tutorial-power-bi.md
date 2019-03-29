@@ -6,9 +6,9 @@ author: markingmyname
 ms.author: maghan
 manager: kfile
 ms.service: data-catalog
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 01/18/2018
-#Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
+#Customer intent: As a user, I want to access my company's data all in one place so I can build a Power BI report.
 ---
 
 # Tutorial: Create a Power BI report from data in an Azure Data Catalog
@@ -74,7 +74,7 @@ In this exercise, you use the registration tool to register data assets from the
 
    1. In the **Server Hierarchy** tree, expand **AdventureWorks2014** and click **Production**.
    2. Select **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** by using Ctrl+click.
-   3. Click the **move selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
+   3. Click the **move-selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
 
       ![Azure Data Catalog tutorial--browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
    4. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it is copied into the catalog.
@@ -185,7 +185,7 @@ See [How to discover data assets](data-catalog-how-to-discover.md) for detailed 
 
 ## Annotate data assets
 
-In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and makes the data assets much easier to discover and understand.
+In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and make the data assets much easier to discover and understand.
 
 In this exercise, you annotate a single data asset (ProductPhoto). You add a friendly name and description to the ProductPhoto data asset.  
 
@@ -197,7 +197,7 @@ In this exercise, you annotate a single data asset (ProductPhoto). You add a fri
 
     The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
-You can also do the following on this page:
+You can also do the following steps on this page:
 
 * Add experts for the data asset. Click **Add** in the **Experts** area.
 * Add tags at the dataset level. Click **Add** in the **Tags** area. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that helps catalog administrators define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)

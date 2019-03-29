@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ### Azure Active Directory
 
-To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. You must be the owner or co-owner of an Azure subscription.  
+To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. You must be the owner or coowner of an Azure subscription.  
 
 Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. You can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
@@ -50,12 +50,12 @@ For more information, see [Configuring authentication policies](https://technet.
 
 ## Provision data catalog
 
-You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
+You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or coowner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
 1. Go to the [Data Catalog service page](https://azure.microsoft.com/services/data-catalog) and click **Get started**.
 
     ![Azure Data Catalog--marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
-2. Sign in with a user account that is the owner or co-owner of an Azure subscription. You see the following page after signing in.
+2. Sign in with a user account that is the owner or coowner of an Azure subscription. You see the following page after signing in.
 
     ![Azure Data Catalog--provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 3. Specify a **name** for the data catalog, the **subscription** you want to use, and the **location** for the catalog.
@@ -131,7 +131,7 @@ In this exercise, you use the registration tool to register data assets from the
 
    1. In the **Server Hierarchy** tree, expand **AdventureWorks2014** and click **Production**.
    2. Select **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** by using Ctrl+click.
-   3. Click the **move selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
+   3. Click the **move-selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
 
       ![Azure Data Catalog tutorial--browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
    4. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it is copied into the catalog.
@@ -242,7 +242,7 @@ See [How to discover data assets](data-catalog-how-to-discover.md) for detailed 
 
 ## Annotate data assets
 
-In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and makes the data assets much easier to discover and understand.
+In this exercise, you use the Azure Data Catalog portal to annotate (add information such as descriptions, tags, or experts) data assets you have previously registered in the catalog. The annotations supplement and enhance the structural metadata extracted from the data source during registration and make the data assets much easier to discover and understand.
 
 In this exercise, you annotate a single data asset (ProductPhoto). You add a friendly name and description to the ProductPhoto data asset.  
 
@@ -254,7 +254,7 @@ In this exercise, you annotate a single data asset (ProductPhoto). You add a fri
 
     The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
-You can also do the following on this page:
+You can also do the following steps on this page:
 
 * Add experts for the data asset. Click **Add** in the **Experts** area.
 * Add tags at the dataset level. Click **Add** in the **Tags** area. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that helps catalog administrators define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
