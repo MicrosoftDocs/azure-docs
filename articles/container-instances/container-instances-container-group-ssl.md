@@ -14,7 +14,7 @@ ms.custom:
 ---
 # Enable an SSL endpoint in a container group
 
-To help secure an internet-facing application running in a container instance, you can enable an SSL or TLS endpoint. One approach in Azure Container Instances is to create a [container group](container-instance-container-groups.md) with both an application container and a sidecar container running an SSL provider such as [Nginx](https://www.nginx.com/) or [Caddy](https://caddyserver.com/). By configuring the sidecar as an SSL endpoint for the container group, you enable SSL connections for your application without changing your application code.
+To help secure an internet-facing application running in a container instance, you can enable an SSL or TLS endpoint. One approach in Azure Container Instances is to create a [container group](container-instances-container-groups.md) with both an application container and a sidecar container running an SSL provider such as [Nginx](https://www.nginx.com/) or [Caddy](https://caddyserver.com/). By configuring the sidecar as an SSL endpoint for the container group, you enable SSL connections for your application without changing your application code.
 
 As an example, this article shows how to create a container group with two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
@@ -116,7 +116,7 @@ http {
 }
 ```
 
-## Base64-encode secrets and configuration file
+### Base64-encode secrets and configuration file
 
 Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. You use the encoded contents to configure the Nginx container.
 
