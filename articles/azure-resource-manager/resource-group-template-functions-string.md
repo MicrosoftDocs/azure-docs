@@ -1805,7 +1805,7 @@ The following example shows how to create a unique name for a storage account ba
     ...
 ```
 
-If you need to create a new unique name each time you deploy a template, and don't intent to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcNow).
+If you need to create a new unique name each time you deploy a template, and don't intent to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcnow).
 
 ### Return value
 

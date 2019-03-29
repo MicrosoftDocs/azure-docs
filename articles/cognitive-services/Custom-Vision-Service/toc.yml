@@ -86,7 +86,7 @@
   items:
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Pricing and limits
+  - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service

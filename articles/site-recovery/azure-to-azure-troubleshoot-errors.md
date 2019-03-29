@@ -312,7 +312,7 @@ If you observe the bold string above,  GRUB has actual device names for the para
 The device names should be replaced with the corresponding UUID.<br>
 
 
-1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
+1. Find the UUID of the device by executing the command "blkid \<device name>". For example:<br>
    ```
    blkid /dev/sda1 
    ```<br>
@@ -323,7 +323,7 @@ The device names should be replaced with the corresponding UUID.<br>
 
 
 
-1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 

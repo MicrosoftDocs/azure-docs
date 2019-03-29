@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/28/2019
 ms.author: jingwang
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
@@ -70,7 +70,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 {
     "name": "RESTLinkedService",
     "properties": {
-        "type": "HttpServer",
+        "type": "RestService",
         "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<REST endpoint>",

@@ -139,6 +139,9 @@ Azure Multi-Factor Authentication server provides several options for the user p
 | Use OATH token for fallback | Allow for the use of an OATH token in case two-step verification is not successful. You can also specify the session timeout in minutes. |
 | Enable logging | Enable logging on the user portal. The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 These settings become visible to the user in the portal once they are enabled and they are signed in to the user portal.
 
 ![Manage your MFA Server account using the user portal](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
