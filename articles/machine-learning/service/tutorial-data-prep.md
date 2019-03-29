@@ -91,7 +91,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Ensure you install version 1.0.17. This tutorial will not work with the newest version > 1.1.0
+> Ensure you install version 1.0.17. This tutorial will not work with the newest version 1.1.0
 
 ## Load data
 
