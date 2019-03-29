@@ -28,7 +28,7 @@ To log device connection events and errors, turn on diagnostics for IoT Hub.
 1. Select **Diagnostics settings**.
 1. Select **Turn on diagnostics**.
 1. Enable **Connections** logs to be collected.
-1. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#Resolve-connectivity-errors).
+1. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#resolve-connectivity-errors).
 
    ![Recommended settings][2]
 

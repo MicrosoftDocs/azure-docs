@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: sihhu
 ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
@@ -81,7 +81,7 @@ All the setup for your development work can be accomplished in a Python notebook
 Use the following to install necessary packages if you don't already have them.
 
 ```shell
-pip install azureml-dataprep
+pip install azureml-dataprep==1.0.17
 ```
 
 Import the SDK.
@@ -89,6 +89,9 @@ Import the SDK.
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> Ensure you install version 1.0.17. This tutorial will not work with the newest version 1.1.0
 
 ## Load data
 
@@ -1088,8 +1091,10 @@ You now have a fully transformed and prepared dataflow object to use in a machin
 
 ```python
 import os
+
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-final_df.save(file_path)
+package = dprep.Package([final_df])
+package.save(file_path)
 ```
 
 ## Clean up resources
