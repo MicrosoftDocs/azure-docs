@@ -91,8 +91,8 @@ This update includes the following new features and improvements for Azure Stack
    * **AzureRm.Insights**  
          AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
 
-- **AzureStack 1.7.0**
-   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin Module**  
          Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
    * **Azs.Fabric.Admin Module**  

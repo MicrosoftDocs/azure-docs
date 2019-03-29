@@ -39,6 +39,8 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.DataFactory/factories     |   Yes     |[Data Factories V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB for MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB for PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft.Devices/IotHubs    | N/A     |[IoT Hub Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
+|Microsoft.Devices/provisioningServices    | Yes     |[DPS Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
 |Microsoft.EventHub/namespaces     |  Yes      |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| No | [Vaults](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
