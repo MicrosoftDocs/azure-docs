@@ -38,25 +38,27 @@ There are two possible reasons why you might need to edit the claims issued in t
 * The application requires the `NameIdentifier` or NameID claim to be something other than the username (or user principal name) stored in Azure AD.
 * The application has been written to require a different set of claim URIs or claim values.
 
-## Editing the NameIdentifier claim
+## Editing NameID
 
-To edit the `NameIdentifier` claim:
+To edit the NameID (name identifier value):
 
 1. Open the **Name identifier value** page.
 1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want he NameID claim to have.
 
-   ![Edit the NameIdentifier claim](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
+   ![Edit the NameID (name identifier) value](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
 ### NameID format
 
-You can specify the format you want Azure AD to use for the NameID claim in case the application doesn’t send a NameID policy in the SAML request. Be aware that Azure AD always grants the NameID format specified in the NameID policy.
+If the SAML request contains the element NameIDPolicy with a specific format, then Azure AD will honor the format in the request.
+
+If the SAML request doesn't contain an element for NameIDPolicy, then you can specify the format and Azure AD will issue the NameID with the selected format. Otherwise, Azure AD will use the default source format associated with the claim source selected.
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
 | NameID format | Description |
 |---------------|-------------|
-| **Default** | Azure AD selects the claim format. |
-| **Persistent** | Azure AD issues the NameID claim as a pairwise identifier. |
+| **Default** | Azure AD will use the default source format. |
+| **Persistent** | Azure AD will use Persistent as the NameID format. |
 | **EmailAddress** | Azure AD issues the NameID claim in email address format. |
 | **Unspecified** | Permits Azure AD to select the claim format. Azure AD issues the NameID as a pairwise identifier. |
 | **Transient** | Azure AD issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user. |
