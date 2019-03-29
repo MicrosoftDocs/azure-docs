@@ -48,3 +48,25 @@ Standard voices are available in these regions:
 ### Custom voices
 
 If you've created a custom voice font, use the endpoint that you've created, not one of the endpoints in these lists.
+
+| Region | Endpoint |
+|--------|----------|
+| Australia East | https://australiaeast.voice.speech.microsoft.com |
+| Brazil South | https://brazilsouth.voice.speech.microsoft.com |
+| Canada Central | https://canadacentral.voice.speech.microsoft.com |
+| Central US | https://centralus.voice.speech.microsoft.com |
+| East Asia | https://eastasia.voice.speech.microsoft.com |
+| East US | https://eastus.voice.speech.microsoft.com |
+| East US 2 | https://eastus2.voice.speech.microsoft.com |
+| France Central | https://francecentral.voice.speech.microsoft.com |
+| India Central | https://centralindia.voice.speech.microsoft.com |
+| Japan East | https://japaneast.voice.speech.microsoft.com |
+| Korea Central | https://koreacentral.voice.speech.microsoft.com |
+| North Central US | https://northcentralus.voice.speech.microsoft.com |
+| North Europe | https://northeurope.voice.speech.microsoft.com |
+| South Central US | "https://southcentralus.voice.speech.microsoft.com |
+| Southeast Asia | https://southeastasia.voice.speech.microsoft.com |
+| UK South | https://uksouth.voice.speech.microsoft.com |
+| West Europe | https://westeurope.voice.speech.microsoft.com |
+| West US | https://westus.voice.speech.microsoft.com |
+| West US 2 | https://westus2.voice.speech.microsoft.com |
