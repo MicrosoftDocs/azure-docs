@@ -82,7 +82,8 @@ Azure Stack HCI provides validated HCI solutions powered by Hyper-V and Storage 
 - Azure Backup
 - Azure Site Recovery
 - Azure Monitor and Update
-- Management
+
+For an updated list of Azure services that you can connect Azure Stack HCI to, see [Connecting Windows Server to Azure hybrid services](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
 
 ### Example use cases for Azure Stack HCI
 - Remote or branch office systems
@@ -93,7 +94,7 @@ Azure Stack HCI provides validated HCI solutions powered by Hyper-V and Storage 
 - High availability and disaster recovery in the cloud
 - Enterprise apps like SQL Server
 
-For more information about Azure Stack HCI solutions, see the [Windows Server 2019 Software-Defined Datacenter (SDDC)](https://docs.microsoft.com/windows-server/sddc) documentation.
+Visit the [Azure Stack HCI website](https://azure.microsoft.com/overview/azure-stack/hci/) to view 70+ Azure Stack HCI solutions currently available from Microsoft partners.
 
 ## Next steps
 
