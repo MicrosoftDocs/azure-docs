@@ -62,9 +62,20 @@ In a Kubernetes cluster, an admission controller is used to intercept requests t
 
 *PodSecurityPolicy* is an admission controller that validates a pod specification meets your defined requirements. These requirements may limit the use of privileged containers, access to certain types of storage, or the user or group the container can run as. When you try to deploy a resource where the pod specifications don't meet the requirements outlined in the pod security policy, the request is denied. This ability to control what pods can be scheduled in the AKS cluster prevents some possible security vulnerabilities or privilege escalations.
 
+When you enable pod security policy in an AKS cluster, some default policies are applied. These default policies provide an out-of-the-box experience to define what pods can be scheduled. However, cluster users may run into problems deploying pods until you define your own policies. The recommend approach is to:
+
+* Create an AKS cluster
+* Define your own pod security policies
+* Enable the pod security policy feature
+
+To show how the default policies limit pod deployments, in this article we first enable the pod security policies feature, then create a custom policy.
+
 ## Enable pod security policy on an AKS cluster
 
-You can enable or disable pod security policy using the [az aks update][az-aks-update] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+You can enable or disable pod security policy using the [az aks update][az-aks-update] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*.
+
+> [!NOTE]
+> For real-world use, don't enable the pod security policy until you have defined your own custom policies. In this article, you enable pod security policy as the first step to see how the default policies limit pod deployments.
 
 ```azurecli-interactive
 az aks update \
@@ -75,9 +86,9 @@ az aks update \
 
 ## Default AKS policies
 
-When you enable pod security policy, AKS creates two default policies named *privileged* and *restricted*. Don't edit or remove these default policies. Instead, create your own policies that define the settings you want to control.
+When you enable pod security policy, AKS creates two default policies named *privileged* and *restricted*. Don't edit or remove these default policies. Instead, create your own policies that define the settings you want to control. Let's first look at what these default policies are how they impact pod deployments.
 
-To view the policies available, use the [kubectl get psp][kubectl-get] command, as shown in the following example. As part of default *restricted* policy, the user is denied *PRIV* use for privileged pod escalation, and the user *MustRunAsNonRoot*.
+To view the policies available, use the [kubectl get psp][kubectl-get] command, as shown in the following example. As part of the default *restricted* policy, the user is denied *PRIV* use for privileged pod escalation, and the user *MustRunAsNonRoot*.
 
 ```console
 $ kubectl get psp
@@ -87,7 +98,7 @@ privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny  
 restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-The *restricted* pod security policy is applied to any authenticated user in the AKS cluster. This assignment is controlled by Kubernetes ClusterRoles and ClusterRoleBindings. Use the [kubectl get clusterrolebindings][kubectl-get] command and search for the *default:restricted:* binding:
+The *restricted* pod security policy is applied to any authenticated user in the AKS cluster. This assignment is controlled by ClusterRoles and ClusterRoleBindings. Use the [kubectl get clusterrolebindings][kubectl-get] command and search for the *default:restricted:* binding:
 
 ```console
 kubectl get clusterrolebindings default:restricted -o yaml
@@ -112,13 +123,13 @@ subjects:
   name: system:authenticated
 ```
 
-It's important to understand how these default policies interact with user requests to schedule pods before you start to create your own pod security policies. In the next few sections, let's try to schedule some pods to see these default policies in action.
+It's important to understand how these default policies interact with user requests to schedule pods before you start to create your own pod security policies. In the next few sections, let's schedule some pods to see these default policies in action.
 
 ## Create a test user in an AKS cluster
 
-By default, when you use the [az aks get-credentials][az-aks-get-credentials] command, the *admin* credentials for the AKS cluster and added to your `kubectl` config. The admin user, by definition, bypasses the enforcement of pod security policies. If you use Azure Active Directory integration for your AKS clusters, you could log in with the credentials of a non-admin user to see the enforcement of policies in action. In this article, let's create a test user account the AKS cluster that we can use.
+By default, when you use the [az aks get-credentials][az-aks-get-credentials] command, the *admin* credentials for the AKS cluster and added to your `kubectl` config. The admin user bypasses the enforcement of pod security policies. If you use Azure Active Directory integration for your AKS clusters, you could sign in with the credentials of a non-admin user to see the enforcement of policies in action. In this article, let's create a test user account in the AKS cluster that you can use.
 
-Create a sample namespace named *psp-aks* for our test resources using the [kubectl create namespace][kubectl-create] command. Then, create a service account named *nonadmin-user* using the [kubectl create serviceaccount][kubectl-create] command:
+Create a sample namespace named *psp-aks* for test resources using the [kubectl create namespace][kubectl-create] command. Then, create a service account named *nonadmin-user* using the [kubectl create serviceaccount][kubectl-create] command:
 
 ```console
 kubectl create namespace psp-aks
@@ -137,7 +148,7 @@ kubectl create rolebinding \
 
 ### Create alias commands for admin and non-admin user
 
-To highlight the difference our regular admin user when using `kubectl` and the non-admin user created in the previous steps, create two command-line aliases:
+To highlight the difference between the regular admin user when using `kubectl` and the non-admin user created in the previous steps, create two command-line aliases:
 
 * The **kubectl-admin** alias is for the regular admin user, and is scoped to the *psp-aks* namespace.
 * The **kubectl-nonadminuser** alias is for the *nonadmin-user* created in the previous step, and is scoped to the *psp-aks* namespace.
@@ -186,7 +197,7 @@ The pod doesn't reach the scheduling stage, so there's no resources to delete be
 
 ## Test creation of an unprivileged pod
 
-In the previous example, the pod specification requested privileged escalation. This is denied by the default *restricted* pod security policy, so the pod fails to be scheduled. Let's try now running that same NGINX pod without the privilege escalation request.
+In the previous example, the pod specification requested privileged escalation. This request is denied by the default *restricted* pod security policy, so the pod fails to be scheduled. Let's try now running that same NGINX pod without the privilege escalation request.
 
 Create a file named `nginx-unprivileged.yaml` and paste the following YAML manifest:
 
@@ -216,7 +227,7 @@ NAME                 READY   STATUS                       RESTARTS   AGE
 nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
 ```
 
-Use the [kubectl describe pod][kubectl-describe] command to look at the events for the pod. The following condensed example shows that the container and image require root permissions, even though we didn't request them:
+Use the [kubectl describe pod][kubectl-describe] command to look at the events for the pod. The following condensed example shows the container and image require root permissions, even though we didn't request them:
 
 ```console
 $ kubectl-nonadminuser describe pod nginx-unprivileged
@@ -236,9 +247,9 @@ Events:
   Normal   Pulled     2m10s (x25 over 7m13s)  kubelet, aks-agentpool-34777077-0  Container image "nginx:1.14.2" already present on machine
 ```
 
-Even though we didn't request any privileged access, the container image for NGINX needs to create a binding for port 80. When the pod tries to start, the *restricted* pod security policy denies this request.
+Even though we didn't request any privileged access, the container image for NGINX needs to create a binding for port *80*. To bind ports *1024* and below, the *root* user is required. When the pod tries to start, the *restricted* pod security policy denies this request.
 
-This example shows that the default pod security policies created by AKS are in effect and restrict the actions a user can perform. It's important to understand the behavior of these default policies, as you may not expect a simple NGINX pod to be denied.
+This example shows that the default pod security policies created by AKS are in effect and restrict the actions a user can perform. It's important to understand the behavior of these default policies, as you may not expect a basic NGINX pod to be denied.
 
 Before you move on to the next step, delete this test pod using the [kubectl delete pod][kubectl-delete] command:
 
@@ -248,7 +259,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## Test creation of a pod with a specific user context
 
-In the previous example, the container image was known to to require root to bind NGINX to port 80 by default. This was denied by the default *restricted* pod security policy, so the pod fails to start. Let's try now running that same NGINX pod with a specific user context, such as `runAsUser: 2000`.
+In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the default *restricted* pod security policy, so the pod fails to start. Let's try now running that same NGINX pod with a specific user context, such as `runAsUser: 2000`.
 
 Create a file named `nginx-unprivileged-nonroot.yaml` and paste the following YAML manifest:
 
@@ -308,7 +319,7 @@ The events indicate that the container was created and started. There's nothing 
 kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
 ```
 
-The following example log output give an indication that within the NGINX configuration itself, there's a permissions error when the service tries to start. This error is again the binding of port 80 causing a problem. Although the pod specification defined a regular user account, this user account isn't sufficient in the OS-level for the NGINX service to start and bind to the restricted port.
+The following example log output gives an indication that within the NGINX configuration itself, there's a permissions error when the service tries to start. This error is again caused by needing to bind to port 80. Although the pod specification defined a regular user account, this user account isn't sufficient in the OS-level for the NGINX service to start and bind to the restricted port.
 
 ```console
 $ kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
@@ -319,7 +330,7 @@ nginx: [warn] the "user" directive makes sense only if the master process runs w
 nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
 ```
 
-Again, it's important to understand the behavior of the default pod security policies. This error was a little harder to track down, and again, you may not expect a simple NGINX pod to be denied.
+Again, it's important to understand the behavior of the default pod security policies. This error was a little harder to track down, and again, you may not expect a basic NGINX pod to be denied.
 
 Before you move on to the next step, delete this test pod using the [kubectl delete pod][kubectl-delete] command:
 
@@ -329,9 +340,9 @@ kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
 
 ## Create a custom pod security policy
 
-Now that you've seen the behavior of the default pod security policies, let's start to provide a way for the *nonadmin-user* to be able to successfully schedule pods.
+Now that you've seen the behavior of the default pod security policies, let's provide a way for the *nonadmin-user* to successfully schedule pods.
 
-Let's create a policy to reject pods that request privileged access. Other definitions, such as *runAsUser* or allowed *volumes* aren't explicitly restricted. This type of policy denies a request for privileged access, but otherwise lets the cluster run the requested pods.
+Let's create a policy to reject pods that request privileged access. Other options, such as *runAsUser* or allowed *volumes*, aren't explicitly restricted. This type of policy denies a request for privileged access, but otherwise lets the cluster run the requested pods.
 
 Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
 
@@ -373,7 +384,7 @@ restricted            false          RunAsAny   MustRunAsNonRoot   MustRunAs   M
 
 ## Allow user account to use the custom pod security policy
 
-In the previous step, you created a pod security policy to reject pods that request privileged access. To allow the policy to be used, you first create a *Role* or a *ClusterRole*. Then, you associate one of these roles using a *RoleBinding* or *ClusterRoleBinding*.
+In the previous step, you created a pod security policy to reject pods that request privileged access. To allow the policy to be used, you create a *Role* or a *ClusterRole*. Then, you associate one of these roles using a *RoleBinding* or *ClusterRoleBinding*.
 
 For this example, create a ClusterRole that allows you to *use* the *psp-deny-privileged* policy created in the previous step. Create a file named `psp-deny-privileged-clusterrole.yaml` and paste the following YAML manifest:
 
@@ -422,15 +433,18 @@ Create a ClusterRoleBinding using the [kubectl apply][kubectl-apply] command and
 kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
+> [!NOTE]
+> In the first step of this article, the pod security policy feature was enabled on the AKS cluster. The recommended practice was to only enable the pod security policy feature after you've defined your own policies. This is the stage where you would enable the pod security policy feature. One or more custom policies have been defined, and user accounts have been associated with those policies. Now you can safely the pod security policy feature and minimize problems caused by the default policies.
+
 ## Test the creation of an unprivileged pod again
 
-With a pod security policy applied and a binding for the user account to use the policy, let's try to create an unprivileged pod again. Use the same `nginx-privileged.yaml` manifest to create the pod using the [kubectl apply][kubectl-apply] command:
+With your custom pod security policy applied and a binding for the user account to use the policy, let's try to create an unprivileged pod again. Use the same `nginx-privileged.yaml` manifest to create the pod using the [kubectl apply][kubectl-apply] command:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-The pod is successfully scheduled. When you check the status of the pod using the [kubectl get pods][kubectl-get] commmand, the pod is *Running*:
+The pod is successfully scheduled. When you check the status of the pod using the [kubectl get pods][kubectl-get] command, the pod is *Running*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -439,7 +453,7 @@ NAME                 READY   STATUS    RESTARTS   AGE
 nginx-unprivileged   1/1     Running   0          7m14s
 ```
 
-This example shows how you can create custom pod security policies to define access to the AKS cluster for different users or groups. The default AKS policies provide tight controls on what pods can run. You need to create your own custom policies to then correctly define the restrictions you need.
+This example shows how you can create custom pod security policies to define access to the AKS cluster for different users or groups. The default AKS policies provide tight controls on what pods can run, so create your own custom policies to then correctly define the restrictions you need.
 
 Delete the NGINX unprivileged pod using the [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
 
@@ -479,9 +493,9 @@ kubectl delete namespace psp-aks
 
 ## Next steps
 
-This article showed you how to create a pod security policy to prevent the use of privileged access. There are lots of features that a policy can enforce, such as type of volume or the RunAs user. For more information on the available options, see the [policy reference][kubernetes-policy-reference].
+This article showed you how to create a pod security policy to prevent the use of privileged access. There are lots of features that a policy can enforce, such as type of volume or the RunAs user. For more information on the available options, see the [Kubernetes pod security policy reference docs][kubernetes-policy-reference].
 
-For more information about securing network traffic between pods, see [Secure traffic between pods using network policies in AKS][network-policies].
+For more information about limiting pod network traffic, see [Secure traffic between pods using network policies in AKS][network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -503,4 +517,4 @@ For more information about securing network traffic between pods, see [Secure tr
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
