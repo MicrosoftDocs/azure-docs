@@ -14,50 +14,52 @@ The goal of this article is to clarify the resources that are present when you d
 
 ## Resource types in Azure HDInsight clusters
 
-Azure HDInsight clusters have different types of virtual machines, or nodes, that each play a role in the operation of the system. The following table summarizes these node types and their roles in the cluster.
+Azure HDInsight clusters have different types of virtual machines, or nodes. Each node type plays a role in the operation of the system. The following table summarizes these node types and their roles in the cluster.
 
 | Type | Description |
 | --- | --- |
-| Head node |  For the Hadoop, Interactive Hive, Kafka, Spark, HBase and R Server cluster types, the head nodes hosts the processes that manage execution of the distributed application. In addition, for the Hadoop, Interactive Hive, Kafka, Spark, and HBase cluster types the head node represents the node you can SSH into and execute applications that are then coordinated to run across the cluster resources. The number of head nodes is fixed at two for all cluster types. |
+| Head node |  For most cluster types, the head nodes host the processes that manage execution of the distributed application*. The head node is also the node that you can SSH into and execute applications that are then coordinated to run across the cluster resources. The number of head nodes is fixed at two for all cluster types. |
 | Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper- it coordinates the running of Storm topologies. |
-| ZooKeeper node | Represents the nodes hosting the ZooKeeper process and data, which is used to coordinate tasks between the nodes performing the processing, leader election of the head node, and for keeping track of on which head node a master service is active on. The number of ZooKeeper nodes is fixed at two for all cluster types having ZooKeeper nodes. |
-| R Server Edge node | The R Server Edge node represents the node you can SSH into and execute applications that are then coordinated to run across the cluster resources. An edge node itself does not actively participate in data analysis within the cluster. In addition, this node hosts R Studio Server, enabling you to run R application using a browser. |
-| Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to increase or decrease computing capability and to manage costs. |
-| Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server that is responsible for serving and managing a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to increase or decrease computing capability and to manage costs.|
+| ZooKeeper node | Zookeeper coordinates tasks between the nodes that are doing data processing. It also does leader election of the head node, and keeps track of which head node is running a specific master service. The number of ZooKeeper nodes is fixed at two. |
+| R Server Edge node | The R Server edge node represents the node you can SSH into and execute applications that are then coordinated to run across the cluster resources. An edge node doesn't  participate in data analysis within the cluster. This node also hosts R Studio Server, enabling you to run R application using a browser. |
+| Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to scale computing capability and manage costs. |
+| Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
 | Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to performing the desired processing. |
+
+*=Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase, and R Server cluster types
 
 ![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-## Basic VNet resources
+## Basic virtual network resources
 
-The default resources present when HDInsight is deployed into a VNet include the cluster node types mentioned in the previous section, as well as network devices that support communication between the virtual network and outside networks.
+The default resources present when HDInsight is deployed into an Azure Virtual Network include the cluster node types mentioned in the previous section, as well as network devices that support communication between the virtual network and outside networks.
 
-The following table summarizes the cluster node types that are created when HDInsight is deployed into a custom Azure Virtual Network.
+The following table summarizes the nine cluster nodes that are created when HDInsight is deployed into a custom Azure Virtual Network.
 
 | Resource type | Number present | Details |
 | --- | --- | --- |
 |Head node | 2 |    |
-|Zookeeper node | 3 |
-|Worker node | 2* | A minimum of 3 worker nodes in needed for Apache Kafka  |
-|Gateway node | 2 | Gateway nodes are Azure virtual machines that are created on Azure but are not visible in your subscription. Please contact support if you need to reboot these nodes. |
-
-*=number may vary based on cluster configuration and scaling.
+|Zookeeper node | 3 | |
+|Worker node | 2 | This number may vary based on cluster configuration and scaling. A minimum of 3 worker nodes in needed for Apache Kafka  |
+|Gateway node | 2 | Gateway nodes are Azure virtual machines that are created on Azure but are not visible in your subscription. Contact support if you need to reboot these nodes. |
 
 The network resources present in the VNet are summarized in the following table.
 
 | Networking resource | Number present | Details |
 | --- | --- | --- |
 |Load balancer | 3 | |
-|Network Interfaces | 9 |    |
+|Network Interfaces | 9 | This is based on a normal cluster, where each node has its own network interface. The nine interfaces are for the 2 head nodes, 3 zookeeper nodes, 2 worker nodes and 2 gateway nodes mentioned in the previous table|
 |Public IP Addresses | 2 |    |
 
-The three load balancers have the following responsibilities:
+You can access your HDInsight cluster in 3 ways.
 
-1. One is assigned to the gateway with the endpoint `CLUSTERNAME.azurehdinsight.net`
-1. Another load balancer is assigned to the SSH endpoint of the cluster `CLUSTERNAME-ssh.azurehdinsight.net`
-1. The third load balancer is only created when HDInsight is deployed into a custom VNet. It is assigned to the endpoint `CLUSTERNAME-int.azurehdinsight.net`
+1. An http endpoint outside of the VNET at `CLUSTERNAME.azurehdinsight.net`
+1. An SSH endpoint for directly connecting to the headnode at `CLUSTERNAME-ssh.azurehdinsight.net`
+1. An http endpoint within VNet `CLUSTERNAME-int.azurehdinsight.net`
 
-The public IP addresses are allocated as follows:
+These 3 endpoints are each assigned a load balancer.
+
+The public IP addresses are given as follows:
 
 1. One public IP is assigned to the Load balancer for the fully qualified domain name (FQDN) to use when connecting to the cluster from the internet `CLUSTERNAME.azurehdinsight.net`
 1. The second public IP address is used for the SSH only domain name `CLUSTERNAME-ssh.azurehdinsight.net`.
