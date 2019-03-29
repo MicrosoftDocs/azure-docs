@@ -757,43 +757,6 @@ This query retrieves family `id`s in order of their item creation date. Item `cr
     ]
 ```
 
-## Parameterized queries
-
-Cosmos DB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
-
-For example, you can write a query that takes `lastName` and `address.state` as parameters, and execute it for various values of `lastName` and `address.state` based on user input.
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.lastName = @lastName AND f.address.state = @addressState
-```
-
-You can then send this request to Cosmos DB as a parameterized JSON query like the following:
-
-```sql
-    {
-        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",
-        "parameters": [
-            {"name": "@lastName", "value": "Wakefield"},
-            {"name": "@addressState", "value": "NY"},
-        ]
-    }
-```
-
-This example sets the `TOP` argument with a parameterized query: 
-
-```sql
-    {
-        "query": "SELECT TOP @n * FROM Families",
-        "parameters": [
-            {"name": "@n", "value": 10},
-        ]
-    }
-```
-
-Parameter values can be any valid JSON: strings, numbers, Booleans, null, even arrays or nested JSON. Since Cosmos DB is schemaless, parameters are not validated against any type.
-
 ## <a id="Iteration"></a>Iteration
 
 The SQL API provides support for iterating over JSON arrays, with a new construct added via the `IN` keyword in the `FROM` source. Start with the following example:
@@ -1051,21 +1014,6 @@ The results are:
       }
     ]
 ```
-
-## <a id="JavaScriptIntegration"></a>JavaScript integration
-
-Azure Cosmos DB provides a programming model for executing JavaScript-based application logic directly on containers. For stored procedures and triggers, this model supports:
-
-* High-performance transactional CRUD operations and queries against items in a container, by virtue of the deep integration of the JavaScript runtime within the database engine.
-* A natural modeling of control flow, variable scoping, and assignment and integration of exception-handling primitives with database transactions. For more details about Azure Cosmos DB support for JavaScript integration, see the JavaScript server-side programmability documentation.
-
-### Operator evaluation
-
-Cosmos DB, by the virtue of being a JSON database, draws parallels with JavaScript operators and its evaluation semantics. Cosmos DB tries to preserve JavaScript semantics in terms of JSON support, but the operation evaluation deviates in some instances.
-
-In the SQL API, unlike in traditional SQL, the types of values are often not known until the values are retrieved from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
-
-Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. Any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0` will not be matched. This is in contrast to JavaScript, where string values are implicitly casted to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
 
 ## <a id="UserDefinedFunctions"></a>User-defined functions (UDFs)
 
@@ -1494,19 +1442,343 @@ The result is:
 
 For more information on geospatial support in Cosmos DB, see [Working with geospatial data in Azure Cosmos DB](geospatial.md). 
 
+## Parameterized queries
+
+Cosmos DB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
+
+For example, you can write a query that takes `lastName` and `address.state` as parameters, and execute it for various values of `lastName` and `address.state` based on user input.
+
+```sql
+    SELECT *
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
+
+You can then send this request to Cosmos DB as a parameterized JSON query like the following:
+
+```sql
+    {
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",
+        "parameters": [
+            {"name": "@lastName", "value": "Wakefield"},
+            {"name": "@addressState", "value": "NY"},
+        ]
+    }
+```
+
+This example sets the `TOP` argument with a parameterized query: 
+
+```sql
+    {
+        "query": "SELECT TOP @n * FROM Families",
+        "parameters": [
+            {"name": "@n", "value": 10},
+        ]
+    }
+```
+
+Parameter values can be any valid JSON: strings, numbers, Booleans, null, even arrays or nested JSON. Since Cosmos DB is schemaless, parameters are not validated against any type.
+
+## <a id="JavaScriptIntegration"></a>JavaScript integration
+
+Azure Cosmos DB provides a programming model for executing JavaScript-based application logic directly on containers, using stored procedures and triggers. This model supports:
+
+* High-performance transactional CRUD operations and queries against items in a container, by virtue of the deep integration of the JavaScript runtime within the database engine.
+* A natural modeling of control flow, variable scoping, and assignment and integration of exception-handling primitives with database transactions. 
+
+For more details about Azure Cosmos DB JavaScript integration, see [JavaScript server-side API](#JavaScriptServerSideApi).
+
+### Operator evaluation
+
+Cosmos DB, by the virtue of being a JSON database, draws parallels with JavaScript operators and its evaluation semantics. Cosmos DB tries to preserve JavaScript semantics in terms of JSON support, but the operation evaluation deviates in some instances.
+
+In the SQL API, unlike in traditional SQL, the types of values are often not known until the values are retrieved from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
+
+Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. Any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0` will not be matched. This is in contrast to JavaScript, where string values are implicitly casted to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
+
+## <a id="ExecutingSqlQueries"></a>Execute SQL queries
+
+Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST API. Cosmos DB also offers programming libraries for the .NET, Node.js, JavaScript, and Python programming languages. The REST API and libraries all support querying through SQL, and the .NET SDK also supports [LINQ querying](#Linq).
+
+The following examples show how to create a query and submit it against a Cosmos DB database account.
+
+### <a id="RestAPI"></a>REST API
+
+Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which is provisioned by an Azure subscription. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, *UDFs*, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
+
+The basic interaction model with these resources is through the HTTP verbs `GET`, `PUT`, `POST`, and `DELETE`, with their standard interpretations. `POST` verb is used to create a new resource, execute a stored procedure, or issue a Cosmos DB query. Queries are always read-only operations with no side-effects.
+
+The following examples show a `POST` for a SQL API query against the sample items. The query has a simple filter on the JSON `name` property. The `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers  denote that the operation is a query. Replace `mysqlapicosmosdb.documents.azure.com:443` with the URI for your Cosmos DB account.
+
+```json
+    POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
+    {
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",
+        "parameters": [
+            {"name": "@familyId", "value": "AndersenFamily"}
+        ]
+    }
+```
+
+The results, indented for readability:
+
+```json
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
+    x-ms-item-count: 1
+    x-ms-request-charge: 0.32
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "id":"AndersenFamily",
+             "lastName":"Andersen",
+             "parents":[  
+                {  
+                   "firstName":"Thomas"
+                },
+                {  
+                   "firstName":"Mary Kay"
+                }
+             ],
+             "children":[  
+                {  
+                   "firstName":"Henriette Thaulow",
+                   "gender":"female",
+                   "grade":5,
+                   "pets":[  
+                      {  
+                         "givenName":"Fluffy"
+                      }
+                   ]
+                }
+             ],
+             "address":{  
+                "state":"WA",
+                "county":"King",
+                "city":"Seattle"
+             },
+             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
+             "_ts":1407691744,
+             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
+             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
+             "_attachments":"_attachments\/"
+          }
+       ],
+       "count":1
+    }
+```
+
+The next, more complex query returns multiple results from a join:
+
+```json
+    POST https://https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
+    {
+        "query": "SELECT
+                     f.id AS familyName,
+                     c.givenName AS childGivenName,
+                     c.firstName AS childFirstName,
+                     p.givenName AS petName
+                  FROM Families f
+                  JOIN c IN f.children
+                  JOIN p in c.pets",
+        "parameters": [] 
+    }
+```
+
+The results, indented for readability: 
+
+```
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
+    x-ms-item-count: 1
+    x-ms-request-charge: 7.84
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "familyName":"AndersenFamily",
+             "childFirstName":"Henriette Thaulow",
+             "petName":"Fluffy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Goofy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Shadow"
+          }
+       ],
+       "count":3
+    }
+```
+
+If a query's results can't fit in a single page, the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in the subsequent results. You can also control the number of results per page through the `x-ms-max-item-count` number header. 
+
+If a query has an aggregation function like `COUNT`, the query page may return a partially aggregated value over only one page of results. Clients must perform a second-level aggregation over these results to produce the final results. For example, sum over the counts returned in the individual pages to return the total count.
+
+To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. Session consistency also requires echoing the latest `x-ms-session-token` cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings for containers, the index is always current with the item contents and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB consistency levels][consistency-levels].
+
+If the configured indexing policy on the container can't support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. You can specify the `x-ms-documentdb-query-enable-scan` header to allow the query to perform a scan when an index is not available.
+
+You can get detailed metrics on query execution by setting the `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
+
+### <a id="DotNetSdk"></a>C# (.NET SDK)
+
+The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the preceding filter query with .NET:
+
+```csharp
+    foreach (var family in client.CreateDocumentQuery(containerLink,
+        "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
+
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(containerLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
+    foreach (var family in (
+        from f in client.CreateDocumentQuery(containerLink)
+        where f.Id == "AndersenFamily"
+        select f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in client.CreateDocumentQuery(containerLink)
+        .Where(f => f.Id == "AndersenFamily")
+        .Select(f => f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
+```
+
+The following example compares two properties for equality within each item, and uses anonymous projections.
+
+```csharp
+    foreach (var family in client.CreateDocumentQuery(containerLink,
+        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family
+        FROM Families f
+        WHERE f.address.city = f.address.state"))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
+
+    foreach (var family in (
+        from f in client.CreateDocumentQuery<Family>(containerLink)
+        where f.address.city == f.address.state
+        select new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in
+        client.CreateDocumentQuery<Family>(containerLink)
+        .Where(f => f.address.city == f.address.state)
+        .Select(f => new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
+```
+
+The next example shows joins, expressed through LINQ `SelectMany`.
+
+```csharp
+    foreach (var pet in client.CreateDocumentQuery(containerLink,
+          @"SELECT p
+            FROM Families f
+                 JOIN c IN f.children
+                 JOIN p in c.pets
+            WHERE p.givenName = ""Shadow"""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", pet);
+    }
+
+    // Equivalent in Lambda expressions
+    foreach (var pet in
+        client.CreateDocumentQuery<Family>(containerLink)
+        .SelectMany(f => f.children)
+        .SelectMany(c => c.pets)
+        .Where(p => p.givenName == "Shadow"))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
+    }
+```
+
+The .NET client automatically iterates through all the pages of query results in the `foreach` blocks, as shown in the preceding example. The query options introduced in the [REST API section](#RestAPI) are also available in the .NET SDK, using the `FeedOptions` and `FeedResponse` classes in the `CreateDocumentQuery` method. You can control the number of pages by using the `MaxItemCount` setting.
+
+You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. You can set `EnableScanInQuery` to enable scans when the query isn't supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition, although Azure Cosmos DB can automatically extract this from the query text. You can use `EnableCrossPartitionQuery` to run queries against multiple partitions.
+
+For more .NET samples with queries, see [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet).
+
+### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
+
+Cosmos DB provides a programming model for executing JavaScript based application logic directly on the containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container. These operations are wrapped in ambient ACID transactions.
+
+The following example shows how to use `queryDocuments` in the JavaScript server API to make queries from inside stored procedures and triggers:
+
+```javascript
+    function businessLogic(name, author) {
+        var context = getContext();
+        var containerManager = context.getCollection();
+        var containerLink = containerManager.getSelfLink()
+
+        // create a new item.
+        containerManager.createDocument(containerLink,
+            { name: name, author: author },
+            function (err, documentCreated) {
+                if (err) throw new Error(err.message);
+
+                // filter items by author
+                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+                containerManager.queryDocuments(containerLink,
+                    filterQuery,
+                    function (err, matchingDocuments) {
+                        if (err) throw new Error(err.message);
+    context.getResponse().setBody(matchingDocuments.length);
+
+                        // Replace the author name for all items that satisfied the query.
+                        for (var i = 0; i < matchingDocuments.length; i++) {
+                            matchingDocuments[i].author = "George R. R. Martin";
+                            // we don't need to execute a callback because they are in parallel
+                            containerManager.replaceDocument(matchingDocuments[i]._self,
+                                matchingDocuments[i]);
+                        }
+                    })
+            });
+    }
+```
+
 ## <a id="Linq"></a>LINQ to SQL API
 
 LINQ is a .NET programming model that expresses computation as queries on object streams. Cosmos DB provides a client-side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to Cosmos DB queries.
 
-The following diagram shows the architecture of supporting LINQ queries using Cosmos DB. Using the Cosmos DB client, you can create an `IQueryable` object that directly queries the Cosmos DB query provider, and translates the LINQ query into a Cosmos DB query. You then pass the query to the Cosmos DB server, which retrieves a set of results in JSON format. Results are deserialized into a stream of .NET objects on the client side.
+The following diagram shows the architecture of supporting LINQ queries using Cosmos DB. Using the Cosmos DB client, you can create an `IQueryable` object that directly queries the Cosmos DB query provider, and translates the LINQ query into a Cosmos DB query. You then pass the query to the Cosmos DB server, which retrieves a set of results in JSON format. The JSON deserializer converts the results into a stream of .NET objects on the client side.
 
 ![Architecture of supporting LINQ queries using the SQL API - SQL syntax, JSON query language, database concepts, and SQL queries][1]
 
 ### .NET and JSON mapping
 
-The mapping between .NET objects and JSON items is natural. Each data member field is mapped to a JSON object, where the field name is mapped to the *key* part of the object, and the value is recursively mapped to the *value* part of the object. The following example maps the `Family` class to a JSON item, and then creates the item.
-
-Create the C# class:
+The mapping between .NET objects and JSON items is natural. Each data member field maps to a JSON object, where the field name maps to the *key* part of the object, and the value recursively maps to the *value* part of the object. The following code maps the `Family` class to a JSON item, and then creates a `Family` object:
 
 ```csharp
     public class Family
@@ -1554,7 +1826,7 @@ Create the C# class:
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
 ```
 
-The preceding code creates the following JSON item:
+The preceding example creates the following JSON item:
 
 ```json
     {
@@ -1590,565 +1862,317 @@ The preceding code creates the following JSON item:
 
 The Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. The following description assumes a basic familiarity with LINQ.
 
-The type system supports only the JSON primitive types: numeric, boolean, string, and null. 
+The query provider type system supports only the JSON primitive types: numeric, boolean, string, and null. 
 
 The query provider supports the following scalar expressions:
 
-* Constant values, including constant values of the primitive data types at the time the query is evaluated.
-* Property/array index expressions that refer to the property of an object or an array element.
+- Constant values, including constant values of the primitive data types at the time the query is evaluated.
   
-     family.Id;
-     family.children[0].familyName;
-     family.children[0].grade;
-     family.children[n].grade; //n is an int variable
-* Arithmetic expressions, including common arithmetic expressions on numerical and boolean values. For the complete list, refer to the SQL specification.
+- Property/array index expressions that refer to the property of an object or an array element. For example:
   
-     2 * family.children[0].grade;
-     x + y;
-* String comparison expressions, which include comparing a string value to some constant string value.  
+    `family.Id;`
+    `family.children[0].familyName;`
+    `family.children[0].grade;`
+    `family.children[n].grade; //n is an int variable`
   
-     mother.familyName == "Smith";
-     child.givenName == s; //s is a string variable
-* Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. These values can be nested.
+- Arithmetic expressions, including common arithmetic expressions on numerical and boolean values. For the complete list, refer to the [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
-     new Parent { familyName = "Smith", givenName = "Joe" };
-     new { first = 1, second = 2 }; //an anonymous type with two fields  
-     new int[] { 3, child.grade, 5 };
+    `2 * family.children[0].grade;`
+    `x + y;`
+  
+- String comparison expressions, which include comparing a string value to some constant string value.  
+  
+    `mother.familyName == "Smith";`
+    `child.givenName == s; //s is a string variable`
+  
+- Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. These values can be nested.
+  
+    `new Parent { familyName = "Smith", givenName = "Joe" };`
+    `new { first = 1, second = 2 }; //an anonymous type with two fields`  
+    `new int[] { 3, child.grade, 5 };`
 
 ### <a id="SupportedLinqOperators"></a>Supported LINQ operators
 
-Here is a list of supported LINQ operators in the LINQ provider included with the SQL .NET SDK.
+The LINQ provider included with the SQL .NET SDK supports the following operators:
 
-* **Select**: Projections translate to the SQL SELECT including object construction
-* **Where**: Filters translate to the SQL WHERE, and support translation between && , || and ! to the SQL operators
-* **SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Can be used to chain/nest expressions to filter on array elements
-* **OrderBy and OrderByDescending**: Translates to ORDER BY ascending/descending
-* **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
-* **CompareTo**: Translates to range comparisons. Commonly used for strings since they’re not comparable in .NET
-* **Take**: Translates to the SQL TOP for limiting results from a query
-* **Math Functions**: Supports translation from .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate to the equivalent SQL built-in functions.
-* **String Functions**: Supports translation from .NET’s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper to the equivalent SQL built-in functions.
-* **Array Functions**: Supports translation from .NET’s Concat, Contains, and Count to the equivalent SQL built-in functions.
-* **Geospatial Extension Functions**: Supports translation from stub methods Distance, Within, IsValid, and IsValidDetailed to the equivalent SQL built-in functions.
-* **User-Defined Function Extension Function**: Supports translation from the stub method UserDefinedFunctionProvider.Invoke to the corresponding user-defined function.
-* **Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS, or the SQL IN depending on context.
+- **Select**: Projections translate to SQL `SELECT`, including object construction.
+- **Where**: Filters translate to SQL `WHERE`, and support translation between `&&`, `||`, and `!` to the SQL operators
+- **SelectMany**: Allows unwinding of arrays to the SQL `JOIN` clause. Can be used to chain or nest expressions to filter on array elements.
+- **OrderBy** and **OrderByDescending**: Translate to `ORDER BY` with `ASC` or `DESC`.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **CompareTo**: Translates to range comparisons. Commonly used for strings, since they’re not comparable in .NET.
+- **Take**: Translates to SQL `TOP` for limiting results from a query.
+- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent SQL built-in functions.
+- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent SQL built-in functions.
+- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent SQL built-in functions.
+- **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent SQL built-in functions.
+- **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding user-defined function.
+- **Miscellaneous**: Supports translation of `Coalesce` and conditional operators. Can translate `Contains` to `String CONTAINS`, `ARRAY_CONTAINS`, or SQL `IN`, depending on context.
 
 ### SQL query operators
 
-Here are some examples that illustrate how some of the standard LINQ query operators are translated down to Cosmos DB queries.
+THe following examples illustrate how some of the standard LINQ query operators are translated to Cosmos DB queries.
 
-#### Select Operator
+#### Select operator
 
 The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
 
-**LINQ lambda expression**
+**Select operator, example 1:**
 
-```csharp
-    input.Select(family => family.parents[0].familyName);
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Select(family => family.parents[0].familyName);
+  ```
+  
+- **SQL** 
+  
+  ```sql
+      SELECT VALUE f.parents[0].familyName
+      FROM Families f
+    ```
+  
+**Select operator, example 2:** 
 
-**SQL** 
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Select(family => family.children[0].grade + c); // c is an int variable
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT VALUE f.children[0].grade + c
+      FROM Families f
+  ```
+  
+**Select operator, example 3:**
 
-```sql
-    SELECT VALUE f.parents[0].familyName
-    FROM Families f
-```
-
-**LINQ lambda expression**
-
-```csharp
-    input.Select(family => family.children[0].grade + c); // c is an int variable
-```
-
-**SQL**
-
-```sql
-    SELECT VALUE f.children[0].grade + c
-    FROM Families f
-```
-
-**LINQ lambda expression**
-
-```csharp
+- **LINQ lambda expression**
+  
+  ```csharp
     input.Select(family => new
     {
         name = family.children[0].familyName,
         grade = family.children[0].grade + 3
     });
-```
-
-**SQL** 
-
-```sql
-    SELECT VALUE {"name":f.children[0].familyName,
-                  "grade": f.children[0].grade + 3 }
-    FROM Families f
-```
-
+  ```
+  
+- **SQL** 
+  
+  ```sql
+      SELECT VALUE {"name":f.children[0].familyName,
+                    "grade": f.children[0].grade + 3 }
+      FROM Families f
+  ```
 
 #### SelectMany operator
 
 The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression that returns a container type.
 
-**LINQ lambda expression**
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.SelectMany(family => family.children);
+  ```
+  
+- **SQL**
 
-```csharp
-    input.SelectMany(family => family.children);
-```
-
-**SQL**
-
-```sql
-    SELECT VALUE child
-    FROM child IN Families.children
-```
+  ```sql
+      SELECT VALUE child
+      FROM child IN Families.children
+  ```
 
 #### Where operator
 
 The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which returns a Boolean value.
 
-**LINQ lambda expression**
+**Where operator, example 1:**
 
-```csharp
-    input.Where(family=> family.parents[0].familyName == "Smith");
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Where(family=> family.parents[0].familyName == "Smith");
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Smith"
+  ```
+  
+**Where operator, example 2:**
 
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-```
-
-**LINQ lambda expression**
-
-```csharp
-    input.Where(
-        family => family.parents[0].familyName == "Smith" &&
-        family.children[0].grade < 3);
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-    AND f.children[0].grade < 3
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Where(
+          family => family.parents[0].familyName == "Smith" &&
+          family.children[0].grade < 3);
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Smith"
+      AND f.children[0].grade < 3
+  ```
 
 ### Composite SQL queries
 
-The above operators can be composed to form more powerful queries. Since Cosmos DB supports nested containers, the composition can either be concatenated or nested.
+You can compose the preceding operators to form more powerful queries. Since Cosmos DB supports nested containers, you can concatenate or nest the composition.
 
 #### Concatenation
 
-The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated query can start with an optional `SelectMany` query followed by multiple `Select` or `Where` operators.
+The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated query can start with an optional `SelectMany` query, followed by multiple `Select` or `Where` operators.
 
-**LINQ lambda expression**
+**Concatenation, example 1:**
 
-```csharp
-    input.Select(family=>family.parents[0])
-        .Where(familyName == "Smith");
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Select(family=>family.parents[0])
+          .Where(familyName == "Smith");
+  ```
 
-**SQL**
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Smith"
+  ```
 
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-```
+**Concatenation, example 2:**
 
-**LINQ lambda expression**
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Where(family => family.children[0].grade > 3)
+          .Select(family => family.parents[0].familyName);
+  ```
 
-```csharp
-    input.Where(family => family.children[0].grade > 3)
-        .Select(family => family.parents[0].familyName);
-```
+- **SQL**
+  
+  ```sql
+      SELECT VALUE f.parents[0].familyName
+      FROM Families f
+      WHERE f.children[0].grade > 3
+  ```
 
-**SQL**
+**Concatenation, example 3:**
 
-```sql
-    SELECT VALUE f.parents[0].familyName
-    FROM Families f
-    WHERE f.children[0].grade > 3
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.Select(family => new { grade=family.children[0].grade}).
+          Where(anon=> anon.grade < 3);
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE ({grade: f.children[0].grade}.grade > 3)
+  ```
 
-**LINQ lambda expression**
+**Concatenation, example 4:**
 
-```csharp
-    input.Select(family => new { grade=family.children[0].grade}).
-        Where(anon=> anon.grade < 3);
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE ({grade: f.children[0].grade}.grade > 3)
-```
-
-**LINQ lambda expression**
-
-```csharp
-    input.SelectMany(family => family.parents)
-        .Where(parent => parents.familyName == "Smith");
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM p IN Families.parents
-    WHERE p.familyName = "Smith"
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.SelectMany(family => family.parents)
+          .Where(parent => parents.familyName == "Smith");
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM p IN Families.parents
+      WHERE p.familyName = "Smith"
+  ```
 
 #### Nesting
 
-The syntax is `input.SelectMany(x=>x.Q())` where Q is a `Select`, `SelectMany`, or `Where` operator.
+The syntax is `input.SelectMany(x=>x.Q())` where `Q` is a `Select`, `SelectMany`, or `Where` operator.
 
-In a nested query, the inner query is applied to each element of the outer container. One important feature is that the inner query can refer to the fields of the elements in the outer container like self-joins.
+A nested query applies the inner query to each element of the outer container. One important feature is that the inner query can refer to the fields of the elements in the outer container, like a self-join.
 
-**LINQ lambda expression**
+**Nesting, example 1:**
 
-```csharp
-    input.SelectMany(family=>
-        family.parents.Select(p => p.familyName));
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.SelectMany(family=>
+          family.parents.Select(p => p.familyName));
+  ```
 
-**SQL**
+- **SQL**
+  
+  ```sql
+      SELECT VALUE p.familyName
+      FROM Families f
+      JOIN p IN f.parents
+  ```
 
-```sql
-    SELECT VALUE p.familyName
-    FROM Families f
-    JOIN p IN f.parents
-```
+**Nesting, example 2:**
 
-**LINQ lambda expression**
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.SelectMany(family =>
+          family.children.Where(child => child.familyName == "Jeff"));
+  ```
 
-```csharp
-    input.SelectMany(family =>
-        family.children.Where(child => child.familyName == "Jeff"));
-```
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      JOIN c IN f.children
+      WHERE c.familyName = "Jeff"
+  ```
 
-**SQL**
+**Nesting, example 3:**
 
-```sql
-    SELECT *
-    FROM Families f
-    JOIN c IN f.children
-    WHERE c.familyName = "Jeff"
-```
+- **LINQ lambda expression**
+  
+  ```csharp
+      input.SelectMany(family => family.children.Where(
+          child => child.familyName == family.parents[0].familyName));
+  ```
 
-**LINQ lambda expression**
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      JOIN c IN f.children
+      WHERE c.familyName = f.parents[0].familyName
+  ```
 
-```csharp
-    input.SelectMany(family => family.children.Where(
-        child => child.familyName == family.parents[0].familyName));
-```
+## <a id="References"></a>Next steps
 
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    JOIN c IN f.children
-    WHERE c.familyName = f.parents[0].familyName
-```
-
-## <a id="ExecutingSqlQueries"></a>Execute SQL queries
-
-Cosmos DB exposes resources through a REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Cosmos DB offers programming libraries for several popular languages like .NET, Node.js, JavaScript, and Python. The REST API and the various libraries all support querying through SQL. The .NET SDK supports LINQ querying in addition to SQL.
-
-The following examples show how to create a query and submit it against a Cosmos DB database account.
-
-### <a id="RestAPI"></a>REST API
-
-Cosmos DB offers an open RESTful programming model over HTTP. Database accounts can be provisioned using an Azure subscription. The Cosmos DB resource model consists of a set of resources under a database account, each  of which is addressable using a logical and stable URI. A set of resources is referred to as a feed in this item. A database account consists of a set of databases, each containing multiple containers, each of which in-turn contain items, UDFs, and other resource types.
-
-The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST, and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a Cosmos DB query. Queries are always read-only operations with no side-effects.
-
-The following examples show a POST for a SQL API query made against a container containing the two sample items we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
-
-**Request**
-```
-    POST https://<REST URI>/docs HTTP/1.1
-    ...
-    x-ms-documentdb-isquery: True
-    Content-Type: application/query+json
-
-    {
-        "query": "SELECT * FROM Families f WHERE f.id = @familyId",
-        "parameters": [
-            {"name": "@familyId", "value": "AndersenFamily"}
-        ]
-    }
-```
-
-**Results**
-
-```
-    HTTP/1.1 200 Ok
-    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
-    x-ms-item-count: 1
-    x-ms-request-charge: 0.32
-
-    <indented for readability, results highlighted>
-
-    {  
-       "_rid":"u1NXANcKogE=",
-       "Documents":[  
-          {  
-             "id":"AndersenFamily",
-             "lastName":"Andersen",
-             "parents":[  
-                {  
-                   "firstName":"Thomas"
-                },
-                {  
-                   "firstName":"Mary Kay"
-                }
-             ],
-             "children":[  
-                {  
-                   "firstName":"Henriette Thaulow",
-                   "gender":"female",
-                   "grade":5,
-                   "pets":[  
-                      {  
-                         "givenName":"Fluffy"
-                      }
-                   ]
-                }
-             ],
-             "address":{  
-                "state":"WA",
-                "county":"King",
-                "city":"seattle"
-             },
-             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
-             "_ts":1407691744,
-             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
-             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-             "_attachments":"_attachments\/"
-          }
-       ],
-       "count":1
-    }
-```
-
-The second example shows a more complex query that returns multiple results from the join.
-
-**Request**
-```
-    POST https://<REST URI>/docs HTTP/1.1
-    ...
-    x-ms-documentdb-isquery: True
-    Content-Type: application/query+json
-
-    {
-        "query": "SELECT
-                     f.id AS familyName,
-                     c.givenName AS childGivenName,
-                     c.firstName AS childFirstName,
-                     p.givenName AS petName
-                  FROM Families f
-                  JOIN c IN f.children
-                  JOIN p in c.pets",
-        "parameters": [] 
-    }
-```
-
-**Results**
-
-```
-    HTTP/1.1 200 Ok
-    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
-    x-ms-item-count: 1
-    x-ms-request-charge: 7.84
-
-    <indented for readability, results highlighted>
-
-    {  
-       "_rid":"u1NXANcKogE=",
-       "Documents":[  
-          {  
-             "familyName":"AndersenFamily",
-             "childFirstName":"Henriette Thaulow",
-             "petName":"Fluffy"
-          },
-          {  
-             "familyName":"WakefieldFamily",
-             "childGivenName":"Jesse",
-             "petName":"Goofy"
-          },
-          {  
-             "familyName":"WakefieldFamily",
-             "childGivenName":"Jesse",
-             "petName":"Shadow"
-          }
-       ],
-       "count":3
-    }
-```
-
-If a query's results cannot fit within a single page of results, then the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in subsequent results. The number of results per page can also be controlled through the `x-ms-max-item-count` number header. If the specified query has an aggregation function like `COUNT`, then the query page may return a partially aggregated value over the page of results. The clients must perform a second-level aggregation over these results to produce the final results, for example, sum over the counts returned in the individual pages to return the total count.
-
-To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for containers the index is always current with the item contents and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
-
-If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
-
-You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
-
-### <a id="DotNetSdk"></a>C# (.NET) SDK
-
-The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the filter query introduced earlier in this item.
-```csharp
-    foreach (var family in client.CreateDocumentQuery(containerLink,
-        "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
-
-    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
-    query.Parameters = new SqlParameterCollection();
-    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
-
-    foreach (var family in client.CreateDocumentQuery(containerLink, query))
-    {
-        Console.WriteLine("\tRead {0} from parameterized SQL", family);
-    }
-
-    foreach (var family in (
-        from f in client.CreateDocumentQuery(containerLink)
-        where f.Id == "AndersenFamily"
-        select f))
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
-
-    foreach (var family in client.CreateDocumentQuery(containerLink)
-        .Where(f => f.Id == "AndersenFamily")
-        .Select(f => f))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", family);
-    }
-```
-
-This sample compares two properties for equality within each item and uses anonymous projections.
-
-```csharp
-    foreach (var family in client.CreateDocumentQuery(containerLink,
-        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family
-        FROM Families f
-        WHERE f.address.city = f.address.state"))
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
-
-    foreach (var family in (
-        from f in client.CreateDocumentQuery<Family>(containerLink)
-        where f.address.city == f.address.state
-        select new { Name = f.Id, City = f.address.city }))
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
-
-    foreach (var family in
-        client.CreateDocumentQuery<Family>(containerLink)
-        .Where(f => f.address.city == f.address.state)
-        .Select(f => new { Name = f.Id, City = f.address.city }))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", family);
-    }
-```
-
-The next sample shows joins, expressed through LINQ SelectMany.
-
-```csharp
-    foreach (var pet in client.CreateDocumentQuery(containerLink,
-          @"SELECT p
-            FROM Families f
-                 JOIN c IN f.children
-                 JOIN p in c.pets
-            WHERE p.givenName = ""Shadow"""))
-    {
-        Console.WriteLine("\tRead {0} from SQL", pet);
-    }
-
-    // Equivalent in Lambda expressions
-    foreach (var pet in
-        client.CreateDocumentQuery<Family>(containerLink)
-        .SelectMany(f => f.children)
-        .SelectMany(c => c.pets)
-        .Where(p => p.givenName == "Shadow"))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
-    }
-```
-
-The .NET client automatically iterates through all the pages of query results in the foreach blocks as shown above. The query options introduced in the REST API section are also available in the .NET SDK using the `FeedOptions` and `FeedResponse` classes in the CreateDocumentQuery method. The number of pages can be controlled using the `MaxItemCount` setting.
-
-You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition (though Azure Cosmos DB can automatically extract this from the query text), and `EnableCrossPartitionQuery` to run queries that may need to be run against multiple partitions.
-
-Refer to [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) for more samples containing queries.
-
-### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
-
-Cosmos DB provides a programming model for executing JavaScript based application logic directly on the containers using stored procedures and triggers. The JavaScript logic registered at a container level can then issue database operations on the operations on the items of the given container. These operations are wrapped in ambient ACID transactions.
-
-The following example shows how to use the queryDocuments in the JavaScript server API to make queries from inside stored procedures and triggers.
-
-```javascript
-    function businessLogic(name, author) {
-        var context = getContext();
-        var containerManager = context.getCollection();
-        var containerLink = containerManager.getSelfLink()
-
-        // create a new item.
-        containerManager.createDocument(containerLink,
-            { name: name, author: author },
-            function (err, documentCreated) {
-                if (err) throw new Error(err.message);
-
-                // filter items by author
-                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-                containerManager.queryDocuments(containerLink,
-                    filterQuery,
-                    function (err, matchingDocuments) {
-                        if (err) throw new Error(err.message);
-    context.getResponse().setBody(matchingDocuments.length);
-
-                        // Replace the author name for all items that satisfied the query.
-                        for (var i = 0; i < matchingDocuments.length; i++) {
-                            matchingDocuments[i].author = "George R. R. Martin";
-                            // we don't need to execute a callback because they are in parallel
-                            containerManager.replaceDocument(matchingDocuments[i]._self,
-                                matchingDocuments[i]);
-                        }
-                    })
-            });
-    }
-```
-
-## <a id="References"></a>References
-
-1. [Introduction to Azure Cosmos DB][introduction]
-2. [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-4. [Azure Cosmos DB Consistency Levels][consistency-levels]
-5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [https://json.org/](https://json.org/)
-7. Javascript Specification [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
-9. Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
-10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+- [Introduction to Azure Cosmos DB][introduction]
+- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB Consistency Levels][consistency-levels]
+- ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+- JSON [https://json.org/](https://json.org/)
+- Javascript Specification [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+- LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+- Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
+- Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+- Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+- Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
+- G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
