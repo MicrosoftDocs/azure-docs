@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/27/2019
+ms.date: 03/29/2019
 ms.topic: tutorial
 ms.author: jgao
 
@@ -52,12 +52,6 @@ To complete this article, you need:
 * Azure Deployment Manager is in private preview. To sign up using Azure Deployment Manager, fill the [sign-up sheet](https://aka.ms/admsignup). 
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
-
-    ```powershell
-    Install-Module -Name Az.DeploymentManager -AllowPrerelease
-    ```
-
-    If you have the Azure PowerShell Az module installed, you need two additional switches:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager -AllowPrerelease -AllowClobber -Force
