@@ -4,7 +4,7 @@ description: Learn how to create a Service Fabric cluster using certificate comm
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

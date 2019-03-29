@@ -4,7 +4,7 @@ description: Use Windows Azure Diagnostics to collect performance counters for y
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
