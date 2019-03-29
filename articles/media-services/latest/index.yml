@@ -42,15 +42,15 @@ sections:
     items: 
     - image: 
         src: media/index/AMSIcons-encoding.svg
-      text: Encode and stream video files - .NET
+      text: Encode and stream with .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
-   - image:
+    - image:
         src: media/index/AMSIcons-encoding.svg
-      text: Encode and stream video files - CLI
+      text: Encode and stream with CLI
       href: /azure/media-services/latest/stream-files-cli-quickstart
-   - image:
+    - image:
         src: media/index/AMSIcons-encoding.svg
-      text: Encode and stream video files - Node.js
+      text: Encode and stream with Node.js
       href: /azure/media-services/latest/stream-files-nodejs-quickstart    
 - title: Step-by-Step Tutorials
   items:
