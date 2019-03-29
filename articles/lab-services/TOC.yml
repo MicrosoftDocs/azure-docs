@@ -77,9 +77,9 @@
     - name: Create an environment with multiple VMs inside a template VM
       href: classroom-labs/how-to-enable-multi-vm-environment.md
     - name: Connect your labs to a peer virtual network
-      href: how-to-connect-peer-virtual-network.md
+      href: classroom-labs/how-to-connect-peer-virtual-network.md
     - name: Attach and use a shared image gallery
-      href: how-to-use-shared-image-gallery.md            
+      href: classroom-labs/how-to-use-shared-image-gallery.md            
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines

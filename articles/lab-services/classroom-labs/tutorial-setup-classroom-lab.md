@@ -105,14 +105,19 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
 
 ## Send an email with the registration link
+
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
-3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list. You can see the status of the **invitation state** in this list.  In the following image, the invitation state for all students is set to **Invitation not sent**. 
+
+    ![Select students](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Select the **email icon (envelope)** in one of the rows (or) select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list to see the email icon. 
 
     ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
 4. On the **Send registration link by email** page, follow these steps: 
     1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
-    2. On the **Send registration link by email** page, select **Send**. 
+    2. On the **Send registration link by email** page, select **Send**. You see the status of invitation changing to **Sending invitation** and then to **Invitation sent**. 
+        
+        ![Invitations sent](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

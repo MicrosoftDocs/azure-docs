@@ -21,14 +21,14 @@ ms.author: spelluru
 This article provides information about peering your labs network with another network. 
 
 ## Overview
-Virtual network peering enables you to seamlessly connect Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Virtual network peering enables you to seamlessly connect Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
 You may need to connect your lab's network with a peer virtual network in some scenarios including the following ones:
 
 - The virtual machines in the lab have software that connects to on-premises license servers to acquire license
 - The virtual machines in the lab need access to data sets (or any other files) on university's network shares. 
 
-Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview])(../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab account must all be in the same region.
+Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview])(../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab account must all be in the same region.
 
 
 ## Configure at the time lab account creation
@@ -37,7 +37,7 @@ During the new lab account creation, you can pick an existing virtual network th
 ![Select VNet to peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> For detailed step-by-step instructions for creating a lab account, see [Set up a lab account](./classroom-labs/tutorial-setup-lab-account.md)
+> For detailed step-by-step instructions for creating a lab account, see [Set up a lab account](tutorial-setup-lab-account.md)
 
 
 ## Configure after the lab is created
