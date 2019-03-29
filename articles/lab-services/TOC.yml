@@ -80,7 +80,7 @@
       href: classroom-labs/how-to-connect-peer-virtual-network.md
     - name: Attach and use a shared image gallery
       href: classroom-labs/how-to-use-shared-image-gallery.md            
-    - name: Enable Remote Desktop Connection for Linux
+    - name: Enable remote desktop connection for Linux
       href: classroom-labs/how-to-enable-remote-desktop-linux.md
   - name: DevTest Labs
     items:
