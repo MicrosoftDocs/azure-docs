@@ -70,6 +70,53 @@ In order to geo-bias your results to the relevant area for your user, you should
 
       * idxSet=PAD,Addr (search addresses only, PAD= Point Address, Addr= Address Range)
 
+### Reverse geocode and geography entity type filter
+
+When performing a reverse geocode search with [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service has capability to return polygons for the administrative areas.  Providing the parameter `entityType` in the request, you can narrow the search for specified geography entity types. The resulting response will contain the geography ID as well as the entity type matched. If you provide more than one entity, endpoint will return the **smallest entity available**. Returned Geometry ID can be used to get the geometry of that geography via [Get Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
+
+**Sample request:**
+
+```
+https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
+```
+
+
+```JSON
+{
+    "summary": {
+        "queryTime": 8,
+        "numResults": 1
+    },
+    "addresses": [
+        {
+            "address": {
+                "routeNumbers": [],
+                "countryCode": "US",
+                "countrySubdivision": "WA",
+                "countrySecondarySubdivision": "King",
+                "countryTertiarySubdivision": "Seattle East",
+                "municipality": "Redmond",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Redmond, WA",
+                "boundingBox": {
+                    "northEast": "47.717105,-122.034537",
+                    "southWest": "47.627016,-122.164998",
+                    "entity": "position"
+                },
+                "countrySubdivisionName": "Washington"
+            },
+            "position": "47.639454,-122.130455",
+            "dataSources": {
+                "geometry": {
+                    "id": "00005557-4100-3c00-0000-0000596ae571"
+                }
+            },
+            "entityType": "Municipality"
+        }
+    ]
+}
+```
 
 ### Search results language
 
@@ -415,7 +462,10 @@ Supported types of result:
 
 ### Geometry Data
 
-Search Address or Search Fuzzy APIs response can include the geometry ID that is returned in the dataSources object under "geometry" and "id".  For example, Get Polygon service allows you to request the geometry data such as a city or airport outline for a set of entities, previously retrieved from an Online Search request in GeoJSON format. You can also use boundary data with Geofencing service. 
+When the response type is **Geometry**, it can include the geometry ID that is returned in the **dataSources** object under "geometry" and "id". For example, [Get Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) allows you to request the geometry data in GeoJSON format, such as a city or airport outline for a set of entities. You can use this boundary data for [Geofencing](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) or [Search POIs inside the geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+
+
+[Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) or [Search Fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) API responses can include the geometry ID that is returned in the dataSources object under "geometry" and "id".
 
 
 ```JSON 
@@ -423,7 +473,7 @@ Search Address or Search Fuzzy APIs response can include the geometry ID that is
 
         "geometry": { 
 
-            "id": "00005557-4100-3c00-0000-000059690938" // The geometry ID is returned in the dataSources object under "geometry" and "id" in either a Search Address or Search Fuzzy call. 
+            "id": "00005557-4100-3c00-0000-000059690938" // The geometry ID is returned in the dataSources object under "geometry" and "id".
 
         }
 
