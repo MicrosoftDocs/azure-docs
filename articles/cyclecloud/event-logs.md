@@ -26,4 +26,5 @@ Use the drop down menus to select the event log parameters. The page will automa
 The "refresh" button will update the event data on the page.
 
 [//]: # (## Advanced Logging -- Kimli re-write this when the content is up plz)
+
 [//]: # (The [CycleCloud Development Guide](https://docs.cyclecomputing.com/dev-guide-launch) contains further information on setting up Event Logging beyond the basic offering. Please visit the [Event Log](https://docs.cyclecomputing.com/developer-guide-v6.5.6/plugins_overview/plugins_events) section of the Development Guide for more.)
