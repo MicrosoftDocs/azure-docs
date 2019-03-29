@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ---
 # An overview of Azure SQL Database security capabilities
 
