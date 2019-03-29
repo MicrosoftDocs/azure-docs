@@ -29,7 +29,6 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 > [!NOTE]
 > [The newer alerts](../../azure-monitor/platform/alerts-overview.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](../../azure-monitor/platform/alerts-activity-log.md).
 
-
 ## Categories in the Activity Log
 The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](../../azure-monitor/platform/activity-log-schema.md). These include:
 * **Administrative** - This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -54,8 +53,8 @@ Here are some of the things you can do with the Activity Log:
 
 * Query and view it in the **Azure portal**.
 * [Create an alert on an Activity Log event.](../../azure-monitor/platform/activity-log-alerts.md)
-* [Stream it to an **Event Hub**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Stream it to an **Event Hub**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as Power BI.
+* Analyze it in Power BI using the [**Power BI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
@@ -100,9 +99,9 @@ You can use a storage account or event hub namespace that is not in the same sub
 >  You cannot currently archive data to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
@@ -116,7 +115,7 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 2. Click the **Export to Event Hub** button at the top of the blade.
 
     ![Export button in portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. In the blade that appears, you can select:  
+3. In the blade that appears, you can select:
    * regions for which you would like to export events
    * the Storage Account to which you would like to save events
    * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
