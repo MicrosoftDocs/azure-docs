@@ -25,7 +25,7 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Genereal purpose storage account utilization from other storage services affects your Azure file shares in your storage account. For example, if you reach the maximum storage account capacity with Azure Blob storage, you will not be able to create new files on your Azure file share, even if your Azure file share is below the maximum share size.
+> General purpose storage account utilization from other storage services affects your Azure file shares in your storage account. For example, if you reach the maximum storage account capacity with Azure Blob storage, you will not be able to create new files on your Azure file share, even if your Azure file share is below the maximum share size.
 
 ## Azure Files scale targets
 
@@ -37,14 +37,7 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 
 ### Premium filestorage account limits
 
-Premium files use a unique storage account called **filestorage (preview)**, this account has slightly different scale targets than the storage account used by standard files.
-
-|Area  |Target  |
-|---------|---------|
-|Max size     |5 TiB (public preview) , 100 TiB (private preview)     |
-|Shares   |Unlimited  |
-|IOPS     |100,000 (private preview)    |
-|Bandwidth|5 GB/s     |
+Premium files use a unique storage account called **filestorage (preview)**, this account has slightly different scale targets than the storage account used by standard files. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
 
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.

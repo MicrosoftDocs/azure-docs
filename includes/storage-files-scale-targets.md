@@ -11,9 +11,9 @@ ms.author: tamram
 | Maximum size of a file share | 5 TiB | 5 TiB (public preview), 100 TiB (private preview) |
 | Maximum size of a file in a file share | 1 TiB | 1 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum IOPS per share | 1,000 IOPS | 100,000 IOPS |
+| Maximum IOPS per share | 1,000 IOPS | 5,120 base IOPS with 15,360 burst limit (public preview), 100,000 IOPS (private preview)|
 | Maximum number of stored access policies per file share | 5 | 5 |
-| Target throughput for a single file share | Up to 60 MiB/sec | Up to 5,000 MiB/sec |
+| Target throughput for a single file share | Up to 60 MiB/sec | up to 612 MiB/s (public preview), Up to 5,000 MiB/sec (private preview)|
 | Maximum open handles per file | 2,000 open handles | 2,000 open handles |
 | Maximum number of share snapshots | 200 share snapshots | 200 share snapshots |
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |

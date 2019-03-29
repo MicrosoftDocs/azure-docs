@@ -74,7 +74,7 @@ Azure Files offers two performance tiers: standard and premium.
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 * **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md)
 
-Premium file shares are still in preview and are only available in a subset of regions with Azure Backup support being available in select regions:
+Premium file shares are still in preview, only available with LRS, and are only available in a subset of regions with Azure Backup support being available in select regions:
 
 |Available region  |Azure Backup support  |
 |---------|---------|
@@ -126,7 +126,10 @@ Currently, file share sizes up to 5 TiB are in public preview, while sizes up to
 
 Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
 
-Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs, the size of the bucket = Baseline_IOPS * 2 * 3600.
+Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
+
+> [!TIP]
+> Size of the burst limit bucket = Baseline_IOPS * 2 * 3600.
 
 Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 tiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
 
