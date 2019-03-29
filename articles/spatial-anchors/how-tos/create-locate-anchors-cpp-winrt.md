@@ -1,5 +1,5 @@
 ---
-title: Create and locate anchors using Azure Spatial Anchors in C++/WinRT | Microsoft Docs
+title: How to create and locate anchors using Azure Spatial Anchors in C++/WinRT | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/WinRT.
 author: ramonarguelles
 manager: vicenterivera
@@ -7,12 +7,10 @@ services: azure-spatial-anchors
 
 ms.author: ramonarguelles
 ms.date: 02/24/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/WinRT.
 ---
-# Create and locate anchors using Azure Spatial Anchors in C++/WinRT
+# How to create and locate anchors using Azure Spatial Anchors in C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -22,7 +20,20 @@ ms.service: azure-spatial-anchors
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors allow you to share anchors in the world between different devices. It supports several development environments. In this article, we'll dive into how to do it in C++/WinRT.
+Azure Spatial Anchors allow you to share anchors in the world between different devices. It supports several different development environments. In this article, we'll dive into how to use the Azure Spatial Anchors SDK, in C++/WinRT, to:
+
+- Correctly set up and manage an Azure Spatial Anchors session.
+- Create and set properties on local anchors.
+- Upload them to the cloud.
+- Locate and delete cloud spatial anchors.
+
+## Prerequisites
+
+To complete this guide, make sure you have:
+
+- Read through the [Azure Spatial Anchors overview](../overview.md).
+- Completed one of the [5-minute Quickstarts](../index.yml).
+- Basic knowledge on C++ and the <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
@@ -75,14 +86,14 @@ Learn more about the [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/
     });
 ```
 
-[!INCLUDE [AAD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
     configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-[!INCLUDE [AAD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {

@@ -36,15 +36,14 @@ To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems qu
 
 ### Set up alerts for the _connected devices_ count metric
 
-To get alerts when devices disconnect, configure alerts on the **connected devices** metric.
+To get alerts when devices disconnect, configure alerts on the **connected devices (preview)** metric.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to your IoT hub.
-1. Select **Alerts (classic)**.
-1. Select **Add metric alert (classic)**.
-1. Fill in the form and select **OK**.
-
-   ![Recommended metric alert][3]
+1. Select **Alerts**.
+1. Select **New alert rule**.
+1. Select **Add condition**, then select "Connected devices (preview)".
+1. Finish setting up your desired thresholds and alerting options by following prompts.
 
 To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
