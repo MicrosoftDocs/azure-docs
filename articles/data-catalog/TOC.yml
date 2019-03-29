@@ -1,15 +1,9 @@
 - name: Data Catalog Documentation
   href: index.md
-<<<<<<< HEAD
-- name: Switch to version 1 documentation
-  href: v1/data-catalog-what-is-data-catalog.md
-=======
->>>>>>> b127bf6f4b72d1c3703ed07d2828a4baab6880b8
 - name: Overview
   items:
   - name: What is Data Catalog?
     href: data-catalog-what-is-data-catalog.md
-<<<<<<< HEAD
 - name: Quickstart
   items:
   - name: Get started with Azure Data Catalog
@@ -18,19 +12,10 @@
   items:
 - name: Concepts
   items:
-=======
->>>>>>> b127bf6f4b72d1c3703ed07d2828a4baab6880b8
   - name: Common scenarios
     href: data-catalog-common-scenarios.md
   - name: Supported data sources
     href: data-catalog-dsr.md
-<<<<<<< HEAD
-=======
-- name: Get Started
-  items:
-  - name: Get started with Azure Data Catalog
-    href: data-catalog-get-started.md
->>>>>>> b127bf6f4b72d1c3703ed07d2828a4baab6880b8
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
   - name: Prerequisites
@@ -92,10 +77,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
-<<<<<<< HEAD
     href: http://stackoverflow.com/questions/tagged/azure-data-catalog
-=======
-    href: https://stackoverflow.com/questions/tagged/azure-data-catalog
->>>>>>> b127bf6f4b72d1c3703ed07d2828a4baab6880b8
   - name: Terminology
     href: data-catalog-terminology.md

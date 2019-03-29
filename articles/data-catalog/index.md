@@ -73,5 +73,3 @@ Learn how to use Data Catalog to help your organization and team discover, under
         </div>
     </li>
 </ul>
-
-
