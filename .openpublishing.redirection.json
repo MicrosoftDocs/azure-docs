@@ -36552,7 +36552,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Tags.md",
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/tags.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/configure#tags",
       "redirect_document_id": true
     },
@@ -36562,18 +36562,28 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Credentials.md",
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/credentials.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/configure#credentials",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Connectors.md",
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/connectors.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/configure#connectors",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/human-in-the-loop#review-tool-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/SubTeams.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/configure#manage-team-and-subteams",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/workflow-api.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-api#workflows",
       "redirect_document_id": true
     },
     {
