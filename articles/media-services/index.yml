@@ -25,7 +25,7 @@ sections:
       columns: 2
       items:
         - href: /azure/media-services/latest/
-          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          html: <p>Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.</p>
           image:
             src: media/index/AMSIcons-media_servicesV3.svg
           title: Azure Media Services v3 
@@ -44,3 +44,8 @@ sections:
           image:
             src: /azure/cdn/media/index/cdn.svg
           title: CDN
+        - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+          html: <p>Use Azure Media Player to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
+          image:
+            src: 
+          title: Azure Media Player
