@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -53,14 +53,14 @@ Deployment manifests follow this structure:
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -70,9 +70,9 @@ Deployment manifests follow this structure:
 
 ## Configure modules
 
-Define how the IoT Edge runtime installs the modules in your deployment. The IoT Edge agent is the runtime component that manages installation, updates, and status reporting for an IoT Edge device. Therefore, the $edgeAgent module twin requires the configuration and management information for all modules. This information includes the configuration parameters for the Edge agent itself. 
+Define how the IoT Edge runtime installs the modules in your deployment. The IoT Edge agent is the runtime component that manages installation, updates, and status reporting for an IoT Edge device. Therefore, the $edgeAgent module twin requires the configuration and management information for all modules. This information includes the configuration parameters for the IoT Edge agent itself. 
 
-For a complete list of properties that can or must be included, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
+For a complete list of properties that can or must be included, see [Properties of the IoT Edge agent and IoT Edge hub](module-edgeagent-edgehub.md).
 
 The $edgeAgent properties follow this structure:
 
@@ -96,10 +96,10 @@ The $edgeAgent properties follow this structure:
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -117,8 +117,8 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -139,9 +139,9 @@ The source property can be any of the following values:
 | `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or leaf device |
 | `/messages/*` | Any device-to-cloud message sent by a module or leaf device through some or no output |
 | `/messages/modules/*` | Any device-to-cloud message sent by a module through some or no output |
-| `/messages/modules/{moduleId}/*` | Any device-to-cloud message sent by a specific module through some or no output |
-| `/messages/modules/{moduleId}/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
-| `/messages/modules/{moduleId}/outputs/{output}` | Any device-to-cloud message sent by a specific module through a specific output |
+| `/messages/modules/<moduleId>/*` | Any device-to-cloud message sent by a specific module through some or no output |
+| `/messages/modules/<moduleId>/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
+| `/messages/modules/<moduleId>/outputs/<output>` | Any device-to-cloud message sent by a specific module through a specific output |
 
 ### Condition
 The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-routing-query-syntax.md) to filter for certain messages or message types that satisfy the condition. IoT Edge routes don't support filtering messages based on twin tags or properties. 
@@ -170,11 +170,11 @@ The sink property can be any of the following values:
 | Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Send the message to IoT Hub |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Send the message to a specific input of a specific module |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Send the message to a specific input of a specific module |
 
-IoT Edge provides at-least-once guarantees. The Edge hub stores messages locally in case a route can't deliver the message to its sink. For example, if the Edge hub can't connect to IoT Hub, or the target module isn't connected.
+IoT Edge provides at-least-once guarantees. The IoT Edge hub stores messages locally in case a route can't deliver the message to its sink. For example, if the IoT Edge hub can't connect to IoT Hub, or the target module isn't connected.
 
-Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [Edge hub desired properties](module-edgeagent-edgehub.md).
+IoT Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [IoT Edge hub desired properties](module-edgeagent-edgehub.md).
 
 ## Define or update desired properties 
 
@@ -202,7 +202,7 @@ The following example shows what a valid deployment manifest document may look l
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -268,6 +268,6 @@ The following example shows what a valid deployment manifest document may look l
 
 ## Next steps
 
-* For a complete list of properties that can or must be included in $edgeAgent and $edgeHub, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
+* For a complete list of properties that can or must be included in $edgeAgent and $edgeHub, see [Properties of the IoT Edge agent and IoT Edge hub](module-edgeagent-edgehub.md).
 
 * Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules](module-development.md).
