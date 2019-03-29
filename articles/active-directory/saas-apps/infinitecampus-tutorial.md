@@ -109,37 +109,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file** exported from Infinite Campus, complete steps 4.a through 4.d, and then skip to step 11.c. If you don't have a Service Provider Metadata file, skip to step 5.
+4. On the **Basic SAML Configuration** section, perform the following steps (note that the domain will vary with Hosting Model, but the `FULLY-QUALIFIED-DOMAIN` value must match your Infinite Campus installation):
 
-	a. Click **Upload metadata file**.
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<FULLY-QUALIFIED-DOMAIN>/campus/SSO/<DISTRICTNAME>/SIS`
 
-        ![image](common/b9_saml.png)
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<FULLY-QUALIFIED-DOMAIN>/campus/<DISTRICTNAME>`
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![image](common/b9(1)_saml.png)
-
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
-
-	![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
-
-	d. In the **Sign-on URL** textbox, type a URL using the following pattern (the domain will vary with Hosting Model): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
-
-5. If you do not have **Service Provider metadata file**, perform the following steps (note that the domain will vary with Hosting Model):
-
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
-
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<FULLY-QUALIFIED-DOMAIN>/campus/SSO/<DISTRICTNAME>`
 
 	![Infinite Campus Domain and URLs single sign-on information](./media/infinitecampus-tutorial/tutorial_infinitecampus_url1.png)
 
-6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy **icon** to copy **App Federation Metadata Url** and paste it into notepad.
+5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy **icon** to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. On the **Set up Infinite Campus** section, use the following values to validate when uploading or utilizing the Azure metadata file/URL.
+6. On the **Set up Infinite Campus** section, note the following values to validate within Infinite Campus when uploading or utilizing the Azure metadata file/URL.
 
 	a. Login URL
 
@@ -149,17 +133,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Infinite Campus Configuration](common/configuresection.png)
 
-8. In a different web browser window, login to Infinite Campus as a Security Administrator.
+7. In a different web browser window, login to Infinite Campus as a Security Administrator.
 
-9. On the left side of menu, click **System Administration**.
+8. On the left side of menu, click **System Administration**.
 
 	![The Admin](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-10. Navigate to **User Security** > **SAML Management** > **SSO Service Provider Configuration**.
+9. Navigate to **User Security** > **SAML Management** > **SSO Service Provider Configuration**.
 
 	![The saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
-11. On the **SSO Service Provider Configuration** page, perform the following steps:
+10. On the **SSO Service Provider Configuration** page, perform the following steps:
 
 	![The sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
@@ -167,13 +151,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Edit the **Optional Attribute Name** to contain **name**
 	
-	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL**, paste the **App Federation Metadata Url** (from Step 6 above) in the box, and then click **Sync**.
+	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL**, paste the **App Federation Metadata Url** (from Step 5 above) in the box, and then click **Sync**.
 
-	d. Click on **Service Provider Metadata** link to save the **Service Provider metadata file** on your computer, and upload it in **Basic SAML Configuration** section to auto populate the **Identifier** and **Reply URL** values in the Azure portal (refer to step 4 for upload and automatic population of values, or step 5 for manual entry).
+	d. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page; these can be verified to match the values seen in Step 6 above.
 
-	e. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page.
-
-	f. Click **Save**.
+	e. Click **Save**.
 
 ### Creating an Azure AD test user
 
@@ -205,6 +187,9 @@ The objective of this section is to create a _single_ test user in the Azure por
 Infinite Campus has a demographics centered architecture. Please contact [Infinite Campus support team](mailto:sales@infinitecampus.com) to add the users in the Infinite Campus platform.
 
 ### Assigning the Azure AD test user
+
+> [!NOTE]
+> If you want all of your Azure users to have single sign-on access to Infinite Campus and rely on Infinite Campus' internal permissions system to control access, you can set the **User Assignment Required** property of the application to **No** and skip the following steps.
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Infinite Campus.
 
