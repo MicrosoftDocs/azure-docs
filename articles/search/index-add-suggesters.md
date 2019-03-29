@@ -23,20 +23,20 @@ translation.priority.mt:
 ---
 # Add suggesters to an index for typeahead in Azure Search
 
-A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. There are two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
+A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. Within an index, the same suggester supports either or both of these two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
 
-In this Xbox search page, the autocomplete items take you to a new search results page for that query, whereas the suggestions are actual results that take you to a page for that particular game. You can limit autocomplete to one item in a search bar or provide a list like the one shown here. For suggestions, you can surface any part of a document that best describes the result.
+The following screenshot illustrates both typeahead features. In this Xbox search page, the autocomplete items take you to a new search results page for that query, whereas the suggestions are actual results that take you to a page for that particular game. You can limit autocomplete to one item in a search bar or provide a list like the one shown here. For suggestions, you can surface any part of a document that best describes the result.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual comparison of autocomplete and suggested queries")
 
 To implement these behaviors in Azure Search, there is an index and query component. 
 
-+ In an index, add a suggester. You can use the portal, REST API, or .NET SDK to create a suggester. 
++ The index component is a suggester. You can use the portal, REST API, or .NET SDK to create a suggester. 
 
-+ On a query, specify either a suggestion or sutocomplete action. 
++ The query component is an action specified on the query request (either a suggestion or autocomplete action). 
 
 > [!Important]
-> Autocomplete is currently in preview, available in preview REST APIs and .NET SDK, and not supported for production applications. 
+> Autocomplete is currently in preview, available in preview REST APIs and .NET SDK. It is not intended for production applications. 
 
 Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
@@ -73,7 +73,7 @@ After a suggester is created, add the [Suggestions API](https://docs.microsoft.c
 
 ### Use the .NET SDK
 
-In C#, define a [Suggester class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Suggester is a collection but it can only take one item.
+In C#, define a [Suggester object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is a collection but it can only take one item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -133,4 +133,4 @@ It uses a sandbox Azure Search service and a pre-loaded index so all you have to
 We recommend the following example to see how the requests are formulated.
 
 > [!div class="nextstepaction"]
-> [Autocompleted query example (preview)](search-autocomplete-tutorial.md) 
+> [Suggestions and autocomplete examples](search-autocomplete-tutorial.md) 
