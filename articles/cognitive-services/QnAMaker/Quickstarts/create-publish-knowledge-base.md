@@ -86,6 +86,10 @@ When you publish a knowledge base, the question and answer contents of your know
     * Do not change the **QnA Auth Key**, which is pre-populated with the correct key.
     * The bot and QnA Maker can share the web app service _plan_ but can't share the web app. This means the **app name** must be different from the app name you used when you create the QnA Maker service. 
 
+    The **Create Bot** is always available after publish. You can create several bots quickly, all pointing to the same KB but select different regions or pricing plans for the individual bots. 
+
+    When you make changes to the knowledge base and republish, you do not need to take further action with the bot. It is already configured to work with the knowledge base. 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
