@@ -131,9 +131,7 @@
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
-    items:
-    - name: Sorting, filtering, paging of entities
-      href: entities-overview.md 
+    href: entities-overview.md 
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
