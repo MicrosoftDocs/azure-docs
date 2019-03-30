@@ -117,7 +117,7 @@ To create a FileStorage (preview) storage account from PowerShell, use the [New-
 New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
 ```
 
-## Create a premium file share
+### Create a premium file share
 
 Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
 
