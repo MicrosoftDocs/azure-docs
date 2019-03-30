@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Event Grid Documentation
+metadata:
+  title: Azure Event Grid Documentation - Tutorials, API Reference
+  description: Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
+  services: event-grid
+  author: czeumault
+  manager: carolz
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: carolz
+abstract:
+  description: Azure Event Grid is a fully-managed intelligent event routing service that allows for uniform event consumption using a publish-subscribe model. Use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion. Learn how to use Azure Event Grid with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create and subscribe to custom events.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-grid/custom-event-quickstart
+    - image: 
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image: 
+        src: /azure/event-grid/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: 'Learn how to route Blob storage events.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image: 
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to develop applications that react to events.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Resize uploaded images</a>
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrating Azure Automation with Event Grid</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Choose a messaging model in Azure to loosely connect your services
+      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+      image: 
+        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-grid">More interactive learning...</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
+    - title: REST APIs
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>  
+    - title: Schemas
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Subscription Schema</a></p><p><a href="/azure/event-grid/event-schema">Event Schema</a></p>

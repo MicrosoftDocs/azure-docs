@@ -1,64 +1,67 @@
 ---
-title: Configure Load Balancer distribution mode | Microsoft Docs
-description: How to configure Azure load balancer distribution mode to support source IP affinity
+title: Configure Azure Load Balancer distribution mode
+titlesuffix: Azure Load Balancer
+description: How to configure the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-
-ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# Configure the distribution mode for load balancer
+# Configure the distribution mode for Azure Load Balancer
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Hash-based distribution mode
 
-The default distribution algorithm is a 5-tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
+The default distribution mode for Azure Load Balancer is a 5-tuple hash. The tuple is composed of the source IP, source port, destination IP, destination port, and protocol type. The hash is used to map traffic to the available servers and the algorithm provides stickiness only within a transport session. Packets that are in the same session are directed to the same datacenter IP (DIP) instance behind the load-balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
 
-![hash based load balancer](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
-
-Figure 1 - 5-tuple distribution
+![5-tuple hash-based distribution mode](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## Source IP affinity mode
 
-We have another distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2-tuple (Source IP, Destination IP) or 3-tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer goes to the same DIP endpoint.
+Load Balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a 2-tuple (source IP and destination IP) or 3-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are initiated from the same client computer go to the same DIP endpoint.
 
-The following diagram illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1) which is then backed up by VM2 and VM3.
+The following figure illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
 
-![session affinity](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![2-tuple session affinity distribution mode](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Figure 2 - 2-tuple distribution
+Source IP affinity mode solves an incompatibility between Azure Load Balancer and Remote Desktop Gateway (RD Gateway). By using this mode, you can build an RD Gateway farm in a single cloud service.
 
-Source IP affinity solves an incompatibility between the Azure Load Balancer and Remote Desktop (RD) Gateway. Now you can build an RD gateway farm in a single cloud service.
+Another use case scenario is media upload. The data upload happens through UDP, but the control plane is achieved through TCP:
 
-Another use case scenario is media upload where the data upload happens through UDP but the control plane is achieved through TCP:
-
-* A client first initiates a TCP session to the load balanced public address, gets directed to a specific DIP, this channel is left active to monitor the connection health
-* A new UDP session from the same client computer is initiated to the same load balanced public endpoint, the expectation here is that this connection is also directed to the same DIP endpoint as the previous TCP connection so that media upload can be executed at high throughput while also maintaining a control channel through TCP.
+* A client initiates a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
+* A new UDP session from the same client computer is initiated to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
 
 > [!NOTE]
-> When a load-balanced set changes (removing or adding a virtual machine), the distribution of client requests is recomputed. You cannot depend on new connections from existing clients ending up at the same server. Additionally, using source IP affinity distribution mode may cause an unequal distribution of traffic. Clients running behind proxies may be seen as one unique client application.
+> When a load-balanced set changes by removing or adding a virtual machine, the distribution of client requests is recomputed. You can't depend on new connections from existing clients to end up at the same server. Additionally, using source IP affinity distribution mode can cause an unequal distribution of traffic. Clients that run behind proxies might be seen as one unique client application.
 
-## Configuring Source IP affinity settings for load balancer
+## Configure source IP affinity settings
 
-For virtual machines, you can use PowerShell to change timeout settings:
+For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
 
-Add an Azure endpoint to a Virtual Machine and set load balancer distribution mode
+```powershell
+$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+Set-AzLoadBalancer -LoadBalancer $lb
+```
+
+For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-LoadBalancerDistribution can be set to sourceIP for 2-tuple (Source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (Source IP, Destination IP, protocol) load balancing, or none if you want the default behavior of 5-tuple load balancing.
+Set the value of the `LoadBalancerDistribution` element for the desired amount of load balancing. Specify sourceIP for 2-tuple (source IP and destination IP) load balancing. Specify sourceIPProtocol for 3-tuple (source IP, destination IP, and protocol type) load balancing. Specify none for the default behavior of 5-tuple load balancing.
 
-Use the following to retrieve an endpoint load balancer distribution mode configuration:
+Retrieve an endpoint load balancer distribution mode configuration by using these settings:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -80,19 +83,20 @@ Use the following to retrieve an endpoint load balancer distribution mode config
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-If the LoadBalancerDistribution element is not present then the Azure Load balancer uses the default 5-tuple algorithm.
+When the `LoadBalancerDistribution` element is not present, Azure Load Balancer uses the default 5-tuple algorithm.
 
-### Set the Distribution mode on a load balanced endpoint set
+### Configure distribution mode on load-balanced endpoint set
 
-If endpoints are part of a load balanced endpoint set, the distribution mode must be set on the load balanced endpoint set:
+When endpoints are part of a load-balanced endpoint set, the distribution mode must be configured on the load-balanced endpoint set:
 
-```powershell
+```azurepowershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### Cloud Service configuration to change distribution mode
+### Configure distribution mode for Cloud Services endpoints
 
-You can leverage the Azure SDK for .NET 2.5 (to be released in November) to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
+Use the Azure SDK for .NET 2.5 to update your cloud service. The endpoint settings for Cloud Services are made in the .csdef file. To update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
+
 Here is an example of .csdef changes for endpoint settings:
 
 ```xml
@@ -115,16 +119,18 @@ Here is an example of .csdef changes for endpoint settings:
 
 ## API example
 
-You can configure the load balancer distribution using the service management API. Make sure to add the `x-ms-version` header is set to version `2014-09-01` or higher.
+The following example shows how to reconfigure the load balancer distribution mode for a specified load-balanced set in a deployment. 
 
-### Update the configuration of the specified load-balanced set in a deployment
+### Change distribution mode for deployed load-balanced set
 
-#### Request example
+Use the Azure classic deployment model to change an existing deployment configuration. Add the `x-ms-version` header and set the value to version 2014-09-01 or later.
+
+#### Request
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
 
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
         <LocalPort> local-port-number </LocalPort>
@@ -142,7 +148,7 @@ You can configure the load balancer distribution using the service management AP
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity. i.e. 5-tuple)
+As previously described, set the `LoadBalancerDistribution` element to sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity, or none for no affinity (5-tuple affinity).
 
 #### Response
 
@@ -154,10 +160,8 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## Next Steps
+## Next steps
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
-
-[Get started Configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+* [Azure Internal Load Balancer overview](load-balancer-internal-overview.md)
+* [Get started with configuring an internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+* [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Science Virtual Machine Documentation
+metadata:
+  title: Data Science Virtual Machine Documentation - Azure
+  description: Learn how to use the Data Science Virtual Machine, an experimental environment in the Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
+  services: machine-learning
+  author: gopitk
+  manager: cgronlun
+
+  ms.service: machine-learning
+  ms.subservice: data-science-vm
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: gokuma
+abstract:
+  description: The Data Science and Deep Learning Virtual Machines are customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics. 
+sections:
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to set up a Windows or Linux based Data Science VM:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="provision-vm.md">Windows</a>
+    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to provision and use Data Science VMs:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="provision-vm">Provision a Windows DSVM</a>
+    - html: <a href="vm-do-ten-things">Use a Windows DSVM</a>
+    - html: <a href="linux-dsvm-intro">Provision a Linux CentOS DSVM</a>
+    - html: <a href="dsvm-ubuntu-intro">Provision a Linux Ubuntu DSVM</a>
+    - html: <a href="linux-dsvm-walkthrough">Use a Linux DSVM</a>
+
+- title: More Azure Machine Learning Technologies
+  items:
+  - type: paragraph
+    text: 'Other technologies available in Azure Machine Learning:'
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning service (preview)
+      href: /azure/machine-learning/service/
+      image: 
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/service/
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image: 
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/

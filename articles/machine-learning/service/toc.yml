@@ -1,0 +1,202 @@
+- name: Azure Machine Learning service Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Machine Learning service?
+    displayName: AML services overview
+    href: overview-what-is-azure-ml.md
+  - name: What happened to Workbench
+    displayName: desktop ui Workbench upgrade update transfer
+    href: overview-what-happened-to-workbench.md
+- name: Setup
+  items:
+  - name: Create a workspace
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
+- name: Quickstarts
+  items:
+  - name: Experiment with a cloud notebook
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experiment with a local notebook
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
+- name: Tutorials
+  items:
+  - name: Image classification (MNIST data)
+    items:
+    - name: 1. Train a model
+      displayName: build modeling
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Deploy a model
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regression (NYC Taxi data)
+    items:
+    - name: 1. Prepare data for modeling
+      displayName: data prep
+      href: tutorial-data-prep.md
+    - name: 2. Auto-train an ML model
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
+- name: Samples
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
+- name: Concepts
+  items:
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
+  - name: Automated machine learning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
+  - name: Model management
+    displayName: deploy, deployment
+    href: concept-model-management-and-deployment.md
+  - name: Accelerate with FPGAs
+    href: concept-accelerate-with-fpgas.md
+  - name: Machine learning pipelines
+    href: concept-ml-pipelines.md
+  - name: Security
+    items:
+    - name: Enterprise security overview
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: Use virtual networks
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Secure web services with SSL
+      href: how-to-secure-web-service.md
+- name: How-to guides
+  items:
+  - name: Manage workspaces
+    items:
+    - name: Use portal for workspaces
+      href: how-to-manage-workspace.md
+    - name: Use a Resource Manager template
+      href: how-to-create-workspace-template.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
+  - name: Set up development environment 
+    items:
+    - name: Configure dev environments
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
+      href: how-to-configure-environment.md
+    - name: Visual Studio Code extension
+      displayName: Visual Studio Code, vscode, tools, ai, vs
+      items:
+      - name: Get started
+        href: how-to-vscode-tools.md
+      - name: Train and deploy
+        href: how-to-vscode-train-deploy.md
+  - name: Work with data
+    displayName: data prep, etl, elt, data preparation
+    items:
+    - name: Explore and prep data
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: Load data
+        href: how-to-load-data.md
+      - name: Transform data
+        href: how-to-transform-data.md
+      - name: Write data
+        href: how-to-write-data.md
+  - name: Get data in datastore
+    displayName: blob get fileshare access storage
+    href: how-to-access-data.md
+  - name: Train models
+    items:
+    - name: Set up training environments
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
+      href: how-to-set-up-training-targets.md
+    - name: Create estimators in training
+      href: how-to-train-ml-models.md
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
+    - name: Use TensorFlow & Keras
+      href: how-to-train-tensorflow.md
+    - name: Tune hyperparameters
+      displayName: parameter
+      href: how-to-tune-hyperparameters.md
+    - name: Log metrics for training runs
+      href: how-to-track-experiments.md
+  - name: Automate machine learning
+    displayName: automl, auto ml
+    items:
+    - name: Configure auto training
+      href: how-to-configure-auto-train.md
+    - name: Use remote compute targets
+      displayName: automl automated auto ml
+      href: how-to-auto-train-remote.md
+    - name: Auto-train forecast models
+      href: how-to-auto-train-forecast.md
+  - name: ONNX models
+    href: how-to-build-deploy-onnx.md
+  - name: Deploy models
+    items:
+    - name: Where and how to deploy
+      displayName: publish azure kubernetes azure container instances
+      href: how-to-deploy-and-where.md
+    - name: FPGAs
+      href: how-to-deploy-fpga-web-service.md
+    - name: Troubleshoot
+      href: how-to-troubleshoot-deployment.md
+  - name: Consume web services
+    items:
+    - name: Consume in real-time
+      displayName: create client consume request response synchronous
+      href: how-to-consume-web-service.md
+    - name: Run batch predictions
+      displayName: score scoring asynchronous consume pipeline
+      href: how-to-run-batch-predictions.md
+  - name: Monitor web services
+    items:
+    - name: Collect & evaluate model data
+      displayName: track production
+      href: how-to-enable-data-collection.md
+    - name: Monitor with Application Insights
+      href: how-to-enable-app-insights.md
+  - name: Create your first pipeline
+    href: how-to-create-your-first-pipeline.md
+  - name: Enable logging
+    displayName: logging
+    href: how-to-enable-logging.md
+  - name: Manage resource quotas
+    displayName: limits
+    href: how-to-manage-quotas.md
+  - name: Use the Machine Learning CLI
+    displayName: cli extension command line command-line az ci/cd automate automated
+    href: reference-azure-machine-learning-cli.md
+  - name: Export and delete data
+    displayName: gdpr
+    href: how-to-export-delete-data.md
+- name: Reference
+  items:
+  - name: Machine learning SDK
+    displayName: api core package python
+    href: https://aka.ms/aml-sdk
+  - name: Data prep SDK
+    displayName: api preparation package python
+    href: https://aka.ms/data-prep-sdk
+  - name: Monitoring SDK
+    displayName: api package python monitor
+    href: https://aka.ms/aml-monitoring-sdk
+- name: Resources
+  items:
+  - name: Release notes
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Known issues
+    displayName: bugs errors troubleshoot
+    href: resource-known-issues.md
+  - name: Get support
+    href: support-for-aml-services.md
+  - name: Compare our ML products
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+    maintainContext: true

@@ -1,15 +1,22 @@
-## <a name="create-client"></a>Create a Client Connection
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
+## <a name="create-client"></a>Create a client connection
 Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the
 URL to your Mobile App.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Work with Tables
+## <a name="table-reference"></a>Work with tables
 To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -23,11 +30,11 @@ Once you have a table reference, you can work further with your table:
 * [Modifying Data](#modifying)
 * [Deleting Data](#deleting)
 
-### <a name="querying"></a>How to: Query a Table Reference
+### <a name="querying"></a>How to: Query a table reference
 Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
 To return all data from the table, use the following code:
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -59,10 +66,10 @@ when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, see the [Query object documentation].
 
-#### <a name="table-filter"></a>Filtering Data on the server
+#### <a name="table-filter"></a>Filtering data on the server
 You can use a `where` clause on the table reference:
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -72,7 +79,7 @@ table
 You can also use a function that filters the object.  In this case, the `this` variable is assigned to the
 current object being filtered.  The following code is functionally equivalent to the prior example:
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -86,7 +93,7 @@ table
 #### <a name="table-paging"></a>Paging through data
 Utilize the `take()` and `skip()` methods.  For example, if you wish to split the table into 100-row records:
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -114,10 +121,10 @@ is used.
 You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to
 load the new records for each page.  Implement caching to speed access to records that have already been loaded.
 
-#### <a name="sorting-data"></a>How to: Return data sorted
+#### <a name="sorting-data"></a>How to: Return sorted data
 Use the `.orderBy()` or `.orderByDescending()` query methods:
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -126,7 +133,7 @@ table
 
 For more information on the Query object, see the [Query object documentation].
 
-### <a name="inserting"></a>How to: Insert Data
+### <a name="inserting"></a>How to: Insert data
 Create a JavaScript object with the appropriate date and call `table.insert()` asynchronously:
 
 ```javascript
@@ -149,7 +156,7 @@ The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development
 you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn
 off dynamic schema before moving your application to production.
 
-### <a name="modifying"></a>How to: Modify Data
+### <a name="modifying"></a>How to: Modify data
 Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update
 object must contain the ID of the record to be updated - the ID is obtained when reading the record or
 when calling `.insert()`.
@@ -167,10 +174,10 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>How to: Delete Data
+### <a name="deleting"></a>How to: Delete data
 To delete a record, call the `.del()` method.  Pass the ID in an object reference:
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

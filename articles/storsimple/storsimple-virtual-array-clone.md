@@ -1,5 +1,5 @@
 ---
-title: Clone from a backup of your Microsoft Azure StorSimple Virtual Array | Microsoft Docs 
+title: Clone a StorSimple Virtual Array backup | Microsoft Docs
 description: Learn how to clone a backup and recover a file from your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -68,7 +68,7 @@ To clone from a backup, in the Azure portal, you have to perform steps similar t
 
 #### To clone a volume
 
-1. Browse to **Devices** blade. Select and click your device and then click **Volumes**. Selec the volume that you want to clone, right-click the volume to invoke the context menu. Select **Clone**.
+1. Browse to **Devices** blade. Select and click your device and then click **Volumes**. Select the volume that you want to clone, right-click the volume to invoke the context menu. Select **Clone**.
    
    ![Clone a volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. In the **Clone** blade, click **Backup** and then do the following: 

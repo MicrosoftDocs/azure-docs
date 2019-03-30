@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure security overview | Microsoft Docs
 description: The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 2fd82e9f-7072-4548-a888-82bd7e9c729c
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 06/19/2018
 ms.author: terrylan
 
 ---
 # Azure security overview
-The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+
+The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
 This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site regularly and see what’s new!
 
 ## Using the Azure Security Information Site
+
 When you look on the left side of the page, you see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
 
 Each category has an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in terms of security for that category. The Overview articles help you understand the products, services, and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerous links to technical content so that you can learn more about the topics and how to implement them.

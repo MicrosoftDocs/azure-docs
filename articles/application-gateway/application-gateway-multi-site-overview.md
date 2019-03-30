@@ -1,27 +1,21 @@
 ---
-title: Hosting multiple sites on Application Gateway | Microsoft Docs
-description: This page provides an overview of the Application Gateway multi-site support.
-documentationcenter: na
+title: Hosting multiple sites on Azure Application Gateway
+description: This page provides an overview of the Azure Application Gateway multi-site support.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: amsriva
-
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 1/16/2019
 ms.author: amsriva
-
+ms.topic: conceptual
 ---
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 20 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
+Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
+
+> [!IMPORTANT]
+> Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool.
 
@@ -123,4 +117,3 @@ There is no change required in the routing rule. The routing rule 'Basic' should
 ## Next steps
 
 After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.
-

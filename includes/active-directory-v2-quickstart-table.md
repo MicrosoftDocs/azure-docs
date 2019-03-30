@@ -1,10 +1,28 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
-| --- | --- | --- |
-| [Add Sign-In to an iOS App](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Add Sign-In to an AngularJS SPA (NodeJS)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-node.md) |[Register an Application](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
-| [Add Sign-In to an Android App](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Add Sign-In to an AngularJS SPA (.NET)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
-| [Add Sign-In to a Windows Desktop App](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Add Sign-In to a .NET MVC App](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
-| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Add Sign-In to a Node JS Web App](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Single Page Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
-| [Secure a .NET Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) | |
-| [Secure a NodeJS Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
-| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
 
+service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/09/2019
+ms.author: andret
+ms.custom: include file
+---
+
+| Mobile and native apps | Web apps and SPAs | Web APIs |
+| --- | --- | --- |
+|<img width="40" role="presentation" alt="iOS" src="~/articles/active-directory/develop/media/index/logo_ios.svg" data-linktype="relative-path" /><br/>[Sign-in and acquire a token from an iOS app](~/articles/active-directory/develop/quickstart-v2-ios.md) | <img width="40" role="presentation" alt="JavaScript" src="~/articles/active-directory/develop/media/index/logo_js.svg"/><br/>[Sign-in and acquire a token from an JavaScript SPA](~/articles/active-directory/develop/quickstart-v2-javascript.md) |<img width="40" role="presentation" alt="ASP.NET Web API" src="~/articles/active-directory/develop/media/index/logo_net.svg" /><br/> [Protect an ASP.NET Web API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)  |
+|<img width="40" role="presentation" alt="Android" src="~/articles/active-directory/develop/media/index/logo_android.svg" /><br/>[Sign-in and acquire a token from an Android app](~/articles/active-directory/develop/quickstart-v2-android.md) | <img width="40" role="presentation" alt="ASP.NET" src="~/articles/active-directory/develop/media/index/logo_net.svg" /><br/>[Add sign-in to an ASP.NET application](~/articles/active-directory/develop/quickstart-v2-aspnet-webapp.md) |<img width="40" role="presentation" alt="ASP.NET Core Web API" src="~/articles/active-directory/develop/media/index/logo_netcore.svg" /><br/>[Protect an ASP.NET Core Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) |
+|<img width="40" role="presentation" alt="Windows Desktop" src="~/articles/active-directory/develop/media/index/logo_windows.svg" /><br/>[Sign-in and acquire a token from a Windows Desktop app](~/articles/active-directory/develop/quickstart-v2-windows-desktop.md) | <img width="40" role="presentation" alt=".NET Core" src="~/articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Add sign-in to an ASP.NET Core Web application](~/articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md) | |
+|<img width="40" role="presentation" alt="Xamarin" src="~/articles/active-directory/develop/media/index/logo_xamarin.svg" /><br/> [Add sign-in to a multi-platform Xamarin application](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| <img width="40" role="presentation" alt="Node.js" src="~/articles/active-directory/develop/media/index/logo_nodejs.svg" /><br/>[Add sign-in to a Node.js web application](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+|<img width="40" role="presentation" alt="Universal Windows Platform" src="~/articles/active-directory/develop/media/index/logo_windows.svg" /><br/> [Sign-in and acquire a token from a UWP app](~/articles/active-directory/develop/quickstart-v2-uwp.md)| | |
+|<img width="40" role="presentation" alt=".NET Core Daemon" src="~/articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Acquire a token from a non-interactive .NET Core app](~/articles/active-directory/develop/quickstart-v2-netcore-daemon.md)| | |

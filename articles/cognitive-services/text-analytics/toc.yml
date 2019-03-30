@@ -1,0 +1,98 @@
+- name: Text Analytics API Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is the Text Analytics API?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Go
+    href: quickstarts/go.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: Tutorials
+  items:
+   - name: Sentiment analysis on streaming data using Azure Databricks
+     href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+     maintainContext: true
+   - name: Text Analytics with Power BI
+     href: Tutorials/tutorial-power-bi-key-phrases.md
+   - name: Text Analytics in Power Apps
+     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+- name: How-to guides
+  items:
+   - name: Sign up
+     href: How-tos/text-analytics-how-to-signup.md
+   - name: Get an access key
+     href: How-tos/text-analytics-how-to-access-key.md
+   - name: Call the Text Analytics API
+     href: How-tos/text-analytics-how-to-call-api.md
+   - name: Detect language
+     href: How-tos/text-analytics-how-to-language-detection.md
+   - name: Analyze sentiment
+     href: How-tos/text-analytics-how-to-sentiment-analysis.md
+   - name: Extract key phrases
+     href: How-tos/text-analytics-how-to-keyword-extraction.md
+   - name: Call named entity recognition
+     href: How-tos/text-analytics-how-to-entity-linking.md
+   - name: Use containers
+     items:
+      - name: Install and run containers
+        href: how-tos/text-analytics-how-to-install-containers.md
+      - name: Configure containers
+        href: text-analytics-resource-container-config.md
+      - name: How to run on Azure Kubernetes Service
+        href: How-tos/text-analytics-how-to-use-container-instance.md
+   - name: Use the Text Analytics Connected Service
+     href: vs-text-connected-service.md
+- name: Reference
+  items:
+  - name: CLI reference
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Text Analytics API
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+    - name: Python 
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+    - name: Node.js 
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
+- name: Resources
+  items:
+  - name: External and community content
+    href: text-analytics-resource-external-community.md
+  - name: FAQ
+    href: text-analytics-resource-faq.md
+  - name: Language and region support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/text-analytics-api
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics

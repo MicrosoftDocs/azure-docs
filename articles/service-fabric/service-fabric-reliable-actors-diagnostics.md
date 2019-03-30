@@ -4,16 +4,16 @@ description: This article describes the diagnostics and performance monitoring f
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 10/26/2017
 ms.author: abhisram
 
 ---
@@ -23,7 +23,7 @@ The Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/libra
 ## EventSource events
 The EventSource provider name for the Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx), and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx), and the [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
 All events that belong to the Reliable Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keyword bits are defined.
@@ -167,5 +167,5 @@ When a client invokes a method via an actor proxy object, it results in a reques
 ## Next steps
 * [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+* [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

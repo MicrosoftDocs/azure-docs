@@ -1,3 +1,10 @@
+---
+author: tdykstra
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tdykstra
+---
 > [!NOTE]
 > <a name="note"></a>You need an Azure account to complete this tutorial:
 > 

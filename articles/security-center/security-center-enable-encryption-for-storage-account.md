@@ -3,28 +3,28 @@ title: Enable encryption for storage account in Azure Security Center | Microsof
 description: This document shows you how to implement the Azure Security Center recommendations **Enable encryption for Azure Storage Account**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Enable encryption for Azure storage account in Azure Security Center
 Azure Security Center may recommend that you enable Azure Storage Service Encryption for data at rest.
 
-Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypting the data before retrieval.  SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.  To learn more, see [Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
+Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypting the data before retrieval.  SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.  To learn more, see [Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 
@@ -50,16 +50,16 @@ You have now enabled storage encryption for **storageacct1**.
 ## See also
 This document showed you how to implement the Security Center recommendation "Enable encryption for Azure Storage Account." To learn more about Azure Storage Service Encryption, see the following:
 
-* [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md)
+* [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md)
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how recommendations help you protect your Azure resources.
 * [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) - Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) - Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png

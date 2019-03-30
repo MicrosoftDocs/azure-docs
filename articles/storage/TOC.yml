@@ -1,0 +1,25 @@
+- name: Azure Storage Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Introduction
+    href: ./common/storage-introduction.md
+  - name: Choose Blobs, Files, or Disks
+    href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-overview.md
+- name: Data Lake Storage Gen2
+  href: ./blobs/data-lake-storage-introduction.md
+- name: Files 
+  href: ./files/storage-files-introduction.md
+- name: Queues
+  href: ./queues/storage-queues-introduction.md 
+- name: Tables
+  href: ./tables/table-storage-overview.md
+- name: Disks
+  items:
+  - name: Windows
+    href: ../virtual-machines/windows/managed-disks-overview.md
+  - name: Linux
+    href: ../virtual-machines/linux/managed-disks-overview.md

@@ -1,6 +1,18 @@
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 09/18/2018
+ ms.author: tamram
+ ms.custom: include file
+---
 
-| Resource | Default Limit |
+The following limits apply only when you perform management operations by using Azure Resource Manager with Azure Storage.
+
+| Resource | Default limit |
 | --- | --- |
 | Storage account management operations (read) |800 per 5 minutes |
 | Storage account management operations (write) |200 per hour |

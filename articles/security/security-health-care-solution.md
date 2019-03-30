@@ -1,10 +1,10 @@
----
+﻿---
 title: A practical guide to designing secure health care solutions in Azure | Microsoft Docs
 description: " This article helps you understand how to improve security for your health care solutions by using the Azure services and features that you configure. "
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 7e5b082d-dc9c-4d4f-b3f1-75edcdafbd8f
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---

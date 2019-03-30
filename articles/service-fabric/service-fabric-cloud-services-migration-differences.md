@@ -4,16 +4,16 @@ description: A conceptual overview for migrating applications from Cloud Service
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---

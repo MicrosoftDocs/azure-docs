@@ -18,6 +18,11 @@ ms.author: deonhe
 
 ---
 # Release Notes for Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services
@@ -28,8 +33,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * Organizational accounts are supported:  
   * **Scenario**: You registered a BizTalk Service deployment using a Microsoft account (like user@live.com). In this scenario, only Microsoft Account users can manage the BizTalk Service using the BizTalk Services portal. An organizational account cannot be used.  
   * **Scenario**: You registered a BizTalk Service deployment using an organizational account in an Azure Active Directory (like user@fabrikam.com or user@contoso.com). In this scenario, only Azure Active Directory users within the same organization can manage the BizTalk Service using the BizTalk Services portal. A Microsoft account cannot be used.  
-* When you create a BizTalk Service in the Azure classic portal, you are automatically registered in the BizTalk Services Portal.
-  * **Scenario**: You sign into the Azure classic portal, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
+* When you create a BizTalk Service, you are automatically registered in the BizTalk Services Portal.
+  * **Scenario**: You sign into Azure, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
     See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### August 14 Update
@@ -38,7 +43,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) and [Create an EDIFACT Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) and [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) and [Use Derived Types in Mapping Scenarios and Examples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## Know Issues
+
+## Known Issues
 
 ### Connectivity Issues after BizTalk Services Portal Update
   If you have the BizTalk Services Portal open while BizTalk Services is upgraded to roll in changes to the service, you might face connectivity issues with the BizTalk Services Portal.  
@@ -57,11 +63,11 @@ You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild
   Unable to copy file <Path to DLL> to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
 
 #### Workaround
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is installed, you have the following two options:
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
   
   * Restart Visual Studio, or
   * Restart the solution. Then, perform only a Build on the solution.  
-* If [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
 
 ### Routing to BasicHttpRelay endpoints is not supported from bridges and BizTalk Services Portal if non-printable characters are promoted as HTTP headers
 If you use non-printable characters as part of promoted properties for messages, those messages cannot be routed to relay destinations that use the BasicHttpRelay binding. Also, the promoted properties that are available as part of tracking are URL-encoded for blobs and un-encoded for destinations.  
@@ -78,7 +84,7 @@ Tracking events are captured up to the EDI message processing and any correlatio
 The X12 Receive and Send settings ([Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) provide information on the Protocol stage.  
 
 ### Update Agreement
-The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistence properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
+The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistent properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
 To modify the Qualifier of an identity, delete the agreement, update **Identities** in the partner profile and then recreate the agreement.  
 
 > AZURE.WARNING This behavior impacts X12 and AS2.  
@@ -119,7 +125,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>
@@ -132,7 +138,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
 > 
 
 ### Restarting the BizTalk Adapter Service Web Site
-Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
+Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premises service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
 
 If you stop and start an application, the configuration for auto-starting an application is not honored. So when **BAService** is stopped, you must always restart the **BizTalk Adapter Service** web site instead. Do not start or stop the **BAService** application.
 
@@ -180,7 +186,7 @@ Consider a scenario where you use name-based behaviors to identify certificates 
 
 ### Bridges continue to process messages even when the SQL database is offline
 The BizTalk Services bridges continue to process messages for a while, even if the Microsoft Azure SQL Database (which stores the running information like deployed artifacts and pipelines), is offline. This is because BizTalk Services uses the cached artifacts and bridge configuration.
-If you do not want the bridges to process any messages when the SQL Database is offline, you can use the BizTalk Services PowerShell cmdlets to stop or suspend the BizTalk Service. See [Azure BizTalk Service Management Sample](http://go.microsoft.com/fwlink/p/?LinkID=329019) for the Windows PowerShell cmdlets to manage operations.  
+If you do not want the bridges to process any messages when the SQL Database is offline, you can use the BizTalk Services PowerShell cmdlets to stop or suspend the BizTalk Service. See [Azure BizTalk Service Management Sample](https://go.microsoft.com/fwlink/p/?LinkID=329019) for the Windows PowerShell cmdlets to manage operations.  
 
 ### Reading the XML message within a bridge’s custom code component includes an extra BOM character
 Consider a scenario where you want to read an XML message within a bridge’s custom code. If you use the .NET API System.Text.Encoding.UTF8.GetString(bytes) an extra BOM character is included in the output at the beginning of the message. So, if you do not want the output to include the extra BOM character, you must use ```System.IO.StreamReader().ReadToEnd()```.

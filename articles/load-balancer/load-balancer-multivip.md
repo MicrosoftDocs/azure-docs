@@ -1,22 +1,23 @@
 ---
-title: Mutiple VIPs for a cloud service
+title: Multiple VIPs for a cloud service
+titlesuffix: Azure Load Balancer
 description: Overview of multiVIP and how to set multiple VIPs on a cloud service
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-
-ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Configure multiple VIPs for a cloud service
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 You can access Azure cloud services over the public Internet by using an IP address provided by Azure. This public IP address is referred to as a VIP (virtual IP) since it is linked to the Azure load balancer, and not the Virtual Machine (VM) instances within the cloud service. You can access any VM instance within a cloud service by using a single VIP.
 
@@ -166,7 +167,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## Next Steps
 
-[Log analytics for Azure Load Balance](load-balancer-monitor-log.md)
+[Azure Monitor logs for Azure Load Balance](load-balancer-monitor-log.md)
 
 [Internet facing load balancer overview](load-balancer-internet-overview.md)
 

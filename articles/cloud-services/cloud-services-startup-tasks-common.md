@@ -3,7 +3,7 @@ title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
-ms.author: adegeo
+ms.date: 07/18/2017
+ms.author: jeconnoc
 
 ---
 # Common Cloud Service startup tasks
@@ -89,7 +89,7 @@ REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
@@ -182,7 +182,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 This task causes the **startup.cmd** batch file to be run every time the web role is initialized, ensuring that the required **ipSecurity** section is unlocked.
 
-Finally, modify the [system.webServer section](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) your web role’s **web.config** file to add a list of IP addresses that are granted access, as shown in the following example:
+Finally, modify the [system.webServer section](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) your web role’s **web.config** file to add a list of IP addresses that are granted access, as shown in the following example:
 
 This sample config **allows** all IPs to access the server except the two defined
 
@@ -344,7 +344,7 @@ The simplest way to detect that a task has already run is to create a file in th
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%RoleRoot%\Task1_Success.txt" (
+IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -357,7 +357,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.

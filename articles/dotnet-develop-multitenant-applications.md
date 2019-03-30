@@ -70,7 +70,7 @@ Azure provides several networking services that support authentication, and impr
 * Azure Virtual Network lets you provision and manage virtual private networks (VPNs) in Azure as well as securely link these with on-premises IT infrastructure.
 * Virtual Network Traffic Manager allows you to load balance incoming traffic across multiple hosted Azure services whether they're running in the same datacenter or across different datacenters around the world.
 * Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Azure AD for Application Resources Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web applications and services while allowing the features of authentication and authorization to be factored out of your code.
-* Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them).
+* Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premises), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them).
 
 **Provisioning Resources**
 
@@ -87,5 +87,5 @@ Azure provides a number of ways provision new tenants for the application. For m
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

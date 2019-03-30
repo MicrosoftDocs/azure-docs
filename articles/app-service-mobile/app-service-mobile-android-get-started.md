@@ -3,8 +3,8 @@ title: Create an Android app on Azure App Service Mobile Apps | Microsoft Docs
 description: Follow this tutorial to get started with using Azure mobile app backends for Android development
 services: app-service\mobile
 documentationcenter: android
-author: ysxu
-manager: erikre
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
@@ -12,9 +12,9 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: crdun
 
 ---
 # Create an Android app

@@ -3,7 +3,7 @@ title: Profiling a Cloud Service Locally in the Compute Emulator | Microsoft Doc
 services: cloud-services
 description: Investigate performance issues in cloud services with the Visual Studio profiler
 documentationcenter: ''
-author: TomArcher
+author: mikejo
 manager: douge
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: mikejo
 
 ---
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
@@ -29,7 +29,7 @@ You might also want to profile your application locally in the compute emulator 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
 
 ## 1: Configure Visual Studio for profiling
-First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
+First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference https://referencesource.microsoft.com/symbols, which might have additional symbol files.
 
 ![Symbol options][4]
 
@@ -44,31 +44,35 @@ You can use these instructions with an existing project or with a new project.  
 For example purposes, add some code to your project that takes
 a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
@@ -89,9 +93,11 @@ If your project folder is on a network drive, the profiler will ask you to provi
  If there are multiple worker role processes in your application, you need to use the processID to distinguish them. You can query the processID programmatically by accessing the Process object. For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the
 log in the Compute Emulator UI to know what process to connect to.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 To view the log, start the Compute Emulator UI.
 
@@ -129,16 +135,18 @@ If you added the string concatenation code in this article, you should see a war
 ## 4: Make changes and compare performance
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 
@@ -162,9 +170,9 @@ Congratulations! You've gotten started with the profiler.
 ## Next Steps
 Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see the blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
-[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

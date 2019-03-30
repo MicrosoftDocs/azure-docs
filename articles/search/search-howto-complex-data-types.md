@@ -1,22 +1,15 @@
 ---
-title: How to model complex data types in Azure Search | Microsoft Docs
+title: How to model complex data types - Azure Search
 description: Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type.
-services: search
-documentationcenter: ''
-author: LiamCa
-manager: pablocas
-editor: ''
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 09/07/2016
-ms.author: liamca
-
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
 External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few.
@@ -24,7 +17,7 @@ External datasets used to populate an Azure Search index sometimes include hiera
 Complex data types are not natively supported in Azure Search, but a proven workaround includes a two-step process of flattening the structure and then using a **Collection** data type to reconstitute the interior structure. Following the technique described in this article allows the content to be searched, faceted, filtered, and sorted.
 
 ## Example of a complex data structure
-Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as DocumentDB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
+Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as Azure Cosmos DB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
 
 ~~~~~
 [
@@ -63,7 +56,7 @@ Typically, the data in question resides as a set of JSON or XML documents, or as
 While the fields named ‘id’, ‘name’ and ‘company’ can easily be mapped one-to-one as fields within an Azure Search index, the ‘locations’ field contains an array of locations, having both a set of location IDs as well as location descriptions. Given that Azure Search does not have a data type that supports this, we need a different way to model this in Azure Search. 
 
 > [!NOTE]
-> This technique is also described by Kirk Evans in a blog post [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), which shows a technique called "flattening the data", whereby you would have a field called `locationsID` and `locationsDescription` that are both [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings).   
+> This technique is also described by Kirk Evans in a blog post [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), which shows a technique called "flattening the data", whereby you would have a field called `locationsID` and `locationsDescription` that are both [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings).   
 > 
 > 
 

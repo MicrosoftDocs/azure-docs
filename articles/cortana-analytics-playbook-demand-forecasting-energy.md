@@ -1,40 +1,36 @@
 ---
-title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Docs
+title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy
 description: A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company.
-services: cortana-analytics
-documentationcenter: ''
+services: machine-learning
 author: ilanr9
-manager: ilanr9
-editor: yijichen
+manager: cgronlun
 
-ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
+ms.author: garye
 
 ---
 # Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy
 ## Executive Summary
 In the past few years, Internet of Things (IoT), alternative energy sources, and big data have merged to create vast opportunities in the utility and energy domain. At the same time, the utility and the entire energy sector have seen consumption flattening out with consumers demanding
 better ways to control their use of energy. Hence, the utility and smart grid companies are in great need to innovate and renew themselves. Furthermore, many power and utility grids are becoming outdated and very costly to maintain and manage. During the last year, the team has been
-working on a number of engagements within the energy domain. During these engagements, we have encountered many cases in which the utilities or ISVs (Independent Software Vendors) have been looking into forecasting for future energy demand. These forecasts play an important role in their current and future business and have become the foundation for various use cases. These include short and long-term power load forecast, trading, load balancing, grid optimization etc. Big data and Advanced Analytics (AA) methods such as Machine Learning (ML) are the key enablers for producing accurate and reliable forecasts.  
+working on a number of engagements within the energy domain. During these engagements, we have encountered many cases in which the utilities or ISVs (Independent Software Vendors) have been looking into forecasting for future energy demand. These forecasts play an important role in their current and future business and have become the foundation for various use cases. These include short and long-term power load forecast, trading, load balancing, grid optimization etc. Big data and Advanced Analytics (AA) methods such as Machine Learning (ML) are the key enablers for producing accurate and reliable forecasts.
 
 In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
 > [!TIP]
-> To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## Overview
-This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
+This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:
 
-1. Business understanding  
-2. Data understanding  
+1. Business understanding
+2. Data understanding
 3. Technical implementation
 
 The **Business Understanding** part outlines the business aspect one needs to understand and consider prior to making an investment decision. It explains how to qualify the business problem at hand to ensure that predictive analytics and machine learning are indeed effective and applicable. The document further explains the basics of machine learning and how it is used to address energy-forecasting problems. It outlines the prerequisites and the qualification criteria of a use case. Some sample use cases and business case scenarios are also provided.
@@ -45,8 +41,8 @@ The third part of the document covers the **Technical Implementation** aspect of
 
 In addition, the document includes reference material that you can use to gain further understanding of the domain and technology.
 
-It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure ML
-documentation](http://azure.microsoft.com/services/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure Machine Learning service
+documentation](https://azure.microsoft.com/services/machine-learning/) and [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### Target Audience
 The target audience for this document is both business and technical personnel who would like to gain knowledge and understanding of Machine Learning based solutions and how these are being used specifically within the energy-forecasting domain.
@@ -96,7 +92,7 @@ Within the context of energy demand, Short Term Load Forecasting (STLF) is defin
 * Load balancing and overload prevention
 * Long Term Load Forecasting
 * Fault and anomaly detection
-* Peak curtailment/leveling 
+* Peak curtailment/leveling
 
 STLF model are mostly based on the near past (last day or week) consumption data and use forecasted temperature as an important predictor. Obtaining accurate temperature forecast for the next hour and up to 24 hours is becoming less of a challenge now days. These models are less sensitive to seasonal patterns or long-term consumption trends.
 
@@ -134,7 +130,7 @@ As can be seen from this table, it is quite important to distinguish between the
 An important role of a [smart grid](https://en.wikipedia.org/wiki/Smart_grid) is to dynamically and constantly optimize and adjust for the changing consumption patterns. Power consumption can be impacted by short-term changes that are mainly caused by temperature fluctuations (*e.g.*, more power is used for air condition or heating). At the same time, power consumption is also
 influenced by long-term trends. These may include seasonality effects, national holidays, long-term consumption growth, and even economic factors such as consumer index, oil price, and GDP.
 
-In this use case, [eSmart](http://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
+In this use case, [eSmart](https://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
 
 An accurate and fast performing prediction requires implementation of three predictive models:
 
@@ -170,7 +166,7 @@ Cortana Intelligence and machine learning could be highly effective in solving a
 Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
 ### Cloud-Based Solutions
-Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT
+Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premises IT
 solutions. Within the energy sector, there is a clear trend of gradual migration of operations into the cloud. This trend goes hand in hand along with the development of the smart grid as discussed above, in **Industry Trends**. As this playbook is focused on a cloud-based solution in the energy domain, it is important to explain the benefits and other considerations of deploying a cloud-based solution.
 
 Perhaps the biggest advantage of a cloud-based solution is the cost. As a solution makes use of cloud-deployed components, there is no upfront costs or COGS (Cost of Goods Sold) component costs associated with it. That means that there is no need to invest in hardware, software, and IT maintenance, and therefore there is a substantial reduction in business risk.
@@ -183,7 +179,7 @@ For a company that is just starting its transition into the cloud, we are highly
 represent an excellent opportunity for piloting predictive analytics solutions in the cloud.
 
 #### Business Case Justification Considerations
-In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
+In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premises solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
 
 On the other hand, one should have a good understanding of the business value of operating an energy demand forecasting (short or long term). In fact, it is important to realize the business value of each forecast operation. For example, accurately forecasting power load for the next
 24 hours can prevent overproduction or can help prevent overloads on the grid and this can be quantified in terms of financial savings on a daily basis.
@@ -193,7 +189,7 @@ A basic formula for calculating the financial benefit of demand forecast solutio
 
 Since Cortana Intelligence Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
 
-Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](http://azure.microsoft.com/pricing/details/machine-learning/).
+Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### Solution Development Process
 The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Intelligence Suite.
@@ -204,11 +200,11 @@ This is illustrated in the following diagram:
 
 The following paragraph describes this 4 step process:
 
-1. **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
+1. **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on premises database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
 2. **Modeling** – For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
-   
+
    The following diagram is an illustration of a typical workflow:
-   
+
    ![Modeling Workflow](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Deployment** – With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
 4. **Consumption** – In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
@@ -349,23 +345,23 @@ In recent years advanced algorithms have been developed to accommodate time seri
 
 > [!NOTE]
 > This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
-> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
-> 
-> 
+> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/).
+>
+>
 
-#### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+#### **MA (Moving Average)**
 Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting
 the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
 The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-#### [**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+#### **ETS (Exponential Smoothing)**
 Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a
-number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
+number of different methods with this family, some of them include handling of seasonality in the data such as Holt-Winters Seasonal Method.
 
 Some of these methods also factor in the seasonality of the data.
 
-#### [**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+#### **ARIMA (Auto Regression Integrated Moving Average)**
 Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average
 techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 
@@ -380,7 +376,7 @@ Constructing energy demand forecasting as a regression problem gives us a lot of
 From our experience with implementation and deployment of energy demand forecasts pilot, we have found that the advanced regression models that are available in Azure ML tend to produce the best results and we make use of them.
 
 ## Model Evaluation
-Model evaluation has a critical role within the **Model Development Cycle**. At this step we look into validating the model and its performance with real life data. During the modeling step we use a part of the available data for training the model. During the evaluation phase we take the remainder of the data to test the model. Practically it means that we are feeding the model new data that has been restructured and contains the same features as the training dataset. However, during the validation process, we use the model to predict the target variable rather than provide the available target variable. We often refer to this process as model scoring. We would then use the true target values and compare them with the predicted ones. The goal here is to measure and minimize the prediction error, meaning the difference between the predictions and the true value. Quantifying the error measurement is key since we would like to fine-tune the model and validate whether the error is actually decreasing. Fine-tuning the model can be done by modifying model parameters that control the learning process, or by adding or removing data features (referred to as [parameters sweep](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Practically that means that we may need to iterate between the feature engineering, modeling, and model evaluation phases multiple times until we are able to reduce the error to the required level.
+Model evaluation has a critical role within the **Model Development Cycle**. At this step we look into validating the model and its performance with real life data. During the modeling step we use a part of the available data for training the model. During the evaluation phase we take the remainder of the data to test the model. Practically it means that we are feeding the model new data that has been restructured and contains the same features as the training dataset. However, during the validation process, we use the model to predict the target variable rather than provide the available target variable. We often refer to this process as model scoring. We would then use the true target values and compare them with the predicted ones. The goal here is to measure and minimize the prediction error, meaning the difference between the predictions and the true value. Quantifying the error measurement is key since we would like to fine-tune the model and validate whether the error is actually decreasing. Fine-tuning the model can be done by modifying model parameters that control the learning process, or by adding or removing data features (referred to as [parameters sweep](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Practically that means that we may need to iterate between the feature engineering, modeling, and model evaluation phases multiple times until we are able to reduce the error to the required level.
 
 It is important to emphasis that the prediction error will never be zero as there is never a model that can perfectly predict every outcome. However, there is a certain magnitude of error that is acceptable by the business. During the validation process, we would like to ensure that
 our model prediction error is at the level or better than the business tolerance level. It is therefore important to set the level of the tolerable error at the beginning of the cycle during the **Problem Formulation** phase.
@@ -401,7 +397,7 @@ Once we have nailed down the modeling phase and validated the model performance 
 Within the context of energy demand forecast, our aim is to invoke continuous and periodic forecasts while ensuring that fresh data is available for the model and that the forecasted data is sent back to the consuming client.
 
 ### Web Services Deployment
-The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
+The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](https://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
 
 ![We Service Deployment and Consumption](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
@@ -426,7 +422,7 @@ These are the steps that take place as part of the energy demand forecast cycle:
 7. The forecasted data is stored in a database that can be accessed by the end consumption client.
 8. The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
 
-It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 
 ### End to End Deployment Architecture
 In order to practically deploy an energy demand forecast solution on Cortana Intelligence, we need to ensure that the required components are established and configured correctly.

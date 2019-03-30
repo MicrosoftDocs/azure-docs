@@ -1,75 +1,140 @@
 ---
-title: Create an Azure Search service using the Azure Portal | Microsoft Docs
-description: Learn how to provision an Azure Search service using the Azure Portal.
+title: Create an Azure Search service in the portal - Azure Search
+description: Provision an Azure Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
+manager: cgronlun
+author: HeidiSteen
 services: search
-manager: jhubbard
-author: ashmaka
-documentationcenter: ''
-
-ms.assetid: c8c88922-69aa-4099-b817-60f7b54e62df
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 11/29/2016
-ms.author: ashmaka
-
+ms.topic: quickstart
+ms.date: 01/17/2019
+ms.author: heidist
+ms.custom: seodec2018
 ---
-# Create an Azure Search service using the Azure Portal
-This article will walk you through the process of creating (or provisioning) an Azure Search service using the [Azure Portal](https://portal.azure.com/).
+# Create an Azure Search service in the portal
 
-This article assumes that you already have an Azure Subscription and can log into the Azure Portal.
+Azure Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Search integrates easily with other Azure services, you can also use it by itself, with apps on network servers, or with software running on other cloud platforms.
 
-## Find Azure Search in the Azure Portal
-1. Go to the [Azure portal](https://portal.azure.com/) and log in.
-2. Click on the plus sign ("+") in the top left corner.
-3. Select **Web + Mobile**.
-4. Select **Azure Search**.
+In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/).
 
-![](./media/search-create-service-portal/find-search.png)
+[![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
-## Pick a service name and URL endpoint for your service
-1. Your service name will be part of your Azure Search service's endpoint URL against which you will make your API calls to manage and use the search service.
-2. Type your service name in the **URL** field. The service name:
-   * must only contain lowercase letters, digits or dashes ("-")
-   * cannot use a dash ("-") as the first 2 characters or last single character
-   * cannot contain consecutive dashes ("--")
-   * is limited between 2 and 60 characters in length
+Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help with getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
-## Select a subscription where you will keep your service
-If you have more than one subscription, you can select which one will include this Azure Search service.
+## Subscribe (free or paid)
 
-## Select a resource group for your service
-Create a new resource group or select an existing one. A resource group is a collection of Azure services and resources that are used together. For example, if you are using Azure Search to index a SQL database, then both of these services should be part of the same resource group.
+[Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
-## Select the location where your service will be hosted
-As an Azure service, Azure Search is available to be hosted in datacenters around the world. Please note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
+Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). An MSDN subscription gives you credits every month you can use for paid Azure services. 
 
-## Select your pricing tier
+## Find Azure Search
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Click the plus sign ("+ Create Resource") in the top-left corner.
+3. Use the search bar to find "Azure Search" or navigate to the resource through **Web** > **Azure Search**.
+
+![Navigate to an Azure Search resource](./media/search-create-service-portal/find-search3.png "Navigation path to Azure Search")
+
+## Name the service and URL endpoint
+
+A service name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. Enter your service name in the **URL** field.
+
+For example, if you want the endpoint to be `https://my-app-name-01.search.windows.net`, you would enter `my-app-name-01`.
+
+Service name requirements:
+
+* It must be unique within the search.windows.net namespace
+* 2 and 60 characters in length
+* Use lowercase letters, digits, or dashes ("-")
+* Avoid dashes ("-") in the first 2 characters or as the last single character
+* No consecutive dashes ("--") anywhere
+
+## Select a subscription
+
+If you have more than one subscription, choose one that also has data or file storage services. Azure Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services in the same subscription.
+
+## Select a resource group
+
+A resource group is a collection of Azure services and resources used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.
+
+If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource.
+
+> [!TIP]
+> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
+
+## Select a hosting location
+
+As an Azure service, Azure Search can be hosted in datacenters around the world. [Prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
+
+If you are planning to use cognitive search, choose a [region with feature availability](cognitive-search-quickstart-blob.md#supported-regions).
+
+## Select a pricing tier (SKU)
+
 [Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier or SKU](search-sku-tier.md) for guidance.
 
-In this case, we have chosen the Standard tier for our service.
+Standard is usually chosen for production workloads, but most customers start with the Free service.
 
-## Select the "Create" button to provision your service
-![](./media/search-create-service-portal/create-service.png)
+A pricing tier cannot be changed once the service is created. If you need a higher or lower tier later, you have to re-create the service.
+
+## Create your service
+
+Remember to pin your service to the dashboard for easy access whenever you sign in.
+
+![Pin to the dashboard](./media/search-create-service-portal/new-service3.png "Pin the resource to your dashboard for convenient access")
+
+## Get a key and URL endpoint
+
+With few exceptions, using your new service requires that you provide the URL endpoint and an authorization api-key. Quickstarts, tutorials such as [Explore Azure Search REST APIs (Postman)](search-fiddler.md) and [How to use Azure Search from .NET](search-howto-dotnet-sdk.md), samples, and custom code all need an endpoint and key to run on your particular resource.
+
+1. In the service overview page, locate and copy the URL endpoint on the right side of the page.
+
+   ![Service overview page with URL endpoint](./media/search-create-service-portal/url-endpoint.png "URL endpoint and other service details")
+
+2. In the left navigation pane, select **Keys** and then copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service.
+
+   ![Keys page showing primary and secondary keys](./media/search-create-service-portal/admin-api-keys.png "Admin api-keys for authorization")
+
+An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Search resource with admin rights. For a portal tutorial, start with [Tutorial: Import, index, and query in Azure Search](search-get-started-portal.md).
 
 ## Scale your service
-After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
+
+It can take a few minutes to create a service (15 minutes or more depending on the tier). After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
 
 ***Partitions*** allow your service to store and search through more documents.
 
-***Replicas*** allow your service to handle a higher load of search queries - [a service requires 2 replicas to achieve a read-only SLA and requires 3 replicas to achieve a read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+***Replicas*** allow your service to handle a higher load of search queries.
 
-1. Go to your Azure Search service's management blade in the Azure portal.
-2. In the **Settings** blade, select **Scale**.
-3. You can scale your service by adding Replicas or Partitions.
-   * Each tier of service has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
+Adding resources increases your monthly bill. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can help you understand the billing ramifications of adding resources. Remember that you can adjust resources based on load. For example, you might increase resources to create a full initial index, and then reduce resources later to a level more appropriate for incremental indexing.
 
-![](./media/search-create-service-portal/scale-service.png)
+> [!Important]
+> A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+1. Go to your search service page in the Azure portal.
+2. In the left-navigation pane, select **Settings** > **Scale**.
+3. Use the slidebar to add resources of either type.
+
+![Add capacity](./media/search-create-service-portal/settings-scale.png "Add capacity through replicas and partitions")
+
+> [!Note]
+> Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
+
+## When to add a second service
+
+Most customers use just one service provisioned at a tier providing the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
+
+Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
+
+* Disaster recovery (data center outage). Azure Search does not provide instant failover in the event of an outage. For recommendations and guidance, see [Service administration](search-manage.md).
+* Your investigation of multi-tenancy modeling has determined that additional services is the optimal design. For more information, see [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md).
+* For globally deployed applications, you might require an instance of Azure Search in multiple regions to minimize latency of your application’s international traffic.
+
+> [!NOTE]
+> In Azure Search, you cannot segregate indexing and querying workloads; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
+
+A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Next steps
-After provisioning an Azure Search service, you will be ready to [define an Azure Search index](search-what-is-an-index.md) so you can upload and search your data.
 
-See [Get started with Azure Search in the portal](search-get-started-portal.md) for a quick tutorial.
+After provisioning an Azure Search service, you can continue in the portal to create your first index.
 
+> [!div class="nextstepaction"]
+> [Tutorial: Import data, index, and run queries in the portal](search-get-started-portal.md)

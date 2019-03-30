@@ -1,0 +1,30 @@
+- name: Mainframe rehosting
+  items:
+  - name: Overview
+    items:
+    - name: Get started
+      href: overview.md
+    - name: Workloads
+      href: partner-workloads.md
+  - name: Micro Focus
+    items:
+    - name: Get started
+      href: microfocus/get-started.md
+    - name: Install Micro Focus Enterprise Server
+      href: microfocus/set-up-micro-focus-on-azure.md
+    - name: Demo
+      href: microfocus/demo.md
+  - name: TmaxSoft OpenFrame
+    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+  - name: IBM
+    items:
+    - name: Get started
+      href: ibm/get-started.md
+    - name: Install IBM zD&T
+      href: ibm/install-ibm-z-environment.md
+    - name: Set up ADCD in zD&T
+      href: ibm/demo.md
+    - name: IBM DB2 pureScale
+      href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: Deploy IBM DB2 pureScale
+      href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
