@@ -14,9 +14,13 @@ ms.author: danlep
 
 The [restart policy](container-instances-restart-policy.md) setting of a container group determines how container instances start or stop by default. You can override the default setting by manually stopping or starting a container group.
 
-* **Stop** - Manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command or Azure portal. For certain container workloads, you might want to stop a container group after a defined period to save on costs. 
+* **Stop** - Manually stop a running container group - for example, by using the [az container stop][az-container-stop] command or Azure portal. For certain container workloads, you might want to stop a long-running container group after a defined period to save on costs. 
 
-  Stopping a container group terminates and recycles all the containers in the group; it does not preserve container state. 
+  When a container group enters the Stopped state, it terminates and recycles all the containers in the group. It does not preserve container state.
+
+  The stop action has no effect if the container group already terminated (is in either a Succeeded or Failed state). For example, a container group with run-once container tasks that ran successfully terminates in the Succeeded state. Attempts to stop the group in that state do not change the state. 
+
+   
 
 * **Start** - When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can start the containers. For example, use the [az container start][az-container-start] command or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. 
 
