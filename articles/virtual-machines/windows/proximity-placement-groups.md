@@ -22,6 +22,9 @@ ms.author: cynthn
 Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. This example creates a Standard proximity placement group, you can also use `-ProximityPlacementGroupType Ultra` to have the proximity placement group backed by Ultra SSD storage.
 
 ```azurepowershell-interactive
+$resourceGroup = "myPPGResourceGroup"
+$location = "East US"
+$ppgName = "myPPG"
 $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
@@ -33,8 +36,6 @@ Create a VM in the proximity placement group using `-ProximityPlacementGroupId $
 
 ```azurepowershell-interactive
 # Variables for common values
-$resourceGroup = "myResourceGroup"
-$location = "westeurope"
 $vmName = "myVM"
 
 # Create user object
