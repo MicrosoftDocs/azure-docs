@@ -463,10 +463,10 @@ Minimum configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Can be used |
-| /oracle/<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Can be used |
+| /oracle/\<SID>/oraarch | Standard | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -477,13 +477,13 @@ Performance configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | None | Can be used  |
-| /oracle/<SID>/origlogaB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogAB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogBA | Premium | None | Can be used |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Recommended  |
-| /oracle/SID/sapdata(n+1)* | Premium | None | Can be used |
-| /oracle/<SID>/oraarch* | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium | None | Can be used  |
+| /oracle/\<SID>/origlogaB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogAB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogBA | Premium | None | Can be used |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Recommended  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | Can be used |
+| /oracle/\<SID>/oraarch* | Premium | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0

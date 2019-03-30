@@ -29,7 +29,7 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 * Optional.  If Planning to use PowerShell, you will need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
 
 > [!NOTE]  
-> The storage account used in this article was Azure Storage with [secure transfer](/../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
+> The storage account used in this article was Azure Storage with [secure transfer](../../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
 
 ## Storage configuration
 No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which are not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`

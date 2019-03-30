@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
@@ -48,6 +48,8 @@ Refer to the [Before You Get Started documentation](azure-stack-app-service-befo
 Azure App Service on Azure Stack Update 2 includes the following improvements and fixes:
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates **Azure Functions runtime** to **v1.0.11612**.
 
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 

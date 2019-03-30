@@ -1,13 +1,13 @@
 ---
 title: Migrate on-premises Windows Server 2008 servers to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, using Azure Site Recovery.
-author: bsiva
-manager: abhemraj
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/27/2018
-ms.author: bsiva
+ms.date: 03/18/2019
+ms.author: raynew
 ms.custom: MVC
 ---
 

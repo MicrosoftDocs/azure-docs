@@ -679,7 +679,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### Step 2: Increase the permitted failures on resources <Optional>
+#### Step 2: Increase the permitted failures on resources \<Optional>
 
 On certain resources that belong to your Always On Availability Group there are limits on how many failures that can occur in a period, where the cluster service attempts to restart the resource group. It is recommended you increase this whilst you are walking through this procedure, since if you don’t manually failover and trigger failovers by shutting down machines you can get close to this limit.
 
@@ -689,7 +689,7 @@ It would be prudent to double the failure allowance, to do this in Failover Clus
 
 Change the Maximum Failures to 6.
 
-#### Step 3: Addition IP Address resource for Cluster Group <Optional>
+#### Step 3: Addition IP Address resource for Cluster Group \<Optional>
 
 If you have only one IP address for the Cluster Group and this is aligned to the cloud subnet, beware, if you accidentally take offline all cluster nodes in the cloud on that network then the Cluster IP resource and Cluster Network Name are not be able to come online. In this situation, it prevents updates to other cluster resources.
 

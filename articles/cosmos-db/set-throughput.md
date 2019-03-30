@@ -4,7 +4,7 @@ description: Learn how to set provisioned throughput for your Azure Cosmos conta
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
 
 ---
@@ -71,6 +71,20 @@ You can combine the two models. Provisioning throughput on both the database and
 * You can explicitly configure "P" RUs of provisioned throughput on the container named B.
 * The "K" RUs throughput is shared across the four containers A, C, D, and E. The exact amount of throughput available to A, C, D, or E varies. There are no SLAs for each individual container’s throughput.
 * The container named B is guaranteed to get the "P" RUs throughput all the time. It's backed by SLAs.
+
+## Update throughput on a database or a container
+
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The minimum provisioned throughput depends on the following factors: 
+
+* The maximum data size that you ever store in the container
+* The maximum throughput that you ever provision on the container
+* The maximum number of Azure Cosmos containers that you ever create in a database with shared throughput. 
+
+You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) method allows you to scale the provisioned throughput value. 
+
+When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
+
+You can scale the provisioned throughput of a container or a database at any time. You can run the scale-down operation after the idle period of 4 hours. The idle period is defined as the time period when there was no offer replace operations (which includes scale-up and scale-down) on a container or a database. 
 
 ## Comparison of models
 

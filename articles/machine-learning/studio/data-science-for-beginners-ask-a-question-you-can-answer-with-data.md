@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 01/03/2018
+author: sdgilley
+ms.author: sgilley
+ms.date: 03/22/2019
 ---
 # Ask a question you can answer with data
 ## Video 3: Data Science for Beginners series
