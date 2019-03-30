@@ -129,11 +129,11 @@ Entitlement management has different roles based on job function.
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owner. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 | Approver | Approve requests to access packages. |
-| User | Request access packages. |
+| Requestor | Request access packages. |
 
 The following table lists the permissions for each of these roles.
 
-| Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver | User |
+| Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver | Requestor |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Create a catalog | :heavy_check_mark: | :heavy_check_mark: |  |  |  |  |
 | Edit/delete a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |  |  |
