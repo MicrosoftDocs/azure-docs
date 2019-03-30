@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for ASC for IoT Preview| Microsoft Docs
-description: Find answers to the most frequently asked questions about ASC for IoT features and service.
+title: Frequently asked questions for Azure Security Center for IoT Preview| Microsoft Docs
+description: Find answers to the most frequently asked questions about Azure Security Center for IoT features and service.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -17,10 +17,10 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT frequently asked questions  
+# Azure Security Center (ASC) for IoT frequently asked questions  
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

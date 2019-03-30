@@ -1,6 +1,6 @@
 ---
-title: ASC for IoT prerequisites Preview| Microsoft Docs
-description: Details of everything needed to get started with ASC for IoT service prerequisites.
+title: Azure Security Center for IoT prerequisites Preview| Microsoft Docs
+description: Details of everything needed to get started with Azure Security Center for IoT service prerequisites.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -17,10 +17,10 @@ ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT prerequisites
+# Azure Security Center (ASC) for IoT prerequisites
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
