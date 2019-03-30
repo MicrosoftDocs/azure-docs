@@ -75,7 +75,7 @@ Articles contain code samples that demonstrate how to complete a task. In this s
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
-* [How to encode with a custom transform by using CLI](custom-preset-cli-howto.md)
+* [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 
 ## Naming conventions
 
