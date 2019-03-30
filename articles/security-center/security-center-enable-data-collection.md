@@ -284,7 +284,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
    3. Populate the public config and the private config with these values:
      
            $PublicConf = '{
-               "workspaceId": "WorkspaceID value",
+               "workspaceId": "WorkspaceID value"
            }' 
  
            $PrivateConf = '{

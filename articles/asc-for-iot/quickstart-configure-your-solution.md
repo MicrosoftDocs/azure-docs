@@ -30,7 +30,7 @@ This article provides an explanation of how to perform initial configuration of 
 
 ASC for IoT provides comprehensive end-to-end security for Azure-based IoT solutions.
 
-With ASC for IoT. you can monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms and backend resources in Azure.
+With ASC for IoT, you can monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms and backend resources in Azure.
 
 Once enabled on your IoT Hub, ASC for IoT automatically identifies other Azure services, also connected to your IoT hub and related to your IoT solution.
 
@@ -47,7 +47,7 @@ To add new resource to your IoT solution, do the following:
 2. Select and open **Resources** under **Security** from the left menu. 
 3. Select **Add resources**.
 4. Choose resources which belong to your IoT solution.
-4. Click **Add**. 
+5. Click **Add**. 
 
 Congratulations! You've added a new resource to your IoT solution.
 

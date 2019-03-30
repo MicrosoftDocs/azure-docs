@@ -25,12 +25,14 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Based on ongoing solution analysis, ASC for IoT provides the following recommendations when needed to help improve and protect your devices, operational status and overall IoT Hub environment. 
+ASC for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface. 
+Security recommendations are actionable and aim to aid customers in complying to security best practices.
 
+In this article, you will find a list of recommendations which can be triggered on your IoT Hub and/or IoT devices.
 
-## Device recommendations
+## Recommendations for IoT devices
 
-Device recommendations provide insights and suggestions to improve device security and behavior. 
+Device recommendations provide insights and suggestions to improve device security posture. 
 
 | Severity | Name                                                      | Data Source | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,9 +42,9 @@ Device recommendations provide insights and suggestions to improve device securi
 | Medium   | Permissive firewall rule in the output chain was found    | Agent       | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports.                                                                                   |
 | Medium   | Operation system baseline validation has failed           | Agent       | Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### Operational recommendation
+### Operational recommendations for IoT devices
 
-Operational recommendations provide insights and suggestions to improve agent configuration.
+Operational recommendations provide insights and suggestions to improve security agent configuration.
 
 | Severity | Name                                    | Data Source | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -51,7 +53,7 @@ Operational recommendations provide insights and suggestions to improve agent co
 | Low      | Security twin configuration conflict    | Agent       | Conflicts were identified in the security twin configuration.                           |
 
 
-## IoT Hub recommendations
+## Recommendations for IoT Hub
 
 Recommendation alerts provide insight and suggestions for actions to improve the security posture of your environment.  
 

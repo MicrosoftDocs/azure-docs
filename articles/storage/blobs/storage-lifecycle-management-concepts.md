@@ -67,7 +67,7 @@ $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -Snaps
 # PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
 $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
 
-#Create a new fule object
+#Create a new rule object
 #PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 

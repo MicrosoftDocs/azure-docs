@@ -24,8 +24,15 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+ASC for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
+In addition, you can create custom alerts based on your knowledge of expected device behavior.
+An alert acts as an indicator of comprise, and should be investigated and remediated.
 
-## Device alerts
+In this article, you will find a list of built-in alerts which can be triggered on your IoT Hub and/or IoT devices.
+Beside built-in alert, ASC for IoT allows you to define custom alerts based on expected Hub and/or device behavior.
+For more details, see [Create custom alerts](quickstart-create-custom-alerts.md).
+
+## Built-in alerts for IoT devices
 
 | Severity | Name                                                   | Data Source | Description                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -69,7 +76,7 @@ ms.author: mlottner
 | Low      | Bash History Cleared                                   | Agent       | Bash History log cleared. Adversaries can hide their own commands from appear in the logs                                                                                                                                                                                                                                                                                                                                                   |
 | Low      | Failed brute force                                      | Agent       | Multiple unsuccessful login attempts identified. An Attempted and failed brute force attack was made on the device.                                                                                                                                                                                                                                                                                                                                                  |
 
-## IoT Hub alerts
+## Built-in alerts for IoT Hub
 
 | Severity | Name                                                                         | Description                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -85,4 +92,4 @@ ms.author: mlottner
 
 - [Overview](overview.md)
 - [Access your security data](how-to-security-data-access.md)
-- [Investigate a device](tutorial-investigate-device.md)
+- [Investigate a device](how-to-investigate-device.md)
