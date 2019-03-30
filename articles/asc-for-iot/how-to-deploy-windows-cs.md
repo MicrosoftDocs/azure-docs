@@ -18,14 +18,14 @@ ms.author: mlottner
 
 ---
 
-# Deploy an Azure Security Center (ASC) for IoT C#-based security agent for Windows
+# Deploy an Azure Security Center for IoT C#-based security agent for Windows
 
 > [!IMPORTANT]
 > Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide explains how to install the ASC for IoT C#-based security agent on Windows.
+This guide explains how to install the Azure Security Center (ASC) for IoT C#-based security agent on Windows.
 
 In this guide, you learn how to: 
 > [!div class="checklist"]

@@ -17,7 +17,7 @@ ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-# Azure Security Center (ASC) for IoT architecture
+# Azure Security Center for IoT architecture
 
 This article explains the functional system architecture of the Azure Security Center for IoT solution. 
 
@@ -28,7 +28,7 @@ This article explains the functional system architecture of the Azure Security C
 
 ## ASC for IoT components
 
-ASC for IoT is composed of the following components:
+Azure Security Center (ASC) for IoT is composed of the following components:
 - Device agents
 - Send security message SDK
 - IoT Hub integration

@@ -17,7 +17,7 @@ ms.date: 03/18/2019
 ms.author: mlottner
 
 ---
-# Introducing Azure Security Center (ASC) for IoT
+# Introducing Azure Security Center for IoT
 
 > [!IMPORTANT]
 > Azure Security Center for IoT is currently in public preview.
@@ -32,7 +32,7 @@ Unify security management and enable end to end threat analysis and protection a
 
 The Internet of Things is quickly transforming our world. With the ability to uncovering insights from your connected devices and back-end systems, you can now transform those insights into powerful applications and services to help your organization achieve unprecedented levels of operational and business performance. However, as billions of new devices are connected to the internet, and integrated into our daily lives and our businesses; your security operations teams need to ensure that their security strategies evolve quickly enough to cover these new attack surfaces. Like any other system, securing your IoT solution needs protection at every stage of your implementation. 
 
-ASC for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
+Azure Security Center (ASC) for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
 
 ![ASC for IoT architecture](./media/architecture/asc-for-iot-architecture.png)
 

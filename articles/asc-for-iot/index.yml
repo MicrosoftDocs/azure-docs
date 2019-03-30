@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Security Center (ASC) for IoT Preview Documentation
+title: Azure Security Center for IoT Preview Documentation
 metadata:
-  title: Azure Security Center (ASC) for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  title: Azure Security Center for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner

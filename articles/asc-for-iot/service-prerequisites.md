@@ -17,14 +17,14 @@ ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# Azure Security Center (ASC) for IoT prerequisites
+# Azure Security Center for IoT prerequisites
 
 > [!IMPORTANT]
 > Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of the different building blocks of the ASC for IoT service, what you need to begin and basic concepts to help understand the service. 
+This article provides an explanation of the different building blocks of the Azure Security Center (ASC) for IoT service, what you need to begin and basic concepts to help understand the service. 
 
 ## Minimum requirements
 

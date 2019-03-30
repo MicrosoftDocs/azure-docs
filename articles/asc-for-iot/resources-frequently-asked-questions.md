@@ -17,14 +17,14 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# Azure Security Center (ASC) for IoT frequently asked questions  
+# Azure Security Center for IoT frequently asked questions  
 
 > [!IMPORTANT]
 > Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides a list of frequently asked questions and answers about ASC for IoT. 
+This article provides a list of frequently asked questions and answers about Azure Security Center (ASC) for IoT. 
 
 ## Does Azure provide support for IoT security?
 
