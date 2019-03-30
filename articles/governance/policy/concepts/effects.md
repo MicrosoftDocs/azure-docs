@@ -4,7 +4,7 @@ description: Azure Policy definition have various effects that determine how com
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -215,7 +215,9 @@ related resources to match.
 
 - **Type** [required]
   - Specifies the type of the related resource to match.
-  - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
+  - If **details.type** is a resource type underneath the **if** condition resource, the policy
+    queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
+    policy queries within the same resource group as the evaluated resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
 - **ResourceGroupName** (optional)
