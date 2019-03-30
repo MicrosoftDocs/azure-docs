@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to monitor a cluster by viewing Ser
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
