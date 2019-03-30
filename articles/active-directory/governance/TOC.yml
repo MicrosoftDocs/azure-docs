@@ -31,6 +31,8 @@
     items:
     - name: Email notifications
       href: entitlement-management-notifications.md
+    - name: Manage external users
+      href: entitlement-management-external-users.md
 - name: How-to guides
   expanded: true
   items:

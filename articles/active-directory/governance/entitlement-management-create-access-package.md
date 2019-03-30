@@ -356,4 +356,4 @@ An access package can only be deleted if it has no active user assignments.
 
 ## Next steps
 
-- [Manage access for guest users](entitlement-management-guest-users.md)
+- [Manage access for external users](entitlement-management-external-users.md)
