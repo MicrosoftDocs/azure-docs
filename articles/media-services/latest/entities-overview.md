@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Developing with v3 APIs - Azure | Microsoft Docs
-description: This article discusses rules that apply to v3 entities when developing with Media Services APIs. 
+description: This article discusses rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Developing with Media Services v3 APIs
 
-This article discusses rules that apply to v3 entities when developing with Media Services APIs. 
+This article discusses rules that apply to entities and APIs when developing with Media Services v3.
 
 ## Naming conventions
 
@@ -40,7 +40,6 @@ Examples of this include
 * not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
-
 
 ## Filtering, ordering, paging of Media Services entities
 
