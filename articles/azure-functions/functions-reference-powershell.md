@@ -139,7 +139,8 @@ DESCRIPTION
     queue output binding can accept one or multiple queue messages.
 
     With this knowledge, the 'Push-OutputBinding' cmdlet acts differently based on the
-    value specified for '-Name'.
+    value specified for '-Name':
+
     - If the specified name cannot be resolved to a valid output binding, then an error
       will be thrown;
 
