@@ -57,7 +57,7 @@ Unless a user is assigned the role of limited administrator or global administra
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
 To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
-   ![Screenshot showing All Users group where UserType is not equal Guest ](media/faq/modify-all-users-group.png)
+   ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
    ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
