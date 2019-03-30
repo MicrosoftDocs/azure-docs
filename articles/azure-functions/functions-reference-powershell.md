@@ -242,12 +242,10 @@ Get-OutputBinding
 ```
 
 ```Output
-
 Name                           Value
 ----                           -----
 MyQueue                        myData
 MyOtherQueue                   myData
-
 ```
 
 `Get-OutputBinding` also contains a parameter called `-Name` that lets you filter with wildcard support.
@@ -257,11 +255,9 @@ Get-OutputBinding -Name MyQ*
 ```
 
 ```Output
-
 Name                           Value
 ----                           -----
 MyQueue                        myData
-
 ```
 
 ## Logging
@@ -283,34 +279,6 @@ Logging in PowerShell functions works similarly to regular PowerShell logging. Y
 > Verbose maps to the Functions log level `Trace`.
 
 In addition to these cmdlets, anything written to the pipeline will be redirected to the `Information` log level and displayed with the default PowerShell formatting.
-
-Logs are written in the same order of the script execution.
-The example below shows the logging experience.
-
-```powershell
-## run.ps1 - Write output between verbose logging
-param($req, $TriggerMetadata)
-
-Write-Verbose "Start to invoke ..." -Verbose
-Get-Process | Select-Object -First 5
-Write-Verbose "Name passed in: $($req.Query.Name)." -Verbose
-...
-```
-
-```output
-Executing 'Functions.MyHttpTrigger' (Reason='This function was programmatically called via the host APIs.', Id=2242c6a8-a5a6-4156-813d-71fda654210b)
-VERBOSE: Start to invoke ...
-OUTPUT:
-OUTPUT:  NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
-OUTPUT:  ------    -----      -----     ------      --  -- -----------
-OUTPUT:      57    34.80      26.57     615.28   11060   1 AlertusDesktopAlert
-OUTPUT:      24    15.88      21.28       4.83   14672   1 ApplicationFrameHost
-OUTPUT:       8     2.12       6.92       0.00    9988   0 AppVShNotify
-OUTPUT:      17     3.43       8.65       0.00    4556   0 armsvc
-OUTPUT:      44    95.29      97.70      42.31  880312   1 AzureStorageEmulator
-VERBOSE: Name passed in: joe.
-Executed 'Functions.MyHttpTrigger' (Succeeded, Id=2242c6a8-a5a6-4156-813d-71fda654210b)
-```
 
 > [!IMPORTANT]
 > Using `Write-Verbose` or `Write-Debug` is not enough to see Verbose and Debug logging. You need to also configure the "log level threshold" which declares what level of logs you actually care about. See [Configuring the log level for a Function App](#configuring-the-log-level-for-a-function-app) on how to do that.
