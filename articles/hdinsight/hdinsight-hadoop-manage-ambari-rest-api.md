@@ -302,7 +302,7 @@ This example returns a JSON document containing the current configuration for th
    Modify, and then enter the commands below:
 
    * Replace `livy2-conf` with the desired component.
-   * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#Get-all-configurations).
+   * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#get-all-configurations).
 
      **A. Bash**  
      ```bash

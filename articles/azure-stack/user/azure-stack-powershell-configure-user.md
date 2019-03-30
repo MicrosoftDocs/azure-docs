@@ -47,7 +47,7 @@ Make sure you replace the following script variables with values from your Azure
 
 ## Connect with Azure AD
 
-```PowerShell  
+```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
@@ -61,7 +61,7 @@ Make sure you replace the following script variables with values from your Azure
 
 ## Connect with AD FS
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
@@ -73,7 +73,7 @@ Make sure you replace the following script variables with values from your Azure
 
 Resource providers aren’t automatically registered for new user subscriptions that don’t have any resources deployed through the portal. You can explicitly register a resource provider by running the following script:
 
-```PowerShell  
+```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -85,7 +85,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 When you've got everything set up, test connectivity by using PowerShell to create resources in Azure Stack. As a test, create a resource group for an application and add a virtual machine. Run the following command to create a resource group named "MyResourceGroup":
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

@@ -71,7 +71,7 @@ Some available options are:
 
 - HDInsight clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
  
-- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](##Exceptions) section.
+- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](#exceptions) section.
 
 - Data Lake Storage Gen1 virtual network integration doesn't work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   

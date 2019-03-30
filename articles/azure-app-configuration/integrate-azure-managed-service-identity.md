@@ -88,7 +88,8 @@ To set up a managed identity in the portal, you first create an application as n
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
+                config.AddAzureAppConfiguration(options =>
+                    options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
             })
             .UseStartup<Startup>();
     ```

@@ -59,17 +59,17 @@ If you already have a GitHub account and a repository that you want to link to A
      
      | **Parameter** | **Value** |
      |:--- |:--- |
-     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
-     | Value |{"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |String |
+     | `Value` |{"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
 
      * The variable **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contains the secure encrypted value of your OAuthToken.  
 
      |**Parameter**            |**Value** |
      |:---|:---|
-     | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Value | <*Encrypted OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*Encrypted OAuthToken*> |  
 
      ![Variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

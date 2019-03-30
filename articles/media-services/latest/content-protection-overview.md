@@ -204,7 +204,7 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure you specify the appropriate Streaming Policy.
 
-If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. For example, …/manifest (format=m3u8-cmaf,encryption=cbcs-aapl). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption types).
+If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. For example, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
 
 
 ## Next steps

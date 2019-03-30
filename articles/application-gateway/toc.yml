@@ -16,15 +16,15 @@
 - name: Tutorials
   items:
   - name: Host single site
-    href: tutorial-manage-web-traffic-cli.md
+    href: quick-create-portal.md
   - name: Enable web application firewall
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
-    href: tutorial-ssl-cli.md
+    href: create-ssl-portal.md
   - name: Host multiple sites
-    href: tutorial-multiple-sites-cli.md
+    href: create-multiple-sites-portal.md
   - name: Route by URL
-    href: tutorial-url-route-cli.md
+    href: create-url-route-portal.md
   - name: Redirect web traffic
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
@@ -61,10 +61,10 @@
       href: custom-error.md      
   - name: SSL
     items:
-    - name: SSL policy overview
-      href: application-gateway-ssl-policy-overview.md
     - name: SSL termination and end to end SSL
       href: ssl-overview.md
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -87,10 +87,12 @@
     href: application-gateway-faq.md
 - name: How-to guides
   items:
-  - name: Manage web traffic
-    items:
-    - name: Azure portal
+  - name: Host single site
+    items:   
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md       
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
@@ -99,28 +101,36 @@
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md      
-  - name: Configure SSL termination
+  - name: Configure SSL
     items:
-    - name: SSL termination - portal
-      href: create-ssl-portal.md
-    - name: SSL termination - PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: End-to-end SSL - Portal
-      href: end-to-end-ssl-portal.md      
-    - name: End-to-end SSL - PowerShell
-      href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Create certificates for whitelisting backend
-      href: certificates-for-backend-authentication.md        
-    - name: Renew certificates
-      href: renew-certificates.md
-    - name: Configure SSL policy
-      href: application-gateway-configure-ssl-policy-powershell.md
+    - name: SSL termination
+      items:
+      - name: SSL termination - PowerShell
+        href: tutorial-ssl-powershell.md
+      - name: SSL termination - Azure CLI
+        href: tutorial-ssl-cli.md
+    - name: End-to-end SSL
+      items:        
+      - name: End-to-end SSL - Portal
+        href: end-to-end-ssl-portal.md      
+      - name: End-to-end SSL - PowerShell
+        href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Manage certificates
+      items:             
+      - name: Create certificates for whitelisting backend
+        href: certificates-for-backend-authentication.md        
+      - name: Renew certificates
+        href: renew-certificates.md
+    - name: SSL policy
+      items:           
+      - name: Configure SSL policy
+        href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
     items:
-    - name: Azure portal
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md      
   - name: Configure WAF rule sets
     items:
     - name: Azure portal
@@ -131,16 +141,16 @@
       href: application-gateway-customize-waf-rules-cli.md
   - name: Route by URL
     items:
-    - name: Azure portal
-      href: create-url-route-portal.md
     - name: Azure PowerShell
       href: tutorial-url-route-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-route-cli.md
   - name: Host multiple sites
     items:
-    - name: Azure portal
-      href: create-multiple-sites-portal.md
     - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
+      href: tutorial-multiple-sites-powershell.md    
+    - name: Azure CLI
+      href: tutorial-multiple-sites-cli.md
   - name: Redirect traffic
     items:
     - name: External traffic
@@ -175,7 +185,7 @@
       href: configure-web-app-portal.md    
     - name: Azure PowerShell
       href: create-web-app.md
-  - name: Custom probes
+  - name: Configure custom probes
     items:
       - name: Portal
         href: application-gateway-create-probe-portal.md

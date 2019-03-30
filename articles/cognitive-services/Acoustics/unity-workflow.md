@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
 
@@ -33,16 +33,16 @@ Project Acoustics provides a number of source-specific acoustics design controls
 ### Adjust distance-based attenuation
 The audio DSP provided by the **Project Acoustics** Unity spatializer plugin respects the per-source distance-based attenuation built into the Unity Editor. Controls for distance-based attenuation are in the **Audio Source** component found in the **Inspector** panel of sound sources, under **3D Sound Settings**:
 
-![Distance Attenuation](media/distance-attenuation.png)
+![Screenshot of Unity distance attenuation options panel](media/distance-attenuation.png)
 
 Acoustics performs computation in a "simulation region" box centered around the player location. If a sound source is distant from the player, located outside this simulation region, only geometry within the box will affect the sound propagation (such as causing occlusion) which works reasonably well when occluders are in the vicinity of the player. However, in cases when the player is in open space but the occluders are near the distant sound source, the sound can become unrealistically disoccluded. Our suggested workaround is to ensure in such cases that the sound attenuation falls off to 0 at about 45 m, the default horizontal distance of the player to the edge of the box.
 
-![SpeakerMode](media/speaker-mode.png)
+![Screenshot of Unity SpeakerMode option panel](media/speaker-mode.png)
 
 ### Adjust occlusion and transmission
 Attaching the **AcousticsAdjust** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Adjust**. The script has six controls:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Screenshot of Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
 * **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized with HRTFs or panning but there will be no acoustics. This means no obstruction, occlusion, or dynamic reverberation parameters such as level and decay time. Reverberation is still applied with a fixed level and decay time.
 * **Occlusion** - Apply a multiplier to the occlusion dB level computed by the acoustics system. If this multiplier is greater than 1, occlusion will be exaggerated, while values less than 1 make the occlusion effect more subtle, and a value of 0 disables occlusion.
@@ -55,14 +55,14 @@ Attaching the **AcousticsAdjust** script to a source enables tuning parameters f
 
 Attaching the **AcousticsAdjustExperimental** script to a source enables additional experimental tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Adjust Experimental**. There is currently one experimental control:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Screenshot of Unity AcousticsAdjustExperimental script](media/acoustics-adjust-experimental.png)
 
 * **Perceptual Distance Warp** - Apply an exponential warping to the distance used to compute the dry-wet ratio. The acoustics system computes wet levels throughout the space, which vary smoothly with distance and provide perceptual distance cues. Warping values greater than 1 exaggerate this effect by increasing distance-related reverberation levels, making the sound "distant". Warping values less than 1 make the distance-based reverberation change more subtle, making the sound more "present".
 
 ## Design acoustics for all sources
 To adjust parameters for all sources, click on the channel strip in Unity's **Audio Mixer**, and adjust the parameters on the **Project Acoustics Mixer** effect.
 
-![Mixer Customization](media/mixer-parameters.png)
+![Screenshot of Project Acoustics Unity Mixer customization panel](media/mixer-parameters.png)
 
 * **Wetness Adjust** - Adjusts the reverb power, in dB, across all sources in the scene based on source-listener distance. Positive values make a sound more reverberant, while negative values make a sound more dry.
 * **RT60 Scale** - Multiplicative scalar for reverb time.
@@ -71,7 +71,7 @@ To adjust parameters for all sources, click on the channel strip in Unity's **Au
 ## Check proper sound source placement
 Sound sources placed inside occupied voxels will not get acoustic treatment. Because voxels extend past the visible scene geometry, it's possible to place a source inside a voxel while it appears unoccluded by visual geometry. You can view Project Acoustics voxels by toggling the voxel grid checkbox in the **Gizmos** menu, in the upper right of the **Scene** view.
 
-![Gizmos Menu](media/gizmos-menu.png)  
+![Screenshot of Unity Gizmos menu](media/gizmos-menu.png)  
 
 The voxel display can also help determine if visual components in the game have a transform applied to them. If so, apply the same transform to the GameObject hosting the **Acoustics Manager**.
 
@@ -80,11 +80,11 @@ It's possible to view voxels in the editor window at game design time and in the
 
 Design time voxels:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Screenshot of Project Acoustics voxels during design time](media/voxels-design-time.png)
 
 Runtime voxels:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Screenshot of Project Acoustics voxels during run time](media/voxels-runtime.png)
 
 ## Next steps
 * Explore case studies highlighting the concepts behind the [design process](design-process.md)

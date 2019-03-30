@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/03/2018
+ms.date: 03/22/2019
 ---
 # Predict an answer with a simple model
 ## Video 4: Data Science for Beginners series
