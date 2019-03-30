@@ -234,8 +234,8 @@
     href: luis-how-to-publish-app.md
   - name: Manage app
     items:
-    - name: Using the dashboard
-      displayName: analytics, usage
+    - name: Using the summary dashboard to improve app
+      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
       href: luis-how-to-use-dashboard.md
     - name: Using subscription keys with your LUIS app
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
@@ -263,9 +263,9 @@
   items:
   - name: User privacy
     href: luis-user-privacy.md
-  - name: Authoring and publishing regions
+  - name: Regions
     href: luis-reference-regions.md
-    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
+    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference

@@ -1,7 +1,7 @@
 ---
-title: App dashboard
+title: Summary dashboard
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
+description: Problem solve with the summary dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,63 +9,137 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/08/2019
 ms.author: diberry
 ---
 
-# Model and usage statistics in the dashboard
-The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
+# How to use the Summary dashboard to improve your app
 
-> [!CAUTION]
-> If you want the most up-to-date metrics for LUIS, you need to:
-> * Use a LUIS [endpoint key](luis-how-to-azure-subscription.md) created in Azure
-> * Use LUIS endpoint key for all endpoint requests including LUIS [API](https://aka.ms/luis-endpoint-apis) and bot
-> * Use different endpoint key for each LUIS app. Do not use a single endpoint key for all apps. The endpoint key is tracked at the key level, not at the app level.  
+The summary dashboard enables you to find and fix problems with your trained app's intents and entities. The summary dashboard displays overall app information, with highlights of intents that should be fixed. Intents can have several problematic issues: data imbalance, unclear predictions or incorrect predictions. 
 
-The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. 
-  
-## App status
-The dashboard displays the application's training and publishing status, including the date and time when the app was last trained and published.  
+## What issues can be fixed from dashboard?
 
-![Dashboard - App Status](./media/luis-how-to-use-dashboard/app-state.png)
+The three problems addressed in the dashboard are:
 
-## Model data statistics
-The dashboard displays the total numbers of intents, entities, and labeled utterances existing in the app. 
+|Issue|Explanation|
+|--|--|
+|Data imbalance|This occurs when the quantity of example utterances varies beyond a significant percent. All intents need to have about the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app.|
+|Unclear predictions|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data). |
+|Incorrect predictions|This occurs when an utterance is not predicted for the intent it is in.|
 
-![App Data Statistics](./media/luis-how-to-use-dashboard/app-model-count.png)
+The summary dashboard shows these issues and tells you which intents are effected and suggests what you should do to improve the app. 
 
-## Endpoint hits
-The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./luis-concept-keys.md#endpoint-key) and endpoint hits that use an [Authoring key](./luis-concept-keys.md#authoring-key).
+## Before app is trained 
 
-![Endpoint Hits](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+Before you train the app, the summary dashboard does not contain any suggestions for fixes. Train your app to see these suggestions.  
 
-> [!NOTE] 
-> The most current endpoint hit count is in the Azure portal on the LUIS service overview. 
- 
-### Total endpoint hits
-The total number of endpoint hits received to your app since app creation up to the current date.
+## Check your publishing status
 
-### Endpoint hits per period
-The number of hits received within a past period, displayed per day. The points between the start and end dates represent the days falling in this period. Hover your mouse pointer over each point to see the hits count in each day within the period. 
+The **Publishing status** card contains information about the active version's last training. 
 
-To select a period to view on the chart:
- 
-1. Click **Additional Settings** ![Additional Settings button](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the periods list. You can select periods ranging from one week up to one year. 
+Check that the active version is the version you want to fix. 
 
-    ![Endpoint Hits per Period](./media/luis-how-to-use-dashboard/timerange.png)
+![Summary dashboard shows app's external services, published regions, and aggregated endpoint hits.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-2. Select a period from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart.
+This also shows any external services, published regions, and aggregated endpoint hits. 
 
-### Key usage
-The number of hits consumed from the application's endpoint key. For more information about endpoint keys, see [Keys in LUIS](luis-concept-keys.md). 
-  
-## Intent breakdown
-The **Intent Breakdown** displays a breakdown of intents based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each intent in the app. When you hover your mouse pointer over a slice, you see the intent name and the percentage it represents of the total count of labeled utterances/endpoint hits. 
+## Review training evaluation
 
-![Intent Breakdown](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+The **Training evaluation** card contains the aggregated summary of your app's overall accuracy by area. The score indicates its health. 
 
-## Entity breakdown
-The dashboard displays a breakdown of entities based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each entity in the app. When you hover your mouse pointer over a slice, you see the entity name and the percentage in labeled utterances/endpoint hits. 
+![The Training evaluation card contains the first area of information about your app's overall accuracy.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-![Entity Breakdown](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+The chart indicates the correctly predicted intents and the problem areas with different colors. As you improve the app with the suggestions, this score increases. 
+
+The suggested fixes are separated out by problem type and are the most significant for your app. If you would prefer to review and fix issues per intent, use the **[Intents with errors](#intents-with-errors)** card at the bottom of the page. 
+
+Each problem area has intents that need to be fixed. When you select the intent name, the **Intent** page opens with a filter applied to the utterances. This filter allows you to focus on the utterances that are causing the problem.
+
+### Compare changes across versions
+
+Create a new version before making changes to the app. In the new version, make the suggested changes to the intent's example utterances, then train again. On the Summary page, use the **Show change from version** to compare the changes. 
+
+![Compare changes across versions](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+
+### Fix app by adding or editing example utterances and retraining
+
+The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](luis-concept-utterance.md).
+
+Adding example utterances should be done by someone who:
+
+* has a high degree of understanding of what utterances are in the different intents
+* knows how utterances in one intent may be confused with another intent
+* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the differences pulled out with entities
+
+### Patterns and phrase lists
+
+The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](luis-concept-feature.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance. 
+
+### Review data imbalance
+
+The **data imbalance** intent list shows intents that need more utterances in order to correct the data imbalance. 
+
+**To fix this issue**:
+
+* Add more utterances to the intent then train again. 
+
+Do not add utterances to the None intent unless that is suggested on the summary dashboard.
+
+> [!Tip]
+> Use the third section on the page, **Utterances per intent**, as a quick visual guide of which intents need more utterances.  
+
+### Review incorrect predictions
+
+The **incorrect prediction** intent list shows intents that have utterances which are used as examples for a specific intent, but are predicted for different intents. 
+
+**To fix this issue**:
+
+* Edit utterances to be more specific to the intent and train again.
+* Combine intents if utterances are too closely aligned and train again.
+
+### Review unclear predictions
+
+The **unclear prediction** intent list shows intents with utterances with prediction scores that are not far enough way from their nearest rival, that the top intent for the utterance may change on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data).
+
+**To fix this issue**;
+
+* Edit utterances to be more specific to the intent and train again.
+* Combine intents if utterances are too closely aligned and train again.
+
+## Utterances per intent
+
+This card shows the overall app health across the intents. A healthy app should have a high degree of intents with the same quantity of intents (same vertical height). As you fix intents and retrain, continue to glance at this card for issues.
+
+The following chart shows a well-balanced app with almost no issues to fix.
+
+![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+
+The following chart shows a poorly-balanced app with many issues to fix.
+
+![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+
+Hover over each intent's bar to get information about the intent. 
+
+![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+
+## Intents with errors
+
+This card allows you to review issues for a specific intent. The card is filtered to the most problematic intents, by default, so you know where to focus your efforts.
+
+![The Intents with errors card allows you to review issues for a specific intent. The card is filtered to the most problematic intents, by default, so you know where to focus your efforts.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+
+The top donut chart shows the issues with the intent across the three problem types. If there are issues in the three problem types, each type has its own chart below, along with any rival intents. 
+
+## Filter intents by issue and percentage
+
+The filter allows you to find intents with specific issue:
+
+|Filter|Suggested percentage|Purpose|
+|--|--|--|
+|Most problematic intents|-|Start here. Fixing these intents will improve the app more than other fixes.|
+|Correct predictions below|60%|Ideally you want correct predictions to be significant. That percentage is customer driven. If you are beginning with LUIS, start with 60%. Any intents that are correct but below 60% need to be fixed. |
+|Unclear predictions above|||
+|Incorrect predictions above|||
+
+## Next steps
 
