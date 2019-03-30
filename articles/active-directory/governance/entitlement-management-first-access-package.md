@@ -304,5 +304,5 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 ## Next steps
 
-- [Basic steps for common scenarios](entitlement-management-steps.md)
+- [Common scenarios](entitlement-management-scenarios.md)
 - [Create and manage an access package](entitlement-management-create-access-package.md)

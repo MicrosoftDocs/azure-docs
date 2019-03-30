@@ -198,4 +198,4 @@ There are several ways that you can configure entitlement management for your or
 
 ## Next steps
 
-- [Tutorial: Create your first access package in Azure AD entitlement management](entitlement-management-first-access-package.md)
+- [Tutorial: Create your first access package](entitlement-management-first-access-package.md)
