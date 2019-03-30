@@ -1,5 +1,5 @@
 ---
-title: Understand SUSE plan discount and usage - Azure Reservations  | Microsoft Docs
+title: Understand SUSE reservation plan discount and usage - Azure | Microsoft Docs
 description: Learn how SUSE plan discounts are applied to SUSE software on virtual machines.
 services: 'billing'
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ---
-# Understand how the SUSE Linux Enterprise software plan discount is applied
+# Understand how the SUSE Linux Enterprise software reservation plan discount is applied for Azure
 
 After you buy a SUSE Linux plan, the discount is automatically applied to deployed SUSE virtual machines (VMs) that match the reservation. A SUSE Linux plan covers the cost of running the SUSE software on an Azure VM.
 
 To buy the right SUSE Linux plan, you need to understand what SUSE VMs you run and the number of vCPUs on those VMs. Use the following sections to help identify from your usage CSV file what plan to buy.
 
-## Discount applies to different VM sizes with instance size flexibility
+## Discount applies to different VM sizes
 
 Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 
@@ -35,7 +35,7 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 
 The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
 
-## Understand your SUSE VM usage before buying a SUSE Linux plan
+## Understand SUSE VM usage before you buy
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 
@@ -128,6 +128,6 @@ To learn more about reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

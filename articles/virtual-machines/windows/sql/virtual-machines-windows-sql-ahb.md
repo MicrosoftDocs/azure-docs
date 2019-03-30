@@ -212,7 +212,7 @@ Use the following code to verify your Azure PowerShell version:
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
-### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/<resource-group>' under resource group '<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
+### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
 This error occurs when the SQL Server VM has not been registered with the SQL resource provider. You'll need to register the resource provider with your [subscription](#register-sql-resource-provider-with-your-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
 
 ## Next steps

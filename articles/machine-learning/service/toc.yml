@@ -89,15 +89,18 @@
         href: how-to-vscode-tools.md
       - name: Train and deploy
         href: how-to-vscode-train-deploy.md
-  - name: Prepare data
+  - name: Work with data
     displayName: data prep, etl, elt, data preparation
     items:
-    - name: Load data
-      href: how-to-load-data.md
-    - name: Transform data
-      href: how-to-transform-data.md
-    - name: Write data
-      href: how-to-write-data.md
+    - name: Explore and prep data
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: Load data
+        href: how-to-load-data.md
+      - name: Transform data
+        href: how-to-transform-data.md
+      - name: Write data
+        href: how-to-write-data.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
