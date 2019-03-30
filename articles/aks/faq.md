@@ -81,7 +81,7 @@ AKS is not currently natively integrated with Azure Key Vault. However, the [Azu
 
 ## Can I run Windows Server containers on AKS?
 
-To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. You can, however, use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are available in AKS since March 25, 2019. You can also use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
 
 ## Does AKS offer a service level agreement?
 
