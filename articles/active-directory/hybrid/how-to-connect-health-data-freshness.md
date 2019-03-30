@@ -32,6 +32,8 @@ The Alert Details blade indicates the time when the Alert is raised and last det
 The blade also details the time when a particular Data Type was last received by the Health Service. 
 
 Below is the map of service types and corresponding required data type.
+ ![Azure AD Connect Health alert details](./media/how-to-connect-health-data-freshness/dfdetails.PNG)
+
 
 | Service Type | Agent (Windows Service name) | Purpose | Data Type generated  |
 | --- | --- | --- | --- |  
