@@ -80,6 +80,9 @@
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
     displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
+  - name: Conversational flow
+    href: /Concepts/conversation-flow.md
+    displayName: multi-turn dialogs
 - name: How-to guides
   items:
   - name: Manage knowledge base
