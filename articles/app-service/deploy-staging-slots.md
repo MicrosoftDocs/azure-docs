@@ -97,9 +97,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 
 <!-- VNET and hybrid connections not yet sticky to slot -->
 
-To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable.
-
-To override the list of settings that are not swapped, create an app setting named `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` and set the value to `0` on all slots. This will make those settings (publishing endpoints, custom domain names, etc.) follow the content across a swap. 
+To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable. 
 
 ![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
 
