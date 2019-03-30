@@ -4,7 +4,7 @@ description: Control mapping of the UK OFFICIAL blueprint sample.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/13/2019
+ms.date: 06/20/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -89,9 +89,9 @@ multi-factor authentication enabled.
 - MFA should be enabled on accounts with owner permissions on your subscription
 - MFA should be enabled accounts with write permissions on your subscription
 - MFA should be enabled on accounts with read permissions on your subscription
-- Audit external accounts with owner permissions on a subscription
-- Audit external accounts with write permissions on a subscription
-- Audit external accounts with read permissions on a subscription
+- External accounts with owner permissions should be removed from your subscription
+- External accounts with write permissions should be removed from your subscription
+- External accounts with read permissions should be removed from your subscription
 
 This blueprint assigns two Azure Policy definitions to audit use of Azure Active Directory
 authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication
@@ -217,6 +217,13 @@ machines aren't sending logs to a specified log analytics workspace.
 - Deploy network watcher when virtual networks are created
 
 ## Next steps
+
+Now that you've reviewed the control mapping of the UK OFFICIAL blueprint, visit the following
+articles to learn about the overview and how to deploy this sample:
+
+> [!div class="nextstepaction"]
+> [UK OFFICIAL blueprint - Overview](./index.md)
+> [UK OFFICIAL blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
