@@ -225,8 +225,18 @@ namespace ConsoleApp1
 
 ## Also see
 
-[.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+- [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
+- [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
+- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Create a job input from a local file - .NET](job-input-from-local-file-how-to.md)
+- [Create a job input from an HTTPS URL - .NET](job-input-from-http-how-to.md)
+- [Encode with a custom Transform - .NET](customize-encoder-presets-how-to.md)
+- [Use AES-128 dynamic encryption and the key delivery service - .NET](protect-with-aes128.md)
+- [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
+- [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
+- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
 ## Next steps
 
-[Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+[.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
