@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create  your first data science experiment without writing code"
 titleSuffix: Azure Machine Learning Studio
-description: Use Azure Machine Learning service without writing any code.  Use a drag-and-drop user interface to create a machine learning experiment to prepare and visualize your data.
+description: Create a machine learning experiment to prepare and visualize your data with a drag-and-drop user interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 04/15/2019
 
 # Quickstart: Create your first data science experiment without writing code
 
-Use the drag-and-drop user interface to create your first machine learning experiment without writing any code.
+Create a machine learning experiment to prepare and visualize your data with a drag-and-drop user interface.
 
 In this quickstart you'll explore and prepare data:
 
@@ -33,7 +33,7 @@ If you're brand new to machine learning, the video series [Data Science for Begi
 
 1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  See how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see [how to find your workspace](how-to-manage-workspace.md#view).
 
 ## Create your first experiment
 
@@ -44,15 +44,15 @@ If you're brand new to machine learning, the video series [Data Science for Begi
 
 1. Select **Blank Experiment**.
 
-1. Your experiment is given a default name. Select this text and rename it to something meaningful, for example, **Quickstart-explore data**. This name doesn't need to be unique.
+1. Your experiment is given a default name. Select this text and rename it to something meaningful, for example, "Quickstart-explore data." This name doesn't need to be unique.
 
-1. The Mini Map at the bottom of the screen is useful for viewing large experiments.  You won't need it in this quickstart so click on the arrow at the top to close it.  
+1. The **Mini Map** at the bottom of the screen is useful for viewing large experiments.  You won't need it in this quickstart so click on the arrow at the top to close it.  
 
 ![Rename experiment](./media/quickstart-ui-run-experiment/rename.png)
 
 ## Add data
 
-The first thing you need in machine learning is data. There are several sample datasets included with Studio that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
+The first thing you need for machine learning is data. There are several sample datasets included with Studio that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
 
 1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the available sample datasets.
 
@@ -61,7 +61,7 @@ The first thing you need in machine learning is data. There are several sample d
    ![Drag data to canvas](./media/quickstart-ui-run-experiment/drag-data.png)
 
  > [!TIP]
- > when you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use of this shortcut.
+ > If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
 
 ## Visualize the data
 
@@ -80,18 +80,18 @@ Visualize your data to understand more about the information you have to work wi
 
      ![visualization-result](./media/quickstart-ui-run-experiment/make.png)
 
-1. Click on each column to understand more about this dataset.
+1. Click on each column to understand more about this dataset. 
 
 ## Prepare data
 
-A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the normalized-losses column has a large proportion of missing values, so you'll exclude that column from the model altogether. 
+A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the normalized-losses column has a large proportion of missing values, so you'll exclude that column from the model altogether.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules.  
 
 ### Remove normalized-losses
 
-First,  remove the **normalized-losses** column completely. 
+First,  remove the **normalized-losses** column completely.
 
 1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
@@ -100,7 +100,7 @@ First,  remove the **normalized-losses** column completely.
 1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
     > [!TIP]
-    > If you have trouble connecting modules, try dragging a little farther into the node you are connecting.  
+    > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
 
 
     The experiment should now look something like this:
@@ -137,11 +137,13 @@ First,  remove the **normalized-losses** column completely.
 
 Now add another module that removes any row that has missing data.
 
+1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
+
 1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module. 
 
-1. In the Properties pane, select **Remove entire row** under **Cleaning mode**. 
+1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
-    These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. 
+    These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values.
 
 1. Double-click the module and type the comment "Remove missing value rows."
  
@@ -150,11 +152,11 @@ Now add another module that removes any row that has missing data.
 
 ## Run the experiment
 
-At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, if the experiment has not yet been run, the **Visualize** option will be disabled.  In this case, you need to first run the experiment.  
+At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, if the module doesn't yet know its data, the **Visualize** option will be disabled.  In this case, you need to first run the experiment. By running the experiment, the column definitions for your data pass from the dataset, through the **Select Columns in Dataset** module, and through the **Clean Missing Data** module.  After the run, you will be able to visualize the results of your cleaning steps.
 
 An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
-1. Click **Run** at the bottom to run the experiment. 
+1. Click **Run** at the bottom to run the experiment.
 
      ![Run experiment](./media/quickstart-ui-run-experiment/run-experiment.png)
 
@@ -166,22 +168,18 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
     ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
 
-    Your compute resource will now be created. This step may take approximately 10 minutes. Once the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
+    Your compute resource will now be created. This step takes approximately 10 minutes. Once the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
     ![View status](./media/quickstart-ui-run-experiment/status.png)
   
-    
-> [!TIP]
-> Why did you run the experiment now? By running the experiment, the column definitions for your data pass from the dataset, through the **Select Columns in Dataset** module, and through the **Clean Missing Data** module. When a module has not yet been run, data is not yet available. When data is not available, the **Visualize** option for that module will be disabled.
 
 ## Visualize the results
 
-Right click on the **Clean Missing Data** module to visualize the new clean data.  
+Now that you have run the experiment, right-click on the **Clean Missing Data** module to visualize the new clean data.  
 
 ![Visualize clean data](./media/quickstart-ui-run-experiment/visualize-cleaned.png)
-
 
 ## Clean up resources
 
