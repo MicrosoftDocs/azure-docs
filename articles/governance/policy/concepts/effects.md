@@ -218,7 +218,7 @@ related resources to match.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
-  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_. However, an [audit](#audit) effect should be considered instead.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`. However, an [audit](#audit) effect should be considered instead.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -296,7 +296,7 @@ related resources to match and the template deployment to execute.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
-  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
