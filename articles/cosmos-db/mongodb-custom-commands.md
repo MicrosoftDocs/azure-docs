@@ -162,7 +162,6 @@ The following table describes the parameters within the command:
 | offerThroughput | int    | Provisioned Throughput to set on the database. It's an Optional parameter |
 | shardKey        | string | Shard Key path to create a sharded collection. It's an Optional parameter |
 
-	
 ### Output
 
 Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
