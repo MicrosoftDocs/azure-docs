@@ -61,7 +61,7 @@ Once your storage account resource has been created, navigate to it.
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the pricing page for more details.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more details.
 
    ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
@@ -120,6 +120,9 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuNa
 ### Create a premium file share
 
 Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+
+> [!NOTE]
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more details.
 
 ```powershell
 New-AzStorageShare `
@@ -188,6 +191,9 @@ STORAGEKEY=$(az storage account keys list \
 ### Create a premium file share
 
 Now that you have a FileStorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
+
+> [!NOTE]
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more details.
 
 ```azurecli-interactive
 az storage share create \
