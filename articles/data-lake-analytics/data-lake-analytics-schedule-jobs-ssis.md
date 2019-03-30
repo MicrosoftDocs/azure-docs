@@ -87,7 +87,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
     
     To create this file connection:
 
-   1. Choose **<New Connection...>** in FileConnection setting.
+   1. Choose **\<New Connection...>** in FileConnection setting.
    2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
 
        ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)

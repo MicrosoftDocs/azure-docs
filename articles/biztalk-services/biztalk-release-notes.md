@@ -60,7 +60,7 @@ Consider the following situations with a BizTalk Services project in a Visual St
 * The BizTalk Service project has a reference to a custom binding/behavior DLL.
 
 You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild’ or ‘Clean’ the solution. After that, when you rebuild or clean again, the following error occurs:  
-  Unable to copy file <Path to DLL> to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
+  Unable to copy file `<Path to DLL>` to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
 
 #### Workaround
 * If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
@@ -205,7 +205,7 @@ There is an EDI or AS2 Agreement with active batches. When the BizTalk Service i
 ### UPGRADE: Toolbox shows the old bridge icons after upgrading the BizTalk Services SDK
 After you upgrade an earlier version of the BizTalk Services SDK, which had old icons representing the bridges, the toolbox continues to show the old icons for the bridges. However, if you add a bridge to BizTalk Service project designer surface, the surface shows the new icon.  
 
-**Workaround**. You can work around this issue by deleting the .tbd files under <system drive>:\Users\<user>\AppData\Local\Microsoft\VisualStudio\11.0.  
+**Workaround**. You can work around this issue by deleting the .tbd files under `<system drive>:\Users\<user>\AppData\Local\Microsoft\VisualStudio\11.0`.  
 
 ### UPGRADE: BizTalk Portal update from Preview to GA might show an error indicating that the EDI capability is not available
 If you are logged into the BizTalk Services Portal while the BizTalk Services is upgraded from Preview to GA, you might get the following error on the portal:  

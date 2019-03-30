@@ -95,9 +95,9 @@ Cache purges on the Front Door are case-insensitive. Additionally, they are quer
 
 ## Cache expiration
 The following order of headers is used in order to determine how long an item will be stored in our cache:</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: maxage=\<seconds>
+3. Expires: \<http-date>
 
 Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response.
 

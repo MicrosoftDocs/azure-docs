@@ -25,7 +25,7 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported.
 - Enable binary logging in my.ini (Windows) or my.cnf (Unix)
     - Set Server_id to any number larger or equals to 1, for example, Server_id=1 (only for MySQL 5.6)
-    - Set log-bin = <path> (only for MySQL 5.6)
+    - Set log-bin = \<path> (only for MySQL 5.6)
     - Set binlog_format = row
     - Expire_logs_days = 5 (recommended - only for MySQL 5.6)
 - User must have the ReplicationAdmin role.

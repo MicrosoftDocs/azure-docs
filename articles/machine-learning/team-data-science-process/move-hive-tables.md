@@ -106,7 +106,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 ![Azure Storage Explorer showing output of the Hive query](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
-You can also use the Query Console (Hive Editor) by entering a URL of the form *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
+You can also use the Query Console (Hive Editor) by entering a URL of the form *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
 You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -143,7 +143,7 @@ Here is the Hive query that loads data into a Hive table.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb:///<directory in this container>/<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb://\<directory in this container>/\<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://\<container name>\<storage account name>.blob.core.windows.net/\<blob file name>'*.
 
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.

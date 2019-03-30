@@ -86,12 +86,12 @@ Perform the following steps to connect and copy data from your computer to the D
     |Destination       | Specifies the path to the destination directory.        |
     |/E                  | Copies subdirectories including empty directories. |
     |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
-    |/R: <N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
-    |/W: <N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
+    |/R: \<N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
+    |/W: \<N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
     |/NFL                | Specifies that file names are not to be logged.        |
     |/NDL                | Specifies that directory names are not to be logged.        |
     |/FFT                | Assumes FAT file times (two-second precision).        |
-    |/Log:<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
+    |/Log:\<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
 
     Multiple disks can be used in parallel with multiple jobs running on each disk.
 

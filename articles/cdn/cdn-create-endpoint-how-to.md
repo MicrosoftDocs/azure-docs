@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
     ![Add endpoint page](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain _<endpointname>_.azureedge.net.
+3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain _\<endpointname>_.azureedge.net.
 
 4. For **Origin type**, choose one of the following origin types: 
    - **Storage** for Azure Storage
@@ -58,7 +58,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    > Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
    > 
     
-8. For **Protocol** and **Origin port**, specify the protocols and ports to use to access your resources at the origin server. At least one protocol (HTTP or HTTPS) must be selected. Use the CDN-provided domain (_<endpointname>_.azureedge.net) to access HTTPS content. 
+8. For **Protocol** and **Origin port**, specify the protocols and ports to use to access your resources at the origin server. At least one protocol (HTTP or HTTPS) must be selected. Use the CDN-provided domain (_\<endpointname>_.azureedge.net) to access HTTPS content. 
    
    > [!NOTE]
    > The **Origin port** value determines only the port the endpoint uses to retrieve information from the origin server. The endpoint itself is available only to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port** value.  

@@ -100,7 +100,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Queries below contain placeholder string values for your cluster and controller names - <your-cluster-name> and <your-controller-name>. Replace placeholders with values specific to your environment before setting up alerts. 
+>Queries below contain placeholder string values for your cluster and controller names - `<your-cluster-name>` and `<your-controller-name>`. Replace placeholders with values specific to your environment before setting up alerts. 
 
 
 The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute as a percentage of the limit set up for a container.
@@ -195,7 +195,7 @@ Perform the following steps to create a Log Alert in Azure Monitor using one of 
 3. From the **Monitored Clusters** tab, select a cluster from the list by clicking on the name of the cluster.
 4. On the left-hand pane under the **Monitoring** section, select **Logs** to open the Azure Monitor logs page, which used to write and execute Azure Log Analytics queries.
 5. On the **Logs** page, click **+ New alert rule**.
-6. Under the **Condition** section, click on the pre-defined custom log condition **Whenever the Custom log search is <logic undefined>**. The **custom log search** signal type is automatically selected for us because we initiated creating an alert rule directly from the Azure Monitor logs page.  
+6. Under the **Condition** section, click on the pre-defined custom log condition **Whenever the Custom log search is \<logic undefined>**. The **custom log search** signal type is automatically selected for us because we initiated creating an alert rule directly from the Azure Monitor logs page.  
 7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field. 
 
 8. Configure the alert with the following information:

@@ -201,7 +201,7 @@ To create an app that uses the image you just pushed, you run Azure CLI commands
 
 ### Create a web app
 
-In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _<appname>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
+In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _\<appname>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0

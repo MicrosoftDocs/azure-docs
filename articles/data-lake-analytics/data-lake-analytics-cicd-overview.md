@@ -73,11 +73,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 The arguments definition and values are as follows:
 
-* **USQLSDKPath=<U-SQL Nuget package>\build\runtime**. This parameter refers to the installation path of the NuGet package for the U-SQL language service.
+* **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. This parameter refers to the installation path of the NuGet package for the U-SQL language service.
 * **USQLTargetType=Merge or SyntaxCheck**:
     * **Merge**. Merge mode compiles code-behind files. Examples are **.cs**, **.py**, and **.r** files. It inlines the resulting user-defined code library into the U-SQL script. Examples are a dll binary, Python, or R code.
     * **SyntaxCheck**. SyntaxCheck mode first merges code-behind files into the U-SQL script. Then it compiles the U-SQL script to validate your code.
-* **DataRoot=<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
+* **DataRoot=\<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
 * **EnableDeployment=true** or **false**. EnableDeployment indicates if it's allowed to deploy referenced U-SQL databases during the build process. If you reference a U-SQL database project and consume the database objects in your U-SQL script, set this parameter to **true**.
 
 ### Continuous integration through Azure Pipelines
