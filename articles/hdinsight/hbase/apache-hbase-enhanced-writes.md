@@ -30,13 +30,23 @@ The Enhanced Writes feature solves the problem of higher write-latencies caused 
 
 ## How to enable Enhanced Writes for HBase in HDInsight
 
-To create a new HBase cluster with the Enhanced Writes feature, follow the steps in [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) until you reach **Step 3, Storage**. Under **Metastore settings**, click the checkbox next to **Enable Enhanced Writes (preview)**. Then, continue with the remaining steps for cluster creation.
+To create a new HBase cluster with the Enhanced Writes feature, follow the steps in [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) until you reach **Step 3, Storage**. Under **Metastore Settings**, click the checkbox next to **Enable Enhanced Writes (preview)**. Then, continue with the remaining steps for cluster creation.
 
 ![Enable enhanced writes option for HDInsight Apache HBase](./media/apache-hbase-enhanced-writes/enhanced-writes-cluster-creation.jpg)
 
 ## Other considerations
 
-To preserve data durability, create a cluster with a minimum of three worker nodes. Once created, you cannot scale down the cluster to less than three worker nodes. Flush or disable your HBase tables before deleting the cluster, so that you don't lose Write Ahead Log data.
+To preserve data durability, create a cluster with a minimum of three worker nodes. Once created, you cannot scale down the cluster to less than three worker nodes. 
+
+Flush or disable your HBase tables before deleting the cluster, so that you don't lose Write Ahead Log data.
+
+```
+flush 'mytable'
+```
+
+```
+disable 'mytable'
+```
 
 ## Next steps
 
