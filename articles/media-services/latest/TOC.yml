@@ -130,7 +130,7 @@
     items:
     - name: Azure Media Player
       href: use-azure-media-player.md
-  - name: Media Services entities
+  - name: Developing with v3 APIs
     items:
     - name: Sorting, filtering, paging of entities
       href: entities-overview.md 
