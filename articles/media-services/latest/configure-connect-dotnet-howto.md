@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## Also see
+## See also
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
