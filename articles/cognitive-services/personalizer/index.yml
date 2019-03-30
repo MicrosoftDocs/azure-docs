@@ -1,0 +1,31 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Personalizer Documentation
+metadata:
+  document_id: 
+  title: Personalizer - Tutorials, Quickstarts, API Reference
+  description: Learn how to use Personalizer service to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: Personalizer allows your application to choose the best experience to show to your users, learning from their real-time behavior.
+
+sections:
+
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/personalizer/what-is-personalizer
+          html: <p>Learn about Personalizer.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Personalizer?
