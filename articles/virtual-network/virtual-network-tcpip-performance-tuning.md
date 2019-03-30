@@ -4,7 +4,7 @@ description: Learn various common TCP/IP performance tuning techniques and their
 services: virtual-network
 documentationcenter: na
 author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
-manager: Parag Kacharia
+manager: paragk
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/28/2019
+ms.date: 3/30/2019
 ms.author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
 
 ---
