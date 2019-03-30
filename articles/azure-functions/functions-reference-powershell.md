@@ -108,19 +108,12 @@ Push-OutputBinding -Name myQueue -Value $myValue
 Push-OutputBinding myQueue $myValue
 ```
 
-You can also pass in a hashtable that contains the names of output bindings to their values.
+You can also pass in a value for a specific binding through pipeline.
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
 
-$myValue = "myData"
-
-$hashtable = @{
-    myQueue = $myValue
-    myOtherQueue = $myValue
-}
-
-Push-OutputBinding -InputObject $hashtable
+Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
 Here is the full help for the `Push-OutputBinding` cmdlet:
@@ -129,54 +122,117 @@ Here is the full help for the `Push-OutputBinding` cmdlet:
 NAME
     Push-OutputBinding
 
-SYNTAX
-    Push-OutputBinding [-Name] <string> [-Value] <Object> [-Force] [<CommonParameters>]
+SYNOPSIS
+    Sets the value for the specified output binding.
 
-    Push-OutputBinding [-InputObject] <hashtable> [-Force] [<CommonParameters>]
+
+SYNTAX
+    Push-OutputBinding [-Name] <String> [-Value] <Object> [-Clobber] [<CommonParameters>]
+
+
+DESCRIPTION
+    When running in the Functions runtime, this cmdlet is aware of the output bindings
+    defined for the function that is invoking this cmdlet. Hence, it's able to decide
+    whether an output binding accepts singleton value only or a collection of values.
+
+    For example, the HTTP output binding only accepts one response object, while the
+    queue output binding can accept one or multiple queue messages.
+
+    With this knowledge, the 'Push-OutputBinding' cmdlet acts differently based on the
+    value specified for '-Name'.
+    - If the specified name cannot be resolved to a valid output binding, then an error
+      will be thrown;
+
+    - If the output binding corresponding to that name accepts a collection of values,
+      then it's allowed to call 'Push-OutputBinding' with the same name repeatedly in
+      the function script to push multiple values;
+
+    - If the output binding corresponding to that name only accepts a singleton value,
+      then the second time calling 'Push-OutputBinding' with that name will result in
+      an error, with detailed message about why it failed.
 
 
 PARAMETERS
-    -Force
-
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-
-    -InputObject <hashtable>
-
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue)
-        Parameter set name           InputObject
-        Aliases                      None
-        Dynamic?                     false
-
-    -Name <string>
-
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByPropertyName)
-        Parameter set name           NameValue
-        Aliases                      None
-        Dynamic?                     false
-
-    -Value <Object>
+    -Name <String>
+        The name of the output binding you want to set.
 
         Required?                    true
         Position?                    1
-        Accept pipeline input?       true (ByPropertyName)
-        Parameter set name           NameValue
-        Aliases                      None
-        Dynamic?                     false
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    -Value <Object>
+        The value of the output binding you want to set.
+
+        Required?                    true
+        Position?                    2
+        Default value
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+
+    -Clobber [<SwitchParameter>]
+        (Optional) If specified, will force the value to be set for a specified output binding.
+
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
 
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
         about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    PS >Push-OutputBinding -Name response -Value "output #1"
+
+    The output binding of "response" will have the value of "output #1"
+
+
+    -------------------------- EXAMPLE 2 --------------------------
+
+    PS >Push-OutputBinding -Name response -Value "output #2"
+
+    The output binding is 'http', which accepts a singleton value only.
+    So an error will be thrown from this second run.
+
+
+    -------------------------- EXAMPLE 3 --------------------------
+
+    PS >Push-OutputBinding -Name response -Value "output #3" -Clobber
+
+    The output binding is 'http', which accepts a singleton value only.
+    But you can use '-Clobber' to override the old value.
+    The output binding of "response" will now have the value of "output #3"
+
+
+    -------------------------- EXAMPLE 4 --------------------------
+
+    PS >Push-OutputBinding -Name outQueue -Value "output #1"
+
+    The output binding of "outQueue" will have the value of "output #1"
+
+
+    -------------------------- EXAMPLE 5 --------------------------
+
+    PS >Push-OutputBinding -Name outQueue -Value "output #2"
+
+    The output binding is 'queue', which accepts multiple output values.
+    The output binding of "outQueue" will now have a list with 2 items: "output #1", "output #2"
+
+
+    -------------------------- EXAMPLE 6 --------------------------
+
+    PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
+
+    When the value is a collection, the collection will be unrolled and elements of the collection
+    will be added to the list. The output binding of "outQueue" will now have a list with 4 items:
+    "output #1", "output #2", "output #3", "output #4".
 ```
 
 If you want to retrieve what your output bindings are currently set to, you can use the cmdlet `Get-OutputBinding`, which will retrieve a hashtable containing the names of the output bindings to their respective values.
@@ -218,13 +274,43 @@ Logging in PowerShell functions works similarly to regular PowerShell logging. Y
 | `Write-Warning`     | Warning            | Writes to _Warning_ level logging.     |
 | `Write-Information` | Information        | Writes to _Information_ level logging. |
 | `Write-Host`        | Information        | Writes to _Information_ level logging. |
-| `Write-Verbose`     | Trace              | Writes to _Trace_ level logging.       |
+| `Write-Output`      | Information        | Writes to _Information_ level logging. |
 | `Write-Debug`       | Debug              | Writes to _Debug_ level logging.       |
+| `Write-Verbose`     | Trace              | Writes to _Trace_ level logging.       |
+| `Write-Progress`    | Trace              | Writes to _Trace_ level logging.       |
 
 > [!NOTE]
 > Verbose maps to the Functions log level `Trace`.
 
-In addition to these cmdlets, anything written to the pipeline will be written to the `Information` log level.
+In addition to these cmdlets, anything written to the pipeline will be redirected to the `Information` log level and displayed with the default PowerShell formatting.
+
+Logs are written in the same order of the script execution.
+The example below shows the logging experience.
+
+```powershell
+## run.ps1 - Write output between verbose logging
+param($req, $TriggerMetadata)
+
+Write-Verbose "Start to invoke ..." -Verbose
+Get-Process | Select-Object -First 5
+Write-Verbose "Name passed in: $($req.Query.Name)." -Verbose
+...
+```
+
+```output
+Executing 'Functions.MyHttpTrigger' (Reason='This function was programmatically called via the host APIs.', Id=2242c6a8-a5a6-4156-813d-71fda654210b)
+VERBOSE: Start to invoke ...
+OUTPUT:
+OUTPUT:  NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+OUTPUT:  ------    -----      -----     ------      --  -- -----------
+OUTPUT:      57    34.80      26.57     615.28   11060   1 AlertusDesktopAlert
+OUTPUT:      24    15.88      21.28       4.83   14672   1 ApplicationFrameHost
+OUTPUT:       8     2.12       6.92       0.00    9988   0 AppVShNotify
+OUTPUT:      17     3.43       8.65       0.00    4556   0 armsvc
+OUTPUT:      44    95.29      97.70      42.31  880312   1 AzureStorageEmulator
+VERBOSE: Name passed in: joe.
+Executed 'Functions.MyHttpTrigger' (Succeeded, Id=2242c6a8-a5a6-4156-813d-71fda654210b)
+```
 
 > [!IMPORTANT]
 > Using `Write-Verbose` or `Write-Debug` is not enough to see Verbose and Debug logging. You need to also configure the "log level threshold" which declares what level of logs you actually care about. See [Configuring the log level for a Function App](#configuring-the-log-level-for-a-function-app) on how to do that.
