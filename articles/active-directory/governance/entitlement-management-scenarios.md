@@ -1,5 +1,5 @@
 ---
-title: Basic steps for common scenarios in Azure AD entitlement management (Preview)
+title: Common scenarios in Azure AD entitlement management (Preview)
 description: #Required; article description that is displayed in search results.
 services: active-directory
 documentationCenter: ''
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Basic steps for common scenarios in Azure AD entitlement management (Preview)
+# Common scenarios in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the basic steps for administrators, approvers, and users.
+There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the basic steps for administrators, approvers, and requestors.
 
 ## Administrator setup
 
@@ -167,7 +167,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** Approve access request | ![Approve access](./media/entitlement-management-steps/icon-approve-access.png) | Approver |
 
 
-## Users
+## Requestors
 
 ### Request access to resources
 
@@ -176,18 +176,18 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-steps/icon-myaccess-portal.png) | User |
-> | **2.** Find access package |  | User |
-> | **3.** Request access | ![Request access](./media/entitlement-management-steps/icon-request-access.png) | User |
+> | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-steps/icon-myaccess-portal.png) | Requestor |
+> | **2.** Find access package |  | Requestor |
+> | **3.** Request access | ![Request access](./media/entitlement-management-steps/icon-request-access.png) | Requestor |
 
 ### Request resources with a direct link
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open the access package link you received |  | User |
-> | **2.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-steps/icon-myaccess-portal.png) | User |
-> | **3.** Request access | ![Request access](./media/entitlement-management-steps/icon-request-access.png) | User |
+> | **1.** Open the access package link you received |  | Requestor |
+> | **2.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-steps/icon-myaccess-portal.png) | Requestor |
+> | **3.** Request access | ![Request access](./media/entitlement-management-steps/icon-request-access.png) | Requestor |
 
 ### View resources you already have access to
 

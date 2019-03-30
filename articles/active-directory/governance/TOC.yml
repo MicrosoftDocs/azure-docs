@@ -66,8 +66,8 @@
         href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Entitlement management
     items:
-    - name: Basic steps
-      href: entitlement-management-steps.md
+    - name: Common scenarios
+      href: entitlement-management-scenarios.md
     - name: Create a catalog
       href: entitlement-management-create-catalog.md
     - name: Create an access package
