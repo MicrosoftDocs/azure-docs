@@ -33,11 +33,11 @@ For more information about Azure Resource Manager naming, see: [Naming requireme
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
-Examples of this include 
+Examples of this include:
 
-* not returning ContentKey values in the Get of the StreamingLocator, 
-* not returning the restriction keys in the get of the ContentKeyPolicy, 
-* not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
+* Not returning ContentKey values in the Get of the StreamingLocator.
+* Not returning the restriction keys in the Get of the ContentKeyPolicy.
+* Not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
 
