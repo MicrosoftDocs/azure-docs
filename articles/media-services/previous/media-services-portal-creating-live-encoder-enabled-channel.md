@@ -1,5 +1,5 @@
 ---
-title: How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Microsoft Docs
+title: Perform live streaming using Azure Media Services to create multi-bitrate streams with Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 03/30/2019
 ms.author: juliako
 
 ---
-# How to perform live streaming using Media Services to create multi-bitrate streams with the Azure portal  
+# Perform live streaming using Media Services to create multi-bitrate streams with Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -109,7 +109,7 @@ For more information, see [Live streaming using Azure Media Services to create m
 ## Get ingest URLs
 Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![ingest urls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## Create and manage events
 
@@ -144,7 +144,7 @@ There are two ways to start event:
 
     Specify: event name, asset name, archive window, and encryption option.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![create program](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
 
