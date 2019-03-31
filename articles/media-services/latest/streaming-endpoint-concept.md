@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ---
 
@@ -53,11 +53,11 @@ Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional streaming units
-IP filtering/G20/Custom host  <sup>*</sup>|Yes|Yes
+IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
 Progressive download|Yes|Yes
 Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
 
-<sup>*</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled directly on the endpoint.
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.
 
 ## Working with CDN
 
