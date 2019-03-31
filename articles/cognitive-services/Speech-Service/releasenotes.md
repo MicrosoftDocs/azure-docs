@@ -19,20 +19,25 @@ ms.custom: seodec18
 
 **New Features** 
 
-* The Speech SDK for Java, .NET core, C++ and Objective-C have gained mac0S support. The Objective-C support is currently in Beta. 
-* iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod. 
-* Python: Additional properties of recognition results are now exposed via the `properties` property. 
- 
+* The SDK now supports the Text-to-speech service as a beta. It is supported from C++, C#, and Java. For more information check the Text-to-speech [overview](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta.
+* The Speech SDK adds MacOS support for Java, .NET core, C++ and Objective-C as beta.
+* The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
+
 **Samples**
 
-* Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added. 
+* Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added.
+* Samples demonstrting the usage of the Text-to-speech service have been added.
  
 **Improvements / Changes**
 
+* Python: Additional properties of recognition results are now exposed via the `properties` property.
+* For development and debug support you can now redirect SDK logging information into a log file.
+
 **Bug Fixes**
 
-* Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed. 
-
+* Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed.
+* Python: improve error handling for arguments in Python callbacks.
 
 ## Speech SDK 1.3.1: 2019-February refresh
 
