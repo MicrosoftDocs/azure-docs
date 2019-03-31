@@ -7,7 +7,7 @@ ms.author: orspod
 ms.reviewer: 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 3/7/2019
+ms.date: 03/31/2019
 
 #Customer intent: I want to use Azure Data Factory to load data into Azure Data Explorer so that I can analyze it later.
 ---
