@@ -10,7 +10,7 @@ author: monhaber
 ms.author: monhaber
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/24/2019
+ms.date: 03/31/2019
 ---
 # Advanced data security for Azure SQL Database
 
@@ -18,7 +18,7 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 
 ## Overview
 
-Advanced data security (ADS) provides a set of advanced SQL security capabilities, including data discovery & classification, vulnerability assessment, and threat detection.
+Advanced data security (ADS) provides a set of advanced SQL security capabilities, including data discovery & classification, vulnerability assessment, and Advanced Threat Protection.
 
 - [Data discovery & classification](sql-database-data-discovery-and-classification.md) (currently in preview) provides capabilities built into Azure SQL Database for discovering, classifying, labeling & protecting the sensitive data in your databases. It can be used to provide visibility into your database classification state, and to track the access to sensitive data within the database and beyond its borders.
 - [Vulnerability assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
@@ -56,7 +56,7 @@ To view and manage ADS settings, navigate to **Advanced Data Security** under th
 
 ## 4. Manage ADS settings for a SQL database
 
-To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the database server or managed instance.
+To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the database server or managed instance.
 
 Once the checkbox is selected, you can then configure the relevant settings for this database.
  
