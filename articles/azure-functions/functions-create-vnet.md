@@ -60,6 +60,8 @@ You will now have a wordpress site deployed entirely within your virtual network
 
 ## Create a Premium plan Function App
 
+The next step is to create a function app in a premium plan. The premium plan is a new offering that brings serverless scale with all of the benefits of a dedicated App Service Plan. Consumption plan function apps do not support VNet integration.
+
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
 ## Connect your Function App to your VNET
