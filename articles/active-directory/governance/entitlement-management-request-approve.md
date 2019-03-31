@@ -44,7 +44,7 @@ If the access request is approved, the request is in the **approved** state. Ent
 
 If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
 
-![Approval process diagram](./media/entitlement-management-approve-requests/approval-process.png)
+![Approval process diagram](./media/entitlement-management-request-approve/approval-process.png)
 
 ## Open the access request
 

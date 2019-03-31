@@ -40,7 +40,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. In the left menu, click **Catalogs**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-create-catalog/elm-catalogs.png)
+    ![Entitlement management in the Azure portal](./media/entitlement-management-catalog-create/elm-catalogs.png)
 
 1. Click **New catalog**.
 
@@ -122,4 +122,4 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ## Next steps
 
-- [Create and manage an access package](entitlement-management-create-access-package.md)
+- [Create and manage an access package](entitlement-management-access-package-create.md)

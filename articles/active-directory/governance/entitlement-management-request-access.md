@@ -92,4 +92,4 @@ If you are requesting access to an access package that has multiple policies tha
 
 ## Next steps
 
-- [Approve or deny access requests](entitlement-management-approve-requests.md)
+- [Approve or deny access requests](entitlement-management-request-approve.md)

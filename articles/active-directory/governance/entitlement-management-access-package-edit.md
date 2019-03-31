@@ -135,7 +135,7 @@ You can directly assign specific users to an access package if you do not need t
 
 1. To download a CSV file of the filtered list, click **Download**.
 
-## View an access package's requests
+## View requests
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -233,7 +233,7 @@ Access packages are discoverable by default. This means that if a policy allows 
 
     If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **MyAccess portal link** to the access package.
 
-## Delete an access package
+## Delete
 
 An access package can only be deleted if it has no active user assignments.
 

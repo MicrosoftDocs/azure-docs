@@ -157,5 +157,5 @@ The following table lists the permissions for each of these roles.
 
 ## Next steps
 
-- [Tutorial: Create your first access package](entitlement-management-first-access-package.md)
+- [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
 - [Common scenarios](entitlement-management-scenarios.md)

@@ -32,7 +32,7 @@ Managing access to all the resources employees need, such as groups, application
 
 In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a web project that internal users can self-service request. Requests require approval and user's access expires after 30 days. For this tutorial, the web project resources are just a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
 
-![Scenario overview](./media/entitlement-management-first-access-package/elm-scenario-overview.png)
+![Scenario overview](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 In this tutorial, you'll learn how to:
 
@@ -55,7 +55,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 **Prerequisite role:** Global administrator or User administrator
 
-![Create users and groups](./media/entitlement-management-first-access-package/elm-users-groups.png)
+![Create users and groups](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
 
@@ -80,11 +80,11 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
-![Create an access package](./media/entitlement-management-first-access-package/elm-access-package.png)
+![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
 1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-first-access-package/elm-catalogs.png)
+    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/elm-catalogs.png)
 
 1. In the left menu, click **Access packages**.
 
@@ -94,7 +94,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. Leave the **Do you want to have someone else manage this access package?** option set to **No**.
 
-    ![New access package - Basics tab](./media/entitlement-management-first-access-package/access-package-basics.png)
+    ![New access package - Basics tab](./media/entitlement-management-access-package-first/access-package-basics.png)
 
 1. Click **Next** to open the **Resource roles** tab.
 
@@ -108,7 +108,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. Find and select the **Engineering Group** group you created earlier.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-first-access-package/access-package-resource-roles-select-groups.png)
+    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles-select-groups.png)
 
 1. Click **Select** to add the group to the list.
 
@@ -116,7 +116,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. In the **Role** drop-down list, select **Member**.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-first-access-package/access-package-resource-roles.png)
+    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles.png)
 
 1. Click **Next** to open the **Policy** tab.
 
@@ -124,7 +124,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     You will create policy in the next section.
 
-    ![New access package - Policy tab](./media/entitlement-management-first-access-package/access-package-policy.png)
+    ![New access package - Policy tab](./media/entitlement-management-access-package-first/access-package-policy.png)
 
 1. Click **Next** to open the **Review + create** tab.
 
@@ -132,7 +132,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     You see a message that the access package will not be visible to users because the catalog is not yet published.
 
-    ![New access package - Not visible message](./media/entitlement-management-first-access-package/access-package-not-visible.png)
+    ![New access package - Not visible message](./media/entitlement-management-access-package-first/access-package-not-visible.png)
 
 1. Click **OK**.
 
@@ -142,7 +142,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows users who are already in the resource directory to request access.
 
-![Create an access package policy](./media/entitlement-management-first-access-package/elm-access-package-policy.png)
+![Create an access package policy](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
@@ -156,7 +156,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
     Additional options appear.
 
-    ![Create policy](./media/entitlement-management-first-access-package/policy-create.png)
+    ![Create policy](./media/entitlement-management-access-package-first/policy-create.png)
 
 1. Scroll down and to the **Select users and groups** section, click **Add users and groups**.
 
@@ -174,7 +174,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. For **Enable policy**, click **Yes**.
 
-    ![Create policy settings](./media/entitlement-management-first-access-package/policy-create-settings.png)
+    ![Create policy settings](./media/entitlement-management-access-package-first/policy-create-settings.png)
 
 1. Click **Create** to create the **Internal user policy**.
 
@@ -184,7 +184,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
     You'll use this link for the next step.
 
-    ![Access package overview](./media/entitlement-management-first-access-package/access-package-overview.png)
+    ![Access package overview](./media/entitlement-management-access-package-first/access-package-overview.png)
 
 ## Step 4: Request access
 
@@ -200,7 +200,7 @@ In this step, you perform the steps as the **internal user** and request access 
 
     You should see the **Web project access package**. If necessary, in the **Details** column, click the chevron to view details about the access package.
 
-    ![My Access portal - Access packages](./media/entitlement-management-first-access-package/my-access-access-packages.png)
+    ![My Access portal - Access packages](./media/entitlement-management-access-package-first/my-access-access-packages.png)
 
 1. Click the checkmark to select the package.
 
@@ -212,7 +212,7 @@ In this step, you perform the steps as the **internal user** and request access 
 
 1. Set the **Start date** to today and **End date** to tomorrow.
 
-    ![My Access portal - Request access](./media/entitlement-management-first-access-package/my-access-request-access.png)
+    ![My Access portal - Request access](./media/entitlement-management-access-package-first/my-access-request-access.png)
 
 1. Click **Submit**.
 
@@ -238,7 +238,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the **Reason** box, type the reason **Approved access for web project**.
 
-    ![My Access portal - Access request](./media/entitlement-management-first-access-package/my-access-approve-request.png)
+    ![My Access portal - Access request](./media/entitlement-management-access-package-first/my-access-approve-request.png)
 
 1. Click **Submit**.
 
@@ -262,7 +262,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Click the request to see the request details.
 
-    ![Access package - Request details](./media/entitlement-management-first-access-package/access-package-request-details.png)
+    ![Access package - Request details](./media/entitlement-management-access-package-first/access-package-request-details.png)
 
 1. In the left navigation, click **Azure Active Directory**.
 
@@ -272,7 +272,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
     You should see **User1** listed as a member.
 
-    ![Engineering group members](./media/entitlement-management-first-access-package/group-members.png)
+    ![Engineering group members](./media/entitlement-management-access-package-first/group-members.png)
 
 ## Step 7: Clean up resources
 
@@ -305,4 +305,4 @@ In this step, you sign in as the **approver** user and approve the access reques
 ## Next steps
 
 - [Common scenarios](entitlement-management-scenarios.md)
-- [Create and manage an access package](entitlement-management-create-access-package.md)
+- [Edit and manage an existing access package](entitlement-management-access-package-edit.md)

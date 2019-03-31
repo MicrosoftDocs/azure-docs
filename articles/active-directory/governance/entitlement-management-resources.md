@@ -70,4 +70,5 @@ If you are a catalog creator, you can add to an access package in your catalog a
 
 ## Next steps
 
-- [Create and manage an access package](entitlement-management-create-access-package.md)
+- [Create a new access package](entitlement-management-access-package-create.md)
+- [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
