@@ -51,7 +51,7 @@ include creating a blob container, and uploading, listing, downloading, and dele
 1. Add the following `using` directives to the `BlobsController.cs` file:
 
     ```csharp
-	using Microsoft.Azure;
+    using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
 	```
