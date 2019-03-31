@@ -23,7 +23,7 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 | Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to scale computing capability and manage costs. |
 | R Server edge node | The R Server edge node represents the node you can SSH into and execute applications that are then coordinated to run across the cluster resources. An edge node doesn't  participate in data analysis within the cluster. This node also hosts R Studio Server, enabling you to run R application using a browser. |
 | Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
-| Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper- it coordinates the running of Storm topologies. |
+| Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
 | Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to performing the desired processing. |
 
 *=Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase, and R Server cluster types
@@ -40,32 +40,32 @@ The following table summarizes the nine cluster nodes that are created when HDIn
 
 | Resource type | Number present | Details |
 | --- | --- | --- |
-|Head node | 2 |    |
-|Zookeeper node | 3 | |
-|Worker node | 2 | This number may vary based on cluster configuration and scaling. A minimum of 3 worker nodes in needed for Apache Kafka.  |
-|Gateway node | 2 | Gateway nodes are Azure virtual machines that are created on Azure but are not visible in your subscription. Contact support if you need to reboot these nodes. |
+|Head node | two |    |
+|Zookeeper node | three | |
+|Worker node | two | This number can vary based on cluster configuration and scaling. A minimum of three worker nodes is needed for Apache Kafka.  |
+|Gateway node | two | Gateway nodes are Azure virtual machines that are created on Azure, but aren't visible in your subscription. Contact support if you need to reboot these nodes. |
 
 The following network resources present are automatically created inside the virtual network used with HDInsight:
 
 | Networking resource | Number present | Details |
 | --- | --- | --- |
-|Load balancer | 3 | |
-|Network Interfaces | 9 | This is based on a normal cluster, where each node has its own network interface. The nine interfaces are for the 2 head nodes, 3 zookeeper nodes, 2 worker nodes and 2 gateway nodes mentioned in the previous table|
-|Public IP Addresses | 2 |    |
+|Load balancer | three | |
+|Network Interfaces | nine | This value is based on a normal cluster, where each node has its own network interface. The nine interfaces are for the two head nodes, three zookeeper nodes, two worker nodes, and two gateway nodes mentioned in the previous table. |
+|Public IP Addresses | two |    |
 
 ## Endpoints for connecting to HDInsight
 
-You can access your HDInsight cluster in 3 ways.
+You can access your HDInsight cluster in three ways:
 
-1. An HTTPS endpoint outside of the virtual network at `CLUSTERNAME.azurehdinsight.net`
-1. An SSH endpoint for directly connecting to the headnode at `CLUSTERNAME-ssh.azurehdinsight.net`
-1. An HTTPS endpoint within the virtual network `CLUSTERNAME-int.azurehdinsight.net`. Note the “-int” in this URL, this endpoint will resolve to a private IP in that virtual network and is not accessible from the public Internet.
+- An HTTPS endpoint outside of the virtual network at `CLUSTERNAME.azurehdinsight.net`.
+- An SSH endpoint for directly connecting to the headnode at `CLUSTERNAME-ssh.azurehdinsight.net`.
+- An HTTPS endpoint within the virtual network `CLUSTERNAME-int.azurehdinsight.net`. Notice the "-int" in this URL. This endpoint will resolve to a private IP in that virtual network and isn't accessible from the public internet.
 
-These 3 endpoints are each assigned a load balancer.
+These three endpoints are each assigned a load balancer.
 
 Public IP addresses are also provided to the two endpoints that allow connection from outside the virtual network.
 
-1. One public IP is assigned to the load balancer for the fully qualified domain name (FQDN) to use when connecting to the cluster from the internet `CLUSTERNAME.azurehdinsight.net`
+1. One public IP is assigned to the load balancer for the fully qualified domain name (FQDN) to use when connecting to the cluster from the internet `CLUSTERNAME.azurehdinsight.net`.
 1. The second public IP address is used for the SSH only domain name `CLUSTERNAME-ssh.azurehdinsight.net`.
 
 ## Next steps
