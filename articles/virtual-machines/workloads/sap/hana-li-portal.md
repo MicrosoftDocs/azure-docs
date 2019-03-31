@@ -59,7 +59,7 @@ Looking at the different attributes shown, those attributes look hardly differen
 An additional field in the right column of the header informs about the power state of the HANA Large instance unit.
 
 > [!NOTE]
-> The power state describes whether the hardware unit is powered on or off. It does not give information about the operating system being up and running. As you reboot a HANA Large Instance unit, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
+> The power state describes whether the hardware unit is powered on or off. It does not give information about the operating system being up and running. As you restart a HANA Large Instance unit, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 > 
 
 
@@ -70,7 +70,7 @@ Beyond giving an overview of the HANA Large Instance units, you can check activi
 
 One of the main activities recorded are restarts of a unit. The data listed includes the status of the activity, the time stamp the activity got triggered, the subscription ID out of which the activity got triggered and the Azure user who triggered the activity. 
 
-Another activity that is getting recorded are changes to the unit in the Azure meta data. Besides the reboot initiated, you can see the activity of **Write HANAInstances**. This type of activity performs no changes on the HANA Large Instance unit itself, but is documenting changes to the meta data of the unit in Azure. In the case listed, we added and deleted a tag (see next section).
+Another activity that is getting recorded are changes to the unit in the Azure meta data. Besides the restart initiated, you can see the activity of **Write HANAInstances**. This type of activity performs no changes on the HANA Large Instance unit itself, but is documenting changes to the meta data of the unit in Azure. In the case listed, we added and deleted a tag (see next section).
 
 ## Add and delete an Azure tag to a HANA Large Instance unit
 Another possibility you have is to add a [tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) to a HANA Large Instance unit. The way tags are getting assigned does not differ from assigning tags to VMs. As with VMs the tags exist in Azure meta data and, for HANA Large Instances, have the same restrictions as tags for VMs.
@@ -87,18 +87,18 @@ The first few data items, you saw in the overview screen already. But an importa
 
 As you scroll down in the property pane, you get additional data like a unique resource ID for your HANA Large Instance unit, or the subscription ID which was assigned to the deployment.
 
-## Reboot a HANA Large Instance unit through Azure portal
-Initiating a reboot of the Linux operating system, there were various situations where the OS could not finish a reboot successfully. In order to force a reboot, you needed to open a service request to have Microsoft operations perform a power reboot of the HANA Large Instance unit. The functionality of a power reboot of a HANA Large Instance unit is now integrated into the Azure portal. As you are in the overview part of the HANA Large Instance unit, you see the button for reboot on top of the data section
+## Restart a HANA Large Instance unit through Azure portal
+Initiating a restart of the Linux operating system, there were various situations where the OS could not finish a restart successfully. In order to force a restart, you needed to open a service request to have Microsoft operations perform a power restart of the HANA Large Instance unit. The functionality of a power restart of a HANA Large Instance unit is now integrated into the Azure portal. As you are in the overview part of the HANA Large Instance unit, you see the button for restart on top of the data section
 
-![Reboot step #1 in Azure portal](./media/hana-li-portal/portal-reboot-first-step.png)
+![Restart step #1 in Azure portal](./media/hana-li-portal/portal-restart-first-step.png)
 
-As you are pressing the reboot button, you are asked whether you really want to reboot the unit. As you confirm by pressing the button "Yes", the unit will reboot.
+As you are pressing the restart button, you are asked whether you really want to restart the unit. As you confirm by pressing the button "Yes", the unit will restart.
 
 > [!NOTE]
-> In the reboot process, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
+> In the restart process, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 
 
-## Open a support message for HANA large Instances
+## Open a support request for HANA large Instances
 Out of the Azure portal display of HANA Large Instance units, you can create support requests specifically for a HANA large Instance unit as well. 
 As you follow the link **New support request** 
 
@@ -108,12 +108,12 @@ In order to get the service of SAP HANA Large Instances listed in the next scree
 
 ![Select all services in Azure portal](./media/hana-li-portal/portal-create-service-request.png)
 
-In the list of services, you can find the service **SAP HANA Large Instance**. As you choose that service, you can select specific problem classes as shown:
+In the list of services, you can find the service **SAP HANA Large Instance**. As you choose that service, you can select specific problem types as shown:
 
 
 ![Select problem class in Azure portal](./media/hana-li-portal/portal-select-problem-class.png)
 
-Under each of the different problem classes, you are offered a selection of problem subtypes you need to select to characterize your problem further. After selecting the subtype, you now can name the subject. Once you are done with the selection process, you can move to next step of the creation. In the **Solutions** section, you are pointed to documentation around HANA Large Instances, which might give pointer to a solution of your problem. If you can't find a solution for your problem in the documentation suggested, you go to the next step. In the next step, you are going to be asked whether the issue is with VMs or with HANA Large Instance units. This helps to direct the support request to the correct specialists. 
+Under each of the different problem types, you are offered a selection of problem subtypes you need to select to characterize your problem further. After selecting the subtype, you now can name the subject. Once you are done with the selection process, you can move to next step of the creation. In the **Solutions** section, you are pointed to documentation around HANA Large Instances, which might give a pointer to a solution of your problem. If you can't find a solution for your problem in the documentation suggested, you go to the next step. In the next step, you are going to be asked whether the issue is with VMs or with HANA Large Instance units. This helps to direct the support request to the correct specialists. 
 
 ![Details of support case in Azure portal](./media/hana-li-portal/portal-support-request-details.png)
 
