@@ -70,10 +70,12 @@
     items:
     - name: Common scenarios
       href: entitlement-management-scenarios.md
+    - name: Create a new access package
+      href: entitlement-management-create-access-package.md
+    - name: Edit an access package
+      href: entitlement-management-access-package-edit.md
     - name: Create a catalog
       href: entitlement-management-create-catalog.md
-    - name: Create an access package
-      href: entitlement-management-create-access-package.md
     - name: Request access
       href: entitlement-management-request-access.md
     - name: Approve requests
