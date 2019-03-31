@@ -17,16 +17,14 @@ The next step is to create a Function App inside of a Premium plan. The Premium 
 3. Select "Serverless Function App"
 4. Enter all of your information into the creation blade and set your **Hosting plan** to **App Service Plan**:
     
-    <img src="./media/functions-premium-create/Create-Function-App-Plan.PNG" width="300">
+    ![Create function app plan](./media/functions-premium-create/Create-Function-App-Plan.PNG)  
 
     1. Select a Premium Plan (EP) Service Plan level. 
+        ![Select premium plan](./media/functions-premium-create/Hosting-Plan.PNG)  
 
-        <img src="./media/functions-premium-create/Hosting-Plan.PNG" width="900">
-
-    1. Your completed Plan will look like the following:
-        
-        <img src="./media/functions-premium-create/Create-App-Service-Plan.PNG" width="300">
+    1. Your completed Plan will look like the following:  
+        ![Finished app service plan](./media/functions-premium-create/Create-App-Service-Plan.PNG)  
     
 1. My completed creating blade looked like the following:
 
-    <img src="./media/functions-premium-create/Create-Function-App.png" width="300">
+    ![Finished app service plan](./media/functions-premium-create/Create-Function-App.png)  
