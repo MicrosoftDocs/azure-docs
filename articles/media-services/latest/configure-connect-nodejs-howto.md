@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Media Services v3 API - node.js
-description: Learn how to connect to Media Services v3 API with node.js.  
+title: Connect to Azure Media Services v3 API - Node.js
+description: Learn how to connect to Media Services v3 API with Node.js.  
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -18,12 +18,12 @@ ms.author: juliako
 ---
 # Connect to Media Services v3 API - Node.js
 
-This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal login method.
+This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign in method.
 
 ## Prerequisites
 
-- Install [Node.js](https://nodejs.org/en/download/)
-- [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name
+- Install [Node.js](https://nodejs.org/en/download/).
+- [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 
 ## Create package.json
 
@@ -51,7 +51,7 @@ The following packages should be specified:
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|Storage SDK. Used when uploading files into assets.|
-|`ms-rest-azure`| Used to log in.|
+|`ms-rest-azure`| Used to sign in.|
 
 You can run the following command to make sure you are using the latest package:
 
@@ -62,8 +62,8 @@ npm install azure-arm-mediaservices
 ## Connect to Node.js client
 
 1. Create a .js file using your favorite editor.
-1. Open the file and paste the following code:
-1. Set the values in the "endpoint config" section to values you got from [access APIs](access-api-cli-how-to.md) 
+1. Open the file and paste the following code.
+1. Set the values in the "endpoint config" section to values you got from [access APIs](access-api-cli-how-to.md).
 
 ```js
 'use strict';
@@ -106,14 +106,16 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 });
 ```
-## Run you app
 
-Open command prompt, browse to the sample's directory, and execute the following commands.
+## Run your app
+
+Open a command prompt. Browse to the sample's directory, and execute the following commands.:
 
 ```
 npm install 
 node index.js
 ```
+
 ## See also
 
 [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
