@@ -109,7 +109,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## Run your app
 
-Open a command prompt. Browse to the sample's directory, and execute the following commands.:
+Open a command prompt. Browse to the sample's directory, and execute the following commands:
 
 ```
 npm install 
