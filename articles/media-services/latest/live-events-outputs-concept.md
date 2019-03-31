@@ -129,6 +129,10 @@ Once the **Live Event** starts receiving the contribution feed, you can use its 
 > [!IMPORTANT]
 > Make sure that the video is flowing to the preview URL before continuing!
 
+## Live Event long-running operations
+
+For details, see [long-running operations](entities-overview.md#long-running-operations)
+
 ## Live Outputs
 
 Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
