@@ -26,7 +26,7 @@ In this quickstart, you learn how to:
 To get started, you're required to have:
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](create-an-azure-active-directory-tenant.md) setup.
+* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
