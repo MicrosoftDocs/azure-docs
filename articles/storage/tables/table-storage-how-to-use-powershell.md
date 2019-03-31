@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/27/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ---

@@ -70,7 +70,7 @@ First, [download and import the Windows Virtual Desktop module](https://docs.mic
 Sign in to Windows Virtual Desktop using the TenantCreator user account with this cmdlet:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 After that, create a new Windows Virtual Desktop tenant associated with the Azure Active Directory tenant:

@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
+ms.lastreviewed: 03/14/2019
 
 ---
 # Connect storage explorer to an Azure Stack subscription or a storage account
@@ -45,25 +45,27 @@ Export and then import Azure Stack certificate for the ASDK. For integrated syst
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
+2. In **File**, select **Add/Remove Snap-in**. Select **Certificates** in Available snap-ins. 
 
-3.  Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Find **AzureStackSelfSignedRootCert**.
+3. Select **Computer account**, and then select **Next**. Select **Local computer**, and then select **Finish**.
+
+4.  Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Find **AzureStackSelfSignedRootCert**.
 
     ![Load the Azure Stack root certificate through mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.
+5. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.
 
     The exported certificate will be used in the next step.
 
-5. Start storage explorer, and if you see the **Connect to Azure Storage** dialog box, cancel it.
+6. Start storage explorer, and if you see the **Connect to Azure Storage** dialog box, cancel it.
 
-6. On the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
+7. On the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
 
     After importing the certificate, you're prompted to restart storage explorer.
 
     ![Import the certificate into storage explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. After storage explorer restarts, select the **Edit** menu, and check to see if **Target Azure Stack** is selected. If it isn't, select **Target Azure Stack**, and then restart storage explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+8. After storage explorer restarts, select the **Edit** menu, and check to see if **Target Azure Stack APIs** is selected. If it isn't, select **Target Azure Stack**, and then restart storage explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -78,7 +80,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 
     ![Add an Azure Stack account](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, which depends on the Azure Stack account that is being used, select **Sign in** to sign in with the Azure Stack account associated with at least one active Azure Stack subscription.
+3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure**, **Azure China**, **Azure Germany**, **Azure US Government**, or **Add New Environment**, which depends on the Azure Stack account that is being used. Select **Sign in** to sign in with the Azure Stack account associated with at least one active Azure Stack subscription.
 
     ![Connect to Azure storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

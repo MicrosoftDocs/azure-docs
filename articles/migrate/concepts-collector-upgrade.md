@@ -4,11 +4,15 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
 ---
 # Collector appliance updates
+
+This article summarizes upgrade information for the Collector appliance in [Azure Migrate](migrate-overview.md).
+
+The Azure Migrate Collector is a lightweight appliance that's used to discover an on-premises vCenter environment, for the purposes of assessment before migration to Azure. [Learn more](concepts-collector.md).
 
 ## How to upgrade the appliance
 
@@ -27,11 +31,19 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 
 ## Collector update release history
 
-This article summarizes upgrade information for the Collector appliance in [Azure Migrate](migrate-overview.md).
-
-The Azure Migrate Collector is a lightweight appliance that's used to discover an on-premises vCenter environment, for the purposes of assessment before migration to Azure. [Learn more](concepts-collector.md).
-
 ### Continuous discovery: Upgrade versions
+
+#### Version 1.0.10.14 (Released on 03/29/2019)
+
+Contains few UI enhancements.
+
+Hash values for upgrade [package 1.0.10.14](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### Version 1.0.10.12 (Released on 03/13/2019)
 

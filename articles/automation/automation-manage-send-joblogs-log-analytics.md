@@ -58,7 +58,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 After running this script, it may take an hour before you start to see records in Azure Monitor logs of new JobLogs or JobStreams being written.
