@@ -1,7 +1,7 @@
 ---
 title: Log metrics during training runs
 titleSuffix: Azure Machine Learning service
-description: You can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
+description: Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run. You can track your experiments and monitor metrics to enhance the model creation process. 
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Log metrics during training runs in Azure Machine Learning
 
-In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run.
+In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run in Azure Machine Learning service. Enhance the model creation process, by tracking your experiments and monitoring metrics. 
 
 ## List of training metrics 
 
