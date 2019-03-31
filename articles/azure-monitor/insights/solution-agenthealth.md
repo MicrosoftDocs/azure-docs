@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ---
-#  Agent Health solution in Azure
-The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace or a System Center Operations Manager management group  connected to Azure Monitor, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
+#  Agent Health solution in Azure Monitor
+The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace in Azure Monitor or a System Center Operations Manager management group  connected to Azure Monitor, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
 ## Prerequisites
 Before you deploy this solution, confirm you have currently supported [Windows agents](../../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../../azure-monitor/platform/om-agents.md) integrated with your workspace.
@@ -56,7 +56,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Distribution by OS Type | A partition of how many Windows and Linux agents you have in your environment.|
 | Distribution by Agent Version | A partition of the different agent versions installed in your environment and a count of each one.|
 | Distribution by Agent Category | A partition of the different categories of agents that are sending up heartbeat events: direct agents, OpsMgr agents, or the OpsMgr Management Server.|
-| Distribution by Management Group | A partition of the different SCOM Management groups in your environment.|
+| Distribution by Management Group | A partition of the different Operations Manager Management groups in your environment.|
 | Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
 | Count of Gateways Installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers.|
 
@@ -111,4 +111,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Azure Monitor](../platform/alerts-overview.md) for details on generating alerts from Log Analytics. 
+* Learn about [Alerts in Azure Monitor](../platform/alerts-overview.md) for details on generating alerts from log queries. 

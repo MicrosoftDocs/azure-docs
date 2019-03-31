@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Filtering, ordering, paging of Azure Media Services entities - Azure | Microsoft Docs
-description: This article discusses filtering, ordering, paging of Azure Media Services entities.  
+title: Developing with v3 APIs - Azure | Microsoft Docs
+description: This article discusses rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,9 +17,31 @@ ms.custom: seodec18
 
 ---
 
-# Filtering, ordering, paging of Media Services entities
+# Developing with Media Services v3 APIs
 
-## Overview
+This article discusses rules that apply to entities and APIs when developing with Media Services v3.
+
+## Naming conventions
+
+Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+
+Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', the single quote character, or any control characters. All other characters are allowed. The max length of a resource name is 260 characters. 
+
+For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+## v3 API design principles
+
+One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Examples of this include:
+
+* Not returning ContentKey values in the Get of the StreamingLocator.
+* Not returning the restriction keys in the Get of the ContentKeyPolicy.
+* Not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
+
+See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
+
+## Filtering, ordering, paging of Media Services entities
 
 Media Services supports the following OData query options for Media Services v3 entities: 
 
@@ -39,7 +61,7 @@ Operator description:
 
 Properties of entities that are of the Datetime type are always in UTC format.
 
-## Page results
+### Page results
 
 If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. The page size varies by the type of entity, please read the individual sections that follow for details.
 
@@ -48,9 +70,9 @@ If entities are created or deleted while paging through the collection, the chan
 > [!TIP]
 > You should always use the next link to enumerate the collection and not depend on a particular page size.
 
-## Assets
+### Assets
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how the filtering and ordering options may be applied to the [Asset](https://docs.microsoft.com/rest/api/media/assets) properties: 
 
@@ -75,11 +97,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### Pagination 
+#### Pagination 
 
 Pagination is supported for each of the four enabled sort orders. Currently, the page size is 1000.
 
-#### C# example
+##### C# example
 
 The following C# example shows how to enumerate through all the assets in the account.
 
@@ -93,7 +115,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-#### REST example
+##### REST example
 
 Consider the following example of where $skiptoken is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
 
@@ -135,9 +157,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 For more REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
-## Content Key Policies
+### Content Key Policies
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how these options may be applied to the [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies) properties: 
 
@@ -152,7 +174,7 @@ The following table shows how these options may be applied to the [Content Key P
 |properties.policyId|eq, ne||
 |type|||
 
-### Pagination
+#### Pagination
 
 Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
 
@@ -170,9 +192,9 @@ while (currentPage.NextPageLink != null)
 
 For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## Jobs
+### Jobs
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how these options may be applied to the [Jobs](https://docs.microsoft.com/rest/api/media/jobs) properties: 
 
@@ -184,7 +206,7 @@ The following table shows how these options may be applied to the [Jobs](https:/
 | properties.lastModified | gt, ge, lt, le | ascending and descending| 
 
 
-### Pagination
+#### Pagination
 
 Jobs pagination is supported in Media Services v3.
 
@@ -218,9 +240,9 @@ while (!exit);
 
 For REST examples, see [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-## Streaming Locators
+### Streaming Locators
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how these options may be applied to the StreamingLocator properties: 
 
@@ -239,7 +261,7 @@ The following table shows how these options may be applied to the StreamingLocat
 |properties.streamingPolicyName	|||
 |type	|||
 
-### Pagination
+#### Pagination
 
 Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
 
@@ -257,9 +279,9 @@ while (currentPage.NextPageLink != null)
 
 For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
-## Streaming Policies
+### Streaming Policies
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how these options may be applied to the StreamingPolicy properties: 
 
@@ -275,7 +297,7 @@ The following table shows how these options may be applied to the StreamingPolic
 |properties.noEncryption|||
 |type|||
 
-### Pagination
+#### Pagination
 
 Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
 
@@ -294,9 +316,9 @@ while (currentPage.NextPageLink != null)
 For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 
-## Transform
+### Transform
 
-### Filtering/ordering
+#### Filtering/ordering
 
 The following table shows how these options may be applied to the [Transforms](https://docs.microsoft.com/rest/api/media/transforms) properties: 
 
