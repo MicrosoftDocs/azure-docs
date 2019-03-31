@@ -3,7 +3,7 @@ title: 'Load data into Azure Data Explorer by using Azure Data Factory'
 description: 'In this topic, you learn to ingest (load) data into Azure Data Explorer by using Azure Data Factory'
 services: data-explorer
 author: orspod
-ms.author: orspod
+ms.author: orspodek
 ms.reviewer: 
 ms.service: data-explorer
 ms.topic: conceptual
