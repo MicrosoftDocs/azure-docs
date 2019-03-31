@@ -1,6 +1,6 @@
 ---
-title: Send your security messages to ASC for IoT Preview| Microsoft Docs
-description: Learn how to send your security messages using ASC for IoT.
+title: Send your security messages to Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn how to send your security messages using Azure Security Center for IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Send security messages SDK
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This how-to guide explains ASC for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
+This how-to guide explains Azure Security Center (ASC) for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
