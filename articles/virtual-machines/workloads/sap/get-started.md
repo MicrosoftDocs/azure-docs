@@ -32,7 +32,7 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart from comp
 
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
-## Latest Changes
+## Latest changes
 
 Release of [Azure HANA Large Instances control through Azure portal](hana-li-portal.md)
 

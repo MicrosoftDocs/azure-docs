@@ -25,7 +25,7 @@ This document covers the way how [HANA Large Instances](https://docs.microsoft.c
 
 ## Display of HANA Large Instance units in the Azure portal
 When submitting an HANA Large Instance deployment request, you are asked to specify the Azure subscription that you are connecting to the HANA Large Instances as well. It is recommended to use the same subscription you are using to deploy the SAP application layer that works against the HANA Large Instance units.
-As your first HANA Large Instances are getting deployed, a new [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/manage-resources-portal) is created in the Azure subscription you submitted in the deployment request for your HANA Large Instance(s).  The new resource group will list all your HANA Large Instance units you have deployed in the specific subscription.
+As your first HANA Large Instances are getting deployed, a new [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) is created in the Azure subscription you submitted in the deployment request for your HANA Large Instance(s).  The new resource group will list all your HANA Large Instance units you have deployed in the specific subscription.
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
 
@@ -44,7 +44,7 @@ As you found the resource group, list the details of it. The list you received c
 All the units listed are representing a single HANA Large Instance unit that has been deployed in your subscription. In this case, you look at eight different HANA Large Instance units, which were deployed in your subscription.
 
 
-## Looking at attributes of single HLI Unit
+## Look at attributes of single HLI Unit
 In the list of the HANA Large Instance units, you can click on a single unit and get to the details of the single HANA Large Instance unit. 
 
 In the overview screen, you are getting a presentation of the unit, which looks like:
@@ -63,7 +63,7 @@ An additional field in the right column of the header informs about the power st
 > 
 
 
-## Checking activities of a single HANA Large Instance unit 
+## Check activities of a single HANA Large Instance unit 
 Beyond giving an overview of the HANA Large Instance units, you can check activities of the particular unit. An activity log could look like:
 
 ![Navigation pane in Azure portal](./media/hana-li-portal/portal-activity-list.png)
@@ -72,22 +72,22 @@ One of the main activities recorded are restarts of a unit. The data listed incl
 
 Another activity that is getting recorded are changes to the unit in the Azure meta data. Besides the reboot initiated, you can see the activity of **Write HANAInstances**. This type of activity performs no changes on the HANA Large Instance unit itself, but is documenting changes to the meta data of the unit in Azure. In the case listed, we added and deleted a tag (see next section).
 
-## Adding and deleting an Azure tag to a HANA Large Instance unit
+## Add and delete an Azure tag to a HANA Large Instance unit
 Another possibility you have is to add a [tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) to a HANA Large Instance unit. The way tags are getting assigned does not differ from assigning tags to VMs. As with VMs the tags exist in Azure meta data and, for HANA Large Instances, have the same restrictions as tags for VMs.
 
 Deleting tags works the same way as with VMs. Both activities, applying and deleting a tag will be listed in the activity log of the particular HANA Large Instance unit.
 
-## Checking the properties of a HANA Large Instance unit
+## Check properties of a HANA Large Instance unit
 The section **Properties** includes important information that you get when the instances are handed over to you. It is a section where you get all the information that you could require in support cases or which you need when setting up storage snapshot configuration. As such this section is a collection of data around your instance, the connectivity of the instance to Azure and the storage backend. The top of the section looks like:
 
 
 ![top part of HLI properties in Azure portal](./media/hana-li-portal/portal-properties-top.png)
 
-The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you get when you got the first deployed units handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [configuration file for storage snapshot backups](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you get when you got the first deployed units handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [configuration file for storage snapshot backups](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
 
 As you scroll down in the property pane, you get additional data like a unique resource ID for your HANA Large Instance unit, or the subscription ID which was assigned to the deployment.
 
-## Rebooting a HANA Large Instance unit through Azure portal
+## Reboot a HANA Large Instance unit through Azure portal
 Initiating a reboot of the Linux operating system, there were various situations where the OS could not finish a reboot successfully. In order to force a reboot, you needed to open a service request to have Microsoft operations perform a power reboot of the HANA Large Instance unit. The functionality of a power reboot of a HANA Large Instance unit is now integrated into the Azure portal. As you are in the overview part of the HANA Large Instance unit, you see the button for reboot on top of the data section
 
 ![Reboot step #1 in Azure portal](./media/hana-li-portal/portal-reboot-first-step.png)
@@ -98,7 +98,7 @@ As you are pressing the reboot button, you are asked whether you really want to 
 > In the reboot process, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 
 
-## Opening a support message
+## Open a support message for HANA large Instances
 Out of the Azure portal display of HANA Large Instance units, you can create support requests specifically for a HANA large Instance unit as well. 
 As you follow the link **New support request** 
 
@@ -121,15 +121,6 @@ As you answered the questions and provided additional details, you can go the ne
 
 ## Next steps
 
-- [How to monitor SAP HANA (large instances) on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-- [Monitoring and troubleshooting from HANA side](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
-
-
-
-
-
-
-
-
-
+- [How to monitor SAP HANA (large instances) on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Monitoring and troubleshooting from HANA side](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 
