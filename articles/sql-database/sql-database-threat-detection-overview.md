@@ -11,13 +11,13 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/24/2019
+ms.date: 03/31/2019
 ---
 # Advanced Threat Protection for Azure SQL Database
 
 Advanced Threat Protection for [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Advanced Threat Protection is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
+Advanced Threat Protection is part of the [Advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -73,7 +73,7 @@ Click **Advanced Threat Protection alert** to launch the Azure Security Center a
 
 - Learn more about [Advanced Threat Protection in single and pooled databases](sql-database-threat-detection.md).
 - Learn more about [Advanced Threat Protection in managed instance](sql-database-managed-instance-threat-detection.md).
-- Learn more about [advanced data security](sql-database-advanced-data-security.md).
+- Learn more about [Advanced data security](sql-database-advanced-data-security.md).
 - Learn more about [Azure SQL Database auditing](sql-database-auditing.md)
 - Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - For more information on pricing, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  
