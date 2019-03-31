@@ -120,6 +120,29 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 1. Under **Review Deployment** click **Submit** to complete the deployment.
 
+## Diagnostic steps
+
+When you encounter an issue, learn more about the state of the IoT Edge security module device by reviewing the container logs. Use the commands and tools in this section to gather information.
+
+1. Verify that the required containers are up and running:
+
+   `sudo docker ps`
+   
+   You should see at least the following containers:
+   
+   | Name | IMAGE |
+   | --- | --- |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
+   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
+   
+   If this is not the case, check that your Edge deployment manifest is aligned with the recommended settings. See [Deploy Edge module](#Deployment-using-Azure-portal) for more details.
+   
+1. View module logs
+
+   `sudo docker logs azureiotsecurity`
+   
+   For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
 
 ## Next steps
 
