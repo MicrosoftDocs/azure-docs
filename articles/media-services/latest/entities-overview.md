@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -40,6 +40,29 @@ Examples of this include:
 * Not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
+
+## Long-running operations
+
+The operations marked with `x-ms-long-running-operation` are long running operations. For details about how to track asynchronous Azure operations, see [Async operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services has the following long-running operations:
+
+* Create LiveEvent
+* Update LiveEvent
+* Delete LiveEvent
+* Start LiveEvent
+* Stop LiveEvent
+* Reset LiveEvent
+* Create LiveOutput
+* Delete LiveOutput
+* Create StreamingEndpoint
+* Update StreamingEndpoint
+* Delete StreamingEndpoint
+* Start StreamingEndpoint
+* Stop StreamingEndpoint
+* Scale StreamingEndpoint
+
+You can view the up-to-date list in [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json).
 
 ## Filtering, ordering, paging of Media Services entities
 
