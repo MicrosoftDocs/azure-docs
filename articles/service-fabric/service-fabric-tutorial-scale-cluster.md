@@ -3,8 +3,8 @@ title: Scale a Service Fabric cluster in Azure | Microsoft Docs
 description: In this tutorial, you learn how to scale a Service Fabric cluster in Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure

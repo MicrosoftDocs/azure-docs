@@ -16,13 +16,16 @@ The following Jenkins plugins support various features for use with Azure.
   
 | Jenkins plugin | Description                                   |
 |------------------------------------------------------------------------------|
-| [Azure App Service plugin](https://plugins.jenkins.io/azure-app-service)     | A Jenkins plugin to deploy an Azure App Service (currently supports only Web App). | 
-| [Azure AD plugin](https://plugins.jenkins.io/azure-ad)                       | A Jenkins Plugin that supports authentication & authorization via Azure Active Directory. | 
-| [Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) | Azure Container Agents Plugin can help you to run a container as an agent in Jenkins | 
-| [Azure Container Service plugin](https://plugins.jenkins.io/azure-acs)       | A Jenkins Plugin to deploy configurations to Azure Container Service (AKS). | 
+| [Azure App Service plugin](https://plugins.jenkins.io/azure-app-service)     | Jenkins plugin to deploy an Azure App Service (currently supports only Web App). | 
+| [Azure AD plugin](https://plugins.jenkins.io/azure-ad)                       | Jenkins plugin that supports authentication & authorization via Azure Active Directory. | 
+| [Azure Artifact Manager plugin](https://plugins.jenkins.io/azure-artifact-manager) | Azure Artifact Manager plugin is an Artifact Manager that allows you store your artifacts into Azure Blob Storage. Azure Artifact Manager plugin works transparently to Jenkins and your jobs, it is like the default Artifact Manager. | 
+| [Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) | Azure Container Agents plugin can help you to run a container as an agent in Jenkins | 
+| [Azure Container Registry Task plugin](https://plugins.jenkins.io/azure-container-registry-tasks)       | Jenkins plugin to send a docker-build request to [Azure Container Registry](/azure/container-registry/container-registry-tasks-overview). |
+| [Azure Container Service plugin](https://plugins.jenkins.io/azure-acs)       | Jenkins plugin to deploy configurations to Azure Container Service (AKS). | 
 | [Azure Credential plugin](https://plugins.jenkins.io/azure-credentials)      | Jenkins plugin to manage Azure credentials. | 
-| [Azure Function plugin](https://plugins.jenkins.io/azure-function)           | To use this plugin to deploy to Azure Function, first you need to have an Azure Service Principal in your Jenkins instance. | 
-| [Azure Service Fabric plugin](https://plugins.jenkins.io/service-fabric)     | A Jenkins Plugin for Linux Azure Service Fabric projects. |
-| [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)     | A plugin for uploading build artifacts to, or downloading build dependencies from, Microsoft Azure Blob storage. | 
-| [Azure VM agents plugin](https://plugins.jenkins.io/azure-vm-agents)         | A Jenkins Plugin to create Jenkins agents in Azure virtual machines (via Azure Resource Manager template). | 
-| [Azure virtual machine scale set plugin](https://plugins.jenkins.io/azure-vmss)           | A Jenkins plugin to deploy VM images to Azure virtual machine scale sets. | 
+| [Azure Function plugin](https://plugins.jenkins.io/azure-function)           | Jenkins plugin to deploy an Azure Function. | 
+| [Azure IoT Edge plugin](https://plugins.jenkins.io/azure-iot-edge)           | Azure IoT Edge plugin makes it easy to set up a CI/CD pipeline for developing an IoT Edge solution on Jenkins. | 
+| [Azure Service Fabric plugin](https://plugins.jenkins.io/service-fabric)     | Jenkins plugin for Linux Azure Service Fabric projects. |
+| [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)     | plugin for uploading build artifacts to, or downloading build dependencies from, Microsoft Azure Blob storage. | 
+| [Azure VM agents plugin](https://plugins.jenkins.io/azure-vm-agents)         | Jenkins plugin to create Jenkins agents in Azure virtual machines (via Azure Resource Manager template). | 
+| [Azure virtual machine scale set plugin](https://plugins.jenkins.io/azure-vmss)           | Jenkins plugin to deploy VM images to Azure virtual machine scale sets. | 

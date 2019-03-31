@@ -28,6 +28,9 @@
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Cluster capacity planning

@@ -12,11 +12,6 @@ ms.subservice: logs
 # Archive the Azure Activity Log
 In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](../../azure-monitor/platform/activity-logs-overview.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
 
-> [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## Prerequisites
 Before you begin, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
@@ -59,7 +54,7 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 | --- | --- | --- |
 | StorageAccountId |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
 | Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `(Get-AzLocation).Location`. |
-| RetentionInDays |No |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
+| RetentionInDays |No |Number of days for which events should be retained, between 1 and 365. A value of zero stores the logs indefinitely (forever). |
 | Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.  If not provided, then all possible values are assumed |
 
 ## Archive the Activity Log via CLI
@@ -73,7 +68,7 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 | name |Yes |Name of your log profile. |
 | storage-account-id |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
 | locations |Yes |Space-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `az account list-locations --query [].name`. |
-| days |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
+| days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
 |enabled | Yes |True or False.  Used to enable or disable the retention policy.  If True, then the days parameter must be a value greater than 0.
 | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 

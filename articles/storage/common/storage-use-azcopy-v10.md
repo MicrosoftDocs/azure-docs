@@ -169,7 +169,7 @@ The sync command synchronizes contents of a source directory to a directory in t
 
 > [!NOTE] 
 > Use the `--delete-destination` flag with caution. Enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you enable delete behavior in sync to prevent accidental deletions in your account. 
-
+>
 > When `--delete-destination` is set to true, AzCopy will delete files that do not exist in the source from destination without any prompt to the user. If you want to be prompted for confirmation, use `--delete-destination=prompt`.
 
 To sync your local file system to a storage account, use the following command:
@@ -279,6 +279,6 @@ Use the following command to resume a failed/canceled job. This command uses its
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy.).
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).
 
 

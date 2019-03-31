@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
@@ -18,7 +18,7 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to install the Azure IoT Edge runtime on your Linux x64 (Intel/AMD) IoT Edge device. Refer to [Azure IoT Edge support](support.md#operating-systems) for a list of supported AMD64 operating systems.
+This article lists the steps to install the Azure IoT Edge runtime on your Ubuntu Linux x64 (Intel/AMD) IoT Edge device. Refer to [Azure IoT Edge support](support.md#operating-systems) for a list of supported AMD64 operating systems.
 
 > [!NOTE]
 > Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
@@ -28,12 +28,21 @@ This article lists the steps to install the Azure IoT Edge runtime on your Linux
 Prepare your device for the IoT Edge runtime installation.
 
 
-Install the repository configuration. Replace **\<release\>** with **16.04** or **18.04** as appropriate for your release of Ubuntu.
+Install the repository configuration. Choose either the **16.04** or **18.04** code snippet as appropriate for your release of Ubuntu:
 
+> [!NOTE]
+> Make sure you choose the code snippet from the correct code box for your version of Ubuntu.
+
+* For **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
 
+* For **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
 Copy the generated list.
 
    ```bash

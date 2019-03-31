@@ -305,6 +305,11 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## Stop the container
 
 To shut down the container, in the command-line environment where the container is running, press **Ctrl+C**.
@@ -312,10 +317,6 @@ To shut down the container, in the command-line environment where the container 
 ## Troubleshooting
 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
-
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

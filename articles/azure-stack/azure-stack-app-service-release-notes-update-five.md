@@ -62,6 +62,7 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
+  - Added ASP.NET Core 2.1.6 and 2.2.0
   - Added NodeJS 10.14.1
   - Added NPM 6.4.1
   - Updated Kudu to 79.20129.3767

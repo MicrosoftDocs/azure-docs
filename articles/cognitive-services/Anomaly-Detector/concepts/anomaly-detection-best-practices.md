@@ -19,7 +19,7 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 * The Anomaly Detector API parameters that were used.
 * The number of data points in your API request. 
 
-se this article to learn about best practices for using the API getting the best results for your data. 
+Use this article to learn about best practices for using the API getting the best results for your data. 
 
 ## Data preparation
 
