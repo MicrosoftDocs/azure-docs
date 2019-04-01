@@ -166,7 +166,6 @@ To enable access to the storage snapshot interfaces of your HANA Large Instance 
   ssh-keygen -t rsa –b 5120 -C ""
 ```
 
-ssh/id_rsa.pub
 The new location is **_/root/.ssh/id\_rsa.pub**. Do not enter an actual password, or else you are required to enter the password each time you sign in. Instead, select **Enter** twice to remove the "enter password" requirement for signing in.
 
 Make sure that the public key was corrected as expected by changing folders to **/root/.ssh/** and then executing the `ls` command. If the key is present, you can copy it by running the following command:
