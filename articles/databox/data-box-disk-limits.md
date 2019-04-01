@@ -88,4 +88,4 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 
 ## Next steps
 
-- Review [Data Box system requirements](data-box-disk-system-requirements.md)
+- Review [Data Box Disk system requirements](data-box-disk-system-requirements.md)
