@@ -128,33 +128,33 @@ To configure Azure AD single sign-on with DocuSign, perform the following steps:
 
 ### Configure DocuSign Single Sign-On
 
-7. In a different web browser window, sign to your **DocuSign admin portal** as an administrator.
+1. In a different web browser window, sign to your **DocuSign admin portal** as an administrator.
 
-8. On the top right of the page click on profile **logo** and then click on **Go to Admin**.
+2. On the top right of the page click on profile **logo** and then click on **Go to Admin**.
   
     ![Configuring single sign-on][51]
 
-9. On your domain solutions page, click on **Domains**
+3. On your domain solutions page, click on **Domains**
 
 	![Configuring single sign-on][50]
 
-10. Under the **Domains** section, click **CLAIM DOMAIN**.
+4. Under the **Domains** section, click **CLAIM DOMAIN**.
 
     ![Configuring single sign-on][52]
 
-11. On the **Claim a domain** dialog, in the **Domain Name** textbox, type your company domain, and then click **CLAIM**. Make sure that you verify the domain and the status is active.
+5. On the **Claim a domain** dialog, in the **Domain Name** textbox, type your company domain, and then click **CLAIM**. Make sure that you verify the domain and the status is active.
 
     ![Configuring single sign-on][53]
 
-12. On your domain solutions page, click **Identity Providers**.
+6. On your domain solutions page, click **Identity Providers**.
   
     ![Configuring single sign-on][54]
 
-13. Under **Identity Providers** section, click **ADD IDENTITY PROVIDER**. 
+7. Under **Identity Providers** section, click **ADD IDENTITY PROVIDER**. 
 
 	![Configuring single sign-on][55]
 
-14. On the **Identity Provider Settings** page, perform the following steps:
+8. On the **Identity Provider Settings** page, perform the following steps:
 
 	![Configuring single sign-on][56]
 
