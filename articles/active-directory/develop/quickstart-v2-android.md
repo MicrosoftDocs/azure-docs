@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2019
+ms.date: 04/01/2019
 ms.author: dadobali
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Azure AD v2.0 endpoint.
@@ -83,56 +83,56 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
-    > ```javascript
-    > "client_id" : "Enter_the_Application_Id_Here",
-    > "type": "Enter_the_Audience_Info_Here",
-    > "tenant_id" : "Enter_the_Tenant_Info_Here"
-    > ```
+>    ```javascript
+>    "client_id" : "Enter_the_Application_Id_Here",
+>    "type": "Enter_the_Audience_Info_Here",
+>    "tenant_id" : "Enter_the_Tenant_Info_Here"
+>    ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Add the following activity to the **manifest\application** node. This code allows Microsoft to callback to your app:	
-    > ```xml
-    > <!--Intent filter to catch Microsoft's callback after Sign In-->
-    > <activity
-    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
-    >     <intent-filter>
-    >         <action android:name="android.intent.action.VIEW" />
-    >         <category android:name="android.intent.category.DEFAULT" />
-    >         <category android:name="android.intent.category.BROWSABLE" />
-    > 
-    >         <!--Add in your scheme/host from registered redirect URI-->
-    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msalEnter_The_Application_Id_Here"
-    >             android:host="auth" />
-    >     </intent-filter>
-    > </activity>
-    > ```
+>    ```xml
+>    <!--Intent filter to catch Microsoft's callback after Sign In-->
+>    <activity
+>        android:name="com.microsoft.identity.client.BrowserTabActivity">
+>        <intent-filter>
+>            <action android:name="android.intent.action.VIEW" />
+>            <category android:name="android.intent.category.DEFAULT" />
+>            <category android:name="android.intent.category.BROWSABLE" />
+> 
+>            <!--Add in your scheme/host from registered redirect URI-->
+>            <!--By default, the scheme should be similar to 'msal[appId]' -->
+>            <data android:scheme="msalEnter_The_Application_Id_Here"
+>                android:host="auth" />
+>        </intent-filter>
+>    </activity>
+>    ```
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace the `client_id`:
-    > ```javascript
-    > "client_id" : "ENTER_YOUR_APPLICATION_ID",
-    > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
-    >  ```
+>    ```javascript
+>    "client_id" : "ENTER_YOUR_APPLICATION_ID",
+>    "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
+>     ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
-	> ```xml
-    > <!--Intent filter to catch Microsoft's callback after Sign In-->
-    > <activity
-    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
-    >     <intent-filter>
-    >         <action android:name="android.intent.action.VIEW" />
-    >         <category android:name="android.intent.category.DEFAULT" />
-    >         <category android:name="android.intent.category.BROWSABLE" />
-    > 
-    >         <!--Add in your scheme/host from registered redirect URI-->
-    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
-    >             android:host="auth" />
-    >     </intent-filter>
-    > </activity>
-    > ```
+>    ```xml
+>    <!--Intent filter to catch Microsoft's callback after Sign In-->
+>    <activity
+>        android:name="com.microsoft.identity.client.BrowserTabActivity">
+>        <intent-filter>
+>            <action android:name="android.intent.action.VIEW" />
+>            <category android:name="android.intent.category.DEFAULT" />
+>            <category android:name="android.intent.category.BROWSABLE" />
+> 
+>            <!--Add in your scheme/host from registered redirect URI-->
+>            <!--By default, the scheme should be similar to 'msal[appId]' -->
+>            <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
+>                android:host="auth" />
+>        </intent-filter>
+>    </activity>
+>    ```
 > 1. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
 
 ## More Information
