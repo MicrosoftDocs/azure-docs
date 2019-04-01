@@ -112,15 +112,17 @@ You can create an Azure Machine Learning compute environment on demand when you 
 
 #### Run-based creation
 
-You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The cluster scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically once the run completes.
+You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run and deleted automatically once the run completes.
 
 > [!IMPORTANT]
 > Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.
 
-1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
+The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
 
-  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
+> [!TIP]
+> To specify the number of nodes that are used, use the **node_count** property of the run configuration. For example, `run_temp_compute.node_count = 8`.
 
 Now that you’ve attached the compute and configured your run, the next step is to [submit the training run](#submit).
 
