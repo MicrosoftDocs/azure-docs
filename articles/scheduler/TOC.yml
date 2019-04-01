@@ -37,7 +37,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.scheduler
+    href: /powershell/module/az.scheduler
   - name: REST API
     href: /rest/api/scheduler
   - name: Resource Manager template

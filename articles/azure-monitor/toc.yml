@@ -977,9 +977,9 @@
   - name: Azure PowerShell
     items:
     - name: Monitor
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.insights
     - name: Logs
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: Monitor
