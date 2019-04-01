@@ -1,5 +1,5 @@
 ---
-title: Custom commands for MongoDB
+title: Custom commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
 description: This article describes how to use custom commands to manage data stored in Azure Cosmos DB’s API for MongoDB.  
 author: SnehaGunda
 ms.service: cosmos-db
@@ -18,14 +18,14 @@ By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cos
 
 By default, the Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 3.2, for more details, see [supported features and syntax](mongodb-feature-support.md). The features or query operators added in MongoDB version 3.4 are currently available as a preview in the Azure Cosmos DB’s API for MongoDB. The following custom commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB’s API for MongoDB:
 
-* [Create Database](#create-database)
-* [Update Database](#update-database)
-* [Get Database](#get-database)
-* [Create Collection](#create-collection)
-* [Update Collection](#update-collection)
-* [Get Collection](#get-collection)
+* [Create database](#create-database)
+* [Update database](#update-database)
+* [Get database](#get-database)
+* [Create collection](#create-collection)
+* [Update collection](#update-collection)
+* [Get collection](#get-collection)
 
-## <a id="create-database"></a> Create Database
+## <a id="create-database"></a> Create database
 
 The create database custom command creates a new MongoDB database. The database name is used from the databases context against which the command is executed. The format of the CreateDatabase command is as follows:
 
@@ -67,7 +67,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-## <a id="update-database"></a> Update Database
+## <a id="update-database"></a> Update database
 
 The update database custom command updates the properties associated with the specified database. Currently, you can only update the "offerThroughput" property.
 
@@ -100,7 +100,7 @@ use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a id="get-database"></a> Get Database
+## <a id="get-database"></a> Get database
 
 The get database custom command returns the database object. The database name is used from the database context against which the command is executed.
 
@@ -140,7 +140,7 @@ use test
 db.runCommand({customAction: "GetDatabase"});
 ```
 
-## <a id="create-collection"></a> Create Collection
+## <a id="create-collection"></a> Create collection
 
 The create collection custom command creates a new MongoDB collection. The database name is used from the databases context against which the command is executed. The format of the CreateCollection command is as follows:
 
@@ -186,7 +186,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
-## <a id="update-collection"></a> Update Collection
+## <a id="update-collection"></a> Update collection
 
 The update collection custom command updates the properties associated with the specified collection.
 
@@ -221,7 +221,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a id="get-collection"></a> Get Collection
+## <a id="get-collection"></a> Get collection
 
 The get collection custom command returns the collection object.
 
