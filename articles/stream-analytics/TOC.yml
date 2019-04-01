@@ -111,6 +111,8 @@
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
+    - name: Geospatial scenarios
+      href: geospatial-scenarios.md
   - name: Monitor
     items:
     - name: Monitor jobs- Azure portal

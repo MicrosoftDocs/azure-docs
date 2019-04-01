@@ -1,6 +1,6 @@
 ---
-title: Select and deploy an ASC for IoT agent Preview| Microsoft Docs
-description: Learn about how select and deploy ASC for IoT security agents on IoT devices.
+title: Select and deploy Azure Security Center for IoT agent Preview| Microsoft Docs
+description: Learn about how select and deploy Azure Security Center for IoT security agents on IoT devices.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Select and deploy a security agent on your IoT device
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
+Azure Security Center (ASC) for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
 See [Security agent reference architecture](security-agent-architecture.md) to learn more.
 
 Agents are developed as open source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
