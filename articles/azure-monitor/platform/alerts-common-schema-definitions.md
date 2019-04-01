@@ -220,10 +220,10 @@ Any alert instance describes **the resource that was affected** and **the cause 
       "submissionTimestamp": "2019-03-22T13:56:54.067593+00:00"
     }
 }
+```
 
 ## Next steps
 
-- [Common schema definitions for different alert types](https://aka.ms/commonAlertSchemaDefinitions)
-- [How to best integrate with the common alert schema](https://aka.ms/commonAlertSchemaIntegrations)
+- [Learn more about the common alert schema](https://aka.ms/commonAlertSchemaDocs)
 
 
