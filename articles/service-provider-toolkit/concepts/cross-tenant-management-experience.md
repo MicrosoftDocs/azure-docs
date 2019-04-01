@@ -20,7 +20,7 @@ This article describes the scenarios that you, as a service provider, can use wi
 
 ## Understanding customer tenants
 
-An Azure Active Directory (Azure AD) tenant is a representation of an organization, sometimes referred to as a *directory*. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID).
+An Azure Active Directory (Azure AD) tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID). For more info, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 
 Typically, in order to manage Azure resources for an customer, a user needs to sign in to the Azure portal using an account associated with that customer's tenant. This means that an administrator in the customer's tenant must create a user account in that tenant.
 
@@ -30,15 +30,15 @@ With Azure Delegated Resource Management, the onboarding process specifies users
 
 Currently, the cross-tenant management experience supports the following scenarios with delegated customer resources:
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/)
+[Azure Automation](https://docs.microsoft.com/azure/automation/):
 
 - Use automation accounts to access and work with delegated customer resources
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/)
+[Azure Backup](https://docs.microsoft.com/azure/backup/):
 
 - Back up and restore customer data in customer tenants
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/)
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 
@@ -54,6 +54,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - Create and edit policy definitions within a delegated subscription
 - Assign customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
+- Can remediate deployIfNotExists assignments within the customer tenants if the customer has configured the managed identity and *roleDefinitionIds* for that policy assignment
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
@@ -62,6 +63,11 @@ Currently, the cross-tenant management experience supports the following scenari
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
 
 - Ability to filter and see all info for delegated subscriptions
+
+[Azure Service Health](https://docs.microsoft.com/azure/service-health/):
+
+- Monitor the health of customer resources with Azure Resource Health
+- Track the health of the Azure services used by your customers
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 

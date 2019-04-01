@@ -34,4 +34,4 @@ Azure Service Provider Management Toolkit includes multiple ways to help streaml
 - **Azure managed applications**: Create cloud solutions that are easy for consumers to deploy and operate, using a resource group that you can manage in your tenant. For more info, see [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
 
 > [!NOTE]
-> The capabilities described above are available in public clouds. Azure Marketplace Managed Services offers are not available for use in U.S. Government clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+> The capabilities described above are available in public clouds. Azure Marketplace Managed Services offers are not available for use in national clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
