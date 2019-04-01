@@ -3,7 +3,7 @@ title: 'Deal with duplicate data'
 description: This topic will show you various ways to deal with duplicate data
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual

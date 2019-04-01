@@ -85,11 +85,11 @@ Tasks for managing AD FS service principals.
 | Type | Action |
 | --- | --- |
 | AD FS Certificate | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS Certificate | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS Certificate | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS Client Secret | [Create](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS Client Secret | [Update](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS Client Secret | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### Create a service principal using a certificate
 
@@ -120,7 +120,7 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -169,7 +169,7 @@ The following information is required as input for the automation parameters:
    > [!Note]  
    > For validation purposes a self-signed certificate can be created using the below example:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -250,7 +250,7 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -268,7 +268,7 @@ The following information is required as input for the automation parameters:
 
 2. After cmdlets run, the shell displays the required details to use the SPN. Make sure you store the client secret.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -300,7 +300,7 @@ The example uses the **ResetClientSecret** parameter, which immediately changes 
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -314,7 +314,7 @@ The example uses the **ResetClientSecret** parameter, which immediately changes 
 
 2. After the automation finishes, it displays the newly generated secret required for SPN authentication. Make sure you store the new client secret.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

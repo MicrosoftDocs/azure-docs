@@ -4,7 +4,7 @@ description: Frequently asked questions about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
 ---
 
@@ -212,6 +212,10 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
 * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3) 
+
+  > [!NOTE] 
+  > Azure NetApp Files currently is not supported. 
+
 * Azure blob containers (locally redundant storage only) 
 * AWS S3 buckets 
 * Google Cloud buckets

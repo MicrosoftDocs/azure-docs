@@ -32,10 +32,8 @@ You can combine these together to build a more complex, highly available network
 
 > [!IMPORTANT]
 > The active-active mode uses only the following SKUs: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (for old legacy SKUs)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * HighPerformance (for old legacy SKUs)
 
 ## <a name ="aagateway"></a>Part 1 - Create and configure active-active VPN gateways
 The following steps will configure your Azure VPN gateway in active-active modes. The key differences between the active-active and active-standby gateways:

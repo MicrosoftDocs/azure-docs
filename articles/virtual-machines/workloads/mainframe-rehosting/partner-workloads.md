@@ -21,7 +21,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 - [Micro Focus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) development and integration tools.
 - [Micro Focus PL/I](https://www.microfocus.com/campaign/download/pli-modernization/) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
-- [Fujitsu NetCOBOL](http://www.fujitsu.com/global/products/software/developer-tool/netcobol/) development and integration tools.
+- [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) development and integration tools.
 - [NTT Data Enterprise COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) development and integration tools.
 - [NTT Open PL/I](https://www.nttdataservices.com/en-ie/services/application-modernization-services) legacy compiler for the .NET platform, supporting mainframe PL/I syntax, data types, and behavior.
 - [Raincode COBOL compiler](https://www.raincode.com/products/cobol/) development and integration tools.

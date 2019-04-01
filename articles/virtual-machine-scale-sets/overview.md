@@ -42,7 +42,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 300 VM instances.
+    - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 600 VM instances.
     - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 

@@ -186,6 +186,7 @@ with these settings:
    | **Resource Group** | LA-Tutorial-RG | The same Azure resource group that you previously used | 
    | **Hosting Plan** | Consumption Plan | This setting determines how to allocate and scale resources, such as computing power, for running your function app. See [hosting plans comparison](../azure-functions/functions-scale.md). | 
    | **Location** | West US | The same region that you previously used | 
+   | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose .NET for C# and F# functions. |
    | **Storage** | cleantextfunctionstorageacct | Create a storage account for your function app. Use only lowercase letters and numbers. <p>**Note:** This storage account contains your function apps, and differs from your previously created storage account for email attachments. | 
    | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md), but for this tutorial, choose the **Off** setting. | 
    |||| 

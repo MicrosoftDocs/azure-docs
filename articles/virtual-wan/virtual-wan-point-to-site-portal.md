@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -33,11 +33,13 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzAccount** and **Select-AzSubscription** commands.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
@@ -47,25 +49,25 @@ Click the **TryIt** to register this feature easily using Azure Cloud Shell. If 
 After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+Once the feature shows as registered, register the subscription to Microsoft.Network namespace.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Create a virtual network
@@ -96,13 +98,13 @@ A P2S configuration defines the parameters for connecting remote clients.
 4. Click **+Add point-to-site config** at the top of the page to open the **Create new point-to-site configuration** page.
 5. On the **Create new point-to-site configuration** page, fill in the following fields:
 
-  *  **Configuration name** - This is the name by which you want to refer to your configuration.
-  *  **Tunnel type** - The protocol to use for the tunnel.
-  *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
-  *  **Root Certificate Name** - A descriptive name for the certificate.
-  *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
+   *  **Configuration name** - This is the name by which you want to refer to your configuration.
+   *  **Tunnel type** - The protocol to use for the tunnel.
+   *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
+   *  **Root Certificate Name** - A descriptive name for the certificate.
+   *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
 
-5. Click **Create** to create the configuration.
+6. Click **Create** to create the configuration.
 
 ## <a name="hub"></a>5. Edit hub assignment
 
@@ -110,15 +112,16 @@ A P2S configuration defines the parameters for connecting remote clients.
 2. Select the hub that you want to assign the point-to-site configuration to.
 3. Click **"..."** and pick **Edit virtual hub**
 4. Check **Include point-to-site gateway**.
-5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
-6. Click **Confirm**. 
-7. The operation can take up to 30 minutes to complete.
+5. From the dropdown, select the **Gateway scale units**.
+6. From the dropdown, select the **Point-to-site configuration** that you created.
+7. Configure the **Address pool** for the clients.
+8. Click **Confirm**. The operation can take up to 30 minutes to complete.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
 In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
-1. On the page for your virtual WAN, click **Virtual network connection**.
+1. On the page for your virtual WAN, click **Virtual network connections**.
 2. On the virtual network connection page, click **+Add connection**.
 3. On the **Add connection** page, fill in the following fields:
 
@@ -126,6 +129,7 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+4. Click **OK** to add the connection.
 
 ## <a name="device"></a>7. Download VPN profile
 
@@ -144,7 +148,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install the OpenVPN client from the official website.
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -163,7 +167,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install an OpenVPN client, such as TunnelBlik from https://tunnelblick.net/downloads.html 
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -196,10 +200,10 @@ Create a connection to monitor communication between an Azure VM and a remote si
 
 ## <a name="cleanup"></a>12. Clean up resources
 
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

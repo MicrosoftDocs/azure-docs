@@ -18,7 +18,7 @@ This article explains the different ways to create a container (collection, tabl
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
 
@@ -193,7 +193,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-MongoDB wire protocol does not request units. To create a new collection with throughput, use the Azure portal or SQL API.
+> MongoDB wire protocol does not request units. To create a new collection with throughput, use the Azure portal or SQL API.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

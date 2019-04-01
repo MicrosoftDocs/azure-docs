@@ -5,7 +5,7 @@ description: Training a model is an important step when building a translation m
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
@@ -48,6 +48,9 @@ To train a model:
     training in the models tab.
 
     ![Train model page](media/how-to/how-to-train-model-3.png)
+
+>[!Note]
+>Custom Translator supports 10 concurrent trainings within a workspace at any point in time.
 
 
 ## Edit a model

@@ -22,11 +22,17 @@ The following video explains Azure Maps in depth:
 
 ## Map Controls
 
-### Web Control
+### Web SDK
 
-The Azure Maps Web Control lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the control using JavaScript or TypeScript.
+The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the SDK using JavaScript or TypeScript.
 
-![Azure Maps Web Control](media/about-azure-maps/Introduction_WebMapControl.png)
+![Azure Maps Web SDK](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### Android SDK
+
+The Azure Maps Android SDK lets you create powerful mobile mapping applications. 
+
+![Azure Maps Android SDK](media/about-azure-maps/AndroidSDK.png)
 
 ## Services in Azure Maps
 

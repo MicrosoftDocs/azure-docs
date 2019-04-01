@@ -160,7 +160,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
      c. The HDInsight cluster creates a default container in the blob storage you specified in the JSON property (**linkedServiceName**). HDInsight doesn't delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, an HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**). The cluster is automatically deleted when the processing is finished.
 
-     As more slices are processed, you see many containers in your blob storage. If you don't need them for troubleshooting of the jobs, you might want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp." Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to delete containers in your blob storage.
+     As more slices are processed, you see many containers in your blob storage. If you don't need them for troubleshooting of the jobs, you might want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp." Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your blob storage.
 
      For more information, see [On-demand HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 

@@ -255,7 +255,7 @@ For quick reference here is the command to get cluster health
 Get-ServiceFabricClusterHealth 
 ```
 
-## Deploying Application certificates to the cluster.
+## Deploying client certificates to the cluster.
 
 You can use the same steps as outlined in the preceding Steps 5 to have the certificates deployed from a keyvault to the Nodes. You just need define and use different parameters.
 

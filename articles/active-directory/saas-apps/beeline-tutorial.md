@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with BeeLine, perform the following steps:
     `https://projects.beeline.net/<instancename>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
@@ -153,7 +154,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

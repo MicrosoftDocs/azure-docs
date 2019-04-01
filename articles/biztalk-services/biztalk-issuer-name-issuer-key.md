@@ -74,7 +74,7 @@ More on the [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/
 Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services. In your BizTalk Services project in Visual Studio, you use the BizTalk Adapter Services to connect to an on-premises Line-of-Business (LOB) system. To connect, you create the LOB Relay and enter your LOB system details. When doing this, you also enter the Service Bus Issuer Name and Issuer Key.
 
 ### To retrieve the Service Bus Issuer Name and Issuer Key
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Service Bus**, and select your namespace. 
 3. Open the **Shared access policies** properties, select your policy, and view the **Connection String** for the name and key values.  
 

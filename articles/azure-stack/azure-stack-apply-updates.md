@@ -26,7 +26,7 @@ You can use the **Update** tile in the administration portal to apply Microsoft 
 
 If you are using an integrated systems version 1807 or earlier, you must download the update package, import the package files to Azure Stack, and then install the update package. For instructions, see [Update Azure Stack by downloading the package](#update-azure-stack-by-downloading-the-package)
 
-These upgrade instructions work with Azure Stack integrated systems. If you are using the Azure Stack Development System, you must download the installation package for the current version. For instructions, see [Install the Azure Stack Development Kit](.\asdk\asdk-install.md)
+These upgrade instructions work with Azure Stack integrated systems. If you are using the Azure Stack Development System, you must download the installation package for the current version. For instructions, see [Install the Azure Stack Development Kit](./asdk/asdk-install.md)
 
 ## Update Azure Stack
 

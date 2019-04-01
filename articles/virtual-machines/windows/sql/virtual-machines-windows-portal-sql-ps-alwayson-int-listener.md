@@ -43,7 +43,7 @@ The examples in this article are tested using Azure PowerShell module version 5.
 
 Verify your PowerShell module is 5.4.1 or later.
 
-See [Install the Azure PowerShell module](http://docs.microsoft.com/powershell/azure/install-az-ps).
+See [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## Configure the Windows Firewall
 
@@ -59,13 +59,13 @@ The current [Microsoft template](virtual-machines-windows-portal-sql-alwayson-av
 
 The examples in this article specify a standard load balancer. In the examples, the script includes `-sku Standard`.
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 To create a basic load balancer, remove `-sku Standard` from the line that creates the load balancer. For example:
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 

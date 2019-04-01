@@ -21,6 +21,8 @@
     href: fhir-oss-powershell-quickstart.md
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
+  - name: Configure CORS
+    href: configure-cross-origin-resource-sharing.md
 - name: Tutorials
   expanded: false
   items:

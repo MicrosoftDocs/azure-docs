@@ -28,7 +28,7 @@ The standard tier of IoT Hub enables all features, and is required for any IoT s
 
 Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
 
-| Capability | Basic tier | Standard tier |
+| Capability | Basic tier | Free/Standard tier |
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
@@ -62,7 +62,7 @@ The partition configuration remains unchanged when you migrate from basic tier t
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier hubs. The following table shows which APIs are available: 
 
-| API | Basic tier | Standard tier |
+| API | Basic tier | Free/Standard tier |
 | --- | ---------- | ------------- |
 | [Delete device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |

@@ -194,15 +194,15 @@ Usage is reported for the following resource providers:
 **Unit**: GB\*month      
 **Notes**: The actual size on disk of premium managed disk 
 
-**Meter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Meter ID**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Meter name**: ActualStandardSnapshotSize   
 **Unit**: GB\*month   
 **Notes**: The actual size on disk of managed standard snapshot.  
 
-**Meter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Meter ID**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Meter name**: ActualPremiumSnapshotSize   
 **Unit**: GB\*month   
-**Notes**: The actual size on disk of managed premium.   
+**Notes**: The actual size on disk of managed premium snapshot.   
 
 **Meter ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Meter name**: S4   
@@ -282,7 +282,17 @@ Usage is reported for the following resource providers:
 **Meter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Meter name**: ActualPremiumSnapshotSize   
 **Unit**: Byte\*hours   
-**Notes**: The actual size on disk of managed premium (Deprecated) 
+**Notes**: The actual size on disk of managed premium snapshot (Deprecated) 
+
+**Meter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8
+**Meter name**: ActualStandardSnapshotSize
+**Unit**: GB\*month
+**Notes**: The actual size on disk of managed standard snapshot (Deprecated)  
+
+**Meter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e
+**Meter name**: ActualPremiumSnapshotSize
+**Unit**: GB\*month
+**Notes**: The actual size on disk of managed premium snapshot (Deprecated)  
 
 ### Sql RP
   

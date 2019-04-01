@@ -52,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -275,7 +275,7 @@ You can install additional SAP ASCS/SCS instances in the existing WSFC cluster w
 You can create a DNS entry for the virtual host name of the ASCS/SCS instance by using the following parameters:
 
 | New SAP ASCS/SCS virtual host name | Associated IP address |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 The new host name and IP address are displayed in DNS Manager, as shown in the following screenshot:

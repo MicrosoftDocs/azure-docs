@@ -60,7 +60,7 @@ You can use the [company branding feature](../active-directory/fundamentals/cust
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
 
-    ![Screen shot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Screenshot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
 The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
 
@@ -109,7 +109,8 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Delete all the policies in your Azure AD B2C tenant.
+1. Delete all the user flows (policies) in your Azure AD B2C tenant.
+1. Delete all the applications you registered in your Azure AD B2C tenant.
 1. Now sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Switch to the Azure AD B2C tenant you want to delete.
 2. Navigate to the Active Directory menu on the left.

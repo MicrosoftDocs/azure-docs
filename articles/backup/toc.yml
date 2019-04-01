@@ -45,7 +45,7 @@
       href: backup-support-matrix-mars-agent.md
   - name: Frequently asked questions (FAQ)
     items:
-    - name: FAQ-Recovery Services vaults 
+    - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.md
@@ -133,7 +133,7 @@
         href: backup-azure-linux-app-consistent.md
     - name: Manage and monitor Azure VM backup
       items:
-      - name: Manage Azure VM backups 
+      - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
       - name: Monitor alerts for Azure VM backups
         href: backup-azure-monitor-vms.md
@@ -159,7 +159,7 @@
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: Prepare DPM workloads in Azure portal
+    - name: Prepare DPM workloads in the Azure portal
       href: backup-azure-dpm-introduction.md
     - name: Use DPM to back up Exchange server
       href: backup-azure-backup-exchange-server.md
@@ -171,14 +171,16 @@
       href: backup-azure-backup-sharepoint.md
   - name: Use Azure PowerShell
     items:
-    - name: Azure VMs in Azure portal
+    - name: Azure VMs in the Azure portal
       href: backup-azure-vms-automation.md
-    - name: DPM in Azure portal
+    - name: DPM in the Azure portal
       href: backup-dpm-automation.md
-    - name: Windows Server in Azure portal
+    - name: Windows Server in the Azure portal
       href: backup-client-automation.md
-    - name: Azure File shares in Azure portal
+    - name: Azure File shares in the Azure portal
       href: backup-azure-afs-automation.md
+    - name: SQL in Azure VM backups
+      href: backup-azure-sql-automation.md
   - name: Use Azure Backup REST API
     items:
     - name: Create Recovery Services vault
@@ -193,9 +195,11 @@
       href: backup-azure-arm-userestapi-managejobs.md
   - name: Backup SQL Server databases on Azure VMs
     items:
-    - name: Back up SQL Server databases on Azure VMs
+    - name: About SQL Server Backup in Azure VMs
       href: backup-azure-sql-database.md
-    - name: Restore backed up SQL Server databases
+    - name: Back up SQL Server databases in Azure VMs
+      href: backup-sql-server-database-azure-vms.md
+    - name: Restore SQL Server databases in Azure VMs
       href: restore-sql-database-azure-vm.md
     - name: Manage backed up SQL Server databases
       href: manage-monitor-sql-database-backup.md
@@ -241,7 +245,7 @@
       href: backup-sql-server-azure-troubleshoot.md
   - name: Monitor Azure Backup workloads
     items:
-    - name: Using Azure Portal
+    - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor
       href: backup-azure-monitoring-use-azuremonitor.md

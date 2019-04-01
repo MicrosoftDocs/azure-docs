@@ -14,8 +14,8 @@ ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace
 
->[!Important]
-This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+> [!Important]
+> This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
 Solution templates are designed to accelerate the process of building an
@@ -53,7 +53,7 @@ deployment.
 
 To find the instructions to download and install this application,   select the first node, Predictive Maintenance Data Generator, on the solution template diagram. The instructions are found in the Properties bar. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, used in the rest of the solution flow. This data source is derived from publicly available data from the
 [NASA data repository](https://c3.nasa.gov/dashlink/resources/139/)
-using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+using the [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 The event generation application populates the Azure Event Hub only
 while it's executing on your computer.  
@@ -110,7 +110,7 @@ architecture.
 
 It's unlikely that your dataset matches the dataset used by
 the [Turbofan Engine Degradation Simulation Data
-Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)
+Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
 requirements are crucial in how you modify this template to work
 with your own data. 
@@ -272,7 +272,7 @@ set consumed and requires modification or replacement
 specific to the data brought in.
 
 For information about how the Azure Machine Learning experiment was
-created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## Monitor Progress
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
@@ -354,7 +354,7 @@ containing data (for example, prediction results) for visualization.
    * Once you're guided back to the previous page, close the window. A message displays - click **Apply**. Lastly, click the **Save** button to save
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
-   online](http://www.powerbi.com/). Note that this step needs a Power
+   online](https://www.powerbi.com/). Note that this step needs a Power
    BI account (or Office 365 account).
    
    * Click **'Publish'** and few seconds later a window appears
@@ -371,7 +371,7 @@ containing data (for example, prediction results) for visualization.
      <br/>
      ![Final view](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Elipsis icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) and then choose **Schedule Refresh**.
+   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Ellipsis icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) and then choose **Schedule Refresh**.
      <br/>
      **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
      <br/>
@@ -386,7 +386,7 @@ containing data (for example, prediction results) for visualization.
 ### Setup hot path dashboard
 The following steps guide you how to visualize data
 output from Stream Analytics jobs that were generated at the time of
-solution deployment. A [Power BI online](http://www.powerbi.com/)
+solution deployment. A [Power BI online](https://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
 account, you can [create one](https://powerbi.microsoft.com/pricing).
 
@@ -396,7 +396,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
-2. Log in to [Power BI online](http://www.powerbi.com)
+2. Log in to [Power BI online](https://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
      ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and

@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Mimecast Admin Console, perform the fo
     ![Mimecast Admin Console Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** textbox, type the URL:
+	
 	| |
 	| -- |
 	| `https://webmail-uk.mimecast.com`|
@@ -183,7 +184,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

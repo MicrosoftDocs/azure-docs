@@ -16,7 +16,7 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
 
 ## Metrics in Azure
 
-[Metrics in Azure Monitor](data-collection.md#metrics) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
+[Metrics in Azure Monitor](data-collection.md#metrics) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics),  [Windows Azure Diagnostics (WAD) extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), or by [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## Create a new chart
 
@@ -71,16 +71,16 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
-## Segment a chart
+## Apply splitting to a chart
 
 You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
 
-### To segment a chart
+### To apply splitting
 
 1. Click on **Apply splitting** above the chart.
  
    > [!NOTE]
-   > You can have multiple filters but only one splitting/segmentation value on any single chart.
+   > Splitting cannot be used with charts that have multiple metrics. Also, you can have multiple filters but only one splitting dimension applied to any single chart.
 
 2. Choose a dimension on which you want to segment your chart:
 

@@ -54,7 +54,7 @@ Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 
 
 You can scale your cache up to a higher tier after it has already been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### Feature Comparision
+### Feature Comparison
 
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) page provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:
 

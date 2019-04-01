@@ -24,6 +24,8 @@
       href: python.md
     - name: Using Ruby
       href: ruby.md
+    - name: Using Go
+      href: go.md
   - name: SDK
     items:
     - name: Using C#

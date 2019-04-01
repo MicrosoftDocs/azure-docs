@@ -33,9 +33,9 @@ Install a configuration/process server in your source environment to build the s
 1. Sign in to the Azure Germany portal.
 1. Compare the OS versions of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md).
 1. Set up a new VM in your source Azure Virtual Network instance to act as the configuration server:
-  1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
-  1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
-  1. Use Windows Server 2012 R2 or later.
+   1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
+   1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
+   1. Use Windows Server 2012 R2 or later.
 1. Make sure that ports 443 and 9443 are open for the subnet in both directions.
 1. Sign in to the new VM (ConfigurationServer).
 1. In your remote desktop session, sign in to the global Azure portal by using your global Azure credentials.

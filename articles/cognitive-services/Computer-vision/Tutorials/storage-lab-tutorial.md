@@ -45,7 +45,7 @@ You will need to create a Computer Vision resource for your Azure account; this 
 
 1. In the dialog window, enter "vision-api-key" in the **Name** field and select **F0** as the **Pricing tier**. Select the same **Location** that you selected when you set up your Azure Storage account. Under **Resource group**, select **Use existing** and select the same resource group as well. Check the **I confirm** box, and then click **Create**.
 
-    ![Subcribing to the Computer Vision API](../Images/create-vision-api.png)
+    ![Subscribing to the Computer Vision API](../Images/create-vision-api.png)
 
 1. Return to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 

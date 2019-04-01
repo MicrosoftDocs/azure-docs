@@ -190,7 +190,7 @@ The data returned from the endpoint includes the entity name and child name, the
 ```
 
 |Data object|Parent|Child|Value|
-|--|--|--|--|--|
+|--|--|--|--|
 |Hierarchical Entity|Location|ToLocation|"paris"|
 
 ## Composite entity data

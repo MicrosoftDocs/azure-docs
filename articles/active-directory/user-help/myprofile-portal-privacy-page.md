@@ -25,7 +25,7 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
 
-    ![My Profile page, showing highlighted Privacy links](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![My Profile page, showing highlighted Privacy links](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. Review the information, including:
 
@@ -35,4 +35,4 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 ## Next steps
 
-- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), connected [devices](myprofile-portal-devices-page.md) or [organizations](myprofile-portal-organizations-page.md).
+- After viewing how your organization uses your data, you can select to view or manage your [security info](user-help-security-info-overview.md), your connected [devices](myprofile-portal-devices-page.md), or your [organizations](myprofile-portal-organizations-page.md).

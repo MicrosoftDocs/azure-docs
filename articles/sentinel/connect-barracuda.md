@@ -4,7 +4,7 @@ description: Learn how to collect Barracuda data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
@@ -27,8 +27,8 @@ ms.author: rkarlin
 Barracuda Web Application Firewall (WAF) connector allows you to easily connect your Barracuda logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Azure Sentinel takes advantage of the native integration between **Barracuda** and Microsoft Azure OMS to provide seamless integration. 
 
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Configure and connect Barracuda WAF
@@ -39,6 +39,7 @@ Barracuda Web Application Firewall can integrate and export logs directly to [AS
 2. In the Azure Sentinel portal, go to the workspace on which you deployed Azure Sentinel and select the ellipsis (...) at the end of the row and select **Advanced settings**. 
 1. Select **Data** and then **Syslog**.
 1. Make sure the facility you set in Barracuda exists and set the severity and click **Save**.
+6. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog**.
 
 
 ## Validate connectivity

@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-#customer intent: As a administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
+#customer intent: As an administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
 ---
 # Manage Users in Azure Blockchain Workbench
 

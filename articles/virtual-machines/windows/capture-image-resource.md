@@ -139,7 +139,6 @@ If you want to create an image of only the OS disk, specify the managed disk ID 
 	$vmName = "myVM"
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
-	$snapshotName = "mySnapshot"
 	$imageName = "myImage"
 	```
 

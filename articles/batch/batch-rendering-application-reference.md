@@ -2,6 +2,7 @@
 title: Use rendering applications - Azure Batch
 description: How to use rendering applications with Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
@@ -53,7 +54,7 @@ In addition to the renderers built into Maya, the following renderers are availa
 
 ### Task command line
 
-The `renderer.exe` command-line renderer is used in the task command line. The command-line renderer is documented in [Maya help](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+The `renderer.exe` command-line renderer is used in the task command line. The command-line renderer is documented in [Maya help](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 In the following example, a job preparation task is used to copy the scene files and assets to the job preparation working directory, an output folder is used to store the rendering image, and frame 10 is rendered.
 

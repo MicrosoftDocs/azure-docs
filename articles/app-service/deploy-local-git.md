@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Deploy from local Git with Kudu builds
+## Deploy with Kudu builds
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
@@ -98,7 +98,7 @@ You may see runtime-specific automation in the output, such as MSBuild for ASP.N
 
 Browse to your app to verify that the content is deployed.
 
-## Deploy from local Git with Azure DevOps Services builds
+## Deploy with Azure DevOps builds
 
 > [!NOTE]
 > For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
@@ -106,20 +106,18 @@ Browse to your app to verify that the content is deployed.
 
 To enable local Git deployment for your app with the Kudu build server, navigate to your app in the [Azure portal](https://portal.azure.com).
 
-In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**. 
+In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Click **Azure DevOps Services Continuous Delivery** > **Continue**.
+Click **Azure Pipelines (Preview)** > **Continue**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-In the **Configure** page, configure a new Azure DevOps Services organization, or specify an existing organization. When finished, click **Continue**.
+In the **Configure** page, configure a new Azure DevOps organization, or specify an existing organization. When finished, click **Continue**.
 
 > [!NOTE]
-> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-In the **Test** page, choose whether to enable load tests, then click **Continue**.
+> If you want to use an existing Azure DevOps organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
 

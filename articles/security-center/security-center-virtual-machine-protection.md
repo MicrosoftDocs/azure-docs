@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
 
 ---
 # Protecting your machines and applications in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, applications, networking, SQL, and Identity and Access.
+Azure Security Center analyzes the security state of your Azure resources, non-Azure servers, and virtual machines. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, applications, networking, SQL, and Identity and Access.
 
 This article addresses recommendations that apply to machines and applications.
 
@@ -49,7 +49,7 @@ To continue, select **Compute & apps** under **Resource security hygiene**.
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
 
 ### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
-A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
 
 You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../azure-monitor/learn/quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
 
@@ -99,7 +99,7 @@ There are four types of icons represented in this list:
 ![Azure Classic VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure Classic VM.
 
 
-![VMs identified from the workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with SCOM direct agent, and have no resource ID.
+![VMs identified from the workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with Operations Manager direct agent, and have no resource ID.
 
 The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
@@ -140,21 +140,21 @@ There are three types of icons represented in this list:
 
 1. Select a web application. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
 
-  Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
 
-  ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
- - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
+   - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
 
- -  Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
+   - Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
-    ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## Virtual machine scale sets
 Security Center automatically discovers whether you have scales sets and recommends that you install the Microsoft Monitoring Agent on these scale sets. 
@@ -164,11 +164,11 @@ To install the Microsoft Monitoring Agent:
 1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
 2. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
 
- ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
 1. Go to Azure Policy and click **Definitions**.
-2. Search for the policy **Deploy Log Analytics agent for Windows VM scale sets** and click on it.
+2. Search for the policy **Deploy Log Analytics agent for Windows virtual machine scale sets** and click on it.
 3. Click **Assign**.
 4. Set the **Scope** and **Log Analytics workspace** and click **Assign**.
 

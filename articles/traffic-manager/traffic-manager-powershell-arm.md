@@ -203,7 +203,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## Adding endpoints from another subscription
 
-Traffic Manager can work with endpoints from different subscriptions. You need to switch to the subscription with the endpoint you want to add to retrieve the needed input to Traffic Manager. Then you need to switch to the subscriptions with the Traffic Manager profile, and add the encpoint to it. The below example shows how to do this with a public IP address.
+Traffic Manager can work with endpoints from different subscriptions. You need to switch to the subscription with the endpoint you want to add to retrieve the needed input to Traffic Manager. Then you need to switch to the subscriptions with the Traffic Manager profile, and add the endpoint to it. The below example shows how to do this with a public IP address.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
