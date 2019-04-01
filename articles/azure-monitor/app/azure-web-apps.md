@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.author: mbullwin
 
 ---
@@ -34,9 +34,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > [!NOTE]
 > If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
 
-### Enable agent-based application monitoring
-
-# [.NET](#tab/net)
+## Enable agent-based monitoring .NET
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -68,7 +66,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
     * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-# [.NET Core](#tab/netcore)
+## Enable agent-based monitoring .NET Core
 
 The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
@@ -89,19 +87,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and ASP.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# [Node.js](#tab/nodejs)
-
-Node.js App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Node.js application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start).
-
-# [Java](#tab/java)
-
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
-
----
-
-## Enable client-side monitoring
-
-# [.NET](#tab/net)
+## Enable client-side monitoring .NET
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
@@ -118,7 +104,7 @@ Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
-# [.NET Core](#tab/netcore)
+## Enable client-side monitoring .NET Core
 
 Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
@@ -134,16 +120,6 @@ If for some reason you would like to disable client-side monitoring:
    * **Save** the settings and **Restart** your app.
 
 ![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
-
-# [Node.js](#tab/nodejs)
-
-Node.js App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Node.js application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start).
-
-# [Java](#tab/java)
-
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
-
----
 
 ## Automate monitoring
 
@@ -372,6 +348,7 @@ The table below provides a more detailed explanation of what these values mean, 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## Next steps
+
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
