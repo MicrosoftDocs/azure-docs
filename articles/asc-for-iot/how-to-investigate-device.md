@@ -1,6 +1,6 @@
 ---
-title: ASC for IoT device investigation guide Preview| Microsoft Docs
-description: This how to guide explains how to use ASC for IoT to investigate a suspicious IoT device using Log Analytics.
+title: Azure Security Center for IoT device investigation guide Preview| Microsoft Docs
+description: This how to guide explains how to use Azure Security Center for IoT to investigate a suspicious IoT device using Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Investigate a suspicious IoT device
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. 
+Azure Security Center (ASC) for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. 
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
