@@ -55,7 +55,7 @@ More information can be found on how to [integrate your function app with a VNet
 
 ### Rapid elastic scale
 
-Additional compute instances will be added for your app automatically using the same rapid scaling logic as the consumption plan.  More info on how scaling works can be found in [function scale and hosting](./functions-scale.md#How-the-consumption-and-premium-plans-work).
+Additional compute instances will be added for your app automatically using the same rapid scaling logic as the consumption plan.  More info on how scaling works can be found in [function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### Unbounded run duration
 
