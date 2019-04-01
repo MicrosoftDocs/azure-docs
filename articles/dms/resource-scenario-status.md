@@ -14,10 +14,10 @@ ms.date: 04/02/2019
 ---
 
 # Status of migration scenarios supported by Azure Database Migration Service
-Azure Database Migration Service is designed to support a variety of migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by Azure Database Migration Service and the status (Private Preview, Public Preview, or Generally Available) for each scenario.
+Azure Database Migration Service is designed to support different migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by Azure Database Migration Service and the status (Private Preview, Public Preview, or Generally Available) for each scenario.
 
 ## Offline versus online migrations
-When you migrate databases to Azure by using the Azure Database Migration Service, you can perform an offline or an online migration. With *offline* migrations, application downtime begins at the same time that the migration starts. For *online* migrations, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.
+With Azure Database Migration Service, you can do an offline or an online migration. With *offline* migrations, application downtime begins at the same time that the migration starts. To limit downtime to the time required to cut over to the new environment when the migration completes, use an *online* migration. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, do an online migration.
 
 ## Migration scenario status
 The status of each migration scenario supported by the Azure Database Migration Service varies with time. Generally, scenarios are first released in **Private Preview**, and taking advantage of the functionality requires a customer to submit a nomination via the [DMS Preview site](https://aka.ms/dms-preview). When Private Preview is completed, the scenario status changes to **Public Preview**. All Azure Database Migration Service users can take advantage of migration scenarios available in Public Preview. However, the migration scenario may not be available in all regions and the functionality may undergo additional changes before final release. When a migration scenario becomes **Generally Available**, the final released status, the functionality is complete and accessible to all Azure Database Migration Service users. 
@@ -33,7 +33,7 @@ The following tables show which migration scenarios are supported when using Azu
 > To view scenarios supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
 
 ### Offline (one-time) migration support
-The following table shows Azure Database Migration Service support for offline migrations.
+The following table shows Azure Database Migration Service support, either Public Preview or Generally Available, for offline migrations.
 
 | Target  | Source | Support | Status |
 | ------------- | ------------- | :-------------: | :-------------: |
@@ -52,14 +52,14 @@ The following table shows Azure Database Migration Service support for offline m
 |  | RDS PostgreSQL |   |   |
 
 ### Online (continuous sync) migration support
-The following table shows Azure Database Migration Service support for online migrations.
+The following table shows Azure Database Migration Service support, either Public Preview or Generally Available, for online migrations.
 
 | Target  | Source | Support | Status |
 | ------------- | ------------- | :-------------: | :-------------: |
 | **Azure SQL DB** | SQL Server | ✔ | Generally Available |
 |   | RDS SQL |   |   |
 |   | Oracle | ✔ |   |
-| **Azure SQL DB MI** | SQL Server | ✔ |   |
+| **Azure SQL DB MI** | SQL Server | ✔ | Generally Available |
 |   | RDS SQL | ✔ | Generally Available |
 |   | Oracle | ✔ |   |
 | **Azure SQL VM** | SQL Server |   |   |
@@ -71,4 +71,4 @@ The following table shows Azure Database Migration Service support for online mi
 |   | RDS PostgreSQL | ✔ | Generally Available |
 
 ## Next steps
-For an overview of Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md). 
+For an overview of Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md).
