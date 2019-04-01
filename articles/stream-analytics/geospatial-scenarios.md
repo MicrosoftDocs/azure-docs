@@ -25,7 +25,7 @@ Reference data used in this example has the geofence information for the buildin
 
 ### Define geofences in reference data
 
-A geofence can be defined using a GeoJSON object or Well Known Text (WKT) as `NVARCHAR(MAX)`. WKT is an Open Geospatial Consortium (OGC) standard that is used to represent spatial data in a textual format.
+A geofence can be defined using a GeoJSON object. For jobs with compatibility version 1.2 and higher, geofences can also be defined using Well Known Text (WKT) as `NVARCHAR(MAX)`. WKT is an Open Geospatial Consortium (OGC) standard that is used to represent spatial data in a textual format.
 
 The built-in geospatial functions can use defined geofences to find out if an element is in or out of a specific geofence polygon.
 
