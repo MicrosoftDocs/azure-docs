@@ -39,12 +39,13 @@ Getting started with Personalization involves the following steps:
 
 ## Creating a new console app and referencing the Personlizer SDK 
 
-Get the latest code as a Visual Studio solution from [Github] (add link).
+Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Create a new Visual C# Console App in Visual Studio.
 1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget Package Manager**, then **Manage NuGet Packages for Solution**.
 1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalization`.
-1. Select **Microsoft.Azure.CognitiveServices.Personalization** when it displays, then select the checkbox next to your project name, and select **Install**.
+1. Select **Microsoft.Azure.CognitiveServices.Personalization** when it displays.
+1. Select the checkbox next to your project name, and select **Install**.
 
 ## Add the code and put in your Personalizer and Azure keys
 
@@ -56,7 +57,7 @@ Get the latest code as a Visual Studio solution from [Github] (add link).
 
 ### 2. Code to rank the actions you want to show to your users
 
-The following C# code is a complete listing to pass user information, _features_ and information about your content, _actions_, to Personalizer using the SDK. Personalizer returns the top ranked action to show your user.  
+The following C# code is a complete listing to pass user information, _features, and information about your content, _actions_, to Personalizer using the SDK. Personalizer returns the top ranked action to show your user.  
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalization;
