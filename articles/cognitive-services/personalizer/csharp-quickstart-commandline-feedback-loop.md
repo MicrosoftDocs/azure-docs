@@ -57,7 +57,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 1. Change the `<Azure Endpoint>` to the Azure region associated with your subscription key. An example is ``.
 1. Run the program.
 
-### 2. Code to rank the actions you want to show to your users
+## Add code to rank the actions you want to show to your users
 
 The following C# code is a complete listing to pass user information, _features, and information about your content, _actions_, to Personalizer using the SDK. Personalizer returns the top ranked action to show your user.  
 
@@ -66,22 +66,25 @@ using Microsoft.Azure.CognitiveServices.Personalization;
 using Microsoft.Azure.CognitiveServices.Personalization.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 
 namespace PersonalizationExample
 {
     class Program
     {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "";
+        // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
+        private const string serviceKey = "";
+
+        // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com/
+        private const string serviceEndpoint = "";
 
         static void Main(string[] args)
         {
             int iteration = 1;
             bool runLoop = true;
 
-            // Specify the azure endpoint e.g., https://localhost:5001
-            Uri url = new Uri("https://localhost:5001");
+            Uri url = new Uri(serviceEndpoint);
 
             // Get the actions list to choose from personalization with their features.
             IList<RankableAction> actions = GetActions();
@@ -110,28 +113,27 @@ namespace PersonalizationExample
                 string eventId = Guid.NewGuid().ToString();
 
                 // Rank the actions
-                var request = new PersonalizationRequest(actions, true, currentContext, excludeActions, eventId);
+                var request = new RankRequest(actions, currentContext, excludeActions, eventId);
+                RankResponse response = client.Rank(request);
 
-                PersonalizationResponse response = client.Rank(request);
-
-                Console.WriteLine("Personalization service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+                Console.WriteLine("\nPersonalization service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
 
                 float reward = 0.0f;
-                string answer = Console.ReadLine().ToUpper();
+                string answer = GetKey();
 
                 if (answer == "Y")
                 {
                     reward = 1;
-                    Console.WriteLine("Great! Enjoy your food.");
+                    Console.WriteLine("\nGreat! Enjoy your food.");
                 }
                 else if (answer == "N")
                 {
                     reward = 0;
-                    Console.WriteLine("You didn't like the recommended food choice.");
+                    Console.WriteLine("\nYou didn't like the recommended food choice.");
                 }
                 else
                 {
-                    Console.WriteLine("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.");
+                    Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
                 }
 
                 Console.WriteLine("\nPersonalization service ranked the actions with the probabilities as below:");
@@ -141,10 +143,10 @@ namespace PersonalizationExample
                 }
 
                 // Send the reward for the action based on user response.
-                client.Reward(response.EventId, new PersonalizationReward(reward));
+                client.Reward(response.EventId, new RewardRequest(reward));
 
                 Console.WriteLine("\nPress q to break, any other key to continue:");
-                runLoop = !(Console.ReadLine().ToString().ToUpper() == "Q");
+                runLoop = !(GetKey() == "Q");
 
             } while (runLoop);
         }
@@ -157,7 +159,7 @@ namespace PersonalizationExample
         static PersonalizationClient InitializePersonalizationClient(Uri url)
         {
             PersonalizationClient client = new PersonalizationClient(url,
-            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new ApiKeyServiceClientCredentials(serviceKey),
             new DelegatingHandler[] { });
 
             return client;
@@ -171,10 +173,10 @@ namespace PersonalizationExample
         {
             string[] timeOfDayFeatures = new string[] { "morning", "afternoon", "evening", "night" };
 
-            Console.WriteLine("What time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night");
-            if (!int.TryParse(Console.ReadLine(), out int timeIndex) || timeIndex < 1 || timeIndex > timeOfDayFeatures.Length)
+            Console.WriteLine("\nWhat time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night");
+            if (!int.TryParse(GetKey(), out int timeIndex) || timeIndex < 1 || timeIndex > timeOfDayFeatures.Length)
             {
-                Console.WriteLine("Entered value is invalid. Setting feature value to " + timeOfDayFeatures[0] + ".");
+                Console.WriteLine("\nEntered value is invalid. Setting feature value to " + timeOfDayFeatures[0] + ".");
                 timeIndex = 1;
             }
 
@@ -189,10 +191,10 @@ namespace PersonalizationExample
         {
             string[] tasteFeatures = new string[] { "salty", "sweet" };
 
-            Console.WriteLine("What type of food would you prefer (enter number)? 1. salty 2. sweet");
-            if (!int.TryParse(Console.ReadLine(), out int tasteIndex) || tasteIndex < 1 || tasteIndex > tasteFeatures.Length)
+            Console.WriteLine("\nWhat type of food would you prefer (enter number)? 1. salty 2. sweet");
+            if (!int.TryParse(GetKey(), out int tasteIndex) || tasteIndex < 1 || tasteIndex > tasteFeatures.Length)
             {
-                Console.WriteLine("Entered value is invalid. Setting feature value to " + tasteFeatures[0] + ".");
+                Console.WriteLine("\nEntered value is invalid. Setting feature value to " + tasteFeatures[0] + ".");
                 tasteIndex = 1;
             }
 
@@ -237,6 +239,11 @@ namespace PersonalizationExample
             };
 
             return actions;
+        }
+
+        private static string GetKey()
+        {
+            return Console.ReadKey().Key.ToString().Last().ToString().ToUpper();
         }
     }
 }
