@@ -173,7 +173,10 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](http
 |**managedByTenantId**     |Your tenant ID         |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
-Use the **resourceProjection.json** Azure Resource Manager template that we provide, along with the **resourceProjection.parameters.json** file that you modify to match your configuration and define your authorizations.
+To onboard a customer's subscription, use the **resourceProjection.json** Azure Resource Manager template that we provide in our [samples repo](https://github.com/Azure/Azure-Service-Provider-Management-Toolkit-samples/tree/master/Azure-Delegated-Resource-Management/templates), along with a **resourceProjection.parameters.json** file that you modify to match your configuration and define your authorizations.
+
+> [!TIP]
+> You can also onboard a resource group (or multiple resource groups) rather than an entire subscription. Templates for these scenarios can be found in our [samples repo](https://github.com/Azure/Azure-Service-Provider-Management-Toolkit-samples/tree/master/Azure-Delegated-Resource-Management/templates).
 
 The following example shows a modified **resourceProjection.parameters.json** file.
 
@@ -209,10 +212,10 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant. This must be done by a user with authorization to change role assignments for the subscriptions you're onboarding, and the template must be deployed as a subscription-level deployment.
+Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant. This must be done by a user with authorization to change role assignments for the subscriptions or resource groups that you're onboarding, and the template must be deployed as a subscription-level deployment.
 
 > [!IMPORTANT]
-> A separate deployment is needed for each subscription that you want to onboard to Azure Delegated Resource Management.
+> A separate deployment is needed for each subscription that you want to onboard to Azure Delegated Resource Management (or for each subscription that contains resource groups that you want to onboard).
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
