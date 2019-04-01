@@ -232,7 +232,7 @@ Technical specifications of the equipment such as date of manufacture, model num
 
 The data preparation efforts discussed so far should lead to the data being organized as shown below. Training, test, and validation data should have this logical schema (this example shows time in units of days).
 
-| Asset ID | Time | <Feature Columns> | Label |
+| Asset ID | Time | \<Feature Columns> | Label |
 | ---- | ---- | --- | --- |
 | A123 |Day 1 | . . . | . |
 | A123 |Day 2 | . . . | . |

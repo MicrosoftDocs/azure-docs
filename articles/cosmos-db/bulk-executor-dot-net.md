@@ -111,7 +111,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |NumberOfDocumentsImported (long)   |  The total number of documents that were successfully imported out of the documents supplied to the bulk import API call.       |
    |TotalRequestUnitsConsumed (double)   |   The total request units (RU) consumed by the bulk import API call.      |
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete execution.      |
-   |BadInputDocuments (List<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
+   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
 
 ## Bulk update data in Azure Cosmos DB
 

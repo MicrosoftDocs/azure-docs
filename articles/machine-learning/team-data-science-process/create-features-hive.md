@@ -90,7 +90,7 @@ If a datetime field is not in the default format, you need to convert the dateti
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In this query, if the *\<datetime field>* has the pattern like *03/26/2015 12:04:39*, the *<pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
+In this query, if the *\<datetime field>* has the pattern like *03/26/2015 12:04:39*, the *\<pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

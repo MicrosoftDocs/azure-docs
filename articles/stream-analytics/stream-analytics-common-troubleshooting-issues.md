@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 ![Inputs tile on Azure Stream Analytics dashboard](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-To see more information, enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: "Message: Could not deserialize the input event(s) from resource <blob URI> as json". 
+To see more information, enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: "Message: Could not deserialize the input event(s) from resource \<blob URI> as json". 
 
 ### Troubleshooting steps
 

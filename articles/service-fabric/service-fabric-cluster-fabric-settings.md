@@ -83,7 +83,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MaxDataMigrationTimeout |Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum timeout for data migration recovery operations after a Fabric upgrade has taken place. |
 |MaxOperationRetryDelay |Time in seconds, default is 5|Dynamic| Specify timespan in seconds. The maximum delay for internal retries when failures are encountered. |
 |MaxOperationTimeout |Time in seconds, default is MaxValue |Dynamic| Specify timespan in seconds. The maximum global timeout for internally processing operations on ClusterManager. |
-|MaxTimeoutRetryBuffer | Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum operation timeout when internally retrying due to timeouts is <Original Time out> + <MaxTimeoutRetryBuffer>. Additional timeout is added in increments of MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum operation timeout when internally retrying due to timeouts is `<Original Time out> + <MaxTimeoutRetryBuffer>`. Additional timeout is added in increments of MinOperationTimeout. |
 |MinOperationTimeout | Time in seconds, default is 60 |Dynamic|Specify timespan in seconds. The minimum global timeout for internally processing operations on ClusterManager. |
 |MinReplicaSetSize |Int, default is 3 |Not Allowed|The MinReplicaSetSize for ClusterManager. |
 |PlacementConstraints | string, default is "" |Not Allowed|The PlacementConstraints for ClusterManager. |

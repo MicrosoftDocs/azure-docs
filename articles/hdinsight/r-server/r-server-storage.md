@@ -89,7 +89,7 @@ In your R code, point the name node reference to the **storage2** storage accoun
 
 All of the directory and file references now point to the storage account `wasb://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you’ve specified.
 
-You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
+You have to configure the `/user/RevoShare/<SSH username>` directory on **storage2** as follows:
 
 
 	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user

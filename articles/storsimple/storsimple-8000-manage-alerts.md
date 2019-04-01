@@ -156,7 +156,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Device failed over to <*device name*>. |Other/unknown cause. |If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page. |
 | A critical device service reports status as failed. |Datapath service failure. |Contact Microsoft Support for assistance. |
 | Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support. |
-| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
+| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address `<IP address>` cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
 
 ### Disaster recovery alerts
 

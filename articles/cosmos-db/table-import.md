@@ -38,7 +38,7 @@ To perform a migration of table data, complete the following tasks:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+    ```
 
 Options for the command are:
 

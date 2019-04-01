@@ -40,7 +40,7 @@ When registering Azure Stack, the registration account requires the following Az
 To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
 1. Create a JSON file. For example,  `C:\CustomRoles\registrationrole.json`
-2. Add the following JSON to the file. Replace <SubscriptionID> with your Azure subscription ID.
+2. Add the following JSON to the file. Replace `<SubscriptionID>` with your Azure subscription ID.
 
     ```json
     {

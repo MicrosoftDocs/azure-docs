@@ -457,9 +457,9 @@ GO
 
 ## Output
 
-When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **<event>** element is displayed which shows one UPDATE statement.
+When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
-Here is one **<event>** element that was generated during testing:
+Here is one **\<event>** element that was generated during testing:
 
 
 ```xml

@@ -442,7 +442,7 @@ When you run this command, replace *contosokey* with the same value you specifie
 
 You are asked to plug in your security world admin cards.
 
-When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_<contosokey>.
+When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_\<contosokey>.
 
 You may inspects the ACLS using following commands using the Thales utilities:
 
