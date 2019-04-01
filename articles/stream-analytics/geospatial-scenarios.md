@@ -15,7 +15,7 @@ Geospatial functions are available for users to build applications for scenarios
 
 ## Geofencing
 
-Azure Stream Analytics supports low latency real-time geofencing computations in the cloud and on the IoT edge runtime.
+Azure Stream Analytics supports low latency real-time geofencing computations in the cloud and on the IoT Edge runtime.
 
 ### Geofencing scenario
 
@@ -27,7 +27,7 @@ Reference data used in this example has the geofence information for the buildin
 
 A geofence can be defined using a GeoJSON object or Well Known Text (WKT) as `NVARCHAR(MAX)`. WKT is an Open Geospatial Consortium (OGC) standard that is used to represent spatial data in a textual format.
 
-The built-in geospatial functions can use defined geofences to verify whether or not an element is in or out of a specific geofence polygon.
+The built-in geospatial functions can use defined geofences to find out if an element is in or out of a specific geofence polygon.
 
 The following table is an example of geofence reference data that could be stored in Azure blob storage or an Azure SQL table. Every site is represented by a geospatial polygon, and every device is associated with an allowed site ID.
 
@@ -39,7 +39,7 @@ The following table is an example of geofence reference data that could be store
 
 ### Generate alerts with geofence
 
-Devices can emit their ID and location every minute through a stream called `DeviceStreamInput`. The stream of input looks like this:
+Devices can emit their ID and location every minute through a stream called `DeviceStreamInput`. The following table is a stream of input.
 
 |DeviceID|GeoPosition|
 |--------|-----------|
@@ -50,8 +50,10 @@ Devices can emit their ID and location every minute through a stream called `Dev
 You can write a query that joins the device stream with the geofence reference data and generates an alert every time a device is outside of an allowed building.
 
 ```SQL
-SELECT DeviceStreamInput.DeviceID, SiteReferenceInput.SiteID, SiteReferenceInput.SiteName INTO Output
-FROM DeviceStreamInput JOIN SiteReferenceInput
+SELECT DeviceStreamInput.DeviceID, SiteReferenceInput.SiteID, SiteReferenceInput.SiteName 
+INTO Output
+FROM DeviceStreamInput 
+JOIN SiteReferenceInput
 ON st_within(DeviceStreamInput.GeoPosition, SiteReferenceInput.Geofence) = 0
 WHERE DeviceStreamInput.DeviceID = SiteReferenceInput.AllowedDeviceID
 ```
@@ -64,21 +66,21 @@ Device "C" is located inside building ID 2, which is not allowed according to th
 
 ### Site with multiple allowed devices
 
-If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [Javascript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
+If a site allows multiple devices, an array of device IDs can be defined in `AllowedDeviceID` and a User-Defined Function can be used on the `WHERE` clause to verify if the stream device ID matches any device ID in that list. For more information, view the [Javascript UDF](stream-analytics-javascript-user-defined-functions.md) tutorial for cloud jobs and the [C# UDF](stream-analytics-edge-csharp-udf.md) tutorial for edge jobs.
 
 ## Geospatial aggregation
 
-Azure Stream Analytics supports low latency real-time geospatial aggregation in the cloud and on the IoT edge runtime.
+Azure Stream Analytics supports low latency real-time geospatial aggregation in the cloud and on the IoT Edge runtime.
 
 ### Geospatial aggregation scenario
 
 A cab company wants to build a real-time application to guide their cab drivers looking for ride towards the areas of the cities currently experiencing higher demand.
 
-The company stores logical regions of the city as reference data. Each region is defined by a RegionID, RegionName and Geofence.
+The company stores logical regions of the city as reference data. Each region is defined by a RegionID, RegionName, and Geofence.
 
 ### Define the geofences
 
-The following table is an example of geofence reference data that could be stored in Azure blob storage or an Azure SQL table. Every region is represented by a geospatial polygon, which are used to correlate with the requests coming from streaming data.
+The following table is an example of geofence reference data that could be stored in Azure blob storage or an Azure SQL table. Every region is represented by a geospatial polygon, which is used to correlate with the requests coming from streaming data.
 
 These polygons are for reference only and do not represent actual city logical or physical separations.
 
@@ -90,10 +92,11 @@ These polygons are for reference only and do not represent actual city logical o
 
 ### Aggregate data over a window of time
 
-The streaming data of "rides" looks like this:
+The following table contains streaming data of "rides."
 
 |UserID|FromLocation|ToLocation|TripRequestedTime|
-|"A"|"POINT(-74.00726861389182 40.71610611981975) "|“POINT(-73.98615095917779 40.703107386025835)”|“2019-03-12T07:00:00Z”|
+|------|------------|----------|-----------------|
+|"A"|"POINT(-74.00726861389182 40.71610611981975)"|"POINT(-73.98615095917779 40.703107386025835)"|"2019-03-12T07:00:00Z"|
 |"B"|"POINT(-74.00249841021645 40.723827238895666)"|"POINT(-74.01160699942085 40.71378884930115)"|"2019-03-12T07:01:00Z"|
 |"C"|"POINT(-73.99680120565864 40.716439898624024)"|"POINT(-73.98289663412544 40.72582343969828)"|"2019-03-12T07:02:00Z"|
 |"D"|"POINT(-74.00741090068288 40.71615626755086)"|"POINT(-73.97999843120539 40.73477895807408)"|"2019-03-12T07:03:00Z"|
@@ -101,8 +104,10 @@ The streaming data of "rides" looks like this:
 The following query joins the device stream with the geofence reference data and calculates the number of requests per region on a time window of 15 minutes every minute.
 
 ```SQL
-SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName FROM UserRequestStreamDataInput
-JOIN RegionsRefDataInput ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofence) = 1
+SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName 
+FROM UserRequestStreamDataInput
+JOIN RegionsRefDataInput 
+ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofence) = 1
 GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
 ```
 
