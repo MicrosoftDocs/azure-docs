@@ -56,9 +56,9 @@ Before you start, make sure that you have these items for following this quickst
     > the Logic App Designer in the Azure portal, 
     > but can't yet open the embedded Logic App Designer.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a> 
-  and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
-  Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a>. Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
@@ -90,7 +90,7 @@ the overall steps are the same, but your UI might slightly differ.
 To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
 
-1. Start Visual Studio and sign in with your Azure account.
+1. Start Visual Studio, and sign in with your Azure account.
 
 1. On the **File** menu, select **New** > **Project**. (Keyboard: Ctrl+Shift+N)
 
@@ -101,6 +101,10 @@ Select **Cloud** > **Azure Resource Group**. Name your project,
 for example:
 
    ![Create Azure Resource Group project](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
+
+   > [!NOTE]
+   > If the **Cloud** category or **Azure Resource Group** project doesn't exist, 
+   > make sure you installed the Azure SDK for Visual Studio.
 
    If you're using Visual Studio 2019, follow these steps:
 
