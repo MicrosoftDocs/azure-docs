@@ -33,7 +33,7 @@ an existing assignment, including:
 
 1. On the updated assignment details page, see the new status. In this example, we added **Locking** to the assignment.
 
-   ![Updated an existin blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
 1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 

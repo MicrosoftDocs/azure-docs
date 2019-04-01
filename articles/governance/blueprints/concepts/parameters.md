@@ -97,7 +97,7 @@ be selective in what you define as required vs what can be changed during assign
 
 1. Artifacts added to the blueprint that have parameter options display **X of Y parameters populated** in the **Parameters** column. Click on the artifact row to edit the artifact parameters.
 
-   ![Blueprint parameters on a blueprint defintion](../media/parameters/parameter-column.png)
+   ![Blueprint parameters on a blueprint definition](../media/parameters/parameter-column.png)
 
 1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to make it a **static parameter**. In the example below, only _Location_ is a **static parameter** as it's unchecked and _Resource Group Name_ is checked.
 

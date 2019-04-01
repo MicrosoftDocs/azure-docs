@@ -33,7 +33,7 @@ managed disks* policy definition.
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
 
-   ![Select Sssignments page from Policy Overview page](./media/assign-policy-portal/select-assignments.png)
+   ![Select Assignments page from Policy Overview page](./media/assign-policy-portal/select-assignments.png)
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
