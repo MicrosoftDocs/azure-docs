@@ -27,14 +27,14 @@ Any alert instance describes **the resource that was affected** and **the cause 
   "schemaId": "azureMonitorCommonAlertSchema",
   "data": {
     "essentials": {
-      "alertId": "/subscriptions/0de7dfbc-dc02-41b4-bc21-5073ec1141f6/providers/Microsoft.AlertsManagement/alerts/b9569717-bc32-442f-add5-83a997729330",
+      "alertId": "/subscriptions/<subscription ID>/providers/Microsoft.AlertsManagement/alerts/b9569717-bc32-442f-add5-83a997729330",
       "alertRule": "WCUS-R2-Gen2",
       "severity": "Sev3",
       "signalType": "Metric",
       "monitorCondition": "Resolved",
       "monitoringService": "Platform",
       "alertTargetIDs": [
-        "/subscriptions/3f2d4487-b0fc-4125-8bd5-7ad17384221e/resourcegroups/pipelinealertrg/providers/microsoft.compute/virtualmachines/wcus-r2-gen2"
+        "/subscriptions/<subscription ID>/resourcegroups/pipelinealertrg/providers/microsoft.compute/virtualmachines/wcus-r2-gen2"
       ],
       "originAlertId": "3f2d4487-b0fc-4125-8bd5-7ad17384221e_PipeLineAlertRG_microsoft.insights_metricAlerts_WCUS-R2-Gen2_-117781227",
       "firedDateTime": "2019-03-22T13:58:24.3713213Z",
@@ -99,7 +99,7 @@ Any alert instance describes **the resource that was affected** and **the cause 
     "monitorCondition": "Fired",
     "monitoringService": "Platform",
     "alertTargetIDs": [
-      "/subscriptions/4b3bd59a-46ba-42c2-9a9b-4c6cebcd00d4/resourceGroups/aimon-rg/providers/Microsoft.Insights/components/ai-orion-int-fe"
+      "/subscriptions/<subscription ID>/resourceGroups/aimon-rg/providers/Microsoft.Insights/components/ai-orion-int-fe"
     ],
     "originAlertId": "74ff8faa0c79db6084969cf7c72b0710e51aec70b4f332c719ab5307227a984f",
     "firedDateTime": "2019-03-26T05:25:50.4994863Z",
