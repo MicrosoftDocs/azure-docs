@@ -4,7 +4,7 @@ description: Describes how to use scripts to migrate a large number of VMs using
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.author: snehaa
 ---
 
@@ -27,7 +27,7 @@ Before you get started, you need to do the following steps:
 - Ensure that you have added the VM admin account to the config server (that will be used to replicate the on premises VMs)
 - Ensure that the target artifacts in Azure are created
     - Target Resource Group
-    - Target Storage Account (and its Resource Group) - Create a premium storage account if you plan to migrate to premium managed disks
+    - Target Storage Account (and its Resource Group) - Create a premium storage account if you plan to migrate to premium-managed disks
     - Cache Storage Account (and its Resource Group) - Create a standard storage account in the same region as the vault
     - Target Virtual Network for failover (and its Resource Group)
     - Target Subnet
@@ -41,7 +41,7 @@ Before you get started, you need to do the following steps:
 - Download the scripts from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub
 
 ### CSV Input file
-Once you have all the pre-requisites completed, you need to create a CSV file which has data for each source machine that you want to migrate. The input CSV must have a header line with the input details and a row with details for each machine that needs to be migrated. All the scripts are designed to work on the same CSV file. A sample CSV template is available in the scripts folder for your reference.
+Once you have all the pre-requisites completed, you need to create a CSV file, which has data for each source machine that you want to migrate. The input CSV must have a header line with the input details and a row with details for each machine that needs to be migrated. All the scripts are designed to work on the same CSV file. A sample CSV template is available in the scripts folder for your reference.
 
 ### Script execution
 Once the CSV is ready, you can execute the following steps to perform migration of the on-premises VMs:
@@ -54,13 +54,13 @@ Once the CSV is ready, you can execute the following steps to perform migration 
 4 | asr_propertiescheck.ps1 | Verify if the properties are appropriately updated
 5 | asr_testmigration.ps1 |  Start the test failover of the VMs listed in the csv, the script creates a CSV output with the job details for each VM
 6 | asr_cleanuptestmigration.ps1 | Once you manually validate the VMs that were test failed-over, you can use this script to clean up the test failover VMs
-7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shutdown the on premises VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
-8 | asr_completemigration.ps1 | Perform the commit operation on the VMs and delete the ASR entities
+7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shut down the on premises VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
+8 | asr_completemigration.ps1 | Perform the commit operation on the VMs and delete the Azure Site Recovery entities
 9 | asr_postmigration.ps1 | If you plan to assign network security groups to the NICs post-failover, you can use this script to do that. It assigns a NSG to any one NIC in the target VM.
 
 ## How to migrate to managed disks?
-The script, by default, migrates the VMs to managed disks in Azure. If the target storage account provided is a premium storage account, premium managed disks are created post migration. The cache storage account can still be a standard account. If the target storage account is a standard storage account, standard disks are created post migration. 
+The script, by default, migrates the VMs to managed disks in Azure. If the target storage account provided is a premium storage account, premium-managed disks are created post migration. The cache storage account can still be a standard account. If the target storage account is a standard storage account, standard disks are created post migration. 
 
-## Next Steps
+## Next steps
 
 [Learn more](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) about migrating servers to Azure using Azure Site Recovery
