@@ -232,6 +232,8 @@
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Offer a Kubernetes Cluster
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Create a site-to-site VPN connection
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Offer services
     href: azure-stack-offer-services-overview.md
   - name: Offer SQL as PaaS

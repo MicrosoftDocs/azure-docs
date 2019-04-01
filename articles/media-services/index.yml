@@ -27,13 +27,8 @@ sections:
         - href: /azure/media-services/latest/
           html: <p>Encode, package, protect your content, stream videos on-demand, broadcast live, analyze with Media Services v3.</p>
           image:
-            src: media/index/AMSIcons-media_servicesV3.svg
+            src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
           title: Azure Media Services v3 
-        - href: /azure/media-services/video-indexer/
-          html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
-          image:
-            src: media/index/AMSIcons-media_analytics.svg
-          title: Video Indexer
         - href: /azure/media-services/previous/
           html: <p>No new features or functionality are being added to Media Services v2. </p>          
           image:
@@ -47,5 +42,10 @@ sections:
         - href: http://amp.azure.net/libs/amp/latest/docs/index.html
           html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
           image:
-            src: 
+            src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
           title: Azure Media Player
+        - href: /azure/media-services/video-indexer/
+          html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
+          image:
+            src: media/index/AMSIcons-media_analytics.svg
+          title: Video Indexer
