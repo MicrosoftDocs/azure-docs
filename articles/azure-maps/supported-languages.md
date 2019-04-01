@@ -20,7 +20,7 @@ table provides the supported language codes for each service. 
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabic                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Basque                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | Basque                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | Bulgarian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | Catalan                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Chinese (Simplified)   |       |  zh-CN |         |                   |                |     ✓     |
@@ -35,16 +35,16 @@ table provides the supported language codes for each service. 
 | fi-FI      | Finnish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | French                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | French (Canadian)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Galician               |       |        |         |                   |                |     ✓     |
+| gl-ES      | Galician               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | German                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Greek                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebrew                 |       |        |         |         ✓         |                |     ✓     |
+| he-IL      | Hebrew                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Hungarian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonesian             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| id-ID      | Indonesian             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | Italian                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japanese               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazakh                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | Kazakh                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Korean                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Latin American Spanish |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Latvian                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -56,16 +56,16 @@ table provides the supported language codes for each service. 
 | pl-PL      | Polish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portuguese (Brazil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portuguese (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Romanian               |       |        |         |         ✓         |                |     ✓     |
+| ro-RO      | Romanian               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Russian                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbian (Cyrillic)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbian (Cyrillic)     |       |    ✓   |         |                   |                |     ✓     |
 | sr-Latn-RS | Serbian (Latin)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovakian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovenian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Spanish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Spanish (Mexico)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | Swedish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Thai                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-TH      | Thai                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turkish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ukranian               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnamese             |       |        |         |                   |                |     ✓     |
+| uk-UA      | Ukranian               |       |    ✓   |         |                   |                |     ✓     |
+| vi-VN      | Vietnamese             |       |    ✓   |         |                   |                |     ✓     |
