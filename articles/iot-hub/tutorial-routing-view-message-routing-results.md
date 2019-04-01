@@ -31,13 +31,13 @@ Now you create the resources to which the messages will be routed, run an app to
 
 The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue.
 
-1. In the [Azure portal](https://portal.azure.com), click **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then click **Create** to continue to the **Create logic app** pane. Fill in the fields.
+1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then select **Create** to continue to the **Create logic app** pane. Fill in the fields.
 
    **Name**: This field is the name of the logic app. This tutorial uses **ContosoLogicApp**.
 
    **Subscription**: Select your Azure subscription.
 
-   **Resource group**: Click **Use existing** and select your resource group. This tutorial uses **ContosoResources**.
+   **Resource group**: Select **Use existing** and select your resource group. This tutorial uses **ContosoResources**.
 
    **Location**: Use your location. This tutorial uses **West US**.
 
@@ -45,9 +45,9 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Click **Create**.
+   Select **Create**.
 
-2. Now go to the Logic App. The easiest way to get to the Logic App is to click on **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. The Logic Apps Designer page appears (you might have to scroll over to the right to see the full page). On the Logic Apps Designer page, scroll down until you see the tile that says **Blank Logic App +** and click it. Click **All** to see all of the connectors and triggers.
+2. Now go to the Logic App. The easiest way to get to the Logic App is to select **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. The Logic Apps Designer page appears (you might have to scroll over to the right to see the full page). On the Logic Apps Designer page, scroll down until you see the tile that says **Blank Logic App +** and select it. The default tab is "For You". If this pane is blank, select **All** to see all of the connectors and triggers available.
 
 3. Select **Service Bus** from the list of connectors.
 
@@ -61,7 +61,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![Setting up the connection for the Service Bus queue](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
 
-   Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**.
+   Select the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and select **Create**.
 
    ![Finishing setting up the connection](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
 
@@ -69,17 +69,17 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The queue options](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, click **+ New step** to add a step, then click **All** to see all of the options. In the **Choose an action** pane, find and click **Office 365 Outlook**. On the triggers screen, select **Send an e-mail / Office 365 Outlook**.  
+7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, select **+ New step** to add a step, then select **All** to see all of the options available. In the **Choose an action** pane, find and select **Office 365 Outlook**. On the triggers screen, select **Send an e-mail / Office 365 Outlook**.  
 
    ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
 8. Sign in to your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
-   Click **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
+   Select **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
 
    ![The e-mail options for the logic app](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
-9. Click **Save**. Then close the Logic App Designer.
+9. Select **Save**. Then close the Logic App Designer.
 
 ## Set up Azure Stream Analytics
 
@@ -87,7 +87,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Create the Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 
 2. Enter the following information for the job.
 
@@ -101,13 +101,13 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    ![Create the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. Click **Create** to create the job. To get back to the job, click **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then click the Stream Analytics job in the list of resources.
+3. Select **Create** to create the job. To get back to the job, select **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then select the Stream Analytics job in the list of resources.
 
 ### Add an input to the Stream Analytics job
 
-4. Under **Job Topology**, click **Inputs**.
+4. Under **Job Topology**, select **Inputs**.
 
-5. In the **Inputs** pane, click **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
+5. In the **Inputs** pane, select **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
 
    **Input alias**: This tutorial uses **contosoinputs**.
 
@@ -127,13 +127,13 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Click **Save**.
+6. Select **Save**.
 
 ### Add an output to the Stream Analytics job
 
-1. Under **Job Topology**, click **Outputs**.
+1. Under **Job Topology**, select **Outputs**.
 
-2. In the **Outputs** pane, click **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
+2. In the **Outputs** pane, select **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
 
    **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
 
@@ -143,15 +143,15 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    Accept the defaults for the rest of the fields.
 
-3. Click **Authorize**, and sign in to your Power BI account. (This may take more than one try).
+3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
 
    ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
-4. Click **Save**.
+4. Select **Save**.
 
 ### Configure the query of the Stream Analytics job
 
-1. Under **Job Topology**, click **Query**.
+1. Under **Job Topology**, select **Query**.
 
 2. Replace `[YourInputAlias]` with the input alias of the job. This tutorial uses **contosoinputs**.
 
@@ -159,13 +159,13 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    ![Set up the query for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
 
-4. Click **Save**.
+4. Select **Save**.
 
-5. Close the Query pane. You return to the view of the resources in the Resource Group. Click the Stream Analytics job. This tutorial calls it **contosoJob**.
+5. Close the Query pane. You return to the view of the resources in the Resource Group. Select the Stream Analytics job. This tutorial calls it **contosoJob**.
 
 ### Run the Stream Analytics job
 
-In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
+In the Stream Analytics job, select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
 To set up the Power BI report, you need data, so you'll set up Power BI after creating the device and running the device simulation application.
 
@@ -173,9 +173,9 @@ To set up the Power BI report, you need data, so you'll set up Power BI after cr
 
 In the part 1 of this tutorial, you set up a device to simulate using an IoT device. In this section, you download the .NET console app that simulates that device sending device-to-cloud messages to an IoT hub, assuming you didn't already download the app and resources in part 1 of this tutorial.
 
-This application sends messages for each of the different message routing methods. There is also a folder in the download that contains the complete Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts. 
+This application sends messages for each of the different message routing methods. There is also a folder in the download that contains the complete Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
-If you didn't download the files from the repository in step 1 of this tutorial, go ahead and download them now from [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Clicking this link downloads a repo with several applications in it; the solution you are looking for is iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
+If you didn't download the files from the repository in step 1 of this tutorial, go ahead and download them now from [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selecting this link downloads a repository with several applications in it; the solution you are looking for is iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
 
 Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
 
@@ -205,7 +205,7 @@ If everything is set up correctly, at this point you should see the following re
    * The Logic App retrieving the message from the Service Bus queue is working correctly.
    * The Logic App connector to Outlook is working correctly. 
 
-2. In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
+2. In the [Azure portal](https://portal.azure.com), select **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, select **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
 
    ![The result files in storage](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -221,17 +221,17 @@ Now with the application still running, set up the Power BI visualization to see
 
 2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
 
-3. Click **Datasets**. If you don't have any datasets, wait a few minutes and check again.
+3. Select **Datasets**. If you don't have any datasets, wait a few minutes and check again.
 
    You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
 
-4. Under **ACTIONS**, click the first icon to create a report.
+4. Under **ACTIONS**, select the first icon to create a report.
 
    ![Power BI workspace with Actions and report icon highlighted](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
 
 5. Create a line chart to show real-time temperature over time.
 
-   * On the report creation page, add a line chart by clicking the line chart icon.
+   * On the report creation page, add a line chart by selecting the line chart icon.
 
      ![The visualizations and fields](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
 
@@ -247,7 +247,7 @@ Now with the application still running, set up the Power BI visualization to see
 
    ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. Click **Save** to save the report.
+7. Select **Save** to save the report.
 
 You should be able to see data on both charts. This result means the following statements are true:
 
@@ -255,7 +255,7 @@ You should be able to see data on both charts. This result means the following s
    * The Azure Stream Analytics job is streaming correctly.
    * The Power BI Visualization is set up correctly.
 
-You can refresh the charts to see the most recent data by clicking the Refresh button on the top of the Power BI window. 
+You can refresh the charts to see the most recent data by selecting the Refresh button on the top of the Power BI window. 
 
 ## Clean up resources 
 
@@ -263,9 +263,9 @@ If you want to remove all of the resources you've created through both parts of 
 
 ### Clean up resources in the Power BI visualization
 
-Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
+Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and select the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
-### Clean up resources using Azure CLI
+### Use the Azure CLI to clean up resources
 
 To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
@@ -273,7 +273,7 @@ To remove the resource group, use the [az group delete](https://docs.microsoft.c
 az group delete --name $resourceGroup
 ```
 
-### Clean up resources using PowerShell
+### Use PowerShell to clean up resources
 
 To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 

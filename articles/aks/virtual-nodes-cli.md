@@ -42,9 +42,9 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## Preview limitations
+## Regional availability limitations
 
-While this feature is in preview, the following regions are supported for deployments:
+The following regions are supported for virtual node deployments:
 
 * Australia East (australiaeast)
 * East US (eastus)
@@ -326,6 +326,8 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
+- [Check out the Autoscale sample for Virtual Nodes][virtual-node-autoscale]
+- [Read more about the Virtual Kubelet open source library][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -333,6 +335,8 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
