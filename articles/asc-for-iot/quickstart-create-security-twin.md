@@ -1,6 +1,6 @@
 ---
-title: Create a security module twin for ASC for IoT Preview| Microsoft Docs
-description: Learn how to create a ASC for IoT module twin for use with ASC for IoT.
+title: Create a security module twin for Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn how to create a Azure Security Center for IoT module twin for use with ASC for IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -20,7 +20,7 @@ ms.author: mlottner
 # Quickstart: Create an azureiotsecurity module twin
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Security Center for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart explanations of how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
 
@@ -28,7 +28,7 @@ This quickstart explanations of how to create individual _azureiotsecurity_ modu
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation. 
 
-ASC for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
+Azure Security Center (ASC) for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
 ASC for IoT integration is achieved by making use of the IoT Hub twin mechanism.  
 
 See [IoT Hub module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the general concept of module twins in Azure IoT Hub. 

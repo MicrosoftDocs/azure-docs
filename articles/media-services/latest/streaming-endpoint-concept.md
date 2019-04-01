@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ---
 
@@ -36,8 +36,28 @@ The table describes the types:
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. <br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard Streaming Endpoint** (recommended)|0|The default Streaming Endpoint is a **Standard** type, but can be changed to the Premium type.<br/> The Standard type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. The throughput from this type of Streaming Endpoint is up to 600 Mbps. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
+ 
+## Comparing streaming types
+
+### Features
+
+Feature|Standard|Premium
+---|---|---
+Free first 15 days| Yes |No
+Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
+SLA | 99.9|99.9(200 Mbps per SU).
+CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
+Billing is prorated| Daily|Daily
+Dynamic encryption|Yes|Yes
+Dynamic packaging|Yes|Yes
+Scale|Auto scales up to the targeted throughput.|Additional streaming units
+IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
+Progressive download|Yes|Yes
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.
 
 ## Working with CDN
 
@@ -67,7 +87,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     If you get this error, the data center does not support it. You should try another data center.
 - `cdnProfile` -  When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile does not exist, a new profile automatically gets created.
 - `cdnProvider` - When CDN is enabled, you can also pass `cdnProvider` values. `cdnProvider` controls which provider will be used. Currently, three values are supported: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". If no value is provided and `cdnEnabled` is true, "StandardVerizon" is used (that is the default value).
-- `crossSiteAccessPolicies` - Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` - Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).<br/>The settings only apply to Smooth Streaming.
 - `customHostNames` - Used to configure a Streaming Endpoint to accept traffic directed to a custom host name.  This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
     
     The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>. 

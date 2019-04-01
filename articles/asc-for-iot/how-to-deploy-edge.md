@@ -1,6 +1,6 @@
 ---
-title: Deploy an ASC for IoT Edge module | Microsoft Docs
-description: Learn about how deploy ASC for IoT security agent on IoT Edge.
+title: Deploy Azure Security Center for IoT Edge module | Microsoft Docs
+description: Learn about how deploy Azure Security Center for IoT security agent on IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Deploy security module on your IoT Edge device
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT **azureiotsecurity** module provides a comprehensive security solution for your IoT Edge device.
+Azure Security Center (ASC) for IoT **azureiotsecurity** module provides a comprehensive security solution for your IoT Edge device.
 Security module collects, aggregates and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
 To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 

@@ -25,6 +25,8 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
 * The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) tenant ID for Windows Virtual Desktop users.
 * A global administrator account within the Azure Active Directory tenant.
    * This also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to sign in as global administrator of the customer's Azure Active Directory.
+   * The administrator account must be sourced from the Azure Active Directory tenant in which you're trying to create the Windows Virtual Desktop tenant. This process doesn't support Azure Active Directory B2B (guest) accounts.
+   * The administrator account must be a work or school account.
 * An Azure subscription ID
 
 ## Grant Azure Active Directory permissions to the Windows Virtual Desktop Preview service
