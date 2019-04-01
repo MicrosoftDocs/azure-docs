@@ -1,5 +1,5 @@
 ---
-title: Manage access to cloud apps by restricting tenants - Azure | Microsoft Docs
+title: Use Tenant Restrictions to manage access to SaaS cloud applications - Azure | Microsoft Docs
 description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
 documentationcenter: ''
@@ -75,7 +75,7 @@ The headers should include the following elements:
 - For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
-> You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
+> You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.
 
@@ -156,10 +156,10 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
           oSession.HostnameIs("login.microsoft.com") ||
           oSession.HostnameIs("login.windows.net")
       )
-          {
-              oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-              oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
-          }
+      {
+          oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
+          oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+      }
       ```
 
       If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
