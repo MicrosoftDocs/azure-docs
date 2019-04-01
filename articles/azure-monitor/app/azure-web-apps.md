@@ -95,7 +95,7 @@ Node.js App Service based web applications do not currently support automatic ag
 
 # [Java](#tab/java)
 
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-get-started).
+Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
 ---
 
