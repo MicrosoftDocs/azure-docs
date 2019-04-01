@@ -41,8 +41,8 @@ Security agents support the following features:
 
 ASC for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
-- [IoT-ASC-Agent-C](https://github.com/Azure/IoT-ASC-Agent-C) 
-- [IoT-ASC-Agent-CS](https://github.com/Azure/IoT-ASC-Agent-CS)
+- [ASC for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [ASC for IoT C#-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## Agent supported platforms
 

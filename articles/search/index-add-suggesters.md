@@ -73,7 +73,7 @@ After a suggester is created, add the [Suggestions API](https://docs.microsoft.c
 
 ### Use the .NET SDK
 
-In C#, define a [Suggester class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). A Suggester is a collection that can only take one item. Be sure to add `using System.Collections.Generic;` so that you can create a list of objects. 
+In C#, define a [Suggester object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is a collection but it can only take one item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

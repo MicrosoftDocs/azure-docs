@@ -50,7 +50,7 @@ To enable monitoring your device identity management, device to cloud, and cloud
 
 1. [Enable ASC for IoT service on your IoT Hub](quickstart-onboard-iot-hub.md)
 1. If your IoT Hub has no registered devices, [Register a new device](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Create an ascforiot security module](quickstart-create-security-twin.md) for your devices. 
+1. [Create an azureiotsecurity security module for your devices](quickstart-create-security-twin.md) for your devices. 
 1. Define normal device and system behavior through [custom alerts](quickstart-create-custom-alerts.md). 
 1. Perform system testing to verify service and device status. 
 1. Explore [alerts](concept-security-alerts.md), [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub. 
@@ -66,8 +66,7 @@ Make use of ASC for IoT enhanced security capabilities, such as monitoring remot
 1. To install the agent on an Azure simulated device instead of installing on an actual device, [spin up a new Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in an available zone. 
 1. [Deploy an ASC for IoT security agent](how-to-deploy-linux-cs.md) on your IoT device, or new VM.
 1. Follow the instructions for [trigger_events](https://aka.ms/iot-security-github-trigger-events) to run a simulation of a harmless attack.
-1. Verify ASC for IoT alerts in response to the simulated attack in the previous step. 
-    - Begin verification five minutes after running the script.
+1. Verify ASC for IoT alerts in response to the simulated attack in the previous step. Begin verification five minutes after running the script.
 1. Explore [alerts](concept-security-alerts.md), [recommendations](concept-recommendations.md), and [deep dive using Log Analytics](how-to-security-data-access.md) using IoT Hub. 
 
 ## Next steps

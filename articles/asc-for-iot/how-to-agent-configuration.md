@@ -39,7 +39,7 @@ ASC for IoT’s security agent twin configuration object is a .json format objec
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the ASC for IoT security agent configuration [schema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) to make changes.  
+Use the ASC for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
 
 ## Configuration objects 
 
@@ -61,7 +61,7 @@ The agent will not launch if the configuration object does not match the schema.
 
 ## Configuration schema and validation 
 
-Make sure to validate your agent configuration against this [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object does not match the schema.
 
  
 If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
