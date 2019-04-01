@@ -4,7 +4,7 @@ description: Learn about upgrading the version or configuration of an Azure Serv
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db

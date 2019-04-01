@@ -36,10 +36,19 @@ Make sure to remember the values that you used for the resource group name and M
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## Next steps
-
-[Stream a file](stream-files-dotnet-quickstart.md)
-
 ## See also
+
+- [Scale Media Reserved Units - CLI](media-reserved-units-cli-how-to.md)
+- [Create a Media Services account - CLI](./scripts/cli-create-account.md) 
+- [Reset account credentials - CLI](./scripts/cli-reset-account-credentials.md)
+- [Create assets - CLI](./scripts/cli-create-asset.md)
+- [Upload a file - CLI](./scripts/cli-upload-file-asset.md)
+- [Create transforms - CLI](./scripts/cli-create-transform.md)
+- [Create jobs - CLI](./scripts/cli-create-jobs.md)
+- [Create EventGrid - CLI](./scripts/cli-create-event-grid.md)
+- [Publish an asset - CLI](./scripts/cli-publish-asset.md)
+- [Filter - CLI](filters-dynamic-manifest-cli-howto.md)
+
+## Next steps
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
