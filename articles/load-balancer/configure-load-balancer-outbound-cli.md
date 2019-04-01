@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/01/2019
 ms.author: kumud
 
 ---
@@ -19,7 +19,7 @@ ms.author: kumud
 
 This quickstart shows you how to configure outbound rules in Standard Load Balancer using Azure CLI.  
 
-When you are done, the Load Balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.
+When you are done, the Load Balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.  Two separate pools are used, one for inbound and one for outbound, to allow for maximum flexibility for this scenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -64,30 +64,41 @@ Create a Standard IP address for Load Balancer's frontend outbound configuration
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-
 ## Create Azure Load Balancer
 
 This section details how you can create and configure the following components of the load balancer:
   - A frontend IP that receives the incoming network traffic on the load balancer.
-  - A backend  pool where the frontend IP sends the load balanced network traffic.
+  - A backend pool where the frontend IP sends the load balanced network traffic.
+  - A backend pool for outbound connectivity. 
   - A health probe that determines health of the backend VM instances.
   - A load balancer inbound rule that defines how traffic is distributed to the VMs.
   - A load balancer outbound rule that defines how traffic is distributed from the VMs.
 
 ### Create Load Balancer
 
-Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named *lb* that includes an inbound frontend IP configuration and a backend pool that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myresourcegroupoutbound \
     --name lb \
     --sku standard \
-    --backend-pool-name bepool \
+    --backend-pool-name bepoolinbound \
     --frontend-ip-name myfrontendinbound \
     --location eastus2 \
     --public-ip-address mypublicipinbound   
   ```
+
+### Create outbound pool
+
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.
+
+```azurecli-interactive
+  az network lb address-pool \
+    --resource-group myresourcegroupoutbound \
+    --lb-name lb \
+    --name bepooloutbound
+```
 
 ### Create outbound frontend IP
 Create the outbound frontend IP configuration for the Load Balancer with [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) that includes and outbound frontend IP configuration named *myfrontendoutbound* that is associated to the public IP address *mypublicipoutbound*
@@ -151,7 +162,7 @@ az network lb outbound-rule create \
  --address-pool bepool
 ```
 
-At this point, you can proceed with adding your VM's to the backend pool *bepool* by updating the IP configuration of the respective NIC resources.
+At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## Clean up resources
 
@@ -166,4 +177,3 @@ In this article, you created Standard Load Balancer, configured both inbound loa
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-
