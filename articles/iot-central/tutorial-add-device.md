@@ -361,10 +361,8 @@ As an operator, you can learn how to:
 
 As a device developer, you can learn how to:
 
-* [Prepare and connect a DevKit](howto-connect-devkit.md)
-* [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md)
+* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md)
 * [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md)
-* [Customize your code][lnk-nodejs-device-ref]
-
-
-[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest
