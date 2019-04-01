@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -106,6 +106,11 @@ To learn more, visit the GitHub repository for our [open-source JavaScript SDK](
 ## Video
 
 * External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
+## Clean up resources
+When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
+2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps
 In this quickstart, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.

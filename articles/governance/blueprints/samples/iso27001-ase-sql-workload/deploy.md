@@ -1,5 +1,5 @@
 ---
-title: Sample - ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps
+title: Sample - ISO 27001 ASE/SQL workload blueprint - Deploy steps
 description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint sample
+# Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint
 sample, the following steps must be taken:

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
 ---
 
@@ -41,7 +41,7 @@ The options available in this scenario are devices for Azure Data Box offline tr
 
 The following table summarizes the differences in key capabilities.
 
-|                                     |    Data Box Disk   (preview)    |    Data Box                                      |    Data Box Heavy (preview)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs per device                       |    Up to 800 TB per device               |    Variable                            |
 |    Data type                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
