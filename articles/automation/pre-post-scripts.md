@@ -111,7 +111,7 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 > [!NOTE]
-> The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for `azureVirtualMachines`. This can cause Pre and Post scripts to run multiple times on the same machine. To workaround this behavior, use `$azureVirtualMachines | Sort-Object -Unique` to select only unique VM names in your script.
+> The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause Pre and Post scripts to run multiple times on the same machine. To workaround this behavior, use `Sort-Object -Unique` to select only unique VM names in your script.
 
 ## Samples
 
@@ -164,7 +164,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 
