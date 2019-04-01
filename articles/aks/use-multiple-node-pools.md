@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Preview - Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. These additional node pools may provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
 
 This article shows you how to create and manage multiple node pools in an AKS cluster. This feature is currently in preview.
 
@@ -75,7 +75,7 @@ While this feature is in preview, the following additional limitations apply:
 
 ## Create an AKS cluster
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command:
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.12.5* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -117,7 +117,7 @@ To see the status of your node pools, use the [az aks node pool list][az-aks-nod
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
 ```
 
-The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool:
+The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *1*.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -215,7 +215,7 @@ It takes a few minutes to delete the nodes and the node pool.
 
 ## Specify a VM size for a node pool
 
-In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you use taints and tolerations to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
+In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations][#schedule-pods-using-taints-and-tolerations] to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
 In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
@@ -369,3 +369,5 @@ In this article you learned how to create and manage multiple node pools in an A
 [gpu-cluster]: gpu-cluster.md
 [az-group-delete]: /cli/azure/group#az-group-delete
 [install-azure-cli]: /cli/azure/install-azure-cli
+[supported-versions]: supported-kubernetes-versions.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
