@@ -63,7 +63,8 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 1. Choose the Azure **Subscription** of your IoT Hub, then select your **IoT Hub**.<br>Select **Deploy to a device** to target a single device or select **Deploy at Scale** to target multiple devices, and click **Create**. For more information about deploying at scale, see [How to deploy](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
 
-    Note: If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
+    >[!Note] 
+    >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
 
 There are three steps to create an IoT Edge deployment for Azure Security Center for IoT. The following sections walk through each one. 
 
