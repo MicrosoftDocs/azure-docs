@@ -103,7 +103,9 @@ All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s.
 >
 > Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
 >
-> Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s).
+> eGress rate = 60 MiB/s + 0.06 provisioned GiB (up to 6 GiB/s)
+>
+> inGress rate = 40 MiB/s + 0.04 provisioned GiB (up to 4 GiB)
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
 
@@ -137,8 +139,8 @@ Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it
 
 Share credits have three states:
 
-- Accruing, when the file share is using less than the baseline IOPS
-- Declining, when the file share is bursting
+- Accruing, when the file share is using less than the baseline IOPS.
+- Declining, when the file share is bursting.
 - Remaining at zero, when there are either no credits or baseline IOPS are in use.
 
 New file shares start with the full number of credits in its burst bucket.
