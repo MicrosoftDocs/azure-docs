@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Health service data is not up to date alert
 
 ## Overview
-The Agents on the on-premise machines that Azure AD Connect Health monitors periodically uploads data to Azure AD Connect Health Service. If the service does not receive data from an agent, the information presented in portal will be stale. To highlight the issue, the service will raise **Health service data is not up to date** alert. This is generated when the service has not received data in the last two hours.  
+The Agents on the on-premises machines that Azure AD Connect Health monitors periodically uploads data to Azure AD Connect Health Service. If the service does not receive data from an agent, the information presented in portal will be stale. To highlight the issue, the service will raise **Health service data is not up to date** alert. This is generated when the service has not received data in the last two hours.  
 
 * The **Warning** status alert fires if Connect Health does not receive partial data elements sent from server for two hours. Warning status alert does not trigger email notifications to the tenant admin.
 * The **Error** status alert fires if Connect Health does not receive any data elements sent from server for two hours. Error status alert triggers email notifications to the tenant admin.
