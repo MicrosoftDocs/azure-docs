@@ -61,9 +61,8 @@ You can change the payment method for your Azure subscription to invoice by subm
          (New quota) Requested cores:
          Specific region & series of Subscription: 
  
-    **Note**:
-    - The company name and address should match with the information that you provided in Azure account center. For more information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
-    - You must add your billing contact in Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. 
+    - The **Company name** and **Company address** should match with the information that you provided for the Azure account.  To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
+    - You must add your billing contact in Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact, go to [Azure Account Center](https://account.azure.com/Profile).
 
 5. Verify your contact information and preferred contact method, and then click **Create**.
 
