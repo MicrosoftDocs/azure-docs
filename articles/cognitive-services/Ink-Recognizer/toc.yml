@@ -1,4 +1,3 @@
-# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Ink Recognizer Documentation
   href: index.yml
 - name: Ink Recognizer API
@@ -10,9 +9,9 @@
       href: overview.md
   - name: Quickstarts
     items:
-    - name: 'C#'
+    - name: C#
       href: href: quickstart-ink-recognizer-csharp.md
-    - name: 'Javascript'
+    - name: Javascript
       href: quickstart-ink-recognizer-javascript.md
   - name: How-to guides
     items:
@@ -27,7 +26,7 @@
   - name: Reference
     items:
     - name: Ink Recognizer API (REST)
-    - href: overview.md
+      href: overview.md
     - name: PowerShell
       href: https://aka.ms/azure-powershell-cognitiveservices
     - name: Azure CLI
