@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: ASC for IoT Preview Documentation
+title: Azure Security Center for IoT Preview Documentation
 metadata:
-  title: ASC for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
-  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Azure Security Center for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -14,7 +14,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Use ASC for IoT Preview to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
+  description: Use Azure Security Center (ASC) for IoT Preview to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
 sections:
 - title: 5-Minute Quickstarts
   items: 

@@ -15,10 +15,10 @@ Now that your endpoints and message routes are set up, you can view their config
 
 ![IoT Hub properties screen](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
 
-In the options for the IoT Hub, click **Message Routing**. The routes you have set up successfully are displayed.
+In the options for the IoT Hub, select **Message Routing**. The routes you have set up successfully are displayed.
 
 ![The routes you set up](./media/iot-hub-include-view-routing-in-portal/02-show-message-routes.png)
 
-On the **Message routing** screen, click **Custom Endpoints** to see the endpoints you have defined for the routes.
+On the **Message routing** screen, select **Custom Endpoints** to see the endpoints you have defined for the routes.
 
 ![The endpoints set up for the routes](./media/iot-hub-include-view-routing-in-portal/03-show-routing-endpoints.png)

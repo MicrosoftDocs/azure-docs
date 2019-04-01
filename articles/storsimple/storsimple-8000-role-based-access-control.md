@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Role-based Access Control for StorSimple | Microsoft Docs
 description: Describes how to use Azure Role-based Access Control (RBAC) in the context of StorSimple.
 services: storsimple
@@ -46,7 +46,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
 3. Export the Reader role as a JSON template on your computer.
 
-    ```
+    ```powershell
     Get-AzureRMRoleDefinition -Name "Reader"
 
     Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
@@ -68,7 +68,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
     Edit the file keeping in mind the preceding considerations.
 
-    ```
+    ```json
     {
         "Name":  "StorSimple Infrastructure Admin",
         "Id":  "<guid>",
@@ -109,18 +109,24 @@ For more information, go to [Custom roles](../role-based-access-control/custom-r
 
 ### Sample output for custom role creation via the PowerShell
 
+```powershell
+Connect-AzureRmAccount
 ```
-PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
+```Output
 Environment           : AzureCloud
 Account               : john.doe@contoso.com
 TenantId              : <tenant_ID>
 SubscriptionId        : <subscription_ID>
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader"
+```
 
+```Output
 Name             : Reader
 Id               : <guid>
 IsCustom         : False
@@ -128,11 +134,14 @@ Description      : Lets you view everything, but not make any changes.
 Actions          : {*/read}
 NotActions       : {}
 AssignableScopes : {/}
+```
 
-PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+```powershell
+Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+```
 
-PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
-
+```Output
 Name             : StorSimple Infrastructure Admin
 Id               : <tenant_ID>
 IsCustom         : True
@@ -144,8 +153,6 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
-
-PS C:\WINDOWS\system32>
 ```
 
 ## Add users to the custom role
@@ -184,4 +191,3 @@ Once this role is created, you can view the permissions associated with this rol
 ## Next steps
 
 Learn how to [Assign custom roles for internal and external users](../role-based-access-control/role-assignments-external-users.md).
-

@@ -2,7 +2,7 @@
 title: Manage Azure Data Explorer database permissions
 description: This article describes role-based access controls for databases and tables in Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
