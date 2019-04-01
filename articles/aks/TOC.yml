@@ -320,3 +320,7 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
+- name: Support Policies
+  items:
+  - name: AKS Support Policies
+    href: support-policies.md
