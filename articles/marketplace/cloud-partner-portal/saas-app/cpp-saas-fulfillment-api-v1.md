@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
 
 ROBOTS: NOINDEX
@@ -39,66 +39,6 @@ The following APIs are provided to help you integrate your SaaS service with Azu
 
 The following sections describe the API methods and endpoints available for enabling subscriptions for a SaaS offer.
 
-
-### Get a token based on the Azure AD app
-
-HTTP Method
-
-`GET`
-
-*Request URL*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*URI parameter*
-
-|  **Parameter name**  | **Required**  | **Description**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Tenant ID of the registered AAD application   |
-|  |  |  |
-
-
-*Request header*
-
-|  **Header name**  | **Required** |  **Description**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Content type associated with the request. The default value is `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Request body*
-
-| **Property name**   | **Required** |  **Description**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Grant type. The default value is `client_credentials`.                    |
-|  Client_id          | True         |  Client/app identifier associated with the Azure AD app.                  |
-|  client_secret      | True         |  Password associated with the Azure AD app.                               |
-|  Resource           | True         |  Target resource for which the token is requested. The default value is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Response*
-
-|  **Name**  | **Type**       |  **Description**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Request succeeded   |
-|  |  |  |
-
-*TokenResponse*
-
-Sample response token:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### Marketplace API endpoint and API version
 
@@ -175,7 +115,7 @@ When a user is redirected to an ISV’s website, the URL contains a token in the
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Yes          | Request ID received from the client.                                                                   |
 | x-ms-correlationid | Yes          | Correlation ID if passed by the client, otherwise this value is the server correlation ID.                   |
-| x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This is used for any reconciliations. |
+| x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This ID is used for any reconciliations. |
 | Retry-After        | No           | This value is set only for a 429 response.                                                                   |
 |  |  |  |
 
@@ -191,7 +131,7 @@ service for a given plan and enable billing in the commerce system.
 
 | **Parameter Name**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Unique Id of saas subscription that is obtained after resolving the token via Resolve API.                              |
+| subscriptionId      | Unique ID of SaaS subscription that is obtained after resolving the token via Resolve API.                              |
 | api-version         | The version of the operation to use for this request. |
 |  |  |
 

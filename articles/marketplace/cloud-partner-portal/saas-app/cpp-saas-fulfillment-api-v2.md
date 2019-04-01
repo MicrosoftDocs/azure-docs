@@ -12,8 +12,8 @@ ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
-ms.topic: reference
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 03/28/2019
 ms.author: pbutlerm
 ---
 
@@ -73,6 +73,24 @@ Subscriptions reach this state in response to an explicit customer request or as
 ## API reference
 
 This section documents the SaaS *Subscription API* and *Operations API*.  The value of the `api-version` parameter for version 2 APIs is `2018-08-31`.  
+
+
+### Parameter and entity definitions
+
+The following table lists the definitions for common parameters and entities used by Fulfillment APIs.
+
+|     Entity/Parameter     |     Definition                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | GUID identifier for a SaaS resource  |
+| `name`                   | Friendly name provided for this resource by the customer |
+| `publisherId`            | Unique string identifier automatically generated for each publisher, for example "conotosocorporation" |
+| `offerId`                | Unique string identifier automatically generated for each offer, for example "contosooffer1"  |
+| `planId`                 | Unique string identifier automatically generated for each plan/sku, for example "contosobasicplan" |
+| `operationId`            | GUID identifier for a particular operation  |
+|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`  |
+|   |   |
+
+Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32 hexadecimal) numbers that are typically automatically generated. 
 
 
 ### Subscription API
@@ -350,7 +368,7 @@ Internal Server Error
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
-|  x-ms-correlationid  | Unique string value for operation on the client. This correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
+|  x-ms-correlationid  | Unique string value for operation on the client. This string correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  authorization     |  JSON web token (JWT) bearer token |
 
 *Request:*
@@ -545,7 +563,7 @@ Update a subscription with the provided values.
 *Response codes:*
 
 Code: 200<br> 
-Call to inform of completion of an operation on the ISV side. For example, operation could be change of seats/plans.
+Call to inform of completion of an operation on the ISV side. For example, this response could signal the change of seats/plans.
 
 Code: 404<br>
 Not Found
@@ -554,7 +572,7 @@ Code: 400<br>
 Bad request- Validation failures
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
 
 Code: 409<br>
 Conflict. For example, a newer transaction is already fulfilled
@@ -724,7 +742,7 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ## Mock API
 
-You can use our mock APIs to help you get started with development, particularly prototyping and testing projects. 
+You can use our mock APIs to help you get started with development, particularly prototyping, and testing projects. 
 
 Host Endpoint: `https://marketplaceapi.microsoft.com/api`
 API Version: `2018-09-15`

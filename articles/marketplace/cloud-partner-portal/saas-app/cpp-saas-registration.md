@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
 ---
 
@@ -36,7 +36,7 @@ Azure does not impose any constraints on the authentication that the SaaS servic
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.  To register a new application using the Azure portal, perform the following steps:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
-2.  If your account gives you access to more than one, click your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
+2.  If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3.  In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, and click **New application registration**.
 
     ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1.png)
@@ -67,13 +67,70 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
 ## Using the Azure AD security token
 
-Once you have successfully registered your SaaS app, your app will automatically send the user's Azure AD access token in its HTTP headers during the authentication process.  During development, this token is the developer's or organization's access token.  In contrast, when a user is redirected to the publisher's website, the URL contains the access token as query parameters in the form:  
-
-    `<saas-landing-page-url>?token=<token-string>`
-
-The publisher is expected to use this token, and make a request to resolve it.  The token query parameter is in the URL when the user is redirected to SaaS website from Azure.  This token is only valid for one hour.  Additionally, you should URL decode the token value from the browser before using it.
+Once you have registered your application, you can programmatically request an Azure AD security token.  The publisher is expected to use this token, and make a request to resolve it.  When using the various Fulfillment APIs, the token query parameter is in the URL when the user is redirected to SaaS website from Azure.  This token is only valid for one hour.  Additionally, you should URL decode the token value from the browser before using it.
 
 For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+
+
+### Get a token based on the Azure AD app
+
+HTTP Method
+
+`GET`
+
+*Request URL*
+
+**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+
+*URI parameter*
+
+|  **Parameter name**  | **Required**  | **Description**                               |
+|  ------------------  | ------------- | --------------------------------------------- |
+| tenantId             | True          | Tenant ID of the registered AAD application   |
+|  |  |  |
+
+
+*Request header*
+
+|  **Header name**  | **Required** |  **Description**                                   |
+|  --------------   | ------------ |  ------------------------------------------------- |
+|  Content-Type     | True         | Content type associated with the request. The default value is `application/x-www-form-urlencoded`.  |
+|  |  |  |
+
+
+*Request body*
+
+| **Property name**   | **Required** |  **Description**                                                          |
+| -----------------   | -----------  | ------------------------------------------------------------------------- |
+|  Grant_type         | True         | Grant type. The default value is `client_credentials`.                    |
+|  Client_id          | True         |  Client/app identifier associated with the Azure AD app.                  |
+|  client_secret      | True         |  Password associated with the Azure AD app.                               |
+|  Resource           | True         |  Target resource for which the token is requested. The default value is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  |  |  |
+
+
+*Response*
+
+|  **Name**  | **Type**       |  **Description**    |
+| ---------- | -------------  | ------------------- |
+| 200 OK    | TokenResponse  | Request succeeded   |
+|  |  |  |
+
+*TokenResponse*
+
+Sample response token:
+
+``` json
+  {
+      "token_type": "Bearer",
+      "expires_in": "3600",
+      "ext_expires_in": "0",
+      "expires_on": "15251…",
+      "not_before": "15251…",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
+  }               
+```
 
 
 ## Next steps
