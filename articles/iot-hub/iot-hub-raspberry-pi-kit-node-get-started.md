@@ -232,11 +232,11 @@ You should see the following output that shows the sensor data and the messages 
 
 ![Output - sensor data sent from Raspberry Pi to your IoT hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
-## Read the messages from your hub
+## Read the messages received by your hub
 
 One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-For more ways to process data sent by your device, see [Next steps](#next_steps).
+For more ways to process data sent by your device, continue on to the next section.
 
 ## Next steps
 
