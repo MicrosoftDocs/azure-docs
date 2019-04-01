@@ -40,7 +40,7 @@ We are currently working on migrating existing blog posts (excluding outage upda
 We will be posting outage updates using our Twitter handle going forward. Follow us on Twitter to get latest updates on outages and known bugs.
 
 ### Twitter 
-Our Twitter handle: azlabservices
+Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 
 ## What if my question isn't answered here?
 If your question is not listed here, let us know, and we can help you find an answer.
