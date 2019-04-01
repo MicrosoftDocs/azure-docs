@@ -25,6 +25,12 @@ The Azure Functions premium plan is a hosting option for function apps. The prem
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
+You can also create a premium plan from the Azure CLI
+
+```azurecli-interactive
+az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+```
+
 ## Features
 
 The following features are available to apps deployed to an Azure Function premium plan.
