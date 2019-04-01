@@ -1,0 +1,44 @@
+# displayName: additional text for filtering down the ToC in meaningful way.
+- name: Ink Recognizer Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Ink Recognizer?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: 'C#'
+    href: href: quickstart-ink-recognizer-csharp.md
+  - name: 'Javascript'
+    href: quickstart-ink-recognizer-javascript.md
+- name: How-to guides
+  items:
+  - name: Placeholder
+    href: overview.md
+- name: Samples
+  items:
+  - name: C#
+    href: overview.md
+  - name: Javascript
+    href: overview.md
+- name: Reference
+  items:
+  - name: Ink Recognizer API (REST)
+  - href: overview.md
+  - name: PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Language support
+    href: language-support.md
+  - name: Regions
+    href: regions.md
+- name: Resources
+  items:
+  - name: Pricing and limits
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Privacy & cookies
+    href: https://privacy.microsoft.com/privacystatement
