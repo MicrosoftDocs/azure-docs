@@ -86,9 +86,9 @@ Select **Cloud** > **Azure Resource Group**.
 
    If you're using Visual Studio 2019, follow these steps:
 
-   1. In the **Create a new project** box, find and select the 
-   **Azure Resource Group** project template for either Visual 
-   C# or Visual Basic, and choose **Next**.
+   1. In the **Create a new project** box, select the 
+   **Azure Resource Group** project template for either 
+   Visual C# or Visual Basic, and choose **Next**.
 
    1. Provide the name for the Azure resource group you want to use 
    and other project information. When you're done, choose **Create**.
@@ -96,7 +96,7 @@ Select **Cloud** > **Azure Resource Group**.
 1. Give your project a name and a location, and then choose **OK**.
 
    Visual Studio prompts you to select a template from the templates list. 
-   This example uses a Azure Quickstart template so you can build a serverless 
+   This example uses an Azure Quickstart template so you can build a serverless 
    app that includes a logic app and a call to an Azure function.
 
    > [!TIP]
@@ -184,12 +184,11 @@ use a C# class library by following the steps in the article,
 
 ## Deploy functions from Visual Studio
 
-Your deployment template deploys any Azure functions that you have 
-in your solution from the Git repo that's specified by variables 
-in the `azuredeploy.json` file.If you create and author your Functions 
-project in your solution, you can check that project into Git source control, 
-for example, GitHub or Azure DevOps, and then update the `repo` variable so 
-that the template deploys your Azure function.
+Your deployment template deploys any Azure functions that you have in your solution 
+from the Git repo that's specified by variables in the `azuredeploy.json` file. 
+If you create and author your Functions project in your solution, you can check 
+that project into Git source control, for example, GitHub or Azure DevOps, 
+and then update the `repo` variable so that the template deploys your Azure function.
 
 ## Manage logic apps and view run history
 

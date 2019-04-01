@@ -21,14 +21,15 @@ data, systems, and services across enterprises and organizations.
 This quickstart shows how you can design and build these workflows 
 by creating logic apps in Visual Studio and deploying those apps to 
 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in the cloud. 
-And although you can perform these tasks in the 
+Although you can perform these tasks in the 
 <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-Visual Studio lets you add logic apps to source control, publish different versions, 
-and create Azure Resource Manager templates for different deployment environments.
+Visual Studio lets you add your logic apps to source control, 
+publish different versions, and create Azure Resource Manager 
+templates for different deployment environments.
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the 
 [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) instead. 
-The Logic App Designer in both the Azure portal and Visual Studio work similarly. 
+The Logic App Designer in both the Azure portal and Visual Studio work similarly.
 
 Here, you create the same logic app as in the Azure portal quickstart 
 but with Visual Studio. This logic app monitors a website's RSS feed 

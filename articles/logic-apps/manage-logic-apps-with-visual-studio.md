@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
+ms.date: 04/02/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -280,10 +280,11 @@ open a logic app's .json file, Visual Studio caches the first
 selected subscription for future use. To resolve this problem, 
 try one of these steps:
 
-* Rename the logic app's .json file. The subscription cache depends on the file name. 
+* Rename the logic app's .json file. The subscription cache depends on the file name.
+
 * To remove previously selected subscriptions for *all* logic apps in your solution, 
-delete the *hidden* .vs folder in your solution's directory. This location stores 
-your subscription information. 
+delete the "hidden" .vs folder in your solution's directory. This location stores 
+your subscription information.
 
 ## Next steps
 
