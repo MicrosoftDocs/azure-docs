@@ -13,13 +13,13 @@ ms.author: cithomas
 
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs.
 
-ASP.NET Core supports a logging API that works with a variety of built-in and third-party logging providers. This article shows how to use ApplicationInsightsLoggerProvider to capture logs logged via ILogger in both console and ASP.NET Core applications. This article also talks about how ApplicationInsightsLoggerProvider is integrated with other telemetry collection (Requests, Dependencies etc.) features provided by Application Insights SDK. 
+ASP.NET Core supports a logging API that works with a variety of built-in and third-party logging providers. This article shows how to use ApplicationInsightsLoggerProvider to capture ILogger logs in both console and ASP.NET Core applications. This article also talks about how ApplicationInsightsLoggerProvider is integrated with other telemetry collection (Requests, Dependencies etc.) features provided by Application Insights SDK. 
 To learn more about ILogger based logging, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## ASP.NET Core applications
 Starting with [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 onwards, ApplicationInsightsLoggerProvider is enabled by default when enabling regular ApplicationInsights monitoring using either of the standard methods - by calling `UseApplicationInsights` extension method on IWebHostBuilder or `AddApplicationInsightsTelemetry` extension method on IServiceCollection. ILoggers logs are sent as `TraceTelemetry` to ApplicationInsights (`ExceptionTelemetry` if an exception is passed to Log methods), and they are subject to same configuration as any other telemetry collected. i.e they will be running the same set of `TelemetryInitializers`, `TelemetryProcessors`, uses the same `TelemetryChannel` and will be correlated, sampled/not sampled in the same way as every other telemetry.  If you are on this version of SDK or higher, then no action is required to capture ILoggers logs.
  
-By default, only ILogger logs of Warning level or above (from all categories) are sent to ApplicationInsightsLoggerProvider. This behavior can be changed by applying Filters as shown [here](../../azure-monitor/app/ilogger.md#control-logging-level). Also additional steps are required if ILogger logs from Program.cs or Startup.cs is to be captured as shown [here](../../azure-monitor/app/ilogger.md#Capturing-ILogger-logs-from-Startup.cs,-Program.cs-in-Asp.Net-Core-Applications).
+By default, only ILogger logs of Warning level or above (from all categories) are sent to ApplicationInsightsLoggerProvider. This behavior can be changed by applying Filters as shown [here](../../azure-monitor/app/ilogger.md#control-logging-level). Also additional steps are required if ILogger logs from Program.cs or Startup.cs are to be captured as shown [here](../../azure-monitor/app/ilogger.md#Capturing-ILogger-logs-from-Startup.cs,-Program.cs-in-Asp.Net-Core-Applications).
 
 
 If you are using an earlier version of Microsoft.ApplicationInsights.AspNet SDK, or you want to just use ApplicationInsightsLoggerProvider, without any other ApplicationInsights monitoring, follow the steps below.
@@ -66,7 +66,7 @@ If you are using an earlier version of Microsoft.ApplicationInsights.AspNet SDK,
     }
 ```
 
-The above code will configure ApplicationInsightsProvider. Following shows an example Controller class which uses ILogger to send logs, which are captured by ApplicationInsights.
+The above code will configure ApplicationInsightsProvider. Following shows an example Controller class, which uses ILogger to send logs, which are captured by ApplicationInsights.
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -181,10 +181,10 @@ public class Startup
 
 ## Migrating from old ApplicationInsightsLoggerProvider
 Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.0-beta2, supported a logging provider which is now obsolete. This provider was enabled with AddApplicationInsights() extension method of ILoggerFactory. This provider is now obsolete, and users are suggested to migrate to the new provider. Migration involves two steps.
-1. Remove ILoggerFactory.AddApplicationInsights() call from Startup.Configure method to avoid double logging.
-2. Re-apply any filtering rules in code as they will not be respected by the new provider. Overloads of ILoggerFactory.AddApplicationInsights() took minimum LogLevel or filter functions. With the new provider, filtering is part of the logging framework itself, and not done by ApplicationInsights provider. So any filter functions provided should be removed, and filtering should be done outside of Application Insights. If you were using appsettings.json to filter logging, then these will continue to work with new provider as both uses same Provider Alias - **ApplicationInsights**. Please see [this](../../azure-monitor/app/ilogger.md#control-logging-level) section for details on how to do filtering.
+1. Remove ILoggerFactory.AddApplicationInsights() call from `Startup.Configure()` method to avoid double logging.
+2. Re-apply any filtering rules in code as they will not be respected by the new provider. Overloads of ILoggerFactory.AddApplicationInsights() took minimum LogLevel or filter functions. With the new provider, filtering is part of the logging framework itself, and not done by ApplicationInsights provider. So any filter functions provided should be removed, and filtering should be done outside of Application Insights. If you are using appsettings.json to filter logging, then these will continue to work with new provider as both uses same Provider Alias - **ApplicationInsights**. Please see [this](../../azure-monitor/app/ilogger.md#control-logging-level) section for details on how to do filtering.
 
-While old provider can still be used (its obsolete now and will be removed only in major version change to 3.xx), migrating to newer provider is highly recommended due to following reasons.
+While old provider can still be used (it is obsolete now and will be removed only in major version change to 3.xx), migrating to newer provider is highly recommended due to following reasons.
   1. Previous provider did not support [scopes](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
   2. Logs can now be captured much earlier in the application startup pipeline. i.e Logs from Program and Startup classes can now be captured.
   3. With new provider, the filtering is done at the framework level itself. Filtering of logs to ApplicationInsights provider can be done in exact same way as for other providers, including built-in providers like Console, Debug etc. It is also possible to apply same filters to multiple providers.
@@ -254,7 +254,7 @@ class Program
 }
 ```
 
-In the above example, the standalone package Microsoft.Extensions.Logging.ApplicationInsights is used. By default, this configuration uses the bare minimum `TelemetryConfiguration` for sending data to
+In the above example, the standalone package `Microsoft.Extensions.Logging.ApplicationInsights` is used. By default, this configuration uses the bare minimum `TelemetryConfiguration` for sending data to
 Application Insights. Bare minimum means the channel used will be `InMemoryChannel`, no sampling, and no standard TelemetryInitializers. This behavior can be overridden for a console application
 as shown in example below.
 
@@ -372,7 +372,7 @@ The below code snippet configures `ApplicationInsights` to capture only logs of 
 
 *3. I have already enabled old provider by using ILoggerFactory extension method 'AddApplicationInsights'. What are the benefits of migrating to the new ApplicationInsightsLoggerProvider?*
 
-  While old provider can still be used (its obsolete now and will be removed only in major version change to 3.xx), migrating to newer provider is highly recommended due to following reasons.
+  While old provider can still be used (it is obsolete now and will be removed only in major version change to 3.xx), migrating to newer provider is highly recommended due to following reasons.
 * 1. Previous provider did not support [scopes](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
   2. Logs can now be captured much earlier in the application startup pipeline. i.e Logs from Program and Startup classes can now be captured.
   3. With new provider, the filtering is done at the framework level itself. Filtering of logs to ApplicationInsights provider can be done in exact same way as for other providers, including built-in providers like Console, Debug etc. It is also possible to apply same filters to multiple providers.
