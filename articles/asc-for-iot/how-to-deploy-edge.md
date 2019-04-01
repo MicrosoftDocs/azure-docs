@@ -64,13 +64,6 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
    Then click **Create**.
 
 1. Under **Add Modules**
-
-   1. Add the following details to **Container Registry Settings**: 
-
-      - Name: **asotcontainerregistry**
-      - Address: **asotcontainerregistry.azurecr.io**
-      - Username: **6d987477-5e53-4ec0-a77b-4086e2abbcb0**
-      - Password: **3b985fc9-b897-44ce-a928-7e685814b756**
    
    1. Click on **AzureSecurityCenterforIoT** under **Deployment Modules** and,
    
@@ -93,7 +86,7 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
       > Do not disable AMQP communication for the Edge Hub.
       > Azure Security Center for IoT module requires AMQP communication with the Edge Hub.
    
-      1. Verify that **Image** under **Edge Hub** is set to **asotcontainerregistry.azurecr.io/edgehub:1.04-preview**.
+      1. Verify that **Image** under **Edge Hub** is set to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
       
       1. Verify that **Create Options** is set to 
          
