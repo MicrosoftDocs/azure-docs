@@ -74,6 +74,8 @@ The first thing you need for machine learning is data. There are several sample 
 
 1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
+    ![Connect modules](./media/quickstart-ui-run-experiment/connect-modules.gif) 
+
     > [!TIP]
     > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
 
