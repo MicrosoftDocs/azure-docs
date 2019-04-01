@@ -40,7 +40,7 @@
   - name: Secure artifacts
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
@@ -62,6 +62,7 @@
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Deployment Manager
+    displayName: adm
     href: deployment-manager-overview.md
   - name: Deployment modes
     href: deployment-modes.md
@@ -76,6 +77,7 @@
     - name: Create template
       href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
@@ -94,12 +96,16 @@
   - name: Deploy templates
     items:
     - name: Deploy - portal
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Secure templates with SAS token
       items:

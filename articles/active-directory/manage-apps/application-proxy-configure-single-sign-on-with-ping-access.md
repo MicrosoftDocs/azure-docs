@@ -39,7 +39,7 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 
 ## Publish your application in Azure
 
-This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the connector installation and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-Azure-AD-with-Application-Proxy).
+This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the connector installation and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Since this scenario is a partnership between Azure AD and PingAccess, some of the instructions exist on the Ping Identity site.

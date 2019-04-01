@@ -4,7 +4,7 @@ description: Scale a Service Fabric cluster in or out to match demand by setting
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d

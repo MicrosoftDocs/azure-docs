@@ -15,12 +15,12 @@ ms.date: 12/04/2018
 ms.author: bwren
 ---
 
-# Create custom fields in Log Analytics
+# Create custom fields in a Log Analytics workspace in Azure Monitor
 
 > [!NOTE]
-> This article describes how to parse text data in Log Analytics as it's collected. There are advantages to parsing text data in a query after it's collected as described in [Parse text data in Log Analytics](../log-query/parse-text.md).
+> This article describes how to parse text data in a Log Analytics workspace as it's collected. There are advantages to parsing text data in a query after it's collected as described in [Parse text data in Azure Monitor](../log-query/parse-text.md).
 
-The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
+The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
 ![Custom Fields overview](media/custom-fields/overview.png)
 
