@@ -63,24 +63,75 @@ The first thing you need for machine learning is data. There are several sample 
  > [!TIP]
  > If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
 
-## Visualize the data
+## Select columns
 
-Visualize your data to understand more about the information you have to work with.
+1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
-1. Click the output port at the bottom of the automobile dataset then select **Visualize**.
+1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop this module below the dataset you added earlier.
 
     > [!TIP]
-    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. To create a flow of data through your experiment, you'll connect an output port of one module to an input port of another. 
+    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. To create a flow of data through your experiment, you'll connect an output port of one module to an input port of another.
 
-     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns.  In the [Develop a predictive solution tutorial](), you'll predict the price of an automobile, found in far-right column (column 26, titled "price").
+1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
+
+    > [!TIP]
+    > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
+
+    The experiment should now look something like this:
+
+    ![select-column](./media/quickstart-ui-run-experiment/select-columns.png)
+
+    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
+   
+1. Select **Select Columns in Dataset**.
+
+1. In the Properties pane to the right of the canvas, select **Launch column selector**.
+
+    In the Select columns dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
+
+     ![column-selector](./media/quickstart-ui-run-experiment/select-all.PNG)
+
+1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
+
+## Run the experiment
+
+At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, before the experiment has run, the module doesn't yet know its data, In this situation, the **Visualize** option will be disabled.  By running the experiment, the column definitions for your data pass from the dataset, through the **Select Columns in Dataset** module.  After the run, you will be able to visualize your initial data.
+
+An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
+
+1. Select **Run** at the bottom to run the experiment.
+
+     ![Run experiment](./media/quickstart-ui-run-experiment/run-experiment.png)
+
+1. In the **Setup Compute Targets** dialog, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
+
+1. Provide a name for your compute target.
+
+1. Select **Run**.
+
+    ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
+
+    Your compute resource will now be created. This step takes approximately 10 minutes. After the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
+
+    After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
+
+    ![View status](./media/quickstart-ui-run-experiment/status1.png)
+
+## Visualize the data
+
+Now that you have run your initial experiment, you can visualize the data to understand more about the information you have to work with.
+
+1. Select the output port at the bottom of the **Select Columns in Dataset** then select **Visualize**.
+
+     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns.  In the [Develop a predictive solution tutorial](), you'll predict the price of an automobile, found in far-right column (column 26, titled "price").  There are 205 rows and 26 columns in this dataset.
 
      Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. 
 
-1. Click on **make**.  This column is String Feature, with 22 unique values in 205 rows and no missing values. The histogram shows the distribution of **make** in the dataset. 
+1. Click on **make**.  This column is a String Feature, with 22 unique value and no missing values. The histogram shows the distribution of **make** in the dataset. 
 
      ![visualization-result](./media/quickstart-ui-run-experiment/make.png)
 
-1. Click on each column to understand more about this dataset. 
+1. Click on each column to understand more about your dataset.
 
 ## Prepare data
 
@@ -93,33 +144,16 @@ A dataset usually requires some preprocessing before it can be analyzed. You mig
 
 First,  remove the **normalized-losses** column completely.
 
-1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
+1. Select **Select Columns in Dataset**.
 
-1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop this module below the dataset you added earlier.
+1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
 
-1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
+    * Leave  **With rules** and **ALL COLUMNS** selected.
 
-    > [!TIP]
-    > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
-
-
-    The experiment should now look something like this:
-
-    ![select-column](./media/quickstart-ui-run-experiment/select-columns.png)
-
-    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
-
-
-1. Select **Select Columns in Dataset**, and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
-
-    * On the left, select **With rules**.
-
-    * Select **ALL COLUMNS**.
-        
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
-        
-    * Click the check mark (OK) button to close the column selector (on the lower-right).
-        
+
+    * Select the check mark (OK) button to close the column selector (on the lower-right).
+
     ![Exclude a column](./media/quickstart-ui-run-experiment/exclude-column.png)
         
     Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
@@ -135,7 +169,7 @@ First,  remove the **normalized-losses** column completely.
 
 ### Clean missing data
 
-Now add another module that removes any row that has missing data.
+Now add another module that removes any remaining row that has missing data.
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
@@ -147,39 +181,27 @@ Now add another module that removes any row that has missing data.
 
 1. Double-click the module and type the comment "Remove missing value rows."
  
-     ![Remove rows](./media/quickstart-ui-run-experiment/remove-rows.png)
+    ![Remove rows](./media/quickstart-ui-run-experiment/remove-rows.png)
 
-
-## Run the experiment
-
-At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, if the module doesn't yet know its data, the **Visualize** option will be disabled.  In this case, you need to first run the experiment. By running the experiment, the column definitions for your data pass from the dataset, through the **Select Columns in Dataset** module, and through the **Clean Missing Data** module.  After the run, you will be able to visualize the results of your cleaning steps.
-
-An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
-
-1. Click **Run** at the bottom to run the experiment.
-
-     ![Run experiment](./media/quickstart-ui-run-experiment/run-experiment.png)
-
-1. In the **Setup Compute Targets** dialog, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
-
-1. Provide a name for your compute target.
-
-1. Select **Run**.
-
-    ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
-
-    Your compute resource will now be created. This step takes approximately 10 minutes. Once the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
-
-    After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
-
-    ![View status](./media/quickstart-ui-run-experiment/status.png)
-  
+    Your experiment should now look something like this:
+    
+    ![select-column](./media/quickstart-ui-run-experiment/experiment-clean.png)
 
 ## Visualize the results
 
-Now that you have run the experiment, right-click on the **Clean Missing Data** module to visualize the new clean data.  
+Since you made changes to the modules in your experiment, the status has changed to "In draft".  To visualize the new clean data, you first have to **RUN** the experiment again.
 
-![Visualize clean data](./media/quickstart-ui-run-experiment/visualize-cleaned.png)
+1. Select **Run** at the bottom to run the experiment.
+
+    This time you can reuse the compute target you created earlier.  
+
+1. Select **Run** in the dialog.
+
+   ![Run experiment](./media/quickstart-ui-run-experiment/select-compute.png)
+
+1. When the run completes, right-click on the **Clean Missing Data** module to visualize the new clean data.  
+
+    ![Visualize clean data](./media/quickstart-ui-run-experiment/visualize-cleaned.png)
 
 ## Clean up resources
 
