@@ -96,7 +96,7 @@
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Real time fraud detection
       href: stream-analytics-real-time-fraud-detection.md
-    - name: Run jobs on IoT edge
+    - name: Run jobs on Edge
       href: stream-analytics-edge.md
     - name: Toll booth sensor data analysis
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
@@ -141,7 +141,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API for Edge jobs
+    - name: Using API for edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
@@ -153,11 +153,11 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Develop an Edge job
+    - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Write .NET UDF for Edge
+    - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
