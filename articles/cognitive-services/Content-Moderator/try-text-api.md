@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Test-drive text moderation by using the Text Moderation API in the online console.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap

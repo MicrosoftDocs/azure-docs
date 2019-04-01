@@ -1,5 +1,5 @@
 ---
-title: Create, manage, and secure admin and query api-keys for Azure Search | Microsoft Docs
+title: Create, manage, and secure admin and query api-keys - Azure Search
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
 
 ---
@@ -37,19 +37,35 @@ Two types of keys are used to access your search service: admin (read-write) and
 > [!NOTE]  
 >  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
 
-## Find api-keys for your service
+## Find existing keys
 
 You can obtain access keys in the portal or through the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). For more information, see [Manage admin and query api-keys](search-security-api-keys.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
-3. select the service and on the service page, find **Settings** >**Keys** to view admin and query keys.
+3. Select the service and on the Overview page, click **Settings** >**Keys** to view admin and query keys.
 
-![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
+   ![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
+
+## Create query keys
+
+Query keys are used for read-only access to documents within an index. Restricting access and operations in client apps is essential to safeguarding the search assets on your service. Always use a query key rather than an admin key for any query originating from a client app.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
+3. Select the service and on the Overview page, click **Settings** >**Keys**.
+4. Click **Manage query keys**.
+5. Use the query already generated for your service, or create up to 50 new query keys. The default query key is not named, but additional query keys can be named for manageability.
+
+   ![Create or use a query key](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> A code example showing query key usage can be found in [Query an Azure Search index in C#](search-query-dotnet.md).
 
 ## Regenerate admin keys
 
-Two admin keys are created for each service so that you can rollover a primary key, using the secondary key for continued access.
+Two admin keys are created for each service so that you can rotate a primary key, using the secondary key for continued access.
 
 If you regenerate both primary and secondary keys at the same time, any applications using either key for accessing service operations will no longer have access to the service.
 

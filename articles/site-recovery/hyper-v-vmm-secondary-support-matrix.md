@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/18/2018
 ms.author: raynew
 ---
 
@@ -57,7 +57,7 @@ Host - IPv6 | No
 Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
-Gues VM - Windows/Linux - Static IP address | Yes
+Guest VM - Windows/Linux - Static IP address | Yes
 Guest VM - Multi-NIC | Yes
 
 
@@ -104,7 +104,7 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 The Provider coordinates communications between VMM servers. 
 
 **Latest** | **Updates**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([available from portal](https://aka.ms/downloaddra) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 
 

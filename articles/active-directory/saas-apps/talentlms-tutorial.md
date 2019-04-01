@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: c903d20d-18e3-42b0-b997-6349c5412dde
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with TalentLMS
 
@@ -215,7 +216,7 @@ To enable Azure AD users to log in to TalentLMS, they must be provisioned into T
 
     b. In the **Last name** textbox, enter the last name of user like **Simon**.
  
-    c. In the **Email address** textbox, enter the email of user like **brittasimon@contoso.com**.
+    c. In the **Email address** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Click **Add User**.
 

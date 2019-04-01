@@ -25,14 +25,14 @@ This article explains how to size, update, and generalize a virtual machine (VM)
 ## Sizing the VHDs
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-If you have selected one of the VMs pre-configured with an operating system (and optionally additional services), then you have already picked a standard Azure VM size, as described in [Virtual machine SKUs tab](./cpp-skus-tab.md).  This is the recommended approach.  However, if you are installing an OS manually, then you must size your primary VHD in your VM image:
+If you have selected one of the VMs pre-configured with an operating system (and optionally additional services), then you have already picked a standard Azure VM size, as described in [Virtual machine SKUs tab](./cpp-skus-tab.md).  Starting your solution with a pre-configured OS is the recommended approach.  However, if you are installing an OS manually, then you must size your primary VHD in your VM image:
 
 - For Windows, the operating system VHD should be created as a 127-128 GB fixed-format VHD. 
 - For Linux, this VHD should be created as a 30-50 GB fixed-format VHD.
 
 If the physical size is less than 127-128 GB, the VHD should be sparse. The base Windows and SQL Server images provided already meet these requirements, so do not change the format or the size of the VHD obtained. 
 
-Data disks can be as large as 1 TB. When deciding on the disk size, remember that customers cannot resize VHDs within an image at the time of deployment. Data disk VHDs should be created as fixed-format VHDs. They should also be sparse. Data disks can initially be empty or contain data.
+Data disks can be as large as 1 TB. When deciding on their size, remember that customers cannot resize VHDs within an image at the time of deployment. Data disk VHDs should be created as fixed-format VHDs. They should also be sparse. Data disks can initially be empty or contain data.
 
 
 ## Install the most current updates
@@ -41,7 +41,7 @@ The base images of operating system VMs contain the latest updates up to their p
 
 For Windows Server 2016, run the **Check for Updates** command.  Otherwise, for older versions of Windows, see [How to get an update through Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update will automatically install the latest critical and important security updates.
 
-For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
+For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
 
 
 ## Perform additional security checks
@@ -69,24 +69,23 @@ Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.
 > [!WARNING]
 >  Because updates may run automatically, once you run sysprep, you should to turn off the VM until it is deployed.  This shutdown will avoid subsequent updates from making instance-specific changes to the VHD OS or installed services.
 
-For more information about running sysprep, see [Steps to generalize a VHD]
-(https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### Linux
 
 Following two-step process will generalize a Linux VM and redeploy it as a separate VM.  For more information, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). 
 
 #### Remove the Azure Linux agent
-1.	Connect to your Linux VM using an SSH client.
-2.	In the SSH window, type the following command: <br/>
+1.  Connect to your Linux VM using an SSH client.
+2.  In the SSH window, type the following command: <br/>
     `sudo waagent -deprovision+user`
-3.	Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
-4.	After the command completes, type `exit` to close the SSH client.
+3.  Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
+4.  After the command completes, type `exit` to close the SSH client.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
 #### Capture the Image
 1.  Go to the Azure portal, select your resource group (RG) and de-allocate the VM.
-2.	Your VHD is generalized now and you can create a new VM by using this VHD.
+2.  Your VHD is generalized now and you can create a new VM by using this VHD.
 
 
 ## Create one or more copies

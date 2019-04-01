@@ -1,8 +1,8 @@
 ---
-title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
+title: Index an Azure Cosmos DB data source - Azure Search 
+description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
-ms.date: 10/17/2018
+ms.date: 02/28/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
@@ -10,66 +10,141 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-robot: noindex
+ms.custom: seodec2018
 ---
-# Connecting Cosmos DB with Azure Search using indexers
+# How to index Cosmos DB using an Azure Search indexer
 
-In this article, learn how to:
+This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
-> [!div class="checklist"]
-> * Configure [Azure Search indexer](search-indexer-overview.md) that uses an Azure Cosmos DB collection as a data source.
-> * Create a search index with JSON-compatible data types.
-> * Configure an indexer for on-demand and recurring indexing.
-> * Incrementally refresh the index based on changes in the underlying data.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Search indexing, your Azure Cosmos DB database must already exist and contain data.
+
+You can use the [portal](#cosmos-indexer-portal), REST APIs, or .NET SDK to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
+
+* [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
+* [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search support for this API is in public preview)  
+
+> [!Note]
+> User Voice has existing items for additional API support. You can cast a vote for the Cosmos APIs you would like to see supported in Azure Search: [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
+[Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
+>
+
+<a name="cosmos-indexer-portal"></a>
+
+## Use the portal
+
+The easiest method for indexing Azure Cosmos items is to use a wizard in the [Azure portal](https://portal.azure.com/). By sampling data and reading metadata on the container, the [**Import data**](search-import-data-portal.md) wizard in Azure Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
+
+We recommend using the same Azure subscription for both Azure Search and Azure Cosmos DB, preferably in the same region.
+
+### 1 - Prepare source data
+
+You should have a Cosmos account, an Azure Cosmos database mapped to the SQL API or MongoDB API, and a container of JSON documents. 
+
+Make sure your Cosmos DB database contains data. The [Import data wizard](search-import-data-portal.md) reads metadata and performs data sampling to infer an index schema, but it also loads data from Cosmos DB. If the data is missing, the wizard stops with this error "Error detecting index schema from data source: Could not build a prototype index because datasource 'emptycollection' returned no data".
+
+### 2 - Start Import data wizard
+
+You can [start the wizard](search-import-data-portal.md) from the command bar in the Azure Search service page, or by clicking **Add Azure Search** in the **Settings** section of your storage account's left navigation pane.
+
+   ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+
+### 3 - Set the data source
+
+> [!NOTE] 
+> Currently, you cannot create or edit **MongoDB** data sources using Azure portal or the .NET SDK. However, you **can** monitor execution history of MongoDB indexers in the portal.
+
+In the **data source** page, the source must be **Cosmos DB**, with the following specifications:
+
++ **Name** is the name of the data source object. Once created, you can choose it for other workloads.
+
++ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEdpointPoint` and an `AccountKey`. The account determines whether data is cast as SQL API or Mongo DB API
+
++ **Database** is an existing database from the account. 
+
++ **Collection** is a container of documents. Documents must exist in order for import to succeed. 
+
++ **Query** can be blank if you want all documents, otherwise you can input a query that selects a document subset. 
+
+   ![Cosmos DB data source definition](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB data source definition")
+
+### 4 - Skip the "Add cognitive search" page in the wizard
+
+Adding cognitive skills is not necessary for document import. Unless you have a specific need to [include Cognitive Services APIs and transformations](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
+
+To skip the step, first go to the next page.
+
+   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
+
+From that page you can skip ahead to index customization.
+
+   ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
+
+### 5 - Set index attributes
+
+In the **Index** page, you should see a list of fields with a data type and a series of checkboxes for setting index attributes. The wizard can generate a fields list based on metadata and by sampling the source data. 
+
+You can bulk-select attributes by clicking the checkbox at the top of an attribute column. Choose **Retrievable** and **Searchable** for every field that should be returned to a client app and subject to full text search processing. You'll notice that integers are not full text or fuzzy searchable (numbers are evaluated verbatim and are often useful in filters).
+
+Review the description of [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for more information. 
+
+Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit these fields without dropping and recreating all objects.
+
+   ![Cosmos DB index definition](media/search-howto-index-cosmosdb/cosmosdb-index-schema.png "Cosmos DB index definition")
+
+### 6 - Create indexer
+
+Fully specified, the wizard creates three distinct objects in your search service. A data source object and index object are saved as named resources in your Azure Search service. The last step creates an indexer object. Naming the indexer allows it to exist as a standalone resource, which you can schedule and manage independently of the index and data source object, created in the same wizard sequence.
+
+If you are not familiar with indexers, an *indexer* is a resource in Azure Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your Cosmos DB data source, extracts searchable content, and imports it into an index on Azure Search.
+
+The following screenshot shows the default indexer configuration. You can switch to **Once** if you want to run the indexer one time. Click **Submit** to run the wizard and create all objects. Indexing commences immediately.
+
+   ![Cosmos DB indexer definition](media/search-howto-index-cosmosdb/cosmosdb-indexer.png "Cosmos DB indexer definition")
+
+You can monitor data import in the portal pages. Progress notifications indicate indexing status and how many documents are uploaded. 
+
+When indexing is complete, you can use [Search explorer](search-explorer.md) to query your index.
+
+> [!NOTE]
+> If you don't see the data you expect, you might need to set more attributes on more fields. Delete the index and indexer you just created, and step through the wizard again, modifying your selections for index attributes in step 5. 
+
+<a name="cosmosdb-indexer-rest"></a>
+
+## Use REST APIs
+
+You can use the REST API to index Azure Cosmos DB data, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Data extraction from Cosmos storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
+
+If you are evaluating MongoDB, you must use the REST API to create the data source.
+
+In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
 
 > [!NOTE]
 > Azure Cosmos DB is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the Azure Search APIs and portal pages. When configuring indexers, be sure to specify the `documentdb` syntax as instructed in this article.
 
-In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container.
 
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
+### 1 - Assemble inputs for the request
 
-<a name="supportedAPIs"></a>
-## Supported API types
+For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-fiddler.md) to send HTTP requests to Azure Search.
 
-Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for MongoDB API is currently in public preview.  
+Copy the following four values into Notepad so that you can paste them into a request:
 
-Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast your vote on the User Voice web site:
++ Azure Search service name
++ Azure Search admin key
++ Cosmos DB connection string
 
-* [Table API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
-* [Graph API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
-* [Apache Cassandra API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
+You can find these values in the portal:
 
-## Prerequisites
+1. In the portal pages for Azure Search, copy the search service URL from the Overview page.
 
-In addition to a Cosmos DB account, you need to have a [Azure Search service](search-create-service-portal.md). 
+2. In the left navigation pane, click **Keys** and then copy either the primary or secondary key (they are equivalent).
 
-In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
+3. Switch to the portal pages for your Cosmos storage account. In the left navigation pane, under **Settings**, click **Keys**. This page provides a URI, two sets of connection strings, and two sets of keys. Copy one of the connection strings to Notepad.
 
-<a name="Concepts"></a>
-## Azure Search indexer concepts
+### 2 - Create a data source
 
 A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
-An **indexer** describes how the data flows from your data source into a target search index. An indexer can be used to:
-
-* Perform a one-time copy of the data to populate an index.
-* Sync an index with changes in the data source on a schedule.
-* Invoke on-demand updates to an index as needed.
-
-To set up an Azure Cosmos DB indexer, you need to create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/). 
-
-This article shows how to use the REST API. If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources, including the index.
-
-> [!TIP]
-> You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
-
-> [!NOTE] 
-> For now, you cannot create or edit **MongoDB** data sources using Azure Portal or the .NET SDK. However, you **can** monitor execution history of MongoDB indexers in the portal.  
-
-<a name="CreateDataSource"></a>
-## Step 1: Create a data source
-To create a data source, do a POST:
+To create a data source, formulate a POST request:
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
@@ -90,20 +165,14 @@ To create a data source, do a POST:
 
 The body of the request contains the data source definition, which should include the following fields:
 
-* **name**: Choose any name to represent your database.
-* **type**: Must be `documentdb`.
-* **credentials**:
-  
-  * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
-  For MongoDB collections, add **ApiKind=MongoDb** to the connection string: 
-`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
-  Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.
-* **container**:
-  
-  * **name**: Required. Specify the id of the database collection to be indexed.
-  * **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index. For MongoDB collections, queries are not supported. 
-* **dataChangeDetectionPolicy**: Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.
-* **dataDeletionDetectionPolicy**: Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.
+| Field   | Description |
+|---------|-------------|
+| **name** | Required. Choose any name to represent your data source object. |
+|**type**| Required. Must be `documentdb`. |
+|**credentials** | Required. Must be a Cosmos DB connection string.<br/>For SQL collections, connection strings are in this format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>For MongoDB collections, add **ApiKind=MongoDb** to the connection string:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.|
+| **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.<br/>For MongoDB collections, queries are not supported. |
+| **dataChangeDetectionPolicy** | Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.|
+|**dataDeletionDetectionPolicy** | Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.|
 
 ### Using queries to shape indexed data
 You can specify a SQL query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
@@ -141,11 +210,10 @@ Array flattening query:
 
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
-<a name="CreateIndex"></a>
-## Step 2: Create an index
-Create a target Azure Search index if you don’t have one already. You can create an index using the [Azure portal UI](search-create-index-portal.md), the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
 
-The following example creates an index with an id and description field:
+### 3 - Create a target search index 
+
+[Create a target Azure Search index](/rest/api/searchservice/create-index) if you don’t have one already. The following example creates an index with an ID and description field:
 
     POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
@@ -187,9 +255,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 | GeoJSON objects, for example { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-<a name="CreateIndexer"></a>
-
-## Step 3: Create an indexer
+### 4 - Configure and run the indexer
 
 Once the index and data source have been created, you're ready to create the indexer:
 
@@ -208,57 +274,19 @@ This indexer runs every two hours (schedule interval is set to "PT2H"). To run a
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-<a id="RunIndexer"></a>
-### Running indexer on-demand
-In addition to running periodically on a schedule, an indexer can also be invoked on demand:
+## Use .NET
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
-    api-key: [Search service admin key]
+The .NET SDK has fully parity with the REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
-> [!NOTE]
-> When Run API returns successfully, the indexer invocation has been scheduled, but the actual processing happens asynchronously. 
-
-You can monitor the indexer status in the portal or using the Get Indexer Status API, which we describe next. 
-
-<a name="GetIndexerStatus"></a>
-### Getting indexer status
-You can retrieve the status and execution history of an indexer:
-
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
-    api-key: [Search service admin key]
-
-The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.
-
-    {
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-         },
-        "executionHistory":[ {
-            "status":"success",
-             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-        }]
-    }
-
-Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
+
 ## Indexing changed documents
+
 The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified as follows:
 
     {
@@ -271,7 +299,9 @@ Using this policy is highly recommended to ensure good indexer performance.
 If you are using a custom query, make sure that the `_ts` property is projected by the query.
 
 <a name="IncrementalProgress"></a>
+
 ### Incremental progress and custom queries
+
 Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to reindex the entire collection from scratch. This is especially important when indexing large collections. 
 
 To enable incremental progress when using a custom query, ensure that your query orders the results by the `_ts` column. This enables periodic check-pointing that Azure Search uses to provide incremental progress in the presence of failures.   
@@ -285,7 +315,9 @@ In some cases, even if your query contains an `ORDER BY [collection alias]._ts` 
     } 
 
 <a name="DataDeletionDetectionPolicy"></a>
+
 ## Indexing deleted documents
+
 When rows are deleted from the collection, you normally want to delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
     {
@@ -320,7 +352,14 @@ The following example creates a data source with a soft-deletion policy:
         }
     }
 
+## Watch this video
+
+In this slightly older 7-minute video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container. The portal pages shown in the video are outdated, but the information is still relevant.
+
+>[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
+
 ## <a name="NextSteps"></a>Next steps
+
 Congratulations! You have learned how to integrate Azure Cosmos DB with Azure Search using an indexer.
 
 * To learn more about Azure Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/cosmos-db/).

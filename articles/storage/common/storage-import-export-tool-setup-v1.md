@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Setting up the Azure Import/Export Tool
@@ -40,36 +40,36 @@ If you are preparing drives for an import job, you will need to meet the followi
   
 If you are attempting to repair an import that has partially failed, you will need:  
   
--   The copy log files  
+- The copy log files  
   
--   The storage account key  
+- The storage account key  
   
   If you are attempting to repair an export that has partially failed, you will need:  
   
--   The copy log files  
+- The copy log files  
   
--   The manifest files (optional)  
+- The manifest files (optional)  
   
--   The storage account key  
+- The storage account key  
   
 ## Installing the Azure Import/Export Tool  
  The Azure Import/Export Tool consists of the following files:  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Copy these files to a working directory, for example, `c:\WAImportExport`. Next, open a command line window in Administrator mode, and set the above directory as current directory.  
+  Copy these files to a working directory, for example, `c:\WAImportExport`. Next, open a command line window in Administrator mode, and set the above directory as current directory.  
   
- To output help for the command, run the tool without parameters:  
+  To output help for the command, run the tool without parameters:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

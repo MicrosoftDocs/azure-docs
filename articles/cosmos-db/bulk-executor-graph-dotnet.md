@@ -1,17 +1,13 @@
 ---
 title: Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
 description: Learn how to use the BulkExecutor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
-services: cosmos-db
-keywords: graph, gremlin, bulk, bulkexecutor, migration, data, cosmosdb, cosmos, database, import
 author: luisbosquez
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
-ms.custom: mvc
-
+ms.reviewer: sngun
 ---
 
 # Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
@@ -154,6 +150,6 @@ Setting|Description
 3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .Net library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Check out the [Performance Tips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) to further optimize the usage of BulkExecutor.
 * Review the [BulkExecutor.Graph Reference article](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) for more details about the classes and methods defined in this namespace.

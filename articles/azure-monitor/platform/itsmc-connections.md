@@ -9,15 +9,13 @@ ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: 
 ---
 
 # Connect ITSM products/services with IT Service Management Connector
-This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about ITSMC,  see [Overview](../../log-analytics/log-analytics-itsmc-overview.md).
+This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about ITSMC,  see [Overview](../../azure-monitor/platform/itsmc-overview.md).
 
 The following ITSM products/services are supported. Select the product to view detailed information about how to connect the product to ITSMC.
 
@@ -27,7 +25,7 @@ The following ITSM products/services are supported. Select the product to view d
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
@@ -38,7 +36,7 @@ The following sections provide details about how to connect your System Center S
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
@@ -59,7 +57,7 @@ Use the following procedure to connect your System Center Service Manager instan
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -67,7 +65,7 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Connection Name**   | Type a name for the System Center Service Manager instance that you want to connect with ITSMC.  You use this name later when you configure work items in this instance/ view detailed log analytics. |
 | **Partner type**   | Select **System Center Service Manager**. |
 | **Server URL**   | Type the URL of the Service Manager Web app. More information about Service Manager Web app is [here](#create-and-deploy-service-manager-web-app-service).
-| **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](../../log-analytics/log-analytics-itsmc-service-manager-script.md)|
+| **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Client Secret**   | Type the client secret, generated for this ID.   |
 | **Data Sync Scope**   | Select the Service Manager work items that you want to sync through ITSMC.  These work items are imported into Log Analytics. **Options:**  Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
@@ -82,7 +80,7 @@ Use the following procedure to connect your System Center Service Manager instan
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Service Manager instance.
 
 
-Learn more: [Create ITSM work items from Azure alerts](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Create and deploy Service Manager web app service
 
@@ -90,11 +88,11 @@ To connect the on-premises Service Manager with ITSMC in Azure, Microsoft has cr
 
 To set up the ITSM Web app for your Service Manager, do the following:
 
-- **Deploy the Web app** – Deploy the Web app, set the properties, and authenticate with Azure AD. You can deploy the web app by using the [automated script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) that Microsoft has provided you.
+- **Deploy the Web app** – Deploy the Web app, set the properties, and authenticate with Azure AD. You can deploy the web app by using the [automated script](../../azure-monitor/platform/itsmc-service-manager-script.md) that Microsoft has provided you.
 - **Configure the hybrid connection** - [Configure this connection](#configure-the-hybrid-connection), manually.
 
 #### Deploy the web app
-Use the automated [script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) to deploy the Web app, set the properties, and authenticate with Azure AD.
+Use the automated [script](../../azure-monitor/platform/itsmc-service-manager-script.md) to deploy the Web app, set the properties, and authenticate with Azure AD.
 
 Run the script by providing the following required details:
 
@@ -134,14 +132,14 @@ Use the following procedure to configure the hybrid connection that connects the
 
 6. Type the following values:
 
-    - **EndPoint Name**: Specify a name for the new Hybrid connection.
-    -  **EndPoint Host**: FQDN of the Service Manager management server.
-    - **EndPoint Port**: Type 5724
-    - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
-    - **Location**: select the location.
-    -  **Name**: Specify a name to the servicebus if you are creating it.
+   - **EndPoint Name**: Specify a name for the new Hybrid connection.
+   - **EndPoint Host**: FQDN of the Service Manager management server.
+   - **EndPoint Port**: Type 5724
+   - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
+   - **Location**: select the location.
+   - **Name**: Specify a name to the servicebus if you are creating it.
 
-    ![Hybrid connection values](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Hybrid connection values](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
     Once the Hybrid connection is created, it is displayed under the blade.
@@ -168,7 +166,7 @@ Your hybrid connection is successfully connected.
 
 ![successful hybrid connection](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in Azure.
 
 The following sample image shows the details of a successful connection:
@@ -181,7 +179,7 @@ The following sections provide details about how to connect your ServiceNow prod
 
 ### Prerequisites
 Ensure the following prerequisites are met:
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow supported versions: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins must do the following in their ServiceNow instance**:
@@ -221,7 +219,7 @@ Use the following procedure to create a ServiceNow connection:
 | **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to ITSMC. More information: [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app).|
 | **Password**   | Type the password associated with this user name. **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service.  |
 | **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to ITSMC. |
-| **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret**   | Type the client secret, generated for this ID.   |
 | **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through the ITSMC.  The selected values are imported into log analytics.   **Options:**  Incidents and Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
@@ -235,26 +233,26 @@ Use the following procedure to create a ServiceNow connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this ServiceNow instance.
 
-Learn more: [Create ITSM work items from Azure alerts](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Create integration user role in ServiceNow app
 
 User the following procedure:
 
-1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
+1. Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
    
    >[!NOTE]
    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
-2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
-3.	Click **Installation Checklist**.
+2. After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
+3. Click **Installation Checklist**.
 
-    The status is displayed as  **Not complete** if the user role is yet to be created.
+   The status is displayed as  **Not complete** if the user role is yet to be created.
 
-4.	In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
-5.	Enter the password for this user, and click **OK**.  
+4. In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
+5. Enter the password for this user, and click **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > You use these credentials to make the ServiceNow connection in Azure.
 
 The newly created user is displayed with the default roles assigned.
@@ -270,9 +268,9 @@ The newly created user is displayed with the default roles assigned.
 Once the user is successfully created, the status of **Check Installation Checklist** moves to Completed, listing the details of the user role created for the app.
 
 > [!NOTE]
-
+> 
 > ITSM Connector can send incidents to ServiceNow without any other modules installed on your ServiceNow instance. If you are using EventManagement module in your ServiceNow instance and wish to create Events or Alerts in ServiceNow using the connector, add the following roles to the integration user:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -287,8 +285,8 @@ The following sections provide details about how to connect your Provance produc
 Ensure the following prerequisites are met:
 
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - User role:  Administrator.
 
@@ -306,7 +304,7 @@ Use the following procedure to create a Provance connection:
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -316,7 +314,7 @@ Use the following procedure to create a Provance connection:
 | **Username**   | Type the user name that can connect to ITSMC.    |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service._|
 | **Server URL**   | Type the URL of your Provance instance that you want to connect to ITSMC. |
-| **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md). |
 | **Data Sync Scope**   | Select the Provance work items that you want to sync to Azure Log Analytics, through ITSMC.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
@@ -329,7 +327,7 @@ Use the following procedure to create a Provance connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Provance instance.
 
-Learn more: [Create ITSM work items from Azure alerts](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## Connect Cherwell to IT Service Management Connector in Azure
 
@@ -339,7 +337,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
@@ -357,7 +355,7 @@ Use the following procedure to create a Provance connection:
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -381,7 +379,7 @@ Use the following procedure to create a Provance connection:
 
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this Cherwell instance.
 
-Learn more: [Create ITSM work items from Azure alerts](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Generate client ID for Cherwell
 
@@ -395,4 +393,4 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 
 ## Next steps
- - [Create ITSM work items from Azure alerts](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

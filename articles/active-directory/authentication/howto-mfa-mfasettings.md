@@ -1,18 +1,19 @@
 ---
-title: Configure Azure Multi-Factor Authentication
+title: Configure Azure Multi-Factor Authentication - Azure Active Directory
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/26/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication settings
 
@@ -60,7 +61,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username@domain.com**. Enter a comment in the **Reason** field.
+4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
 
 ### Unblock a user
@@ -150,7 +151,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
+5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
 6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
 
 ### View the one-time bypass report
@@ -248,11 +249,14 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## Trusted IPs
 
 The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+
+> [!NOTE]
+> MFA trusted IPs and conditional access named locations only work with IPV4 addresses.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
@@ -381,3 +385,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 ### Mark a device as trusted
 
 After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
+
+## Next steps
+
+[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md)

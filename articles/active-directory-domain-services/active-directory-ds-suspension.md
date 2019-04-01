@@ -4,12 +4,12 @@ description: Managed domain suspension and deletion
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +24,7 @@ When Azure Active Directory Domain Services (Azure AD DS) is unable to service a
 
 ## States your managed domain can be in
 
-![Suspended domain timeline](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Suspended domain timeline](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 The preceding graphic outlines the possible states an Azure AD DS managed domain can be in.
 

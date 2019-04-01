@@ -1,5 +1,5 @@
 ﻿---
-title: Create an Azure Time Series Insights single-page web app
+title: 'Tutorial: Create an Azure Time Series Insights single-page web app | Microsoft Docs'
 description: Learn how to create a single-page web application that queries and renders data from a TSI environment.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
+ms.custom: seodec18
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
@@ -49,7 +50,7 @@ Before building the application, you need to register it with Azure AD. Registra
    ---|---
    **Name** | Provide a meaningful registration name.  
    **Application type** | Since you're building an SPA web application, leave as "Web app/API."
-   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https://azurewebsites.net" domain. In this example, the name is based on the registration name.
+   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https:\//azurewebsites.net" domain. In this example, the name is based on the registration name.
 
    When finished, click **Create** to create the new application registration.
 

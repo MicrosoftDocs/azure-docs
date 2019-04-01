@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with IriusRisk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IriusRisk.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: d2c854d5-101d-4d67-80e0-87749e1a0352
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with IriusRisk
 
@@ -35,7 +36,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with IriusRisk, you need the following items:
 
 - An Azure AD subscription
-- A IriusRisk single sign-on enabled subscription
+- An IriusRisk single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -85,7 +86,7 @@ To configure and test Azure AD single sign-on with IriusRisk, you need to comple
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a IriusRisk test user](#create-a-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
+1. **[Create an IriusRisk test user](#create-an-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -160,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a IriusRisk test user
+### Create an IriusRisk test user
 
 The objective of this section is to create a user called Britta Simon in IriusRisk. IriusRisk supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access IriusRisk if it doesn't exist yet.
 

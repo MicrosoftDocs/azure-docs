@@ -20,14 +20,18 @@
     href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
+  - name: Route traffic from a virtual hub to an NVA
+    items:
+      - name: Azure portal
+        href: virtual-wan-route-table-portal.md
+      - name: Azure PowerShell
+        href: virtual-wan-route-table.md
   - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
-  - name: Route traffic from a virtual hub to an NVA
-    href: virtual-wan-route-table.md
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network#networking
+    href: /powershell/module/az.network#networking
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI

@@ -22,18 +22,18 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
 
 3. On the **Create storage account** page, take the following steps: 
 
-    1. Enter a name for the storage account. 
-    2. Choose an Azure subscription that contains the event hub.
-    3. Select the resource group that has the event hub.
-    4. Select a location in which to create the resource. 
-    5. Then click **Review + create**.
+   1. Enter a name for the storage account. 
+   2. Choose an Azure subscription that contains the event hub.
+   3. Select the resource group that has the event hub.
+   4. Select a location in which to create the resource. 
+   5. Then click **Review + create**.
    
-    ![Create storage account - page](./media/event-hubs-create-storage/create-storage2.png)
+      ![Create storage account - page](./media/event-hubs-create-storage/create-storage2.png)
 
 4. On the **Review + create** page, review the values, and select **Create**. 
 
     ![Review storage account settings and create](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. After you see the **Deployments Succeeded** message, select **Got to resource** at the top of the page. You can also launch the Storage Account page by selecting your storage account from the resource list.  
+5. After you see the **Deployments Succeeded** message, select **Go to resource** at the top of the page. You can also launch the Storage Account page by selecting your storage account from the resource list.  
 
     ![Select the storage account from deployment](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. In the **Essentials** window, select **Blobs**. 

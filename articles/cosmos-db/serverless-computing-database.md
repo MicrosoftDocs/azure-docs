@@ -1,9 +1,7 @@
 ---
 title: Serverless database computing - Azure Functions and Azure Cosmos DB
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
@@ -25,7 +23,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including MongoDB API, Cassandra API, Gremlin API, and Table API.
+> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API.
 
 
 The following diagram illustrates each of these three integrations: 
@@ -94,11 +92,11 @@ In retail implementations, when a user adds an item to their basket you now have
 
 1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
-    * One function may use the contents of the current basket to change the display of other items the user might be interested in.
-    * Another function may update inventory totals.
-    * Another function may send customer information for certain products to the marketing department, who sends them a promotional mailer. 
+   * One function may use the contents of the current basket to change the display of other items the user might be interested in.
+   * Another function may update inventory totals.
+   * Another function may send customer information for certain products to the marketing department, who sends them a promotional mailer. 
 
-    Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
+     Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
 
 In all of these use cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 

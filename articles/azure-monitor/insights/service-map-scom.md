@@ -1,28 +1,22 @@
 ---
 title: Service Map integration with System Center Operations Manager | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using Service Map to automatically create distributed application diagrams in Operations Manager.
-services:  monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
-
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service:  monitoring
-ms.devlang: na
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-
+ms.author: magoedte
 ---
 
 # Service Map integration with System Center Operations Manager
-  > [!NOTE]
-  > This feature is in public preview.
-  > 
-  
+
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation]( service-map.md).
 
 With this integration between Service Map and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Service Map.
@@ -41,7 +35,7 @@ You enable the integration between Operations Manager and Service Map by importi
 * Microsoft System Center Service Map
 
 ## Configure the Service Map integration
-After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane. 
+After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane.
 
 >[!NOTE]
 >[Operations Management Suite was a collection of services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -52,7 +46,7 @@ To configure Service Map integration, do the following:
 
     ![Service Map Overview pane](media/service-map-scom/scom-configuration.png)
 
-2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to [Create a service principal](#creating-a-service-principal).
+2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to Create a service principal.
 
     ![The Connection Configuration window](media/service-map-scom/scom-config-spn.png)
 
@@ -61,18 +55,18 @@ To configure Service Map integration, do the following:
     ![The Operations Manager Configuration Workspace](media/service-map-scom/scom-config-workspace.png)
 
 4. In the **Machine Group Selection** window, you choose which Service Map Machine Groups you want to sync to Operations Manager. Click **Add/Remove Machine Groups**, choose groups from the list of **Available Machine Groups**, and click **Add**.  When you are finished selecting groups, click **Ok** to finish.
-    
+
     ![The Operations Manager Configuration Machine Groups](media/service-map-scom/scom-config-machine-groups.png)
-	
+
 5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
-    
+
     For the integration to build a distributed application diagram for a server, the server must be:
 
-    * Managed by Operations Manager
-    * Managed by Service Map
-    * Listed in the Service Map Servers Group
+   * Managed by Operations Manager
+   * Managed by Service Map
+   * Listed in the Service Map Servers Group
 
-    ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
+     ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
 
 6. Optional: Select the Management Server resource pool to communicate with Log Analytics, and then click **Add Workspace**.
 
@@ -89,7 +83,7 @@ After the Log Analytics workspace is connected, a new folder, Service Map, is di
 ![The Operations Manager Monitoring pane](media/service-map-scom/scom-monitoring.png)
 
 The Service Map folder has four nodes:
-* **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map.  Note that these alerts are not Log Analytics alerts being synced to Operations Manager. 
+* **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map.  Note that these alerts are not Log Analytics alerts being synced to Operations Manager.
 
 * **Servers**: Lists the monitored servers that are configured to sync from Service Map.
 
@@ -118,9 +112,9 @@ A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodical
 
 ![The Operations Manager Overrides properties window](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: Enable or disable automatic updates. 
+* **Enabled**: Enable or disable automatic updates.
 * **IntervalMinutes**: Reset the time between updates. The default interval is one hour. If you want to sync server maps more frequently, you can change the value.
-* **TimeoutSeconds**: Reset the length of time before the request times out. 
+* **TimeoutSeconds**: Reset the length of time before the request times out.
 * **TimeWindowMinutes**: Reset the time window for querying data. Default is a 60-minute window. The maximum value allowed by Service Map is 60 minutes.
 
 ## Known issues and limitations

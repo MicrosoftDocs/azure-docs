@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -40,6 +40,8 @@ In the web application, authorized users can access the Administrator Console. T
 * Deploy Microsoft provided smart contracts for popular scenarios. For example, an asset transfer scenario.
 * Upload and deploy their own smart contracts.
 * Assign a user access to the smart contract in the context of a specific role.
+
+For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
 
 ## Gateway service API
 

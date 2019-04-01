@@ -8,14 +8,11 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by v2 API
-
-> [!Note]
-> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
@@ -74,7 +71,7 @@ This section shows the summary of the insights.
 |Attribute | Description|
 |---|---|
 |name|The name of the video. For example, Azure Monitor.|
-|shortId|The ID of the video. For example, 63c6d532ff.|
+|id|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
@@ -159,10 +156,10 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
 |brands|The [brands](#brands) dimension.|
-|audioEffects|The [audioEffects](#audioEffects) dimension.|
+|audioEffects|The [audioEffects](#audioeffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
 |topics|The [topics](#topics) dimension.|
 
@@ -183,7 +180,7 @@ Example:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -241,34 +238,26 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
+|height|The height of the OCR rectangle|
+|top|The top location in px|
+|left| The left location in px|
+|width|The width of the  OCR rectangle|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }
@@ -330,7 +319,7 @@ Example:
 |name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently, just Bing.|
@@ -549,12 +538,12 @@ Business and product brand names detected in the speech to text transcript and/o
 |Name|Description|
 |---|---|
 |CorrespondenceCount|Number of correspondences in the video.|
-|WordCount|The number of words per speaker.|
+|SpeakerWordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects
+#### <a id="audioEffects"/>audioEffects
 
 |Name|Description|
 |---|---|
@@ -658,7 +647,7 @@ Videos that are found to contain adult or racy content might be available for pr
 ] 
 ```
 
-#### textualConentModeration 
+#### textualContentModeration 
 
 |Name|Description|
 |---|---|

@@ -1,6 +1,6 @@
 ---
-title: Joins in Azure Log Analytics queries | Microsoft Docs
-description: This article includes a lesson on using joins in the Log Analytics query language.
+title: Joins in Azure Monitor log queries | Microsoft Docs
+description: This article includes a lesson on using joins in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -16,10 +16,10 @@ ms.author: bwren
 ---
 
 
-# Joins in Log Analytics queries
+# Joins in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Azure Monitor log queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -98,11 +98,11 @@ Consider the following points for optimal performance:
 
 - Use a time filter on each table to reduce the records that must be evaluated for the join.
 - Use `where` and `project` to reduce the numbers of rows and columns in the input tables before the join.
-* If one table is always smaller than the other, use it as the left side of the join.
+- If one table is always smaller than the other, use it as the left side of the join.
 
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for using Azure Monitor log queries:
 
 - [String operations](string-operations.md)
 - [Aggregation functions](aggregations.md)

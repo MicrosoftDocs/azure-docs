@@ -11,7 +11,7 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
@@ -70,7 +70,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create datasets to represent input and output data for the copy operation. 
 3. Create a pipeline with a copy activity that takes a dataset as an input and a dataset as an output. 
 
-When you use the Copy Wizard, JSON definitions for the Data Factory linked services, datasets, and pipeline entities are automatically created for you. When you use tools or APIs (except the .NET API), you define the Data Factory entities by using the JSON format. The [JSON example: Copy data from DB2 to Azure Blob storage](#json-example-copy-data-from-db2-to-azure-blob) shows the JSON definitions for the Data Factory entities that are used to copy data from an on-premises DB2 data store.
+When you use the Copy Wizard, JSON definitions for the Data Factory linked services, datasets, and pipeline entities are automatically created for you. When you use tools or APIs (except the .NET API), you define the Data Factory entities by using the JSON format. The JSON example: Copy data from DB2 to Azure Blob storage shows the JSON definitions for the Data Factory entities that are used to copy data from an on-premises DB2 data store.
 
 The following sections provide details about the JSON properties that are used to define the Data Factory entities that are specific to a DB2 data store.
 
@@ -114,7 +114,7 @@ This example provides sample JSON definitions that you can use to create a pipel
 
 The sample has the following Data Factory entities:
 
-- A DB2 linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
+- A DB2 linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md)
 - An Azure Blob storage linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)

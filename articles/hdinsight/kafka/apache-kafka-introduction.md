@@ -33,7 +33,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
     For more information, see [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md).
 
-* Azure Log Analytics can be used to monitor Kafka on HDInsight. Log Analytics surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
+* Azure Monitor logs can be used to monitor Kafka on HDInsight. Azure Monitor logs surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
 
     For more information, see [Analyze logs for Apache Kafka on HDInsight](apache-kafka-log-analytics-operations-management.md).
 

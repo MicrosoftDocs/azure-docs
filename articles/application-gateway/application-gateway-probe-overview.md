@@ -19,6 +19,8 @@ Azure Application Gateway by default monitors the health of all resources in its
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Default health probe
 
 An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool. For default probes if the backend http settings are configured for HTTPS, the probe uses HTTPS as well to test health of the backends.
@@ -29,20 +31,20 @@ If the default probe check fails for server A, the application gateway removes i
 
 ### Probe Matching
 
-By default, an HTTP(S) response with status code 200 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what constitutes a healthy response.
+By default, an HTTP(S) response with status code between 200 and 399 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what constitutes a healthy response.
 
 The following are matching criteria: 
 
 - **HTTP response status code match** - Probe matching criterion for accepting user specified http response code or response code ranges. Individual comma-separated response status codes or a range of status code is supported.
 - **HTTP response body match** - Probe matching criterion that looks at HTTP response body and matches with a user specified string. The match only looks for presence of user specified string in response body and is not a full regular expression match.
 
-Match criteria can be specified using the `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Match criteria can be specified using the `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
 For example:
 
-```
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
 
@@ -58,7 +60,7 @@ Once the match criteria is specified, it can be attached to probe configuration 
 > [!NOTE]
 > The port is the same port as the back-end HTTP settings.
 
-The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
+The default probe looks only at http:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
 
 ### Probe intervals
 

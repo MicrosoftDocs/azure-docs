@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
 ---
 # Prepay for SUSE software plans from Azure Reservations
@@ -21,7 +21,7 @@ Prepay for your SUSE usage and save money over your pay-as-you-go costs. The dis
 You can buy SUSE software plans in the Azure portal. To buy a plan:
 
 - You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
+- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the SUSE plans.
 
 ## Buy a SUSE software plan
@@ -33,8 +33,8 @@ You can buy SUSE software plans in the Azure portal. To buy a plan:
     | Field      | Description|
     |:------------|:--------------|
     |Name        |The name of this purchase.|
-    |Subscription|The subscription used to pay for this plan. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer number: MS-AZR-0017P) or Pay-As-You-Go (offer number: MS-AZR-0003P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The plan discount is applied to SUSE Linux usage in this subscription. </li><li>Shared - The plan discount is applied to SUSE Linux usage in any subscription within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions (except dev/test subscriptions) within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
+    |Subscription|The subscription used to pay for this plan. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|
+    |Scope       |The scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The plan discount is applied to SUSE Linux usage in this subscription. </li><li>Shared - The plan discount is applied to SUSE Linux usage in any subscription within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
     |Software plan     |Select the SUSE Linux plan. For help in identifying what to buy, see [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md).|
     |VM size     |SUSE Linux pricing depends on the number of vCPUs on the VM. Select the option that represents the number of vCPUs on your SUSE Linux VMs.|
     |Term        |One year or three years.|

@@ -1,27 +1,26 @@
 ---
-title: Dedicated capacity for machine learning batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs
-description: Overview of Azure Batch services for Machine Learning jobs.
+title: Azure Batch service jobs
+titleSuffix: Azure Machine Learning Studio
+description: Overview of Azure Batch services for Machine Learning Studio jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
 ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
 ---
-# Azure Batch service for Machine Learning jobs
+# Azure Batch service for Azure Machine Learning Studio jobs
 
 Machine Learning Batch Pool processing provides customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing for machine learning takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 
 Batch Pool processing allows you to create pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Your BES job runs in its own processing space providing predictable processing performance and the ability to create resource pools that
 correspond to the processing load that you submit.
+
+> [!NOTE]
+> You must have a New Resource Manager based Machine Learning web service to create a pool. Once created, you can run any BES web service, both New Resource Manager based and classic, on the pool.
 
 ## How to use Batch Pool processing
 
@@ -36,7 +35,7 @@ After your account is created, you use the Pool Service URL and authorization ke
 
 ![Batch pool service architecture.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association. The Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, you choose on the pool.
+You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association. The Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, on the pool.
 
 You can use any New Resource Manager based web service, but be aware that the billing for the jobs are charged against the billing plan associated with that service. You may want to create a web service and new billing plan specifically for running Batch Pool jobs.
 

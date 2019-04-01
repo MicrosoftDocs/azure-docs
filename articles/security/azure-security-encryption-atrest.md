@@ -4,7 +4,7 @@ description: This article provides an overview of Microsoft Azure data  encrypti
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -254,16 +254,17 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             | **Client-Side Using Client-Managed**      |
-| **Storage and Databases**        |                    |                    |                    |                    |
+| **Storage and Databases**        |                    |                    |                    |
 | Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | -                  |
 | SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL (Database/Data Warehouse) | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure SQL (Database Managed Instance) | Yes                | Preview, RSA 2048-bit  | Yes                |
 | Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  |
 | Azure Storage (Tables, Queues)   | Yes                | -                  | Yes                |
 | Cosmos DB (Document DB)          | Yes                | -                  | -                  |
 | StorSimple                       | Yes                | -                  | Yes                |
-| Backup                           | -                  | -                  | Yes                |
+| Backup                           | Yes                | -                  | Yes                |
 | **Intelligence and Analytics**   |                    |                    |                    |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -                  |

@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machine-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:

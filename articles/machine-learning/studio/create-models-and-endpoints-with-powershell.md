@@ -1,23 +1,18 @@
 ---
-title: Create multiple models from one experiment - Azure Machine Learning Studio | Microsoft Docs
+title: Create multiple endpoints for a model
+titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=haining, author=hning86)"
-ms.author: amlstudiodocs
-manager: mwinkle
-editor: cgronlun
-ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 04/04/2017
 ---
-# Azure Machine Learning Studio: Use PowerShell to create many models and web service endpoints from one experiment
+# Use PowerShell to create Studio models and web service endpoints from one experiment
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
 
@@ -25,9 +20,9 @@ For example, let's say you own a global bike rental franchise business. You want
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
-Fortunately, you can accomplish this by using the [Azure Machine Learning retraining API](retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](powershell-module.md).
+Fortunately, you can accomplish this by using the [Azure Machine Learning Studio retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > To make your sample run faster, reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. However, if you do want to train from 1,000 datasets you might want to run the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  
@@ -35,7 +30,7 @@ Fortunately, you can accomplish this by using the [Azure Machine Learning retrai
 > 
 
 ## Set up the training experiment
-Use the example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
+Use the example [training experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](https://gallery.azure.ai). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
 
 > [!NOTE]
 > In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. You create one endpoint for each customer - for a total of 10 endpoints - and that requires a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just change the scripts to allow for only th locations.
@@ -44,7 +39,7 @@ Use the example [training experiment](https://gallery.cortanaintelligence.com/Ex
 
 The experiment uses an **Import Data** module to import the training dataset *customer001.csv* from an Azure storage account. Let's assume you have collected training datasets from all bike rental locations and stored them in the same blob storage location with file names ranging from *rentalloc001.csv* to *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Reader module imports data from an Azure blob](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Note that a **Web Service Output** module has been added to the **Train Model** module.
 When this experiment is deployed as a web service, the endpoint associated with that output returns the trained model in the format of an .ilearner file.
@@ -52,7 +47,7 @@ When this experiment is deployed as a web service, the endpoint associated with 
 Also note that you set up a web service parameter that defines the URL that the **Import Data** module uses. This allows you to use the parameter to specify individual training datasets to train the model for each location.
 There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a SQL Azure database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![A Trained Model module outputs to a Web service output module](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Now, let's run this training experiment using the default value *rental001.csv* as the training dataset. If you view the output of the **Evaluate** module (click the output and select **Visualize**), you can see you get a decent performance of *AUC* = 0.91. At this point, you're ready to deploy a web service out of this training experiment.
 
@@ -63,7 +58,7 @@ Now you need to deploy the scoring web service.
 To do this, click **Set Up Web Service** below the canvas and select **Predictive Web Service**. This creates a scoring experiment.
 You need to make a few minor adjustments to make it work as a web service. Remove the label column "cnt" from the input data and limit the output to only the instance id and the corresponding predicted value.
 
-To save yourself that work, you can open the [predictive experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that has already been prepared.
+To save yourself that work, you can open the [predictive experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that has already been prepared.
 
 To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring".
 
@@ -89,7 +84,7 @@ Then, run the following PowerShell command:
 
 Now you created 10 endpoints and they all contain the same trained model trained on *customer001.csv*. You can view them in the Azure portal.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![View the list of trained models in the portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## Update the endpoints to use separate training datasets using PowerShell
 The next step is to update the endpoints with models uniquely trained on each customer's individual data. But first you need to produce these models from the **Bike Rental Training** web service. Let's go back to the **Bike Rental Training** web service. You need to call its BES endpoint 10 times with 10 different training datasets in order to produce 10 different models. Use the **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet to do this.

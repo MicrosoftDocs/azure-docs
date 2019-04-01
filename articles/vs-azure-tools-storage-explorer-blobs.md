@@ -27,7 +27,7 @@ to work with blob containers and blobs.
 To complete the steps in this article, you'll need the following:
 
 * [Download and install Storage Explorer](https://www.storageexplorer.com)
-* [Connect to a Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Connect to an Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
 All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.

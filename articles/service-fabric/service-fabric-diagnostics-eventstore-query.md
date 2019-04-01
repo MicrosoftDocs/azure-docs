@@ -3,8 +3,8 @@ title: Query for cluster events using the EventStore APIs in Azure Service Fabri
 description: Learn how to use the Azure Service Fabric EventStore APIs to query for platform events
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-manager: timlt
+author: srrengar
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/29/2018
-ms.author: dekapur
+ms.date: 02/25/2019
+ms.author: srrengar
 
 ---
 

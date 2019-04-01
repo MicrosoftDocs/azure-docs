@@ -3,9 +3,9 @@ title: Threats - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Threat category page for the Microsoft Threat Modeling Tool, containing categories for all exposed generated threats.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security

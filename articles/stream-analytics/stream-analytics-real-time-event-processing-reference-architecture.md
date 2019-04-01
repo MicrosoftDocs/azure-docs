@@ -4,7 +4,6 @@ description: This article describes the reference architecture to achieve real-t
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual

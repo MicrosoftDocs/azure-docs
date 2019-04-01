@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn the attributes you can use with the Paper entity in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
@@ -59,7 +59,7 @@ VSN		| Venue Short Name - short name of the Journal or Conference
 V		| Volume - journal volume
 BV		| Journal Name
 BT		| 
-PB		| Journal Abreviations
+PB		| Journal Abbreviations
 I 		| Issue - journal issue
 FP		| FirstPage - first page of paper
 LP 		| LastPage - last page of paper

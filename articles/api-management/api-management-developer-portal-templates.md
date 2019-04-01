@@ -41,15 +41,15 @@ The templates list displays several categories of templates covering the differe
 
 ![Developer portal templates][api-management-templates-menu]
 
-Clicking a template takes you to the developer portal page that is customizable by that template. In this example, the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle. 
+Clicking a template takes you to the developer portal page that is customizable by that template. In this example, the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle.
 
 ![Products list template][api-management-developer-portal-templates-overview]
 
-Some templates, like the **User Profile** templates, customize different parts of the same page. 
+Some templates, like the **User Profile** templates, customize different parts of the same page.
 
 ![User profile templates][api-management-user-profile-templates]
 
-The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template. 
+The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template.
 
 The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](#to-publish-a-template) the template.
 
@@ -114,7 +114,7 @@ The markup in the **Product list** template processes the data to provide the de
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -205,10 +205,3 @@ For reference information for developer portal templates, string resources, icon
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

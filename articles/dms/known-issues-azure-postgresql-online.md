@@ -3,14 +3,14 @@ title: Article about known issues/migration limitations with online migrations t
 description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+ms.author: jtoland
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
+ms.date: 03/12/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for PostgreSQL
@@ -93,7 +93,7 @@ Large Object (LOB) columns are columns that can grow large. For PostgreSQL, exam
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitation**: If there are LOB columns in the table, and there's no primary key set for the table, data might not be migrated for this table.
 

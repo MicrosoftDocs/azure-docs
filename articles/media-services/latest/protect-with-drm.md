@@ -11,9 +11,10 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.topic: conceptual
+ms.date: 02/10/2019
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Use DRM dynamic encryption and license delivery service
@@ -47,14 +48,14 @@ This article is based on the [Encrypting with DRM](https://github.com/Azure-Samp
 
     You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already.  
 
-    ![protect with drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
 
 The sample described in this article produces the following result:
 
-![protect with drm](./media/protect-with-drm/ams_player.png)
+![AMS with DRM protected video](./media/protect-with-drm/ams_player.png)
 
 ## Prerequisites
 

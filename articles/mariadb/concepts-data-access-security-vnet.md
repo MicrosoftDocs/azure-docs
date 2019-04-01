@@ -3,16 +3,11 @@ title: 'Azure Database for MariaDB Server VNet services endpoint overview | Micr
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 02/26/2019
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
-
-> [!IMPORTANT]
-> The VNet service endpoints feature is in Public Preview.
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for MariaDB server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for MariaDB server.
 
@@ -143,7 +138,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

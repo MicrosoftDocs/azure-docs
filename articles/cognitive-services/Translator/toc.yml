@@ -56,7 +56,7 @@
           href: quickstart-python-detect.md
         - name: Ruby, REST
           href: quickstart-ruby-detect.md
-      - name: Get alternate translations
+      - name: Look up word translations
         items:
         - name: C#, REST
           href: quickstart-csharp-dictionary.md
@@ -200,6 +200,8 @@
       href: custom-translator/document-formats-naming-convention.md
     - name: Sentence alignment
       href: custom-translator/sentence-alignment.md
+    - name: Data filtering
+      href: custom-translator/data-filtering.md
     - name: Training and model
       href: custom-translator/training-and-model.md
     - name: BLEU Score
@@ -227,7 +229,7 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ

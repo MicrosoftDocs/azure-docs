@@ -1,6 +1,6 @@
 ---
-title: Get Started with queries in Azure Log Analytics| Microsoft Docs
-description: This article provides a tutorial for getting started writing queries in Log Analytics.
+title: Get started with log queries in Azure Monitor | Microsoft Docs
+description: This article provides a tutorial for getting started writing log queries in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,15 +15,15 @@ ms.date: 08/06/2018
 ms.author: bwren
 ---
 
-# Get started with queries in Log Analytics
+# Get started with Azure Monitor log queries
 
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn to write Azure Log Analytics queries. It will teach you how to:
+In this tutorial you will learn to write Azure Monitor log queries. It will teach you how to:
 
 - Understand queries' structure
 - Sort query results
@@ -38,10 +38,10 @@ In this tutorial you will learn to write Azure Log Analytics queries. It will te
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.
 
 > [!NOTE]
-> The Azure Log Analytics query language is case-sensitive. Language keywords are typically written in lower-case. When using names of tables or columns in a query, make sure to use the correct case, as shown on the schema pane.
+> The Kusto query language used by Azure Monitor is case-sensitive. Language keywords are typically written in lower-case. When using names of tables or columns in a query, make sure to use the correct case, as shown on the schema pane.
 
 ### Table-based queries
-Azure Log Analytics organizes data in tables, each composed of multiple columns. All tables and columns are shown on the schema pane, in the Analytics portal. Identify a table that you're interested in and then take a look at a bit of data:
+Azure Monitor organizes log data in tables, each composed of multiple columns. All tables and columns are shown on the schema pane in Log Analytics in the Analytics portal. Identify a table that you're interested in and then take a look at a bit of data:
 
 ```Kusto
 SecurityEvent
@@ -160,7 +160,7 @@ SecurityEvent
 
 The preceding example generates this output:
 
-![Log Analytics project results](media/get-started-queries/project.png)
+![Query project results](media/get-started-queries/project.png)
 
 You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
 
@@ -232,7 +232,7 @@ Perf
 
 To make the output clearer, you select to display it as a time-chart, showing the available memory over time:
 
-![Log Analytics memory over time](media/get-started-queries/chart.png)
+![Query memory over time](media/get-started-queries/chart.png)
 
 
 

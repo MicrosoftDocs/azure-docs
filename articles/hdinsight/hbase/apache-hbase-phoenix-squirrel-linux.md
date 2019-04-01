@@ -13,10 +13,10 @@ ms.author: hrasheed
 
 ---
 # Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight
-Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight, and how to use SQLLine. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix grammar](http://phoenix.apache.org/language/index.html).
+Learn how to use [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight, and how to use SQLLine. For more information about Phoenix, see [Apache Phoenix in 15 minutes or less](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Apache Phoenix grammar](https://phoenix.apache.org/language/index.html).
 
-> [!NOTE]
-> For Phoenix version information about HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight](../hdinsight-component-versioning.md).
+> [!NOTE]  
+> For Phoenix version information about HDInsight, see [What's new in the Apache Hadoop cluster versions provided by HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
@@ -43,7 +43,7 @@ When you connect to an HBase cluster, you need to connect to one of the [Apache 
 
 2. In SSH, use the following commands to run SQLLine:
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
+        cd /usr/hdp/current/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. To create an HBase table, and insert some data, run the following commands:
 
@@ -57,7 +57,7 @@ When you connect to an HBase cluster, you need to connect to one of the [Apache 
 
         !quit
 
-For more information, see the [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Apache Phoenix grammar](http://phoenix.apache.org/language/index.html).
+For more information, see the [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Apache Phoenix grammar](https://phoenix.apache.org/language/index.html).
 
 ## Next steps
 In this article, you learned how to use Apache Phoenix in HDInsight. To learn more, see these articles:
@@ -72,7 +72,6 @@ In this article, you learned how to use Apache Phoenix in HDInsight. To learn mo
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 

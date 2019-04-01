@@ -7,9 +7,9 @@ keywords: encoding;encoders;media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 09/13/2018
+ms.date: 03/20/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -23,7 +23,7 @@ ms.service: media-services
 ---
 
 # Recommended on-premises encoders
-When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on-prem encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on-prem encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on-prem encoders](media-services-live-streaming-with-onprem-encoders.md).
+When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on premises encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on premises encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on premises encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services recommends using one of following live encoders that have RTMP as output:
 - Adobe Flash Media Live Encoder 3.2
@@ -50,8 +50,8 @@ Azure Media Services recommends using one of the following live encoders that ha
 > [!NOTE]
 > A live encoder can send a single-bitrate stream to a pass through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
 
-## How to become an on-prem encoder partner
-As an Azure Media Services on-prem encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following verifications:
+## How to become an on premises encoder partner
+As an Azure Media Services on premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on premises encoder partner, you must verify compatibility of your on premises encoder with Media Services. To do so, complete the following verifications:
 
 Pass through channel verification
 1. Create or visit your Azure Media Services account

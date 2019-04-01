@@ -5,7 +5,7 @@ description: Use Service Fabric's periodic backup and restore feature for enabli
 services: service-fabric
 documentationcenter: .net
 author: hrushib
-manager: timlt
+manager: chackdan
 editor: hrushib
 
 ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
@@ -46,7 +46,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
     - Azure Storage
     - File Share (on-premises)
 - Enumerate backups
-- Trigger an ad-hoc backup of a partition
+- Trigger an ad hoc backup of a partition
 - Restore a partition using previous backup
 - Temporarily suspend backups
 - Retention management of backups (upcoming)
@@ -54,7 +54,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 ## Prerequisites
 * Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
-* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
+* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
 
 ## Enabling backup and restore service
@@ -147,6 +147,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
@@ -225,8 +228,10 @@ FailureError            :
 
 ## Limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
-- No support for Service Fabric CLI.
 - No support for Service Fabric clusters on Linux.
+
+## Known Issues
+- Ensure that the retention duration is configured to be less than 24 days. 
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

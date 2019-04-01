@@ -66,7 +66,7 @@ Body example
 
 ### Response status codes
 
-| **Code** |  ** Description**                                                                        |
+| **Code** |  **Description**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` - The request was successfully accepted. The response contains a location to track the operation status. |
 |  400     | `Bad/Malformed request` - Additional error information is found within the response body. |

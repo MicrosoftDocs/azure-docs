@@ -1,6 +1,6 @@
 ---
-title: Useful operators in Azure Log Analytics queries | Microsoft Docs
-description: Common functions to use for different scenarios in Log Analytics queries.
+title: Useful operators in Azure Monitor log queries | Microsoft Docs
+description: Common functions to use for different scenarios in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
 ---
 
-# Useful operators in Log Analytics queries
+# Useful operators in Azure Monitor log queries
 
-The table below provides some common functions to use for different scenarios in Log Analytics queries.
+The table below provides some common functions to use for different scenarios in Azure Monitor log queries.
 
 ## Useful operators
 
@@ -42,4 +41,4 @@ Machine learning 				      	|`evaluate autocluster`, `basket`, `diffpatterns`, `
 
 ## Next steps
 
-- Go through a lesson on the [writing queries in Log Analytics](get-started-queries.md).
+- Go through a lesson on the [writing log queries in Azure Monitor](get-started-queries.md).

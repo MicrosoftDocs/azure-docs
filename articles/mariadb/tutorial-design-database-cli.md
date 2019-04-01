@@ -1,13 +1,10 @@
 ---
 title: 'Tutorial: Design an Azure Database for MariaDB using Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using Azure CLI from the command line.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
@@ -25,6 +22,8 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 > * Query data
 > * Update data
 > * Restore data
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 You may use the Azure Cloud Shell in the browser, or [Install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
 
@@ -180,6 +179,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 The `az mariadb server restore` command needs the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group in which the source server exists.  |

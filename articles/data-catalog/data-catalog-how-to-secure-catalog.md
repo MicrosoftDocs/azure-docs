@@ -17,7 +17,7 @@ Azure Data Catalog allows you to specify who can access the data catalog and wha
 ## Catalog users and permissions
 To give a user or a group the access to a data catalog and set permissions:
 
-1. On the [home page of your data catalog](http://www.azuredatacatalog.com),  click **Settings** on the toolbar.
+1. On the [home page of your data catalog](https://www.azuredatacatalog.com),  click **Settings** on the toolbar.
 
 	![data catalog - settings](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. In the settings page, expand the **Catalog Users** section.
