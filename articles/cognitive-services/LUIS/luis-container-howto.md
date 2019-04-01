@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 
@@ -35,21 +35,20 @@ In order to run the LUIS container, you must have the following:
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
 This container supports minimum and recommended values for the settings:
 
-|Setting| Minimum | Recommended |
-|-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core|1 core|
-|Memory<BR>`--memory`|2 GB|4 GB|
-|Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+|Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 core, 2 GB memory|1 core, 4 GB memory|20,40|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
-The `--cpus` and `--memory` settings are used as part of the `docker run` command.
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -306,6 +305,11 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## Stop the container
 
 To shut down the container, in the command-line environment where the container is running, press **Ctrl+C**.
@@ -313,10 +317,6 @@ To shut down the container, in the command-line environment where the container 
 ## Troubleshooting
 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
-
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

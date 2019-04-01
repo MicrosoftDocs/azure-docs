@@ -1,31 +1,31 @@
 ---
-title: Run Azure CLI or PowerShell commands under an Azure AD identity to access Azure Storage | Microsoft Docs
-description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage containers and queues and their data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the role assigned to the Azure AD identity.
+title: Run Azure CLI or PowerShell commands under an Azure AD identity to access blob and queue data | Microsoft Docs
+description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage blob and queues data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the RBAC role assigned to the Azure AD identity.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
 ---
 
-# Use an Azure AD identity to access Azure Storage with CLI or PowerShell
+# Use an Azure AD identity to access blob and queue data with CLI or PowerShell
 
-Azure Storage provides extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+Azure Storage provides extensions for Azure CLI and PowerShell that enable you to sign in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can assign permissions to access blob and queue data to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
 
-When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
+When you sign in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
 ## Supported operations
 
-The extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributor role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
+The extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you sign in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributor role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
 For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
 ## Call CLI commands using Azure AD credentials
 
-Azure CLI supports the `--auth-mode` parameter for data operations against Azure Storage:
+Azure CLI supports the `--auth-mode` parameter for blob and queue data operations:
 
 - Set the `--auth-mode` parameter to `login` to sign in using an Azure AD security principal.
 - Set the `--auth-mode` parameter to the legacy `key` value to attempt to query for an account key if no authentication parameters for the account are provided. 
@@ -57,10 +57,10 @@ The following example shows how to create a container in a new storage account f
         --encryption-services blob
     ```
     
-1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
+    > RBAC role assignments may take a few minutes to propagate.
     
 1. Call the [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials:
 
@@ -110,10 +110,10 @@ The following example shows how to create a container in a new storage account f
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
+    > RBAC role assignments may take a few minutes to propagate.
 
 1. Create a container by calling [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Because this call uses the context created in the previous steps, the container is created using your Azure AD credentials. 
 
@@ -124,6 +124,6 @@ The following example shows how to create a container in a new storage account f
 
 ## Next steps
 
-- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
-- To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md).
+- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
+- To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources](storage-auth-aad-msi.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).

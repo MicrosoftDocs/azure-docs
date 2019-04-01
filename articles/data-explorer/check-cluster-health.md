@@ -2,7 +2,7 @@
 title: Check the health of an Azure Data Explorer cluster
 description: This article describes steps to determine if your Azure Data Explorer cluster is healthy.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer

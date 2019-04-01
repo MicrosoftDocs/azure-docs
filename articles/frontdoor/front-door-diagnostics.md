@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.author: sharadag
 ---
 
-# Monitoring metrics for Front Door
+# Monitoring metrics and logs for Front Door
 
 By using Azure Front Door Service, you can monitor resources in the following ways:
-* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 * [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
+* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 ## Metrics
 

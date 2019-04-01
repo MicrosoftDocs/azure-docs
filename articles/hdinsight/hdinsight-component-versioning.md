@@ -4,13 +4,12 @@ description: Learn the Apache Hadoop components and versions in HDInsight and th
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 services: hdinsight
 ms.reviewer: jasonh
-author: kkampf
-
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: kakampf
+ms.date: 03/26/2019
+ms.author: hrasheed
 
 ---
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -77,12 +76,12 @@ The following table lists the versions of HDInsight that are available in the Az
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Preview) |HDP 3.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | | |Yes |Yes |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |September 30, 2016 |March 13, 2019 |March 13, 2019 |Yes |Yes |
+| HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |September 30, 2016 |March 13, 2019 |March 13, 2019 |Yes |Yes |
 
 *&ast; HDInsight 3.5 support was extended only for Spark cluster types*
 
 > [!NOTE]  
-> After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) command and the .NET SDK until the version retirement date.
+> After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
 >
 
 ### Retired versions

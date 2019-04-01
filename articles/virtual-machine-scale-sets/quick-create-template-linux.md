@@ -158,7 +158,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

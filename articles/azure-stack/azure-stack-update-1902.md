@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
+ms.lastreviewed: 03/27/2019
 ---
 
 # Azure Stack 1902 update
@@ -47,17 +47,17 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: [KB 4481548 – Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
-- **1902**: [KB 4481548 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
+- **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
+- **1902**: [KB 4494719 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
+> You can install 1902 directly from either the [1.1901.0.95 or 1.1901.0.99](azure-stack-update-1901.md#build-reference) release, without first installing any 1901 hotfix. However, if you have installed the older **1901.2.103** hotfix, you must install the newer [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) before proceeding to 1902.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -73,6 +73,9 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
+- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.
+
 <!--
 1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
 1399240	3322580: [PNU] Optimize the DSC resource execution on the Host	PNU
@@ -80,23 +83,21 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 1398818	3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context	PNU
 1381018	[1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists	PNU
 -->
-- To improve package integrity and security, and easier management for offline ingestion, Microsoft has changed the format of the update package from .exe and .bin files to a .zip file. The new format adds additional reliability to the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
-
-- To improve the Azure Stack operator experience when running **Test-AzureStack**, operators can now simply use `Test-AzureStack -Group UpdateReadiness` instead of passing ten additional parameters after an `include` statement. For example:
+- To improve package integrity and security, as well as easier management for offline ingestion, Microsoft has changed the format of the Update package from .exe and .bin files to a .zip file. The new format adds additional reliability of the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
+- To improve the Azure Stack operator experience when running Test-AzureStack, operators can now simply use, “Test-AzureStack -Group UpdateReadiness” as opposed to passing ten additional parameters after an Include statement.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
-- To improve the overall reliability and availability of core infrastructure services during the update process, the native update resource provider as part of the update action plan will detect and invoke automatic global remediations as needed. Global remediation “repair” workflows include:
-
-  - Check for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as needed.
-  - Check for SQL service issues as part of the control plan and attempt to repair them as needed.
-  - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as needed.
-  - Check the state of the Network Controller (NC) service and attempt to repair it as needed.
-  - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed.
-  - Check the state of the XRP service fabric nodes and repair them as needed.
-  - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed.
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
+    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
+    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
+    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
+    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
+    - Check the state of the XRP service fabric nodes and repair them as needed
+    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
 
 <!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
 - Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.    
@@ -111,13 +112,13 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
 
 <!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
-- Improvements to the reliability of **Test-AzureStack** for secret rotation readiness test.
+- Improvements to the reliability of Test-AzureStack for secret rotation readiness test.
 
 <!-- 1404751	3617292: Graph: Remove dependency on ADWS.	Identity -->
-- Improvements to increase AD Graph reliability when communicating with a customer’s Active Directory environment.
+- Improvements to increase AD Graph reliability when communicating with customer’s Active Directory environment
 
 <!-- 1391444	[ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info	System info -->
-- Improvements to hardware inventory collection in **Get-AzureStackStampInformation**.
+- Improvements hardware inventory collection in Get-AzureStackStampInformation.
 
 - To improve reliability of operations running on ERCS infrastructure, the memory for each ERCS instance increases from 8 GB to 12 GB. On an Azure Stack integrated systems installation, this results in a 12 GB increase overall.
 
@@ -215,19 +216,6 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-
-- If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set the group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you cannot establish a PowerShell remote session and you will receive an **Access is denied** error:
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### Networking  
 

@@ -54,7 +54,7 @@ Redirection is supported. See [Application Gateway redirect overview](applicatio
 
 ### In what order are listeners processed?
 
-Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it processes it first.  Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+See [order of processing listeners](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### Where do I find Application Gateway’s IP and DNS?
 
@@ -78,16 +78,13 @@ Only one public IP address is supported on an application gateway.
 
 ### How large should I make my subnet for Application Gateway?
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
-For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
-
-As a best practice, use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, you should consider a /27 or /26 subnet size.
+See [Application Gateway subnet size considerations](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) to understand the subnet size required for your deployment.
 
 ### Q. Can I deploy more than one Application Gateway resource to a single subnet?
 
 Yes, in addition to having multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
 
-Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported. Additionally, if autoscaling is enabled, a subnet can have only one application gateway.
+Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported.
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -147,13 +144,7 @@ No, but you can deploy other application gateways in the subnet.
 
 ### Are Network Security Groups supported on the application gateway subnet?
 
-Network Security Groups (NSGs) are supported on the application gateway subnet with the following restrictions:
-
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, are not able to initiate any changes on those endpoints.
-
-* Outbound internet connectivity can't be blocked. Default outbound rules in the NSG already allow internet connectivity. We recommend that you don't remove the default outbound rules and that you don't create other outbound rules that deny outbound internet connectivity.
-
-* Traffic from the AzureLoadBalancer tag must be allowed.
+See [Network Security Groups restrictions on the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) learn about the Network Security Groups supported on the application gateway subnet.
 
 ### Are user-defined routes supported on the application gateway subnet?
 
@@ -185,7 +176,7 @@ Custom probes do not support wildcard or regex on response data.
 
 ### How are rules processed?
 
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port before the multi-site rule being evaluated.
+See [Order of processing rules](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) to understand how routing rules are processes in Application Gateway.
 
 ### What does the Host field for custom probes signify?
 
@@ -351,7 +342,7 @@ We have also published a Resource Manager template that installs and runs the po
 
 ### Backend health returns unknown status, what could be causing this status?
 
-The most common reason is access to the backend is blocked by an NSG or custom DNS. See [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
+The most common reason is access to the backend is blocked by an NSG, custom DNS, or you have a UDR on the application gateway subnet. See [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
 
 ## Next Steps
 

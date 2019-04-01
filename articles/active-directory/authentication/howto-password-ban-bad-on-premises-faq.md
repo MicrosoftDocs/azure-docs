@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory
@@ -106,6 +106,10 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
+
+**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+
+Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
 
 ## Additional content
 

@@ -47,7 +47,7 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 

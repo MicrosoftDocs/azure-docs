@@ -1,5 +1,5 @@
 ---
-title: Dynamically banned passwords in Azure AD
+title: Dynamically banned passwords - Azure Active Directory
 description: Ban weak passwords from your environment with Azure AD dynamically banned passwords
 
 services: active-directory
@@ -29,7 +29,7 @@ Some organizations may want to take security one step further by adding their ow
 
 The custom banned password list and the ability to enable on-premises Active Directory integration is managed using the Azure portal.
 
-![Modify the custom banned password list under Authentication Methods in the Azure portal](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modify the custom banned password list under Authentication Methods](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## On-premises hybrid scenarios
 

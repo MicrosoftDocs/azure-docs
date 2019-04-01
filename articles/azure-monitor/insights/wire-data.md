@@ -14,7 +14,6 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ---
-
 # Wire Data 2.0 (Preview) solution in Azure Monitor
 
 ![Wire Data symbol](media/wire-data/wire-data2-symbol.png)
@@ -265,7 +264,7 @@ To easily deploy the Dependency Agent on many servers at once, it helps to use a
 
 #### PowerShell script for Windows
 
-```PowerShell
+```powershell
 
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -287,7 +286,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
 
-```
+```powershell
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
@@ -337,6 +336,7 @@ Node $NodeName
 }
 
 ```
+
 ### Uninstall the Dependency Agent
 
 Use the following sections to help you remove the Dependency Agent.

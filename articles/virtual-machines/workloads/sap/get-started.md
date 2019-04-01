@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -32,16 +32,18 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart from comp
 
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
-## Latest Changes
+## Latest changes
+
+Release of [Azure HANA Large Instances control through Azure portal](hana-li-portal.md)
+
+Release of [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](high-availability-guide-suse-netapp-files.md)
+
+Clarification on **Linux OS parameter net.ipv4.tcp_timestamps** settings in conjunction with Azure load balancer
 
 Release of [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 
 Release of [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 
-Clarification around usage and configuration of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in latency critical communication paths of SAP systems in:
-
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 
