@@ -20,7 +20,6 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
-
 ## What you do
 
 * Create an IoT hub.
@@ -82,7 +81,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
    > [!WARNING]
    > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
- 
+
    b. Extract the Raspbian image to a folder on your computer.
 
 2. Install Raspbian to the microSD card.
@@ -233,8 +232,14 @@ You should see the following output that shows the sensor data and the messages 
 
 ![Output - sensor data sent from Raspberry Pi to your IoT hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
+## Read the messages from your hub
+
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+For more ways to process data sent by your device, see [Next steps](#next_steps).
+
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi, see the [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+You’ve run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
