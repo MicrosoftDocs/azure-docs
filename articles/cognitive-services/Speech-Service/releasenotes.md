@@ -19,10 +19,11 @@ ms.custom: seodec18
 
 **New Features** 
 
-* The SDK now supports the Text-to-speech service as a beta. It is supported from C++, C#, and Java. For more information check the Text-to-speech [overview](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* The SDK now supports the Text-to-speech service as a beta. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the Text-to-speech [overview](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#get-started-with-text-to-speech).
 * The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta.
-* The Speech SDK adds MacOS support for Java, .NET core, C++ and Objective-C as beta.
-* The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained mac0S support. The Objective-C support is currently in Beta.
+* iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
+
 
 **Samples**
 
@@ -32,7 +33,7 @@ ms.custom: seodec18
 **Improvements / Changes**
 
 * Python: Additional properties of recognition results are now exposed via the `properties` property.
-* For development and debug support you can now redirect SDK logging information into a log file.
+* For additional development and debug support you can now redirect SDK logging information into a log file (see the named config property `Speech_LogFilename`).
 
 **Bug Fixes**
 
