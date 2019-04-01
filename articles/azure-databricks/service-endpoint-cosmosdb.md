@@ -20,7 +20,7 @@ In this tutorial you learn how to:
 
 Before you start, make sure you have the following:
 
-* 
+* Download [spark connector](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
 
 ## Create a virtual network
 
@@ -119,4 +119,12 @@ Before you start, make sure you have the following:
 
    ![New cluster settings](./media/service-endpoint-cosmosdb/new-cluster.png)
 
-3. After you cluster is created, add a library.
+3. After your cluster is created, navigate to the cluster page and select the **Libraries** tab. Select **Install New** and upload the Spark connector jar file to install the library.
+
+    ![Install Spark connector library](./media/service-endpoint-cosmosdb/install-cosmos-connector-library.png)
+
+    You can verify that the library was installed on the **Libraries** tab.
+
+    ![Databricks cluster Libraries tab](./media/service-endpoint-cosmosdb/installed-library.png)
+
+4. 
