@@ -45,6 +45,9 @@ az feature register --name MultiAgentpoolPreview --namespace Microsoft.Container
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
+> [!NOTE]
+> Any AKS cluster you create after you've successfully registered the *MultiAgentpoolPreview* use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
+
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
@@ -67,8 +70,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 While this feature is in preview, the following additional limitations apply:
 
-* Your AKS cluster can have a maximum of four node pools.
-* You can't scale or upgrade two node pools at the same time.
+* The AKS cluster can have a maximum of eight node pools.
+* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 
 ## Create an AKS cluster
 
@@ -158,7 +161,9 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 
 ## Scale a node pool
 
-As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down. If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
+As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
+
+<!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
 To scale the number of nodes in a node pool, use the [az aks node pool scale][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
 
