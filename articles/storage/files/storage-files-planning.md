@@ -99,9 +99,11 @@ On a best effort basis, all shares can burst up to three IOPS per GiB of provisi
 All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s. Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
 
 > [!TIP]
-> Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS)
-> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS)
-> Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s)
+> Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
+>
+> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
+>
+> Throughput = 100 MiB/s + 0.1 * provisioned GiB. (Up to 5 GiB/s).
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
 
