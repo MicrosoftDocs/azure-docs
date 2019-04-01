@@ -65,7 +65,9 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
 
     You can either download and install Azure Logic Apps Tools 
