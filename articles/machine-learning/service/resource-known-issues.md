@@ -100,8 +100,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help.
-Here is where the log files live:
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workpsace and select **Workspace > Experiment > Run > Logs**.
 
 ## Resource quotas
 
