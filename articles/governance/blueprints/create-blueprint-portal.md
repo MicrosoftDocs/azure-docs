@@ -11,16 +11,16 @@ manager: carmonm
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Define and assign an Azure Blueprint in the portal
+# Define and assign an Azure blueprint in the portal
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
+reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
 
 > [!div class="checklist"]
 > - Create a new blueprint and add various supported artifacts
-> - Make changes to an existing blueprint still in **Draft**
+> - Make changes to an existing blueprint still in **Draft** form
 > - Mark a blueprint as ready to assign with **Published**
 > - Assign a blueprint to an existing subscription
 > - Check the status and progress of an assigned blueprint
@@ -32,57 +32,69 @@ before you begin.
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
-available resources. In this example, create a new blueprint named 'MyBlueprint' to configure role
-and policy assignments for the subscription, add a new resource group, and create a Resource Manager
+available resources. In this example, create a new blueprint named *MyBlueprint* to configure role
+and policy assignments for the subscription. Then, add a new resource group, and create a Resource Manager
 template and role assignment on the new resource group.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Blueprint definitions** from the page on the left and click the **+ Create blueprint**
+1. Select **Blueprint definitions** from the page on the left and select the **+ Create blueprint**
    button at the top of the page.
 
-   - Alternately, click on **Create** from the **Getting started** page to go straight to creating a blueprint.
+   Alternately, select **Create** from the **Getting started** page to go straight to creating a blueprint.
 
-   ![Create blueprint from Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Create a blueprint from the Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Provide a **Blueprint name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters,
-   but no spaces or special characters) for the blueprint, but leave **Blueprint description** blank
-   for now. In the **Definition location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md)
-   or subscription where you want to save the blueprint and click **Select**.
+1. Provide a **Blueprint name** such as **MyBlueprint** (up to 48 letters and numbers,
+   but no spaces or special characters). Leave **Blueprint description** blank
+   for now. 
+   
+   In the **Definition location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md)
+   or subscription where you want to save the blueprint, and select **Select**.
 
-1. Verify the information is correct (the **Blueprint name** and **Definition location** fields
-   can't be changed later) and click **Next : Artifacts** at the bottom of the page or the
+1. Verify that the information is correct, because the **Blueprint name** and **Definition location** fields
+   can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the
    **Artifacts** tab at the top of the page.
 
-1. Add role assignment at subscription: Left-click on the **+ Add artifact...** row under
-   **Subscription** and the 'Add artifact' window opens on the right side of the browser. Select
-   'Role assignment' for _Artifact type_. Under _Role_, select 'Contributor' and leave the _Add
-   user, app or group_ field with the checkbox indicating a **dynamic parameter**. Click **Add** to
+1. Add a role assignment at the subscription: Select the **+ Add artifact...** row under
+   **Subscription**, and the **Add artifact** window opens on the right side of the browser. 
+   
+   Select
+   **Role assignment** for **Artifact type**. Under **Role**, select **Contributor** and leave the **Add
+   user, app or group** field with the check box indicating a **dynamic parameter**. Select **Add** to
    add this artifact to the blueprint.
 
-   ![Blueprint artifact - Role Assignment](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Blueprint artifact - role assignment](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > Most _artifacts_ support parameters. A parameter assigned a value during blueprint creation is
-   > a **static parameter**. If the parameter is assigned during blueprint assignment, it is a
-   > **dynamic parameter**. For more information, see [Blueprint parameters](./concepts/parameters.md).
+   > Most artifacts support parameters. A parameter that's assigned a value during blueprint creation is
+   > a *static parameter*. If the parameter is assigned during blueprint assignment, it's a
+   > *dynamic parameter*. For more information, see [Blueprint parameters](./concepts/parameters.md).
 
-1. Add policy assignment at subscription: Left-click on the **+ Add artifact...** row under the role
-   assignment artifact. Select 'Policy assignment' for _Artifact type_. Change _Type_ to 'Built-in'
-   and in _Search_ enter 'tag'. Click out of _Search_ for the filtering to occur. Select 'Apply tag
-   and its default value to resource groups' by clicking on it. Click **Add** to add this artifact
+1. Add a policy assignment at the subscription: Select the **+ Add artifact...** row under the role
+   assignment artifact. 
+   
+   Select **Policy assignment** for **Artifact type**. Change **Type** to **Built-in**,
+   and in **Search**, enter **tag**. 
+   
+   Click out of **Search** for the filtering to occur. Select **Apply tag
+   and its default value to resource groups**. Select **Add** to add this artifact
    to the blueprint.
 
-1. Click on the row of policy assignment 'Apply tag and its default value to resource groups'. The
+1. Select the row of the policy assignment **Apply tag and its default value to resource groups**. 
+
+   The
    window to provide parameters to the artifact as part of the blueprint definition opens and allows
    setting the parameters for all assignments (**static parameters**) based on this blueprint
    instead of during assignment (**dynamic parameters**). This example uses **dynamic parameters**
-   during blueprint assignment, so leave the defaults and click **Cancel**.
+   during blueprint assignment, so leave the defaults and select **Cancel**.
 
-1. Add resource group at subscription: Left-click on the **+ Add artifact...** row under
-   **Subscription**. Select 'Resource group' for _Artifact type_. Leave the _Artifact display name_,
-   _Resource Group Name_, and _Location_ fields blank, but make sure that the checkbox is checked
-   for each parameter property to make them **dynamic parameters**. Click **Add** to add this
+1. Add a resource group at the subscription: Select the **+ Add artifact...** row under
+   **Subscription**. 
+   
+   Select **Resource group** for **Artifact type**. Leave the **Artifact display name**,
+   **Resource Group Name**, and **Location** fields blank, but make sure that the check box is checked
+   for each parameter property to make them **dynamic parameters**. Select **Add** to add this
    artifact to the blueprint.
 
 1. Add template under resource group: Left-click on the **+ Add artifact..** row under the
