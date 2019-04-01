@@ -22,7 +22,7 @@ In this tutorial, you use the Azure portal to create a data factory. Then, you u
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-In this tutorial, you perform the following steps:
+In this tutorial, you'll perform the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
