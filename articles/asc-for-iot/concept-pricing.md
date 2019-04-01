@@ -1,7 +1,7 @@
 ---
 
-title: Understand ASC for IoT costs Preview| Microsoft Docs
-description: Learn about the costs associated with ASC for IoT, and how you can control them. 
+title: Understand Azure Security Center for IoT costs Preview| Microsoft Docs
+description: Learn about the costs associated with Azure Security Center for IoT, and how you can control them. 
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Pricing and associated costs
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains ASC for IoT pricing model, summarizes all associated costs and explains how to manage them.
+This article explains Azure Security Center (ASC) for IoT pricing model, summarizes all associated costs and explains how to manage them.
 
 ## Pricing
 
