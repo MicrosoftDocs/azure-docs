@@ -141,7 +141,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API for edge jobs
+    - name: Using API for Edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
