@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
 
 ---
@@ -42,6 +42,12 @@ If you observe `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died w
 ## FPGAs
 
 You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
+
+## Automated machine learning
+
+Tensor Flow
+Automated machine learning does not currently support tensor flow version 1.13. Installing this will cause package dependencies to stop working. We are working to fix this in a future release. 
+
 
 ## Databricks
 
@@ -94,8 +100,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help.
-Here is where the log files live:
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workpsace and select **Workspace > Experiment > Run > Logs**.
 
 ## Resource quotas
 

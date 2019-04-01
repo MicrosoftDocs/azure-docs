@@ -45,7 +45,7 @@ For:
 **To publish your app**: 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator. 
 
 2. Select **Azure Active Directory > Enterprise applications**. 
 

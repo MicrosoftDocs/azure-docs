@@ -4,7 +4,7 @@ description: Learn about Azure SQL Database managed instance communication and c
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -105,7 +105,8 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |management  |80, 443, 12000|TCP     |Any              |AzureCloud  |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET*  |Allow |
 
-> Make sure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through ARM deployments may fail if inbound and output rules are configured separately for each ports. 
+> [!IMPORTANT]
+> Ensure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 80, 443, 12000. Managed Instance provisioning through ARM deployments will fail if inbound and output rules are configured separately for each port. If these ports are in separate rules, the deployment will fail with error code `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 

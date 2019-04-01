@@ -85,6 +85,8 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 # Azure US Government
 13.72.186.193
+13.72.14.155
+52.244.249.194
 
 # Azure Germany
 51.5.243.77

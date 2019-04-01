@@ -1,6 +1,6 @@
 ---
-title: Understanding ASC for IoT security module for IoT Edge | Microsoft Docs
-description: Understand the architecture and capabilities of ASC for IoT security module for IoT Edge.
+title: Understanding Azure Security Center for IoT security module for IoT Edge | Microsoft Docs
+description: Understand the architecture and capabilities of Azure Security Center for IoT security module for IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -20,14 +20,14 @@ ms.author: mlottner
 # Azure IoT Edge security module
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production worklo§1ads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
-ASC for IoT security module provides a comprehensive security solution for your IoT Edge devices.
+Azure Security Center (ASC) for IoT security module provides a comprehensive security solution for your IoT Edge devices.
 ASC for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.
 
 Similar to ASC for IoT security agents for IoT devices, the ASC for IoT Edge module is highly customizable through its module twin.
