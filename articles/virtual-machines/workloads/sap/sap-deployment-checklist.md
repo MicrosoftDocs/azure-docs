@@ -36,7 +36,7 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 	2. Create and work through a Responsibility Assignment Matrix (RACI) which defines the responsibilities and assignments of the different parties involved. Start on the high level and work to more and more granular levels throughput the planning and first deployments
 	2. A high-level solution architecture
 	3. Decision on Azure regions to deploy into. For a list of Azure regions, check the [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). For services available in each of the Azure regions,  check the article [Products available per region](https://azure.microsoft.com/global-infrastructure/services/)
-	4. Networking architecture to connect from on-premise into Azure. Start to make yourself familiar with the [Virtual Datacenter blueprint for Azure](https://docs.microsoft.com/azure/architecture/vdc/)
+	4. Networking architecture to connect from on-premises into Azure. Start to make yourself familiar with the [Virtual Datacenter blueprint for Azure](https://docs.microsoft.com/azure/architecture/vdc/)
 	5. Security principles for running high business impact data in Azure. For reading material start with [Azure Security Documentation](https://docs.microsoft.com/azure/security/)
 2.	Technical Design Document – that contains:
 	1.	A solution block diagram 
@@ -153,7 +153,7 @@ The pilot can run before or in parallel to project planning and preparation. The
 6. Performance Testing
    1.  In SAP based on SAP tracing and measurements, compare top 10 online reports to current implementation where applicable 
    2.  In SAP based on SAP tracing and measurements, compare top 10 batch jobs to current implementation where applicable 
-   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premise to Azure 
+   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premises to Azure 
 
 
 ## Non-Production Phase 
