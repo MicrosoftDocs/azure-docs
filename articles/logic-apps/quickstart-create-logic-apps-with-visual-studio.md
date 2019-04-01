@@ -61,19 +61,15 @@ Before you start, make sure that you have these items for following this quickst
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
   
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
-
-* An email account that's supported by Logic Apps, 
-such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, 
-<a href="https://docs.microsoft.com/connectors/" target="_blank">review the connectors list here</a>. 
-This logic app uses Office 365 Outlook. If you use a different provider, 
-the overall steps are the same, but your UI might slightly differ.
 
 * Access to the web while using the embedded Logic App Designer
 
@@ -82,6 +78,12 @@ the overall steps are the same, but your UI might slightly differ.
   For example, if you use the Dynamics CRM Online connector, 
   the designer checks your CRM instance for available 
   default and custom properties.
+
+* An email account that's supported by Logic Apps, 
+such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, 
+<a href="https://docs.microsoft.com/connectors/" target="_blank">review the connectors list here</a>. 
+This logic app uses Office 365 Outlook. If you use a different provider, 
+the overall steps are the same, but your UI might slightly differ.
 
 ## Create Azure resource group project
 
