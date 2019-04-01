@@ -16,10 +16,10 @@ ms.author: jehollan
 
 # Azure Functions premium plan (preview)
 
-The Azure Functions premium plan is a hosting option for function apps. The premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md)
+The Azure Functions premium plan is a hosting option for function apps. The premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 > [!NOTE]
-> You can move between consumption and premium plan for an app that is already created by modifying the serverFarmId property of the function site resource.
+> The premium plan preview currently supports functions running in .NET, Node, or Java through Windows infrastructure.
 
 ## Create a premium plan
 
@@ -53,7 +53,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Private network connectivity
 
-Azure Functions deployed to a premium plan take advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
+Azure Functions deployed to a premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your premium function app, you need a subnet with enough IP addresses for each potential instance. Though the maximum number of instances may vary during the preview, we require an IP block with at least 100 available addresses.
 
