@@ -18,6 +18,7 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
+ms.custom: fasttrack-edit
 
 ms.collection: M365-identity-device-management
 ---
