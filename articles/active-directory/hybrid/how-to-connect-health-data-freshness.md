@@ -37,10 +37,10 @@ Below is the map of service types and corresponding required data type.
 
 | Service Type | Agent (Windows Service name) | Purpose | Data Type generated  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect AAD Connect specific information (Connectors, Synchronization rules etc.) | - AadSyncService-SynchronizationRules   - AadSyncService-Connectors  - AadSyncService-GlobalConfigurations   - AadSyncService-RunProfileResults  - AadSyncService-ServiceConfigurations  - AadSyncService-ServiceStatus   |
+| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect AAD Connect specific information (Connectors, Synchronization rules etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | Collect (AAD Connect specific) Perf Counters, ETW Traces, Files | Performance Counter |
-| AD DS | Azure AD Connect Health AD DS Insights Service | Perform Synthetic Tests, Collect Topology Information, Replication Metadata |  - Adds-TopologyInfo-Json  - Common-TestData-Json (Creates the test results)   | 
-|  | Azure AD Connect Health AD DS Monitoring Service | Collect (ADDS-specific) Perf Counters, ETW Traces, Files | - Performance Counter  - Common-TestData-Json (Uploads the test results)  |
+| AD DS | Azure AD Connect Health AD DS Insights Service | Perform Synthetic Tests, Collect Topology Information, Replication Metadata |  - Adds-TopologyInfo-Json <br /> - Common-TestData-Json (Creates the test results)   | 
+|  | Azure AD Connect Health AD DS Monitoring Service | Collect (ADDS-specific) Perf Counters, ETW Traces, Files | - Performance Counter  <br /> - Common-TestData-Json (Uploads the test results)  |
 | AD FS | Azure AD Connect Health AD FS Diagnostics Service | Perform Synthetic tests | TestResult (Creates the test results) | 
 | | Azure AD Connect Health AD FS Insights Service  | Collect ADFS Usage Metrics | Adfs-UsageMetrics |
 | | Azure AD Connect Health AD FS Monitoring Service | Collect (ADFS-specific) Perf Counters, ETW Traces, Files | TestResult (Uploads the test results) |
