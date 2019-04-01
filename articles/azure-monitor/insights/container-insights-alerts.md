@@ -20,12 +20,12 @@ Azure Monitor for containers monitors the performance of container workloads dep
 
 This article describes how to enable alerting for the following situations:
 
-* When CPU and memory utilization on nodes of the cluster exceeds your defined threshold.
+* When CPU or memory utilization on nodes of the cluster exceeds your defined threshold.
 * When CPU or memory utilization on any of the containers within a controller exceeds your defined threshold as compared to the limit set on the corresponding resource.
 * **NotReady** status node counts
 * Pod phase counts of **Failed**, **Pending**, **Unknown**, **Running**, or **Succeeded**
 
-To alert when CPU or memory utilization is high on nodes of the cluster, you can either create a metric alert rule or a metric measurement alert rule based off of log queries provided. While metric alerts have lower latency than log alerts, a log alert provides advanced querying and sophistication than a metric alert. For log alerts, the queries compare a datetime to the present using the now operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.
+To alert when CPU or memory utilization is high on nodes of the cluster, you can either create a metric alert or a metric measurement alert rule using the log queries provided. While metric alerts have lower latency than log alerts, a log alert provides advanced querying and sophistication than a metric alert. For log alerts, the queries compare a datetime to the present using the now operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.
 
 Before starting, if you are not familiar with alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
