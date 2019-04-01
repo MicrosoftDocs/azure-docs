@@ -17,8 +17,8 @@ ms.author: areddish
 
 With the release of the latest SDK we've introduced a few new features and a few breaking changes:
 * Prediction API is now split based on the project type.
-* VAIDK export options requires creating a project in a specific way
-* Default iterations have been removed in favor of a publish / unpublish a named iteration
+* VAIDK export options requires creating a project in a specific way.
+* Default iterations have been removed in favor of a publish / unpublish a named iteration.
 
 # Changes to Prediction API
 
@@ -33,7 +33,7 @@ With the release of the latest SDK we've introduced a few new features and a few
 # Changes to the Training API
 
 ## Publishing an iteration
-Once, an iteration is trained you can make it available for prediction using the PublishIteration method to publish to a specific Prediction resource. The prediction resource ID is available in the CustomVision portal's settings page, and in the Azure portal.
+Once an iteration is trained you can make it available for prediction using the PublishIteration method to publish to a specific prediction resource. The prediction resource ID is available in the CustomVision portal's settings page, and in the Azure portal.
 
 ### How to retrieve the prediction resource ID
 
@@ -44,10 +44,11 @@ Once, an iteration is trained you can make it available for prediction using the
 
 ## Additional Export options
 
-With the 3.0 APIs we are exposing two additional export targets: ARM and Vision AI Dev Kit. To use ARM, you just need to pick a Compact domain and then choose DockerFile and then ARM as the export options.
-For Vision AI Dev Kit, the project must be created with the __General (Compact)__ domain as well as specifying VAIDK in the target export platforms argument.
+With the 3.0 APIs we are exposing two additional export targets: ARM and Vision AI Dev Kit.
+* To use ARM, you just need to pick a Compact domain and then choose DockerFile and then ARM as the export options.
+* For Vision AI Dev Kit, the project must be created with the __General (Compact)__ domain as well as specifying VAIDK in the target export platforms argument.
 
 ## Next steps
 
-[View the full Training API documentation](https://go.microsoft.com/fwlink/?linkid=865446)
-[View the full Prediction API documentation](https://go.microsoft.com/fwlink/?linkid=865445)
+* [View the full Training API documentation](https://go.microsoft.com/fwlink/?linkid=865446)
+* [View the full Prediction API documentation](https://go.microsoft.com/fwlink/?linkid=865445)
