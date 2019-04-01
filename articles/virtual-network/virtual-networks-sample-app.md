@@ -25,7 +25,7 @@ This application provides a simple testing environment for many of the DMZ Examp
 ## Firewall rule to allow ICMP
 This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This firewall update allows for easier testing and troubleshooting by allowing the ping protocol to pass through the windows firewall (for most Linux distros ICMP is on by default).
 
-```PowerShell
+```powershell
 # Turn On ICMPv4
 New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
@@ -44,7 +44,7 @@ This script will:
 
 This PowerShell script should be run locally while RDP’d into IIS01.
 
-```PowerShell
+```powershell
 # IIS Server Post Build Config Script
 # Get Admin Account and Password
     Write-Host "Please enter the admin account information used to create this VM:" -ForegroundColor Cyan
@@ -156,7 +156,7 @@ This script sets up the back-end for this simple application. This script will:
 
 This PowerShell script should be run locally while RDP’d into AppVM01. PowerShell is required to be run as Administrator to ensure successful execution.
 
-```PowerShell
+```powershell
 # AppVM01 Server Post Build Config Script
 # PowerShell must be run as Administrator for Net Share commands to work
 

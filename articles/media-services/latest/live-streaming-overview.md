@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
 
 ---
@@ -65,7 +65,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 - [Live Events and Live Outputs](live-events-outputs-concept.md)
 - [Streaming Locators](streaming-locators-concept.md)
 
-Here are the steps for a live streaming workflow:
+### General steps
 
 1. In your Media Services account, make sure the **Streaming Endpoint** is running. 
 2. Create a [Live Event](live-events-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).

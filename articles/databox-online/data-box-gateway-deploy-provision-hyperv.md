@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
@@ -132,7 +132,9 @@ Perform the following steps to provision a device in your hypervisor.
 18. On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
 
     ![Specify Name and Location page](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more). While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned.  You can however expand the disk by adding a data disk. Click **Next**.
+19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more). 
+    
+    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. You can however expand the disk by adding a data disk. Click **Next**.
 
     ![Configure Disk page](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard closes and a virtual hard disk is added to your machine.

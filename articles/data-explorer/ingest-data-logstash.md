@@ -4,7 +4,7 @@ description: 'In this quickstart, you learn how to ingest (load) data into Azure
 services: data-explorer
 author: tamirkamara
 ms.author: takamara
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019

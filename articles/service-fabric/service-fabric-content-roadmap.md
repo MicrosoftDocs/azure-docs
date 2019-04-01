@@ -3,8 +3,8 @@ title: Learn more about Azure Service Fabric | Microsoft Docs
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # So you want to learn about Service Fabric?

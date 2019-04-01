@@ -21,7 +21,7 @@ ms.author: ellacroi
 # Requirements by Listing Type  
 The technical and marketing content requirements vary by storefront, offer type, and listing type. Review the following specifications to verify your compliance.  
 1. Storefront Requirements:  
-    *   [AppSource](#storefront-requirements-appSource)  
+    *   [AppSource](#storefront-requirements-appsource)  
     *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Listing Type and Offer Type Requirements:  
     *   For more information about listing types and offer types, visit the Determine the Listing Type for Your Solution page located at [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  

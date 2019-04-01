@@ -219,7 +219,7 @@ See [Use Apache Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 **To submit Apache Oozie jobs**
 
-See [Use Apache Oozie with Apache Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
+See [Use Apache Oozie with Apache Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].

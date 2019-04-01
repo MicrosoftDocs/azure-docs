@@ -27,20 +27,20 @@ Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains
 
 ### Retrieve diagnostic activities in your tenant
 
-You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
+You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Like other Windows Virtual Desktop PowerShell cmdlets, you must use the **-TenantName** parameter to specify the name of the tenant you want to use for your query. The tenant name is applicable for almost all diagnostic activity queries.
 
 ### Retrieve detailed diagnostic activities
 
-The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticsActivities** query, as shown in the following example.
+The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticActivities** query, as shown in the following example.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### Retrieve a specific diagnostic activity by activity ID

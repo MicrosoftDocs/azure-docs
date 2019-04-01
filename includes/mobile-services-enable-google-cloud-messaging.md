@@ -15,7 +15,7 @@
    
     ![Create new project](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. For **Project name**, enter a name for your project, and click **Create**.
-4. Select the **alerts** button on the toolbar, and select your project in the list. You see the dashboard for your project. You can also navigate directly to the dashboard by using the URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Select the **alerts** button on the toolbar, and select your project in the list. You see the dashboard for your project. You can also navigate directly to the dashboard by using the URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Select your project in alerts](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Note down the **Project number** in the **Project info** tile of the dashboard. 
@@ -46,5 +46,5 @@
 
     ![Copy API key](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app. To navigate back to the project dashboard, use the URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app. To navigate back to the project dashboard, use the URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

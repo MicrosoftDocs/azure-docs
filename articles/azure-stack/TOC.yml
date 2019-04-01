@@ -3,9 +3,9 @@
 - name: Overview
   items:
   - name: What is Azure Stack?
-    href: azure-stack-poc.md
-  - name: Key features and concepts
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Comparing the Azure ecosystem
+    href: compare-azure-azure-stack.md
   - name: Release notes
     items:
     - name: Recent updates

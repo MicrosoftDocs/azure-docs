@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements
@@ -26,7 +26,7 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Virtual processors (cores)   | Minimum 4 |            
+| Virtual processors (cores)   | Minimum 4 |
 | Memory  | Minimum 8 GB|
 | Availability|Single node|
 | Disks| OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|

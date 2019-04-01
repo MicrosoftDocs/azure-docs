@@ -326,5 +326,4 @@ The Oozie web UI provides a web-based view into the status of Oozie jobs on the 
 
 ## Next steps
 * [Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-* [Use time-based Apache Oozie coordinator](../hdinsight-use-oozie-coordinator-time.md).
 * [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

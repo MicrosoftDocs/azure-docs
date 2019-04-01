@@ -100,7 +100,7 @@ $resultDatabase
 
 ## Check status of your data warehouse operation
 
-To check the status of your data warehouse, use the [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity?view=azurermps-6.13.0#description) cmdlet.
+To check the status of your data warehouse, use the [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description) cmdlet.
 
 ```
 Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"

@@ -4,7 +4,7 @@ description: Learn how to use the Azure Service Fabric EventStore APIs to query 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

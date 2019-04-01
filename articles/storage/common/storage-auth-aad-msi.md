@@ -19,8 +19,6 @@ To grant permissions to a managed identity to a blob container or queue, you ass
 
 This article shows how to authenticate to Azure Blob or Queue storage with a managed identity from an Azure VM.  
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## Enable managed identities on a VM
 
 Before you can use managed identities for Azure Resources to authenticate access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
@@ -38,6 +36,8 @@ To authenticate a managed identity from your Azure Storage application, first co
 ## Get a managed identity access token
 
 To authenticate with a managed identity, your application or script must acquire a managed identity access token. To learn about how to acquire an access token, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+To authorize blob and queue operations with an OAuth token, you must use HTTPS.
 
 ## .NET code example: Create a block blob
 
