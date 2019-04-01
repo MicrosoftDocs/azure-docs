@@ -1,6 +1,6 @@
 ---
-title: Windows installation of ASC for IoT agent Preview| Microsoft Docs
-description: Learn about how to install ASC for IoT agent on 32-bit or 64-bit Windows devices.
+title: Windows installation of Azure Security Center for IoT agent Preview| Microsoft Docs
+description: Learn about how to install Azure Security Center for IoT agent on 32-bit or 64-bit Windows devices.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -18,14 +18,14 @@ ms.author: mlottner
 
 ---
 
-# Deploy an ASC for IoT C#-based security agent for Windows
+# Deploy an Azure Security Center for IoT C#-based security agent for Windows
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide explains how to install the ASC for IoT C#-based security agent on Windows.
+This guide explains how to install the Azure Security Center (ASC) for IoT C#-based security agent on Windows.
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
