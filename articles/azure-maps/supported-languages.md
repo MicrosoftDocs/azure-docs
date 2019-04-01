@@ -58,7 +58,7 @@ table provides the supported language codes for each service. 
 | pt-PT      | Portuguese (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ro-RO      | Romanian               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Russian                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbian (Cyrillic)     |       |    ✓   |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbian (Cyrillic)     |       |    Serbian (Cyrillic) (sr-RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | Serbian (Latin)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovakian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovenian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
