@@ -41,7 +41,7 @@ This error can be caused by the following reasons:
    1. In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates` if it is shown. Saved searches can be found under **General** in your workspace.
    2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Run `Restart-Service HealthService` to restart the `HealthService`. This will recreate the key and generate a new UUID.
-   4. If this doesnt work, sysprep the image first and install the MMA agent after the fact.
+   4. If this doesn't work, sysprep the image first and install the MMA agent after the fact.
 
 ### <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
 
