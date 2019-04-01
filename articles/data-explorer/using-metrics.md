@@ -12,7 +12,7 @@ ms.date: 04/01/2019
 
 # Monitor Azure Data Explorer performance, health, and usage with Metrics
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. Azure Data Explorer metrics provide key indicators as to the health and performance of the cluster resources. Use the metrics detailed in this article to monitor Azure Data Explorer cluster health and performance in your specific scenario as standalone metrics as well as the basis for operational [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards) and [Azure Alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-overview).
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. Azure Data Explorer metrics provide key indicators as to the health and performance of the cluster resources. Use the metrics detailed in this article to monitor Azure Data Explorer cluster health and performance in your specific scenario as standalone metrics as well as the basis for operational [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards) and [Azure Alerts](/azure/azure-monitor/platform/alerts-metric-overview).
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ In the Metrics pane:
     | Query duration | Count, Avg, Min, Max, Sum | Total time until query result are received. |
     | | |
 
-    Additional information regarding [supported Azure Data Explorer cluster metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+    Additional information regarding [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
 2. Select the **Add metric** button to see multiple metrics plotted in the same chart.
 3. Select the **+ New chart** button to see multiple charts in one view.
