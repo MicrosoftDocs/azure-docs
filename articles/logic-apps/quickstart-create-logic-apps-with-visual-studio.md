@@ -17,15 +17,12 @@ ms.date: 04/02/2019
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, 
 you can create workflows for automating tasks and processes that integrate apps, 
-data, systems, and services across enterprises and organizations. 
-This quickstart shows how you can design and build these workflows 
-by creating logic apps in Visual Studio and deploying those apps to 
-<a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in the cloud. 
-Although you can perform these tasks in the 
-<a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-Visual Studio lets you add your logic apps to source control, 
-publish different versions, and create Azure Resource Manager 
-templates for different deployment environments.
+data, systems, and services across enterprises and organizations. This quickstart 
+shows how you can design and build these workflows by creating logic apps in Visual 
+Studio and deploying those apps to Azure in the cloud. Although you can perform these 
+tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, 
+publish different versions, and create Azure Resource Manager templates for different 
+deployment environments.
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the 
 [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) instead. 
@@ -109,9 +106,9 @@ for example:
 
    If you're using Visual Studio 2019, follow these steps:
 
-   1. In the **Create a new project** box, find and select the 
-   **Azure Resource Group** project template for either Visual 
-   C# or Visual Basic, and choose **Next**.
+   1. In the **Create a new project** box, select the 
+   **Azure Resource Group** project template for either 
+   Visual C# or Visual Basic, and choose **Next**.
 
    1. Provide the name for the Azure resource group you want to use 
    and other project information. When you're done, choose **Create**.

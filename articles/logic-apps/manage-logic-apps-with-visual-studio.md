@@ -14,15 +14,15 @@ ms.date: 04/02/2019
 
 # Manage logic apps with Visual Studio
 
-Although you can create, edit, manage, and deploy logic apps 
-in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-you can also use Visual Studio when you want to add logic apps to source control, 
-publish different versions, and create 
+Although you can create, edit, manage, and deploy logic apps in the 
+<a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+you can also use Visual Studio when you want to add your logic apps 
+to source control, publish different versions, and create 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
-templates for different deployment environments. With Visual Studio Cloud Explorer, 
+templates for various deployment environments. With Visual Studio Cloud Explorer, 
 you can find and manage your logic apps along with other Azure resources. 
-For example, you can open, download, edit, run, view run history, 
-disable, and enable logic apps that are already deployed in the Azure portal. 
+For example, you can open, download, edit, run, view run history, disable, 
+and enable logic apps that are already deployed in the Azure portal. 
 If you're new to working with Azure Logic Apps in Visual Studio, learn 
 [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -283,8 +283,8 @@ try one of these steps:
 * Rename the logic app's .json file. The subscription cache depends on the file name.
 
 * To remove previously selected subscriptions for *all* logic apps in your solution, 
-delete the "hidden" .vs folder in your solution's directory. This location stores 
-your subscription information.
+delete the hidden Visual Studio settings folder (.vs) in your solution's directory. 
+This location stores your subscription information.
 
 ## Next steps
 
