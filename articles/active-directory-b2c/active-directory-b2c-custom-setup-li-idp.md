@@ -386,9 +386,9 @@ As part of the LinkedIn migration from v1.0 to v2.0, an extra call to another AP
 1. Have Azure AD B2C federate with LinkedIn to let the user sign in. When this happens, the access token is sent from LinkedIn to Azure AD B2C.
 2. Save the LinkedIn access token into a claim. [See the instructions here](idp-pass-through-custom.md).
 3. Call an Azure Function and pass the function the access token collected in the previous step. [See the instructions here](active-directory-b2c-rest-api-step-custom.md)
-    a. The Azure function should take the access token and make a call to the LinkedIn API (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
-    b. The Azure function takes the response and parses out the email address.
-    c. The email address is returned back to the policy.
+    1. The Azure function should take the access token and make a call to the LinkedIn API (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
+    2. The Azure function takes the response and parses out the email address.
+    3. The email address is returned back to the policy.
 4. The email address is stored in the email claim and the user journey continues on.
 
 Obtaining the email address from LinkedIn during sign-up is optional. If you choose not to obtain the email, the user is required to manually enter the email address and validate it.
