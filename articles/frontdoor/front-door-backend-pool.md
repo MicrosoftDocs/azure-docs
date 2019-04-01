@@ -39,7 +39,7 @@ The load balancing settings for the backend pool define how we evaluate the heal
 3. **Latency sensitivity (additional latency)**: The latency sensitivity field defines whether you want Front Door to send the request to backends that are within the sensitivity range in terms of latency measurement or forwarding the request to the closest backend. Read [least latency based routing method](front-door-routing-methods.md#latency) for Front Door to learn more.
 
 ## Backend
-A backend is equivalent to an application's deployment instance in a region. Front Door supports both Azure as well as non-Azure backends and so the region here isn't only restricted to Azure regions but can also be your on-premise datacenter or an application instance in some other cloud.
+A backend is equivalent to an application's deployment instance in a region. Front Door supports both Azure as well as non-Azure backends and so the region here isn't only restricted to Azure regions but can also be your on-premises datacenter or an application instance in some other cloud.
 
 Backends, in the context of Front Doors, refers to the host name or public IP of your application, which can serve client requests. So, backends should not be confused with your database tier or your storage tier etc. but rather should be viewed as the public endpoint of your application backend.
 
