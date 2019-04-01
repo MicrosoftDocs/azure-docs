@@ -305,7 +305,7 @@ The following languages are available for customization to or from English using
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
-| Welsch | `cy` |
+| Welsh | `cy` |
 
 ## Access the list on the Microsoft Translator website
 
