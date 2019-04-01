@@ -36,18 +36,18 @@ In the Metrics pane:
 
 1. To create a metric chart, select **Metric** name and relevant **Aggregation** per metric as detailed below. The **Resource** and **Metric Namespace** pickers are pre-selected to your Azure Data Explorer cluster.
 
-    **Metric** | **Aggregation** | **Metric description**
-    |---|---|---|
-    | Cache utilization | Avg, Max, Min | Ratio between required cache size (according to the defined cache policy) and the total cache size of the cluster (total size of SSD given for user activity). An average cache utilization of 80% or less is a sustainable state for a cluster. If the average cache utilization is above 80%, the cluster should be [scaled up](manage-cluster-scale-up.md) to a storage optimized pricing tier or [scaled out](manage-cluster-scale-out.md) to more instances. Alternatively, adapt the cache policy (fewer days in cache). If cache utilization is over 100%, the size of data to be cached, according to the caching policy, is larger that the total size of cache on the cluster. |
-    | CPU | Avg, Max, Min | CPU is the ratio between total CPU used and CPU available on the entire cluster. An average CPU of 80% or less is sustainable for a cluster. Max value of a CPU is 100%, that's why there are no additional resources to process activities. When a cluster isn't performing well, check the Max value of the CPU to determine if there are specific CPUs that are blocked. |
-    | Events processed (for Event Hubs) | Max, Min, Sum | Total number of events sent by Event Hubs and received by the cluster. The events can be split into events rejected and events accepted by the cluster engine by using the relevant dimension. |
-    | Ingestion latency | Avg, Max, Min | Latency of data ingestion from the time the data was received in the cluster until it's ready for query. Ingestion latency is measured in seconds. The Ingestion latency period depends on the ingestion scenario. |
-    | Ingestion result | count | Ingestion result is the total number of ingestion operations that failed and succeeded. Use **apply splitting** to create buckets of success and fail results.|
-    | Ingestion utilization | Avg, Max, Min | Ratio between the actual resources used to ingest data and the total resources allocated in the capacity policy to do ingestion. The default capacity policy is no more than 512 concurrent ingestion operations or 75% of the cluster resources invested in ingestion. Avg ingestion utilization of 80% or less is a sustainable state for a cluster. Max value of ingestion utilization is 100%, which means all cluster ingestion ability is used and an ingestion queue may result. |
-    | Ingestion volume (in MB) | Max, Min, Sum | The total size of data ingested to the cluster (in MB). The units are the number of MBs of ingested data before compression. |
-    | Keep alive | Avg | Tracks the responsiveness of the cluster. A fully responsive cluster returns value 1 and a blocked or disconnected cluster returns 0. |
-    | Query duration | Count, Avg, Min, Max, Sum | Total time until query result are received. |
-    | | |
+    **Metric** | **Unit** | **Aggregation** | **Metric description**
+    |---|---|---|---|
+    | Cache utilization | Percent | Avg, Max, Min | Ratio between required cache size (according to the defined cache policy) and the total cache size of the cluster (total size of SSD given for user activity). An average cache utilization of 80% or less is a sustainable state for a cluster. If the average cache utilization is above 80%, the cluster should be [scaled up](manage-cluster-scale-up.md) to a storage optimized pricing tier or [scaled out](manage-cluster-scale-out.md) to more instances. Alternatively, adapt the cache policy (fewer days in cache). If cache utilization is over 100%, the size of data to be cached, according to the caching policy, is larger that the total size of cache on the cluster. |
+    | CPU | Percent | Avg, Max, Min | Ratio between total CPU used and CPU available on the entire cluster. An average CPU of 80% or less is sustainable for a cluster. Max value of a CPU is 100%, that's why there are no additional resources to process activities. When a cluster isn't performing well, check the Max value of the CPU to determine if there are specific CPUs that are blocked. |
+    | Events processed (for Event Hubs) | Count | Max, Min, Sum | Total number of events sent by Event Hubs and received by the cluster. The events can be split into events rejected and events accepted by the cluster engine by using the relevant dimension. |
+    | Ingestion latency | Seconds | Avg, Max, Min | Latency of data ingestion from the time the data was received in the cluster until it's ready for query. Ingestion latency is measured in seconds. The Ingestion latency period depends on the ingestion scenario. |
+    | Ingestion result | Count | Count | Total number of ingestion operations that failed and succeeded. Use **apply splitting** to create buckets of success and fail results.|
+    | Ingestion utilization | Percent | Avg, Max, Min | Ratio between the actual resources used to ingest data and the total resources allocated in the capacity policy to do ingestion. The default capacity policy is no more than 512 concurrent ingestion operations or 75% of the cluster resources invested in ingestion. Avg ingestion utilization of 80% or less is a sustainable state for a cluster. Max value of ingestion utilization is 100%, which means all cluster ingestion ability is used and an ingestion queue may result. |
+    | Ingestion volume (in MB) | Count | Max, Min, Sum | The total size of data ingested to the cluster (in MB). The units are the number of MBs of ingested data before compression. |
+    | Keep alive | Count | Avg | Tracks the responsiveness of the cluster. A fully responsive cluster returns value 1 and a blocked or disconnected cluster returns 0. |
+    | Query duration | Seconds | Count, Avg, Min, Max, Sum | Total time until query result are received. |
+    | | | |
 
     Additional information regarding [supported Azure Data Explorer cluster metrics](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
