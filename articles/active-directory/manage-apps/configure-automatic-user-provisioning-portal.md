@@ -98,6 +98,6 @@ This option lets admins start the provisioning deployment process over again.
 
 ### Synchronization Details
 
-This section provides addition details about the operation of the provisioning service, including the first and last times the provisioning service ran against the application, and how many user and group objects are being managed.
+This section provides additional details about the operation of the provisioning service, including the first and last times the provisioning service ran against the application, and how many user and group objects it manages.
 
 A link is provided to the **Provisioning activity report**, which provides a log of all users and groups created, updated, and removed between Azure AD and the target application. A link is also provided to the **Provisioning error report**, which provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed.
