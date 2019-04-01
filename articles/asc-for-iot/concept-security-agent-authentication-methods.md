@@ -1,6 +1,6 @@
 ---
-title: Authentication methods for ASC for IoT Preview| Microsoft Docs
-description: Learn about the different authentication methods available when using the ASC for IoT service.
+title: Authentication methods for Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn about the different authentication methods available when using the Azure Security Center for IoT service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,13 +21,13 @@ ms.author: mlottner
 # Security agent authentication methods 
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article explains the different authentication methods you can use with the AzureIoTSecurity agent to authenticate with the IoT Hub.
 
-For each device onboarded to ASC for IoT in the IoT Hub, a security module is required. To authenticate the device, ASC for IoT can use one of two methods. Choose the method that works best for your existing IoT solution. 
+For each device onboarded to Azure Security Center (ASC) for IoT in the IoT Hub, a security module is required. To authenticate the device, ASC for IoT can use one of two methods. Choose the method that works best for your existing IoT solution. 
 
 > [!div class="checklist"]
 > * Security Module option

@@ -8,16 +8,13 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ---
 
 # Embed Video Indexer widgets into your applications
 
 This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
-
-> [!NOTE]
-> Starting with Feb 1, 2018, version 1 of the **Cognitive Insights** widget will be deprecated. The embed URL version will default to `version=2`.
 
 Starting with version 2, the widget base URL includes the account's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -30,7 +27,6 @@ A **Cognitive Insights** widget includes all visual insights that were extracted
 |Name|Definition|Description|
 |---|---|---|
 |widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The **widgets** URL param is not supported if **version=2** is used. |
-|version|Versions of the **Cognitive Insights** widget|To get the latest insights widget updates, add `?version=2` query param to the embed URL. For example, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> To get the older version, just remove the `version=2` from the URL.
 
 ### Player widget
 

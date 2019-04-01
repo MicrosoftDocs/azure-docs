@@ -148,6 +148,7 @@ Before you get started, you’ll need:
    > 
 
 ## Authenticate to Microsoft Graph and query the Identity Risk Events API
+
 At this point, you should have:
 
 - The name of your tenant's domain
@@ -234,6 +235,7 @@ GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPasse
 ### Get all the risky sign-ins for a specific user (signIn API)
 
 When you believe a user may have been compromised, you can better understand the state of their risk by retrieving all of their risky sign-ins. 
+
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```
