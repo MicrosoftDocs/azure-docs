@@ -60,6 +60,7 @@ In the Metrics pane:
 
 Additional information on using the [Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started).
 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
