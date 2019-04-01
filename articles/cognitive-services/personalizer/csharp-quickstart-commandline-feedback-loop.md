@@ -39,7 +39,9 @@ Getting started with Personalization involves the following steps:
 
 ## Creating a new console app and referencing the Personlizer SDK 
 
+<!--
 Get the latest code as a Visual Studio solution from [GitHub] (add link).
+-->
 
 1. Create a new Visual C# Console App in Visual Studio.
 1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget Package Manager**, then **Manage NuGet Packages for Solution**.
