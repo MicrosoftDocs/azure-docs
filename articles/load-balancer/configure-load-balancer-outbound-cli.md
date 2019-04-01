@@ -91,7 +91,7 @@ Create a Load Balancer with the inbound IP address using [az network lb create](
 
 ### Create outbound pool
 
-Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.  Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.
 
 ```azurecli-interactive
   az network lb address-pool \
@@ -142,7 +142,7 @@ az network lb rule create \
 --backend-port 80 \
 --probe http \
 --frontend-ip-name myfrontendinbound \
---backend-pool-name bepool \
+--backend-pool-name bepoolinbound \
 --disable-outbound-snat
 ```
 
@@ -159,8 +159,10 @@ az network lb outbound-rule create \
  --protocol All \
  --idle-timeout 15 \
  --outbound-ports 10000 \
- --address-pool bepool
+ --address-pool bepooloutbound
 ```
+
+If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *bepoolinbound* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
 
 At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
