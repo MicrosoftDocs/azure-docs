@@ -1,12 +1,11 @@
 ---
 title: Working with index paths in Azure Cosmos DB
 description: Overview of index paths in Azure Cosmos DB
-author: rimman
-
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
+ms.date: 3/13/2019
+ms.author: mjbrown
 
 ---
 
@@ -22,12 +21,12 @@ Here are the common patterns for specifying index paths:
 
 | **Path** | **Description/use case** |
 | ---------- | ------- |
-| /   | Default path for collection. Recursive and applies to the entire document tree.|
-| /prop/?  | Index path required to serve queries like the following (with Hash or Range types, respectively):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop  |
-| /prop/*  | Index path for all paths under the specified label. Works with the following queries<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
-| /props/[]/?  | Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5  |
+| /          | Default path for collection. Recursive and applies to the entire document tree.|
+| /prop/?    | Index path required to serve queries like the following (with Range types, respectively): <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5 <br><br>SELECT FROM collection c ORDER BY c.prop  |
+| /prop/*    | Index path for all paths under the specified label. Works with the following queries <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
+| /props/[]/?| Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 |
 | /props/[]/subprop/? | Index path required to serve iteration and JOIN queries against arrays of objects like [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" |
-| /prop/subprop/? | Index path required to serve queries (with Hash or Range types, respectively):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
+| /prop/subprop/? | Index path required to serve queries (with Range types, respectively):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
 
 When you set custom index paths, you're required to specify the default indexing rule for the entire item, denoted by the special path `/*`.
 

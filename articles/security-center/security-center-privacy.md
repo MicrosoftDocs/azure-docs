@@ -3,8 +3,8 @@ title: Manage user data in Azure Security Center | Microsoft Docs
 description: " Learn how to manage user data in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 
@@ -65,25 +65,25 @@ A Security Center user assigned the role of Reader, Owner, Contributor, or Accou
 
 - Performing a copy from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 A Security Center user assigned the role of Account Administrator can export the [just in time policies](security-center-just-in-time.md) containing the IP addresses by:
 
 - Performing a copy from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 An Account Administrator can export the alert details by:
 
 - Performing a copy from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 See [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) for more information.
 
@@ -95,7 +95,7 @@ A Security Center user can choose to opt out by deleting their [security contact
 [Alert data](security-center-managing-and-responding-alerts.md) is considered security data and is retained for a period of two years.
 
 ## Auditing and reporting
-Audit logs of security contact, just in time, and alert updates are maintained in [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Audit logs of security contact, just in time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
 
 ## Next steps
 For more information about managing user data, see [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md).

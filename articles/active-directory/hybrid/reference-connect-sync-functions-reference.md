@@ -4,7 +4,7 @@ description: Reference of declarative provisioning expressions in Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Functions Reference
 In Azure AD Connect, functions are used to manipulate an attribute value during synchronization.  
@@ -46,19 +47,20 @@ The types are expressed with the following syntax:
 The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** work on both single-valued and multi-valued attributes.
 
 ## Functions Reference
+
 | List of functions |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificate** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversion** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Date / Time** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -596,7 +598,7 @@ The FormatDateTime function is used to format a DateTime to a string with a spec
 * format: a string representing the format to convert to.
 
 **Remarks:**  
-The possible values for the format can be found here: [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+The possible values for the format can be found here: [Custom date and time formats for the FORMAT function](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Example:**  
 

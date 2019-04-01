@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Use the Face API to identify faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles

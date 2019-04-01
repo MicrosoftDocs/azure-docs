@@ -26,8 +26,8 @@ to work with blob containers and blobs.
 ## Prerequisites
 To complete the steps in this article, you'll need the following:
 
-* [Download and install Storage Explorer](http://www.storageexplorer.com)
-* [Connect to a Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Download and install Storage Explorer](https://www.storageexplorer.com)
+* [Connect to an Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
 All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.
@@ -215,7 +215,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      3. Select **Yes** to the confirmation dialog.
 
 ## Next steps
-* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
+* View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
 * Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

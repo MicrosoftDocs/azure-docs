@@ -29,7 +29,7 @@ Retrieves a summarized list of offers under a publisher namespace.
 URI parameters
 --------------
 
-| ** Name**        |  **Description**                         |  **Data type** |
+| **Name**         |  **Description**                         |  **Data type** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Publisher identifier, for example `contoso` |   String    |
 |  api-version     | Latest version of API                    |    Date        |

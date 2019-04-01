@@ -3,9 +3,9 @@ title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: This is a deeper overview highlighting the Threat Modeling Tool in action.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
+ms.author: jegeib
 
 ---
 
 # Getting started with the Threat Modeling Tool
 
-The Cloud and Enterprise Security Tools team released the Threat Modeling Tool Preview earlier this year as a free **[click-to-download](https://aka.ms/tmtpreview)**. The change in delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
+The Microsoft Threat Modeling Tool 2018 was released as GA in September 2018 as a free **[click-to-download](https://aka.ms/threatmodelingtool)**. The change in delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
 This article takes you through the process of getting started with the Microsoft SDL threat modeling approach and shows you how to use the tool to develop great threat models as a backbone of your security process.
 
 This article builds on existing knowledge of the SDL threat modeling approach. For a quick review, refer to **[Threat Modeling Web Applications](https://msdn.microsoft.com/library/ms978516.aspx)** and an archived version of **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN article published in 2006.
@@ -140,4 +140,4 @@ The approach to threat modeling we've presented here is substantially simpler th
 
 ## Next Steps
 
-Send your questions, comments and concerns to tmtextsupport@microsoft.com. **[Download](https://aka.ms/tmtpreview)** the Threat Modeling Tool to get started.
+Send your questions, comments and concerns to tmtextsupport@microsoft.com. **[Download](https://aka.ms/threatmodelingtool)** the Threat Modeling Tool to get started.

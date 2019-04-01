@@ -9,7 +9,7 @@ editor: curtand
 
 ms.assetid: 66b5f8e2-e08d-43c8-b460-6204aecda8f7
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.custom: include file
 ms.tgt_pltfrm: na

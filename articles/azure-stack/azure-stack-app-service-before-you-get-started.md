@@ -3,8 +3,8 @@ title: Before you deploy App Service on Azure Stack | Microsoft Docs
 description: Steps to complete before you deploy App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/11/2019
 ms.author: anwestg
+ms.reviewer: anwestg
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -25,7 +27,7 @@ ms.author: anwestg
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisite steps in this article.
 
 > [!IMPORTANT]
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.5.
 
 ## Download the installer and helper scripts
 
@@ -44,15 +46,7 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
 
 ## Syndicate the Custom Script Extension from the Marketplace
 
-Azure App Service on Azure Stack requires Custom Script Extension v1.9.0.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
-
-## High availability
-
-The Azure Stack 1802 update added support for fault domains. New deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.
-
-For existing deployments of Azure App Service on Azure Stack, which were deployed before the 1802 update, see the [Rebalance an App Service resource provider across fault domains](azure-stack-app-service-fault-domain-update.md) article.
-
-Additionally, deploy the required file server and SQL Server instances in a highly available configuration.
+Azure App Service on Azure Stack requires Custom Script Extension v1.9.1.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
 
 ## Get certificates
 
@@ -64,7 +58,7 @@ Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted 
 
 When you run the following PowerShell command, you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -150,6 +144,12 @@ The certificate for identity must contain a subject that matches the following f
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
+### Validate certificates
+
+Before deploying the app service resource provider, you should [validate the certificates to be used](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) by using the Azure Stack Readiness Checker tool available from the [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The Azure Stack Readiness Checker Tool validates that the generated PKI certificates are suitable for app services deployment.
+
+As a best practice, when working with any of the necessary [Azure Stack PKI certificates](azure-stack-pki-certs.md), you should plan to leave enough time to test and reissue certificates if necessary.
+
 ## Virtual network
 
 > [!NOTE]
@@ -167,6 +167,15 @@ Subnets
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## Licensing concerns for required file server and SQL Server
+
+Azure App Service on Azure Stack requires a File Server and SQL Server to operate.  You are free to use pre-existing resources located outside of your Azure Stack deployment or deploy resources within their Azure Stack Default Provider Subscription.
+
+If you choose to deploy the resources within your Azure Stack Default Provider Subscription, the licenses for those resources (Windows Server Licenses and SQL Server Licenses) are included in the cost of Azure App Service on Azure Stack subject to the following constraints:
+
+- the infrastructure is deployed into the **Default Provider Subscription**;
+- the infrastructure is exclusively used by the Azure App Service on Azure Stack resource provider.  No other workloads, administrative (other resource providers, for example SQL-RP) or tenant (for example tenant applications, which require a database), are permitted to make use of this infrastructure.
+
 ## Prepare the file server
 
 Azure App Service requires the use of a file server. For production deployments, the file server must be configured to be highly available and capable of handling failures.
@@ -177,7 +186,7 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
 
 ### Quickstart template for Highly Available File Server and SQL Server
 
-A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available, which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
+A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available, which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.
 
 ### Steps to deploy a Custom File Server
 
@@ -292,10 +301,19 @@ For production and high-availability purposes, you should use a full version of 
 
 The SQL Server instance for Azure App Service on Azure Stack must be accessible from all App Service roles. You can deploy SQL Server within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack). If you're using an Azure Marketplace image, remember to configure the firewall accordingly.
 
->[!NOTE]
+> [!NOTE]
 > A number of SQL IaaS virtual machine images are available through the Marketplace Management feature. Make sure you always download the latest version of the SQL IaaS Extension before you deploy a VM using a Marketplace item. The SQL images are the same as the SQL VMs that are available in Azure. For SQL VMs created from these images, the IaaS extension and corresponding portal enhancements provide features such as automatic patching and backup capabilities.
->
-For any of the SQL Server roles, you can use a default instance or a named instance. If you use a named instance, be sure to manually start the SQL Server Browser service and open port 1434.
+> 
+> For any of the SQL Server roles, you can use a default instance or a named instance. If you use a named instance, be sure to manually start the SQL Server Browser service and open port 1434.
+
+The App Service installer will check to ensure the SQL Server has database containment enabled. To enable database containment on the SQL Server that will host the App Service databases, run these SQL commands:
+
+```sql
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
+GO
+```
 
 >[!IMPORTANT]
 > If you choose to deploy App Service in an existing Virtual Network the SQL Server should be deployed into a separate Subnet from App Service and the File Server.
@@ -318,11 +336,11 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted, enter the Azure AD tenant ID that you're using for your Azure Stack deployment. For example, enter **myazurestack.onmicrosoft.com**.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Select **OK**.
-6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 7. The script creates a new application in the tenant Azure AD instance. Make note of the application ID that's returned in the PowerShell output. You need this information during installation.
 8. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com) as the Azure Active Directory service admin.
 9. Open the Azure AD resource provider.
@@ -332,7 +350,7 @@ Follow these steps:
 13. Select **Settings**.
 14. Select **Required Permissions** > **Grant Permissions** > **Yes**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -362,13 +380,13 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-ADFSIdentityApp.ps1** script.
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
-6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

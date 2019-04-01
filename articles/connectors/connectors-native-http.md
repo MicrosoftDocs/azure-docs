@@ -63,7 +63,7 @@ Under the triggers list, select the **HTTP** trigger.
 
 1. Provide the [HTTP trigger's parameters and values](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) 
 you want to include in the call to the target endpoint. 
-Set up recurrence for how often you want the trigger to check the target endpont.
+Set up recurrence for how often you want the trigger to check the target endpoint.
 
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 

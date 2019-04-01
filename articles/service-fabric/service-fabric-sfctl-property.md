@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl property commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl property
 Store and query properties under Service Fabric names.
 

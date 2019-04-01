@@ -1,5 +1,5 @@
 ---
-title: Advanced usage of authentication and authorization in Azure App Service | Microsoft Docs
+title: Advanced usage of authentication and authorization - Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -14,31 +14,33 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service
 
-This article shows you how to customize the built-in [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
+This article shows you how to customize the built-in [authentication and authorization in App Service](overview-authentication-authorization.md), and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
-* [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
-* [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
+* [How to configure your app to use Google login](configure-authentication-provider-google.md)
+* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
+* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 
 ## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
 In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
 
-In the sign-in page, or the navigation bar, or any other location of your web app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
+In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -58,7 +60,7 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Validate tokens from providers
 
-In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
 
 To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
 
@@ -169,27 +171,27 @@ From your server code, the provider-specific tokens are injected into the reques
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me`. The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
-> Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see [Refresh access tokens](#refresh-access-tokens).
+> Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see Refresh access tokens.
 
-## Refresh access tokens
+## Refresh identity provider tokens
 
-When your provider's access token expires, you need to reauthenticate the user. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the token store for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
+When your provider's access token (not the [session token](#extend-session-token-expiration-grace-period)) expires, you need to reauthenticate the user before you use that token again. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the token store for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
+- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](configure-authentication-provider-microsoft.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
-    1. Click **Edit**.
-    1. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    3. Click **Edit**.
+    4. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Click **Put**. 
+    5. Click **Put**. 
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
@@ -197,7 +199,7 @@ To refresh your access token at anytime, just call `/.auth/refresh` in any langu
 
 ```JavaScript
 function refreshTokens() {
-  var refreshUrl = "/.auth/refresh";
+  let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
     console.log("Token refresh completed successfully.");
   }) .fail(function() {
@@ -208,9 +210,9 @@ function refreshTokens() {
 
 If a user revokes the permissions granted to your app, your call to `/.auth/me` may fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
 
-## Extend session expiration grace period
+## Extend session token expiration grace period
 
-After an authenticated session expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session cookie or session token with App Service without reauthenticating the user. You can just call `/.auth/refresh` when your session cookie or session token becomes invalid, and you don't need to track token expiration yourself. Once the 72-hour grace period is lapses, the user must sign in again to get a valid session cookie or session token.
+The authenticated session expires after 8 hours. After an authenticated session expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session token with App Service without reauthenticating the user. You can just call `/.auth/refresh` when your session token becomes invalid, and you don't need to track token expiration yourself. Once the 72-hour grace period is lapses, the user must sign in again to get a valid session token.
 
 If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). So you should leave it at the default 72 hours or set the extension period to the smallest value.
 

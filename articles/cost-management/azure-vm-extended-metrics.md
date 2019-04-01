@@ -4,12 +4,12 @@ description: This article helps you enable and configure extended diagnostics me
 services: cost-management
 keywords:
 author: bandersmsft
+manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Add extended metrics for Azure virtual machines
@@ -26,11 +26,11 @@ After you enable metric collection, you can:
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
 
 > [!NOTE]
-> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the Log Analytics VM extension.
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the Azure Monitor logs VM extension.
 
 ## Determine whether extended metrics are enabled
 
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 2. Under **Virtual machines**, select a VM and then under **Monitoring**, select **Metrics**. A list of available metrics is shown.
 3. Select some metrics and a graph displays data for them.  
     ![Example metric – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -50,18 +50,18 @@ Keep in mind that both Azure and Linux guest-level monitoring require a storage 
 1. In **Virtual Machines**, view your list of your VMs and then select a VM.
 2. Under **Monitoring**, select **Diagnostic settings**.
 3. On the Diagnostics settings page, click **Enable guest-level monitoring**.  
-    ![Enable guest level monitoring](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Enable guest level monitoring on the Overview page](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. After a few minutes, the Azure diagnostics agent is installed on the VM. A basic set of metrics are added. Refresh the page. The added performance counters appear on the Overview tab.
 5. Under Monitoring, select **Metrics**.
 6. In the metrics chart under **Metric Namespace**, select **Guest (Classic)**.
 7. In the Metric list, you can view all of the available performance counters for the guest VM.  
-    ![Extended metrics](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![list of example extended metrics](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### Enable guest-level monitoring on new VMs
 
 When you create new VMs, on the Management tab, select **On** for **OS guest diagnostics**.
 
-![Enable Guest OS diagnostics](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![set Guest OS diagnostics to On](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 For more information about enabling extended metrics for Azure virtual machines, see [Understanding and using the Azure Linux agent](../virtual-machines/extensions/agent-linux.md) and [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md).
 
@@ -77,7 +77,7 @@ You can enable VM metrics with Azure PowerShell scripts. When you have many VMs 
 
 To view performance metrics on your Azure Instances in the Cloudyn portal, navigate to **Assets** > **Compute** > **Instance Explorer**. In the list of VM instances, expand an instance and then expand a resource to view details.
 
-![Instance Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
+![example information shown in Instance Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## Next steps
 

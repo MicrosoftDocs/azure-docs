@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: Publish knowledge base - REST, C# -  QnA Maker"
-titleSuffix: Azure Cognitive Services 
-description: This REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+title: Publish knowledge base, REST, C#
+titleSuffix: QnA Maker- Azure Cognitive Services 
+description: This C# REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/18/2018
+ms.date: 02/28/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#. 
 ---
@@ -32,12 +32,12 @@ This quickstart calls QnA Maker APIs:
     If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create knowledge base project
 
 1. Open Visual Studio 2017 Community edition.
-1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstart`. Accept the defaults for the remaining settings.
+1. Create a new **Console App (.NET Core)** project and name the project `QnaMakerQuickstart`. Accept the defaults for the remaining settings.
 
 ## Add required dependencies
 

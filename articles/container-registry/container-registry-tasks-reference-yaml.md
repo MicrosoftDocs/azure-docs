@@ -82,7 +82,7 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | No | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. | No | None |
-| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. This property can be overridden in a step by setting the step's [timeout](#timeout) property. | Yes | 600 (10 minutes) |
+| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. This property can be overridden in a step by setting the step's timeout property. | Yes | 600 (10 minutes) |
 | `totalTimeout` | int (seconds) | Yes | The maximum number of seconds that a task may run. A "run" includes the execution and completion of all steps in the task, whether successful or failed. Also included is printing task output like detected image dependencies and task execution status. | No | 3600 (1 hour) |
 
 ## Task step types
@@ -435,5 +435,5 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-configure]: /cli/azure/reference-index#az-configure

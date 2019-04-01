@@ -3,8 +3,8 @@ title: Protecting App Services in Azure Security Center | Microsoft Docs
 description: This article helps you to get started protecting your App Services in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: mbaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
+ms.date: 1/27/2019
+ms.author: monhaber
 
 ---
 # Protect App Service with Azure Security Center
 This article helps you use Azure Security Center to monitor and protect your applications running on top of App Service.
 
-App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure. App Service offers auto-scaling and high availability, support both Windows and Linux, as well as automated deployments from GitHub, Visual Studio Team Services or any Git repository. 
+App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure. App Service offers auto-scaling and high availability, support both Windows and Linux, as well as automated deployments from GitHub, Azure DevOps, or any Git repository. 
 
-Vulnerabilities in web applications are frequently exploited by attackers, because they have a common and dynamic interface for almost every organization on the Internet. Requests to applications running on top of App Service goes through several gateways deployed in Azure datacenters around the world, responsible for routing each request to its corresponding application. 
+Vulnerabilities in web applications are frequently exploited by attackers, because they have a common and dynamic interface for almost every organization on the Internet. Requests to applications running on top of App Service goes through several gateways deployed in Azure data centers around the world, responsible for routing each request to its corresponding application. 
 
 Azure Security Center can run assessments and recommendations on your applications running in App Service in the sandboxes in your VM or on-demand instances. By leveraging the visibility that Azure has as cloud provider, Security Center analyzes your App Service internal logs to monitor for common web app attacks that often run across multiple targets.
 
@@ -59,8 +59,9 @@ To disable monitoring and recommendations for your App Service, repeat this proc
 ## See also
 In this article, you learned how to use monitoring capabilities in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md): Learn how to configure security settings in Azure Security Center.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security settings in Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
+* [App services](security-center-virtual-machine-protection.md#app-services):  View a list of your App service environments with health summaries.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.

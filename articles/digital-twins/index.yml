@@ -16,7 +16,6 @@ abstract:
 sections:
 - title: 5-Minute Quickstart
   items:
-  items:
   - type: paragraph
     text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality by using Azure Digital Twins .NET samples</a>.
 - title: Step-by-Step Tutorials

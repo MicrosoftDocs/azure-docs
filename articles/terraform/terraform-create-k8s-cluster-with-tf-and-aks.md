@@ -2,19 +2,19 @@
 title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) and Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/08/2018
+ms.date: 12/04/2018
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
-In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](http://terraform.io) and AKS:
+In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](https://terraform.io) and AKS:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -27,12 +27,12 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
@@ -77,7 +77,6 @@ Create the Terraform configuration file that declares the Azure provider.
     terraform {
         backend "azurerm" {}
     }
-
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -107,6 +106,26 @@ Create the Terraform configuration file that declares the resources for the Kube
         location = "${var.location}"
     }
 
+    resource "azurerm_log_analytics_workspace" "test" {
+        name                = "${var.log_analytics_workspace_name}"
+        location            = "${var.log_analytics_workspace_location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        sku                 = "${var.log_analytics_workspace_sku}"
+    }
+
+    resource "azurerm_log_analytics_solution" "test" {
+        solution_name         = "ContainerInsights"
+        location              = "${azurerm_log_analytics_workspace.test.location}"
+        resource_group_name   = "${azurerm_resource_group.k8s.name}"
+        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
+        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+
+        plan {
+            publisher = "Microsoft"
+            product   = "OMSGallery/ContainerInsights"
+        }
+    }
+
     resource "azurerm_kubernetes_cluster" "k8s" {
         name                = "${var.cluster_name}"
         location            = "${azurerm_resource_group.k8s.location}"
@@ -117,14 +136,14 @@ Create the Terraform configuration file that declares the resources for the Kube
             admin_username = "ubuntu"
 
             ssh_key {
-            key_data = "${file("${var.ssh_public_key}")}"
+                key_data = "${file("${var.ssh_public_key}")}"
             }
         }
 
         agent_pool_profile {
-            name            = "default"
+            name            = "agentpool"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_DS2_v2"
+            vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -132,6 +151,13 @@ Create the Terraform configuration file that declares the resources for the Kube
         service_principal {
             client_id     = "${var.client_id}"
             client_secret = "${var.client_secret}"
+        }
+
+        addon_profile {
+            oms_agent {
+            enabled                    = true
+            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            }
         }
 
         tags {
@@ -193,6 +219,20 @@ Create the Terraform configuration file that declares the resources for the Kube
     variable location {
         default = "Central US"
     }
+
+    variable log_analytics_workspace_name {
+        default = "testLogAnalyticsWorkspaceName"
+    }
+
+    # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
+    variable log_analytics_workspace_location {
+        default = "eastus"
+    }
+
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+   variable log_analytics_workspace_sku {
+        default = "PerGB2018"
+   }
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -307,7 +347,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform plan" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section ["Recover from a Cloud Shell timeout"](#recover-from-a-dloud-shell-timeout) to enable you to complete the tutorial.
+1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the tutorial.
 
     ```bash
     terraform apply out.plan
@@ -317,7 +357,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform apply" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetese cluster.
+1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetes cluster.
 
     ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
@@ -362,6 +402,10 @@ The Kubernetes tools can be used to verify the newly created cluster.
     You should see the details of your worker nodes, and they should all have a status **Ready**, as shown in the following image:
 
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
+
+## Monitor health and logs
+When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
+see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## Next steps
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 

@@ -27,13 +27,15 @@ This guide shows how to authenticate Azure Resource Manager requests. It also sh
 > The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
 >
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Authenticating Azure Resource Manager requests
 
 > [!IMPORTANT]
-> The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx).
+> The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](/rest/api/index).
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps:
 
@@ -202,7 +204,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Backup and restore operations can also be performed with PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
+> Backup and restore operations can also be performed with PowerShell *Backup-AzApiManagement* and *Restore-AzApiManagement* commands respectively.
 
 ## Next steps
 
@@ -216,7 +218,7 @@ Check out the following resources for different walkthroughs of the backup/resto
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

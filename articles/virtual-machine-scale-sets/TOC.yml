@@ -69,6 +69,9 @@
   - name: Regions and availability
     href: ../virtual-machines/windows/regions-and-availability.md
     maintainContext: true
+    items:
+    - name: Manage fault domains in scale sets
+      href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true
@@ -85,7 +88,7 @@
       maintainContext: true
     - name: Memory optimized
       href: ../virtual-machines/windows/sizes-memory.md
-      maintainContext: true 
+      maintainContext: true
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
@@ -99,7 +102,7 @@
       items:
       - name: Setup GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true 
+        maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/windows/sizes-hpc.md
       maintainContext: true
@@ -108,7 +111,7 @@
       maintainContext: true
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
-      maintainContext: true        
+      maintainContext: true
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
@@ -116,20 +119,15 @@
     href: ../virtual-machines/windows/maintenance-and-updates.md
     maintainContext: true
   - name: Disk storage
-    href: ../virtual-machines/windows/about-disks-and-vhds.md
-    maintainContext: true
     items:
     - name: Managed Disks
       href: ../virtual-machines/windows/managed-disks-overview.md
       maintainContext: true
-    - name: Premium storage
-      href: ../virtual-machines/windows/premium-storage.md
+    - name: Select a disk type
+      href: ../virtual-machines/windows/disks-types.md
       maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
-      maintainContext: true
-    - name: Standard storage
-      href: ../virtual-machines/windows/standard-storage.md
       maintainContext: true
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
@@ -148,9 +146,6 @@
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: High performance computing
-    href: ../virtual-machines/windows/high-performance-computing.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -177,14 +172,6 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Deploy
     items:
-    - name: Ansible
-      items:
-      - name: Create and manage scale sets
-        href: /azure/ansible/ansible-create-configure-vmss
-        maintainContext: true
-      - name: Deploy apps to scale sets
-        href: /azure/ansible/ansible-deploy-app-vmss
-        maintainContext: true
     - name: Create with Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Use Availability Zones
@@ -195,9 +182,15 @@
       - name: Use the Azure portal
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
     - name: Applications on scale sets
       href: virtual-machine-scale-sets-deploy-app.md
+    - name: Extensions on scale sets
+      items:
+        - name: Extension sequencing on scale sets
+          href: virtual-machine-scale-sets-extension-sequencing.md
+        - name: Application Health extension
+          href: virtual-machine-scale-sets-health-extension.md
     - name: Use data disks with scale sets
       href: virtual-machine-scale-sets-attached-disks.md
     - name: Encrypt disks in scale sets
@@ -223,8 +216,10 @@
     - name: Shared image galleries (preview)
       href: shared-image-galleries.md
       items:
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images-cli.md
+      - name: PowerShell
+        href: shared-images-powershell.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
@@ -241,6 +236,17 @@
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Planned maintenance
       href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Use Ansible
+    items:
+    - name: Create and manange scale sets
+      href: /azure/ansible/ansible-create-configure-vmss
+      maintainContext: true
+    - name: Deploy apps to scale sets
+      href: /azure/ansible/ansible-deploy-app-vmss
+      maintainContext: true
+    - name: Autoscale a scale set
+      href: /azure/ansible/ansible-auto-scale-vmss
+      maintainContext: true
   - name: Troubleshoot
     items:
     - name: Autoscale
@@ -257,6 +263,8 @@
     href: ../virtual-machines/azure-cli-arm-commands.md
   - name: REST
     href: /rest/api/virtualmachinescalesets/
+  - name: Azure templates
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -270,4 +278,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set

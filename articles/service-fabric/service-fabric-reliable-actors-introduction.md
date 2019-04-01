@@ -4,7 +4,7 @@ description: Introduction to the Service Fabric Reliable Actors programming mode
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060

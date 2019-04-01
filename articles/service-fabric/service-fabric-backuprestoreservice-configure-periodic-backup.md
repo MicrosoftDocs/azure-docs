@@ -4,7 +4,7 @@ description: Use Service Fabric's periodic backup and restore feature for enabli
 services: service-fabric
 documentationcenter: .net
 author: hrushib
-manager: timlt
+manager: chackdan
 editor: hrushib
 
 ms.assetid: FAA45B4A-0258-4CB3-A825-7E8F70F28401
@@ -41,7 +41,7 @@ A backup policy consists of the following configurations:
 
 * **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval or at a fixed time daily/ weekly.
 
-    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution upto minute.
+    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution to the minute.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -106,6 +106,7 @@ A backup policy consists of the following configurations:
             ```
 
         2. _Protecting file share using user name and password_, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -121,6 +122,20 @@ A backup policy consists of the following configurations:
 > [!NOTE]
 > Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
 >
+
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained irrespective of the `RetentionDuration`. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
+
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
 
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
@@ -175,6 +190,13 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 
 * Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
 
+* While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
+
 ## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
 
@@ -191,6 +213,11 @@ Once the need for suspension is over, then the periodic data backup can be resto
 * If suspension was applied at a _Service_, then it should be resumed using [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
 * If suspension was applied at a _Partition_, then it should be resumed using [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+
+### Difference between Suspend and Disable backups
+Disable backup should be used when backups are no longer required for a particular application, service or partition. One can invoke disable backup request along with clean backups parameter to be true which would mean all existing backups are deleted as well. However, suspend is to be used in scenarios where one wants to turn off backups temporarily like when local disk becomes full or uploading backup is failing due to known network issue etc. 
+
+While disable can be invoked only at a level which was earlier enabled for backup explicitly however suspension can be applied at any level which is currently enabled for backup either directly or via inheritance/ hierarchy. For example, if backup is enabled at an application level, one can invoke disable only at the application level however suspend can be invoked at application, any service or partition under that application. 
 
 ## Auto restore on data loss
 The service partition may lose data due to unexpected failures. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped.

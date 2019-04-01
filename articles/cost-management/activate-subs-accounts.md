@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 03/14/2019
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: vitavor
+ms.custom: secdec18
 ---
 
 
@@ -37,7 +37,7 @@ If your account is assigned the **Contributor** role, you do not have adequate p
 3. In Azure Active Directory, select **User settings**.
 4. Check the **App registrations** option.
     - If it is set to **Yes**, then non-administrator users can register AD apps. This setting means any user in the Azure AD tenant can register an app.  
-    ![App registrations](./media/activate-subs-accounts/app-register.png)
+    ![select App registrations in User settings](./media/activate-subs-accounts/app-register.png)
     - If the **App registrations** option is set to **No**, then only tenant administrative users can register Azure Active Directory apps. Your tenant administrator must register the CloudynCollector application.
 
 
@@ -49,12 +49,12 @@ When you add an account update a subscription, you grant Cloudyn access to your 
 
 1. In the Cloudyn portal, click the gear symbol in the upper-right and select **Cloud Accounts**.
 2. Click **Add new account** and the **Add new account** box appears. Enter the required information.  
-    ![Add new account box](./media/activate-subs-accounts//add-new-account.png)
+    ![enter required information in the Add new account box](./media/activate-subs-accounts/add-new-account.png)
 
 ### Update a subscription
 
 1. If you want to update an _unactivated_ subscription that already exists in Cloudyn in Accounts Management, click the edit pencil symbol to the right of the parent _tenant GUID_. Subscriptions are grouped under a parent tenant, so avoid activating subscriptions individually.
-    ![Rediscover subscriptions](./media/activate-subs-accounts/existing-sub.png)
+    ![select your tenant ID in the Rediscover subscriptions box](./media/activate-subs-accounts/existing-sub.png)
 2. If necessary, enter the Tenant ID. If you don't know your Tenant ID, use the following steps to find it:
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. In the Azure portal, select **Azure Active Directory**.
@@ -102,7 +102,7 @@ You also might need to give department administrators, account owners, and enter
 Only an Azure service administrator can enable Cloudyn. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

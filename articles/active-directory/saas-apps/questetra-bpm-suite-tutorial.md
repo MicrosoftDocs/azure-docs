@@ -4,12 +4,12 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: fb6d5b73-e491-4dd2-92d6-94e5aba21465
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Questetra BPM Suite
 
@@ -206,9 +207,9 @@ The objective of this section is to create a user called Britta Simon in Questet
    
 	![Create test user][300] 
    
-    a. In the **Name** textbox, type **name** of the user **britta.simon@contoso.com**.
+    a. In the **Name** textbox, type **name** of the user **britta.simon\@contoso.com**.
    
-    b. In the **Email** textbox, type **email** of the user **britta.simon@contoso.com**
+    b. In the **Email** textbox, type **email** of the user **britta.simon\@contoso.com**
    
     c. In the **Password** textbox, type a **password** of the user.
 	

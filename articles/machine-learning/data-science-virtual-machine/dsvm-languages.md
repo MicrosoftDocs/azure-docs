@@ -1,15 +1,17 @@
 ---
-title: Languages for the Data Science Virtual Machine on Azure | Microsoft Docs
-description: Languages for the Data Science Virtual Machine on Azure
+title: Supported languages for the Data Science Virtual Machine
+titleSuffix: Azure
+description: Learn about the program languages and related tools that are pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -217,7 +219,7 @@ The default Julia location is a global environment readable by all users. But on
 Open terminal and just run `julia`. 
 * Using in an IDE
 
-Use `Juno` the Julia IDE installed on the DSVM and available as a Application menu shortcut.
+Use `Juno` the Julia IDE installed on the DSVM and available as an Application menu shortcut.
 
 * Using in Jupyter
 

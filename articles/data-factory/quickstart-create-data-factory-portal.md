@@ -12,9 +12,9 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-
 ---
-# Create a data factory by using the Azure Data Factory UI
+# Quickstart: Create a data factory by using the Azure Data Factory UI
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-portal.md)
@@ -114,7 +114,8 @@ In the linked service settings, you specified the Azure storage account that con
 
     ![Browse for the input file](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (optional) Select **Preview data** to preview the data in the emp.txt file.     
+    d. (optional) Select **Preview data** to preview the data in the emp.txt file.     
+
 1. Repeat the steps to create the output dataset:  
 
    a. Select the **+** (plus) button, and then select **Dataset**.

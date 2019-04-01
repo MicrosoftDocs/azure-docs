@@ -8,15 +8,16 @@ manager: mtillman
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory app manifest
@@ -42,19 +43,16 @@ To configure the application manifest:
 > [!NOTE]
 > If you can't see the **Example value** column after the **Description**, maximize your browser window and scroll/swipe until you see the **Example value** column.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | Key  | Value type | Description  | Example value |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Nullable Int32 | Specifies the accepted access token version for the current API resource. Possible values are 1, 2, null. Defaults to null which will be treated as 2. | `2` |
+| `accessTokenAcceptedVersion` | Nullable Int32 | Specifies the access token version expected by the resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.<br/><br/>The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure `accesstokenAcceptedVersion` to indicate the supported access token format.<br/><br/>Possible values for `accesstokenAcceptedVersion` are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint. | `2` |
 | `allowPublicClient` | boolean | Specifies the fallback application type. Azure AD infers the application type from the replyUrlsWithType by default. There are certain scenarios where Azure AD cannot determine the client app type (e.g. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flow where HTTP request happens without a URL redirection). In those cases Azure AD will interpret the application type based on the value of this property. If this value is set to true the fallback application type is set as public client, such as an installed app running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. | `false` |
 | `appId` | Identifier string | Specifies the unique identifier for the app that is assigned to an app by Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Type of array | Specifies the collection of roles that an app may declare. These roles can be assigned to users, groups, or service principals. For more examples and info, see [Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | string | A bitmask that configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. The bitmask values are:<br>0: None<br>1: Security groups and Azure AD roles<br>2: Reserved<br>4: Reserved<br>Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. | `1` |
+| `groupMembershipClaims` | string | Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. To set this attribute, use one of the following valid string values:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (for security groups and Azure AD roles)<br/>- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. | `"SecurityGroup"` |
 | `optionalClaims` | string | The optional claims returned in the token by the security token service for this specific app.<br>At this time, apps that support both personal accounts and Azure AD (registered through the app registration portal) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [optional claims](active-directory-optional-claims.md). | `null` |
 | `id` | Identifier string | The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | String array | User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
+| `identifierUris` | String array | User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant. | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
 | `informationalUrls` | string | Specifies the links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see [How to: Add Terms of service and privacy statement for registered Azure AD apps](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | Type of array | Holds references to app-assigned credentials, string-based shared secrets and X.509 certificates. These credentials are used when requesting access tokens (when the app is acting as a client rather that as resource). | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | Type of array | Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you enter the appID of the client app into this value, the user will only have to consent once to the client app. Azure AD will know that consenting to the client means implicitly consenting to the web API and will automatically provision service principals for both the client and web API at the same time. Both the client and the web API app must be registered in the same tenant. | `[GUID]` |
@@ -63,7 +61,7 @@ To configure the application manifest:
 | `name` | string | The display name for the app. | `MyRegisteredApp` |
 | `oauth2AllowImplicitFlow` | boolean | Specifies whether this web app can request OAuth2.0 implicit flow access tokens. The default is false. This flag is used for browser-based apps, like Javascript single-page apps. To learn more, enter `OAuth 2.0 implicit grant flow` in the table of contents and see the topics about implicit flow. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | boolean | Specifies whether this web app can request OAuth2.0 implicit flow ID tokens. The default is false. This flag is used for browser-based apps, like Javascript single-page apps. | `false` |
-| `oauth2Permissions` | Type of array | Specifies the collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. These permission scopes may be granted to client apps during consent. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| Specifies the collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. These permission scopes may be granted to client apps during consent. ser_impersonation"<br>&nbsp;&nbsp;}<br>]</code> |
+| `oauth2Permissions` | Type of array | Specifies the collection of OAuth 2.0 permission scopes that the web API (resource) app exposes to client apps. These permission scopes may be granted to client apps during consent. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
 | `oauth2RequiredPostResponse` | boolean | Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed. | `false` |
 | `parentalControlSettings` | string | `countriesBlockedForMinors` specifies the countries in which the app is blocked for minors.<br>`legalAgeGroupRule` specifies the legal age group rule that applies to users of the app. Can be set to `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, or `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
 | `passwordCredentials` | Type of array | See the description for the `keyCredentials` property. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |
@@ -74,6 +72,14 @@ To configure the application manifest:
 | `signInUrl` | string | Specifies the URL to the app's home page. | `https://MyRegisteredApp` |
 | `signInAudience` | string | Specifies what Microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String array | Custom strings that can be used to categorize and identify the application. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
+
+
+## Manifest Limits
+An application manifest has multiple attributes which are referred to as collections for example approles , keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess , oauth2Permissions etc . Within the complete application manifest for any application, the total number of entries in all the collections combined has been capped at 1200. If you already have 100 redirect URI's specified in the application manifest then you are only left with 1100 remaining entries to use across all other collections combined which make up the manifest.
+
+> [!NOTE]
+> In case you try to add more than 1200 entries in the application manifest . You may recieve an error **"Failed to update application xxxxxx . Error details: The size of the manifest has exceeded its limit. Please reduce the number of values and retry your request.**"
+
 
 ## Next steps
 

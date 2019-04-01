@@ -5,7 +5,7 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 
 ---

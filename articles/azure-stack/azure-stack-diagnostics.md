@@ -9,9 +9,10 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
+ms.lastreviewed: 11/20/2018
 ---
 
 # Azure Stack diagnostics tools
@@ -73,9 +74,6 @@ if($s)
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
 Use these steps to run Get-AzureStackLog on an ASDK host computer.
 
-- The parameters **OutputSharePath** and **OutputShareCredential** are used to store logs in a user specified location.
-- The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
-
 1. Sign in as **AzureStack\CloudAdmin** on the ASDK host computer.
 2. Open a new PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
@@ -108,7 +106,10 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
 
 ### Parameter considerations for both ASDK and integrated systems
 
-- If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
+- The parameters **OutputSharePath** and **OutputShareCredential** are used to store logs in a user specified location.
+
+- The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
+
 - Use the **FilterByNode** parameter to filter logs by computer name. For example:
 
     ```powershell
@@ -123,28 +124,28 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
 - Dump file log collection is disabled by default. To enable it, use the **IncludeDumpFile** switch parameter. 
 - Currently, you can use the **FilterByRole** parameter to filter log collection by the following roles:
 
- |   |   |   |    |
- | - | - | - | -  |   
- |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
- |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
- |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
- |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
- |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
- |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
- |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
- |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
- |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
- |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
- |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |Gateway                        |NC                             |WAS|
- |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
- |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |HRP                            |OboService                     |   |
- |   |   |   |    |
+  |   |   |   |    |
+  | - | - | - | -  |   
+  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+  |AzureMonitor          |Gateway                        |NC                             |WAS|
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+  |BRP                   |HintingServiceV2               |NRP                            |   |
+  |CA                    |HRP                            |OboService                     |   |
+  |   |   |   |    |
 
 ### Additional considerations
 
@@ -159,7 +160,7 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
     -	ACS logs are collected in the *Storage* and *ACS* roles.
 
 > [!NOTE]
-> Size and age limits are enforced on the logs collected as it is essential to ensure efficient utilization of your storage space to ensure it doesn't get flooded with logs. However, when diagnosing a problem you sometimes need logs that might not exist anymore because of these limits. Thus, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months, depending on your requirements. Also, ensure this storage location is encrypted.
+> Size and age limits are enforced on the logs collected as it is essential to ensure efficient utilization of your storage space to ensure it doesn't get flooded with logs. However, when diagnosing a problem you sometimes need logs that might not exist anymore because of these limits. Thus, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on premises storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months, depending on your requirements. Also, ensure this storage location is encrypted.
 
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)

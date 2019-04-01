@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 
 ---
 
@@ -28,8 +29,8 @@ You can create a Windows Server 2016 virtual machine by using Azure Stack PowerS
 * Install the IIS web server and view the default home page.
 * Clean up your resources.
 
->[!NOTE]
- You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
+> [!NOTE]
+>  You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
 
 ## Prerequisites
 

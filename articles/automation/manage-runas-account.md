@@ -3,10 +3,10 @@ title: Manage Azure Automation Run As accounts
 description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/12/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -25,8 +25,10 @@ There are two types of Run As Accounts:
   * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
 * **Azure Classic Run As Account** - This account is used to manage Classic deployment model resources.
+  * Creates a management certificate in the subscription
   * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
+  * Must be a co-administrator on the subscription to create or renew
   
   > [!NOTE]
   > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
@@ -35,19 +37,22 @@ There are two types of Run As Accounts:
 
 To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator/Co-Administrator can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
 
-|Task|Cmdlet  |Minimum Permissions  |
-|---|---------|---------|
-|Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role        |
-|Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN         |
-|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |
-|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        |
-|Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |
-|Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |
+|Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
+|---|---------|---------|---|
+|Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations |
+|Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
+|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
+|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        | [Subscription](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscriptions > \<subscription name\> - Access Control (IAM)|
+|Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |Automation Account Resource Group|
+|Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |Automation Account Resource Group|
 
-* An AD user account with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor).  
-* Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
+<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
 
 If you aren't a member of the subscription’s Active Directory instance before you're added to the global administrator/co-administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+
+## <a name="permissions-classic"></a>Permissions to configure Classic Run As accounts
+
+To configure or renew Classic Run As accounts, you must have the **Co-administrator** role at the subscription level. To learn more about Classic permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## Create a Run As account in the Portal
 
@@ -193,6 +198,12 @@ This PowerShell script includes support for the following configurations:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -316,13 +327,13 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 3. On the **Run As Accounts** properties page, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** pane for the selected account, click **Delete**.
 
- ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 1. After the account has been deleted, you can re-create it on the **Run As Accounts** properties page by selecting the create option **Azure Run As Account**.
 
- ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
+   ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Self-signed certificate renewal
 
@@ -347,17 +358,17 @@ To renew the certificate, do the following:
 
     ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu. 
+1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
 ## Limiting Run As account permissions
 
 To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
 
-In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
+In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and then select the **Role assignments** tab. Search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
 
 ![Subscription contributors](media/manage-runas-account/automation-account-remove-subscription.png)
 
-To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
+To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add role assignment**, this opens the **Add role assignment** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
 
 ## Misconfiguration
 

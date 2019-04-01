@@ -4,7 +4,7 @@ description: Describes how to cancel your Azure subscription, like the Free Tria
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: cwatson
+ms.date: 1/23/2019
+ms.author: banders
 
 ---
 # Cancel your subscription for Azure
@@ -33,10 +33,11 @@ If you cancel a paid Azure Support plan, you are still billed for the rest of th
 ## Cancel subscription using the Azure portal
 
 1. Select your subscription from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Select the subscription that you want to cancel and click **Cancel subscription**.
+2. Select the subscription that you want to cancel.
+3. Select **Overview**, and then select **Cancel subscription**.
 
     ![Screenshot that shows the Cancel button](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Follow prompts and finish cancellation.
+3. Follow prompts and finish cancellation.
 
 ## What happens after I cancel my subscription?
 
@@ -54,6 +55,6 @@ If you cancel your Pay-As-You-Go subscription accidentally, you can [reactivate 
 
 If your subscription is not Pay-As-You-Go, contact support within 90 days of cancellation to reactivate your subscription.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -6,8 +6,9 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
+ms.custom: seodec18
 
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
@@ -20,7 +21,7 @@ ms.author: ganesr;cherylmc
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit. This article applies to the classic deployment model.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -43,25 +44,25 @@ To sign in to your Azure account, use the following example:
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Check the subscriptions for the account.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## Get the status of a circuit
 

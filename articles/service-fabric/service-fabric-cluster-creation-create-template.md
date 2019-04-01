@@ -4,7 +4,7 @@ description: Learn how to create a Resource Manager template for a Service Fabri
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -197,7 +197,7 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         ...
@@ -236,13 +236,13 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 ## Test your template
 Use the following PowerShell command to test your Resource Manager template with a parameter file:
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -253,6 +253,14 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 ## Next steps
 Now that you have a template for your cluster, learn how to [deploy the cluster to Azure](service-fabric-cluster-creation-via-arm.md).  If you haven't already, read the [Production readiness checklist](service-fabric-production-readiness-checklist.md) before deploying a production cluster.
 
+To learn about the JSON syntax and properties for the resources deployed in this article, see:
+
+* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

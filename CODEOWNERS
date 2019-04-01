@@ -1,0 +1,29 @@
+# Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
+# articles/storage/  @tamram @robinsh
+# articles/virtual-machines/  @iainfoulds @cynthn
+# articles/virtual-machines/linux/  @iainfoulds @cynthn
+# articles/virtual-machines/windows/  @iainfoulds @cynthn
+# articles/application-insights/  @SergeyKanzhelev
+# articles/cosmos-db/ @mimig1
+
+# All Articles
+articles/ @apex-docs-pr-reviewers
+
+# Cognitive Services
+articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
+articles/cognitive-services/LUIS/ @cjgronlund @nitinme @diberry
+articles/cognitive-services/Speaker-recognition/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Speech-Service/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Translator/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/QnAMaker/ @cjgronlund @nitinme @diberry
+
+# DevOps
+
+articles/ansible/ @TomArcherMsft
+articles/chef/ @TomArcherMsft
+articles/jenkins/ @TomArcherMsft
+articles/terraform/ @TomArcherMsft
+
+# Governance
+
+articles/governance/ @DCtheGeek

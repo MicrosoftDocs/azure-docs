@@ -17,7 +17,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-premises infrastructure.
 
 - Automate application deployment and delivery
-    - Examples include [Azure DevOps Services](#visual-studio-team-services) and [Jenkins](#jenkins).
+    - Examples include [Azure DevOps Services](#azure-devops-services) and [Jenkins](#jenkins).
 
 ## Ansible
 [Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
@@ -54,7 +54,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. The following table outlines the current cloud-init enabled images availability on the Azure platform:
 
 | Publisher | Offer | SKU | Version | cloud-init ready
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |

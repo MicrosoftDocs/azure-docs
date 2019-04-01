@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Using shared access signatures (SAS)
 
@@ -34,11 +34,11 @@ A common scenario where a SAS is useful is a service where users read and write 
 
 1. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
 
-  ![Scenario diagram: Front-end proxy service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Scenario diagram: Front-end proxy service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
-  ![Scenario diagram: SAS provider service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Scenario diagram: SAS provider service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Many real-world services may use a hybrid of these two approaches. For example, some data might be processed and validated via the front-end proxy, while other data is saved and/or read directly using SAS.
 
@@ -224,8 +224,8 @@ Below are some examples of both types of shared access signatures, account SAS a
 
 To run these C# examples, you need to reference the following NuGet packages in your project:
 
-* [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), version 6.x or later (to use account SAS).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x or later (to use account SAS).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 For additional examples that show how to create and test a SAS, see [Azure Code Samples for Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -323,7 +323,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### Example: Create a service SAS on a container
-The following code creates a SAS on a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad-hoc SAS on the container.
+The following code creates a SAS on a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the container.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -333,7 +333,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -353,7 +353,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -366,7 +366,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### Example: Create a service SAS on a blob
-The following code creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad-hoc SAS on the blob.
+The following code creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -380,7 +380,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {

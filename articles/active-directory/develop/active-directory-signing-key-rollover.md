@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,13 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Signing key rollover in Azure Active Directory
 This article discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process or establish a periodic manual rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application or establish a periodic manual rollover process to handle key rollover if necessary.
 
 ## Overview of signing keys in Azure AD
-Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](http://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](azure-ad-federation-metadata.md).
+Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](azure-ad-federation-metadata.md).
 
 For security purposes, Azure AD’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. Any application that integrates with Azure AD should be prepared to handle a key rollover event no matter how frequently it may occur. If it doesn’t, and your application attempts to use an expired key to verify the signature on a token, the sign-in request will fail.
 
@@ -40,7 +41,7 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
 * [Web applications / APIs protecting resources and created with Visual Studio 2015 or Visual Studio 2017](#vs2015)
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
-* [Web APIs protecting resources and created with Visual Studio 2013](#vs2013_webapi)
+* Web APIs protecting resources and created with Visual Studio 2013
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
 * [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
@@ -273,7 +274,7 @@ Once you have followed these steps, your application’s Web.config will be upda
 
 Follow the steps below to verify that the key rollover logic is working.
 
-1. After you have verified that your application is using the code above, open the **Web.config** file and navigate to the **<issuerNameRegistry>** block, specifically looking for the following few lines:
+1. After you have verified that your application is using the code above, open the **Web.config** file and navigate to the **\<issuerNameRegistry>** block, specifically looking for the following few lines:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +282,7 @@ Follow the steps below to verify that the key rollover logic is working.
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. In the **<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
+2. In the **\<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5

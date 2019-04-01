@@ -49,7 +49,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution:**
 
-To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first.
+To resolve both these errors, upload the original VHD, available on premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first.
 
 **Capture Errors:**
 

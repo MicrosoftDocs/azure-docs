@@ -2,12 +2,12 @@
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server V3.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
+ms.author: adigan
 ---
 
 # What's new in Microsoft Azure Backup Server
@@ -49,12 +49,13 @@ Find more information about the installation/upgrade steps for MABS [here](https
 
 
 > [!NOTE]
-
+> 
 > MABS has the same code base as System Center Data Protection Manager. MABS v3 is equivalent to Data Protection Manager 1807.
 
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
+- [Known issues in MABS V3](backup-mabs-release-notes-v3.md)
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 - [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)

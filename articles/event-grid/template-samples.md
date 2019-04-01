@@ -9,12 +9,12 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 09/18/2018
+ms.date: 01/04/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager templates for Event Grid
 
-The following table includes links to Azure Resource Manager templates for Event Grid.
+For the JSON syntax and properties to use in a template, see [Microsoft.EventGrid resource types](/azure/templates/microsoft.eventgrid/allversions). The following table includes links to Azure Resource Manager templates for Event Grid.
 
 | | |
 |-|-|

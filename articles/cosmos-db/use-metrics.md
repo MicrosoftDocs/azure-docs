@@ -1,16 +1,13 @@
 ---
-title: Monitor and debug with metrics in Azure Cosmos DB | Microsoft Docs
+title: Monitor and debug with metrics in Azure Cosmos DB
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
-keywords: metrics
-services: cosmos-db
-author: kanshiG
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: kanshiG
+ms.author: govindk
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: govindk
+ms.reviewer: sngun
 ---
 # Monitor and debug with metrics in Azure Cosmos DB
 
@@ -36,7 +33,7 @@ An uneven throughput distribution may cause *hot* partitions, which can result i
 
 ## Determine the storage distribution across partitions
 
-Having a good cardinality of your partition is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Throughput tab, the storage breakdown is shown in the Max consumed RU/second by each physical partition chart. The following graphic illustrates a poor distribution of data as shown by the skewed partition on the far left.
+Having a good cardinality of your partition is essential for any scalable application. To determine the storage distribution of any partitioned container broken down by partitions, head to the Metrics blade in the [Azure portal](https://portal.azure.com). In the Storage tab, the storage breakdown is shown in the Data + Index storage consumed by top partition keys chart. The following graphic illustrates a poor distribution of data storage as shown by the skewed partition on the far left.
 
 ![Example of poor data distribution](media/use-metrics/metrics-07.png)
 

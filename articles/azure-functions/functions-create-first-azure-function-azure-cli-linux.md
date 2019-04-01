@@ -5,21 +5,21 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: multiple
+ms.custom: mvc, fasttrack-edit
+ms.devlang: javascript
 manager: jeconnoc
 ---
 
 # Create your first function hosted on Linux using Core Tools and the Azure CLI (preview)
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) Linux environment without having to first create a VM or publish a web application. Linux-hosting is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.0 runtime](functions-versions.md). Support to run a function app on Linux in the serverless [Consumption plan](functions-scale.md#consumption-plan) is currently in preview. To learn more, see [this preview considerations article](https://aka.ms/funclinux).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
-The following steps are supported on a Mac, Windows, or Linux computer. This article shows you how to create functions in either JavaScript or C#.
+The following steps are supported on a Mac, Windows, or Linux computer. This article shows you how to create functions in either JavaScript or C#. To learn how to create Python functions, see [Create your first Python function using Core Tools and the Azure CLI (preview)](functions-create-first-function-python.md).
 
 ## Prerequisites
 
@@ -44,13 +44,22 @@ func init MyFunctionProj
 When prompted, use the arrow keys to select a worker runtime from the following language choices:
 
 + `dotnet`: creates a .NET class library project (.csproj).
-+ `node`: creates a JavaScript project.
++ `node`: creates a JavaScript or TypeScript project. When prompted, choose `JavaScript`.
++ `python`: creates a Python project. For Python functions, see the [Python quickstart](functions-create-first-function-python.md).
+
+When the command executes, you see something like the following output:
 
 ```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Use the following command to navigate to the new `MyFunctionProj` project folder.
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -65,17 +74,14 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 ## Create a Linux function app in Azure
 
-You must have a function app to host the execution of your functions on Linux. The function app provides a serverless environment for executing your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app running on Linux by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command.
+You must have a function app to host the execution of your functions on Linux. The function app provides a serverless environment for executing your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app running on Linux by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
-In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
+In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#), `node` (JavaScript/TypeScript), or `python`.
 
-```azurecli
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westus" --is-linux
+```azurecli-interactive
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
+--name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> If you have an existing resource group named `myResourceGroup` with any non-Linux App Service apps, you must use a different resource group. You can't host both Windows and Linux apps in the same resource group.  
 
 After the function app has been created, you see the following message:
 
@@ -92,9 +98,4 @@ Now, you can publish your project to the new function app in Azure.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## Next steps
-
-This article showed you how to host your function app on a default Azure App Service container. You can also host your functions on Linux in your own custom container.
-
-> [!div class="nextstepaction"] 
-> [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

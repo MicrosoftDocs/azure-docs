@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 02/02/2019
 ms.author: haroldw
 ---
 
@@ -23,7 +23,7 @@ ms.author: haroldw
 After you deploy an OpenShift cluster, you can configure additional items. This article covers:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
-- How to configure Log Analytics to monitor OpenShift
+- How to configure Azure Monitor logs to monitor OpenShift
 - How to configure metrics and logging
 - How to install Open Service Broker for Azure (OSBA)
 
@@ -71,23 +71,23 @@ Take note of the appId property returned from the command for a later step.
 
 In the Azure portal:
 
-1.  Select **Azure Active Directory** > **App Registration**.
-2.  Search for your app registration (for example, OCPAzureAD).
-3.  In the results, click the app registration.
-4.  Under **Settings**, select **Required permissions**.
-5.  Under **Required Permissions**, select **Add**.
+1. Select **Azure Active Directory** > **App Registration**.
+2. Search for your app registration (for example, OCPAzureAD).
+3. In the results, click the app registration.
+4. Under **Settings**, select **Required permissions**.
+5. Under **Required Permissions**, select **Add**.
 
-  ![App Registration](media/openshift-post-deployment/app-registration.png)
+   ![App Registration](media/openshift-post-deployment/app-registration.png)
 
-6.  Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
+6. Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
 
-  ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
+   ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions**, and then click **Select**.
+7. On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions**, and then click **Select**.
 
-  ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
+   ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Select **Done**.
+8. Select **Done**.
 
 ### Configure OpenShift for Azure AD authentication
 
@@ -175,11 +175,11 @@ sudo systemctl restart origin-master
 
 In the OpenShift console, you now see two options for authentication: htpasswd_auth and [App Registration].
 
-## Monitor OpenShift with Log Analytics
+## Monitor OpenShift with Azure Monitor logs
 
 There are three ways to add the Log Analytics agent to OpenShift.
 - Install the Log Analytics agent for Linux directly on each OpenShift node
-- Enable Log Analytics VM Extension on each OpenShift node
+- Enable Azure Monitor VM Extension on each OpenShift node
 - Install the Log Analytics agent as a OpenShift daemon-set
 
 The full instructions are located here: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

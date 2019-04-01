@@ -2,44 +2,46 @@
 author: PatAltimore
 ms.service: active-directory-b2c 
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
 ---
-If you want to enable profile editing on your application, you use a **profile editing** policy. This policy describes the experiences that customers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
+If you want to enable profile editing on your application, you use a **profile editing** user flow. This user flow describes the experiences that customers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-In the policies section of settings, select **Profile editing policies** and click **+ Add**.
+Under **Manage**, select **User flows** and click +**New user flow**.
 
-![Select Profile editing policies and click the Add button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Select New user flow](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Enter a policy **Name** for your application to reference. For example, enter `SiPe`.
+On the **Recommended** tab, select **Profile editing**.
 
-Select **Identity providers** and check **Local Account Signin**. Optionally, you can also select social identity providers, if already configured. Click **OK**.
+Enter a user flow **Name** for your application to reference. For example, enter `SiPe`.
 
-![Select Local Account Signin as an identity provider and click the OK button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+Under **Identity providers**, check **Local Account Signin**. Optionally, you can also select social identity providers, if already configured.
 
-Select **Profile attributes**. Choose attributes the consumer can view and edit in their profile. For example, check **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
+![Select Local Account Signin as an identity provider and click the OK button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Select some attributes and click the OK button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+Under **User attributes**, click **Show more**. In the **Collect attribute** column, choose attributes the consumer can view and edit in their profile. For example, check **Country/Region**, **Display Name**, and **Postal Code**.
 
-Select **Application claims**. Choose claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select **Display Name**, **Postal Code**.
+In the **Return claim** column, choose claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select **Display Name**, **Postal Code**.
 
-![Select some application claims and click OK button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+Click **OK**.
 
-Click **Create** to add the policy. The policy is listed as **B2C_1_SiPe**. The **B2C_1_** prefix is appended to the name.
+![Select some application claims and click OK button](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-Open the policy by selecting **B2C_1_SiPe**. Verify the settings specified in the table then click **Run now**.
+Click **Create** to add the user flow. The user flow is listed as **B2C_1_SiPe**. The **B2C_1_** prefix is appended to the name.
 
-![Select policy and run it](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Select **Run user flow**. Verify the settings specified in the table then click **Run user flow**.
+
+![Select user flow and run it](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Setting      | Value  |
 | ------------ | ------ |
-| **Applications** | Contoso B2C app |
-| **Select reply url** | `https://localhost:44316/` |
+| **Application** | Contoso B2C app |
+| **Reply URL** | `https://localhost:44316/` |
 
 A new browser tab opens, and you can verify the profile editing consumer experience as configured.
 
 > [!NOTE]
-> It takes up to a minute for policy creation and updates to take effect.
+> It takes up to a minute for user flow creation and updates to take effect.
 >

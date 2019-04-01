@@ -10,7 +10,7 @@ editor:
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
@@ -50,6 +50,7 @@ The following data sources are supported for Lookup activity. The largest number
 ```
 
 ## Type properties
+
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
 dataset | Provides the dataset reference for the lookup. Get details from the **Dataset properties** section in each corresponding connector article. | Key/value pair | Yes
@@ -57,7 +58,7 @@ source | Contains dataset-specific source properties, the same as the Copy Activ
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. The default is `true`.
 
 > [!NOTE]
-
+> 
 > * Source columns with **ByteArray** type aren't supported.
 > * **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
 > * If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.
@@ -293,6 +294,15 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
     }
 ]
 ```
+
+## Limitations and workarounds
+
+Here are some limitations of the Lookup activity and suggested workarounds.
+
+| Limitation | Workaround |
+|---|---|
+| The Lookup activity has a maximum of 5,000 rows, and a maximum size of 2 MB. | Design a two-level pipeline where the outer pipeline iterates over an inner pipeline, which retrieves data that doesn't exceed the maximum rows or size. |
+| | |
 
 ## Next steps
 See other control flow activities supported by Data Factory: 

@@ -1,22 +1,21 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge Python tutorial | Microsoft Docs 
+title: Create custom Python module - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
 author: shizn
 manager: philmea
-
+ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 09/21/2018
+ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-
+ms.custom: "mvc, seodec18"
 ---
 
 # Tutorial: Develop and deploy a Python IoT Edge module to your simulated device
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:    
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data on the IoT Edge device that you set up in the quickstart. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge Python module.
@@ -34,8 +33,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* Python modules for IoT Edge don't support Windows devices.
+* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* Python modules for IoT Edge don't support Windows containers.
 
 Cloud resources:
 
@@ -44,71 +43,93 @@ Cloud resources:
 Development resources:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
 * [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code. 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+* [Docker CE](https://docs.docker.com/install/). 
+  * If you're developing on a Windows machine, make sure Docker is [configured to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 >[!Note]
 >Ensure that your `bin` folder is on your path for your platform. Typically `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
 
 ## Create a container registry
-In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services that are available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
+In this tutorial, you use the Azure IoT Tools for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Azure Container Registry**.
-2. Give your registry a name, choose a subscription, choose a resource group, and set the SKU to **Basic**. 
-3. Select **Create**.
-4. After your container registry is created, browse to it, and select **Access keys**. 
-5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial. 
+You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
+
+If you don't already have a container registry, follow these steps to create a new one in Azure:
+
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
+
+2. Provide the following values to create your container registry:
+
+   | Field | Value | 
+   | ----- | ----- |
+   | Registry name | Provide a unique name. |
+   | Subscription | Select a subscription from the drop-down list. |
+   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Location | Choose a location close to you. |
+   | Admin user | Set to **Enable**. |
+   | SKU | Select **Basic**. | 
+
+5. Select **Create**.
+
+6. After your container registry is created, browse to it, and then select **Access keys**. 
+
+7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry. 
 
 ## Create an IoT Edge module project
-The following steps create an IoT Edge Python module by using Visual Studio Code and the Azure IoT Edge extension.
+The following steps create an IoT Edge Python module by using Visual Studio Code and the Azure IoT Tools.
 
 ### Create a new solution
 
 Use the Python package **cookiecutter** to create a Python solution template that you can build on top of. 
 
-1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
+1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
 
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge solution template in VS Code:
+2. In the terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge solution template:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt. Typically, on Windows, add `%APPDATA%\Python\PythonVersion\Scripts`, where you have your version of Python instead of PythonVersion.
+   >Ensure the directory where cookiecutter will be installed is in your environment’s PATH in order to make it possible to invoke it from a command prompt. The directory is part of the output of the installation script, for example `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
+   >
+   >Restart Visual Studio Code to pick up the changes to PATH. 
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
 
 4. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 
-5. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+5. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts and provide the following information to create your solution:
 
-   1. Select the folder where you want to create the solution. 
-   2. Provide a name for your solution or accept the default **EdgeSolution**.
-   3. Choose **Python Module** as the module template. 
-   4. Name your module **PythonModule**. 
-   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/pythonmodule.
+   | Field | Value |
+   | ----- | ----- |
+   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
+   | Select module template | Choose **Python Module**. |
+   | Provide a module name | Name your module **PythonModule**. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the name you provided in the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final image repository looks like \<registry name\>.azurecr.io/pythonmodule. |
  
    ![Provide Docker image repository](./media/tutorial-python-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.gitignore** file in this tutorial. The **modules** folder contains the Python code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Python code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.  
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
+<!--
    ![Python solution workspace](./media/tutorial-python-module/workspace.png)
+-->
 
 ### Add your registry credentials
 
 The environment file stores the credentials for your container repository and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device. 
 
-1. In the VS Code explorer, open the .env file. 
+1. In the VS Code explorer, open the **.env** file. 
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry. 
-3. Save this file. 
+3. Save the .env file. 
 
 ### Update the module with custom code
 
@@ -179,9 +200,35 @@ Each template includes sample code, which takes simulated sensor data from the *
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-7. Save this file.
+7. Save the main.py file.
 
-## Build your IoT Edge solution
+8. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **PythonModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
+
+   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **PythonModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** if that is your IoT Edge device's architecture. 
+
+      ![Update module image platform](./media/tutorial-python-module/image-platform.png)
+
+   2. Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+
+   3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
+
+   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+
+9. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
+
+   ```json
+       "PythonModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
+
+10. Save the deployment.template.json file.
+
+## Build and push your solution
 
 In the previous section, you created an IoT Edge solution and added code to the **PythonModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
 
@@ -192,32 +239,24 @@ In the previous section, you created an IoT Edge solution and added code to the 
    ```
    Use the username, password, and login server that you copied from your Azure container registry in the first section. You can also retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. 
+   You might see a security warning recommending the use of the --password-stdin parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) command reference. 
 
-   This file tells the **$edgeAgent** to deploy two modules: **tempSensor**, which simulates device data, and **PythonModule**. The **PythonModule.image** value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-   This file also contains your registry credentials. In the template file, your user name and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values that you added to the .env file. 
-
-3. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
-    ```json
-        "PythonModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-4. Save this file.
-
-5. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
+2. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Python code, and then push the code to the container registry that you specified when you initialized the solution. 
 
 You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the module.json file with the format \<repository\>:\<version\>-\<platform\>. For this tutorial, it should look like registryname.azurecr.io/pythonmodule:0.0.1-amd64.
 
+>[!TIP]
+>If you receive an error trying to build and push your module, make the following checks:
+>* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
+>* Is your container repository correct? Open **modules** > **PythonModule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/pythonmodule**. 
+>* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match. Python modules don't support Windows containers. 
+
 ## Deploy and run the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
 1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 
@@ -229,7 +268,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
    ![Create deployment for single device](./media/tutorial-python-module/create-deployment.png)
 
-5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
+5. Select the **deployment.amd64** or **deployment.arm32v7** file (depending on your target architecture) in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
 6. Click the refresh button. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
@@ -239,7 +278,7 @@ Once you apply the deployment manifest to your IoT Edge device, the IoT Edge run
 
 You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules. 
 
-On the IoT Edge device itself you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially. 
+On the IoT Edge device itself, you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially. 
 
 To view the messages being generated by any module, use the command `iotedge logs <module name>`. 
 
@@ -249,7 +288,7 @@ You can view the messages as they arrive at your IoT hub using Visual Studio Cod
 2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
 3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in the command palette. 
 4. To view or update the module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file, right-click the editor area, and select **Update Module Twin**.
-5. To view Docker logs, install [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) for VS Code. You can find your running modules locally in Docker explorer. In the context menu, click **Show Logs** to view in the integrated terminal. 
+5. To view Docker logs, install the [Docker extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). You can find your running modules locally in Docker explorer. In the context menu, click **Show Logs** to view in the integrated terminal. 
 
 ## Clean up resources 
 
@@ -259,36 +298,6 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-### Delete local resources
-
-If you want to remove the IoT Edge runtime and related resources from your device, use the following commands. 
-
-Remove the IoT Edge runtime.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Delete the runtime containers that were created on your device.
-
-   ```bash
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
-   ```
-
-Delete any additional containers that were listed in the `docker ps` output by referring to the container names. 
-
-Remove the container runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
 
 ## Next steps
 

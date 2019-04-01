@@ -1,14 +1,11 @@
 ---
 title: Access server logs in Azure Database for MariaDB by using Azure CLI
 description: This article describes how to access the server logs in Azure Database for MariaDB by using the Azure CLI command-line utility.
-services: mariadb
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
 ---
 # Configure and access server logs by using Azure CLI

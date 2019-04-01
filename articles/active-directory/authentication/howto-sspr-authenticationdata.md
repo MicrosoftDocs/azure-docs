@@ -1,24 +1,26 @@
 ---
-title: 'Azure AD SSPR data requirements | Microsoft Docs'
+title: Azure AD SSPR data requirements - Azure Active Directory
 description: Data requirements for Azure AD self-service password reset and how to satisfy them
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Deploy password reset without requiring end-user registration
 
 To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves. But many organizations prefer to synchronize with data that already exists in Active Directory. The synced data is made available to Azure AD and SSPR without requiring user interaction if you:
-   * Properly format the data in your on-premises directory.
-   * Configure [Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md).
+
+* Properly format the data in your on-premises directory.
+* Configure [Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md).
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
@@ -42,7 +44,7 @@ Once a user verifies their mobile phone number, the Phone field under Authentica
 
 A Global Administrator can manually set the Authentication contact info for a user as displayed in the following screenshot.
 
-![Contact][Contact]
+![Authentication contact info on a user in Azure AD][Contact]
 
 If the Phone field is populated and Mobile phone is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow.
 
@@ -80,7 +82,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 
 #### Set the authentication data with PowerShell version 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -92,7 +94,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### Read the authentication data with PowerShell version 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -106,7 +108,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 To read the **Authentication Phone** and **Authentication Email** when you use PowerShell version 1, use the following commands:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -118,7 +120,7 @@ To get started, you need to [download and install the Azure AD version 2 PowerSh
 
 To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -126,7 +128,7 @@ Connect-AzureAD
 
 #### Set the authentication data with PowerShell version 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -138,7 +140,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### Read the authentication data with PowerShell version 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

@@ -5,19 +5,24 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
+ms.custom: seodec18
 ---
 
-# Cloudyn training videos
+# Cloudyn walk-through training videos
 
 The following videos provide demonstrations to walk you through getting started with Cloudyn and using its features. Cloudyn supports multi-cloud cost tracking and optimization including Microsoft Azure, Amazon Web Services, and Google Cloud Platform.
+
+## Overview video
 
 [Introduction to Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
+
+## Walk-through videos
 
 [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g)
 

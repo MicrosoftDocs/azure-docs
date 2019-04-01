@@ -15,9 +15,9 @@ The [Azure IoT SDKs](iot-hub-devguide-sdks.md) are a set of libraries to interac
 
 Microsoft supports a variety of operating systems/platforms/frameworks and can be extended using the Azure IoT C SDK. Some are supported officially by the team, grouped into tiers that represent the level of support users can expect. *Fully supported platforms* means that Microsoft:
 
-    * Continuously builds and runs end-to-end tests against master and the LTS supported version(s).
-    * Provides installation guidance or packages if applicable.
-    * Fully supports the platforms on GitHub.
+- Continuously builds and runs end-to-end tests against master and the LTS supported version(s).  To provide test coverage across different versions, we generally test against the latest LTS version and the most popular version.  Other versions of the same platform may be supported via platform version compatibility.
+- Provides installation guidance or packages if applicable.
+- Fully supports the platforms on GitHub.
 
 In addition, a list of partners has ported our C SDK on to more platforms and they are maintaining the platform abstraction layer (PAL). [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/) also features a list of OS platforms the various SDKs have been tested against. The SDKs also regularly build on these platforms, with limited testing and support:
 
@@ -26,7 +26,6 @@ In addition, a list of partners has ported our C SDK on to more platforms and th
 * Windows CE 2013 (deprecate in October 2018)
 * .NET Standard 1.3 with .NET Core 2.1 and .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android with Java
 
 ## Supported platforms
 
@@ -78,6 +77,8 @@ There are several platforms supported.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
+| Android Things | X64  | Java 8      |
 
 ## Partner supported platforms
 

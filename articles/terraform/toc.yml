@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Create a multi-service application
+      href: terrafom-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
@@ -21,8 +23,10 @@
           href: terraform-slot-walkthru.md
     - name: Containers
       items:
-        - name: Create a Kubernetes cluster with AKS and Terraform
+        - name: Create a Kubernetes cluster with AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Create a Kubernetes cluster with Application Gateway as ingress controller with AKS
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastructure
       items:
         - name: Create a Terraform VM with MSI enabled
@@ -35,6 +39,22 @@
           href: terraform-create-vm-scaleset-network-disks-hcl.md
         - name: Provision VM scale set from a Packer custom image
           href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Networks
+      items:
+      - name: Hub and spoke topology 
+        items:
+          - name: 1. Create hub and spoke topology
+            href: terraform-hub-spoke-introduction.md
+          - name: 2. Create on-premises virtual network
+            href: terraform-hub-spoke-on-prem.md
+          - name: 3. Create hub virtual network
+            href: terraform-hub-spoke-hub-network.md
+          - name: 4. Create hub virtual network appliance
+            href: terraform-hub-spoke-hub-nva.md
+          - name: 5. Create spoke network
+            href: terraform-hub-spoke-spoke-network.md
+          - name: 6. Validate network topology connectivity 
+            href: terraform-hub-spoke-validation.md
     - name: Tools
       items:
         - name: Install the Terraform Visual Studio Code extension
@@ -60,7 +80,7 @@
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform reference
-      href: http://aka.ms/terraform
+      href: https://aka.ms/terraform
 - name: Resources
   items:
     - name: Azure & Terraform

@@ -2,14 +2,13 @@
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB.
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
 ---
 
-# Indexing in Azure Cosmos DB
+# Indexing in Azure Cosmos DB - overview
 
 Azure Cosmos DB is a schema-agnostic database and allows you to iterate on your application quickly without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes all items in your container without requiring schema or secondary indexes from developers.
 
