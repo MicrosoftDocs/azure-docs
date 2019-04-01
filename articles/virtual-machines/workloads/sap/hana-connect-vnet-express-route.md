@@ -25,7 +25,7 @@ After you've created an Azure virtual network, you can connect that network to S
 > [!NOTE] 
 > This step can take up to 30 minutes to complete. The new gateway is created in the designated Azure subscription, and then connected to the specified Azure virtual network.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 If a gateway already exists, check whether it's an ExpressRoute gateway or not. If not, delete the gateway, and re-create it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, see the following section of this article, "Link virtual networks." 
 
