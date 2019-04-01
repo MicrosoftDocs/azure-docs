@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Ink Recognizer Documentation
+metadata:
+  title: Ink Recognizer Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Translator Text to translate text in multiple languages.
+  services: cognitive-services
+  author: erhopf
+  manager: dongli
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/06/2019
+  ms.author: erhopf
+abstract:
+  description: Ink Recognizer is a cloud-based lorum ipsum...
+
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/translator/translator-info-overview
+          html: <p>Learn about Ink Recognizer and how to integrate it into your products</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Ink Recognizer?
+        - href: /azure/cognitive-services/translator/custom-translator/overview
+          html: <p>Learn about Custom Translator</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: Lorum ipsum?
+        - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+          html: <p>Learn how to get started with Custom Translator</p>
+          image:
+            src: ../media/index/i_get-started.svg
+          title: Ecce Romani
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Translator Text API:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_js.svg
+      title: Javascript
+    rows:
+    - title: Something about recognizing handwriting from X
+      values:
+      - href: quickstart-csharp-translate
+      - href: quickstart-js-translate
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: "Learn how to develop applications using Ink Recognizer:"
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Not sure if this will be ready for //Build.</a>
+- title: Reference
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
