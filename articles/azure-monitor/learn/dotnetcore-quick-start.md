@@ -32,9 +32,9 @@ If you don't have an ASP.NET Core web application, you can use our step-by-step 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Application Insights
 
@@ -42,7 +42,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/dotnetcore-quick-start/1create_resource_appinsight.png)
+   ![Adding Application Insights Resource](./media/dotnetcore-quick-start/1createresourceappinsight.png)
 
     A configuration box appears; use the following table to fill out the input fields.
 
@@ -117,8 +117,7 @@ Application Insights can gather telemetry data from any internet-connected appli
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
 
 ## Clean up resources
-
-If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
