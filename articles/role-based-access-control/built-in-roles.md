@@ -118,13 +118,13 @@ The following table provides a brief description of each built-in role. Click th
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
-| [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
-| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
-| [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
-| [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
-| [Storage Queue Data Message Processor (Preview)](#storage-queue-data-message-processor-preview) | Allows for peek, receive, and delete access to Azure Storage queue messages |
-| [Storage Queue Data Message Sender (Preview)](#storage-queue-data-message-sender-preview) | Allows for sending of Azure Storage queue messages |
-| [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
+| [Storage Blob Data Contributor](#storage-blob-data-contributor) | Allows for read, write and delete access to Azure Storage blob containers and data |
+| [Storage Blob Data Owner](#storage-blob-data-owner) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
+| [Storage Blob Data Reader](#storage-blob-data-reader) | Allows for read access to Azure Storage blob containers and data |
+| [Storage Queue Data Contributor](#storage-queue-data-contributor) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+| [Storage Queue Data Message Processor](#storage-queue-data-message-processor) | Allows for peek, receive, and delete access to Azure Storage queue messages |
+| [Storage Queue Data Message Sender](#storage-queue-data-message-sender) | Allows for sending of Azure Storage queue messages |
+| [Storage Queue Data Reader](#storage-queue-data-reader) | Allows for read access to Azure Storage queues and queue messages |
 | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests |
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
@@ -2245,7 +2245,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage storage accounts, but not access to them. |
+> | **Description** | Permits management of storage accounts. Does not provide access to data in the storage account. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read all authorization |
@@ -2268,11 +2268,11 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
+> | **Description** | Permits listing and regenerating storage account access keys. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
+> | Microsoft.Storage/storageAccounts/listkeys/action | Return the access keys for the specified storage account. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerate the access keys for the specified storage account. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2280,117 +2280,117 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Blob Data Contributor (Preview)
+## Storage Blob Data Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for read, write and delete access to Azure Storage blob containers and data |
+> | **Description** | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Delete a container. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Return a container or a list of containers. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modify a container's metadata or properties. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete a blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Write to a blob. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Blob Data Owner (Preview)
+## Storage Blob Data Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
+> | **Description** | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Full permissions on containers.  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Full permissions on blobs. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Blob Data Reader (Preview)
+## Storage Blob Data Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for read access to Azure Storage blob containers and data |
+> | **Description** | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Return a container or a list of containers. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Queue Data Contributor (Preview)
+## Storage Queue Data Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+> | **Description** | Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Delete a queue. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Return a queue or a list of queues. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modify queue metadata or properties. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Delete one or more messages from a queue. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Peek or retrieve one or more messages from a queue. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Add a message to a queue. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Queue Data Message Processor (Preview)
+## Storage Queue Data Message Processor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for peek, receive, and delete access to Azure Storage queue messages |
+> | **Description** | Peek, retrieve, and delete a messages from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returns the result of processing a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Peek a message. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Retrieve and delete a message. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Queue Data Message Sender (Preview)
+## Storage Queue Data Message Sender
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for sending of Azure Storage queue messages |
+> | **Description** | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Add a message to a queue. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## Storage Queue Data Reader (Preview)
+## Storage Queue Data Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for read access to Azure Storage queues and queue messages |
+> | **Description** | Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Peek or retrieve one or more messages from a queue. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
