@@ -85,6 +85,17 @@ The bracketed values should be replaced with values relevant to your organizatio
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
+## Assign RDS Owner permissions for Windows Virtual Desktop Preview tenant
+
+In order to move on to the next step and create a host pool, you must assign a user account the RDS Owner role.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Set-RdsContext <TenantGroupName>
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -SignInName <UserAccount> -TenantGroupName <TenantGroupName> -TenantName <TenantName>
+```
+The bracketed values should be replaced with values relevant to your organization and tenant. If you wish to use a Service Principal for this task, please see the documentation [here] (https://docs.microsoft.com/en-us/azure/virtual-desktop/create-service-principal-role-powershell)
+
 ## Next steps
 
 Once you've created your tenant, you'll need to make a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
