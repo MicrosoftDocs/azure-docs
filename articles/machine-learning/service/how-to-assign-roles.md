@@ -30,7 +30,7 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workgroup may not have owner access to the resource group that contains the workgroup. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
 
 For more information on specific built-in roles, see [Built-in roles for Azure](/azure/role-based-access-control/built-in-roles).
 

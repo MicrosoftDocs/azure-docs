@@ -285,6 +285,7 @@ The following languages are available for customization to or from English using
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
+| Icelandic | `is` |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 | Korean      | `ko`          |
@@ -304,6 +305,7 @@ The following languages are available for customization to or from English using
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
+| Welsh | `cy` |
 
 ## Access the list on the Microsoft Translator website
 

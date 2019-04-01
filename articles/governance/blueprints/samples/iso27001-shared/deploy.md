@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Deploy the ISO 27001 Shared Services blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:
