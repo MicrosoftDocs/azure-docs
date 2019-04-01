@@ -54,7 +54,7 @@ The storage infrastructure underlying SAP HANA on Azure (Large Instances) suppor
 - When triggering a snapshot over /hana/data and /hana/shared (includes /usr/sap) volumes, the snapshot technology initiates an SAP HANA snapshot before it executes the storage snapshot. This SAP HANA snapshot is the setup point for eventual log restorations after recovery of the storage snapshot. For HANA snapshot to be successful you need an active HANA instance.  In HSR scenario, storage snapshot is not supported on current secondary node where HANA snapshot can’t be performed.
 - After the storage snapshot has been executed successfully, the SAP HANA snapshot is deleted.
 - Transaction log backups are taken frequently and are stored in the /hana/logbackups volume, or in Azure. You can trigger the /hana/logbackups volume that contains the transaction log backups to take a snapshot separately. In that case, you do not need to execute an HANA snapshot.
-- If you must restore a database to a certain point in time, request that Microsoft Azure Support (for a production outage) or SAP HANA on Azure Service Management restore to a certain storage snapshot. An example is a planned restoration of a sandbox system to its original state.
+- If you must restore a database to a certain point in time, request that Microsoft Azure Support (for a production outage) or SAP HANA on Azure restore to a certain storage snapshot. An example is a planned restoration of a sandbox system to its original state.
 - The SAP HANA snapshot that's included in the storage snapshot is an offset point for applying transaction log backups that have been executed and stored after the storage snapshot was taken.
 - These transaction log backups are taken to restore the database back to a certain point in time.
 
@@ -172,7 +172,7 @@ Make sure that the public key was corrected as expected by changing folders to *
 
 ![The public key is copied by running this command](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-At this point, contact SAP HANA on Azure Service Management and provide them with the public key. The service representative uses the public key to register it in the underlying storage infrastructure that is carved out for your HANA Large Instance tenant.
+At this point, contact SAP HANA on Azure and provide them with the public key. The service representative uses the public key to register it in the underlying storage infrastructure that is carved out for your HANA Large Instance tenant.
 
 ### Step 4: Create an SAP HANA user account
 
@@ -260,7 +260,7 @@ The purpose of the different scripts and files is as follows:
 - **removeTestStorageSnapshot.pl**: This script deletes the test snapshot created with the script **testStorageSnapshotConnection.pl**.
 - **azure\_hana\_dr\_failover.pl**: This script initiates a DR failover into another region. The script needs to be executed on the HANA Large Instance unit in the DR region, or on the unit you want to fail over to. This script stops storage replication from the primary side to the secondary side, restores the latest snapshot on the DR volumes, and provides the mountpoints for the DR volumes.
 - **azure\_hana\_test\_dr\_failover.pl**: This script performs a test failover into the DR site. Unlike the azure_hana_dr_failover.pl script, this execution does not interrupt the storage replication from primary to secondary. Instead, clones of the replicated storage volumes are created on the DR side, and the mountpoints of the cloned volumes are provided. 
-- **HANABackupCustomerDetails.txt**: This file is a modifiable configuration file that you need to modify to adapt to your SAP HANA configuration. The *HANABackupCustomerDetails.txt* file is the control and configuration file for the script that runs the storage snapshots. Adjust the file for your purposes and setup. You receive the **Storage Backup Name** and the **Storage IP Address** from SAP HANA on Azure Service Management when your instances deploy. You cannot modify the sequence, ordering, or spacing of any of the variables in this file. If you do, the scripts do not run properly. Additionally, you receive the IP address of the scale-up node or the master node (if scale-out) from SAP HANA on Azure Service Management. You also know the HANA instance number that you get during the installation of SAP HANA. Now, you need to add a backup name to the configuration file.
+- **HANABackupCustomerDetails.txt**: This file is a modifiable configuration file that you need to modify to adapt to your SAP HANA configuration. The *HANABackupCustomerDetails.txt* file is the control and configuration file for the script that runs the storage snapshots. Adjust the file for your purposes and setup. You receive the **Storage Backup Name** and the **Storage IP Address** from SAP HANA on Azure when your instances deploy. You cannot modify the sequence, ordering, or spacing of any of the variables in this file. If you do, the scripts do not run properly. Additionally, you receive the IP address of the scale-up node or the master node (if scale-out) from SAP HANA on Azure. You also know the HANA instance number that you get during the installation of SAP HANA. Now, you need to add a backup name to the configuration file.
 
 For a scale-up or scale-out deployment, the configuration file would look like the following example after you fill in the server name of the HANA Large Instance unit and the server IP address. Fill in all necessary fields for each SAP HANA SID you want to back up or recover.
 
@@ -626,9 +626,9 @@ For the snapshot types **hana** and **logs**, you can access the snapshots direc
 
 In a production-down scenario, the process of recovering from a storage snapshot can be initiated as a customer incident with Microsoft Azure Support. It is a high-urgency matter if data was deleted in a production system, and the only way to retrieve it is to restore the production database.
 
-In a different situation, a point-in-time recovery might be low urgency and planned days in advance. You can plan this recovery with SAP HANA on Azure Service Management instead of raising a high-priority flag. For example, you might be planning to upgrade the SAP software by applying a new enhancement package. You then need to revert to a snapshot that represents the state before the enhancement package upgrade.
+In a different situation, a point-in-time recovery might be low urgency and planned days in advance. You can plan this recovery with SAP HANA on Azure instead of raising a high-priority flag. For example, you might be planning to upgrade the SAP software by applying a new enhancement package. You then need to revert to a snapshot that represents the state before the enhancement package upgrade.
 
-Before you send the request, you need to prepare. The SAP HANA on Azure Service Management team can then handle the request and provide the restored volumes. Afterward, you restore the HANA database based on the snapshots. 
+Before you send the request, you need to prepare. The SAP HANA on Azure team can then handle the request and provide the restored volumes. Afterward, you restore the HANA database based on the snapshots. 
 
 The following shows you how to prepare for the request:
 
@@ -646,9 +646,9 @@ The following shows you how to prepare for the request:
 
 1. Open an Azure support request and include instructions about the restoration of a specific snapshot.
 
-   - During the restoration: SAP HANA on Azure Service Management might ask you to attend a conference call to ensure coordination, verification, and confirmation that the correct storage snapshot is restored. 
+   - During the restoration: SAP HANA on Azure might ask you to attend a conference call to ensure coordination, verification, and confirmation that the correct storage snapshot is restored. 
 
-   - After the restoration: SAP HANA on Azure Service Management notifies you when the storage snapshot has been restored.
+   - After the restoration: SAP HANA on Azure Service notifies you when the storage snapshot has been restored.
 
 1. After the restoration process is complete, remount all the data volumes.
 
