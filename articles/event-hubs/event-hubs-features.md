@@ -155,6 +155,8 @@ There are two factors which influence scaling with Event Hubs.
 *	Throughput units
 *	Partitions
 
+Partition can only use a maximum of one throughput unit each. This means for an event hub instance, the maximum amount of throuhput units that can be consumed by that event hub is limited by the number of partitions chosen.
+
 ### Throughput units
 
 The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput lets you:
