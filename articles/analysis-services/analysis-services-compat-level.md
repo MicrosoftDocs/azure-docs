@@ -49,7 +49,7 @@ Azure Analysis Services supports tabular models at the 1200 and 1400 compatibili
  This property specifies the highest compatibility level of a database that will run on the server (excluding preview). The supported compatibility level cannot be changed.  
 
 > [!NOTE]
-> When connected to an Azure Analysis Services server, the **Supported Compatibility Level** will show **1200**. This is a known issue and will be resolved in an upcoming SSMS update. When resolved, this property will show the highest supported compatibility level.
+> In SSMS, when connected to an Azure Analysis Services server, the **Supported Compatibility Level** property will show **1200**. This is a known issue and will be resolved in an upcoming SSMS update. When resolved, this property will show the highest supported compatibility level.
 
 ## Next steps
 
