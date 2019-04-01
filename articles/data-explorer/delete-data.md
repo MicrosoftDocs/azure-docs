@@ -2,7 +2,7 @@
 title: Delete data from Azure Data Explorer
 description: This article describes bulk delete scenarios in Azure Data Explore, including purge and retention based deletes.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
