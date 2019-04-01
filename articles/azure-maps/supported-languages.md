@@ -3,7 +3,7 @@ title: Supported languages in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 03/30/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
