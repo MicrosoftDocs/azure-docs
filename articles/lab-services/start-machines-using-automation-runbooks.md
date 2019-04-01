@@ -26,7 +26,7 @@ In this example, VMs in the lab need to have the tag **StartupOrder** added with
 Create an Azure Automation account by following instructions in [this article](../automation/automation-create-standalone-account.md). Choose the **Run As Accounts** option when creating the account. Once the automation account is created, open the **Modules** page, and select **Update Azure Modules** on the menu bar. The default modules are several versions old and without the update the script may not function.
 
 ## Add a runbook
-Now, to add a runbook to the automation account, select **Runbooks** on the left menu. Select **Add a runbook** on the menu, and follow instructions to create a PowerShell runbook.
+Now, to add a runbook to the automation account, select **Runbooks** on the left menu. Select **Add a runbook** on the menu, and follow instructions to [create a PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
 
 ## PowerShell script
 The following script takes the subscription name, the lab name as parameters. The flow of the script is to get all the VMs in the lab, and then parse out the tag information to create a list of the VM names and their startup order. The script walks through the VMs in order and starts the VMs. If there are multiple VMs in a specific order number, they are started asynchronously using PowerShell jobs. For those VMs that don’t have a tag, set startup value to be the last (10), they will be started last, by default.  If the lab doesn’t want the VM to be autostarted, set the tag value to 11 and it will be ignored.
@@ -129,8 +129,10 @@ While ($current -le 10) {
 }
 ```
 
-## Setup schedule
-To have this script execute daily, create a schedule in the automation account. Once the schedule is created, link it to the runbook. In a large-scale situation where there are multiple subscriptions with multiple labs, store the parameter information in a file for different labs and pass the file to the script instead of the individual parameters. The script would need to be modified but the core execution would be the same. While this sample uses the Azure Automation to execute the PowerShell script, there are other options like using a task in a Build/Release pipeline.
+## Create a schedule
+To have this script execute daily, [create a schedule](../automation/automation-schedules.md#creating-a-schedule) in the automation account. Once the schedule is created, [link it to the runbook](../automation/automation-schedules.md#linking-a-schedule-to-a-runbook). 
+
+In a large-scale situation where there are multiple subscriptions with multiple labs, store the parameter information in a file for different labs and pass the file to the script instead of the individual parameters. The script would need to be modified but the core execution would be the same. While this sample uses the Azure Automation to execute the PowerShell script, there are other options like using a task in a Build/Release pipeline.
 
 ## Next steps
 See the following article to learn more about Azure Automation: [An introduction to Azure Automation](../automation/automation-intro.md).
