@@ -24,21 +24,15 @@ This article describes how to use the [Azure portal](https://portal.azure.com) t
 
 ## Finding your apps in the portal
 
-Use the Azure portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
+Use the Azure Active Directory portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Open the [Azure Active Directory portal](https://aad.portal.azure.com).
 
-1. Select **All Services** and type *enterprise applications* in the search box.
+1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 
-1. Select **Enterprise applications**.
+1. Select any app to load its resource pane, where you can view reports and manage app settings.
 
-1. Select **All applications** to show a list of all configured apps, including apps that were added from the gallery.
-
-   ![Enterprise Applications pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
-
-1. Select an app to load its resource pane, where you can view reports and manage app settings.
-
-1. Select **Provisioning** to manage user account provisioning settings.
+1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 
    ![Application resource pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
@@ -79,6 +73,8 @@ Supported customizations include:
 * Filtering the provisioning actions that Azure AD runs on the targeted application. Instead of having Azure AD fully synchronize objects, you can limit the actions run. 
 
   For example, only select **Update** and Azure AD only updates existing user accounts in an application but doesn't create new ones. Only select **Create** and Azure only creates new user accounts but doesn't update existing ones. This feature lets admins create different mappings for account creation and update workflows.
+
+* Adding a new attribute mapping. Select **Add New Mapping** at the bottom of the **Attribute Mapping** pane. Fill out the **Edit Attribute** form and select **Ok** to add the new mapping to the list. 
 
 ### Settings
 
