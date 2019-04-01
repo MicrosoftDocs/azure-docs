@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
@@ -13,12 +13,12 @@ ms.custom: seodec18
 
 # SQL language reference for Azure Cosmos DB 
 
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax used in SQL API accounts. For a walkthrough of example SQL queries, see [SQL query examples in Cosmos DB](how-to-sql-query.md).  
   
-Visit the [Query Playground](https://www.documentdb.com/sql/demo) where you can try Cosmos DB and run SQL queries against our dataset.  
+Visit the [Query Playground](https://www.documentdb.com/sql/demo), where you can try Cosmos DB and run SQL queries against a sample dataset.  
   
 ## SELECT query  
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated, then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
   
 **Syntax**  
   

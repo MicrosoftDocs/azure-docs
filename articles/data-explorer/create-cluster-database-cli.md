@@ -4,7 +4,7 @@ description: Learn how to create an Azure Data Explorer cluster and database by 
 services: data-explorer
 author: radennis
 ms.author: radennis
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 3/25/2019
