@@ -158,11 +158,11 @@ In this section, you get the host information from the Apache Ambari REST API on
     sudo apt -y install jq
     ```
 
-2. Set up environment variables. Replace `PASSWORD` and `CLUSTERNAME` with the cluster login and cluster name respectively, then enter the command:
+2. Set up environment variables. Replace `PASSWORD` and `CLUSTERNAME` with the cluster login password and cluster name respectively, then enter the command:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA = 'CLUSTERNAME'
+    export clusterNameA='CLUSTERNAME'
     ```
 
 3. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, store it in a variable, and then display the correctly cased name, and the name you provided earlier. Enter the following command:
