@@ -28,7 +28,7 @@ Personalization uses machine learning models to discover what action to rank hig
 
 ## How do I use the Personalizer?
 
-!["Using Personalizer to choose which video to show to a user."](media/what-is-personalizer/personalizer-example-highlevel.png)
+![Using Personalizer to choose which video to show to a user](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Choose an experience in your app to personalize.
 1. Create and configure the Personalization Service in the Azure portal
@@ -55,7 +55,7 @@ Personalizer Service has two APIs:
 * Send information (_features_) about your users and the content (_actions_) to personalize. Personalizer responds with the top action.
 * Send feedback to Personalizer about how well the ranking worked as a number typically between 0 and 1 (the previous section said -1 and 1). 
 
-!["Basic sequence of events for Personalization"](media/what-is-personalizer/personalization-intro.png)
+![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
 
 ## Next steps
 
