@@ -1,6 +1,6 @@
 ---
 title: Get started using Azure Security Center (ASC) for IoT Preview| Microsoft Docs
-description: Get started in understanding the basic workflow of ASC for IoT features and service.
+description: Get started in understanding the basic workflow of Azure Security Center for IoT features and service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -17,14 +17,14 @@ ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# Get started with Azure Security Center (ASC) for IoT 
+# Get started with Azure Security Center for IoT 
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of the different building blocks of the ASC for IoT service and explains how to get started with [enabling the service](quickstart-onboard-iot-hub.md). 
+This article provides an explanation of the different building blocks of the Azure Security Center (ASC) for IoT service and explains how to get started with [enabling the service](quickstart-onboard-iot-hub.md). 
 
 ASC for IoT can be seamlessly integrated into your IoT Hub to provide security analysis of IoT hub configuration, device identity and hub-device communication patterns.
 For enhanced security capabilities, ASC for IoT provides agent-based collection of security data from your IoT devices.
