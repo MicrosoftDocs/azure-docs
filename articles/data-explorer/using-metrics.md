@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Data Explorer performance, health, and usage with Metrics
+title: Monitor Azure Data Explorer performance, health, and usage with metrics
 description: Learn how to use Azure Data Explorer metrics to monitor the cluster's performance, health, and usage.
 services: data-explorer
 author: orspod
@@ -10,7 +10,7 @@ ms.topic:
 ms.date: 04/01/2019
 ---
 
-# Monitor Azure Data Explorer performance, health, and usage with Metrics
+# Monitor Azure Data Explorer performance, health, and usage with metrics
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. Azure Data Explorer metrics provide key indicators as to the health and performance of the cluster resources. Use the metrics that are detailed in this article to monitor Azure Data Explorer cluster health and performance in your specific scenario as standalone metrics. You can also use metrics as the basis for operational [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards) and [Azure Alerts](/azure/azure-monitor/platform/alerts-metric-overview).
 
@@ -24,7 +24,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Using Metrics
+## Using metrics
 
 In your Azure Data Explorer cluster, select **Metrics** to open the metrics pane and begin analysis on your cluster.
 
