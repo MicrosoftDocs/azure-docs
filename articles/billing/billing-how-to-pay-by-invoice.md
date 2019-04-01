@@ -49,7 +49,7 @@ You can change the payment method for your Azure subscription to invoice by subm
          Country: 
          TAX ID/ VAT ID:
          Company Established on (Year):
-         Any prior business with Microsoft?: 
+         Any prior business with Microsoft: 
          Contact Name:
          Contact Phone:
          Contact Email:
