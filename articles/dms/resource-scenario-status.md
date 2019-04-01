@@ -10,11 +10,11 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/02/2019
 ---
 
-# Status of migration scenarios supported by the Azure Database Migration Service
-The Azure Database Migration Service is designed to support a variety of migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by the Azure Database Migration Service and the status (Private [or Limited] Preview, Public Preview, or Generally Available) or each scenario.
+# Status of migration scenarios supported by Azure Database Migration Service
+Azure Database Migration Service is designed to support a variety of migration scenarios (source/target pairs) for both offline (one-time) and online (continuous sync) migrations. The scenario coverage provided by the Azure Database Migration Service is being extended over time. New scenarios are being added on a regular basis. This article identifies the migration scenarios currently supported by Azure Database Migration Service and the status (Private Preview, Public Preview, or Generally Available) for each scenario.
 
 ## Offline versus online migrations
 When you migrate databases to Azure by using the Azure Database Migration Service, you can perform an offline or an online migration. With *offline* migrations, application downtime begins at the same time that the migration starts. For *online* migrations, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.
@@ -24,48 +24,51 @@ The status of each migration scenario supported by the Azure Database Migration 
 
 ## Migration scenario support
 
-The following tables show which migration scenarios are supported when using the Azure Database Migration Service.
+The following tables show which migration scenarios are supported when using Azure Database Migration Service.
 
 > [!NOTE]
 > If a scenario listed as supported below does not appear within the user interface, please contact the [Data Migration Team](mailto:datamigrationteam@microsoft.com) for additional information.
 
+> [!IMPORTANT]
+> To view scenarios supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
+
 ### Offline (one-time) migration support
 The following table shows Azure Database Migration Service support for offline migrations.
 
-| Target  | Source | Support |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | RDS SQL  |  ✔ |
-|   | Oracle  |   |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | RDS SQL  | ✔ |
-|   | Oracle  | ✔  |
-| **Azure SQL VM**  | SQL Server | ✔ |
-|   | Oracle  |   |
-| **Azure Cosmos DB**  | MongoDB | ✔ |
-| **Azure DB for MySQL**  | MySQL |  |
-|   | RDS MySQL  |  |
-| **Azure DB for PostgreSQL**  | PostgreSQL |  |
-|  | RDS PostgreSQL  |  |
+| Target  | Source | Support | Status |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | Generally Available |
+|   | RDS SQL |  ✔ |  |
+|   | Oracle |   |   |
+| **Azure SQL DB MI** | SQL Server | ✔ | Generally Available |
+|   | RDS SQL | ✔ |  |
+|   | Oracle | ✔  |   |
+| **Azure SQL VM** | SQL Server | ✔ |   |
+|   | Oracle |   |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | Public Preview |
+| **Azure DB for MySQL** | MySQL |   |   |
+|   | RDS MySQL |   |   |
+| **Azure DB for PostgreSQL** | PostgreSQL |  |
+|  | RDS PostgreSQL |   |   |
 
 ### Online (continuous sync) migration support
 The following table shows Azure Database Migration Service support for online migrations.
 
-| Target  | Source | Support |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | RDS SQL  |   |
-|   | Oracle  |  ✔ |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | RDS SQL  |  |
-|   | Oracle  | ✔  |
-| **Azure SQL VM**  | SQL Server  |   |
-|   | Oracle  | ✔  |
-| **Azure Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB for MySQL**  | MySQL | ✔ |
-|   | RDS MySQL  | ✔ |
-| **Azure DB for PostgreSQL**  | PostgreSQL | ✔ |
-|  | RDS PostgreSQL  | ✔ |
+| Target  | Source | Support | Status |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | Generally Available |
+|   | RDS SQL |   |   |
+|   | Oracle | ✔ |   |
+| **Azure SQL DB MI** | SQL Server | ✔ |   |
+|   | RDS SQL | ✔ | Generally Available |
+|   | Oracle | ✔ |   |
+| **Azure SQL VM** | SQL Server |   |   |
+|   | Oracle  | ✔ |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | Public Preview |
+| **Azure DB for MySQL** | MySQL | ✔ | Generally Available |
+|   | RDS MySQL | ✔ | Generally Available |
+| **Azure DB for PostgreSQL** | PostgreSQL | ✔ | Generally Available |
+|   | RDS PostgreSQL | ✔ | Generally Available |
 
 ## Next steps
-For an overview of the Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md). 
+For an overview of Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md). 
