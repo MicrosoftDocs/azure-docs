@@ -27,7 +27,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Create an Apache Kafka cluster
 
