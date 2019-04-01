@@ -110,10 +110,10 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-> 1. Edit **auth_config.json** and replace the `client_id`:
+> 1. Edit **auth_config.json** and replace the `client_id` and `redirect_uri`:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
->    "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
+>    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
 >     ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
