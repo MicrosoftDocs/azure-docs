@@ -112,6 +112,8 @@ items:
       href: functions-best-practices.md 
     - name: Functions Proxies
       href: functions-proxies.md 
+    - name: Networking Options
+      href: functions-networking-options.md
     - name: IP addresses
       href: ip-addresses.md 
     - name: On-premises functions
@@ -272,6 +274,8 @@ items:
         href: functions-host-json.md  
       - name: Functions 1.x
         href: functions-host-json-v1.md    
+    - name: Networking FAQ
+      href: functions-networking-faq.md
     - name: OpenAPI reference
       href: functions-api-definition.md
   - name: Resources
