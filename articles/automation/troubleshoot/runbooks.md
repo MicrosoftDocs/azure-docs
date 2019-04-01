@@ -21,7 +21,7 @@ manager: carmonm
 You receive the following error when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets.
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -76,7 +76,7 @@ To determine what's wrong, take the following steps:
 
 You receive the following error when working with the `Select-AzureSubscription` or `Select-AzureRmSubscription` cmdlets:
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -114,7 +114,7 @@ Take the following steps to determine if you've authenticated to Azure and have 
 
 You receive the following error when authenticating to Azure with your Azure username and password:
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -134,7 +134,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -174,7 +174,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 You see in your error in your job streams for a runbook with the following message:
 
-```
+```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
@@ -200,7 +200,7 @@ Az and AzureRM cmdlets can not be imported and used in the same runbook, to lear
 
 Your runbook fails with an error similar to the following example:
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -259,7 +259,7 @@ Start-AzureRmAutomationRunbook `
 
 Your runbook fails with an error similar to the following example:
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -284,7 +284,7 @@ If it's a separate module, make sure the module in imported in your Automation A
 
 Your runbook fails with the error:
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -318,7 +318,7 @@ Any of the following solutions fix the problem:
 
 Your runbook fails with the error:
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -370,7 +370,7 @@ If none of these solutions solve your problemReview the [job logs](../automation
 
 Your runbook job fails with the error:
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -393,7 +393,7 @@ If you want to use more than 500 minutes of processing per month, you need to ch
 
 Your runbook job fails with the error:
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -416,7 +416,7 @@ Any of the following solutions fix the problem:
 
 Your runbook shows in a **Stopped** state after running for 3 hours. You may also receive the error:
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -464,7 +464,7 @@ If the webhook is disabled, you can re-enable the webhook through the Azure port
 
 You receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 

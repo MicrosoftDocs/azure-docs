@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
 
 ---
@@ -24,6 +24,9 @@ ms.author: juliako
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 This tutorial walks you through the steps of using the Azure portal to create a **Channel** that is configured for a pass-through delivery. 
 

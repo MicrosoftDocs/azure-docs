@@ -574,9 +574,15 @@
         - name: Configure firewalls and virtual networks
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Manage custom keys for Azure Storage encryption
-          href: ../common/storage-service-encryption-customer-managed-keys.md
+          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Manage access rights with RBAC
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+          - name: Portal
+            href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: CLI
+            href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: PowerShell
+            href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Set file and directory-level permissions
           href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Integrate with Azure services
