@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 
@@ -56,7 +56,7 @@ Creating and managing test environments across an enterprise can require a signi
 For more information, see [Use Azure DevTest Labs for VM and PaaS test environments](devtest-lab-test-env.md).
 
 ## Sandboxed investigations
-Developers often investigate different technologies or infrastructure design. By default, all environments created with DevTest Labs are created in their own resource group. The DevTest Labs user gets only read access to those resources. However, for developers who need more control, a lab-wide setting can be updated to give [contributor rights](azure-devtest-labs-view-and-set-access-rights-to-an-environment-rg.md) to the originating DevTest Labs user for every environment they create.  With DevTest Labs, developers can be given contributor permission automatically to environments that they create in the lab.  This scenario allows developers to add and/or change Azure resources as they need for their development or test environments. The [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page allows Lab Owners to track the cost of each environment used for investigations.
+Developers often investigate different technologies or infrastructure design. By default, all environments created with DevTest Labs are created in their own resource group. The DevTest Labs user gets only read access to those resources. However, for developers who need more control, a lab-wide setting can be updated to give [contributor rights](https://azure.microsoft.com/updates/azure-devtest-labs-view-and-set-access-rights-to-an-environment-rg/) to the originating DevTest Labs user for every environment they create.  With DevTest Labs, developers can be given contributor permission automatically to environments that they create in the lab.  This scenario allows developers to add and/or change Azure resources as they need for their development or test environments. The [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page allows Lab Owners to track the cost of each environment used for investigations.
 
 For more information, see [Set access rights to an environment resource group](https://aka.ms/dtl-sandbox).
 
