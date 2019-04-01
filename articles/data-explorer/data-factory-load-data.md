@@ -4,7 +4,7 @@ description: 'In this topic, you learn to ingest (load) data into Azure Data Exp
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: 
+ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/31/2019
@@ -14,9 +14,7 @@ ms.date: 03/31/2019
 
 # Load data into Azure Data Explorer by using Azure Data Factory
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes.
-
-Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes. Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
 
 Azure Data Factory offers the following benefits for loading data into Azure Data Explorer:
 
@@ -39,22 +37,24 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
    ![Create a new data factory](media/data-factory-load-data/select-adf.png)
 
-1. In the **New data factory** pane, provide values for following fields:
+1. In the **New data factory** pane:
 
-   ![New data factory page](media/data-factory-load-data/new-data-factory.png)
+    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
 
-    * **Name**: Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).
-    * **Subscription**: Select your Azure subscription in which to create the data factory.
-    * **Resource Group**:
-        * Select **Create new** and enter the name of a resource group. Or:
-        * Select **Use existing** and select an existing resource group from the drop-down list.
-        To learn about resource groups, see [Using resource groups to manage your Azure resources](/azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Select **V2**.
-    * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions.
+    1. Provide values for following fields:
+    
+        * **Name**: Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).
+        * **Subscription**: Select your Azure subscription in which to create the data factory.
+        * **Resource Group**:
+            * Select **Create new** and enter the name of a resource group. Or:
+            * Select **Use existing** and select an existing resource group from the drop-down list.
+            To learn about resource groups, see [Using resource groups to manage your Azure resources](/azure-resource-manager/resource-group-overview.md).  
+        * **Version**: Select **V2**.
+        * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions.
+    
+    1. Select **Create**.
 
-1. Select **Create**.
-
-1. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
+1. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
 
    ![Data factory home page](media/data-factory-load-data/data-factory-home-page.png)
 
