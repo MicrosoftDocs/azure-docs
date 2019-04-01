@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
@@ -109,6 +109,9 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
 ```
 
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
+
+> [!NOTE]
+> The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for `azureVirtualMachines`. This can cause Pre and Post scripts to run multiple times on the same machine. To workaround this behavior, use `$azureVirtualMachines | Sort-Object -Unique` to select only unique VM names in your script.
 
 ## Samples
 
