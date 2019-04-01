@@ -38,15 +38,15 @@ The top-level `acr-task.yaml` primitives are **task properties**, **step types**
 
 The base format of an `acr-task.yaml` file, including some common step properties, follows. While not an exhaustive representation of all available step properties or step type usage, it provides a quick overview of the basic file format.
 
-```YAML
+```yml
 version: # acr-task.yaml format version.
 stepTimeout: # Seconds each step may take.
 steps: # A collection of image or container actions.
-    build: # Equivalent to "docker build," but in a multi-tenant environment
-    push: # Push a newly built or retagged image to a registry.
-      when: # Step property that defines either parallel or dependent step execution.
-    cmd: # Executes a container, supports specifying an [ENTRYPOINT] and parameters.
-      startDelay: # Step property that specifies the number of seconds to wait before starting execution.
+  - build: # Equivalent to "docker build," but in a multi-tenant environment
+  - push: # Push a newly built or retagged image to a registry.
+    when: # Step property that defines either parallel or dependent step execution.
+  - cmd: # Executes a container, supports specifying an [ENTRYPOINT] and parameters.
+    startDelay: # Step property that specifies the number of seconds to wait before starting execution.
 ```
 
 ### Supported task filename extensions
@@ -122,11 +122,11 @@ Build a container image. The `build` step type represents a multi-tenant, secure
 
 ### Syntax: build
 
-```YAML
+```yml
 version: v1.0.0
 steps:
-    - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
-      [property]: [value]
+  - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
+    [property]: [value]
 ```
 
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
@@ -177,10 +177,10 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 
 #### Build image - context in subdirectory
 
-```YAML
+```yml
 version: v1.0.0
 steps:
-- build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## push
@@ -191,7 +191,7 @@ Push one or more built or retagged images to a container registry. Supports push
 
 The `push` step type supports a collection of images. YAML collection syntax supports inline and nested formats. Pushing a single image is typically represented using inline syntax:
 
-```YAML
+```yml
 version: v1.0.0
 steps:
   # Inline YAML collection syntax
@@ -200,7 +200,7 @@ steps:
 
 For increased readability, use nested syntax when pushing multiple images:
 
-```YAML
+```yml
 version: v1.0.0
 steps:
   # Nested YAML collection syntax
@@ -248,10 +248,10 @@ The `cmd` step type runs a container.
 
 ### Syntax: cmd
 
-```YAML
+```yml
 version: v1.0.0
 steps:
-    - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
+  - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
 ```
 
 ### Properties: cmd
@@ -324,10 +324,10 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 
 The `cmd` step type references images using the standard `docker run` format. Images not prefaced with a registry are assumed to originate from docker.io. The previous example could equally be represented as:
 
-```YAML
+```yml
 version: v1.0.0
 steps:
-    - cmd: docker.io/bash:3.0 echo hello world
+  - cmd: docker.io/bash:3.0 echo hello world
 ```
 
 By using the standard `docker run` image reference convention, `cmd` can run images from any private registry or the public Docker Hub. If you're referencing images in the same registry in which ACR Task is executing, you don't need to specify any registry credentials.
@@ -336,7 +336,7 @@ By using the standard `docker run` image reference convention, `cmd` can run ima
 
     Replace `[myregistry]` with the name of your registry:
 
-    ```YAML
+    ```yml
     version: v1.0.0
     steps:
         - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
@@ -348,10 +348,10 @@ By using the standard `docker run` image reference convention, `cmd` can run ima
 
     To generalize the preceding task so that it works in any Azure container registry, reference the [Run.Registry](#runregistry) variable in the image name:
 
-    ```YAML
+    ```yml
     version: v1.0.0
     steps:
-        - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
     ```
 
 ## Task step properties
@@ -455,7 +455,7 @@ Each Run, through `az acr run`, or trigger based execution of tasks created thro
 
 Typically used for a uniquely tagging an image:
 
-```YAML
+```yml
 version: v1.0.0
 steps:
     - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -465,10 +465,10 @@ steps:
 
 The fully qualified server name of the registry. Typically used to generically reference the registry where the task is being run.
 
-```YAML
+```yml
 version: v1.0.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
 ```
 
 ### Run.Date
