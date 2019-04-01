@@ -51,6 +51,10 @@ With the 3.0 APIs we are exposing two additional export targets: ARM and Vision 
 * To use ARM, you just need to pick a Compact domain and then choose DockerFile and then ARM as the export options.
 * For Vision AI Dev Kit, the project must be created with the __General (Compact)__ domain as well as specifying VAIDK in the target export platforms argument.
 
+### Updating default iterations
+
+The 3.0 APIs do not support default iterations, but if an iteration needs to be marked default you can still use the 2.x APIs to update the default iteration. This is done the same as before, calling the UpdateIteration method marking the iteration default, as desired.
+
 ## Next steps
 
 * [View the full Training API documentation](https://go.microsoft.com/fwlink/?linkid=865446)
