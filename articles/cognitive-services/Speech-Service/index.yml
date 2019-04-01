@@ -216,7 +216,7 @@ sections:
     - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
     - html: <a href="intent.md">Intent Recognition</a><br/>
     - html: <a href="translation.md">Translation</a>
-    - html: <a href="how-to-synthesize-speech.md">Text-to-speech</a><br/>
+    - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text-to-speech</a><br/>
 - title: Samples
   items:
   - type: paragraph
