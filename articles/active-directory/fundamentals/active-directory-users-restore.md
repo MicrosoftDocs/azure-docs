@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 04/01/2018
 ms.author: lizross 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -48,10 +48,11 @@ You can see all the users that were deleted less than 30 days ago. These users c
     ![Users - Deleted users page, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
 ## Restore a recently deleted user
-While a user's account is suspended, all the related organization information is preserved. When you restore a user, this organization information is also restored. 
 
-> [!Note] 
-> Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are no seats available for those licenses. There is a possibility that your organization can be temporarily out of compliance for license usage if you are then consuming licenses more then you have purchased.
+When a user account is deleted from the organization, the account is in a suspended state and all the related organization information is preserved. When you restore a user, this organization information is also restored.
+
+> [!Note]
+> Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are no seats available for those licenses. If you are then consuming more licenses more than you purchased, your organization could be temporarily out of compliance for license usage.
 
 ### To restore a user
 1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.

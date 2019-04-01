@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 04/01/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add or delete users using Azure Active Directory
-Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant.
+Add new users or delete existing users from your Azure Active Directory (Azure AD) organization.
 
 ## Add a new user
 You can create a new user using the Azure Active Directory portal.
 
 ### To add a new user
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a Global administrator or user administrator for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **New user**.
 
@@ -35,7 +35,7 @@ You can create a new user using the Azure Active Directory portal.
 
    - **Name (required).** The first and last name of the new user. For example, Mary Parker.
 
-   - **User name (required).** The user name of the new user. For example, mary@contoso.com. 
+   - **User name (required).** The user name of the new user. For example, mary@contoso.com.
     
        The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
 
@@ -43,7 +43,7 @@ You can create a new user using the Azure Active Directory portal.
 
    - **Groups.** Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
-   - **Directory role.** Optionally, you can add the user to a directory role. You can assign the user to be a global administrator, or to one or more of the other administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
+   - **Directory role.** Optionally, you can add the user to a an Azure AD administrator role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
 
 4. Copy the auto-generated password provided in the **Password** box. You'll need to give this password to the user for the initial sign-in process.
 
@@ -58,7 +58,7 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 You can delete an existing user using Azure Active Directory portal.
 
 ### To delete a user
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a User administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then search for and select the user you want to delete from your Azure AD tenant. For example, _Mary Parker_.
 
