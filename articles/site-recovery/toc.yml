@@ -442,7 +442,7 @@
 - name: Reference
   items: 
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.recoveryservices.siterecovery
+    href: /powershell/module/az.recoveryservices
   - name: Azure PowerShell classic
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST
