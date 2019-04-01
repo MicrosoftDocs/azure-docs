@@ -5,3 +5,7 @@
   items:
   - name: What is Personalizer?
     href: what-is-personalizer.md
+- name: Quickstarts
+  items:
+  - name: Create and use feedback loop
+    href: csharp-quickstart-commandline-feedback-loop.md

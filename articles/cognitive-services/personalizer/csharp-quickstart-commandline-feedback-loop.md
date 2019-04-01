@@ -1,0 +1,249 @@
+---
+title: Feedback loop
+titleSuffix: Personalizer - Azure Cognitive Services
+description: Create feedback loop in this C# quickstart with the Personalizer service.
+services: cognitive-services
+author: edjez
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: personalizer
+ms.topic: overview
+ms.date: 05/07/2019
+ms.author: edjez
+#Customer intent: 
+---
+
+# Quickstart: Create feedback loop using C# 
+
+Create feedback loop in this C# quickstart with the Personalizer service.
+<!--
+## Features 
+This sample demonstrates how to use the Personalization client library for C# to perform the following actions: 
+ * Rank a list of actions for personalization.
+ * Report reward to allocate to the top ranked action based on user selection for the specified event.
+
+## Getting Started 
+
+Getting started with Personalization involves the following steps:
+
+1. Referencing the SDK 
+1. Writing code to rank the actions you want to show to your users,
+1. Writing code to send rewards to train the Personalization Loop.
+-->
+
+## Prerequisites
+
+* You need a subscription key and token issuing service url.
+* [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
+* The Microsoft.Azure.CognitiveServices.Personalization] SDK NuGet package. Installation instructions are provided below.
+
+## Creating a new console app and referencing the Personlizer SDK 
+
+Get the latest code as a Visual Studio solution from [Github] (add link).
+
+1. Create a new Visual C# Console App in Visual Studio.
+1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget Package Manager**, then **Manage NuGet Packages for Solution**.
+1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalization`.
+1. Select **Microsoft.Azure.CognitiveServices.Personalization** when it displays, then select the checkbox next to your project name, and select **Install**.
+
+## Add the code and put in your Personalizer and Azure keys
+
+1. Replace Program.cs with the following code. 
+1. Replace `<Subscription Key>` with your valid Personlizer subscription key.
+1. Replace `<Token Issuer Url>` with your valid token issuing service url. 
+1. Change the `<Azure Endpoint>` to the Azure region associated with your subscription key. An example is ``.
+1. Run the program.
+
+### 2. Code to rank the actions you want to show to your users
+
+The following C# code is a complete listing to pass user information, _features_ and information about your content, _actions_, to Personalizer using the SDK. Personalizer returns the top ranked action to show your user.  
+
+```csharp
+using Microsoft.Azure.CognitiveServices.Personalization;
+using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+
+namespace PersonalizationExample
+{
+    class Program
+    {
+        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        private const string subscriptionKey = "";
+
+        static void Main(string[] args)
+        {
+            int iteration = 1;
+            bool runLoop = true;
+
+            // Specify the azure endpoint e.g., https://localhost:5001
+            Uri url = new Uri("https://localhost:5001");
+
+            // Get the actions list to choose from personalization with their features.
+            IList<RankableAction> actions = GetActions();
+
+            // Initialize Personalization client.
+            PersonalizationClient client = InitializePersonalizationClient(url);
+
+            do
+            {
+                Console.WriteLine("\nIteration: " + iteration++);
+
+                // Get context information from the user.
+                string timeOfDayFeature = GetUsersTimeOfDay();
+                string tasteFeature = GetUsersTastePreference();
+
+                // Create current context from user specified data.
+                IList<object> currentContext = new List<object>() {
+                    new { time = timeOfDayFeature },
+                    new { taste = tasteFeature }
+                };
+
+                // Exclude an action for personalization ranking. This action will be held at its current position.
+                IList<string> excludeActions = new List<string> { "juice" };
+
+                // Generate an ID to associate with the request.
+                string eventId = Guid.NewGuid().ToString();
+
+                // Rank the actions
+                var request = new PersonalizationRequest(actions, true, currentContext, excludeActions, eventId);
+
+                PersonalizationResponse response = client.Rank(request);
+
+                Console.WriteLine("Personalization service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+
+                float reward = 0.0f;
+                string answer = Console.ReadLine().ToUpper();
+
+                if (answer == "Y")
+                {
+                    reward = 1;
+                    Console.WriteLine("Great! Enjoy your food.");
+                }
+                else if (answer == "N")
+                {
+                    reward = 0;
+                    Console.WriteLine("You didn't like the recommended food choice.");
+                }
+                else
+                {
+                    Console.WriteLine("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.");
+                }
+
+                Console.WriteLine("\nPersonalization service ranked the actions with the probabilities as below:");
+                foreach (var rankedResponse in response.Ranking)
+                {
+                    Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
+                }
+
+                // Send the reward for the action based on user response.
+                client.Reward(response.EventId, new PersonalizationReward(reward));
+
+                Console.WriteLine("\nPress q to break, any other key to continue:");
+                runLoop = !(Console.ReadLine().ToString().ToUpper() == "Q");
+
+            } while (runLoop);
+        }
+
+        /// <summary>
+        /// Initializes the personalization client.
+        /// </summary>
+        /// <param name="url">Azure endpoint</param>
+        /// <returns>Personalization client instance</returns>
+        static PersonalizationClient InitializePersonalizationClient(Uri url)
+        {
+            PersonalizationClient client = new PersonalizationClient(url,
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new DelegatingHandler[] { });
+
+            return client;
+        }
+
+        /// <summary>
+        /// Get users time of the day context.
+        /// </summary>
+        /// <returns>Time of day feature selected by the user.</returns>
+        static string GetUsersTimeOfDay()
+        {
+            string[] timeOfDayFeatures = new string[] { "morning", "afternoon", "evening", "night" };
+
+            Console.WriteLine("What time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night");
+            if (!int.TryParse(Console.ReadLine(), out int timeIndex) || timeIndex < 1 || timeIndex > timeOfDayFeatures.Length)
+            {
+                Console.WriteLine("Entered value is invalid. Setting feature value to " + timeOfDayFeatures[0] + ".");
+                timeIndex = 1;
+            }
+
+            return timeOfDayFeatures[timeIndex - 1];
+        }
+
+        /// <summary>
+        /// Gets user food preference.
+        /// </summary>
+        /// <returns>Food taste feature selected by the user.</returns>
+        static string GetUsersTastePreference()
+        {
+            string[] tasteFeatures = new string[] { "salty", "sweet" };
+
+            Console.WriteLine("What type of food would you prefer (enter number)? 1. salty 2. sweet");
+            if (!int.TryParse(Console.ReadLine(), out int tasteIndex) || tasteIndex < 1 || tasteIndex > tasteFeatures.Length)
+            {
+                Console.WriteLine("Entered value is invalid. Setting feature value to " + tasteFeatures[0] + ".");
+                tasteIndex = 1;
+            }
+
+            return tasteFeatures[tasteIndex - 1];
+        }
+
+        /// <summary>
+        /// Creates personalization actions feature list.
+        /// </summary>
+        /// <returns>List of actions for personalization.</returns>
+        static IList<RankableAction> GetActions()
+        {
+            IList<RankableAction> actions = new List<RankableAction>
+            {
+                new RankableAction
+                {
+                    Id = "pasta",
+                    Features =
+                    new List<object>() { new { taste = "salty", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
+                },
+
+                new RankableAction
+                {
+                    Id = "ice cream",
+                    Features =
+                    new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionalLevel = 2 } }
+                },
+
+                new RankableAction
+                {
+                    Id = "juice",
+                    Features =
+                    new List<object>() { new { taste = "sweet", spiceLevel = "none" }, new { nutritionLevel = 5 }, new { drink = true } }
+                },
+
+                new RankableAction
+                {
+                    Id = "salad",
+                    Features =
+                    new List<object>() { new { taste = "salty", spiceLevel = "low" }, new { nutritionLevel = 8 } }
+                }
+            };
+
+            return actions;
+        }
+    }
+}
+```
+
+## Clean up resources
+When you are done with the quickstart, remove all the files created in this quickstart. 
+
+## Next Steps
+
+* [Review Personalizer overview](what-is-personalizer.md)
+
+

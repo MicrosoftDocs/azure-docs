@@ -16,20 +16,19 @@ ms.author: edjez
 
 Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 
-
 * Provide information about your users and content and receive the top action to show your users. 
 * No need to clean and label data before using Personalizer.
 * Provide feedback to Personalizer when it is convenient to you. 
 * View real-time analytics. 
 * Use Personalizer as part of a larger data science effort to validate existing experiments.
-<!--
-# How does Personalizer work?
+
+## How does Personalizer work?
 
 Personalization uses machine learning models to discover what action to rank highest in a context. It does it by providing a mix of ranks that are based on "tried and true" results (commonly called "exploiting" past learning), and ranks that are more experimental or exploratory (commonly called "experimental" ranks). By getting feedback in the form of a reward score, Personalization automatically updates its own model used for future ranks.
 
-# How do I use the Personalizer?
+## How do I use the Personalizer?
 
-![alt text](media/what-is-personalizer/personalizer-example-highlevel.png "Using Personalizer to choose which video to show to a user.")
+!["Using Personalizer to choose which video to show to a user."](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Choose an experience in your app to personalize.
 1. Create and configure the Personalization Service in the Azure portal
@@ -42,24 +41,22 @@ Personalization uses machine learning models to discover what action to rank hig
 
 For example, your client application can add Personalizer to:
 
-* Personalize what article is highlighted on a news website
-* Optimize ad placement on a website
-* Display personalized ranking of recommended items on a shopping website
-* Suggest user interface elements such as filters to apply to a specific photo
-* Choose a chat bot's response to clarify user intent or suggest an action
-* Prioritize suggestions of what a user should do as the next step
+* Personalize what article is highlighted on a news website.    
+* Optimize ad placement on a website.
+* Display personalized ranking of recommended items on a shopping website.
+* Suggest user interface elements such as filters to apply to a specific photo.
+* Choose a chat bot's response to clarify user intent or suggest an action.
+* Prioritize suggestions of what a user should do as the next step.
 
+## Personalization for developers
 
-## Personalization for Developers
+Personalizer Service has two APIs:
 
-Personalizer Service has 2 APIs:
+* Send information (_features_) about your users and the content (_actions_) to personalize. Personalizer responds with the top action.
+* Send feedback to Personalizer about how well the ranking worked as a number typically between 0 and 1 (the previous section said -1 and 1). 
 
-1. Send information (_features_) about your users and the content (_actions_) to personalize. Personalizer responds with the top action.
-1. Send feedback to Personalizer about how well the ranking worked as a number typically between 0 and 1 (the previous section said -1 and 1). 
+!["Basic sequence of events for Personalization"](media/what-is-personalizer/personalization-intro.png)
 
-![alt text](media/what-is-personalizer/personalization-intro.png "Basic sequence of events for Personalization")
+## Next steps
 
--->
-
-## Next Steps
-
+[Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
