@@ -52,9 +52,8 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 ## Add the code and put in your Personalizer and Azure keys
 
 1. Replace Program.cs with the following code. 
-1. Replace `<Subscription Key>` with your valid Personlizer subscription key.
-1. Replace `<Token Issuer Url>` with your valid token issuing service url. 
-1. Change the `<Azure Endpoint>` to the Azure region associated with your subscription key. An example is ``.
+1. Replace `serviceKey` value with your valid Personalizer subscription key.
+1. Replace `serviceEndpoint` with your service endpoint. An example is `https://westus2.api.cognitive.microsoft.com/`.
 1. Run the program.
 
 ## Add code to rank the actions you want to show to your users
