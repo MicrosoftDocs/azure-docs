@@ -20,7 +20,7 @@ This article describes the scenarios that you, as a service provider, can use wi
 
 ## Understanding customer tenants
 
-An Azure Active Directory (Azure AD) tenant is a representation of an organization, sometimes referred to as a *directory*. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID).
+An Azure Active Directory (Azure AD) tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID). For more info, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 
 Typically, in order to manage Azure resources for an customer, a user needs to sign in to the Azure portal using an account associated with that customer's tenant. This means that an administrator in the customer's tenant must create a user account in that tenant.
 

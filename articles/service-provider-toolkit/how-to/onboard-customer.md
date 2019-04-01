@@ -162,7 +162,7 @@ az ad sp list –-query "[?displayName == '<spDisplayName>'].objectId" –-outpu
 az role definition list –-name "<roleName>" | grep name
 ```
 
-## Create an Azure Resource Manager Template
+## Create an Azure Resource Manager template
 
 To onboard your customer, you'll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template that includes the following:
 
