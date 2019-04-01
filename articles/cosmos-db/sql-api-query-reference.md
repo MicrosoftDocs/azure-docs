@@ -2348,26 +2348,56 @@ StringToArray(<expr>)
   
   The following example shows how StringToArray behaves across different types. 
   
-```  
+ The following are examples with valid input.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Here is the result set.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+StringToArray('[]') AS a1, 
+StringToArray("[1,2,3]") AS a2,
+StringToArray("[\"str\",2,3]") AS a3,
+StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Here is the result set.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+  > [!NOTE]
+  > Single quotes within the array are not valid JSON.
+  > Even though they are valid within a query, they will not parse to valid arrays. 
+  > Strings within the string of array must either be escaped "[\"\"]" or the surrounding quote must be single '[""]'.
+
+   The following are examples with invalid input.
+
+```
+SELECT
+StringToArray("[['5','6','7'],['8'],['9']]"),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]")
+```
+
+ Here is the result set.
+
+```
+[{}]
+```
+
+```
+SELECT
+StringToArray("["),
+StringToArray("1"),
+StringToArray(NaN),
+StringToArray(false),
+StringToArray(undefined)
+```
+
+ Here is the result set.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
@@ -2522,26 +2552,60 @@ StringToObject(<expr>)
   
   The following example shows how StringToObject behaves across different types. 
   
-```  
+ The following are examples with valid input.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
+StringToObject("{}") AS obj1, 
+StringToObject('{"A":[1,2,3]}') AS obj2,
+StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Here is the result set.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+
+  > [!NOTE]
+  > Single quotes within the object or property names without quotes are not valid JSON. 
+  > Even though they are valid within a query, they will not parse to valid objects. 
+  > Strings within the string of object must either be escaped "[\"\"]" or the surrounding quote must be single '[""]'.
+  
+ The following are examples with invalid input.
+
+``` 
+SELECT 
 StringToObject("{'a':[1,2,3]}"),
 StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
+StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")
+```
+
+ Here is the result set.
+
+```  
+[{}]
+```  
+
+``` 
+SELECT 
+StringToObject("}"),
+StringToObject("{"),
+StringToObject("1"),
 StringToObject(NaN), 
-StringToObject("{")
-```  
-  
- Here is the result set.  
-  
-```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
-```  
+StringToObject(false), 
+StringToObject(undefined)
+``` 
+
+ Here is the result set.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBSTRING  
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
