@@ -750,5 +750,5 @@ HANA snapshot deletion successfully.
 You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the SAP HANA snapshots on each of the worker nodes. The storage snapshot is then taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted. The deletion of the HANA snapshot is initiated from the master node.
 
 
-**Next steps**
-- Refer  [Disaster Recovery principles and preparation](hana-concept-preparation.md).
+## Next steps
+- See [Disaster Recovery principles and preparation](hana-concept-preparation.md).
