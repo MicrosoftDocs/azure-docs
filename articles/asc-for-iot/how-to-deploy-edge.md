@@ -39,9 +39,9 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal).
 
-1. The ASC for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) installed on the Edge device.
+1. The ASC for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) installed on the IoT Edge device.
 
-   1. Install the framework by running the following command on your Edge device:
+   1. Install the framework by running the following command on your IoT Edge device:
    
       `sudo apt-get install auditd audispd-plugins`
    
@@ -129,7 +129,7 @@ When you encounter an issue, learn more about the state of the IoT Edge security
    | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
-   If this is not the case, check that your Edge deployment manifest is aligned with the recommended settings. See [Deploy Edge module](#Deployment-using-Azure-portal) for more details.
+   If this is not the case, check that your IoT Edge deployment manifest is aligned with the recommended settings. See [Deploy IoT Edge module](#Deployment-using-Azure-portal) for more details.
    
 1. View module logs
 
