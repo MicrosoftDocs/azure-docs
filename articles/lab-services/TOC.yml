@@ -243,7 +243,7 @@
     - name: CLI
       href: /cli/azure/lab
     - name: PowerShell
-      href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+      href: /powershell/module/az.devtestlabs
     - name: REST API
       href: https://docs.microsoft.com/rest/api/dtl/
     - name: Resource Manager template
