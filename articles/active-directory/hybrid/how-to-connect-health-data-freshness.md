@@ -29,9 +29,11 @@ The Service gets the data from Agents that are running on the on-premise machine
 ## Understanding the alert
 The Alert Details blade indicates the time when the Alert is raised and last detected. The Alert is generated/re-evaluated by a background process which runs every two hours. In the example below, the initial alert was raised at 03/10 at 9:59 AM. It has continued to exist even at 03/12 10:00 AM when the alert was evaluated again.
  The blade also details the time when a particular Data Type was last received by the Health Service. 
+ 
  ![Azure AD Connect Health alert details](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
 Below is the map of service types and corresponding required data type.
+
 | Service Type | Agent (Windows Service name) | Purpose | Data Type generated  |
 | --- | --- | --- | --- |  
 | Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect AAD Connect specific information (Connectors, Synchronization rules etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
