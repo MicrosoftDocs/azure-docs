@@ -117,7 +117,7 @@ You can create Azure Machine Learning Compute as a compute target at run time. T
 > [!IMPORTANT]
 > Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.
 
-1.  z**Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
+1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
 
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
