@@ -72,7 +72,7 @@ The following table summarizes the network configuration for both ASDK environme
 ### Get the IP address of the external adapter of the NAT VM
 
 1. Sign in to the Azure Stack physical machine for POC1.
-2. Edit the following Powershell code to replace your administrator password, and then run the code on the POC host:
+2. Edit the following PowerShell code to replace your administrator password, and then run the code on the POC host:
 
    ```powershell
    cd \AzureStack-Tools-master\connect
