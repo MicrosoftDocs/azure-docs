@@ -68,10 +68,11 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations on the database. | Yes | No |
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
-Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
-
 > [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
+
+> [!NOTE]
+> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## Azure portal
 
