@@ -17,7 +17,7 @@ ms.author: wolfma
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.4.0, and Android Studio 3.1.
+The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.4.0, and Android Studio 3.3.
 The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
@@ -33,21 +33,13 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
     ![Screenshot of Android Studio Welcome window](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. The **Create New Project** wizard appears. In the **Create Android Project** screen, enter **Quickstart** as **application name**, **samples.speech.cognitiveservices.microsoft.com** as **company domain**, and choose a project directory. Leave the C++ and Kotlin check boxes unchecked, and select **Next**.
+1. The **Choose your project** wizard appears, select **Phone and Tablet** and **Empty Activity** in the activity selection box. Select **Next**.
 
-   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-02-create-android-project.png)
+   ![Screenshot of Choose your project wizard](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. In the **Target Android Devices** screen, select only **Phone and Tablet**. In the drop-down list below it, choose **API 23: Android 6.0 (Marshmallow)**, and select **Next**.
+1. In the **Configure your project** screen, enter **Quickstart** as **Name**, **samples.speech.cognitiveservices.microsoft.com** as **Package name**, and choose a project directory. For **Minimum API level** pick **API 23: Android 6.0 (Marshmallow)**, leave all other checkboxes unchecked, and select **Finish**.
 
-   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. In the **Add an Activity to Mobile** screen, select **Empty Activity**, and click **Next**.
-
-   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. In the **Configure Activity** screen, use **MainActivity** as the activity name and **activity\_main** as the layout name. Select both check boxes, and select **Finish**.
-
-   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-05-configure-activity.png)
+   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio takes a moment to prepare your new Android project. Next, configure the project to know about the Speech SDK and to use Java 8.
 
