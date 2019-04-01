@@ -157,7 +157,7 @@
       - name: Create an environment with Service Fabric cluster
         href: create-environment-service-fabric-cluster.md
       - name: Connect an environment to your lab's virtual network
-        href: connect-environment-to-lab-virtual-network.md
+        href: connect-environment-lab-virtual-network.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
