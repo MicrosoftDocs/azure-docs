@@ -26,8 +26,6 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 | Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
 | Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to performing the desired processing. |
 
-*=Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase, and R Server cluster types
-
 ## Basic virtual network resources
 
 The following diagram shows the placement of HDInsight nodes and network resources in Azure.
