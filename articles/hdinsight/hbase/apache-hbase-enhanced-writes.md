@@ -50,4 +50,5 @@ disable 'mytable'
 
 ## Next steps
 
-* Official Apache HBase documentation on the [Write Ahead Log feature](https://hbase.apache.org/book.html#wal).
+* Official Apache HBase documentation on the [Write Ahead Log feature](https://hbase.apache.org/book.html#wal)
+* To upgrade your HDInsight Apache HBase cluster to use Enhanced Writes, see [Migrate an Apache HBase cluster to a new version](apache-hbase-migrate-new-version.md).

@@ -64,7 +64,7 @@ Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then ent
 **A. Bash**  
 
 ```bash
-export clusterName=$(curl -u admin:$password -sS -G "https://CLSUTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
 echo $clusterName
 ```  
 

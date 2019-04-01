@@ -4636,6 +4636,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-variables.md",
+      "redirect_url": "/azure/automation/shared-resources/variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-source-control-integration-legacy.md",
+      "redirect_url": "/azure/automation/source-control-integration-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-schedules.md",
       "redirect_url": "/azure/automation/shared-resources/schedules",
       "redirect_document_id": false

@@ -5,15 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ---
 
 # Create and manage read replicas from the Azure CLI
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure CLI. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> The read replica feature is in public preview.
 
 ## Prerequisites
 - An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the master server.
