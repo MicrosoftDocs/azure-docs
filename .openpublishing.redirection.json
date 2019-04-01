@@ -2231,6 +2231,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
+      "redirect_url": "/azure/iot-edge/how-to-visual-studio-develop-module",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
       "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
       "redirect_document_id": false
