@@ -37,18 +37,19 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 ### Prerequisites
 
-1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+- In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-1. ASC for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+- ASC for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
-   1. Install the framework by running the following command on your IoT Edge device:
+    - Install the framework by running the following command on your IoT Edge device:
    
       `sudo apt-get install auditd audispd-plugins`
    
-   1. Verify AuditD is active by running the following command:
+    - Verify AuditD is active by running the following command:
    
       `sudo systemctl status auditd`
-       <br>The expected response is `active (running)`. 
+      
+        The expected response is `active (running)`. 
 
 ### Deployment using Azure portal
 
@@ -64,49 +65,50 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
     Note: If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
 
-There are three steps to create an IoT Edge deployment for ASC for IoT. The following sections walk through each one. 
+There are three steps to create an IoT Edge deployment for Azure Security Center for IoT. The following sections walk through each one. 
 
 #### Step 1: Add Modules
 
 1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
    
-    1. Change the **name** to **azureiotsecurity**.
-    1. Change the name  of **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
+1. Change the **name** to **azureiotsecurity**.
+1. Change the name  of **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
       
-    1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
+1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
       
-         ``` json
-         "properties.desired": {
-           "azureiot*com^securityAgentConfiguration^1*0*0": {
-           }
-         }
-         ```
-    1. Click **Save**.
-    1. Scroll to the bottom of the page and select **Configure advanced Edge Runtime settings**.
+    ``` json
+      "properties.desired": {
+        "azureiot*com^securityAgentConfiguration^1*0*0": {
+        }
+      }
+      ```
+
+1. Click **Save**.
+1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
    
-        >[!Note]
-        > Do not disable AMQP communication for the IoT Edge Hub.
-        > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
+  >[!Note]
+  > Do **not** disable AMQP communication for the IoT Edge Hub.
+  > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
-    1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
       
-    1. Verify **Create Options** is set to: 
+1. Verify **Create Options** is set to: 
          
-        ``` json
-         {
-           "HostConfig": {
-             "PortBindings": {
-               "8883/tcp": [{"HostPort": "8883"}],
-               "443/tcp": [{"HostPort": "443"}],
-               "5671/tcp": [{"HostPort": "5671"}]
-             }
-           }
-         }
-         ```
+    ``` json
+    {
+      "HostConfig": {
+        "PortBindings": {
+          "8883/tcp": [{"HostPort": "8883"}],
+          "443/tcp": [{"HostPort": "443"}],
+          "5671/tcp": [{"HostPort": "5671"}]
+        }
+      }
+    }
+    ```
       
-    1. Click **Save**.
+1. Click **Save**.
    
-    1. Click **Next**.
+1. Click **Next**.
 
 #### Step 2: Specify Routes 
 
@@ -128,7 +130,7 @@ If you encounter an issue, container logs are the best way to learn about the st
     
      `sudo docker ps`
    
-  1. Verify that the following containers are running:
+1. Verify that the following containers are running:
    
    | Name | IMAGE |
    | --- | --- |
@@ -144,7 +146,7 @@ If you encounter an issue, container logs are the best way to learn about the st
 
    `sudo docker logs azureiotsecurity`
    
-  1. For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
+1. For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
 
 ## Next steps
 
