@@ -31,7 +31,7 @@ QnA Maker supports question/answer extraction in any language page, but the effe
 
 The primary language used for detection is set for the QnA Maker resource, and all knowledge bases created on that resource, when the first document or URL is added to the first knowledge base. The language can't be changed. 
 
-If the user plans to support multiple languages, they need to have a new QnA Maker resource for each language. Learn how to [create a language-based QnA Maker knowledge base](/how-to/language-knowledge-base.md).  
+If the user plans to support multiple languages, they need to have a new QnA Maker resource for each language. Learn how to [create a language-based QnA Maker knowledge base](../how-to/language-knowledge-base.md).  
 
 Verify the primary language with the following steps:
 

@@ -366,7 +366,9 @@
       - name: SaaS Fulfillment APIs
         href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
         items:
-        - name: SaaS API
+        - name: SaaS API v1
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
+        - name: SaaS API v2
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
     - name: Virtual machine offer
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md

@@ -58,9 +58,9 @@ The architecture of neural network models that you create in Azure Machine Learn
 + Define special connectivity structures, such as convolutions and weight sharing bundles.
 + Specify different activation functions.
 
-For details of the specification language syntax, see [Structure Specification](#Structure-specifications).
+For details of the specification language syntax, see [Structure Specification](#structure-specifications).
 
-For examples of defining neural networks for some common machine learning tasks, from simplex to complex, see [Examples](#Examples-of-Net#-usage).
+For examples of defining neural networks for some common machine learning tasks, from simplex to complex, see [Examples](#examples-of-net-usage).
 
 ## General requirements
 

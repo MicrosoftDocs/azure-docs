@@ -170,7 +170,7 @@ unencrypted Service Fabric communication.
 ## A.12.4.1 Event Logging
 
 This blueprint helps you ensure system events are logged by assigning seven [Azure
-Policy](../../../policy/overview.md) definitions that that audit log settings on Azure resources. An
+Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources. An
 assigned policy also audits if virtual machines aren't sending logs to a specified log analytics
 workspace.
 

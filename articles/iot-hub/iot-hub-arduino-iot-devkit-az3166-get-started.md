@@ -19,7 +19,9 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 ## What you do
 
-Connect the DevKit to an Azure IoT hub that you create. Then collect the temperature and humidity data from sensors, and send the data to the IoT hub.
+In this article, you will use [Visual Studio Code](https://code.visualstudio.com/), a cross platform source code editor, along with the [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack.
+
+You will connect the DevKit to an Azure IoT hub that you create. Then collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
 Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
 
@@ -114,7 +116,9 @@ Press button B to test the sensors. Continue pressing and releasing the button B
 
 ### Install Azure IoT Tools
 
-We recommend [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack for Visual Studio Code to develop on the DevKit. The Azure IoT Tools contains [Azure IoT Device Workbench](https://aka.ms/iot-workbench) to develop and debug on various IoT devkit devices and [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit) to manage and interact with Azure IoT Hub.
+In this section, you will install the [Arduino IDE](https://www.arduino.cc/en/Main/Software) along with [Visual Studio Code](https://code.visualstudio.com/), a cross platform source code editor.
+
+You will also install the [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack for Visual Studio Code. We recommend using [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack for Visual Studio Code to develop applications on the DevKit. The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
 
 You can watch these [Channel 9](https://channel9.msdn.com/) videos to have overview about what they do:
 * [Introduction to the new IoT Workbench extension for VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

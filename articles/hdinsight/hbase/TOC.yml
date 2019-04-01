@@ -78,21 +78,6 @@
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Install published app - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Install published app - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Install published app - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Install published app - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Install published app - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Secure
     items:
     - name: Use SSH with HDInsight
@@ -152,6 +137,9 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Enhanced Writes
+      href: ../hbase/apache-hbase-enhanced-writes.md
+      maintainContext: true
     - name: Scale an HDInsight cluster
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
@@ -231,9 +219,6 @@
       - name: Apache Hive settings fix Out of Memory error
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Use Apache Ambari Views to debug Apache TEZ Jobs
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: Optimize Apache Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -274,7 +259,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -301,33 +286,6 @@
       maintainContext: true
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
-    - name: Run Apache Hadoop MapReduce samples
-      href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: Use Apache Giraph to process large-scale graphs
-      href: ../hdinsight-hadoop-giraph-install.md
-      maintainContext: true
-    - name: Use Apache Oozie for workflows
-      href: ../hdinsight-use-oozie.md
-      maintainContext: true
-    - name: Deploy and manage Apache Storm topologies
-      href: ../storm/apache-storm-deploy-monitor-topology.md
-      maintainContext: true
-    - name: Use Apache Maven to build Java applications
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Access Apache Hadoop YARN application logs
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Generate movie recommendations using Apache Mahout
-      href: ../hdinsight-mahout.md
-      maintainContext: true
-    - name: Develop script actions
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Monitor clusters using the Apache Ambari API
-      href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources
   items:

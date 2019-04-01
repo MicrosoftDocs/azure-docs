@@ -265,7 +265,7 @@ To easily deploy the Dependency Agent on many servers at once, it helps to use a
 
 #### PowerShell script for Windows
 
-```PowerShell
+```powershell
 
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 

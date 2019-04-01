@@ -4,7 +4,7 @@ description: Walkthrough on how to package multiple guest executables to deploy 
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
