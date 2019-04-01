@@ -10,7 +10,7 @@
   - name: Quickstarts
     items:
     - name: C#
-      href: href: quickstart-ink-recognizer-csharp.md
+      href: quickstart-ink-recognizer-csharp.md
     - name: Javascript
       href: quickstart-ink-recognizer-javascript.md
   - name: How-to guides
