@@ -45,7 +45,7 @@ Sometimes the session affinity issues might occur when you forget to enable “C
 
 You can also check the value of the “**CookieBasedAffinity**” is set to *Enabled*under "**backendHttpSettingsCollection**" by using one of the following methods:
 
-- Run [Get-AzureRmApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationgatewaybackendhttpsettings?view=azurermps-4.1.0) in PowerShell
+- Run [Get-AzureRmApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationgatewaybackendhttpsettings) in PowerShell
 - Look through the JSON file by using the Azure Resource Manager template
 
 ```

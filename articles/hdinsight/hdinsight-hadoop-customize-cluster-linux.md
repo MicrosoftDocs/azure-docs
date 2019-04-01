@@ -23,6 +23,8 @@ Azure HDInsight provides a configuration method called **script actions** that i
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. For more information on HDInsight applications, see [Publish an HDInsight application in the Azure Marketplace](hdinsight-apps-publish-applications.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Permissions
 
 For a domain-joined HDInsight cluster, there are two Apache Ambari permissions that are required when you use script actions with the cluster:
@@ -127,7 +129,7 @@ A failure in a script run on an already running cluster doesn't automatically ca
 >
 > Scripts actions run with root privileges. Make sure that you understand what a script does before you apply it to your cluster.
 
-When you apply a script to a cluster, the cluster state changes from **Running** to **Accepted**. Then it changes to **HDInsight configuration** and, finally, back to **Running** for successful scripts. The script status is logged in the script action history. This information tells you whether the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet shows the status of a script. It returns information similar to the following text:
+When you apply a script to a cluster, the cluster state changes from **Running** to **Accepted**. Then it changes to **HDInsight configuration** and, finally, back to **Running** for successful scripts. The script status is logged in the script action history. This information tells you whether the script succeeded or failed. For example, the `Get-AzHDInsightScriptActionHistory` PowerShell cmdlet shows the status of a script. It returns information similar to the following text:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -219,7 +221,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -364,13 +366,13 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 | cmdlet | Function |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Retrieve a history of script actions applied to the cluster or details for a specific script. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Promote an ad hoc script action to a persisted script action. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Demote a persisted script action to an ad hoc action. |
+| `Get-AzHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. |
+| `Get-AzHDInsightScriptActionHistory` |Retrieve a history of script actions applied to the cluster or details for a specific script. |
+| `Set-AzHDInsightPersistedScriptAction` |Promote an ad hoc script action to a persisted script action. |
+| `Remove-AzHDInsightPersistedScriptAction` |Demote a persisted script action to an ad hoc action. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` doesn't undo the actions performed by a script. This cmdlet only removes the persisted flag.
+> `Remove-AzHDInsightPersistedScriptAction` doesn't undo the actions performed by a script. This cmdlet only removes the persisted flag.
 
 The following example script demonstrates using the cmdlets to promote and then demote a script.
 

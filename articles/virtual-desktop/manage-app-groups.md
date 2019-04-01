@@ -1,6 +1,6 @@
 ---
-title: Manage app groups for Windows Virtual Desktop (preview)  - Azure
-description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
+title: Manage app groups for Windows Virtual Desktop Preview  - Azure
+description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Tutorial: Manage app groups for Windows Virtual Desktop (Preview)
+# Tutorial: Manage app groups for Windows Virtual Desktop Preview
 
-The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp (preview) application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+The default app group created for a new Windows Virtual Desktop Preview host pool also publishes the full desktop. In addition, you can create one or more RemoteApp  application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
 In this tutorial, learn how to:
 
@@ -23,13 +23,13 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Create a RemoteApp group
 
-1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
+1. Run the following PowerShell cmdlet to create a new empty RemoteApp app group.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
+2. (Optional) To verify the app group was created, you can run the following cmdlet to see a list of all app groups for the host pool.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -40,17 +40,17 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
+   
+4. Run the following cmdlet to install the application based on its appalias. appalias becomes visible when you run the output from step 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Optional) Run the following cmdlet to install the application based on appalias. appalias becomes visible when you run the output from step 3.
+5. (Optional) Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. To verify that the app was published, run the following cmdlet.
@@ -63,7 +63,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 8. Run the following cmdlet to grant users access to the RemoteApps in the app group.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## Next steps

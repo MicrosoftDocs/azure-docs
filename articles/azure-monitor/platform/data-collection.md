@@ -97,7 +97,7 @@ Tasks that you can perform with metrics include the following:
 - Route metrics to logs to analyze metric data together with log data and to store metric values for longer than 93 days. 
 - Stream metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
 - [Archive](../../azure-monitor/learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
-- Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](rest-api-walkthrough.md).
+- Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/) or [REST API](rest-api-walkthrough.md).
 
 
 
@@ -141,7 +141,7 @@ Tasks that you can perform with logs include the following:
 - Configure a [log alert rule](alerts-log.md) that sends a notification or takes [automated action](action-groups.md) when the results of the query match a particular result.
 - Build a workflow based on log data using [Logic Apps](~/articles/logic-apps/index.yml).
 - Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.
-- Access metric values from a command line or custom application using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
+- Access metric values from a command line or custom application using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) or [REST API](https://dev.loganalytics.io/).
 
 ### Viewing log data
 All log data in Azure Monitor is retrieved using a [log query](../log-query/log-query-overview.md) written with the [Kusto query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../log-query/portals.md) to write and test queries in the Azure portal. You can work with results interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve logs by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

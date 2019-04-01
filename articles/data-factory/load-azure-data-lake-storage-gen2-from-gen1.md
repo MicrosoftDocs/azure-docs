@@ -34,9 +34,10 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)

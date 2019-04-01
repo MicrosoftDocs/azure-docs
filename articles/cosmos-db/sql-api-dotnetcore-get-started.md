@@ -71,7 +71,7 @@ Use the following steps to create an Azure Cosmos account:
 
    ![Screenshot of the right-click menu for the project](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. On the **NuGet** tab, select **Browse** at the top of the window, and type **azure documentdb** in the search box.
+6. On the **NuGet** tab, select **Browse** at the top of the window, and type **azure documentdb** in the search box. Ensure that the **include prerelease** checkbox is checked.
 
 7. In the results, find **Microsoft.Azure.DocumentDB.Core** and select **Install**.
 

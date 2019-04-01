@@ -10,33 +10,30 @@ ms.author: andrl
 ms.custom: seodec18
 
 ---
-# Modeling document data for NoSQL databases
+# Data modeling in Azure Cosmos DB
 
-While schema-free databases, like Azure Cosmos DB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data.
+While schema-free databases, like Azure Cosmos DB, make it super easy to store and query unstructured and semi-structured data, you should spend some time thinking about your data model to get the most of the service in terms of performance and scalability and lowest cost.
 
-How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy?
+How is data going to be stored? How is your application going to retrieve and query data? Is your application read-heavy, or write-heavy?
 
 After reading this article, you will be able to answer the following questions:
 
-* How should I think about a document in a document database?
 * What is data modeling and why should I care?
-* How is modeling data in a document database different to a relational database?
+* How is modeling data in Azure Cosmos DB different to a relational database?
 * How do I express data relationships in a non-relational database?
 * When do I embed data and when do I link to data?
 
 ## Embedding data
 
-When you start modeling data in a document store, such as Azure Cosmos DB, try to treat your entities as **self-contained documents** represented in JSON.
+When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON documents.
 
-Before we dive in too much further, let us take back a few steps and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database.
+For comparison, let's first see how we might model data in a relational database. The following example shows how a person might be stored in a relational database.
 
 ![Relational database model](./media/sql-api-modeling-data/relational-data-model.png)
 
-When working with relational databases, we've been taught for years to normalize, normalize, normalize.
+When working with relational databases, the strategy is to normalize all your data. Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete components. In the example above, a person can have multiple contact detail records, as well as multiple address records. Contact details can be further broken down by further extracting common fields like a type. The same applies to address, each record can be of type *Home* or *Business*.
 
-Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete pieces of data. In the example above, a person can have multiple contact detail records as well as multiple address records. We even go one step further and break down contact details by further extracting common fields like a type. Same for address, each record here has a type like *Home* or *Business*.
-
-The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively aggregate your data at run time.
+The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively compose back (or denormalize) your data at run time.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -46,7 +43,7 @@ The guiding premise when normalizing data is to **avoid storing redundant data**
 
 Updating a single person with their contact details and addresses requires write operations across many individual tables.
 
-Now let's take a look at how we would model the same data as a self-contained entity in a document database.
+Now let's take a look at how we would model the same data as a self-contained entity in Azure Cosmos DB.
 
     {
         "id": "1",
@@ -67,10 +64,10 @@ Now let's take a look at how we would model the same data as a self-contained en
         ]
     }
 
-Using the approach above we have now **denormalized** the person record where we **embedded** all the information relating to this person, such as their contact details and addresses, into a single JSON document.
+Using the approach above we have **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* document.
 In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.
 
-Retrieving a complete person record from the database is now a single read operation against a single collection and for a single document. Updating a person record, with their contact details and addresses, is also a single write operation against a single document.
+Retrieving a complete person record from the database is now a **single read operation** against a single container and for a single item. Updating a person record, with their contact details and addresses, is also a **single write operation** against a single item.
 
 By denormalizing data, your application may need to issue fewer queries and updates to complete common operations.
 
@@ -81,15 +78,15 @@ In general, use embedded data models when:
 * There are **contained** relationships between entities.
 * There are **one-to-few** relationships between entities.
 * There is embedded data that **changes infrequently**.
-* There is embedded data won't grow **without bound**.
-* There is embedded data that is **integral** to data in a document.
+* There is embedded data that will not grow **without bound**.
+* There is embedded data that is **queried frequently together**.
 
 > [!NOTE]
 > Typically denormalized data models provide better **read** performance.
 
 ### When not to embed
 
-While the rule of thumb in a document database is to denormalize everything and embed all data into a single document, this can lead to some situations that should be avoided.
+While the rule of thumb in Azure Cosmos DB is to denormalize everything and embed all data into a single item, this can lead to some situations that should be avoided.
 
 Take this JSON snippet.
 
@@ -109,13 +106,13 @@ Take this JSON snippet.
         ]
     }
 
-This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This will become a problem as the size of the document could grow significantly.
+This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large.
 
-As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.
+As the size of the item grows the ability to transmit the data over the wire as well as reading and updating the item, at scale, will be impacted.
 
-In this case, it would be better to consider the following model.
+In this case, it would be better to consider the following data model.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -127,7 +124,7 @@ In this case, it would be better to consider the following model.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -146,9 +143,9 @@ In this case, it would be better to consider the following model.
         ]
     }
 
-This model has the three most recent comments embedded on the post itself, which is an array with a fixed bound this time. The other comments are grouped in to batches of 100 comments and stored in separate documents. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
+This model has the three most recent comments embedded in the post container, which is an array with a fixed set of attributes. The other comments are grouped in to batches of 100 comments and stored as separate items. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
 
-Another case where embedding data is not a good idea is when the embedded data is used often across documents and will change frequently.
+Another case where embedding data is not a good idea is when the embedded data is used often across items and will change frequently.
 
 Take this JSON snippet.
 

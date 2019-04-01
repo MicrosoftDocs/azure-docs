@@ -2,7 +2,7 @@
 title: Plan conditional access policies in Azure Active Directory | Microsoft Docs
 description: In this article, you learn how to plan conditional access policies for Azure Active Directory.
 services: active-directory
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 tags: azuread
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/25/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
 ---
