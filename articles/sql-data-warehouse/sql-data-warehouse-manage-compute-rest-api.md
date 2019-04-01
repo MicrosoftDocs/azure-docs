@@ -52,7 +52,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## Get maintenance schedule
-To set and update a maintnenance schedule on an existing data warehouse 
+Check the maintenance schedule that has been set for a data warehouse. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
