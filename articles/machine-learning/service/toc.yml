@@ -22,7 +22,7 @@
       displayName: visualize drag-and-drop
       href: quickstart-ui-run-experiment.md
   - name: Python SDK
-  - items:
+    items:
     - name: Experiment with a cloud notebook
       displayName: workspace
       href: quickstart-run-cloud-notebook.md
