@@ -7,12 +7,21 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/02/2019
 ---
 
 # Tutorial: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
 
-In this tutorial, you will provision an Azure Databricks workspace with a virtual network, install a Linux virtual machine in the public network, install Docker, install Microsoft SQL Server on Linux docker container, and query the SQL Server using JDBC from a Databricks notebook.
+This tutorial teaches you how to integrate Azure Databricks with a SQL Server Linux Docker container in a virtual network. 
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Deploy an Azure Databricks workspace to a virtual network
+> * Install a Linux virtual machine in a public network
+> * Install Docker
+> * Install Microsoft SQL Server on Linux docker container
+> * Query the SQL Server using JDBC from a Databricks notebook
 
 ## Prerequisites
 
@@ -28,13 +37,13 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
 
     ![Add new Azure virtual machine](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. On the Basic tab, Choose Ubuntu Server 16.04 LTS. Change the VM size to B1ms, which has 1 VCPUS and 2GB RAM. The minimum requirement for a Linux SQL Server Docker container is 2GB. Choose an administrator username and password.
+2. On the Basic tab, Choose Ubuntu Server 16.04 LTS. Change the VM size to B1ms, which has one VCPUS and 2-GB RAM. The minimum requirement for a Linux SQL Server Docker container is 2 GB. Choose an administrator username and password.
 
-    ![Basics tab of new virtual machine configuration](./media/vnet-injection-sql-server/new-virtual-machine-basics.png)
+    ![Basics tab of new virtual machine configuration](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Navigate to the **Networking** tab. Choose the virtual network and public subnet you created. Select **Review + create**, then **Create** to deploy the virutal machine.
+3. Navigate to the **Networking** tab. Choose the virtual network and public subnet you created. Select **Review + create**, then **Create** to deploy the virtual machine.
 
-    ![Networking tab of new virtual machine configuration](./media/vnet-injection-sql-server/new-virtual-machine-networking.png)
+    ![Networking tab of new virtual machine configuration](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
 4. When the deployment is complete, navigate to the virtual machine. Notice the Public IP address and Virtual network/subnet in the **Overview**. Select the **Public IP Address**
 
@@ -48,9 +57,13 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
 
 7. Add a rule to open port 22 for SSH. Change the Destination to **IP Address** and enter the virtual machine's private IP address as the **Destination IP address**. Enter **22** for the **Destination port ranges** and give the rule a name.
 
+    ![Add inbound security rule for port 22](./media/vnet-injection-sql-server/open-port.png)
+
 8. Add a rule to open port 1433 for SQL. Enter **1433** for the **Destination port ranges** and give the rule a name.
 
-## Run SQL Server in a Docker conatiner
+    ![Add inbound security rule for port 1433](./media/vnet-injection-sql-server/open-port2.png)
+
+## Run SQL Server in a Docker container
 
 1. Open [Ubuntu for Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), or any other tool that will allow you to SSH into the virtual machine. Navigate to your virtual machine in the Azure portal and select **Connect** to get the SSH command you need to connect.
 
@@ -58,7 +71,7 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
 
 2. Enter the command in your Ubuntu terminal and enter the admin password you created when you configured the virtual machine.
 
-    ![Ubuntu terminal SSH login](./media/vnet-injection-sql-server/vm-login-terminal.png)
+    ![Ubuntu terminal SSH sign in](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
 3. Use the following command to install Docker on the virtual machine.
 
@@ -78,7 +91,7 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
     sudo docker pull mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    Check the images
+    Check the images.
 
     ```bash
     sudo docker images
@@ -98,11 +111,11 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
 
 ## Create a SQL database
 
-1. Open SQL Server Management Studio and connect to the server using the server name and SQL Authentication. The login username should be **SA** and the password is the password set in the Docker command. The password in the example command is `Password1234`.
+1. Open SQL Server Management Studio and connect to the server using the server name and SQL Authentication. The sign in username is **SA** and the password is the password set in the Docker command. The password in the example command is `Password1234`.
 
     ![Connect to SQL Server using SQL Server Management Studio](./media/vnet-injection-sql-server/ssms-login.png)
 
-2. Once you have successfully connected, select **New Query** and enter the following code snippet to create a database, a table, and insert some records in the table.
+2. Once you've successfully connected, select **New Query** and enter the following code snippet to create a database, a table, and insert some records in the table.
 
     ```SQL
     CREATE DATABASE MYDB;
@@ -124,7 +137,7 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
 
     ![New Databricks notebook settings](./media/vnet-injection-sql-server/create-notebook.png)
 
-2. Use the following command to ping the internal IP Address of the SQL Server virtual machine. This should be successful. If not, verify that the contianer is running, and review the network security group (NSG) configuration.
+2. Use the following command to ping the internal IP Address of the SQL Server virtual machine. This ping should be successful. If not, verify that the container is running, and review the network security group (NSG) configuration.
 
     ```python
     %sh
@@ -138,7 +151,7 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
     nslookup databricks-tutorial-vm.westus2.cloudapp.azure.com
     ```
 
-3. Once you have successfully pinged the SQL Server, you can query the database and tables. Run the following python code:
+3. Once you've successfully pinged the SQL Server, you can query the database and tables. Run the following python code:
 
     ```python
     jdbcHostname = "10.179.64.9"
@@ -151,4 +164,17 @@ In this tutorial, you will provision an Azure Databricks workspace with a virtua
     df = spark.read.jdbc(url=jdbcUrl, table='states')
     display(df)
     ```
-    
+
+## Clean up resources
+
+When no longer needed, delete the resource group, the Azure Databricks workspace, and all related resources. Deleting the job avoids unnecessary billing. If you're planning to use the Azure Databricks workspace in future, you can stop the cluster and restart it later. If you are not going to continue to use this Azure Databricks workspace, delete all resources you created in this tutorial by using the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource group you created.
+
+2. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete** again.
+
+## Next steps
+
+Advance to the next article to learn how to extract, transform, and load data using Azure Databricks.
+> [!div class="nextstepaction"]
+> [Next steps button](databricks-extract-load-sql-data-warehouse.md)

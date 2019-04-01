@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 04/02/2019
 ---
 
 # Quickstart: Create a Databricks workspace in a Virtual Network
 
-This quickstart shows you how to deploy Azure Databricks to your virtual network.
+This quickstart shows how to create an Azure Databricks workspace in a virtual netowrk. You will also create an Apache Spark cluster within that workspace.
 
-## Before you begin
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+## Sign in to the Azure portal
 
-* Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a virtual network
 
