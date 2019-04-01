@@ -67,6 +67,8 @@ blueprint assignment and can only be removed from the artifact resources by the 
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Blueprints.
 
+![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
+
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
 > on blueprint resources may not immediately be in full effect. During this period of time, it might be

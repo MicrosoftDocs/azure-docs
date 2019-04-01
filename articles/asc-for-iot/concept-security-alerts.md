@@ -1,6 +1,6 @@
 ---
-title: Security alert guide for ASC for IoT Preview| Microsoft Docs
-description: Learn about security alerts and recommended remediation using ASC for IoT features and service.
+title: Security alert guide for Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn about security alerts and recommended remediation using Azure Security Center for IoT features and service.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -17,14 +17,14 @@ ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT security alerts
+# Azure Security Center for IoT security alerts
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
+Azure Security Center (ASC) for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of comprise, and should be investigated and remediated.
 

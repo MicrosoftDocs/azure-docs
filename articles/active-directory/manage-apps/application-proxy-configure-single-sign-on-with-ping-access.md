@@ -50,7 +50,7 @@ If you already have Application Proxy enabled, and have a connector installed, y
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **Application proxy**.
 3. Select **Download Connector** to start the Application Proxy connector download. Follow the installation instructions.
 
@@ -65,7 +65,7 @@ There are two actions you need to take in the Azure portal. First, you need to p
 
 Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select **Add** at the top of the blade.
 4. Select **On-premises application**.
@@ -150,7 +150,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.
 4. Select **Edit**, search for the *acceptedMappedClaims* field and change the value to **true**.
