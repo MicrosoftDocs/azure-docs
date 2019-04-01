@@ -73,6 +73,16 @@ Next, return to your function in the Azure portal. Locate the *Logs* window and 
 
 ![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
+## Using CosmosDB trigger
+
+You can also use the steps outlined above to call a CosmosDb triggered function, with one difference: The body of your request needs to be in the following format:
+
+````json
+{"input": "[{\"key1\": \"value1\",\"id\": \"74f88dca-08f3-4184-aba7-3f22eb3ee1bc\",\"_rid\": \"8bgAAODM64cbAAAAAAAAAA==\",\"_self\": \"dbs/8bgAAA==/colls/8bgAAODM64c=/docs/8bgAAODM64cbAAAAAAAAAA==/\",\"_etag\": \"00009e01-0000-2500-0000-5c9b47a00000",\"_attachments\": \"attachments/\",\"_ts\": 1553680288}]"}
+````
+
+You can copy a document from CosmosDb, and paste it as the value for the input key. It needs to be a string escaped, serialized json object, as above. In this example, key1 is the value we saved to CosmosDb. The rest of the value is CosmosDb metadata that is added when you create a document in CosmosDb. Note that the key "input" does not vary with your function binding name or the parameter name in your function code, it is always "input".
+
 ## Next steps
 
 - [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
