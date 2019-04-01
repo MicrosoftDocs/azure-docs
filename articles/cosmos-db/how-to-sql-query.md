@@ -619,7 +619,7 @@ The results are:
                "pets": [{ "givenName": "Fluffy" }]
            }
         ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "address": { "state": "WA", "county": "King", "city": "Seattle" },
         "creationDate": 1431620472,
         "isRegistered": true
     }]
@@ -728,7 +728,7 @@ The results are:
     [
       {
         "CityState": [
-          "seattle",
+          "Seattle",
           "WA"
         ]
       },
@@ -1002,7 +1002,7 @@ The results are:
 
 ## <a id="UserDefinedFunctions"></a>User-defined functions (UDFs)
 
-The SQL API provides support for user-defined functions (UDF). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
+The SQL API provides support for user-defined functions (UDFs). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
 
 The SQL syntax is extended to support custom application logic using UDFs. You can register UDFs with the SQL API, and reference them in SQL queries. In fact, the UDFs are exquisitely designed to call from queries. As a corollary, UDFs do not have access to the context object like other JavaScript types, such as stored procedures and triggers. Queries are read-only, and can run either on primary or secondary replicas. UDFs, unlike other JavaScript types, are designed to run on secondary replicas.
 
@@ -1427,7 +1427,7 @@ For more information on geospatial support in Cosmos DB, see [Working with geosp
 
 ## Parameterized queries
 
-Cosmos DB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
+Cosmos DB supports queries with parameters expressed by the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
 
 For example, you can write a query that takes `lastName` and `address.state` as parameters, and execute it for various values of `lastName` and `address.state` based on user input.
 
@@ -1489,7 +1489,7 @@ The following examples show how to create a query and submit it against a Cosmos
 
 Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which is provisioned by an Azure subscription. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, *UDFs*, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
 
-The basic interaction model with these resources is through the HTTP verbs `GET`, `PUT`, `POST`, and `DELETE`, with their standard interpretations. `POST` is used to create a new resource, execute a stored procedure, or issue a Cosmos DB query. Queries are always read-only operations with no side-effects.
+The basic interaction model with these resources is through the HTTP verbs `GET`, `PUT`, `POST`, and `DELETE`, with their standard interpretations. Use `POST` to create a new resource, execute a stored procedure, or issue a Cosmos DB query. Queries are always read-only operations with no side-effects.
 
 The following examples show a `POST` for a SQL API query against the sample items. The query has a simple filter on the JSON `name` property. The `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers  denote that the operation is a query. Replace `mysqlapicosmosdb.documents.azure.com:443` with the URI for your Cosmos DB account.
 
@@ -1715,33 +1715,33 @@ For more .NET samples with queries, see [Azure Cosmos DB .NET samples](https://g
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
 
-Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container. These operations are wrapped in ambient ACID transactions.
+Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
 
 The following example shows how to use `queryDocuments` in the JavaScript server API to make queries from inside stored procedures and triggers:
 
 ```javascript
-    function businessLogic(name, author) {
+    function findName(givenName, familyName) {
         var context = getContext();
         var containerManager = context.getCollection();
         var containerLink = containerManager.getSelfLink()
 
         // create a new item.
         containerManager.createDocument(containerLink,
-            { name: name, author: author },
+            { givenName: givenName, familyName: familyName },
             function (err, documentCreated) {
                 if (err) throw new Error(err.message);
 
-                // filter items by author
-                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+                // filter items by familyName
+                var filterQuery = "SELECT * from root r WHERE r.familyName = 'Wakefield'";
                 containerManager.queryDocuments(containerLink,
                     filterQuery,
                     function (err, matchingDocuments) {
                         if (err) throw new Error(err.message);
     context.getResponse().setBody(matchingDocuments.length);
 
-                        // Replace the author name for all items that satisfied the query.
+                        // Replace the familyName for all items that satisfied the query.
                         for (var i = 0; i < matchingDocuments.length; i++) {
-                            matchingDocuments[i].author = "George R. R. Martin";
+                            matchingDocuments[i].familyName = "Robin Wakefield";
                             // we don't need to execute a callback because they are in parallel
                             containerManager.replaceDocument(matchingDocuments[i]._self,
                                 matchingDocuments[i]);
@@ -1863,21 +1863,21 @@ The query provider supports the following scalar expressions:
 - Arithmetic expressions, including common arithmetic expressions on numerical and boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
-    2 * family.children[0].grade;`
+    2 * family.children[0].grade;
     x + y;
   ```
   
 - String comparison expressions, which include comparing a string value to some constant string value.  
   
   ```
-    mother.familyName == "Smith";
+    mother.familyName == "Wakefield";
     child.givenName == s; //s is a string variable
   ```
   
 - Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. These values can be nested.
   
   ```
-    new Parent { familyName = "Smith", givenName = "Joe" };
+    new Parent { familyName = "Wakefield", givenName = "Robin" };
     new { first = 1, second = 2 }; //an anonymous type with two fields  
     new int[] { 3, child.grade, 5 };
   ```
@@ -1984,7 +1984,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
 - **LINQ lambda expression**
   
   ```csharp
-      input.Where(family=> family.parents[0].familyName == "Smith");
+      input.Where(family=> family.parents[0].familyName == "Wakefield");
   ```
   
 - **SQL**
@@ -1992,7 +1992,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
   ```sql
       SELECT *
       FROM Families f
-      WHERE f.parents[0].familyName = "Smith"
+      WHERE f.parents[0].familyName = "Wakefield"
   ```
   
 **Where operator, example 2:**
@@ -2001,7 +2001,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
   
   ```csharp
       input.Where(
-          family => family.parents[0].familyName == "Smith" &&
+          family => family.parents[0].familyName == "Wakefield" &&
           family.children[0].grade < 3);
   ```
   
@@ -2010,7 +2010,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
   ```sql
       SELECT *
       FROM Families f
-      WHERE f.parents[0].familyName = "Smith"
+      WHERE f.parents[0].familyName = "Wakefield"
       AND f.children[0].grade < 3
   ```
 
@@ -2028,7 +2028,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
   
   ```csharp
       input.Select(family=>family.parents[0])
-          .Where(familyName == "Smith");
+          .Where(familyName == "Wakefield");
   ```
 
 - **SQL**
@@ -2036,7 +2036,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
   ```sql
       SELECT *
       FROM Families f
-      WHERE f.parents[0].familyName = "Smith"
+      WHERE f.parents[0].familyName = "Wakefield"
   ```
 
 **Concatenation, example 2:**
@@ -2079,7 +2079,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
   
   ```csharp
       input.SelectMany(family => family.parents)
-          .Where(parent => parents.familyName == "Smith");
+          .Where(parent => parents.familyName == "Wakefield");
   ```
   
 - **SQL**
@@ -2087,7 +2087,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
   ```sql
       SELECT *
       FROM p IN Families.parents
-      WHERE p.familyName = "Smith"
+      WHERE p.familyName = "Wakefield"
   ```
 
 #### Nesting
