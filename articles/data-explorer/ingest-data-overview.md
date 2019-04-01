@@ -3,7 +3,7 @@ title: 'Azure Data Explorer data ingestion'
 description: 'Learn about the different ways you can ingest (load) data in Azure Data Explorer'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual

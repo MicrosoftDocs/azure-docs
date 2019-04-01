@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to send storage account data to A
 services: data-explorer
 author: radennis
 ms.author: radennis
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
