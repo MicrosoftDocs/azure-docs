@@ -11,7 +11,7 @@ ms.date: 04/02/2019
 
 # Geofencing and geospatial aggregation scenarios with Azure Stream Analytics
 
-Geospatial functions are available for users to build applications for scenarios such as fleet management, ride sharing, connected cars, asset tracking and many more.
+With built-in geospatial functions, you can use Azure Stream Analytics to build applications for scenarios such as fleet management, ride sharing, connected cars, and asset tracking.
 
 ## Geofencing
 
