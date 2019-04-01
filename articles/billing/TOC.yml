@@ -59,6 +59,8 @@
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: Cosmos DB
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: RedHat Linux software
+        href: ../virtual-machines/linux/prepay-rhel-software-charges.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux software
@@ -79,6 +81,8 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
+    - name: Reservation exchanges and refunds
+      href: billing-azure-reservations-self-service-exchange-and-refund.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
     - name: View Reservations

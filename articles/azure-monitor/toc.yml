@@ -301,6 +301,8 @@
             href: app/snapshot-debugger-appservice.md
           - name: Enable Snapshot Debugger for other environments
             href: app/snapshot-debugger-vm.md
+          - name: Upgrade Snapshot Debugger
+            href: app/snapshot-debugger-upgrade.md
           - name: Snapshot Debugger troubleshooting
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
@@ -554,6 +556,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Update to enable metrics
+          href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
@@ -827,6 +831,14 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
+      - name: Migrate classic alerts
+        items:
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
+        - name: Prepare for the migration
+          href: platform/alerts-prepare-migration.md
+        - name: Understand the migration tool
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale

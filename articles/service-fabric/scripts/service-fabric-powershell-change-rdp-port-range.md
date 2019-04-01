@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Changes the RDP port range of a de
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: azure-service-management
 
@@ -22,6 +22,8 @@ ms.custom: mvc
 
 This sample script changes the RDP port range values on the cluster node VMs after the cluster has been deployed.  Azure PowerShell is used so that the underlying VMs do not cycle.  The script gets the `Microsoft.Network/loadBalancers` resource in cluster's resource group and updates the `inboundNatPools.frontendPortRangeStart` and `inboundNatPools.frontendPortRangeEnd` values. Customize the parameters as needed.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview). 
 
 ## Sample script
@@ -34,8 +36,8 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets the `Microsoft.Network/loadBalancers` resource. |
-|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Updates the `Microsoft.Network/loadBalancers` resource.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets the `Microsoft.Network/loadBalancers` resource. |
+|[Set-AzResource](/powershell/module/az.resources/set-azresource)|Updates the `Microsoft.Network/loadBalancers` resource.|
 
 ## Next steps
 
