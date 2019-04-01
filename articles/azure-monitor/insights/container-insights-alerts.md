@@ -27,7 +27,7 @@ This article describes how to enable alerting for the following situations:
 
 To alert when CPU or memory utilization is high on nodes of the cluster, you can either create a metric alert rule or a metric measurement alert rule based off of log queries provided. While metric alerts have lower latency than log alerts, a log alert provides advanced querying and sophistication than a metric alert. For log alerts, the queries compare a datetime to the present using the now operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.
 
-Before starting, if you are not familiar with alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+Before starting, if you are not familiar with alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
 The queries in this section are provided to support each alerting scenario. The queries are required for step 7 under the [create alert](#create-alert-rule) section below.  
@@ -191,7 +191,7 @@ The following query returns all nodes and count with status of **Ready** and **N
 let endDateTime = now();
 let startDateTime = ago(1h);
 let trendBinSize = 1m;
-let clusterName = 'YOURCLUSTERNAME';
+let clusterName = '<your-cluster-name>';
 KubeNodeInventory
 | where TimeGenerated < endDateTime
 | where TimeGenerated >= startDateTime
@@ -218,7 +218,7 @@ The following query returns pod phase counts based on all phases - **Failed**, *
 let endDateTime = now();
     let startDateTime = ago(1h);
     let trendBinSize = 1m;
-    let clusterName = 'YOURCLUSTERNAME';
+    let clusterName = '<your-cluster-name>';
     KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
