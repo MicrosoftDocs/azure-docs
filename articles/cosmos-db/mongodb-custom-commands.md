@@ -147,9 +147,9 @@ The create collection custom command creates a new MongoDB collection. The datab
 ```
 {
   customAction: "CreateCollection",
-  collection: <string>,
-  offerThroughput: <int>,
-  shardKey: <string>  
+  collection: <Collection Name>,
+  offerThroughput: <Throughput that you want to provision on the collection>,
+  shardKey: <Shard key path>  
 }
 ```
 
