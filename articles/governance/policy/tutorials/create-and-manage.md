@@ -166,8 +166,7 @@ Include a request body similar to the following example:
 ## Create a policy definition with PowerShell
 
 Before proceeding with the PowerShell example, make sure you've installed the latest version of
-Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version,
-the examples return an error indicating the parameter can't be found.
+the Azure PowerShell Az module. 
 
 You can create a policy definition using the `New-AzPolicyDefinition` cmdlet.
 
