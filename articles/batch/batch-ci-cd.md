@@ -31,7 +31,7 @@ To follow the steps in this article, you need an Azure DevOps organization and a
 
 Source control allows teams to track changes made to the codebase and inspect previous versions of the code.
 
-Typically, source control is thought of hand-in-hand with software code. How about the underlying infrastructure? This brings us to Infrastructure as Code, where we will use Azure Resource Manager (ARM) templates or other open-source alternatives to declaratively define our underlying infrastructure.
+Typically, source control is thought of hand-in-hand with software code. How about the underlying infrastructure? This brings us to Infrastructure as Code, where we will use Azure Resource Manager templates or other open-source alternatives to declaratively define our underlying infrastructure.
 
 This sample heavily relies on a number of Resource Manager Templates (JSON Documents) and existing binaries. You can copy these examples into your repository and push them to Azure DevOps.
 
@@ -195,13 +195,13 @@ You can also find out more about [creating linked Azure Resource Manager templat
         "templateContainerUri": {
            "type": "string",
            "metadata": {
-                "description": "URI of the Blob Storage Container containing the ARM Templates"
+                "description": "URI of the Blob Storage Container containing the Azure Resouce Manager templates"
             }
         },
         "templateContainerSasToken": {
            "type": "string",
            "metadata": {
-                "description": "The SAS token of the container containing the ARM Templates"
+                "description": "The SAS token of the container containing the Azure Resouce Manager templates"
             }
         },
         "applicationStorageAccountName": {
@@ -438,7 +438,7 @@ There are a number of steps involved in deploying the infrastructure. As we have
     * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
     * **Override template parameters**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
-    > A common practice is to use the Azure KeyVault task. If the Service Principal (connection to your Azure Subscription) has an appropriate access policies set, it can download secrets from an Azure KeyVault and be used as variables in your pipeline. The name of the secret will be set with the associated value. For example, a secret of sshPassword could be referenced with $(sshPassword) in the release definition.
+A common practice is to use Azure Key Vault tasks. If the Service Principal (connection to your Azure Subscription) has an appropriate access policies set, it can download secrets from an Azure Key Vault and be used as variables in your pipeline. The name of the secret will be set with the associated value. For example, a secret of sshPassword could be referenced with $(sshPassword) in the release definition.
 
 1. The next steps call the Azure CLI. The first is used to create an application in Azure Batch. and upload associated packages.
 
