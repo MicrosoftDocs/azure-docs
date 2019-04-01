@@ -46,10 +46,10 @@ The new schema will also enable a richer alert consumption experience across bot
 
 ## How do I enable the common alert schema?
 
-You can opt-in or opt-out to the common alert schema through Action Groups, on both the portal and through the REST API. The toggle to switch to the new schema exists at an action level. For example, you have to separately opt-in for an email action and a webhook action.
+You can opt in or opt out to the common alert schema through Action Groups, on both the portal and through the REST API. The toggle to switch to the new schema exists at an action level. For example, you have to separately opt in for an email action and a webhook action.
 
 > [!NOTE]
-> The following alert types support the common schema by default (no opt-in required):
+> The following alert types support the common schema by default (no opt in required):
 > * Failure anomaly alerts
 
 > [!NOTE]
@@ -60,14 +60,14 @@ You can opt-in or opt-out to the common alert schema through Action Groups, on b
 
 ### Through the Azure portal
 
-![Common alert schema opt-in](media/alerts-common-schema/portal-optin.png)
+![Common alert schema opt in](media/alerts-common-schema/portal-optin.png)
 
 1. Open any existing or a new action in an action group. 
 1. Select ‘Yes’ for the toggle to enable the common alert schema as shown.
 
 ### Through the Action Groups REST API
 
-You can also use the [Action Groups API](https://docs.microsoft.com/rest/api/monitor/actiongroups) to opt-in to the common alert schema. While making the [create or update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API call, you can set the flag "useCommonAlertSchema" to 'true' (to opt-in) or 'false' (to opt-out) for any of the following actions - email/webhook/logic app/Azure Function.
+You can also use the [Action Groups API](https://docs.microsoft.com/rest/api/monitor/actiongroups) to opt in to the common alert schema. While making the [create or update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API call, you can set the flag "useCommonAlertSchema" to 'true' (to opt in) or 'false' (to opt out) for any of the following actions - email/webhook/logic app/Azure Function.
 
 For example, the following request body made to the [create or update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API will do the following:
 
