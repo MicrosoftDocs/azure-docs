@@ -5,41 +5,40 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ---
 
 # Create and manage read replicas from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> The read replica feature is in public preview.
-
 ## Prerequisites
 An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the master server.
 
 ## Prepare the master server
-These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers.
-
-The `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect.
+These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers. The master server is prepared for replication by setting the azure.replication_support parameter. When the replication parameter is changed, a server restart is required for the change to take effect. In the Azure portal, these two steps are encapsulated by a single button, **Enable Replication Support**.
 
 1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
 
-2. On the left menu, select **Server Parameters**.
+2. On the server sidebar, under **SETTINGS**, select **Replication**.
 
-3. Search for the `azure.replication_support` parameter.
+3. Select **Enable Replication Support**. 
 
-   ![Search for the azure.replication_support parameter](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Enable replication support](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Set the `azure.replication_support` parameter value to **REPLICA**. Select **Save** to keep your changes.
+4. Confirm you want to enable replication support. This operation will restart the master server. 
 
-   ![Set the parameter to REPLICA and save your changes](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Confirm enable replication support](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. You will receive two Azure portal notifications once the operation is complete. There is one notification for updating the server parameter. There is another notification for the server restart that follows immediately.
 
-5. After you save your changes, you receive a notification:
+   ![Success notifications - enable](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Save notification](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Refresh the Azure portal page to update the Replication toolbar. You can now create read replicas for this server.
 
-6. Restart the server to apply your changes. To learn how to restart a server, see [Restart an Azure Database for PostgreSQL server](howto-restart-server-portal.md).
+   ![Updated toolbar](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Enabling replication support is a one-time operation per master server. A **Disable Replication Support** button is provided for your convenience. We don't recommend disabling replication support, unless you are certain you will never create a replica on this master server. You cannot disable replication support while your master server has existing replicas.
 
 
 ## Create a read replica
@@ -47,9 +46,7 @@ To create a read replica, follow these steps:
 
 1. Select the existing Azure Database for PostgreSQL server to use as the master server. 
 
-2. On the server menu, under **SETTINGS**, select **Replication**.
-
-   If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive a notification. Complete those steps before you create the replica.
+2. On the server sidebar, under **SETTINGS**, select **Replication**.
 
 3. Select **Add Replica**.
 
