@@ -1180,6 +1180,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/table-storage-how-to-use-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/tutorial-develop-table-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-sql-query-metrics.md",
       "redirect_url": "/azure/cosmos-db/sql-api-query-metrics",
       "redirect_document_id": true
