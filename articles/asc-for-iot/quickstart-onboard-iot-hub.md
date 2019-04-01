@@ -1,7 +1,7 @@
 ---
 
-title: Enable ASC for IoT service in IoT Hub Preview| Microsoft Docs
-description: Learn how to enable ASC for IoT service in your IoT Hub.
+title: Enable Azure Security Center for IoT service in IoT Hub Preview| Microsoft Docs
+description: Learn how to enable Azure Security Center for IoT service in your IoT Hub.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -22,15 +22,15 @@ ms.author: mlottner
 # Quickstart: Enable service in IoT Hub
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to enable the ASC for IoT preview service on your IoT Hub.  
+This article provides an explanation of how to enable the Azure Security Center (ASC) for IoT preview service on your IoT Hub.  
 
 > [!NOTE]
-> ASC for IoT currently only supports standard tier and higher IoT Hubs.
->ASC for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
+> Azure Security Center for IoT currently only supports standard tier and higher IoT Hubs.
+> Azure Security Center for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
 
 ## Prerequisites for enabling the service
 
