@@ -42,9 +42,9 @@ The `azure.replication_support` parameter must be set to **REPLICA** on the mast
 
 The `az mysql server replica create` command requires the following parameters:
 
-| Setting | Example value | Description  |
+| Setting | Example value | Description  |
 | --- | --- | --- |
-| resource-group | myresourcegroup |  The resource group where the replica server will be created.  |
+| resource-group | myresourcegroup |  The resource group where the replica server will be created.  |
 | name | mydemoserver-replica | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. |
 
