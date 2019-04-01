@@ -16,36 +16,6 @@ ms.author: sharadag
 # Backends and backend pools in Azure Front Door Service
 This article describes concepts about how to map your app deployment with Azure Front Door Service. It also explains the different terms in Front Door configuration around app backends.
 
-## Backend pools
-A backend pool in Front Door Service refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
-
-A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
-
-### Health probes
-Front Door Service sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
-
-- **Path**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door Service environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
-
-- **Protocol**. Defines whether to send the health probe requests from Front Door Service to your backends with HTTP or HTTPS protocol.
-
-- **Interval (seconds)**. Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
-
-    >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
-
-For more information, see [Health probes](front-door-health-probes.md).
-
-### Load-balancing settings
-Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
-
-- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
-
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5 seconds, and successful sample size is 3 seconds. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
-
-- **Latency sensitivity (additional latency)**. Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
-
-For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
-
 ## Backends
 A backend is equal to an app's deployment instance in a region. Front Door Service supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premise datacenter or an app instance in another cloud.
 
@@ -84,6 +54,36 @@ To configure the **backend host header** field for a backend in the backend pool
 2. Add a backend if you haven't done so, or edit an existing one.
 
 3. Set the backend host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
+
+## Backend pools
+A backend pool in Front Door Service refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+
+A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
+
+### Health probes
+Front Door Service sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+
+- **Path**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door Service environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+
+- **Protocol**. Defines whether to send the health probe requests from Front Door Service to your backends with HTTP or HTTPS protocol.
+
+- **Interval (seconds)**. Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+
+    >[!NOTE]
+    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
+
+For more information, see [Health probes](front-door-health-probes.md).
+
+### Load-balancing settings
+Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
+
+- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
+
+- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5 seconds, and successful sample size is 3 seconds. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+
+- **Latency sensitivity (additional latency)**. Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
+
+For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
 
 ## Next steps
 
