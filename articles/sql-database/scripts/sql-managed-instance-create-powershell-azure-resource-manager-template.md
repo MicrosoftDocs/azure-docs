@@ -38,8 +38,8 @@ Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be
 This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the commandlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
 
 ```
-Install-Module AzureRM.Network
-Install-Module AzureRM.Resources
+Install-Module Az.Network
+Install-Module Az.Resources
 ```
 
 ## Azure Resource Manager template
