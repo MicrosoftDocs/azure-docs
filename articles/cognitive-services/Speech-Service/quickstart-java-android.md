@@ -39,7 +39,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. In the **Configure your project** screen, enter **Quickstart** as **Name**, **samples.speech.cognitiveservices.microsoft.com** as **Package name**, and choose a project directory. For **Minimum API level** pick **API 23: Android 6.0 (Marshmallow)**, leave all other checkboxes unchecked, and select **Finish**.
 
-   ![Screenshot of Create New Project wizard](media/sdk/qs-java-android-03-create-android-project.png)
+   ![Screenshot of Configure your project wizard](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio takes a moment to prepare your new Android project. Next, configure the project to know about the Speech SDK and to use Java 8.
 
