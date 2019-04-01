@@ -154,26 +154,26 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Clone sample application and install the prerequisite packages
 
 1. Connect to your Raspberry Pi with one of the following SSH clients from your host computer:
-   
+
    **Windows Users**
   
    a. Download and install [PuTTY](https://www.putty.org/) for Windows. 
 
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
-   
+
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac and Ubuntu Users**
-   
+
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
 
    > [!NOTE] 
    > The default username is `pi` and the password is `raspberry`.
 
 2. Install Node.js and NPM to your Pi.
-   
+
    First check your Node.js version. 
-   
+
    ```bash
    node -v
    ```
@@ -197,6 +197,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
+
    > [!NOTE] 
    >It might take several minutes to finish this installation process depending on your network connection.
 
