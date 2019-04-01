@@ -332,7 +332,7 @@
   - name: Azure CLI
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network
+    href: /powershell/module/az.network
   - name: .NET
     href: /api/overview/azure/virtual-network
   - name: Java

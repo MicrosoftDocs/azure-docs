@@ -150,6 +150,9 @@ az login
 
 Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
+> [!NOTE]
+> When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
+
 ```
 mvn azure-functions:deploy
 ```
