@@ -1,7 +1,7 @@
 ---
 
-title: Understand ASC for IoT security recommendations Preview| Microsoft Docs
-description: Learn about the concept of security recommendations and how they are used in ASC for IoT. 
+title: Understand Azure Security Center for IoT security recommendations Preview| Microsoft Docs
+description: Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT. 
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -21,11 +21,11 @@ ms.author: mlottner
 # Security recommendations
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface. 
+Azure Security Center (ASC) for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface. 
 Security recommendations are actionable and aim to aid customers in complying to security best practices.
 
 In this article, you will find a list of recommendations which can be triggered on your IoT Hub and/or IoT devices.
