@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 04/01/2019
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Percolate, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * Percolate single sign-on enabled subscription
 
 ## Scenario description
@@ -168,8 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -203,7 +202,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Percolate test user
 
-To enable Azure AD users to log in to Percolate, they must be provisioned into Percolate. In Percolate, provisioning is a manual task.
+To enable Azure AD users to sign in to Percolate, they must be provisioned into Percolate. In Percolate, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
