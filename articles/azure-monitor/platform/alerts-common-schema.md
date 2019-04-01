@@ -17,15 +17,15 @@ This article describes what the common alert schema is, the benefits of using it
 
 ## What is the common alert schema?
 
-The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log and activity log) have had their own email templates, webhook schemas, etc. With the common alert schema, you can now receive alert notifications with a consistent schema.
+The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. With the common alert schema, you can now receive alert notifications with a consistent schema.
 
-Any alert instance describes **the resource that was affected** and **the cause of the alert**, and these are described in the common schema in the following sections:
-* **Essentials**: A set of **standardized fields** which are common across all alert types, which describe **what resource** the alert is on along with additional common alert metadata (e.g. severity, description). 
+Any alert instance describes **the resource that was affected** and **the cause of the alert**, and these instances are described in the common schema in the following sections:
+* **Essentials**: A set of **standardized fields**, common across all alert types, which describe **what resource** the alert is on along with additional common alert metadata (for example, severity or description). 
 * **Alert Context**: A set of fields which describe the **cause of the alert**, with fields that vary **based on the alert type**. For example, a metric alert would have fields like the metric name and metric value in the alert context, whereas an activity log alert would have information about the event that generated the alert. 
 
-The typical integration scenarios we hear from customers involve the routing of the alert instance to the concerned team based on some pivot (e.g. resource group), after which the responsible team starts working on it. With the common alert schema, you can have standardized routing logic across alert types by leveraging the essential fields, leaving the context fields as is for the concerned teams to investigate further.
+The typical integration scenarios we hear from customers involve the routing of the alert instance to the concerned team based on some pivot (for example, resource group), after which the responsible team starts working on it. With the common alert schema, you can have standardized routing logic across alert types by leveraging the essential fields, leaving the context fields as is for the concerned teams to investigate further.
 
-This means that you can potentially have fewer integrations, making the process of managing and maintaining them a _much_ simpler task. Additionally, future alert payload enrichments (e.g. customization, diagnostic enrichment, etc.) will only surface up in the common schema.
+This means that you can potentially have fewer integrations, making the process of managing and maintaining them a _much_ simpler task. Additionally, future alert payload enrichments (for example, customization, diagnostic enrichment, etc.) will only surface up in the common schema.
 
 ## What enhancements does the common alert schema bring?
 

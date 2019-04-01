@@ -18,7 +18,7 @@ This article describes the [common alert schema definitions](https://aka.ms/comm
 ## Overview
 
 Any alert instance describes **the resource that was affected** and **the cause of the alert**, and these instances are described in the common schema in the following sections:
-* **Essentials**: A set of **standardized fields**, which are common across all alert types, which describe **what resource** the alert is on along with additional common alert metadata (for example, severity or description). 
+* **Essentials**: A set of **standardized fields**, common across all alert types, which describe **what resource** the alert is on along with additional common alert metadata (for example, severity or description). 
 * **Alert Context**: A set of fields which describe the **cause of the alert**, with fields that vary **based on the alert type**. For example, a metric alert would have fields like the metric name and metric value in the alert context, whereas an activity log alert would have information about the event that generated the alert. 
 
 ##### Sample alert payload
