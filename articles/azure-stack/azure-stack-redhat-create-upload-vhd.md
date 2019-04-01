@@ -3,7 +3,7 @@ title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure Stack |
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: 
 tags: 
@@ -14,8 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
 
 ---
@@ -251,6 +252,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 1. Ensure that the SSH server is installed and configured to start at boot time:
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 

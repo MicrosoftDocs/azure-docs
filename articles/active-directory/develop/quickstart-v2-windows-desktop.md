@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Azure AD v2.0 endpoint.
@@ -37,7 +37,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - Application Registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >

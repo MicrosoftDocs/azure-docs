@@ -67,7 +67,7 @@ $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -Snaps
 # PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
 $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
 
-#Create a new fule object
+#Create a new rule object
 #PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
@@ -222,7 +222,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 
 ### Archive data at ingest 
 
-Some data stays idle in the cloud and is rarely, if ever, accessed once stored. Archive this data immediately once it's ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account within container `archivecontainer` immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
+Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data once it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 ```json
 {

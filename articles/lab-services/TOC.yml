@@ -76,6 +76,12 @@
       href: classroom-labs/how-to-create-schedules.md
     - name: Create an environment with multiple VMs inside a template VM
       href: classroom-labs/how-to-enable-multi-vm-environment.md
+    - name: Connect your labs to a peer virtual network
+      href: classroom-labs/how-to-connect-peer-virtual-network.md
+    - name: Attach and use a shared image gallery
+      href: classroom-labs/how-to-use-shared-image-gallery.md            
+    - name: Enable remote desktop connection for Linux
+      href: classroom-labs/how-to-enable-remote-desktop-linux.md
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
@@ -93,7 +99,7 @@
     - name: Create an image factory
       href: image-factory-create.md
       items:
-      - name: Run an image factory from AzureDevOps
+      - name: Run an image factory from Azure DevOps
         href: image-factory-set-up-devops-lab.md
       - name: Save custom images and distribute to multiple labs
         href: image-factory-save-distribute-custom-images.md
