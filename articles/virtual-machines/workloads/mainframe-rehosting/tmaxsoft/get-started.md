@@ -36,4 +36,4 @@ The following components are part of the OpenFrame environment on Azure:
 
 ## Next steps
 
-- [Install TmaxSoft OpenFrame on Azure](./install-openframe-on-azure.md)
+- [Install TmaxSoft OpenFrame on Azure](./install-openframe-azure.md)
