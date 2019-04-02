@@ -240,7 +240,7 @@ For an example, see [the 101-vm-sshkey GitHub quickstart template](https://githu
 
 ### When I run `Update-AzVmss` after adding more than one certificate from the same key vault, I see the following message:
 
->Update-AzVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+>Update-AzVmss: List secret contains repeated instances of /subscriptions/\<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command does not work correctly if you are adding additional secrets.
 
@@ -300,7 +300,7 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### Why do I have to specify the exact location for the certificate URL (https:\/\/\<name of the vault>.vault.azure.net:443/secrets/\<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
 
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
 

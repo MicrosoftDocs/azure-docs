@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -165,6 +165,6 @@ A. Yes. Your data was uploaded to Azure but if you don't see any managed disks w
 
 ## Next steps
 
-- Review the [Data Box system requirements](data-box-disk-system-requirements.md).
-- Understand the [Data Box limits](data-box-disk-limits.md).
+- Review the [Data Box Disk system requirements](data-box-disk-system-requirements.md).
+- Understand the [Data Box Disk limits](data-box-disk-limits.md).
 - Quickly deploy [Azure Data Box Disk](data-box-disk-quickstart-portal.md) in Azure portal.

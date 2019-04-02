@@ -237,7 +237,7 @@ The goal is to install multiple SAP Advanced Business Application Programming (A
 
 _**Figure 2:** SAP multi-SID configuration in two clusters_
 
-The installation of an additional **SAP \<SID2>** system is identical to the installation of one <SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
+The installation of an additional **SAP \<SID2>** system is identical to the installation of one \<SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
 
 ## Prepare the infrastructure for an SAP multi-SID scenario
 
@@ -257,7 +257,7 @@ These steps are described in [Infrastructure preparation for an SAP multi-SID sc
 
 ### Prepare the infrastructure on an SOFS cluster by using the existing SAP Global Host
 
-You can reuse the existing \<SAPGlobalHost> and Volume1 of the first SAP <SID1> system.
+You can reuse the existing \<SAPGlobalHost> and Volume1 of the first SAP \<SID1> system.
 
 ![Figure 3: Multi-SID SOFS is the same as the SAP Global Host name][sap-ha-guide-figure-8014]
 
@@ -267,7 +267,7 @@ _**Figure 3:** Multi-SID SOFS is the same as the SAP Global Host name_
 >For the second **SAP \<SID2>** system, the same Volume1 and the same **\<SAPGlobalHost>** network name are used.
 >Because you have already set **SAPMNT** as the share name for various SAP systems, to reuse the **\<SAPGlobalHost>** network name, you must use the same **Volume1**.
 >
->The file path for the <SID2> global host is
+>The file path for the \<SID2> global host is
 >C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
 >
 
