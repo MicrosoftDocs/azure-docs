@@ -12,7 +12,6 @@ ms.author: jnoller
 #Customer intent: As a cluster operator or developer, I want to understand what components for AKS I need to manage, and those managed by Microsoft including security patches, networking and preview features.
 ---
 
-
 # Azure Kubernetes Service (AKS) Support Policies
 
 This article provides details around AKS technical support policies, limitations and details including worker node management, managed control plane components, 3rd party open source components and security / patch management.
@@ -65,7 +64,7 @@ Due to the sensitive nature of these worker nodes, Microsoft takes great care to
 **Microsoft does not provide technical support for the following:**
 
 * Advisory/"How-To" use Kubernetes questions, e.g. how to create custom ingress controllers, application workload questions, and third-party/OSS packages or tools are out of scope.
-  * Advisory tickets for AKS cluster functionality, customization, tuning – e.g. operational how-tos are within scope.
+  * Advisory tickets for AKS cluster functionality, customization, tuning – e.g Kubernetes operations issues/how-tos are within scope.
 * Third-party Open source projects not provided as part of the Kubernetes control plane or deployed with AKS clusters, such as Istio, Helm, Envoy, and others.
   * In the case of 3rdparty open source projects, such as Helm and Kured, best effort support is provided for examples and applications provided in Microsoft documentation and where that 3rd party open source tool integrates with the Kubernetes Azure cloud provider or other AKS specific bugs.
 * Third-party closed-source software – this can include security scanning tools, networking devices or software.
@@ -138,7 +137,10 @@ There are two cases where Alpha or Beta features may be rolled out prior to GA:
 
 For features and functionality that require extended testing, community and user feedback, Microsoft will release new preview features, or features behind a feature flag. These features should be considered pre-release / Beta, and are exposed to give users a chance to try out these new features.
 
-However, these preview / feature flag features are not meant for production use – APIs, behavior , bugfixes and other changes can be made that can result in unstable clusters and downtime. Support for these features is limited to bug/issue reporting. Do not enable these features on production systems.
+However, these preview / feature flag features are not meant for production use – APIs, behavior , bugfixes and other changes can be made that can result in unstable clusters and downtime. Support for these features is limited to bug/issue reporting. Do not enable these features on production systems or subscriptions.
+
+> [!NOTE]
+>Note: enabling preview features takes effect at the Azure **subscription** level. Do not install preview features on production subscription as it can change default API behavior impacting regular operations.
 
 ## Upstream Bugs and Issues
 
