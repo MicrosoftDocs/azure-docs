@@ -372,7 +372,7 @@ If the location already contains `daemon.json` file, add the **dns** key to it a
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
-You can set DNS server for each module in the *createOptions* in the IoT Edge deployment. For example:
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
 
 ```
 "createOptions": {
