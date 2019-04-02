@@ -57,6 +57,10 @@ This procedure deploys a few Azure resources. Together, these resources manage t
 
     ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
+## Region of management service
+
+The management service of QnA Maker, only used for the portal & for initial data processing, is available only in West US. No customer data is stored in this West US service.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
