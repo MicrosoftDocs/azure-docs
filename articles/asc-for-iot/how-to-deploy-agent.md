@@ -1,5 +1,5 @@
 ---
-title: Select and deploy an Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Select and deploy Azure Security Center for IoT agent Preview| Microsoft Docs
 description: Learn about how select and deploy Azure Security Center for IoT security agents on IoT devices.
 services: asc-for-iot
 ms.service: asc-for-iot

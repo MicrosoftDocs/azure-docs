@@ -1,5 +1,5 @@
 ---
-title: Configure an Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Configure Azure Security Center for IoT agent Preview| Microsoft Docs
 description: Learn how to configure agents for use with Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
