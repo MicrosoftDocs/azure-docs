@@ -24,24 +24,26 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 ### Command line
 
-You may need to update IPython for the command line:
+You may need to update [IPython](https://ipython.org/install.html), the kernel for Jupyter:
 ```bash
 pip install --upgrade IPython
+```
+
+You may need to update the [Requests](http://docs.python-requests.org/en/master/) library:
+```bash
+pip install requests
 ```
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
 ## Prerequisites
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
+* The [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-## Introductory code for all quickstarts
+* The following imports, subscription key, and `text_analytics_base_url` are used for all quickstarts below.
 
-The following imports, subscription key, and `base_url` are used for all quickstarts below.
-
-If using the command line, be sure you have the right libraries:
 ```python
 import requests
 # pprint is pretty print (formats the JSON)
