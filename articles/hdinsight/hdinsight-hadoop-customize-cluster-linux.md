@@ -13,12 +13,7 @@ ms.date: 04/02/2019
 
 Azure HDInsight provides a configuration method called **script actions** that invokes custom scripts to customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be used during or after cluster creation.
 
-> [!IMPORTANT]  
-> The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
-
 Script actions can also be published to the Azure Marketplace as an HDInsight application. For more information on HDInsight applications, see [Publish an HDInsight application in the Azure Marketplace](hdinsight-apps-publish-applications.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Permissions
 
@@ -217,6 +212,8 @@ Get more information on how to deploy a template:
 ### Use a script action during cluster creation from Azure PowerShell
 
 In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
