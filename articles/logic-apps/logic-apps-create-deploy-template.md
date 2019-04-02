@@ -61,7 +61,7 @@ Or, you might want to deploy within different subscriptions or resource groups.
 ## Create logic app deployment templates
 
 For the easiest way to create a valid logic app deployment template, 
-use Visual Studio and the Visual Studio Tools for Logic Apps extension. 
+use Visual Studio and the Azure Logic Apps Tools for Visual Studio extension. 
 By downloading your logic app from the Azure portal into Visual Studio, 
 you get a valid deployment template that you can use with any Azure 
 subscription and location. Also, downloading your logic app automatically 
