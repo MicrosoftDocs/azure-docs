@@ -115,6 +115,14 @@ The following matrix maps each possible _reason_ to the responsible
 |Current value must not case-insensitive match the target value. |notMatchInsensitively or **not** matchInsensitively |
 |No related resources match the effect details in the policy definition. |A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
 
+## Compliance details for Guest Configuration
+
+For Audit policies in the Guest Configuration category there could be multiple settings evaluated inside the VM and you will need to view per-setting details. For example, if you are auditing for a list of installed applications and the assignment status is not-compliant, you will need to know which specific applications are missing.
+
+From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource. Click the Guest Assignment in the Name column to navigate to the Resource Compliance view. Finally, click the View Resource button at the top of the page to will open the Guest Assignment page.
+
+From the Guest Assignment page, you can see all available compliance details. Each row in the view represents a check that was performed inside the virtual machine. In the column named Reason, you will see a phrase describing why the assignment is out of compliance. For example, if you are auditing for a list of installed applications, the Reason column would display text "The following applications are not installed: Name, Name, Name"
+
 ## Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history is available for all Azure
