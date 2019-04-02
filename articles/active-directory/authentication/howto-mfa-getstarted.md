@@ -293,6 +293,7 @@ Reports for Azure MFA
 Azure Multi-Factor Authentication provides reports through the Azure portal:
 
 | Report | Location | Description |
+| --- | --- | --- |
 | Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
 
 ## Troubleshoot MFA Issues
