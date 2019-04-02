@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Get the Cognitive Services Speech Devices SDK
 
-The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
+The Speech Devices SDK is a pretuned library designed to work with purpose-built development kits, and varying microphone array configurations .
 
 ## Choose your development kit
 
