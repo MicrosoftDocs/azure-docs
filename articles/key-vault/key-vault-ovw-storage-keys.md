@@ -1,4 +1,5 @@
-﻿---
+---
+ms.assetid:
 title: Azure Key Vault managed storage account - CLI
 description: Storage account keys provide a seamless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
@@ -10,6 +11,7 @@ manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
+
 # Azure Key Vault managed storage account - CLI
 
 > [!NOTE]
@@ -43,8 +45,8 @@ The following example shows you how to allow Key Vault to manage your storage ac
 > - Azure AD tenants in Azure government cloud use Application ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Azure AD tenants in Azure public cloud and all others use Application ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
-Prerequisites
---------------
+## Prerequisites
+
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
    Install Azure CLI   
 2. [Create a Storage Account](https://azure.microsoft.com/services/storage/)
@@ -52,8 +54,7 @@ Prerequisites
     - **Naming guidance:**
       Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.        
       
-Step by step instructions on how to use Key Vault to manage Storage Account Keys
---------------------------------------------------------------------------------
+## Use Key Vault to manage Storage Account Keys
 Conceptually the list of steps that are followed are
 - We first get a (pre-existing) storage account
 - We then fetch a (pre-existing) key vault
@@ -98,8 +99,10 @@ In the below instructions, we are assigning Key Vault as a service to have opera
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
 
-Step by step instructions on how to use Key Vault to create and generate SAS tokens
---------------------------------------------------------------------------------
+   The above command instructs Key Vault to automatically regenerate `key1` after 90 days, and will swap the active key to `key2` from `key1`.
+
+## Use Key Vault to create and generate SAS tokens
+
 You can also ask Key Vault to generate SAS (Shared Access Signature) tokens. A shared access signature provides delegated access to resources in your storage account. With a SAS, you can grant clients access to resources in your storage account, without sharing your account keys. This is the key point of using shared access signatures in your applications--a SAS is a secure way to share your storage resources without compromising your account keys.
 
 Once you've completed the steps listed above you can run the following commands to ask Key Vault to generate SAS tokens for you. 
