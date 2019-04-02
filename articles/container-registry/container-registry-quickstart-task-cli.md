@@ -6,15 +6,15 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: 
 ---
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
 
-[**ACR Tasks**][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container development lifecycle. ACR Tasks can help automate workflows in the cloud to build, run, test, push, and patch images in your registries. 
+In this quickstart, you use Azure Container Registry Tasks commands to quickly build, push, and run a Docker container image natively within Azure, offloading your "inner-loop" development cycle to Azure. [ACR Tasks][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container lifecycle. 
 
-In this quickstart, you use Azure CLI commands to quickly build, push, and run a Docker container image natively within Azure, offloading your "inner-loop" development cycle to Azure. After this quickstart, explore more advanced features of ACR Tasks. ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
+After this quickstart, explore more advanced features of ACR Tasks. ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
@@ -44,10 +44,10 @@ This example creates a *Basic* registry,  a cost-optimized option for developers
 
 ## Build an image from a Dockerfile
 
-Now use Azure Container Registry to build an image. First, create a Dockerfile named *Dockerfile* in a working directory with the following content. This is a simple example to build a Linux container image, but you can create your own standard Dockerfile and build images for other platforms.
+Now use Azure Container Registry to build an image. First, create a working directory and then create a Dockerfile named *Dockerfile* with the following content. This is a simple example to build a Linux container image, but you can create your own standard Dockerfile and build images for other platforms.
 
-```dockerfile
-FROM hello-world
+```bash
+echo "FROM hello-world" > Dockerfile
 ```
 
 Run the [az acr build][az-acr-build] command to build the image. When successfully built, the image is pushed to your registry. The following example pushes the `sample/hello-world:v1` image. The `.` at the end of the command sets the location of the Dockerfile, in this case the current directory.
@@ -114,7 +114,7 @@ Now quickly run the image you built and pushed to your registry. In your contain
 
 Create a file *quickrun.yaml* in a local working directory with the following content for a single step. Substitute the login server name of your registry for *\<acrLoginServer\>*. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry008.azurecr.io*. This example assumes that you built and pushed the `sample/hello-world:v1` image in the previous section:
 
-```yaml
+```yml
 steps:
   - cmd: <acrLoginServer>/sample/hello-world:v1
 ```
