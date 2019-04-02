@@ -295,9 +295,9 @@ The version name has a maximum of 10 characters and contains only characters all
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
 The following location shows the nested directory structure for the container's log files.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 From the LUIS portal, select your app, then select **Import endpoint logs** to upload these logs. 
 
