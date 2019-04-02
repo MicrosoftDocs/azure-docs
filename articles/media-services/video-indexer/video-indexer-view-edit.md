@@ -55,18 +55,17 @@ This article shows how to create a project from scratch and also how to create a
 1. To add the video, select them and then select **Add**.
 1. Now, you will see all of the videos you chose. These are the videos from which you are going to select clips for your project.
 
-You can rearrange the order of the videos by dragging and dropping or by selecting the list menu button and selecting **Move down** or **Move up**. From the list menu, you will also be able to remove the video from this project. 
+    You can rearrange the order of the videos by dragging and dropping or by selecting the list menu button and selecting **Move down** or **Move up**. From the list menu, you will also be able to remove the video from this project. 
 
     ![Rearrange](./media/video-indexer-view-edit/rearrange.png)
     
-You have the option to add more videos to this project at any time by selecting **Add videos**. You can also add multiple occurrences of the same video to your project. You might want to do this if you want to show a clip from one video and then a clip from another and then another clip from the first video. 
+    You have the option to add more videos to this project at any time by selecting **Add videos**. You can also add multiple occurrences of the same video to your project. You might want to do this if you want to show a clip from one video and then a clip from another and then another clip from the first video. 
 
 ### Select clips to put in your project
 
 If you click on the downward arrow on the right side of each video, you will open up the insights in the video based on time stamps (clips of the video). 
 
 1. Select **View Insights** to customize which insights you want to see and which you don't want to see. 
-
 
     ![View insights](./media/video-indexer-view-edit/insights.png)
 1. To create queries for specific clips, use the search box that says "Search in transcript, visual text, people, and labels".
@@ -113,7 +112,6 @@ Remember to save your project when you make changes by selecting Save project.
 1. Click the pencil icon to make edits to the project. 
  
     Edits include adding or removing videos and clips or renaming the project.
-
 
 ## Create a project from your video
 
