@@ -53,7 +53,7 @@ template and role assignment on the new resource group.
    or subscription where you want to save the blueprint, and choose **Select**.
 
 1. Verify that the information is correct, because the **Blueprint name** and **Definition location** fields
-   can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the
+   can't be changed later. Then select **Next: Artifacts** at the bottom of the page or the
    **Artifacts** tab at the top of the page.
 
 1. Add a role assignment at the subscription: 
@@ -210,11 +210,11 @@ to the new resource group. You can fix both by following these steps:
 1. In the list of blueprints, right-click the one that you previously created and select **Edit blueprint**.
 
 1. In **Blueprint description**, provide some information about the blueprint and the artifacts that
-   compose it. In this case, enter something like: "This blueprint sets tag policy and role
+   compose it. In this case, enter something like: **This blueprint sets tag policy and role
    assignment on the subscription, creates a ResourceGroup, and deploys a resource template and role
-   assignment to that ResourceGroup."
+   assignment to that ResourceGroup.**
 
-1. Select **Next : Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the
+1. Select **Next: Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the
    page.
 
 1. Add a role assignment under the resource group: 
@@ -302,7 +302,7 @@ to a subscription, you can assign it to only that subscription.
    blueprint. To learn more, see
    [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Leave the **Blueprint definition version** drop-down selection of **Published** versions on the **v1** entry. (The default is the most recently published version).
+1. Leave the **Blueprint definition version** drop-down selection of **Published** versions on the **v1** entry. (The default is the most recently published version.)
 
 1. For **Lock Assignment**, leave the default of **Don't Lock**. For more information, see [Blueprints resource locking](./concepts/resource-locking.md).
 
@@ -310,7 +310,7 @@ to a subscription, you can assign it to only that subscription.
 
 1. Under **Managed Identity**, leave the default of **System assigned**.
 
-1. For the subscription-level role assignment **[User group or application name] : Contributor**, search for and select a user, app, or group.
+1. For the subscription-level role assignment **[User group or application name]: Contributor**, search for and select a user, app, or group.
 
 1. For the subscription-level policy assignment, set **Tag Name** to **CostCenter** and the **Tag Value** to **ContosoIT**.
 
@@ -338,7 +338,7 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
 
    ![View assignment details from the Assigned blueprints page](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. On the **Blueprint assignment** page, validate that all artifacts have been successfully deployed and that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md) for steps to determine what went wrong.
+1. On the **Blueprint assignment** page, validate that all artifacts were successfully deployed and that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md) for steps to determine what went wrong.
 
 ## Unassign a blueprint
 
