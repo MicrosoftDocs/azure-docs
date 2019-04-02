@@ -1,7 +1,7 @@
 ---
 title: Create and manage experiments in Portal
 titleSuffix: Azure Machine Learning service
-description: Learn how to create experiments in portal
+description: Learn how to create and manage experiments in portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 3/29/2019
 
 ---
 
-# Create and run Azure Machine Learning experiments in the Azure Portal
+# Create and manage Azure Machine Learning experiments in the Azure Portal
 
 In this article you learn how to create, run and manage automated machine learning experiments in the Azure portal.
 
