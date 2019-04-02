@@ -67,5 +67,5 @@ table provides the supported language codes for each service. 
 | sv -SE     | Swedish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | th-TH      | Thai                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turkish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ukranian               |       |    ✓   |         |                   |                |     ✓     |
+| uk-UA      | Ukrainian               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | Vietnamese             |       |    ✓   |         |                   |                |     ✓     |
