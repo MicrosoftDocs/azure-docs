@@ -45,7 +45,7 @@ The **Invoice Summary** is on the top of the first page and shows information ab
 | P.O. number |An optional purchase order number, assigned by you for tracking |
 | Invoice number |A unique, Microsoft-generated invoice number used for tracking purposes |
 | Invoice date |Date that the invoice is generated, typically five to 12 days after end of the Billing cycle. You can check your invoice date in billing profile properties.|
-| Payment terms |How you pay for your Microsoft bill. *Net 30 days* means you pay by check or wire transfer within 30 days of the invoice date. |
+| Payment terms |How you pay for your Microsoft bill. *Net 30 days* means you pay within 30 days of the invoice date. |
 
 ### Billing summary
 
