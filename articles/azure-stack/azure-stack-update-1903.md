@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/30/2019
+ms.lastreviewed: 04/04/2019
 ---
 
 # Azure Stack 1903 update
@@ -34,7 +34,7 @@ The Azure Stack 1903 update build number is **1.1903.0.35**.
 
 ## Hotfixes
 
-Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 before updating Azure Stack to 1903.
+Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1902 before updating Azure Stack to 1903.
 
 Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do not attempt to install hotfixes on the ASDK.
 
@@ -50,10 +50,14 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 - **1902**: [KB 4481548 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
+## Improvements
+
+- The expected time it takes for the 1903 update to complete will be significantly faster than previous updates due to changes in the included payload and orchestration engine. This decrease in runtime is specific to the 1903 update and customers should expect future updates to provide similar guidance on the expected time the update takes to complete, depending on the payload included.
+
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1903.
+> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1902 (if any) before updating to 1903.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
@@ -68,11 +72,6 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 <!-- ## New features -->
 
 <!-- ## Fixed issues -->
-
-## Improvements
-
-> [!IMPORTANT]
-> To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
 ## Common vulnerabilities and exposures
 
