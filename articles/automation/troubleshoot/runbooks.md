@@ -128,7 +128,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
-###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+### <a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
 
 #### Issue
 
@@ -298,7 +298,7 @@ This error occurs due to one of the following issues:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
 #### Resolution
 

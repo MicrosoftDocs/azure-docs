@@ -25,15 +25,15 @@ The **User can create security groups in Azure portals** setting in the Azure po
 To disable group creation for non-admin users in Powershell:
 1. Verify that non-admin users are allowed to create groups:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
 
 <br/>**I received a max groups allowed error when trying to create a Dynamic Group in Powershell**<br/>
 If you receive a message in Powershell indicating _Dynamic group policies max allowed groups count reached_, this means you have reached the max limit for Dynamic groups in your tenant. The max number of Dynamic groups per tenant is 5,000.

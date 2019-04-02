@@ -52,7 +52,7 @@ For information about permitted use and display of results, see [Use and display
 > - Pragma – the caller does not have control over whether URL Preview uses cache
 > - Cache-Control – the caller does not have control over whether URL Preview uses cache
 > - User-Agent
-
+> 
 > Also, some parameters are not currently meaningful for URL Preview API, but may be used in the future for improved globalization. 
  
 ## Headers  
@@ -213,18 +213,21 @@ Defines the query context that Bing used for the request.
 |originalQuery|The query string as specified in the request.|String|  
 
 ### Identifiable
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|A resource identifier|String|
  
 ### RankingGroup
 Defines a search results group, such as mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|A list of search results to display in the group.|RankingItem|
 
 ### RankingItem
 Defines a search result item to display.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|A zero-based index of the item in the answer to display. If the item does not include this field, display all items in the answer. For example, display all news articles in the News answer.|Integer|

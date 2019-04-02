@@ -688,3 +688,6 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/

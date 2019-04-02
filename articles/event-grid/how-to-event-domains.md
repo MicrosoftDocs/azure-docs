@@ -21,6 +21,8 @@ This article shows how to:
 
 To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]

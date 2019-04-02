@@ -65,7 +65,7 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Click **New application registration**.
 
     ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use _http://localhost_ for the URL, and keep _Web app / API_ for the **Application type**
+1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use `http://localhost` for the URL, and keep _Web app / API_ for the **Application type**
     
     ![Create application](media/solution-office-365/create-application.png)
 1. Click **Create** and validate the application information.
@@ -85,11 +85,11 @@ The first step is to create an application in Azure Active Directory that the ma
     ![Select API](media/solution-office-365/select-api.png)
 
 1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
-    - Read service health information for your organization
-    - Read activity data for your organization
-    - Read activity reports for your organization
+   - Read service health information for your organization
+   - Read activity data for your organization
+   - Read activity reports for your organization
 
-    ![Select API](media/solution-office-365/select-permissions.png)
+     ![Select API](media/solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.
@@ -699,7 +699,7 @@ The following table provides sample log searches for update records collected by
 | Query | Description |
 | --- | --- |
 |Count of all the operations on your Office 365 subscription |OfficeActivity &#124; summarize count() by Operation |
-|Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | sort by Count asc|
+|Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |File access operations by user type|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Monitor external actions on Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

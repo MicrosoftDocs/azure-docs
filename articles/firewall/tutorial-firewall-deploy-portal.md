@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -164,7 +164,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 9. Click **Refresh**, and then click the **Firewall-route** route table.
 10. Click **Subnets** > **Associate**.
 11. Click **Virtual network** > **Test-FW-VN**.
-12. For **Subnet**, click **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall will not work correctly.
+12. For **Subnet**, click **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
 
 13. Click **OK**.
 14. Click **Routes** > **Add**.
@@ -214,7 +214,7 @@ This is the network rule that allows outbound access to two IP addresses at port
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
-For testing purposes in this tutorial, you configure the primary and secondary DNS addresses. This is not a general Azure Firewall requirement.
+For testing purposes in this tutorial, you configure the primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 1. From the Azure portal, open the **Test-FW-RG** resource group.
 2. Click the network interface for the **Srv-Work** virtual machine.
@@ -240,7 +240,7 @@ Now test the firewall to confirm that it works as expected.
 
    You should be blocked by the firewall.
 
-So now you have verified that the firewall rules are working:
+So now you've verified that the firewall rules are working:
 
 - You can browse to the one allowed FQDN, but not to any others.
 - You can resolve DNS names using the configured external DNS server.

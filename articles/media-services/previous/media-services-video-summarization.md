@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: milanga;juliako;
 
 ---
@@ -58,7 +58,7 @@ Currently, you can change the following parameters:
 The following table describes the default duration, when **maxMotionThumbnailInSecs** is not used.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Video duration |d < 3 min |3 min < d < 15 min |
 | Thumbnail duration |15 sec (2-3 scenes) |30 sec (3-5 scenes) |
 

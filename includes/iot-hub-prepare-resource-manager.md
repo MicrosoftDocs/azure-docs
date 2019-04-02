@@ -35,8 +35,8 @@ The following steps show how to set up password authentication for an AD applica
 3. Create a new Azure Active Directory application using the following command, replacing the place holders:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Home page URL}:** the URL of the home page of your app such as **http://mysampleapp/home**. This URL does not need to point to a real application.
-   * **{Application identifier}:** A unique identifier such as **http://mysampleapp**. This URL does not need to point to a real application.
+   * **{Home page URL}:** the URL of the home page of your app such as **http:\//mysampleapp/home**. This URL does not need to point to a real application.
+   * **{Application identifier}:** A unique identifier such as **http:\//mysampleapp**. This URL does not need to point to a real application.
    * **{Password}:** A password that you use to authenticate with your app.
      
      ```powershell

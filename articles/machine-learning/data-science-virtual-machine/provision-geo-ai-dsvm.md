@@ -30,7 +30,7 @@ The Geo-DSVM contains several tools for AI including:
 - tools to acquire and pre-process image, textual data, 
 - tools for development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases
 - ESRI's ArcGIS Pro desktop software along with Python and R interfaces that can work with the geospatial data from your AI applications. 
-​
+ 
 
 ## Create your Geo AI Data Science VM
 
@@ -64,16 +64,16 @@ Here is the procedure to create an instance of the Geo AI Data Science VM:
    - **Summary**: Verify that all information you entered is correct.
 
    - **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
-​
+ 
 >[!NOTE]
 > The provisioning should take about 20-30 minutes. The status of the provisioning is displayed on the Azure portal.
 
-​
+ 
 ## How to access the Geo AI Data Science Virtual Machine
 
-​Once your VM is created, you are ready to start using the tools that are installed and pre-configured on it. There are start menu tiles and desktop icons for many of the tools. You can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
+ Once your VM is created, you are ready to start using the tools that are installed and pre-configured on it. There are start menu tiles and desktop icons for many of the tools. You can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
 
-​
+ 
 ## Using ArcGIS Pro installed in the VM
 
 The Geo-DSVM already has ArcGIS Pro desktop pre-installed and the environment pre-configured to work with all the tools in the DSVM. When you start ArcGIS it prompts you for a login to your ArcGIS account. If you already have an ArcGIS account and have licenses for the software, you can use your existing credentials.  

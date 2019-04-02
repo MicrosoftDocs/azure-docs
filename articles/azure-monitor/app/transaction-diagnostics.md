@@ -44,7 +44,7 @@ This chart provides a timeline with horizontal bars for the duration of requests
 * Select any row to see its [details on the right](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
+> Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
 
 ## All telemetry with this Operation Id
 
@@ -68,9 +68,9 @@ This collapsible pane shows the other results that meet the filter criteria. Cli
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
 
-If you could not get Profiler working, please contact **serviceprofilerhelp@microsoft.com**
+If you could not get Profiler working, please contact **serviceprofilerhelp\@microsoft.com**
 
-If you could not get Snapshot Debugger working, please contact **snapshothelp@microsoft.com**
+If you could not get Snapshot Debugger working, please contact **snapshothelp\@microsoft.com**
 
 ![Profiler Integration](media/transaction-diagnostics/profilerTraces.png)
 

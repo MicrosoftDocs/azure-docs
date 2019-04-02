@@ -161,7 +161,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  resource: `https://graph.microsoft.com`
 
 - client_id: \<your client ID\>
 
@@ -241,7 +241,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 
 
 
-# Next steps
+## Next steps
 
 Congratulations, you just made your first call to Microsoft Graph!  
 Now you can query identity risk events and use the data however you see fit.

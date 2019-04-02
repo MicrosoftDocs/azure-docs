@@ -190,7 +190,7 @@ for the resource you want to call.
 
    For example, suppose you're using Azure Active 
    Directory (Azure AD) authentication with 
-   [one of these Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   [one of these Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    In the **URI** box, enter the endpoint URL for that Azure service. 
    So, if you're using Azure Resource Manager, enter this value in the **URI** property:
 
@@ -209,7 +209,7 @@ appears with the default resource ID value:
    > In the **Audience** property, the resource ID value must exactly match 
    > what Azure AD expects, including any required trailing slashes. 
    > You can find these resource ID values in this 
-   > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > For example, if you're using the Azure Resoruce Manager resource ID, 
    > make sure the URI has a trailing slash.
 

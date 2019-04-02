@@ -17,7 +17,7 @@
       href: connect-workbench.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Design a Database
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
@@ -65,6 +65,8 @@
       href: concepts-server-logs.md
   - name: Development
     items:
+    - name: Drivers and tools compatibility
+      href: concepts-compatibility.md
     - name: Connection resiliency
       href: concepts-connectivity.md
   - name: Replication

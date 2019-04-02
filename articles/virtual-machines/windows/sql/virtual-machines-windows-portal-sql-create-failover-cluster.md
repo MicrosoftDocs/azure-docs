@@ -97,7 +97,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 ## Step 1: Create virtual machines
 
-1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
+1. Log in to the [Azure portal](https://portal.azure.com) with your subscription.
 
 1. [Create an Azure availability set](../tutorial-availability-sets.md).
 

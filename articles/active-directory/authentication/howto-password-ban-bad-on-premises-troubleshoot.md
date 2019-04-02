@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting in Azure AD password protection preview
-description: Understand Azure AD password protection preview common troubleshooting
+title: Troubleshooting in Azure AD password protection - Azure Active Directory
+description: Understand Azure AD password protection common troubleshooting
 
 services: active-directory
 ms.service: active-directory
@@ -15,12 +15,7 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Azure AD Password Protection troubleshooting
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection troubleshooting
 
 After the deployment of Azure AD Password Protection, troubleshooting may be required. This article goes into detail to help you understand some common troubleshooting steps.
 
@@ -34,7 +29,7 @@ The usual cause of this issue is that a proxy has not yet been registered. If a 
 
 The main symptom of this problem is 30018 events in the DC agent Admin event log. This may have several possible causes:
 
-1. The DC agent is located in a isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
 1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
@@ -60,13 +55,13 @@ If the KDS service start mode has been configured to Disabled, this configuratio
 
 A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
-The most common root cause is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
+The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
 ## Weak passwords are being accepted but should not be
 
 This problem may have several causes.
 
-1. Your DC agent(s) cannot downloaded a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
+1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
 1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
@@ -98,7 +93,7 @@ Once the demotion has succeeded, and the domain controller has been rebooted and
 
 ## Removal
 
-If it is decided to uninstall the public preview software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
+If it is decided to uninstall the Azure AD password protection software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
 
 > [!IMPORTANT]
 > It is important to perform these steps in order. If any instance of the Proxy service is left running it will periodically re-create its serviceConnectionPoint object. If any instance of the DC agent service is left running it will periodically re-create its serviceConnectionPoint object and the sysvol state.
@@ -117,7 +112,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
-4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory PowerShell command:
+4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the software was deployed. The location of that object may be discovered with the following Active Directory PowerShell command:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

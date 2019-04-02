@@ -49,7 +49,7 @@ There is a known issue with updating the AzureRM modules in an Automation Accoun
 
 #### Resolution
 
-To update your Azure modules in your Automation Account, it must be in a resource group that has a alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
 

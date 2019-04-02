@@ -67,11 +67,11 @@ Steps to create package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Select all the items in the folder, right-click and choose Send To Compressed (zip) folder
+1. Select all the items in the folder, right-click and choose Send To Compressed (zip) folder
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Change the name to package.zip
+1. Change the name to package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 

@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
@@ -1326,7 +1326,7 @@ Here are some great internet resources:
 
 * DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free [interactive R tutorial](https://www.datacamp.com/courses/introduction-to-r).
 * [Learn R Programming, The Definitive Guide](https://www.programiz.com/r-programming) from Programiz.
-* A quick [R Tutorial](http://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
+* A quick [R Tutorial](https://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
 * There are over 60 R resources listed at [Top R language resources to improve your data skills](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->

@@ -114,7 +114,7 @@ $importStatus
 ```
 
 > [!TIP]
-For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
+> For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## Limitations
 

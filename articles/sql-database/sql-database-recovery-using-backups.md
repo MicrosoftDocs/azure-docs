@@ -108,9 +108,6 @@ To recover a deleted database using the Azure portal during its [DTU-based model
 
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
 
-> [!Note]
-> Geo-restore is not available in Managed Instance.
-
 Geo-restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -126,6 +123,9 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 ### Geo-restore using the Azure portal
 
 To geo-restore a database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice.
+
+> [!Note]
+> Geo-restore using the Azure portal is not available in Managed Instance. Please use PowerShell instead.
 
 ## Programmatically performing recovery using automated backups
 
@@ -154,7 +154,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
   | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Gets one or more managed instances. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Gets a instance databases. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Gets an instance databases. |
   | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Restores an instance database. |
 
 ### REST API

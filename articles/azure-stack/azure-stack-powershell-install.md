@@ -216,11 +216,11 @@ Installation has four steps:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-    > [!NOTE]  
-    >On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmldets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
-    ```PowerShell
-    Disable-AzureRmDataCollection
-    ```
+    > [!NOTE]
+    > On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmldets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### Enable additional storage features
 

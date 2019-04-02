@@ -84,7 +84,7 @@ Services include:
 - Invited Users
 - PIM
 - Self-service Group Management
-- Self-service Passord Management
+- Self-service Password Management
 - Terms of Use
 
 ## Sign-ins report 
@@ -152,11 +152,11 @@ I downloaded the activity logs (audit or sign-ins) and I don’t see all the rec
  
 #### Cause
 
-When you download activity logs in the Azure portal, we limit the scale to 5000 records, sorted by most recent first. 
+When you download activity logs in the Azure portal, we limit the scale to 250000 records, sorted by most recent first. 
 
 #### Resolution
 
-You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point. Our recommended approach is to [run a script on a scheduled basis](tutorial-signin-logs-download-script.md) that calls the reporting APIs to fetch records in an incremental fashion over a period of time (for example, daily or weekly). 
+You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
 
 ### Missing audit data for recent actions in the Azure portal
 

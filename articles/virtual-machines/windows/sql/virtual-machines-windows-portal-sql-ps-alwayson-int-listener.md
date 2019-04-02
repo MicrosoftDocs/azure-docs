@@ -43,7 +43,7 @@ The examples in this article are tested using Azure PowerShell module version 5.
 
 Verify your PowerShell module is 5.4.1 or later.
 
-See [Install the Azure PowerShell module](http://docs.microsoft.com/powershell/azure/install-az-ps).
+See [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## Configure the Windows Firewall
 

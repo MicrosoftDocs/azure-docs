@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
 ---
 
@@ -32,7 +32,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
-When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. 
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies.
 
 
 ### Management groups
@@ -64,25 +64,25 @@ To view your security policies in Security Center:
 
 	![The Policy Management pane](./media/security-center-policies/security-center-policy-mgt.png)
 
-  In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
+   In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
-  > [!NOTE]
-  > - The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
-  >
+   > [!NOTE]
+   > - The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
+   >
 
-  The columns in the table display:
+   The columns in the table display:
 
- - **Policy initiative assignment** – Security Center [built-in policies](security-center-policy-definitions.md) and initiatives that are assigned to a subscription or management group.
- - **Coverage** – Identifies the pricing tier, Free or Standard, that the management group, subscription, or workspace is running on.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
- - **Settings** – Subscriptions have the link **Edit settings**. Selecting **Edit settings** lets you update your [Security Center settings](security-center-policies-overview.md) for each subscription or management group.
- - **Secure score** - The [Secure score](security-center-secure-score.md) provides a measure of how secure your workload security posture and helps you prioritize recommendations for improvement.
+   - **Policy initiative assignment** – Security Center [built-in policies](security-center-policy-definitions.md) and initiatives that are assigned to a subscription or management group.
+   - **Coverage** – Identifies the pricing tier, Free or Standard, that the management group, subscription, or workspace is running on.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+   - **Settings** – Subscriptions have the link **Edit settings**. Selecting **Edit settings** lets you update your [Security Center settings](security-center-policies-overview.md) for each subscription or management group.
+   - **Secure score** - The [Secure score](security-center-secure-score.md) provides a measure of how secure your workload security posture and helps you prioritize recommendations for improvement.
 
 2. Select the subscription or management group whose policies you want to view.
 
-  - The **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
-  - At the top, use the links provided to open each policy **assignment** that applies on the subscription or management group. You can use the links to access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, you can use the link to access the policy and edit or disable it.
-  - In the list of policies, you can see the effective application of the policy on your subscription or management group. This means that the settings of each policy that apply to the scope are taken into consideration and you are provided with the cumulative outcome of what action is taken by the policy. For example, if in one assignment the policy is disabled, but in another it is set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
-  - The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. For more information on how effects are applied, see [Understand Policy effects](../governance/policy/concepts/effects.md).
+   - The **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
+   - At the top, use the links provided to open each policy **assignment** that applies on the subscription or management group. You can use the links to access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, you can use the link to access the policy and edit or disable it.
+   - In the list of policies, you can see the effective application of the policy on your subscription or management group. This means that the settings of each policy that apply to the scope are taken into consideration and you are provided with the cumulative outcome of what action is taken by the policy. For example, if in one assignment the policy is disabled, but in another it is set to AuditIfNotExist, then the cumulative effect applies AuditIfNotExist. The more active effect always takes precedence.
+   - The policies' effect can be: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. For more information on how effects are applied, see [Understand Policy effects](../governance/policy/concepts/effects.md).
 
    ![policy screen](./media/security-center-policies/policy-screen.png)
 
@@ -98,16 +98,25 @@ You can edit security policies through the Azure Policy portal, via REST API or 
 
 
 ## Disable security policies
-If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation. This is done via the Azure Policy portal (and not the Security Center portal), as explained here.
-For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md). 
-1. Go to Azure Policy and click **Assignments**.
-2. In the **ASC Default** row, click the three dots and click **View definition**. The **Initiative Definition** page opens.
-   ![view definition](./media/tutorial-security-policy/view-definition.png)
-3. Click **Edit intitiative**. The **Edit Initiative Definition** page opens.
-   ![edit initiative](./media/tutorial-security-policy/edit-initiative.png)
-4. In the **POLICIES AND PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**.
+If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
+For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
+
+1. In the Security Center, from the **Policy & Compliance** section, click **Security policy**.
+
+   ![policy management](./media/tutorial-security-policy/policy-management.png)
+
+2. Click the subscription for which you want to disable the recommendation.
+
+1. Click the assigned policy.
+
+   ![disable policy](./media/tutorial-security-policy/security-policy.png)
+
+1. In the **PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**
+
    ![disable policy](./media/tutorial-security-policy/disable-policy.png)
-1. Click **Save** (located at the bottom of the page).
+1. Click **Save**.
+   > [!Note]
+   > The disable policy changes can take up to 12 hours to take effect.
 
 
 ### Configure a security policy using the REST API
@@ -169,38 +178,38 @@ This example shows you how to assign the built-in Security Center initiative on 
 
 - Endpoint protection ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 This example shows you how to remove an assignment:
 

@@ -46,7 +46,7 @@ Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 
 | **Property** | **Description** |
-|---|---|---|
+|---|---|
 | TenantId | Your tenant ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |

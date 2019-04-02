@@ -71,6 +71,8 @@ The following [associated AKS open source projects][aks-associated-projects] let
 * Managed identities for Azure resources, and
 * Azure Key Vault FlexVol driver
 
+Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use.
+
 ### Use pod managed identities
 
 A managed identity for Azure resources lets a pod authenticate itself against any service in Azure that supports it such as Storage, SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:

@@ -190,6 +190,12 @@
     href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
+  - name: PHP
+    href: https://github.com/Azure/azure-sdk-for-php
+  - name: Ruby
+    href: https://github.com/Azure/azure-sdk-for-ruby
+  - name: Go
+    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST

@@ -180,7 +180,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 | ---- | ----- | 
 | Number of custom connectors | 1,000 per Azure subscription | 
 | Number of requests per minute for each connection created by a custom connector | 500 requests per connection |
-|||| 
+|||
 
 <a name="managed-identity"></a>
 

@@ -146,12 +146,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
->[!NOTE] 
->The session id should match the previous session id. Journal file should match the one specified in previous session.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> The session id should match the previous session id. Journal file should match the one specified in previous session.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Example:**
 
@@ -359,7 +359,7 @@ In order to disable TPM in BitLocker, go through the following steps:<br/>
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
-Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .NET 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### Limits
 

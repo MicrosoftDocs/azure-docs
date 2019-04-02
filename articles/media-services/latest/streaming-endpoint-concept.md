@@ -36,7 +36,7 @@ The table describes the types:
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. <br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. <br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
 
 ## Working with CDN
@@ -61,8 +61,8 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
   
     Not all data centers support the Azure CDN integration. To check whether or not your data center has the Azure CDN integration available, do the following:
  
-   - Try to set the `cdnEnabled` to true.
-   - Check the returned result for an `HTTP Error Code 412` (PreconditionFailed) with a message of "Streaming endpoint CdnEnabled property cannot be set to true as CDN capability is not available in the current region." 
+  - Try to set the `cdnEnabled` to true.
+  - Check the returned result for an `HTTP Error Code 412` (PreconditionFailed) with a message of "Streaming endpoint CdnEnabled property cannot be set to true as CDN capability is not available in the current region." 
 
     If you get this error, the data center does not support it. You should try another data center.
 - `cdnProfile` -  When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile does not exist, a new profile automatically gets created.
@@ -74,21 +74,21 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   
-    - North America, Europe, Singapore, Hong Kong, Japan:
+  - North America, Europe, Singapore, Hong Kong, Japan:
       
-      - `media.azure.net`
-      - `verifydns.media.azure.net`
+    - `media.azure.net`
+    - `verifydns.media.azure.net`
       
-    - China:
+  - China:
         
-      - `mediaservices.chinacloudapi.cn`
-      - `verifydns.mediaservices.chinacloudapi.cn`
+    - `mediaservices.chinacloudapi.cn`
+    - `verifydns.mediaservices.chinacloudapi.cn`
         
     For example, a `CName` record that maps "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" to "verifydns.media.azure.net" proves that the Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad has the ownership of the contoso.com domain, thus enabling any name under contoso.com to be used as a custom host name for a streaming endpoint under that account. To find the Media Service ID value, go to the [Azure portal](https://portal.azure.com/) and select your Media Service account. The **Account ID** appears on the top right of the page.
         
     If there is an attempt to set a custom host name without a proper verification of the `CName` record, the DNS response will fail and then be cached for some time. Once a proper record is in place, it might take a while until the cached response is revalidated. Depending on the DNS provider for the custom domain, it could take anywhere from a few minutes to an hour to revalidate the record.
         
-     In addition to the `CName` that maps `<accountId>.<parent domain>` to `verifydns.<mediaservices-dns-zone>`, you must create another `CName` that maps the custom host name (for example, `sports.contoso.com`) to your Media Services Streaming Endpoint's host name (for example, `amstest-usea.streaming.media.azure.net`).
+    In addition to the `CName` that maps `<accountId>.<parent domain>` to `verifydns.<mediaservices-dns-zone>`, you must create another `CName` that maps the custom host name (for example, `sports.contoso.com`) to your Media Services Streaming Endpoint's host name (for example, `amstest-usea.streaming.media.azure.net`).
  
     > [!NOTE]
     > Streaming Endpoints located in the same data center, cannot share the same custom host name.

@@ -85,17 +85,20 @@ The requirements include:
 Infrastructure Backup Controller will back up data on demand. The recommendation is to back up at last two times a day and keep at most seven days of backups. 
 
 **1811 and beyond**
+
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nodes        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pre-1811**
+
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nodes, ASDK  | 10 GB                     | 140 GB                        |
 
 ### Network requirements
+
 | Storage location                                                                 | Details                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB file share hosted on a storage device within the trusted network environment | Port 445 is required if the Azure Stack instance resides in a firewalled environment. Infrastructure Backup Controller will initiate a connection to the SMB file server over port 445. |
@@ -128,6 +131,7 @@ Starting in 1901, encryption key support is deprecated and will be removed in a 
 Consider these limits as you plan, deploy, and operate your Microsoft Azure Stack instances. The following table describes these limits.
 
 ### Infrastructure Backup limits
+
 | Limit identifier                                                 | Limit        | Comments                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Backup type                                                      | Full only    | Infrastructure Backup Controller only supports full backups. Incremental backups are not supported.                                          |

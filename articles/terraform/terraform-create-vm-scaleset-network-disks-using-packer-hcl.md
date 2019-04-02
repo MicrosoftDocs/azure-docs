@@ -178,7 +178,7 @@ In this step, you create the following resources on the network that was previou
 - Azure backend address pool and assign it to the load balancer 
 - A health probe port used by the application and configured on the load balancer 
 - A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
-- [Nginx](http://nginx.org/) on the nodes of the virtual machine scale installed from custom image
+- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale installed from custom image
 
 
 Add the following code to the end of the `vmss.tf` file.

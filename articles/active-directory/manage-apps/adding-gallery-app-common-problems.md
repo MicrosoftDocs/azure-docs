@@ -70,41 +70,41 @@ See the following descriptions for more details about the notifications.
 
 ### Essential Notification Items
 
--   **Title** – the descriptive title of the notification
+- **Title** – the descriptive title of the notification
 
   * Example – **Application proxy settings**
 
--   **Description** – the description of what occurred as a result of the operation
+- **Description** – the description of what occurred as a result of the operation
 
-    -   Example – **Internal url entered is already being used by another application**
+  -   Example – **Internal url entered is already being used by another application**
 
--   **Notification ID** – the unique ID of the notification
+- **Notification ID** – the unique ID of the notification
 
-    -   Example – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Example – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Client Request ID** – the specific request ID made by your browser
+- **Client Request ID** – the specific request ID made by your browser
 
-    -   Example – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Example – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Time Stamp UTC** – the timestamp during which the notification occurred, in UTC
+- **Time Stamp UTC** – the timestamp during which the notification occurred, in UTC
 
-    -   Example – **2017-03-23T19:50:43.7583681Z**
+  -   Example – **2017-03-23T19:50:43.7583681Z**
 
--   **Internal Transaction ID** – the internal ID we can use to look the error up in our systems
+- **Internal Transaction ID** – the internal ID we can use to look the error up in our systems
 
-    -   Example – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Example – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – the user who performed the operation
+- **UPN** – the user who performed the operation
 
-    -   Example – **tperkins@f128.info**
+  -   Example – **tperkins\@f128.info**
 
--   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
+- **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 
-    -   Example – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Example – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **User object ID** – the unique ID of the user who performed the operation
+- **User object ID** – the unique ID of the user who performed the operation
 
-    -   Example – **17f84be4-51f8-483a-b533-383791227a99**
+  -   Example – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### Detailed Notification Items
 
@@ -122,7 +122,7 @@ See the following descriptions for more details about the notifications.
 
 -   **Details** – the detailed description of what occurred as a result of the operation
 
-    -   Example – **Internal url 'https://bing.com/' is invalid since it is already in use**
+    -   Example – **Internal url `https://bing.com/` is invalid since it is already in use**
 
 -   **Copy error** – Click the **copy icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group 
 -   engineer

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: anroth
 ---
 
@@ -38,5 +38,3 @@ The number of training images per project and tags per project are expected to i
 |[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|10|
 |Max image size (training image upload) |6 MB|6 MB|6 MB|
 |Max image size (prediction)|4 MB|4 MB|4 MB|
-
-

@@ -4,10 +4,12 @@
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
+  - name: Key features and concepts
+    href: azure-stack-key-features.md
   - name: Release notes
     items:
     - name: Recent updates
-      href: azure-stack-servicing-policy.md#update-package-release-cadence 
+      href: azure-stack-servicing-policy.md
     - name: 1902 update
       href: azure-stack-update-1902.md      
     - name: 1901 update 
@@ -112,16 +114,12 @@
         href: azure-stack-integrate-security.md
       - name: Device auditing
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Servicing policy
-    href: azure-stack-servicing-policy.md
-  - name: Key features and concepts
-    href: azure-stack-key-features.md
-  - name: Administration basics
-    href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
   - name: Manage Azure Stack
     items:
+    - name: Administration basics
+      href: azure-stack-manage-basics.md
     - name: Configure telemetry collection
       href: azure-stack-telemetry.md
     - name: Register Azure Stack
@@ -285,8 +283,10 @@
       href: azure-stack-app-service-capacity-planning.md
     - name: Before you get started
       href: azure-stack-app-service-before-you-get-started.md
-    - name: Deploy App Service resource provider
+    - name: Deploy App Service
       href: azure-stack-app-service-deploy.md
+    - name: Deploy App Service for high availability
+      href: app-service-deploy-ha.md
     - name: Deploy App Service offline
       href: azure-stack-app-service-deploy-offline.md
     - name: Update App Service
@@ -297,6 +297,10 @@
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configure deployment sources
       href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Back up App Service
+      href: app-service-back-up.md
+    - name: Recover App Service
+      href: app-service-recover.md
     - name: App Service on Azure Stack release notes
       items:
       - name: App Service on Azure Stack update 1 release notes

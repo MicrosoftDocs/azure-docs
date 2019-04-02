@@ -15,7 +15,7 @@ ms.custom: include file
     > [!NOTE]
     > The source of the HTML file is located at [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
-1. When prompted for the function app base URL, enter *http://localhost:7071*.
+1. When prompted for the function app base URL, enter `http://localhost:7071`.
 
 1. Enter a username when prompted.
 

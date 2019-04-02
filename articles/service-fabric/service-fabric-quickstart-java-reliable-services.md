@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
 
-7. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
+7. Open your favorite web browser and access the application by accessing `http://localhost:8080`.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java/runninglocally.png)
 

@@ -241,7 +241,7 @@ The list of servers on which the DPM Agent is installed and is being managed by 
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”}
 ```
 
-Now fetch the list of datasources on ```$server``` using the [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet. In this example we are filtering for the volume *D:\* that we want to configure for backup. This datasource is then added to the Protection Group using the [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet. Remember to use the *modifiable* protection group object ```$MPG``` to make the additions.
+Now fetch the list of datasources on ```$server``` using the [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet. In this example we are filtering for the volume *D:\\* that we want to configure for backup. This datasource is then added to the Protection Group using the [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet. Remember to use the *modifiable* protection group object ```$MPG``` to make the additions.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }

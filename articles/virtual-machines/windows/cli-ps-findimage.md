@@ -33,7 +33,7 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 This table shows a subset of available Skus for the indicated Publishers and Offers.
 
 | Publisher | Offer | Sku |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |

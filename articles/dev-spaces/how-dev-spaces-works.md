@@ -55,7 +55,7 @@ The client-side tooling allows the user to:
 
 While your application is running, the client-side tooling also:
 * Receives and displays stdout and stderr from your application running in AKS.
-* Uses [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) to allow web access to your application using http://locahost.
+* Uses [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) to allow web access to your application using http:\//localhost.
 * Attaches a debugger to your running application in AKS.
 * Syncs source code to your dev space when a change is detected for incremental builds, allowing for rapid iteration.
 

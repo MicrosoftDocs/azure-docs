@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/11/2019
 ms.custom: seodec18
 ---

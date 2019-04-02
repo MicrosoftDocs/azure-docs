@@ -6,7 +6,7 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
 ---
 
@@ -14,9 +14,9 @@ ms.author: anuragm
 
 This article provides troubleshooting information for protecting SQL Server VMs on Azure (Preview).
 
-## Public Preview limitations
+## Feature consideration and limitations
 
-To view the Public Preview limitations, see the article, [Back up SQL Server database in Azure](backup-azure-sql-database.md#preview-limitations).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
@@ -32,7 +32,7 @@ Use the information in the following tables to troubleshoot issues and errors en
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
+| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup is possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
 
 
 ## Backup failures
@@ -75,7 +75,7 @@ The following tables are organized by error code.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## Restore failures
 
@@ -131,6 +131,36 @@ The following error codes are for configure backup failures.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to protect all the remaining databases. |
+
+## Re-registration failures
+
+Check for one or more of the [symptoms](#symptoms) before triggering the re-register operation.
+
+### Symptoms
+
+* All operations such as backup, restore, and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* The **Backup Status** for the Backup item is showing **Not reachable**. Although you must rule out all the other reasons that may also result in the same status:
+
+  * Lack of permission to perform backup related operations on the VM  
+  * VM has been shut down because of which backups can’t take place
+  * Network issues  
+
+    ![Re-Register VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover
+
+### Causes
+These symptoms may arise due to one or more of the following reasons:
+
+  * Extension was deleted or uninstalled from portal 
+  * Extension was uninstalled from the **Control Panel** of the VM under **Uninstall or Change a Program** UI
+  * VM was restored back in time using in-place disk(s) restore
+  * VM was shut down for an extended period because of which the extension configuration on it expired
+  * VM was deleted and another VM was created with the same name and in the same resource group as the deleted VM
+  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added  <br>
+   
+In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the Azure portal as well.
+
 
 ## Next steps
 

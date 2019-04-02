@@ -102,7 +102,7 @@ When Azure Cache for Redis is hosted in a VNet, the ports in the following table
 
 There are seven outbound port requirements.
 
-- If desired, all outbound connections to the internet can be made through a client's on-premises auditing device.
+- All outbound connections to the internet can be made through a client's on-premises auditing device.
 - Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
 - The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 

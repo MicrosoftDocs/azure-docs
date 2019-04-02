@@ -140,6 +140,13 @@ You can also use REST APIs to programmatically manage classifications. The publi
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
 
+## Permissions
+The following built-in roles can read the data classification of an Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` and `User Access Administrator`.
+
+The following built-in roles can modify the data classification of an Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Learn more about [RBAC for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
 ## <a id="subheading-5"></a>Next steps
 
 - Learn more about [advanced data security](sql-database-advanced-data-security.md).

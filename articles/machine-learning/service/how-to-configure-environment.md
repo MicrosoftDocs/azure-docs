@@ -35,7 +35,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. To create the workspace, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+- An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
 
 - Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
@@ -56,7 +56,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 * The Azure Machine Learning SDK is already installed.
 * After you create an Azure Machine Learning service workspace in the Azure portal, you can click a button to automatically configure your Azure Notebook environment to work with the workspace.
 
-To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -347,7 +347,7 @@ To use this file from your code, use `ws=Workspace.from_config()`. This code loa
 
 You can create the configuration file in three ways:
 
-* **Follow the [Azure Machine Learning quickstart](quickstart-get-started.md)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
+* **Follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
 * **Create the file manually**: With this method, you use a text editor. You can find the values that go into the configuration file by visiting your workspace in the [Azure portal](https://portal.azure.com). Copy the workspace name, resource group, and subscription ID values and use them in the configuration file.
 

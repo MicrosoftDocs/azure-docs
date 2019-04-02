@@ -45,14 +45,14 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 1. In your **MainStoryboard_iPhone.storyboard** add the following components from the object library:
 
-    * A label with "Breaking News" text,
-    * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
-    * Six switches, one per category, set each switch **State** to be **Off** by default.
-    * One button labeled "Subscribe"
+   * A label with "Breaking News" text,
+   * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * Six switches, one per category, set each switch **State** to be **Off** by default.
+   * One button labeled "Subscribe"
 
-    Your storyboard should look as follows:
+     Your storyboard should look as follows:
 
-    ![Xcode interface builder][3]
+     ![Xcode interface builder][3]
 
 2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Create an Action for your button called `subscribe`; your `ViewController.h` should contain the following code:

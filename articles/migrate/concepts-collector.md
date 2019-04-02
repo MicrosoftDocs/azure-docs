@@ -77,25 +77,25 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 ### Connect to the internet via a proxy
 
 - If the proxy server requires authentication, you can specify the username and password when you set up the Collector.
-- The IP address/FQDN of the Proxy server should specified as *http://IPaddress* or *http://FQDN*.
+- The IP address/FQDN of the Proxy server should specified as *http:\//IPaddress* or *http:\//FQDN*.
 - Only HTTP proxy is supported. HTTPS-based proxy servers aren't supported by the Collector.
 - If the proxy server is an intercepting proxy, you must import the proxy certificate to the Collector VM.
-    1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
-    2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
+  1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
+  2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
 
-        ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
-    4. Double-click to open the certificate, and click **Install Certificate**.
-    5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
+  3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
+  4. Double-click to open the certificate, and click **Install Certificate**.
+  5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
 
-    ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
+  6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
 
-    ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
+  7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
 
 
 ### URLs for connectivity

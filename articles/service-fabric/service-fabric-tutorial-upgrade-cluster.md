@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Upgrade the runtime of a Service Fabric cluster in Azure
 
-This tutorial is part three of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
+This tutorial is part four of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
 
 > [!WARNING]
 > This part of the tutorial requires PowerShell. Support for upgrading the cluster runtime is not yet supported by the Azure CLI tools. Alternatively, a cluster can be upgraded in the portal. For more information, see [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md).
@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure using a template
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * Upgrade the runtime of a cluster
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)

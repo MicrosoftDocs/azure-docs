@@ -17,7 +17,7 @@ Azure Database for PostgreSQL provides various metrics that give insight into th
 These metrics are available for Azure Database for PostgreSQL:
 
 |Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|

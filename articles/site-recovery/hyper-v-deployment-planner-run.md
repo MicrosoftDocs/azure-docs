@@ -31,6 +31,7 @@ The following table contains a list of mandatory and optional parameters of the 
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | GetVMList |
@@ -80,6 +81,7 @@ The following table lists mandatory and optional parameters of the tool to run i
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | StartProfiling |
@@ -161,6 +163,7 @@ The following table contains a list of mandatory and optional tool parameters to
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | GenerateReport |
@@ -268,6 +271,7 @@ Open a command-line console and go to the folder for the Azure Site Recovery dep
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  Parameter name | Description |
 |---|---|
 | -Operation | GetThroughput |

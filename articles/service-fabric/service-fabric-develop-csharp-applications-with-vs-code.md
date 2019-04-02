@@ -67,11 +67,11 @@ After you have built the application, you can deploy it to the local cluster.
 
    ![Deploy Application command in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. When the deployment is complete, launch a browser and open Service Fabric Explorer: http://localhost:19080/Explorer. You should see that the application is running. This may take some time, so be patient. 
+4. When the deployment is complete, launch a browser and open Service Fabric Explorer: http:\//localhost:19080/Explorer. You should see that the application is running. This may take some time, so be patient. 
 
    ![Counter Service application in Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. After you've verified the application is running, launch a browser and open this page: http://localhost:31002. This is the web front-end of the application. Refresh the page to see the current value of the counter as it increments.
+4. After you've verified the application is running, launch a browser and open this page: http:\//localhost:31002. This is the web front-end of the application. Refresh the page to see the current value of the counter as it increments.
 
    ![Counter Service application in Browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -88,7 +88,7 @@ To set a breakpoint and debug, complete the following steps:
 
    ![Debug Icon in VS Code Workspace](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Open Service Fabric Explorer in a browser: http://localhost:19080/Explorer. Click **Applications** and drill down to determine the primary node that the CounterService is running on. In the image below the primary node for the CounterService is Node 0.
+3. Open Service Fabric Explorer in a browser: http:\//localhost:19080/Explorer. Click **Applications** and drill down to determine the primary node that the CounterService is running on. In the image below the primary node for the CounterService is Node 0.
 
    ![Primary Node for CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

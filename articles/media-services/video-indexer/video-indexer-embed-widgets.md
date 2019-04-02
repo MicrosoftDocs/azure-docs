@@ -41,7 +41,7 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 |t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
 |captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: captions=en-US|
 |showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: showCaptions=true|
-|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|"
+|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|
 |autoplay|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: autoplay=false|
 |language|Language code|Controls the player language (default is en-US)<br/>Example: language=de-DE|
 

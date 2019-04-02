@@ -20,9 +20,9 @@ The source machine registers with the configuration server when you install the 
 1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues.
 
 2. Search for the string **No Valid IP Address found**. If the string is found:
-    1. Verify that the requested host ID is the same as the host ID of the source machine.
-    2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
-    3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
+   1. Verify that the requested host ID is the same as the host ID of the source machine.
+   2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
+   3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
       - For Windows: `> ipconfig /all`
       - For Linux: `# ifconfig -a`
 

@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with Learningpool Act, perform the followin
     `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<subdomain>.Learningpool.com/shibboleth` |
@@ -182,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

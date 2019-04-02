@@ -103,9 +103,9 @@ The **Service Fabric: Publish Application** command deploys your Service Fabric 
 ### Service Fabric: Deploy Application (Localhost)
 The **Service Fabric: Deploy Application** command deploys your Service Fabric application to your local cluster. Make sure your local cluster is running before using the command. 
 
-1.  Select the **Service Fabric: Deploy Application** command
-2.  View the local cluster with Service Fabric Explorer (http://localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
-3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
+1. Select the **Service Fabric: Deploy Application** command
+2. View the local cluster with Service Fabric Explorer (http:\//localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
+3. You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
 > [!NOTE]
 > Deploying Java applications to the local cluster is not supported on Windows machines.

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/2/2018
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
@@ -152,7 +152,7 @@ python sample.py
 
 The output of the application should be similar to the following text:
 
-```
+```console
 Creating project...
 Adding images...
 Training...

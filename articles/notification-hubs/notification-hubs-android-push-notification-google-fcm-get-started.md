@@ -182,8 +182,8 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
         }
         ```
 
-    > [!IMPORTANT]
-    > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceding further. 
+     > [!IMPORTANT]
+     > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceding further. 
 2. Add another class named `MyInstanceIDService`. This class is your Instance ID listener service implementation.
 
     The code for this class calls your `IntentService` to [refresh the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.

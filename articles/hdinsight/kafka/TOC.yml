@@ -40,6 +40,8 @@
     href: apache-kafka-scalability.md
   - name: High availability of data
     href: apache-kafka-high-availability.md
+  - name: Performance tuning
+    href: apache-kafka-performance-tuning.md
 - name: How to
   items:
   - name: Enable auto topic creation
@@ -249,7 +251,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK

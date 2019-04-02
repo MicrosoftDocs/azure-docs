@@ -69,7 +69,7 @@
   - name: Knowledge base
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
-  - name: Development lifecyle of a knowledge base
+  - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
     href: Concepts/best-practices.md
@@ -180,7 +180,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
-  - name: Language and region support
+  - name: Language support
     href: Overview/language-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker

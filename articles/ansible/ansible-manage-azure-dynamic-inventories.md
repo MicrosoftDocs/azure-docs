@@ -125,9 +125,9 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Create a file (to contain your playbook) named `nginx.yml` as follows:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. Insert the following code into the newly created `nginx.yml` file:
 

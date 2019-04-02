@@ -34,7 +34,7 @@ This article separates the Istio installation guidance into several discrete ste
 
 ## Download Istio
 
-First, download and extract the latest Istio release. The steps a little different for a bash shell on MacOS, Linux, or Windows Subsystem for Linux, and a PowerShell shell. Choose one of the following install steps for your preferred environment:
+First, download and extract the latest Istio release. The steps are a little different for a bash shell on MacOS, Linux, or Windows Subsystem for Linux, and for a PowerShell shell. Choose one of the following install steps for your preferred environment:
 
 * [Bash on MacOS, Linux, or Windows Subsystem for Linux](#bash)
 * [PowerShell](#powershell)
@@ -144,6 +144,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 > [!IMPORTANT]
 > Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
+
+> [!NOTE]
+> Version `1.0.6` and newer of the Istio Helm chart has breaking changes. If you select to install this version, you will now need to manually create a secret for Kiali. You will also need to manually create a secret for Grafana if you have set `grafana.security.enabled=true`. See the Istio Helm Chart [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) for further details on how to create these secrets.
 
 To install the Istio components into your AKS cluster, use Helm. Install the Istio resources into the `istio-system` namespace, and enable additional options for security and monitoring as follows:
 

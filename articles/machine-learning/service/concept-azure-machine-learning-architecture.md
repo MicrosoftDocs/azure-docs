@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
@@ -67,7 +66,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
 
-For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Model
 
@@ -77,7 +76,7 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
 
-For an example of training a model, see [Quickstart: Create a Machine Learning service workspace](quickstart-get-started.md).
+For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ### Model registry
 
@@ -114,7 +113,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Your local computer | ✓ | &nbsp; |
 | Azure Machine Learning compute | ✓ | &nbsp; |
 | A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark for HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |
@@ -140,7 +139,7 @@ For information about selecting a compute target for deployment, see the [Deploy
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Create a workspace with Python](quickstart-get-started.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ## Run
 
@@ -153,7 +152,7 @@ A run is a record that contains the following information:
 
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
 
-For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Snapshot
 
@@ -203,7 +202,7 @@ For an example of deploying a model as a web service, see [Deploy an image class
 
 ### IoT module
 
-A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on Edge devices.
+A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
 
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
@@ -224,6 +223,6 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Create an Azure Machine Learning service workspace](setup-create-workspace.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
-* [Create a workspace with a resource manager template](how-to-create-workspace-template.md)
+* [Create a workspace with a Resource Manager template](how-to-create-workspace-template.md)

@@ -66,9 +66,9 @@ After you create an action group, it's visible in the **Action groups** section 
 **Azure app Push** - You can have a limited number of Azure app actions in an Action Group. At this time, the Azure app action only supports ServiceHealth alerts. Any other alert type will be ignored. See [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **Email** - Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
 

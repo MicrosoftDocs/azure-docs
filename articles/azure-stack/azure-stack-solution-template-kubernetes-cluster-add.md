@@ -217,12 +217,12 @@ Add the Kubernetes from the Marketplace:
 1. Enter `Custom Script for Linux`.
 
 1. Select the script with the following profile:
-    - **Offer**: Custom Script for Linux 2.0
-    - **Version**: 2.0.6 (or latest version)
-    - **Publisher**: Microsoft Corp
+   - **Offer**: Custom Script for Linux 2.0
+   - **Version**: 2.0.6 (or latest version)
+   - **Publisher**: Microsoft Corp
 
-    > [!Note]  
-    > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
+     > [!Note]  
+     > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
 
 1. Select **Download.**
 

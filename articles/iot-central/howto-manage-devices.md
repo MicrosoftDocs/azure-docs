@@ -19,7 +19,6 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 - Keep your device metadata up-to-date by changing the values stored in the device properties.
 - Control the behavior of your devices by updating a setting on a specific device from the **Settings** page.
 
-
 ## View your devices
 
 To view an individual device:
@@ -99,7 +98,7 @@ If you register devices by starting the import under **Unassociated devices**, t
 
 ## Export devices
 
-To connect a real device to IoT Central, you need its connection string. You can export device details in bulk to get connection strings and other properties. The export process creates a CSV file with the device identity, device name, and primary connection string for all the selected devices.
+To connect a real device to IoT Central, you need its connection string. You can export device details in bulk to get the information you need to create device connection strings. The export process creates a CSV file with the device identity, device name, and keys for all the selected devices.
 
 To bulk export devices from your application:
 
@@ -125,8 +124,10 @@ To bulk export devices from your application:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY	
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+See [Device connectivity in Azure IoT Central](concepts-connectivity.md), for more information about connection strings and connecting real devices to your IoT Central application.
 
 ## Delete a device
 

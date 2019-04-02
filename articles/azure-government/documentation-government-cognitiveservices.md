@@ -40,7 +40,7 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
 
-You can do this by **running the following PowerShell command:**
+   You can do this by **running the following PowerShell command:**
 
    ```PowerShell
    Get-AzureRmResourceProvider
@@ -52,9 +52,9 @@ You can do this by **running the following PowerShell command:**
 2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
    Replace the "type of API" tag with any of the three following APIs you want to access:
-       * ComputerVision
-       * Face
-       * TextTranslation
+   * ComputerVision
+   * Face
+   * TextTranslation
 
    ```PowerShell
    New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
@@ -100,8 +100,8 @@ The Quickstarts below will help you to get started with the APIs available throu
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
     >[!NOTE] 
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
@@ -368,8 +368,8 @@ For more information, please see [public documentation](../cognitive-services/co
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
     >[!NOTE] 
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
@@ -611,8 +611,8 @@ For more information, please see [public documentation](../cognitive-services/Fa
 ### Prerequisites
 
 * Make sure Visual Studio has been installed:
-    -   [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
-    
+  - [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+    
     >[!NOTE] 
     > After you install or upgrade to Visual Studio 2017 version 15.3, you might also need to manually update the Visual Studio 		2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > 			**Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
     >
@@ -620,9 +620,9 @@ For more information, please see [public documentation](../cognitive-services/Fa
     
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
-   - `https://dev.microsofttranslator.us/translate?api-version=3.0`
-### Text Translation Method
-This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
+  - `https://dev.microsofttranslator.us/translate?api-version=3.0`
+    ### Text Translation Method
+    This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 

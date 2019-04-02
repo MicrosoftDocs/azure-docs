@@ -195,28 +195,28 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore with service principal authentication**.
 2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
 
-    1. `rowDelimiter` must be **\n**.
-    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
-    3. `encodingName` is set to **utf-8**, which is **default** value.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` are not specified.
-    5. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. `rowDelimiter` must be **\n**.
+   2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
+   3. `encodingName` is set to **utf-8**, which is **default** value.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` are not specified.
+   5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. There is no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for the Copy activity in the pipeline.
 4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).

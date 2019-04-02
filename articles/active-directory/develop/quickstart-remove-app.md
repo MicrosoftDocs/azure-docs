@@ -49,8 +49,8 @@ Applications that you or your organization have registered are represented by bo
 4. From the **Overview** page, select **Delete**.
 5. Select **Yes** to confirm that you want to delete the app.
 
-  > [!NOTE]
-  > To delete an application, you need to be listed as an owner of the application or have admin privileges.
+   > [!NOTE]
+   > To delete an application, you need to be listed as an owner of the application or have admin privileges.
 
 ## Remove an application authored by another organization
 

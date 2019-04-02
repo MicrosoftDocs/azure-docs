@@ -7,12 +7,17 @@ manager: vijayts
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: geg
 ---
 # Restore Azure VMs
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
+
+To restore a VM make sure you have the required [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission.
+
+> [!NOTE]
+> If you do not have [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission you can perform [restore disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) and create VM using [Deploy Template](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) feature.
 
 ### Restore options
 
@@ -95,11 +100,11 @@ After the disk is restored, use the template that was generated as part of the r
     - [Learn more](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
     - [Learn more](../azure-resource-manager/resource-group-authoring-templates.md) about authoring templates.
 
-  ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. Enter the custom values for the VM, accept the **Terms and Conditions** and click **Purchase**.
 
-  ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## Replace existing disks

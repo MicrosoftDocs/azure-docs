@@ -69,7 +69,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
 ## View existing classifiers
 
 ```sql
-select * from sys.sys.workload_management_workload_classifiers
+SELECT * FROM sys.workload_management_workload_classifiers
 ```
 
 ## Clean up resources
@@ -80,7 +80,7 @@ DROP USER [TheCEO]
 ;
 ```
 
-You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
+You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
 - If you want to remove future charges, you can delete the data warehouse.
@@ -91,13 +91,13 @@ Follow these steps to clean up resources.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
+2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
 
-2. To remove the data warehouse so you're not charged for compute or storage, select **Delete**.
+3. To remove the data warehouse so you're not charged for compute or storage, select **Delete**.
 
-3. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+4. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
-4. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
+5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
 ## Next steps
 
