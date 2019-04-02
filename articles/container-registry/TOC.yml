@@ -107,7 +107,7 @@
   - name: REST
     href: /rest/api/containerregistry
   - name: PowerShell
-    href: /powershell/module/azurerm.containerregistry#container_registry
+    href: /powershell/module/az.containerregistry
   - name: .NET
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python

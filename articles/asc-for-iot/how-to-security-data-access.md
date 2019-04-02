@@ -1,7 +1,8 @@
 ---
-title: Accessing data using ASC for IoT Preview| Microsoft Docs
-description: Learn about how to access your security alert and recommendation data when using ASC for IoT.
-services: ascforiot
+title: Accessing data using Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn about how to access your security alert and recommendation data when using Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -21,11 +22,11 @@ ms.author: mlottner
 # Access your security data 
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
+Azure Security Center (ASC) for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
 ## Log Analytics
 

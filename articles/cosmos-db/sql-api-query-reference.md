@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
@@ -13,12 +13,12 @@ ms.custom: seodec18
 
 # SQL language reference for Azure Cosmos DB 
 
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax used in SQL API accounts. For a walkthrough of example SQL queries, see [SQL query examples in Cosmos DB](how-to-sql-query.md).  
   
-Visit the [Query Playground](https://www.documentdb.com/sql/demo) where you can try Cosmos DB and run SQL queries against our dataset.  
+Visit the [Query Playground](https://www.documentdb.com/sql/demo), where you can try Cosmos DB and run SQL queries against a sample dataset.  
   
 ## SELECT query  
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated, then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
   
 **Syntax**  
   
@@ -2338,7 +2338,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Is any valid JSON Array expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
+   Is any valid scalar expression to be evaluated as a JSON Array expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
   
   **Return Types**  
   
@@ -2348,26 +2348,58 @@ StringToArray(<expr>)
   
   The following example shows how StringToArray behaves across different types. 
   
-```  
+ The following are examples with valid input.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Here is the result set.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Here is the result set.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ The following is an example of invalid input. 
+   
+ Single quotes within the array are not valid JSON.
+ Even though they are valid within a query, they will not parse to valid arrays. 
+ Strings within the array string must either be escaped "[\"\"]" or the surrounding quote must be single '[""]'.
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Here is the result set.
+
+```
+[{}]
+```
+
+ The following are examples of invalid input.
+   
+ The expression passed will be parsed as a JSON array; the following do not evaluate to type array and thus return undefined.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Here is the result set.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
@@ -2382,7 +2414,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Is any valid expression.  
+   Is any valid scalar expression to be evaluated as a Boolean expression.  
   
   **Return Types**  
   
@@ -2391,25 +2423,55 @@ StringToBoolean(<expr>)
   **Examples**  
   
   The following example shows how StringToBoolean behaves across different types. 
-  
+ 
+ The following are examples with valid input.
+
+ Whitespace is allowed only before or after "true"/"false".
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Here is the result set.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ The following are examples with invalid input.
+ 
+ Booleans are case sensitive and must be written with all lowercase characters i.e. "true" and "false".
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Here is the result set.  
+  
+```  
+[{}]
+``` 
+
+ The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Here is the result set.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2425,7 +2487,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Is any valid expression.  
+   Is any valid scalar expression to be evaluated as a null expression.
   
   **Return Types**  
   
@@ -2434,24 +2496,54 @@ StringToNull(<expr>)
   **Examples**  
   
   The following example shows how StringToNull behaves across different types. 
-  
+
+ The following are examples with valid input.
+ 
+ Whitespace is allowed only before or after "null".
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Here is the result set.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ The following are examples with invalid input.
+
+ Null is case sensitive and must be written with all lowercase characters i.e. "null".
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
+```  
+
+ The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2467,7 +2559,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Is any valid JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+   Is any valid scalar expression to be evaluated as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
   
   **Return Types**  
   
@@ -2476,27 +2568,52 @@ StringToNumber(<expr>)
   **Examples**  
   
   The following example shows how StringToNumber behaves across different types. 
-  
+
+ Whitespace is allowed only before or after the Number.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Here is the result set.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ In JSON a valid Number must be either be an integer or a floating point number.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
+```  
+
+ The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2512,7 +2629,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Is any valid JSON object expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+   Is any valid scalar expression to be evaluated as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
   
   **Return Types**  
   
@@ -2522,26 +2639,75 @@ StringToObject(<expr>)
   
   The following example shows how StringToObject behaves across different types. 
   
-```  
+ The following are examples with valid input.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Here is the result set.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ The following are examples with invalid input.
+ Even though they are valid within a query, they will not parse to valid objects. 
+ Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
+ '{"a": "str"}'.
+
+ Single quotes surrounding property names are not valid JSON.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Here is the result set.
+
 ```  
-  
- Here is the result set.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Property names without surrounding quotes are not valid JSON.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Here is the result set.
+
 ```  
+[{}]
+``` 
+
+ The following are examples with invalid input.
+ 
+ The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Here is the result set.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBSTRING  
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
