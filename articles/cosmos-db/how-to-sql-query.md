@@ -262,7 +262,7 @@ The results are:
 
 ## <a id="ValueKeyword"></a>VALUE keyword
 
-The VALUE keyword provides a way to return the JSON value alone. For example, the query shown below returns the scalar `"Hello World"` instead of `{$1: "Hello World"}`:
+The VALUE keyword provides a way to return the JSON value alone. For example, the query shown below returns the scalar expression `"Hello World"` instead of `{$1: "Hello World"}`:
 
 ```sql
     SELECT VALUE "Hello World"
@@ -313,7 +313,7 @@ The results are:
 
 You can explicitly alias values in queries. If a query has two properties with the same name, use aliasing to rename one or both of the properties so they're disambiguated in the projected result.
 
-The `AS` keyword used for aliasing is optional, as shown in the following example when projecting the second value as `NameInfo`:
+The AS keyword used for aliasing is optional, as shown in the following example when projecting the second value as `NameInfo`:
 
 ```sql
     SELECT 
@@ -343,7 +343,7 @@ The FROM (`FROM <from_specification>`) clause is optional, unless the source is 
 
 The FROM clause enforces the following rules per query:
 
-* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. `AS` is an optional keyword to alias the identifier.  
+* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to alias the identifier.  
 
 * Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and can't be resolved anymore.  
 
@@ -351,7 +351,7 @@ The FROM clause enforces the following rules per query:
 
 ### Get subitems by using the FROM clause
 
-The `FROM` clause can reduce the source to a smaller subset. To enumerate only a subtree in each item, the subroot can become the source, as shown in the following example:
+The FROM clause can reduce the source to a smaller subset. To enumerate only a subtree in each item, the subroot can become the source, as shown in the following example:
 
 ```sql
     SELECT *
@@ -563,29 +563,29 @@ The following example returns all items where the state is any of the specified 
 
 ## * operator
 
-The special operator `*` projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid. The [first query in this article](#query-the-json-items) used the * operator. 
+The special operator * projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid. The [first query in this article](#query-the-json-items) used the * operator. 
 
-## Ternary (?) and Coalesce (??) operators
+## ? and ?? operators
 
-You can use the Ternary and Coalesce operators to build conditional expressions, as in programming languages like C# and JavaScript. 
+You can use the Ternary (?) and Coalesce (??) operators to build conditional expressions, as in programming languages like C# and JavaScript. 
 
-You can use the Ternary (?) operator to construct new JSON properties on the fly. For example, the following query classifies grade levels into "elementary" or "other":
+You can use the ? operator to construct new JSON properties on the fly. For example, the following query classifies grade levels into `elementary` or `other`:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-You can also nest calls to the Ternary operator, as in the following query: 
+You can also nest calls to the ? operator, as in the following query: 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-As with other query operators, the Ternary operator excludes items if the referenced properties are missing or the types being compared are different.
+As with other query operators, the ? operator excludes items if the referenced properties are missing or the types being compared are different.
 
-Use the Coalesce (??) operator to efficiently check for a property in an item when querying against semi-structured or mixed-type data. For example, the following query returns `lastName` if present, or `surname` if `lastName` isn't present.
+Use the ?? operator to efficiently check for a property in an item when querying against semi-structured or mixed-type data. For example, the following query returns `lastName` if present, or `surname` if `lastName` isn't present.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -594,9 +594,9 @@ Use the Coalesce (??) operator to efficiently check for a property in an item wh
 
 ## <a id="TopKeyword"></a>TOP operator
 
-The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use `TOP` with the `ORDER BY` clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows `TOP` affects. 
+The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use TOP with the ORDER BY clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows TOP affects. 
 
-You can use `TOP` with a constant value, as in the following example, or with a variable value using parameterized queries. For more information, see [Parameterized queries](#parameterized-queries).
+You can use TOP with a constant value, as in the following example, or with a variable value using parameterized queries. For more information, see the [Parameterized queries](#parameterized-queries) section.
 
 ```sql
     SELECT TOP 1 *
@@ -627,7 +627,7 @@ The results are:
 
 ## <a id="OrderByClause"></a>ORDER BY clause
 
-As in ANSI SQL, you can include an optional ORDER BY clause in queries. The optional `ASC` or `DESC` argument specifies whether to retrieve results in ascending or descending order. `ASC` is the default.
+As in ANSI SQL, you can include an optional ORDER BY clause in queries. The optional ASC or DESC argument specifies whether to retrieve results in ascending or descending order. ASC is the default.
 
 For example, here's a query that retrieves families in ascending order of the resident city's name:
 
@@ -744,7 +744,7 @@ The results are:
 
 ## <a id="Iteration"></a>Iteration
 
-The SQL API provides support for iterating over JSON arrays, with a new construct added via the `IN` keyword in the `FROM` source. In the following example:
+The SQL API provides support for iterating over JSON arrays, with a new construct added via the IN keyword in the FROM source. In the following example:
 
 ```sql
     SELECT *
@@ -911,7 +911,7 @@ The results are:
     ]
 ```
 
-The `from_source` of the `JOIN` clause is an iterator. So, the flow in the preceding example is:  
+The `from_source` of the JOIN clause is an iterator. So, the flow in the preceding example is:  
 
 1. Expand each child element `c` in the array.
 2. Apply a cross product with the root of the item `f` with each child element `c` that the first step flattened.
@@ -974,7 +974,7 @@ The following extension of the preceding example performs a double join. You cou
 
 `AndersenFamily` has one child who has one pet, so the cross product yields one row (1\*1\*1) from this family. `WakefieldFamily` has two children, only one of whom has pets, but that child has two pets. The cross product for this family yields 1\*1\*2 = 2 rows.
 
-In the next example, there is an additional filter on `pet`, which excludes all the tuples where the pet name is not "Shadow". You can build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements.
+In the next example, there is an additional filter on `pet`, which excludes all the tuples where the pet name is not `Shadow`. You can build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements.
 
 ```sql
     SELECT 
@@ -1109,11 +1109,11 @@ The results are:
 
 If the properties referred to by the UDF parameters aren't available in the JSON value, the parameter is considered as undefined and the UDF invocation is skipped. Similarly, if the result of the UDF is undefined, it's not included in the result.
 
-As the preceding examples show, UDFs integrate the power of JavaScript language with the SQL API. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The SQL API provides the arguments to the UDFs for each source item at the current `WHERE` or `SELECT` clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline. In summary, UDFs are great tools to do complex business logic as part of queries.
+As the preceding examples show, UDFs integrate the power of JavaScript language with the SQL API. UDFs provide a rich programmable interface to do complex procedural, conditional logic with the help of built-in JavaScript runtime capabilities. The SQL API provides the arguments to the UDFs for each source item at the current WHERE or SELECT clause stage of processing. The result is seamlessly incorporated in the overall execution pipeline. In summary, UDFs are great tools to do complex business logic as part of queries.
 
 ## <a id="Aggregates"></a>Aggregate functions
 
-Aggregate functions perform a calculation on a set of values in the `SELECT` clause and return a single value. For example, the following query returns the count of items within the `Families` container:
+Aggregate functions perform a calculation on a set of values in the SELECT clause and return a single value. For example, the following query returns the count of items within the `Families` container:
 
 ```sql
     SELECT COUNT(1)
@@ -1128,7 +1128,7 @@ The results are:
     }]
 ```
 
-You can also return only the scalar value of the aggregate by using the `VALUE` keyword. For example, the following query returns the count of values as a single number:
+You can also return only the scalar value of the aggregate by using the VALUE keyword. For example, the following query returns the count of values as a single number:
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -1155,7 +1155,7 @@ The results are:
     [ 1 ]
 ```
 
-The SQL API supports the following aggregate functions. `SUM` and `AVG` operate on numeric values, and `COUNT`, `MIN`, and `MAX` work on numbers, strings, Booleans, and nulls.
+The SQL API supports the following aggregate functions. SUM and AVG operate on numeric values, and COUNT, MIN, and MAX work on numbers, strings, Booleans, and nulls.
 
 | Function | Description |
 |-------|-------------|
@@ -1185,7 +1185,7 @@ Cosmos DB also supports a number of built-in functions for common operations, wh
 
 If you’re currently using a user-defined function (UDF) for which a built-in function is now available, the corresponding built-in function will be quicker to run and more efficient.
 
-The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like "unknown", the item is skipped instead of returning an error.
+The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `unknown`, the item is skipped instead of returning an error.
 
 ### Mathematical functions
 
@@ -1262,7 +1262,7 @@ The following scalar functions perform an operation on a string input value and 
 
 | Usage | Description |
 | --- | --- |
-| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returns the number of characters of the specified string expression |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returns the number of characters of the specified string expression. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returns a string that is the result of concatenating two or more string values. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returns part of a string expression. |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returns a Boolean indicating whether the first string expression starts with the second. |
@@ -1315,7 +1315,7 @@ The results are:
     }]
 ```
 
-You can also use string functions in the `WHERE` clause to filter results, like in the following example:
+You can also use string functions in the WHERE clause to filter results, like in the following example:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -1375,7 +1375,7 @@ The result is:
     }]
 ```
 
-Here's another example that uses `ARRAY_LENGTH` to get the number of `children` per family:
+Here's another example that uses ARRAY_LENGTH to get the number of `children` per family:
 
 ```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
@@ -1449,7 +1449,7 @@ You can then send this request to Cosmos DB as a parameterized JSON query like t
     }
 ```
 
-The following example sets the `TOP` argument with a parameterized query: 
+The following example sets the TOP argument with a parameterized query: 
 
 ```sql
     {
@@ -1469,7 +1469,7 @@ Azure Cosmos DB provides a programming model for executing JavaScript-based appl
 * High-performance transactional CRUD operations and queries against items in a container, by virtue of the deep integration of the JavaScript runtime within the database engine.
 * A natural modeling of control flow, variable scoping, and assignment and integration of exception-handling primitives with database transactions. 
 
-For more information about Azure Cosmos DB JavaScript integration, see [JavaScript server-side API](#JavaScriptServerSideApi).
+For more information about Azure Cosmos DB JavaScript integration, see the [JavaScript server-side API](#JavaScriptServerSideApi) section.
 
 ### Operator evaluation
 
@@ -1507,7 +1507,7 @@ The following examples show a `POST` for a SQL API query against the sample item
     }
 ```
 
-The results, indented for readability:
+The results are:
 
 ```json
     HTTP/1.1 200 Ok
@@ -1578,7 +1578,7 @@ The next, more complex query returns multiple results from a join:
     }
 ```
 
-The results, indented for readability: 
+The results are: 
 
 ```json
     HTTP/1.1 200 Ok
@@ -1611,7 +1611,7 @@ The results, indented for readability:
 
 If a query's results can't fit in a single page, the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in the subsequent results. You can also control the number of results per page through the `x-ms-max-item-count` number header. 
 
-If a query has an aggregation function like `COUNT`, the query page may return a partially aggregated value over only one page of results. Clients must perform a second-level aggregation over these results to produce the final results. For example, sum over the counts returned in the individual pages to return the total count.
+If a query has an aggregation function like COUNT, the query page may return a partially aggregated value over only one page of results. Clients must perform a second-level aggregation over these results to produce the final results. For example, sum over the counts returned in the individual pages to return the total count.
 
 To manage the data consistency policy for queries, use the `x-ms-consistency-level` header as in all REST API requests. Session consistency also requires echoing the latest `x-ms-session-token` cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings for containers, the index is always current with the item contents, and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB consistency levels][consistency-levels].
 
@@ -1696,7 +1696,7 @@ The next example shows joins, expressed through LINQ `SelectMany`.
         Console.WriteLine("\tRead {0} from SQL", pet);
     }
 
-    // Equivalent in lambda expressions:
+    // Equivalent in Lambda expressions:
     foreach (var pet in
         client.CreateDocumentQuery<Family>(containerLink)
         .SelectMany(f => f.children)
@@ -1707,11 +1707,11 @@ The next example shows joins, expressed through LINQ `SelectMany`.
     }
 ```
 
-The .NET client automatically iterates through all the pages of query results in the `foreach` blocks, as shown in the preceding example. The query options introduced in the [REST API section](#RestAPI) are also available in the .NET SDK, using the `FeedOptions` and `FeedResponse` classes in the `CreateDocumentQuery` method. You can control the number of pages by using the `MaxItemCount` setting.
+The .NET client automatically iterates through all the pages of query results in the `foreach` blocks, as shown in the preceding example. The query options introduced in the [REST API](#RestAPI) section are also available in the .NET SDK, using the `FeedOptions` and `FeedResponse` classes in the `CreateDocumentQuery` method. You can control the number of pages by using the `MaxItemCount` setting.
 
 You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. You can set `EnableScanInQuery` to enable scans when the query isn't supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition, although Azure Cosmos DB can automatically extract this from the query text. You can use `EnableCrossPartitionQuery` to run queries against multiple partitions.
 
-For more .NET samples with queries, see [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet).
+For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
 
@@ -1845,7 +1845,7 @@ The preceding example creates the following JSON item:
 
 The Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. The following description assumes a basic familiarity with LINQ.
 
-The query provider type system supports only the JSON primitive types: numeric, boolean, string, and null. 
+The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null. 
 
 The query provider supports the following scalar expressions:
 
@@ -1860,7 +1860,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade; //n is an int variable
   ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
     2 * family.children[0].grade;
@@ -1886,19 +1886,19 @@ The query provider supports the following scalar expressions:
 
 The LINQ provider included with the SQL .NET SDK supports the following operators:
 
-- **Select**: Projections translate to SQL `SELECT`, including object construction.
-- **Where**: Filters translate to SQL `WHERE`, and support translation between `&&`, `||`, and `!` to the SQL operators
-- **SelectMany**: Allows unwinding of arrays to the SQL `JOIN` clause. Use to chain or nest expressions to filter on array elements.
-- **OrderBy** and **OrderByDescending**: Translate to `ORDER BY` with `ASC` or `DESC`.
+- **Select**: Projections translate to SQL SELECT, including object construction.
+- **Where**: Filters translate to SQL WHERE, and support translation between `&&`, `||`, and `!` to the SQL operators
+- **SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Use to chain or nest expressions to filter on array elements.
+- **OrderBy** and **OrderByDescending**: Translate to ORDER BY with ASC or DESC.
 - **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. Commonly used for strings, since they’re not comparable in .NET.
-- **Take**: Translates to SQL `TOP` for limiting results from a query.
+- **Take**: Translates to SQL TOP for limiting results from a query.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent SQL built-in functions.
 - **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent SQL built-in functions.
 - **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent SQL built-in functions.
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent SQL built-in functions.
 - **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding user-defined function.
-- **Miscellaneous**: Supports translation of `Coalesce` and conditional operators. Can translate `Contains` to `String CONTAINS`, `ARRAY_CONTAINS`, or SQL `IN`, depending on context.
+- **Miscellaneous**: Supports translation of `Coalesce` and conditional operators. Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or SQL IN, depending on context.
 
 ### SQL query operators
 
@@ -2155,11 +2155,11 @@ A nested query applies the inner query to each element of the outer container. O
 - [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Azure Cosmos DB Consistency Levels][consistency-levels]
-- ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- JSON [https://json.org/](https://json.org/)
-- Javascript Specification [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
-- Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
+- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+- [JSON](https://json.org/)
+- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+- [LINQ](https://msdn.microsoft.com/library/bb308959.aspx) 
+- [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611)
 - Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 - Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 - Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
