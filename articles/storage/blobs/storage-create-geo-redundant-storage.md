@@ -47,7 +47,7 @@ To complete this tutorial:
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
-# [Java V7 SDK ](#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 * Install and configure [Maven](https://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -105,7 +105,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# [Java V7 SDK ](#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
@@ -159,7 +159,7 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# [Java V7 SDK ](#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
@@ -368,7 +368,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# [Java V7 SDK ](#tab/java-v7)
+# [Java V7 SDK](#tab/java-v7)
 
 With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 

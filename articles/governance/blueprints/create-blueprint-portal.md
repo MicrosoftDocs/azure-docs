@@ -1,6 +1,6 @@
 ---
 title: Create a blueprint in the portal
-description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure Portal.
+description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -43,7 +43,7 @@ template and role assignment on the new resource group.
 
    - Alternately, click on **Create** from the **Getting started** page to go straight to creating a blueprint.
 
-   ![Create blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Create blueprint from Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Provide a **Blueprint name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters,
    but no spaces or special characters) for the blueprint, but leave **Blueprint description** blank
@@ -60,7 +60,7 @@ template and role assignment on the new resource group.
    user, app or group_ field with the checkbox indicating a **dynamic parameter**. Click **Add** to
    add this artifact to the blueprint.
 
-   ![Artifact - Role Assignment](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Blueprint artifact - Role Assignment](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > Most _artifacts_ support parameters. A parameter assigned a value during blueprint creation is
@@ -151,13 +151,13 @@ template and role assignment on the new resource group.
    }
    ```
 
-   ![Artifact - Resource Manager template](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Blueprint artifact - Resource Manager template](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Your completed blueprint should look similar to the following. Notice that each artifact has '_x_
    out of _y_ parameters populated' under the _Parameters_ column. The **dynamic parameters** are
    set during each assignment of the blueprint.
 
-   ![Completed blueprint](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Completed blueprint definition](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Now that all planned artifacts have been added, click **Save Draft** at the bottom of the page.
 
@@ -184,12 +184,12 @@ added to the new resource group. Both can be fixed by following these steps:
    select a user, app, or group to add. This artifact uses a **static parameter** set the same in
    every assignment of this blueprint. Click **Add** to add this artifact to the blueprint.
 
-   ![Artifact - Role Assignment #2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Blueprint artifact - Role Assignment #2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Your completed blueprint should look similar to the following. Notice that the newly added role
    assignment shows **1 out of 1 parameters populated** meaning that it's a **static parameter**.
 
-   ![Completed blueprint #2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Completed blueprint definition #2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Click **Save Draft** now that it has been updated.
 
@@ -288,7 +288,7 @@ Now that the blueprint has been assigned to a subscription, verify progress of t
 
 1. In the list of blueprints, right-click on the one you previously assigned and select **View assignment details**.
 
-   ![View assignment details](./media/create-blueprint-portal/view-assignment-details.png)
+   ![View assignment details from Assigned blueprints page](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. On the **Blueprint assignment** page, validate that all artifacts have been successfully deployed and that there have been no errors during the deployment. If errors occurred, see [troubleshooting blueprint](./troubleshoot/general.md) for steps to determine what went wrong.
 

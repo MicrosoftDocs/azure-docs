@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
 ---
 
@@ -20,12 +20,14 @@ Azure Monitor for containers monitors the performance of container workloads dep
 
 This article describes how to enable alerting for the following situations:
 
-* When CPU and memory utilization on nodes of the cluster or exceeds your defined threshold.
+* When CPU or memory utilization on nodes of the cluster exceeds your defined threshold.
 * When CPU or memory utilization on any of the containers within a controller exceeds your defined threshold as compared to the limit set on the corresponding resource.
+* **NotReady** status node counts
+* Pod phase counts of **Failed**, **Pending**, **Unknown**, **Running**, or **Succeeded**
 
-To alert when CPU or memory utilization is high for a cluster or a controller, you create a metric measurement alert rule that is based off of log queries provided. The queries compare a datetime to the present using the now operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.
+To alert when CPU or memory utilization is high on nodes of the cluster, you can either create a metric alert or a metric measurement alert rule using the log queries provided. While metric alerts have lower latency than log alerts, a log alert provides advanced querying and sophistication than a metric alert. For log alerts, the queries compare a datetime to the present using the now operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.
 
-Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md)
+Before starting, if you are not familiar with alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). To learn more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
 The queries in this section are provided to support each alerting scenario. The queries are required for step 7 under the [create alert](#create-alert-rule) section below.  
@@ -182,6 +184,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+The following query returns all nodes and count with status of **Ready** and **NotReady**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+The following query returns pod phase counts based on all phases - **Failed**, **Pending**, **Unknown**, **Running**, or **Succeeded**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>To alert on certain pod phases such as **Pending**, **Failed**, or **Unknown**, you need to modify the last line of the query. For example to alert on *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## Create alert rule
 Perform the following steps to create a Log Alert in Azure Monitor using one of the log search rules provided earlier.  

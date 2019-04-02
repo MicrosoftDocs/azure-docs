@@ -69,7 +69,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 
 1. In your Media Services account, make sure the **Streaming Endpoint** is running. 
 2. Create a [Live Event](live-events-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
-3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
+3. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.

@@ -107,9 +107,15 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 
 No.
 
+**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+
+Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
+
 ## Additional content
 
 The following links are not part of the core Azure AD Password Protection documentation but may be a useful source of additional information on the feature.
+
+[Azure AD Password Protection is now generally available!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Email Phishing Protection Guide – Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

@@ -50,12 +50,14 @@
     href: getting-started-improving-your-classifier.md
   - name: Use the prediction API
     href: use-prediction-api.md
-  - name: Export your model to mobile
-    href: export-your-model.md
-  - name: Use ONNX model with Windows ML
-    href: custom-vision-onnx-windows-ml.md
-  - name: Run TensorFlow model in Python
-    href: export-model-python.md
+  - name: Export models
+    items:
+    - name: Export your model to mobile
+      href: export-your-model.md
+    - name: Use ONNX model with Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Run TensorFlow model in Python
+      href: export-model-python.md
   - name: Build a model using the REST API
     href: rest-api-tutorial.md
   - name: Export or delete account data
