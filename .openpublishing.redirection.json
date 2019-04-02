@@ -1271,6 +1271,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/table-storage-how-to-use-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/tutorial-develop-table-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-sql-query-metrics.md",
       "redirect_url": "/azure/cosmos-db/sql-api-query-metrics",
       "redirect_document_id": true
@@ -2224,6 +2229,11 @@
       "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
       "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
+      "redirect_url": "/azure/iot-edge/how-to-visual-studio-develop-module",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
@@ -36452,6 +36462,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/data-collection.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -36704,6 +36719,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-poc.md",
       "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
     }
   ]

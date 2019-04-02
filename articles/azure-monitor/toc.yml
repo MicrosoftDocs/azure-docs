@@ -63,17 +63,17 @@
     href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
-  - name: Analyze log data
-    items: 
-    - name: Log queries
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-  - name: Monitoring data
-    items: 
-    - name: Metrics and logs
-      href: platform/data-collection.md
-    - name: Data sources
+  - name: Data platform
+    items:
+    - name: Overview
+      href: platform/data-platform.md
+    - name: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Logs
+      href: platform/data-platform-logs.md
+  - name: Data sources
+    items:
+    - name: Data sources summary
       href: platform/data-sources.md
     - name: Azure data sources
       href: platform/data-sources-reference.md
@@ -85,14 +85,20 @@
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: platform/metrics-custom-overview.md       
-    - name: Data security
-      items:
-      - name: Log data
-        href: platform/data-security.md
-      - name: Personal log data handling
-        href: platform/personal-data-mgmt.md
-      - name: Application data collection, retention, and storage
-        href: app/data-retention-privacy.md
+  - name: Analyze log data
+    items: 
+    - name: Log queries
+      href: log-query/log-query-overview.md
+    - name: Log query portals
+      href: log-query/portals.md
+  - name: Data security
+    items:
+    - name: Log data
+      href: platform/data-security.md
+    - name: Personal log data handling
+      href: platform/personal-data-mgmt.md
+    - name: Application data collection, retention, and storage
+      href: app/data-retention-privacy.md
   - name: Insights
     items:
     - name: Application Insights
@@ -127,6 +133,8 @@
       href: platform/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
+    - name: Common alert schema
+      href: platform/alerts-common-schema.md
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -179,8 +187,6 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
-      - name: Manage a workspace
-        href: platform/manage-access.md
       - name: Design for service providers
         href: platform/service-providers.md
   - name: Collect data
@@ -340,6 +346,8 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Snapshot Debugger
+          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps
@@ -433,6 +441,8 @@
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS resources
+        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
     - name: Collect custom data 
@@ -459,10 +469,10 @@
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure resource data to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Stream activity log to Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Logs and metrics to Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
@@ -649,9 +659,8 @@
   - name: Visualize data
     items:
     - name: Views
+      href: platform/view-designer.md
       items:
-      - name: View Designer
-        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
@@ -670,11 +679,9 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Getting started with Metrics Explorer
-      href: platform/metrics-getting-started.md
-    - name: Advanced features of Metrics Explorer
+    - name: Create metrics charts in Metrics Explorer
       href: platform/metrics-charts.md
-    - name: Examples of metrics charts
+    - name: Metric Explorer chart samples
       href: platform/metric-chart-samples.md
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md
@@ -806,6 +813,8 @@
           href: platform/action-groups.md
         - name: Learn about the webhook schema
           href: platform/activity-log-alerts-webhook.md
+        - name: Common alert schema definitions
+          href: platform/alerts-common-schema-definitions.md    
         - name: SMS alert behavior
           href: platform/alerts-sms-behavior.md
         - name: Alert rate limiting
@@ -977,9 +986,9 @@
   - name: Azure PowerShell
     items:
     - name: Monitor
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Logs
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: Monitor
