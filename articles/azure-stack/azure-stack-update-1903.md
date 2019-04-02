@@ -52,7 +52,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 ## Improvements
 
-- The 1903 update payload contains an update to components of Azure Stack that do not include the underlying operating system which hosts Azure Stack. This enables certain updates to be scoped. As a result, the expected time it takes for the 1903 update to complete is less (approx. 16 hours, but exact times can vary). This decrease in runtime is specific to the 1903 update.
+- The 1903 update payload contains an update to components of Azure Stack that do not include the underlying operating system which hosts Azure Stack. This enables certain updates to be scoped. As a result, the expected time it takes for the 1903 update to complete is less (approx. 16 hours, but exact times can vary). This decrease in runtime is specific to the 1903 update and subsequent updates may contain updates to the operating system, implying different runtimes. Future updates will provide similar guidance on the expected time the update takes to complete, depending on the payload included.
 
 - Fixed a bug in networking that prevented changes to the **idle timeout (minutes)** value of a **Public IP Address** from taking effect. Previously, changes to this value were ignored, so that regardless of any changes you made, the value would default to 4 minutes. This setting controls how many minutes to keep a TCP connection open without relying on clients to send keep-alive messages. Note this bug only affected instance level public IPs, not public IPs assigned to a load balancer.
 
