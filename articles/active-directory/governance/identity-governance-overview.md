@@ -1,6 +1,6 @@
 ---
-title: Azure AD identity governance| Microsoft Docs
-description: Azure AD identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
+title: Identity governance - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -72,7 +72,7 @@ While there is no perfect solution or recommendation for every customer, the fol
 - [What is an access review?](access-reviews-overview.md)
 - [Manage user access with access reviews](manage-user-access-with-access-reviews.md)
 - [Manage guest access with access reviews](manage-guest-access-with-access-reviews.md)
-- [Start an access review of a directory role](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Start an access review of Azure AD roles](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### Terms of use
 

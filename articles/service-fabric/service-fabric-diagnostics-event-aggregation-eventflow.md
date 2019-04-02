@@ -4,7 +4,7 @@ description: Learn about aggregating and collecting events using EventFlow for m
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

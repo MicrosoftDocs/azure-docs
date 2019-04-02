@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
 ---
 
@@ -103,9 +103,7 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 ### Would there be any performance impact on the analyzed ESXi host environment?
 
-In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
-
-We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
+With continuous profiling of performance data, there is no need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 
 ### Where is the collected data stored and for how long?
 

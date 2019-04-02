@@ -20,7 +20,7 @@ To use Azure Machine Learning service, you need an [**Azure Machine Learning ser
 In this article, you learn how to create a workspace using any of these methods: 
 * The [Azure portal](#portal) interface
 * The [Azure Machine Learning SDK for Python](#sdk)
-* An [Azure Resource Manager template](#template)
+* An Azure Resource Manager template
 * The [Azure Machine Learning CLI](#cli)
 
 The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles. 
@@ -135,7 +135,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
+1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor. For more information on roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
    ```python
    from azureml.core import Workspace
