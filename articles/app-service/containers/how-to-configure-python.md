@@ -24,7 +24,7 @@ This article describes how [Azure App Service](app-service-linux-intro.md) runs 
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on.
 
-This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [tutorial](tutorial-python-postgresql-app.md) first.
+This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [Python with PostgreSQL tutorial](tutorial-python-postgresql-app.md) first.
 
 > [!NOTE]
 > [Python on the Windows flavor of App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service) is deprecated and is not recommended for use.
@@ -144,7 +144,7 @@ To provide a custom command, do the following steps:
 
 ## Access environment variables
 
-In App Service, you can set app settings outside of your app code (see [Set environment variables](../web-sites-configure.md)). Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']

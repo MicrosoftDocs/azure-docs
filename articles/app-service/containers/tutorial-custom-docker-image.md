@@ -1,5 +1,5 @@
 ---
-title: Use a custom Docker image for Web App for Containers - Azure App Service | Microsoft Docs
+title: Build a custom image and  for Web App for Containers - Azure App Service | Microsoft Docs
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -19,9 +19,9 @@ ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Use a custom Docker image for Web App for Containers
+# Tutorial: Build a custom image and run in App Service from a private registry
 
-[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and deploy it to App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
+[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
 In this tutorial, you learn how to:
 

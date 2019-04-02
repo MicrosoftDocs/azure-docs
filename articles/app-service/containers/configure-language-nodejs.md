@@ -52,7 +52,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
 
-You can also set a Node.js version in the *package.json* file in your repository. For example:
+You can also set a Node.js version in the *package.json* file in your repository. It takes precedence over the `WEBSITE_NODE_DEFAULT_VERSION` app setting. For example:
 
 ```json
 "engines": {
@@ -78,7 +78,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### Run `npm start`
 
-To start your app using `npm start`, just make sure a `start` script is in the *packages.json* file. For example:
+To start your app using `npm start`, just make sure a `start` script is in the *package.json* file. For example:
 
 ```json
 {
@@ -94,7 +94,7 @@ To start your app using `npm start`, just make sure a `start` script is in the *
 To use a custom *package.json* in your project, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname>.json"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
 ### Run with PM2
@@ -144,7 +144,7 @@ Once finished with debugging, stop the debugger by selecting **Disconnect**. Whe
 
 ## Access environment variables
 
-In App Service, you can set app settings outside of your app code (see [Set environment variables](../web-sites-configure.md)). Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
+In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
 
 ```javascript
 process.env.NODE_ENV

@@ -94,7 +94,7 @@ Commit all your changes and deploy your code again. Composer should now be runni
 
 ## Access environment variables
 
-In App Service, you can set app settings outside of your app code (see [Set environment variables](../web-sites-configure.md)). Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
+In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
 ```javascript
 getenv("DB_HOST")
@@ -162,10 +162,10 @@ To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf./home/site/ini"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d` is the default dir where php.ini exists. `/home/site/ini` is the custom dir in which you will add a custom *.ini* file. You separate the values with a `.`.
+`/usr/local/etc/php/conf.d` is the default dir where php.ini exists. `/home/site/ini` is the custom dir in which you will add a custom *.ini* file. You separate the values with a `:`.
 
 Navigate to the web SSH session with your Linux container (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
 

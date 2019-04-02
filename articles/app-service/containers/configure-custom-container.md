@@ -20,14 +20,14 @@ ms.author: cephalin
 
 This article shows you how to configure a custom Linux container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, you should follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md)
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, you should follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
 
 ## Configure port number
 
 The web server in your custom image may use a port other than 80. You tell Azure about the port that your custom uses by using the `WEBSITES_PORT` app setting. The GitHub page for the [Python sample in this tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) shows that you need to set `WEBSITES_PORT` to _8000_. You can set it by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resoucrce-group-name> --name <app-name> --settings WEBSITES_PORT=8000
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
 ```
 
 ## Configure environment variables
@@ -35,7 +35,7 @@ az webapp config appsettings set --resource-group <resoucrce-group-name> --name 
 Your custom container may use environment variables that needs to be supplied. You can pass them in by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resoucrce-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
 This method works both for single-container apps or multi-container apps, where the environment variables are specified in the *docker-compose.yml* file.
