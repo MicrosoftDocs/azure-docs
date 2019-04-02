@@ -89,6 +89,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US 2
 - East US
 - France Central
 - West Europe
