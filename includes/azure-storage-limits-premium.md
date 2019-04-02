@@ -16,16 +16,9 @@ A premium performance block blob storage account is optimized for applications t
 
 ### Premium performance FileStorage (preview)
 
-Premium files use a unique storage account called **FileStorage (preview)**, this account has slightly different scale targets than the general-purpose v1 or v2 storage accounts used by standard files.
+Premium files use a unique storage account called **FileStorage (preview)**. This account type is designed for workloads with high IOPS, high throughput with consistent low-latency. Premium performance file storage scales with the provisioned share size.
 
-|Area  |Target  |
-|---------|---------|
-|Max size     |5 TiB (public preview), 102 TiB (private preview)     |
-|Shares   |Unlimited  |
-|IOPS     |100,000 (private preview)    |
-|Bandwidth|5 GB/s     |
-
-For premium file share scale targets, see the [Premium files scale targets](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
+The max capacity size of all premium shares in a FileStorage (preview) account is 100 TiB. For premium file share scale targets, see the [Premium files scale targets](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
 
 ### Premium performance page blob storage
 

@@ -8,7 +8,7 @@ ms.author: tamram
 | Resource | Standard file shares | Premium file shares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | No minimum; pay as you go | 100 GiB; provisioned |
-| Maximum size of a file share | 5 TiB | 5 TiB (public preview), 102 TiB (private preview) |
+| Maximum size of a file share | 5 TiB | 5 TiB (public preview), 100 TiB (private preview) |
 | Maximum size of a file in a file share | 1 TiB | 1 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum IOPS per share | 1,000 IOPS | 5,120 base IOPS with 15,360 burst limit (public preview), 100,000 IOPS (private preview)|
