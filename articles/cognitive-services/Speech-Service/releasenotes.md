@@ -19,9 +19,9 @@ ms.custom: seodec18
 
 **New Features** 
 
-* The SDK now supports the Text-to-speech service as a beta. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
-* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in Beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
-* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in Beta.
+* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
 * iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
 * JavaScript: Support for non-default microphone as an input device.
 * JavaScript: Proxy support for Node.js.
@@ -34,7 +34,7 @@ ms.custom: seodec18
 **Improvements / Changes**
 
 * Python: Additional properties of recognition results are now exposed via the `properties` property.
-* For additional development and debug support you can redirect SDK logging and diagnostocs information into a log file (more detail [here](how-to-use-logging.md)).
+* For additional development and debug support you can redirect SDK logging and diagnostocs information into a log file (more details [here](how-to-use-logging.md)).
 * JavaScript: Improve audio processing performance.
 
 **Bug Fixes**

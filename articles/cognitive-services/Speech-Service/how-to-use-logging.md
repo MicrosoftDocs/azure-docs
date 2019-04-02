@@ -15,11 +15,12 @@ ms.author: amishu
 
 # Enable logging in the Speech SDK
 
-Logging to file is an optional feature. During development it can help you to get additional information and diagnostics from the Speeck SDK core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated once a recognizer is created from that configuration. It will be active on all recognizers and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
+Logging to file is an optional feature. During development it can help you to get additional information and diagnostics from the Speeck SDK core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
 
-## Availability
+> [!NOTE]
+> Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
 
-Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript. Currently you can't start a logging session from a `SpeechSynthesizer`, but once a logging session has been started as described above, you will also receive diagnostics from the `SpeechSynthesizer`.
+Currently you can't start a logging session from a `SpeechSynthesizer`, but once a logging session has been started, you will also receive diagnostics from the `SpeechSynthesizer`.
 
 ## Sample
 
@@ -41,6 +42,10 @@ config->SetProperty(PropertyId::Speech_LogFilename, "LogfilePathAndName");
 config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName")
 ```
 
+```objc
+[config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
 You can then create a recognizer from the config object. This will activate the logging functionality.
 
 ## Create a log file on different platforms
@@ -57,7 +62,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permissions for UWP applications is available [here](https://docs.microsoft.com/en-us/windows/uwp/files/file-access-permissions).
+More about file access permissions for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
 ### Android
 
@@ -73,11 +78,11 @@ This will save a log file to the external storage in the root of an application-
 
 It is also necessary to request `WRITE_EXTERNAL_STORAGE` permission in the manifest file:
 
-```
-<manifest>
-...
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-...
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
+  ...
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  ...
 </manifest>
 ```
 
@@ -88,13 +93,15 @@ More about data and file storage for Android applications is available [here](ht
 It is only possible to access the directories inside the application sandbox directory on iOS. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. The following code snippet shows how to create a log file in the application document directory:
 
 ```objc
-NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"logfile.txt"];
+NSString *filePath = [
+  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+    stringByAppendingPathComponent:@"logfile.txt"];
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
 To access a created file, add the below properties to the `Info.plist` property list of the application:
 
-```
+```xml
 <key>UIFileSharingEnabled</key>
 <true/>
 <key>LSSupportsOpeningDocumentsInPlace</key>

@@ -87,16 +87,9 @@ We will create a basic user interface for the application. Edit the layout for y
 
 The text and graphical representation of your UI should now look like this:
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## Add sample code
 
