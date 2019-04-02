@@ -50,7 +50,7 @@
     href: getting-started-improving-your-classifier.md
   - name: Use the prediction API
     href: use-prediction-api.md
-  - name: Use a local model
+  - name: Export models
     items:
     - name: Export your model to mobile
       href: export-your-model.md
