@@ -26,7 +26,7 @@ Some mainframe workloads can be migrated to Azure with relative ease, while othe
 
 ## Mainframe migration
 
-Rehost, rebuild, replace, or retire? IaaS for PaaS? To determine the right migration strategy for your mainframe application, see the [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  guide in the Azure Architecture Center.
+Rehost, rebuild, replace, or retire? IaaS or PaaS? To determine the right migration strategy for your mainframe application, see the [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  guide in the Azure Architecture Center.
 
 ## Micro Focus rehosting platform
 
