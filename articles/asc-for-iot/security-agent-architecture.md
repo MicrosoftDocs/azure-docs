@@ -1,7 +1,8 @@
 ---
 title: Understanding Azure Security Center for IoT security agent architecture Preview| Microsoft Docs
 description: Understand security agent architecture for the agents used in the Azure Security Center for IoT service.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
