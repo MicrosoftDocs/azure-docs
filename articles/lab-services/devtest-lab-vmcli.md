@@ -23,7 +23,7 @@ Before you begin:
 
 * If a lab has not been created, instructions can be found [here](devtest-lab-create-lab.md).
 
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
+* [Install the Azure CLI](/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
 
 ## Create and verify the virtual machine 
 Before you execute DevTest Lab related commands, set the appropriate Azure context by using the `az account set` command:
@@ -142,4 +142,5 @@ Delete a VM.
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+## Next steps
+See the following content: [Azure CLI documentation for Azure DevTest Labs](https://docs.microsoft.com/en-us/cli/azure/lab?view=azure-cli-latest). 
