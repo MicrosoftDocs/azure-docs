@@ -241,29 +241,27 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
    static void Main(string[] args)
    {
         var hostBuilder = new HostBuilder()
-        .ConfigureWebJobs(config =>
-        {
-            config.AddAzureStorageCoreServices();
-            config.AddAzureStorage();
-            config.AddTimers();
-
-            config.AddDurableTask(options =>
+            .ConfigureWebJobs(config =>
             {
-                options.HubName = "MyTaskHub";
-                options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
-            });
-        })
+                config.AddAzureStorageCoreServices();
+                config.AddAzureStorage();
+                config.AddTimers();
 
-        .ConfigureLogging((context, logging) =>
-        {
-            logging.AddConsole();
-            logging.AddApplicationInsights(config =>
+                config.AddDurableTask(options =>
+                {
+                    options.HubName = "MyTaskHub";
+                    options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
+                });
+            })
+            .ConfigureLogging((context, logging) =>
             {
-                config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
-            });
-        })
-
-        .UseConsoleLifetime();
+                logging.AddConsole();
+                logging.AddApplicationInsights(config =>
+                {
+                    config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                });
+            })
+            .UseConsoleLifetime();
 
         var host = hostBuilder.Build();
 
