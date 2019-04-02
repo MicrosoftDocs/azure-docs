@@ -1,6 +1,6 @@
 ---
-title: Set up sign-in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
-description: Set up sign-in with a Google account in Azure Active Directory B2C using custom policies.
+title: Set up sign in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
+description: Set up sign in with a LinkedIn account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Set up sign-in with a LinkedIn account using custom policies in Azure Active Directory B2C
+# Set up sign in with a LinkedIn account using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -381,7 +381,7 @@ The **BuildingBlocks** element should be added near the top of the file. See the
 
 ### Obtain an email address
 
-As part of the LinkedIn migration from v1.0 to v2.0, an extra call to another API is required to obtain the email address. In you need to obtain the email address during sign up, do the following:
+As part of the LinkedIn migration from v1.0 to v2.0, an extra call to another API is required to obtain the email address. If you need to obtain the email address during sign-up, do the following:
 
 1. Have Azure AD B2C federate with LinkedIn to let the user sign in. When this happens, the access token is sent from LinkedIn to Azure AD B2C.
 2. Save the LinkedIn access token into a claim. [See the instructions here](idp-pass-through-custom.md).

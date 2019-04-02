@@ -39,4 +39,4 @@ To use a LinkedIn account as an [identity provider](active-directory-b2c-referen
 
 ## Migration from v1.0 to v2.0
 
-LinkedIn recently [updated their API's from v1.0 to v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). As part of the migration, Azure AD B2C is only able to obtain the full name of the LinkedIn user during the sign up. If an email address is one of the attributes that is collected during sign-up, the user must manually enter the email address and validate it.
+LinkedIn recently [updated their API's from v1.0 to v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). As part of the migration, Azure AD B2C is only able to obtain the full name of the LinkedIn user during the sign-up. If an email address is one of the attributes that is collected during sign-up, the user must manually enter the email address and validate it.
