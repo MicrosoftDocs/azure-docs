@@ -1,11 +1,10 @@
 ---
-title: Move mainframe compute to Azure
+title: Move mainframe compute to Azure Virtual Machines
 description: Azure compute resources compare favorably to mainframe capacity so you can migrate and modernize IBM z14 applications.
-author: njray
-ms.date: 3/18/2019
+author: larryme
+ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-manager: edprice
 ---
 # Move mainframe compute to Azure
 
@@ -22,7 +21,7 @@ form entry. They may use a Customer Information Control System (CICS), Informati
 
 As the figure shows, a TPM emulator on Azure can handle CICS and IMS workloads. A batch system emulator on Azure performs the role of Job Control Language (JCL). Mainframe data is migrated to Azure databases, such as Azure SQL Database. Azure services or other software hosted in Azure Virtual Machines can be used for system management.
 
-## Mainframe compute glance
+## Mainframe compute at a glance
 
 In the z14 mainframe, processors are arranged in up to four *drawers*. A *drawer* is simply a cluster of processors and chipsets. Each drawer can have six active central processor (CP) chips, and each CP has 10 system controller
 (SC) chips. In Intel x86 terminology, there are six sockets per drawer, 10 cores per socket, and four drawers. This architecture provides the rough equivalent of 24 sockets and 240 cores, maximum, for a z14.
@@ -65,7 +64,7 @@ Currently, the range of Azure Virtual Machine sizes provides from 1 to 128 vCPUs
 | L-Series | Storage optimized for high-throughput applications backed by databases such as NoSQL |
 | M Series | Largest compute and memory optimized VMs with up to 128 vCPUs                        |
 
-For details about available VMs, see [Virtual Machine series](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/).
+For details about available VMs, see [Virtual Machine series](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
 A z14 mainframe can have up to 240 cores. However, z14 mainframes almost never use all the cores for a single application or workload. Instead, a mainframe segregates workloads into logical partitions (LPARs), and the LPARs have ratings—MIPS (Millions of Instructions Per Second) or MSU (Million Service Unit). When determining the comparable VM size needed to run a mainframe workload on Azure, factor in the MIPS (or MSU) rating.
 
@@ -112,7 +111,7 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 
 ![Highly available deployment that supports disaster recovery](media/mainframe-compute-dr.png)
 
-## Learn more
+## Next steps
 
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)

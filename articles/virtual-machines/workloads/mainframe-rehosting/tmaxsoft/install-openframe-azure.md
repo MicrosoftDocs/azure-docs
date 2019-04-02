@@ -1,13 +1,12 @@
 ---
-title: Install TmaxSoft OpenFrame on Azure
-description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure virtual machines (VMs).
+title: Install TmaxSoft OpenFrame on Azure Virtual Machines
+description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
 documentationcenter:
-author: njray
-manager: edprice
-editor: edprice
-tags:
-keywords:
+author: larryme
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: virtual-machines-linux
 ---
 
 # Install TmaxSoft OpenFrame on Azure
@@ -50,7 +49,7 @@ Other required OpenFrame components:
 
 The following figure provides an overview of the OpenFrame 7.0 architectural components installed in this tutorial:
 
-![OpenFrame components](media/openframe_02.png)
+![OpenFrame components](media/openframe-02.png)
 
 ## Azure system requirements
 
@@ -115,19 +114,19 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 2. Click **Virtual machines**.
 
-    ![Resource list in Azure portal](media/vm_01.png)
+    ![Resource list in Azure portal](media/vm-01.png)
 
 3. Click **Add**.
 
-    ![Add option in Azure portal](media/vm_02.png)
+    ![Add option in Azure portal](media/vm-02.png)
 
 4. To the right of **Operating Systems**, click **More**.
 
-     ![More option in Azure portal](media/vm_03.png)
+     ![More option in Azure portal](media/vm-03.png)
 
 5. Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
 
-     [Operating System options in Azure portal](media/vm_04.png)
+     [Operating System options in Azure portal](media/vm-04.png)
 
 6. In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
 
@@ -156,48 +155,48 @@ When giving new individuals access the VM:
 
 2.  To open PuTTYgen, locate the PuTTY installation directory in C:\\Program Files\\PuTTY.
 
-    ![PuTTY interface](media/puttygen_01.png)
+    ![PuTTY interface](media/puttygen-01.png)
 
 3.  Click **Generate**.
 
-    ![PuTTY Key Generator dialog box](media/puttygen_02.png)
+    ![PuTTY Key Generator dialog box](media/puttygen-02.png)
 
 4.  After generation, save both the public key and private key. Paste the contents of the public key in the **SSH public key** section of the **Create virtual machine \> Basics** pane (shown in steps 6 and 7 in the previous section).
 
-    ![PuTTY Key Generator dialog box](media/puttygen_03.png)
+    ![PuTTY Key Generator dialog box](media/puttygen-03.png)
 
 ### Configure VM features
 
 1. In Azure portal, in the **Choose a size** blade, choose the Linux machine hardware settings you want. The *minimum* requirements for installing both Tibero and OpenFrame are 2 CPUs and 4 GB RAM as shown in this example installation:
 
-    ![Create virtual machine - Basics](media/createVM_01.png)
+    ![Create virtual machine - Basics](media/createVM-01.png)
 
 2. Click **3 Settings** and use the default settings to configure optional features.
 3. Review your payment details.
 
-    ![Create virtual machine - Purchase](media/createVM_02.png)
+    ![Create virtual machine - Purchase](media/createVM-02.png)
 
 4. Submit your selections. Azure begins to deploy the VM. This process typically takes a few minutes.
 
 5. When the VM is deployed, its dashboard is displayed, showing all the settings that were selected during the configuration. Make a note of the **Public IP address**.
 
-    ![tmax on Azure dashboard](media/createVM_03.png)
+    ![tmax on Azure dashboard](media/createVM-03.png)
 
 6. Open PuTTY.
 
 7. For **Host Name**, type your username and the public IP address you copied. For example, **username\@publicip**.
 
-    ![PuTTY Configuration dialog box](media/putty_01.png)
+    ![PuTTY Configuration dialog box](media/putty-01.png)
 
 8. In the **Category** box, click **Connection \> SSH \> Auth**. Provide the path to your **private key** file.
 
-    ![PuTTY Configuration dialog box](media/putty_02.png)
+    ![PuTTY Configuration dialog box](media/putty-02.png)
 
 9. Click **Open** to launch the PuTTY window. If successful, you are connected to your new CentOS VM running on Azure.
 
 10. To log on as root user, type **sudo bash**.
 
-    ![Root user logon in command window](media/putty_03.png)
+    ![Root user logon in command window](media/putty-03.png)
 
 ## Set up the environment and packages
 
@@ -256,10 +255,12 @@ Now that the VM is created and you are logged on, you must perform a few setup s
      - libaio
      - ncurses
 
-     > [!NOTE]
-     > After installing the ncurses package, create the following symbolic links:
-     `ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so`
-     `ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2`
+          > [!NOTE]
+          > After installing the ncurses package, create the following symbolic links:
+         ```
+         ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so
+         ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
+         ```
 
      - gcc
      - gcc-c++
@@ -426,7 +427,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 
 Output:
 
-![Tibero output](media/tibero_01.png)
+![Tibero output](media/tibero-01.png)
 
 ## Install ODBC
 
@@ -453,11 +454,15 @@ To install ODBC:
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
      ```
 
-> [!NOTE]
-> By default, unixODBC is installed in /usr /local. To change the location, add:
-> `--prefix=/opt/tmaxapp/unixODBC/`
-> In addition, configuration files are installed in /etc by default. To change the location, add:
-> `-- sysconfdir=/opt/tmaxapp/unixODBC/etc`
+     > [!NOTE]
+     > By default, unixODBC is installed in /usr /local. To change the location, add:
+     > ```
+       --prefix=/opt/tmaxapp/unixODBC/
+       ```
+     > In addition, configuration files are installed in /etc by default. To change the location, add:
+     > ```
+       -- sysconfdir=/opt/tmaxapp/unixODBC/etc
+       ```
 
 4. Execute Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
@@ -534,7 +539,7 @@ To install ODBC:
 
 The following output is displayed:
 
-![ODBC output showing connected to SQL](media/odbc_01.png)
+![ODBC output showing connected to SQL](media/odbc-01.png)
 
 ## Install OpenFrame Base
 
@@ -564,7 +569,7 @@ The Base application server is installed before the individual services that Ope
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
      ```
 
-    ![Base](media/base_01.png)
+    ![Base](media/base-01.png)
 
      > [!IMPORTANT]
      > Make sure you start Tibero before installation.
@@ -642,11 +647,11 @@ The Base application server is installed before the individual services that Ope
      [oframe7@ofdemo ~]$ tmboot
      ```
 
-     ![tmboot command output](media/base_02.png)
+     ![tmboot command output](media/base-02.png)
 
 10. Verify the process status is ready using the tmadmin command in si. RDY is displayed in the **status** column for each of the processes:
 
-     ![tmadmin command output](media/base_03.png)
+     ![tmadmin command output](media/base-03.png)
 
 11. Shut down OpenFrame Base:
 
@@ -707,11 +712,11 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
 
 5. When the installation is complete, start the installed OpenFrame suites by typing 'tmboot' at the command prompt.
 
-    ![tmboot output](media/tmboot_01.png)
+    ![tmboot output](media/tmboot-01.png)
 
 6. Type `tmadmin` at the command prompt to check the OpenFrame process.
 
-    ![Tmax Admin screen](media/tmadmin_01.png)
+    ![Tmax Admin screen](media/tmadmin-01.png)
 
 7. Execute the following commands:
 
@@ -856,7 +861,7 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 
      In the **status** column, RDY appears:
 
-    ![RDY in the status column](media/tmboot_02.png)
+    ![RDY in the status column](media/tmboot-02.png)
 
 8. Execute the following commands:
 
@@ -1254,7 +1259,7 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
 
 11. To verify that the process status is ready, use the `tmadmin` command in si. All the processes should display RDY in the **status** column.
 
-    ![Processes displaying RDY](media/tmadmin_02.png)
+    ![Processes displaying RDY](media/tmadmin-02.png)
 
 12. Shut OSC down using the `oscdown` command.
 
@@ -1357,7 +1362,7 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11.  *Optional*. Create an alias for easy shutdown and boot of JEUS components:
+11. *Optional*. Create an alias for easy shutdown and boot of JEUS components:
 
      ```     
      # JEUS alias
@@ -1368,17 +1373,20 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      alias dsdown=‘jeusadmin -domain jeus_domain -u administrator -p tmax1234 "local-shutdown“’
      ```
 
-12.  To verify the installation, start the domain admin server as shown:
+12. To verify the installation, start the domain admin server as shown:
 
      ```
      [oframe7@ofdemo ~]$ startDomainAdminServer -domain jeus_domain -u administrator -p jeusadmin
      ```
 
-13.  Verify by web logon using the syntax `http: //  < IP > : < PORT > /webadmin/login`. For example, http://192.168.92.133:9736/webadmin/login.
-     
-     The logon screen appears:
+13. Verify by web logon using the syntax:
 
-    ![JEUS WebAdmin logon screen](media/jeus_01.png)
+     ```
+     http://<IP>:<port>/webadmin/login
+     ```
+
+     For example, <http://192.168.92.133:9736/webadmin/login.> The logon screen appears:
+    ![JEUS WebAdmin logon screen](media/jeus-01.png)
 
      > [!NOTE]
      > If you experience any issues with port security, open port 9736 or disable the firewall (`systemctl stop firewall`).
@@ -1389,11 +1397,11 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
     2.  Click **OK** on the right side of the window.
     3.  Click **Apply changes** on the lower left side of the window and for description, enter *Hostname change*.
 
-    ![JEUS WebAdmin screen](media/jeus_02.png)
+    ![JEUS WebAdmin screen](media/jeus-02.png)
 
 15. Verify that the configuration is successful in the confirmation screen.
 
-    ![jeus_domain Server screen](media/jeus_03.png)
+    ![jeus_domain Server screen](media/jeus-03.png)
 
 16. Start the managed server process “server1” using the following command:
 
@@ -1433,7 +1441,7 @@ OFGW Is the OpenFrame gateway that supports communication between the 3270 termi
 
      The following screen appears:
 
-    ![OpenFrame WebTerminal](media/ofgw_01.png)
+    ![OpenFrame WebTerminal](media/ofgw-01.png)
 
 ## Install OFManager
 
@@ -1462,7 +1470,7 @@ OFManager provides operation and management functions for OpenFrame in the web e
 
 The start screen appears:
 
-![Tmax OpenFrame Manager logon screen](media/ofmanager_01.png)
+![Tmax OpenFrame Manager logon screen](media/ofmanager-01.png)
 
 That completes the installation of the OpenFrame components.
 

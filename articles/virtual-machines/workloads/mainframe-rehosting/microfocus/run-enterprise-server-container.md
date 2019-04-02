@@ -1,13 +1,12 @@
 ---
-title: Run Micro Focus Enterprise Server 4.0 in a Docker Container on Azure
-description: Rehost your IBM z/OS mainframe workloads by running Micro Focus Enterprise Server in a Docker container on Azure.
+title: Run Micro Focus Enterprise Server 4.0 in a Docker Container on Azure Virtual Machines
+description: Rehost your IBM z/OS mainframe workloads by running Micro Focus Enterprise Server in a Docker container on Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter:
-author: njray
-manager: edprice
-editor: edprice
-tags:
-keywords:
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
 ---
 
 # Run Micro Focus Enterprise Server 4.0 in a Docker Container on Azure
@@ -37,7 +36,7 @@ Before getting started, check out these prerequisites:
 
 2. Create the VM. To do this, open Azure portal, select **Create a resource** from the top left, and filter by *windows server*. In the results, select **Windows Server 2016 Datacenter – with Containers**.
 
-     ![Azure portal search results](media/01_portal.png)
+     ![Azure portal search results](media/01-portal.png)
 
 3. To configure the properties for the VM, choose instance details:
 
@@ -51,20 +50,20 @@ Before getting started, check out these prerequisites:
 
     5. Make sure **port 3389 RDP** is open. Only this port needs to be publicly exposed, so you can sign in to the VM. Then accept all the default values and click **Review+ create**.
 
-     ![Create a virtual machine pane](media/Container_02.jpg)
+     ![Create a virtual machine pane](media/container-02.png)
 
-4.  Wait for the deployment to finish (a couple of minutes). A message states that your VM has been created.
+4. Wait for the deployment to finish (a couple of minutes). A message states that your VM has been created.
 
-5.  Click **Go to Resource** to go to the **Overview** blade for your VM.
+5. Click **Go to Resource** to go to the **Overview** blade for your VM.
 
-6.  On the right, click the **Connect** button. The **Connect to virtual machine** options appear on the right.
+6. On the right, click the **Connect** button. The **Connect to virtual machine** options appear on the right.
 
-7.  Click the **Download RDP File** button to download the RDP file that allows you to attach to the VM.
+7. Click the **Download RDP File** button to download the RDP file that allows you to attach to the VM.
 
-8.  After the file has finished downloading, open it and type in the username and password you created for the VM.
+8. After the file has finished downloading, open it and type in the username and password you created for the VM.
 
-> [!NOTE]
-> Do not use your corporate credentials to sign in. (The RDP client assumes you may want to use these. You do not.)
+     > [!NOTE]
+     > Do not use your corporate credentials to sign in. (The RDP client assumes you may want to use these. You do not.)
 
 9.  Select **More Choices**, then select your VM credentials.
 
@@ -78,10 +77,7 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 3.  Extract the contents of the zip file to the **ent\_server\_dockerfiles\_4.0\_windows** directory created by the extract process. This directory includes a readme file (as .html and .txt file) and two subdirectories, **EnterpriseServer** and **Examples**.
 
-4.  Copy **ES-Docker-Prod-XXXXXXXX.mflic** to the following two directories:
-
->   C:\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\EnterpriseServer
->   C:\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\Examples\\CICS
+4.  Copy **ES-Docker-Prod-XXXXXXXX.mflic** to the C:\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\EnterpriseServer and C:\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\Examples\\CICS directories.
 
 > [!NOTE]
 > Make sure you copy the licensing file to both directories. They are required for the Docker build step to make sure the images are properly licensed.
@@ -95,21 +91,17 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 2. Check that Docker is installed. At the command prompt, type:
 
-```
-    docker version
-```
+    ```
+        docker version
+    ```
 
 >   For example, the version was 18.09.0 when this was written.
 
-3.  To change the directory, type:
-
-```
-     cd \Sandbox\ent_server_dockerfiles_4.0_windows\EnterpriseServer
-```
+3. To change the directory, type **cd \Sandbox\ent_server_dockerfiles_4.0_windows\EnterpriseServer**.
 
 4. Type **bld.bat IacceptEULA** to begin the build process for the initial base image. Wait a few minutes for this process to run. In the results, notice the two images that have been created—one for x64 and one for x86:
 
-     ![Command window showing images](media/Container_04.jpg)
+     ![Command window showing images](media/container-04.png)
 
 5. To create the final image for the CICS demonstration, switch to the CICS directory by typing **cd\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\Examples\\CICS**.
 
@@ -117,14 +109,15 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 7. Type **docker images** to display a list of all of the Docker images installed on the VM. Make sure **microfocus/es-acctdemo** is one of them.
 
-     ![Command window showing es-acctdemo image](media/Container_05.jpg)
+     ![Command window showing es-acctdemo image](media/container-05.png)
 
 ## Run the image 
 
 1.  To launch Enterprise Server 4.0 and the acctdemo application, at the command prompt type:
-```
-     docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win_4.0_x64
-```
+
+    ```
+         docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win_4.0_x64
+    ```
 
 2.  Install a 3270 terminal emulator such as [x3270](http://x3270.bgp.nu/) and use it to attach, via port 9040, to the image that’s running.
 
@@ -133,22 +126,23 @@ At this point, the VM is running and attached via RDP. You're signed in and read
     1.  Get the ID of the running container. Type **Docker ps** at the command prompt and note the ID (**22a0fe3159d0** in this example). Save it for the next step.
 
     2.  To get the IP address for the acctdemo container, use the container ID from the previous step as follows:
-```
-   docker inspect <containerID> --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-```
+
+    ```
+       docker inspect <containerID> --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
+    ```
 
        For example:
 
-```   
-    docker inspect 22a0fe3159d0 --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-```
+    ```   
+        docker inspect 22a0fe3159d0 --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
+    ```
 4. Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
 
-     ![Command window showing IP address](media/container_06.jpg)
+     ![Command window showing IP address](media/container-06.png)
 
 5. Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. Here, it’s **172.19.202.52:9040**. Yours will be similar. The **Signon to CICS** screen opens.
 
-    ![Signon to CICS screen](media/Container_07.jpg)
+    ![Signon to CICS screen](media/container-07.png)
 
 6. Sign in to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
 
@@ -156,15 +150,15 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 8. To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
 
-     ![Account Demo screen](media/Container_08.jpg)
+     ![Account Demo screen](media/container-08.png)
 
 9. Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
 
-     ![Account Demo screen](media/Container_09.jpg)
+     ![Account Demo screen](media/container-09.png)
 
 10. To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**
 
-     ![Enterprise Server Administration console](media/Container_010.jpg)
+     ![Enterprise Server Administration console](media/container-010.png)
 
 That's it! Now you're running and managing a CICS application in a Docker container.
 

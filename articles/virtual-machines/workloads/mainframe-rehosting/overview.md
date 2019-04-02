@@ -115,7 +115,7 @@ See also:
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Troubleshooting](/azure/virtual-machines/troubleshooting/)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md
