@@ -61,7 +61,7 @@ Use the Create Experiment button
 
       To start the creation of your new compute, select **Create**. This can take  few moments.
 
-      NOTE/Important to know: your compute name will indicate if the compute you select/create is *profiliing enabled*
+      > [!NOTE]  The compute you select/create is *profiliing enabled*
 
 1. Select a storage account for your data. Public preview only supports local file uploads and Azure Blob Storage accounts.
 1. Select a storage container
@@ -86,8 +86,8 @@ Use the Create Experiment button
 
 < Indicate the number of iterations for your experiment. 25 is the maximum number of pipelines that the AutoML run will test. (Is this going to be part of the set up for public preview or is this moving somewhere else?) >
 
-NOTE:
-for more information click the i icon/tool tip 
+> [!NOTE]
+For more information on fields click the information tool tip
 
 < screenshot of information icon tooltip >
 
