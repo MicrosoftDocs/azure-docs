@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 3/29/2019
 ms.author: sujayt
 
 ---
@@ -43,10 +43,10 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM.
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specifc storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
-*.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM.
-*.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
+*.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
+*.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
 
 ## Outbound connectivity for IP address ranges
 
@@ -94,8 +94,10 @@ Site Recovery IP address ranges are as follows:
    Korea South | 52.231.298.185 | 52.231.200.144
    France Central | 52.143.138.106 | 52.143.136.55
    France South | 52.136.139.227 |52.136.136.62
-
-
+   Australia central| 20.36.34.70 | 20.36.46.142
+   Australia Central 2| 20.36.69.62 | 20.36.74.130
+   South Africa West | 102.133.72.51 | 102.133.26.128
+   South Africa North | 102.133.160.44 | 102.133.154.128
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.
@@ -109,7 +111,10 @@ This example shows how to configure NSG rules for a VM to replicate.
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
@@ -122,7 +127,7 @@ These rules are required so that replication can be enabled from the target regi
 
 1. Create an outbound HTTPS (443) security rule for "Storage.CentralUS" on the NSG.
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG.
 
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
 
@@ -154,4 +159,4 @@ You can override Azure's default system route for the 0.0.0.0/0 address prefix w
 ## Next steps
 - Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
-- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

@@ -1,18 +1,18 @@
 ---
-title: Team Data Science Process Project Lead tasks - Azure  | Microsoft Docs
-description: An outline of the tasks for a project lead on a data science team project.
+title: Tasks for the project lead in the Team Data Science Process
+description: An outline of the tasks that a project lead is expected to complete on a data science team project.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
-# Project Lead tasks
+# Tasks for the project lead in the Team Data Science Process
 
 This tutorial outlines the tasks that a project lead is expected to complete for his/her project team. The objective is to establish collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to execute cloud-based, predictive analytics solutions efficiently. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
@@ -22,7 +22,8 @@ A **Project Lead** manages the daily activities of individual data scientists on
 
 This topic currently covers tasks 1,2 and 6 of this workflow for project leads.
 
->[AZURE.NOTE] We outline the steps needed to set up a TDSP team environment for a project using Azure DevOps in the following instructions. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code-hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
+> [!NOTE]
+> We outline the steps needed to set up a TDSP team environment for a project using Azure DevOps in the following instructions. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code-hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
 
 
 ## Repositories and directories
@@ -120,11 +121,11 @@ In this example, we have:
 
 If you are using Azure DevOps as the code-hosting platform, typically, the *SSH URL of the project template repository* is:
 
-***ssh://\<Azure DevOps Services Name\>@\<Azure DevOps Services Name\>.visualstudio.com:22/\<Your Project Name>/_git/\<Your project template repository name\>.*** 
+***ssh://\<Azure DevOps Services Name\>\@\<Azure DevOps Services Name\>.visualstudio.com:22/\<Your Project Name>/_git/\<Your project template repository name\>.*** 
 
 In this example, we have:
 
-***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
+***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ### Clone DSProject1 repository (R5) to a directory (D5) on your local machine
 
@@ -144,7 +145,7 @@ If you are using Azure DevOps as the code-hosting platform, typically, the _HTTP
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Services Name\>@<Azure DevOps Services Name\>.visualstudio.com:22/<Your Project Name>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Services Name\>@<Azure DevOps Services Name\>.visualstudio.com:22/<Your Project Name>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### Copy contents of D3 to D5 
 
@@ -192,7 +193,8 @@ You now need to push contents in **_DSProject1_** to _R5_ repository in your pro
 	
 - Commit the change and push. 
 
->[AZURE.NOTE] If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
+> [!NOTE]
+> If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 		
 	git config --global user.name <your name>
 	git config --global user.email <your email address>

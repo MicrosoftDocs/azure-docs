@@ -10,11 +10,9 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: 
 ---
 
 # Network Performance Monitor solution in Azure
@@ -49,14 +47,14 @@ NPM can monitor connectivity between networks and applications in any part of th
 * South UK
 * US Government Virginia
 
-The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## Set up and configure
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) and [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### Where to install the agents 
 
@@ -106,7 +104,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 4. On the **Setup** page, you see the option to install Log Analytics agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Log Analytics agents, select the **Setup** view to configure the capability you want to use. 
 
-   **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
+   **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the Performance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
    ![Performance Monitor view](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -116,19 +114,13 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    **ExpressRoute Monitor**: Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Log Analytics workspace. 
 
-   >[!NOTE] 
-   > The solution currently discovers only ExpressRoute private peerings. 
-
-   >[!NOTE] 
-   > Only private peerings that are connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Use Network Performance Monitor to monitor those peerings.
-
    ![ExpressRoute Monitor view](media/network-performance-monitor/npm-express-route.png)
 
-   After the discovery is finished, the discovered private peerings are listed in a table. 
+   After the discovery is finished, the discovered circuits and peerings are listed in a table. 
 
    ![Network Performance Monitor Configuration page](media/network-performance-monitor/npm-private-peerings.png)
     
-The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
+The monitoring for these circuits and peerings is initially in a disabled state. Select each resource that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
 After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Log Analytics agents are installed, as well as the subnets discovered from your environment.
 
@@ -246,7 +238,7 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 ## Log Analytics search 
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](../../log-analytics/log-analytics-queries.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](../../azure-monitor/log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 
@@ -267,8 +259,8 @@ If you are an NPM user creating an alert via Azure Portal:
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 
-This query is triggerred every 5 mins by default. Azure monitor does not charge for the first 250 log alert rules created, and any alert rules above the 250 log alert rules limit will be billed as per [Alerts pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Notifications are charged separately as per [Notifications pricing in Azure Monitor pricig page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+This query is triggered every 5 mins by default. Azure monitor does not charge for the first 250 log alert rules created, and any alert rules above the 250 log alert rules limit will be billed as per [Alerts pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Notifications are charged separately as per [Notifications pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## Pricing

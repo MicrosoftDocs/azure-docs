@@ -69,11 +69,11 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | Name                              | myVm2                                                                   |
-| 3 | Authentication type               | Paste your SSH public key or select **Password**, and enter a password. |
-| 3 | Resource group                    | Select **Use existing** and select **myResourceGroup**.                 |
-| 6 | Extensions                        | **Network Agent for Linux**                                             |
+| 1 | Select a version of **Ubuntu Server** |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | Authentication type                   | Paste your SSH public key or select **Password**, and enter a password. |
+| 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
+| 6 | Extensions                            | **Network Agent for Linux**                                             |
 
 The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
 

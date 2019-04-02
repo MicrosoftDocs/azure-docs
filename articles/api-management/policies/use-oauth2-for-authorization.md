@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Use OAuth2 for authorization between the gateway and a backend | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend.
+title: Azure API management policy sample - Use OAuth2 for authorization between the gateway and a backend | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend.
 services: api-management
 documentationcenter: ''
 author: vladvino

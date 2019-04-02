@@ -38,7 +38,7 @@ This article covers the following Azure services that support the R language:
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
-|[Azure Notebooks](#azure-notebooks)                              |a no-cost (but limited) cloud-based version of Jupyter notebooks                  |
+|[Azure Notebooks](#azure-notebooks)                              |a no-cost cloud-based version of Jupyter notebooks                  |
 |[Azure SQL Database](#azure-sql-database)                        |run R scripts inside of the SQL Server database engine                            |
 
 ## Data Science Virtual Machine
@@ -112,12 +112,12 @@ work.
 The article ["What is Azure Databricks?"](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
 can provide more details about the platform and help you get started.
 
-## Azure Machine Learning Studio
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative,
+## Azure Machine Learning studio
+[Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative,
 drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables
 emerging data scientists to create and deploy machine learning models without the need to write much code.
 
-ML Studio supports both R and Python.  You can use R with ML Studio in two ways.
+Azure Machine Learning studio supports both R and Python.  You can use R with Azure Machine Learning studio in two ways.
 
 ### Custom R scripts in your experiments
 First, you can extend the data manipulation and machine learning capabilities of ML Studio by writing custom R scripts.
@@ -128,19 +128,19 @@ cases where the provided modules do not meet your needs.
 To leverage this capability, drag and drop an "Execute R Script" module into your experiment.  Then use the code editor
 in the "Properties" pane to write a new R script or paste an existing script.  Within the script, you can reference
 external R packages.  You can use the script to manipulate data or to train complex ML models that are not part of the
-standard ML Studio model library.
+standard Azure Machine Learning studio model library.
 
 For a thorough introduction on using R within ML Studio experiments, check out the
-["Quickstart tutorial for the R programming language for Azure Machine Learning."](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
+["Quickstart tutorial for the R programming language for Azure Machine Learning studio."](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
 
 ### Create, manage, and deploy experiments from your local R environment
-The other way that you can use R with ML Studio is to use the
+The other way that you can use R with Azure Machine Learning studio is to use the
 <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> package to
 monitor and control the experimentation process with the R programming environment.  This package, which is maintained
-by Microsoft, allows you to upload and download datasets to and from Azure ML, to interrogate experiments, to publish R
-functions as Azure ML web services, and to run R data through existing web services and retrieve the output.
+by Microsoft, allows you to upload and download datasets to and from Azure Machine Learning studio, to interrogate experiments, to publish R
+functions as web services, and to run R data through existing web services and retrieve the output.
 
-This package makes it much easier to use Azure ML as a scalable deployment platform for your R code.  Instead of
+This package makes it much easier to use Azure Machine Learning studio as a scalable deployment platform for your R code.  Instead of
 clicking and dragging in the UI, you can automate the entire deployment process using tools you already know.
 
 ## Azure Batch
@@ -166,14 +166,10 @@ economical way to run Spark jobs in Azure.  By using
 in the cloud easily and economically.
 
 ## Azure Notebooks
-[Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working
-with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser
-using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable
-code, and graphics onto a single canvas.
 
-While Azure Notebooks is a viable option for small-scale projects, it has some limitations that make it inappropriate
-for large-scale data science projects.  Currently, the service limits each notebook's process to 4 GB of memory and data
-sets can only be 1 GB.  However, for publishing smaller analyses, this is an easy, no-cost option.
+[Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas.
+
+The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4GB of memory and 1GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is Microsoft's intelligent, fully managed
@@ -194,7 +190,7 @@ but will continue to evolve.
 
 
 ### Next steps
-* [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
+* [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server in the Cloud](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/machine-learning-server/resources-more)
 * [R on Azure](https://github.com/yueguoguo/r-on-azure) - an overview of packages, tools, and case studies for using R with Azure

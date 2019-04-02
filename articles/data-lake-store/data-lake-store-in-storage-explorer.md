@@ -132,7 +132,7 @@ The following items illustrate how to manage resources within a Data Lake Storag
 
    ![Dialog box with the upload in progress](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > You can directly drag the folders and files on a local computer to start uploading. 
        
 ### Download folders or files to your local computer
@@ -160,7 +160,7 @@ The file is downloaded and opened through the application that's associated with
 
 ![Selections for copying a folder](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Copy/paste operations across storage types are not supported. You can copy Data Lake Storage Gen1 folders or files and paste them in another Data Lake Storage Gen1 account. But you *cannot* copy Data Lake Storage Gen1 folders or files and paste them to Azure Blob storage or the other way around.
 > 
 > The copy/paste operation works by downloading the folders or files to the local computer and then uploading them to the destination. The tool *does not* perform the action in the back end. The copy/paste operation on large files is slow. The optimization of high-performance file copy/move is underway.
@@ -191,7 +191,7 @@ If you have a URL, you can enter the URL into the address path in File Explorer 
 
 
 ## Next steps
-* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
+* View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
 * Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Get started with Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).

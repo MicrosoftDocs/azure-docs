@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-The following limits apply only when performing management operations using Azure Resource Manager with Azure Storage.
+The following limits apply only when you perform management operations by using Azure Resource Manager with Azure Storage.
 
-| Resource | Default Limit |
+| Resource | Default limit |
 | --- | --- |
 | Storage account management operations (read) |800 per 5 minutes |
 | Storage account management operations (write) |200 per hour |

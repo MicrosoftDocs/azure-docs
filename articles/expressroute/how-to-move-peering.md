@@ -1,29 +1,20 @@
 ---
-title: 'Move a public peering on Azure ExpressRoute to Microsoft peering | Microsoft Docs'
+title: 'Move a public peering to Microsoft peering - Azure ExpressRoute | Microsoft Docs'
 description: This article shows you the steps to move your public peering to Microsoft peering on ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
+ms.custom: seodec18
+
 
 ---
 # Move a public peering to Microsoft peering
 
-ExpressRoute supports using Microsoft peering with route filters for Azure PaaS services, such as Azure storage and Azure SQL Database. You now need only one routing domain to access Microsoft PaaS and SaaS services. You can use route filters to selectively advertise the PaaS service prefixes for Azure regions you want to consume.
-
-This article helps you move a public peering configuration to Microsoft peering with no downtime. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-
+This article helps you move a public peering configuration to Microsoft peering with no downtime. ExpressRoute supports using Microsoft peering with route filters for Azure PaaS services, such as Azure storage and Azure SQL Database. You now need only one routing domain to access Microsoft PaaS and SaaS services. You can use route filters to selectively advertise the PaaS service prefixes for Azure regions you want to consume. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Before you begin
 
@@ -53,7 +44,7 @@ Verify that the Microsoft peering is enabled and the advertised public prefixes 
 
 By default, new Microsoft peerings do not advertise any prefixes until a route filter is attached to the circuit. When you create a route filter rule, you can specify the list of service communities for Azure regions that you want to consume for Azure PaaS services, as shown in the following screenshot:
 
-![Merge public peering](.\media\how-to-move-peering\public.png)
+![Merge public peering](./media/how-to-move-peering/public.png)
 
 Configure route filters using any of the following articles:
 

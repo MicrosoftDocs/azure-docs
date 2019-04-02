@@ -5,8 +5,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: ramamill
+ms.date: 12/11/2018
+ms.author: mayg
 ---
 
 # Scale for failback with additional process servers
@@ -18,6 +18,9 @@ By default, when you're replicating VMware VMs or physical servers to Azure usin
 ### Capacity planning
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
+
+> [!NOTE]
+> Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
 
 ### Sizing requirements 
 
@@ -48,11 +51,11 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-  ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
-  > [!WARNING]
-  The process server installation version should be the same as, or earlier than, the configuration server version you have running. A simple way to ensure version compatibility is to use the same installer, that you most recently used to install or update your configuration server.
+   > [!WARNING]
+   > The process server installation version should be the same as, or earlier than, the configuration server version you have running. A simple way to ensure version compatibility is to use the same installer, that you most recently used to install or update your configuration server.
 
 ## Install from the UI
 

@@ -16,7 +16,7 @@ ms.date: 11/06/2018
 
 # Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
 
-In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an Apache Spark cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
+In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
  
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -56,7 +56,7 @@ Applications can create dataframes directly from files or folders on the remote 
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
 
 
@@ -81,11 +81,11 @@ Once the table is created, you can run an interactive query on the data.
 
 10. From the **File** menu on the notebook, select **Save and Checkpoint**. 
 
-11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, selectx **Close and Halt**.
+11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, select **Close and Halt**.
 
 ## Clean up resources
 
-With HDInsight, your data and Jupyter notebooks are stored in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
+With HDInsight, your data and Jupyter notebooks are stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 
@@ -97,10 +97,10 @@ You can also select the resource group name to open the resource group page, and
 
 In this tutorial, you learned how to:
 
-* Create a Spark dataframe.
+* Create an Apache Spark dataframe.
 * Run Spark SQL against the dataframe.
 
-Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
+Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
 > [Analyze data using BI tools](apache-spark-use-bi-tools.md)
 

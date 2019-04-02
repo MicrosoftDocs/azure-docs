@@ -3,15 +3,15 @@ title: Extended events in SQL Database | Microsoft Docs
 description: Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer:
+ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Extended events in SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -110,7 +110,7 @@ For extended events there are additional DMVs that are common to both Azure SQL 
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
- <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## Find the available extended events, actions, and targets
 

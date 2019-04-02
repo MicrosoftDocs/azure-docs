@@ -38,7 +38,13 @@ also known as *increment* and *decrement*.
 Variables exist and are global only within the logic app instance that creates them. 
 Also, they persist across any loop iterations inside a logic app instance. 
 When referencing a variable, use the variable's name as the token, 
-not the action's name, which is the usual way to reference an action's outputs.
+not the action's name, which is the usual way to reference an action's outputs. 
+
+> [!IMPORTANT]
+> By default, cycles in a "Foreach" loop run in parallel. 
+> When you use variables in loops, 
+> run the loop [sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 
+> so variables return predictable results. 
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -498,13 +504,13 @@ You can follow the steps for [increasing a variable](#increment-value)
 except that you follow these steps instead: 
 
 1. Find and select one of these actions based on 
-whether your variable is a string or an array: 
+   whether your variable is a string or an array: 
 
-  * **Variables - Append to string variable**
-  * **Variables - Append to array variable** 
+   * **Variables - Append to string variable**
+   * **Variables - Append to array variable** 
 
 2. Provide the value to append as the last item in the string or array. 
-This value is required. 
+   This value is required. 
 
 Here are the properties for the **Append to...** actions:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Storage Explorer with Azure File storage | Microsoft Docs
 description: Learn how learn how to use Storage Explorer to work with file shares and files.
 services: storage
@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ---
@@ -27,7 +27,7 @@ To complete the steps in this article, you'll need the following:
 
 - [Download and install Storage Explorer](https://www.storageexplorer.com/)
 
-- [Connect to a Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Connect to an Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## Create a File Share
 
@@ -43,7 +43,7 @@ The following steps illustrate how to create a file share within Storage Explore
 
     ![Create File Share](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
+1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) section for a list of rules and restrictions on naming file shares.
 
     ![Naming the share](media/vs-azure-tools-storage-explorer-files/image2.png)
 

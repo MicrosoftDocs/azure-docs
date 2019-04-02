@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 10/28/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: MVC
 ---

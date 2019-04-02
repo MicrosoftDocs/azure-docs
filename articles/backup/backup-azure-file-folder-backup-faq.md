@@ -8,7 +8,7 @@ keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent
@@ -28,7 +28,7 @@ You can't back up the following drives/volumes:
 * Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
 * Offline Volumes: The volume must be online for VSS to function.
 * Network share: The volume must be local to the server to be backed up using online backup.
-* Bitlocker-protected volumes: The volume must be unlocked before the backup can occur.
+* BitLocker-protected volumes: The volume must be unlocked before the backup can occur.
 * File System Identification: NTFS is the only file system supported.
 
 ### What file and folder types can I back up from my server?<br/>

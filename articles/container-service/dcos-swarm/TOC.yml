@@ -70,7 +70,7 @@
   - name: Azure CLI
     href: /cli/azure/acs
   - name: PowerShell
-    href: /powershell/module/azurerm.compute
+    href: /powershell/module/az.compute
   - name: REST
     href: /rest/api/container-service
 - name: Resources
@@ -86,6 +86,6 @@
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

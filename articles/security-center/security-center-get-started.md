@@ -4,7 +4,7 @@ description: This quickstart shows you how to upgrade to Security Center's Stand
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
-Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days.
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 In this article, you upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
 
@@ -33,7 +33,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
@@ -47,17 +47,17 @@ Within minutes of launching Security Center the first time, you may see:
 To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
 
 ## Upgrade to the Standard tier
-For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. Your first 60 days are free, and you can return to the Free tier any time.
+For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. Under the Security Center main menu, select **Getting started**.
  
-  ![Get started][4]
+   ![Get started][4]
 
 2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
    - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
    -	You can upgrade subscriptions and workspaces that are not eligible for trial.
    -	You can select eligible workspaces and subscriptions to start your trial.
-3.	Click **Start trial** to start your trial on the selected subscriptions.
+3. Click **Start trial** to start your trial on the selected subscriptions.
 
 
   ![Security alerts][9]

@@ -1,5 +1,5 @@
 ---
-title: Delegate least privileged roles by task in Azure Active Directory | Microsoft Docs
+title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,18 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD tenant more secure.
 
+ms.collection: M365-identity-device-management
 ---
 
-# Administrator roles by identity task in Azure Active Directory
+# Administrator roles by admin task in Azure Active Directory
 
 In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find administrator tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
 
@@ -105,7 +106,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Peform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
@@ -115,7 +116,7 @@ Task | Least privileged role | Additional roles
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
 Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Read Bitlocker keys | Security Reader | Password administrator, Security administrator
+Read BitLocker keys | Security Reader | Password administrator, Security administrator
 
 ## Enterprise applications
 
@@ -141,18 +142,18 @@ Update single sign-on properties | Enterprise application owner ([see documentat
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | User account administrator | 
-Create group | User account administrator | 
-Create, update, or delete access review of a group or of an app | User account administrator | 
-Manage group expiration | User account administrator | 
-Manage group settings | User account administrator | 
+Assign license | User administrator | 
+Create group | User administrator | 
+Create, update, or delete access review of a group or of an app | User administrator | 
+Manage group expiration | User administrator | 
+Manage group settings | Global Administrator | 
 Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User account administrator
-Read membership of groups with hidden membership | Helpdesk Administrator | User account administrator, Teams administrator
-Revoke license | License administrator | User account administrator
-Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
-Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
-Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
+Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User administrator
+Read membership of groups with hidden membership | Helpdesk Administrator | User administrator, Teams administrator
+Revoke license | License administrator | User administrator
+Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
 
 ## Identity Protection
 
@@ -173,9 +174,9 @@ Read vulnerabilities | Security Reader |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | License administrator | User account administrator
+Assign license | License administrator | User administrator
 Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Revoke license | License administrator | User account administrator
+Revoke license | License administrator | User administrator
 Try or buy subscription | Billing administrator | 
 
 
@@ -199,8 +200,8 @@ Delete all existing app passwords generated by the selected users | Global Admin
 Disable MFA | Global Administrator | 
 Enable MFA | Global Administrator | 
 Manage MFA service settings | Global Administrator | 
-Require selected users to provide contact methods again | Global Administrator | 
-Restore multi-factor authentication on all remembered devices  | Global Administrator | 
+Require selected users to provide contact methods again | Authentication Administrator | 
+Restore multi-factor authentication on all remembered devices  | Authentication Administrator | 
 
 ## MFA Server
 
@@ -232,13 +233,13 @@ Read all configuration | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure authentication methods | Global Administrator | 
-Configure customization | Global Administrator | 
-Configure notification | Global Administrator | 
-Configure on-premises integration | Global Administrator | 
-Configure password reset properties | Global Administrator | 
-Configure registration | Global Administrator | 
-Read all configuration | Security Administrator	User Administrator | 
+Configure authentication methods | Global Administrator |
+Configure customization | Global Administrator |
+Configure notification | Global Administrator |
+Configure on-premises integration | Global Administrator |
+Configure password reset properties | User Administrator | Global Administrator
+Configure registration | Global Administrator |
+Read all configuration | Security Administrator | User Administrator |
 
 ## Privileged identity management
 
@@ -312,21 +313,21 @@ Read users flagged for risk | Security Reader |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Add user to directory role | Privileged role administrator | 
-Add user to group | User account administrator | 
-Assign license | License administrator | User account administrator
-Create guest user | Guest inviter | User account administrator
-Create user | User account administrator | 
-Delete users | User account administrator | 
-Invalidate refresh tokens of limited admins (see documentation) | User account administrator | 
-Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User account administrator
+Add user to group | User administrator | 
+Assign license | License administrator | User administrator
+Create guest user | Guest inviter | User administrator
+Create user | User administrator | 
+Delete users | User administrator | 
+Invalidate refresh tokens of limited admins (see documentation) | User administrator | 
+Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User administrator
 Invalidate refresh tokens of privileged admins (see documentation) | Global Administrator | 
 Read basic configuration | Default User role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Reset password for limited admins (see documentation) | User account administrator | 
-Reset password of non-admins (see documentation) | Password administrator | User account administrator
+Reset password for limited admins (see documentation) | User administrator | 
+Reset password of non-admins (see documentation) | Password administrator | User administrator
 Reset password of privileged admins | Global Administrator | 
-Revoke license | License administrator | User account administrator
-Update all properties except User Principal Name | User account administrator | 
-Update User Principal Name for limited admins (see documentation) | User account administrator | 
+Revoke license | License administrator | User administrator
+Update all properties except User Principal Name | User administrator | 
+Update User Principal Name for limited admins (see documentation) | User administrator | 
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
 

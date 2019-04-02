@@ -2,7 +2,6 @@
 title: Automatic, online backup and on-demand data restore in Azure Cosmos DB
 description: This article describes how automatic, online backup and on-demand data restore works in Azure Cosmos DB.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
@@ -17,13 +16,19 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
 ## Automatic and online backups
 
-With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The automated backups are currently taken every four hours and at any point of time, the latest two backups are stored. If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within eight hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The following steps show how Azure Cosmos DB performs data backup:
 
-The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
+* Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing snapshots of a given container or database for 30 days.
 
-Azure Cosmos DB stores automatic backups in Azure Blob Storage whereas the actual data resides locally within Azure Cosmos DB. To guarantee the low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region (or one of the write regions, if you have a multi-master configuration) of your Cosmos DB database account. For resiliency against regional disaster, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). 
-The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md) article. You cannot access this backup directly. Azure Cosmos DB will use this backup only if a backup restore is initiated.
-The following image shows how an Azure Cosmos container with all the three primary resource partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
+* Azure Cosmos DB stores these backups in Azure Blob storage whereas the actual data resides locally within Azure Cosmos DB.
+
+*  To guarantee low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region (or one of the write regions, in case you have a multi-master configuration) of your Azure Cosmos database account. For resiliency against regional disaster, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md) article. You cannot access this backup directly. Azure Cosmos DB will use this backup only if a backup restore is initiated.
+
+* The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
+
+* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+
+The following image shows how an Azure Cosmos container with all the three primary physical partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
 ![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 

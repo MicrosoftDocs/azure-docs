@@ -10,11 +10,9 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: 
 ---
 
 # Service Connectivity Monitor
@@ -126,4 +124,4 @@ If you observe an abnormality, follow these steps:
 
 
 ## Next steps
-[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed network performance data records.
+[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.

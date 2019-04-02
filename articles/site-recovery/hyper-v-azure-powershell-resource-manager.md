@@ -1,11 +1,11 @@
-﻿---
+---
 title: Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager | Microsoft Docs
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 
 ---
@@ -43,24 +43,21 @@ In addition, the specific example described in this article has the following pr
 1. Open a PowerShell console and run this command to sign in to your Azure account. The cmdlet brings up a web page prompts you for your account credentials: **Connect-AzureRmAccount**.
     - Alternately, you can include your account credentials as a parameter in the **Connect-AzureRmAccount** cmdlet, using the **-Credential** parameter.
     - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
-2. Associate the subscription you want to use with the acount, since an account can have several subscriptions:
+2. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
 3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, using these commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
 4. Verify that in the command output, the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription, by running these commands:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery`
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Verify that the Providers registered successfully, using the following commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 ## Step 2: Set up the vault
 

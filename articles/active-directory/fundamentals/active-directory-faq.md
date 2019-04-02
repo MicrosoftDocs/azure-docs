@@ -1,20 +1,22 @@
 ---
-title: Azure Active Directory - FAQ | Microsoft Docs
-description: Learn common questions and answers about Azure and Azure Active Directory, password management, and application access.
+title: Frequently asked questions (FAQ) - Azure Active Directory | Microsoft Docs
+description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory FAQ
+# Frequently asked questions about Azure Active Directory
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
 For more information, see [What is Azure Active Directory?](active-directory-whatis.md).
@@ -82,7 +84,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
 
-**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
+**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the [Office 365 portal](https://portal.office.com).
 
 For more information, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 

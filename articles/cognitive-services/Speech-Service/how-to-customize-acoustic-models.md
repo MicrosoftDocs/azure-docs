@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Create an acoustic model with the Speech Service"
 titlesuffix: Azure Cognitive Services
-description: Learn how to create an acoustic model with the Speech Service in Azure Cognitive Services.
+description: Learn how to create an acoustic model using Speech Services on Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
@@ -29,9 +29,9 @@ If you don’t have an Azure Cognitive Services account, create a [free account]
 
 Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) page.
 
-You can connect to a Speech Service subscription that was created in the Azure portal by selecting **Connect existing subscription**.
+You can connect to a Speech Services subscription that was created in the Azure portal by selecting **Connect existing subscription**.
 
-For information about creating a Speech Service subscription in the Azure portal, see [Try the Speech Service for free](get-started.md).
+For information about creating a Speech Services subscription in the Azure portal, see [Try the Speech Services for free](get-started.md).
 
 ## Prepare the data
 
@@ -65,7 +65,7 @@ An acoustic dataset for customizing the acoustic model consists of two parts: (1
 | Sampling Rate | 8,000 Hertz (Hz) or 16,000 Hz |
 | Channels | 1 (mono) |
 | Sample Format | PCM, 16-bit integers |
-| File Duration | 0.1 seconds < duration < 12 seconds | 
+| File Duration | 0.1 seconds < duration < 12 seconds |
 | Silence Collar | > 0.1 seconds |
 | Archive Format | .zip |
 | Maximum Archive Size | 2 GB |
@@ -92,19 +92,19 @@ The transcriptions for all WAV files should be contained in a single plain-text 
 
 The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [Transcription guidelines for using the Speech Service](prepare-transcription.md).
 
-Perform the steps in the next sections by using the [Speech Service portal](https://cris.ai).
+Perform the steps in the next sections by using the [Speech Services portal](https://cris.ai).
 
 ## Import the acoustic dataset
 
 After you've prepared the audio files and transcriptions, they're ready to be imported to the service web portal.
 
-To import them, first ensure that you're signed in to the [Speech Service portal](https://cris.ai). Then, in the **Custom Speech** drop-down list in the ribbon, select **Adaptation Data**. If this is your first time uploading data to the Custom Speech Service, an empty table labeled **Datasets** is displayed. 
+To import them, first ensure that you're signed in to the [Speech Services portal](https://cris.ai). Then, in the **Custom Speech** drop-down list in the ribbon, select **Adaptation Data**. If this is your first time uploading data to the Custom Speech Service, an empty table labeled **Datasets** is displayed.
 
 In the **Acoustic Datasets** row, select the **Import** button, and the site displays a page for uploading a new dataset.
 
 ![The Import Acoustic Data page](media/stt/speech-acoustic-datasets-import.png)
 
-In the **Name** and **Description** boxes, enter the appropriate information. Friendly descriptions are useful for keeping track of the various datasets that you upload. 
+In the **Name** and **Description** boxes, enter the appropriate information. Friendly descriptions are useful for keeping track of the various datasets that you upload.
 
 In the **Transcriptions file (.txt)** and **Audio files (.zip)** boxes, select **Browse**, and then select your plain-text transcription file and the zip archive of WAV files. When the preparation is complete, select **Import** to upload your data. Your data will be uploaded. For larger datasets, the import process might take several minutes.
 
@@ -122,11 +122,11 @@ If you want to change the name or description of the dataset, you can select the
 
 After the status of your acoustic dataset is *Complete*, you can use the dataset to create a custom acoustic model. To do so, select **Acoustic Models** in the **Custom Speech** drop-down list. A table labeled **Your models** lists all your custom acoustic models. The table is empty if this is your first use. The table title displays the current locale. Currently, you can create acoustic models for US English only.
 
-To create a new model, select **Create New** under the table title. As before, enter a name and description to help you identify this model. For example, you can use the **Description** field to record which starting model and acoustic dataset you used to create the model. 
+To create a new model, select **Create New** under the table title. As before, enter a name and description to help you identify this model. For example, you can use the **Description** field to record which starting model and acoustic dataset you used to create the model.
 
 Next, in the **Base Acoustic Model** drop-down list, select a base model. The base model is the starting point for your customization. There are two base acoustic models to choose from:
-* The **Microsoft Search and Dictation AM** model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. 
-* The **Microsoft Conversational Model** is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is usually directed at another person and occurs in a call center or meetings. 
+* The **Microsoft Search and Dictation AM** model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation.
+* The **Microsoft Conversational Model** is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is usually directed at another person and occurs in a call center or meetings.
 
 Latency for partial results in Conversational models is higher than in Search and Dictation models.
 
@@ -149,6 +149,6 @@ The acoustic models table displays a new entry that corresponds to this new mode
 
 ## Next steps
 
-- [Get your Speech Service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
 - [Git Sample Data](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

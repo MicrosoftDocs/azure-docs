@@ -6,8 +6,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
-ms.author: raynew
+ms.date: 12/31/2018
+ms.author: raynew 
 
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
@@ -22,8 +22,6 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Set up the source and target replication environments
 > * Create a replication policy
 > * Enable replication for a server
-
-[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
 
 ## Prerequisites
 
@@ -75,9 +73,6 @@ Set up an [Azure storage account](../storage/common/storage-quickstart-create-ac
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../virtual-machines/windows/premium-storage.md).
-- If you set up a premium account, you will also need an additional standard account for log data.
-
 
 
 ### Prepare an account for Mobility service installation

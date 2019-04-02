@@ -4,7 +4,7 @@ description: Learn how to configure your standalone or on-premises Azure Service
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d

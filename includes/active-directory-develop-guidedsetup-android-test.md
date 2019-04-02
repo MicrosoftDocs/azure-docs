@@ -3,8 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/13/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file 
 
 ---
@@ -21,7 +21,7 @@ ms.custom: include file
 ## Test your app
 
 1. Run your code to your device/emulator.
-2. Try to sign in with a Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com). 
+2. Try to sign in with an Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com). 
 
     ![Test your application](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>

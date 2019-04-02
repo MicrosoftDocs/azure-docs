@@ -1,21 +1,21 @@
 ---
-title: Azure IoT Hub operations monitoring | Microsoft Docs
+title: Azure IoT Hub operations monitoring (deprecated) | Microsoft Docs
 description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
 ---
 
-# IoT Hub operations monitoring
+# IoT Hub operations monitoring (deprecated)
 
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 >[!NOTE]
->IoT Hub operations monitoring is deprecated and will be removed from IoT Hub on March 10, 2019. For monitoring the operations and health of IoT Hub, see [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor]. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **operations monitoring is deprecated and has been removed from IoT Hub on March 10, 2019**. For monitoring the operations and health of IoT Hub, see [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor]. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub monitors six categories of events:
 

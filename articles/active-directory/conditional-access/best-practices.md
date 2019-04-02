@@ -4,21 +4,22 @@ description: Learn about things you should know and what it is you should avoid 
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
-ms.author: markvi
+ms.date: 01/25/2019
+ms.author: joflore
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # Best practices for conditional access in Azure Active Directory
 
@@ -43,14 +44,32 @@ To make your policy work, you must configure:
 
 |What           | How                                  | Why|
 |:--            | :--                                  | :-- |
-|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
-| **Users and groups** | You need to select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access controls** | You need to select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
+|**Cloud apps** |Select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
+| **Users and groups** | Select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access controls** | Select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
 
 
 ## What you should know
+
+
+
+### How are conditional access policies applied?
+
+More than one conditional access policy may apply when you access a cloud app. In this case, all policies that apply must be satisfied. For example, if one policy requires MFA and the second requires a compliant device, you must go through MFA, and use a compliant device. 
+
+All policies are enforced in two phases:
+
+- In the **first** phase, all policies are evaluated and all access controls that aren't satisfied are collected. 
+
+- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If one of the policies blocks access, you are blocked and not prompted to satisfy other policy controls. If none of the policies blocks you, you are prompted to satisfy other policy controls in the following order:
+
+    ![Order](./media/best-practices/06.png)
+    
+    External MFA providers and Terms of Use come next.
+
+
 
 ### How are assignments evaluated?
 
@@ -66,7 +85,7 @@ If you need to configure a location condition that applies to all connections ma
 
 If you are locked out of the Azure AD portal due to an incorrect setting in a conditional access policy:
 
-- Verify whether there are other administrators in your organization that are not blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
 
 - If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update conditional access policies that are preventing access.
 
@@ -118,13 +137,13 @@ In your environment, you should avoid the following configurations:
 
 As a first step, you should evaluate your policy using the [what if tool](what-if-tool.md).
 
-When you are ready to deploy a new policy into your environment, you should do this in phases:
+When new policies are ready for your environment, deploy them in phases:
 
 1. Apply a policy to a small set of users and verify it behaves as expected. 
 
-2.  When you expand a policy to include more users, continue to exclude all administrators from the policy. This ensures that administrators still have access and can update a policy if a change is required.
+2.  When you expand a policy to include more users. Continue to exclude all administrators from the policy to ensure that they still have access and can update a policy if a change is required.
 
-3. Apply a policy to all users only if this is really required. 
+3. Apply a policy to all users only if necessary. 
 
 As a best practice, create a user account that is:
 
@@ -150,4 +169,7 @@ For more information, see [Migrate classic policies in the Azure portal](policy-
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+If you want to know:
+
+- How to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- How to plan your conditional access policies, see [How to plan your conditional access deployment in Azure Active Directory](plan-conditional-access.md).

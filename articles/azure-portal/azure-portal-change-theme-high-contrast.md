@@ -3,8 +3,8 @@ title: Turn on high contrast in Azure portal | Microsoft Docs
 description: Learn how to turn on high contrast or change the Azure portal theme.
 services: azure-portal
 keywords: 
-author: cwatson-cat
-ms.author: cwatson
+author: kfollis
+ms.author: kfollis
 ms.date: 08/24/2017
 ms.topic: conceptual
 

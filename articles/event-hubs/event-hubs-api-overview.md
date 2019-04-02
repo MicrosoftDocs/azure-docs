@@ -40,7 +40,7 @@ For more information about the current status of each runtime library, see [addi
 
 #### .NET
 
-The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information about .NET Framework versions, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information about .NET Framework versions, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### Node
 
@@ -51,7 +51,7 @@ The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is current
 The following table lists all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
 
 | Language/Platform | Management package | Repository |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## Next steps
