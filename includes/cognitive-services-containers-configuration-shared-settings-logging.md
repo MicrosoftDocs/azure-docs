@@ -3,7 +3,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ---
 
 The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application. 
@@ -16,7 +16,7 @@ The following logging providers are supported by the container:
 |[Debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|The ASP.NET Core `Debug` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
 |[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|
 
-This container command shows logging information in the JSON format to the output mound:
+This container command stores logging information in the JSON format to the output mount:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -26,7 +26,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<billing-endpoint> \
 ApiKey=<api-key> \
-Logging:Console:LogLevel:Default=Information
 Logging:Disk:Format=json
 ```
 
