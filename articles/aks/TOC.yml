@@ -108,8 +108,12 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Azure AD-enabled AKS
-      href: aad-integration.md
+    - name: Enable Azure Active Directory integration
+      items:
+        - name: Use the Azure CLI
+          href: aad-integration-cli.md
+        - name: Use the Azure portal
+          href: aad-integration.md
     - name: Create virtual nodes (preview)
       items:
       - name: Azure CLI
