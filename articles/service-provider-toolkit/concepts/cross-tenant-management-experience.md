@@ -84,4 +84,8 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
-Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience. Also, if a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management at this time.
+With all scenarios, please be aware of the following current limitations:
+
+- While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure Delegated Resource Management.
+- Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
+- If a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management.
