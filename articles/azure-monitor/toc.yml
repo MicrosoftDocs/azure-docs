@@ -679,6 +679,8 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
+    - name: Getting started with Metrics Explorer
+      href: platform/metrics-getting-started.md
     - name: Create metrics charts in Metrics Explorer
       href: platform/metrics-charts.md
     - name: Metric Explorer chart samples
