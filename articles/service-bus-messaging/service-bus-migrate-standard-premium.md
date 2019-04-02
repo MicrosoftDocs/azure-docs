@@ -63,11 +63,11 @@ The logical steps involved are -
 >
 > Once the queues and subscriptions have been drained, we recommend deleting the old Standard namespace. You won't be needing it !
 
-### Migrate using CLI/PowerShell Tool
+### Migrate using Azure CLI or PowerShell
 
-To migrate your Service Bus Standard namespace to Premium using the CLI or PowerShell tool, refer to the below guide.
+To migrate your Service Bus Standard namespace to Premium using the Azure CLI or PowerShell tool, refer to the below guide.
 
-1. Create a new Service Bus Premium namespace - you can reference the [resource manager templates](service-bus-resource-manager-namespace.md) or [use the portal](service-bus-create-namespace-portal.md), but be sure to pick "Premium" for **serviceBusSku** parameter.
+1. Create a new Service Bus Premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select "Premium" for the **serviceBusSku** parameter.
 
 2. Set the below environment variables to simplify the migration commands.
    ```
@@ -106,9 +106,9 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### Migrate using Azure Portal
+### Migrate using Azure portal
 
-Migration through the portal has the same logical flow as migrating using the commands. Refer to the below guide for the step by step process to migrate using the portal.
+Migration through the Azure portal has the same logical flow as migrating using the commands. Refer to the below guide for the step by step process to migrate using the portal.
 
 1. Pick the **'Migrate to Premium'** menu option from the Navigation menu on the left pane. Click the **'Get Started'** button to proceed to the next page.
     ![Migration Landing Page][]
@@ -174,13 +174,13 @@ This can be assumed to be ***approximately 5 minutes***.
 No, there are no code/configuration changes needed to perform this migration. The connection string that sender and receiver applications use to access the Standard Namespace is automatically mapped to act as an **alias** for the Premium Namespace.
 
 ### What happens when I abort the migration?
-Migration can be aborted either by using the 'Abort' command or via the portal - 
+Migration can be aborted either by using the 'Abort' command or via the Azure portal. 
 
-#### CLI/Powershell
+#### Azure CLI or PowerShell
 
     az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 
-#### Portal
+#### Azure portal
 
 ![Abort flow - abort sync][]
 ![Abort flow - abort complete][]
