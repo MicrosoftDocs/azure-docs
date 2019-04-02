@@ -84,12 +84,12 @@ Creating a bot is always available after publishing, from the **Publish** page.
 
 * You can create several bots quickly, all pointing to the same knowledge base for different regions or pricing plans for the individual bots. 
 * If you want only one bot for the knowledge base, use the **View all your bots on the Azure portal** link to view a list of your current bots. 
-* When you make changes to the knowledge base and republish, you do not need to take further action with the bot. It is already configured to work with the knowledge base and will work with all future changes to the knowledge base.
+* When you make changes to the knowledge base and republish, you do not need to take further action with the bot. It is already configured to work with the knowledge base and will work with all future changes to the knowledge base. Every time you publish a knowledge base- all the bots connected to it are automatically updated
 
 1. In the QnA Maker portal, on the **Publish** page, select **Create bot**. This button appears only after the knowledge base is published.
 1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. For more information on these configuration settings, see [Create a knowledge base bot](../Tutorials/create-publish-query-in-portal.md#create-a-knowledge-base-bot)
     
-    * Do not change the **QnA Auth Key**, which is pre-populated with the correct key.
+    * Do not change the **KBID**, **host name** and **Auth key** which are pre-populated for your knowledge base.
     * The bot and QnA Maker can share the web app service _plan_ but can't share the web app. This means the **app name** must be different from the app name you used when you create the QnA Maker service. 
 
      
