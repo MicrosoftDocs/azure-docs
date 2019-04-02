@@ -112,7 +112,7 @@ items:
       href: functions-best-practices.md 
     - name: Functions Proxies
       href: functions-proxies.md 
-    - name: Networking Options
+    - name: Networking options
       href: functions-networking-options.md
     - name: IP addresses
       href: ip-addresses.md 
