@@ -1634,6 +1634,12 @@ featureFlags:
                                                 <p>Azure Sentinel</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Azure Security Center for IoT</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identity</h3>
                                     <ul>
@@ -4852,6 +4858,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Sentinel</h3>
                                                     <p>Learn how to use Microsoft's SIEM that provides intelligent security analytics for your entire enterprise at cloud scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Security Center for IoT</h3>
+                                                    <p>Learn how to unify your security management and enable advanced threat protection across your IoT solution</p>
                                                 </div>
                                             </div>
                                         </div>
