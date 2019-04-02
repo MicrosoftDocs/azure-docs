@@ -291,7 +291,7 @@
   - name: REST
     href: /rest/api/aks
   - name: PowerShell
-    href: /powershell/module/azurerm.aks#aks
+    href: /powershell/module/az.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python

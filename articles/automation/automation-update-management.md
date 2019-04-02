@@ -139,14 +139,14 @@ To confirm that directly connected machines are communicating with Azure Monitor
 
 #### Linux
 
-```
+```loganalytics
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
 #### Windows
 
-```
+```loganalytics
 Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
