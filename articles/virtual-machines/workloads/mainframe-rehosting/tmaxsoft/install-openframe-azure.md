@@ -126,7 +126,7 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 5. Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
 
-     [Operating System options in Azure portal](media/vm-04.png)
+     ![Operating System options in Azure portal](media/vm-04.png)
 
 6. In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
 
@@ -454,15 +454,7 @@ To install ODBC:
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
      ```
 
-     > [!NOTE]
-     > By default, unixODBC is installed in /usr /local. To change the location, add:
-     > ```
-       --prefix=/opt/tmaxapp/unixODBC/
-       ```
-     > In addition, configuration files are installed in /etc by default. To change the location, add:
-     > ```
-       -- sysconfdir=/opt/tmaxapp/unixODBC/etc
-       ```
+     By default, unixODBC is installed in /usr /local, so `--prefix` passes a value to change the location. Similarly, configuration files are installed in /etc by default, so `--sysconfdir` passes the value of the desired location.
 
 4. Execute Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
