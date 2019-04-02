@@ -266,11 +266,11 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
 8. Configure the alert as follows:
 
-   a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
-   a. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold**. Or enter a different value that meets your criteria.
-   a. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**.
-   c. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. 
-   d. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
+    1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
+    1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold**. Or enter a different value that meets your criteria.
+    1. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**.
+    1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. 
+    1. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
 
 9. Select **Done** to complete the alert rule.
 10. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
