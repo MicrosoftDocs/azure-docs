@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 3/26/2019
+ms.date: 4/03/2019
 ms.author: yinhew
 ---
 
@@ -18,7 +18,7 @@ Use this guide to create a text-to-speech console application using the .NET fra
 
 For a quick demonstration (without building the Visual Studio project yourself as shown below):
 
-Get the latest [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from Github.
+Get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from Github.
 
 ## Prerequisites
 

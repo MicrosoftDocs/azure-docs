@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/1/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
@@ -19,16 +19,15 @@ ms.custom: seodec18
 
 **New Features** 
 
-* The SDK now supports the Text-to-speech service as a beta. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the Text-to-speech [overview](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#get-started-with-text-to-speech).
-* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta.
-* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support is currently in Beta.
+* The SDK now supports the Text-to-speech service as a beta. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in Beta.
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in Beta.
 * iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
-
 
 **Samples**
 
 * Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added.
-* Samples demonstrating the usage of the Text-to-speech service have been added.
+* Samples demonstrating the usage of the text-to-speech service have been added.
  
 **Improvements / Changes**
 
