@@ -1,6 +1,6 @@
 ---
-title: Set up sign in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
-description: Set up sign in with a LinkedIn account in Azure Active Directory B2C using custom policies.
+title: Set up sign-in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
+description: Set up sign-in with a LinkedIn account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Set up sign in with a LinkedIn account using custom policies in Azure Active Directory B2C
+# Set up sign-in with a LinkedIn account using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
