@@ -88,7 +88,7 @@ If you choose to implement your own player code and do the integration with **Co
 
 This section shows how to achieve interaction between two Video Indexer widgets so when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
-`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 1. Copy the **Player** widget embed code.
 2. Copy the **Cognitive Insights** embed code.
