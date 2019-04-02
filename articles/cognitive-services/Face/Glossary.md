@@ -297,7 +297,7 @@ For more information, see the reference documentation:
 
 #### Persisted Face ID
 
-Person ID is generated when a [PersistedFace](#persistedface) is created successfully. A string is created to represent this Face in [Face API](#face-api).
+Persisted Face ID is generated when a [PersistedFace](#persistedface) is created successfully. A string is created to represent this Face in [Face API](#face-api).
 
 For more information, see the reference documentation:
 [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3),
