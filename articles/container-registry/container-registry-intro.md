@@ -23,7 +23,7 @@ For background about Docker and containers, see the [Docker overview](https://do
 Pull images from an Azure container registry to various deployment targets:
 
 * **Scalable orchestration systems** that manage containerized applications across clusters of hosts, including [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/), and [Docker Swarm](https://docs.docker.com/swarm/).
-* **Azure services** that support building and running applications at scale, including [Azure Kubernetes Service (AKS)](../aks/index.yml), [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
+* **Azure services** that support building and running applications at scale, including [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) or [Jenkins](https://jenkins.io/).
 
@@ -37,7 +37,7 @@ Azure provides tooling including Azure Command-Line Interface, Azure portal, and
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure identity, an Azure Active Directory-backed [service principal](../active-directory/develop/app-objects-and-service-principals.md), or a provided admin account. Log in to the registry using the Azure CLI or the standard `docker login` command.
 
-* **Repository** - A registry contains one or more repositories, which are virtual groups of container images with the same name but different tags or digest. Azure Container Registry supports multilevel repository namespaces. With multilevel namespaces, you can group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
+* **Repository** - A registry contains one or more repositories, which are virtual groups of container images with the same name but different tags or digests. Azure Container Registry supports multilevel repository namespaces. With multilevel namespaces, you can group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
   * `myregistry.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
