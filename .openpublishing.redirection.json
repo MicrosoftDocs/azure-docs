@@ -36720,6 +36720,11 @@
       "source_path": "articles/azure-stack/azure-stack-poc.md",
       "redirect_url": "/azure/azure-stack/azure-stack-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
+      "redirect_document_id": false
     }
   ]
 }
