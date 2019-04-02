@@ -42,7 +42,7 @@ Change the **Audience** to match the URI of your FHIR API and check the **SMART 
 
 ## Enable cross origin resource sharing (CORS)
 
-Since most SMART on FHIR applications are single page javascript apps, you will need to [enable CORS](configure-cross-origin-resource-sharing) for the Azure API for FHIR:
+Since most SMART on FHIR applications are single page javascript apps, you will need to [enable CORS](configure-cross-origin-resource-sharing.md) for the Azure API for FHIR:
 
 ![Enable CORS](media/tutorial-smart-on-fhir/enable-cors.png)
 
