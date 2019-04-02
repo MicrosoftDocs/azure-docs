@@ -19,6 +19,9 @@ ms.author: cynthn
 # Creating and using proximity placement groups using PowerShell
 
 
+[!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
+
+## PowerShell
 Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. This example creates a Standard proximity placement group, you can also use `-ProximityPlacementGroupType Ultra` to have the proximity placement group backed by Ultra SSD storage.
 
 ```azurepowershell-interactive
@@ -78,6 +81,6 @@ Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-**Next steps**
+## Next steps
 
 Learn more about [Azure regions and availability](regions-and-availability.md).
