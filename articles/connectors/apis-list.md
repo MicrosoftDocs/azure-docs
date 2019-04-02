@@ -179,7 +179,7 @@ Your logic apps can access enterprise systems, such as SAP and IBM MQ:
 
 <a name="triggers-actions"></a>
 
-## More about triggers and actions
+## Triggers and actions - more info
 
 Connectors can provide *triggers*, *actions*, or both. 
 A *trigger* is the first step in any logic app, usually 
@@ -218,11 +218,29 @@ for an event to happen. When new data is available or when the
 event happens, the trigger creates and runs new instance of your 
 logic app, which can now use the data that's passed as input.
 
-Each trigger and action provides their own properties for you to configure. 
-Some connectors also require that you first create a *connection* to the 
-target service or system and provide authentication credentials before 
-you can use a trigger or action in your logic app. For example, you must 
-authorize a connection to a Twitter account for accessing data or to post on your behalf. 
+<a name="custom"></a>
+
+## Connector configuration
+
+Each connector's triggers and actions provide their own properties for you to configure. 
+Many connectors also require that you first create a *connection* to the 
+target service or system and provide authentication credentials or other 
+configuration details before you can use a trigger or action in your logic app. 
+For example, you must authorize a connection to a Twitter account for 
+accessing data or to post on your behalf. 
+
+For connectors that use OAuth, creating a connection means signing into 
+the service, such as Office 365, Salesforce, or GitHub, where your access 
+token is encrypted and securely stored in an Azure secret store. 
+Other connectors, such as FTP and SQL, require a connection that 
+has configuration details, such as the server address, username, and password. 
+This connection configuration details are also encrypted and securely stored. 
+
+Connections can access the target service or system for as long as that service or system allows. 
+For services that use Azure Active Directory (AD) OAuth connections, such as Office 365 and Dynamics, 
+Azure Logic Apps refreshes access tokens indefinitely. Other services might put limits on how long 
+Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access 
+tokens, such as changing your password.
 
 <a name="custom"></a>
 
