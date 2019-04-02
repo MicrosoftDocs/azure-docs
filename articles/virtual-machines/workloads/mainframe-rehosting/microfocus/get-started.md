@@ -1,7 +1,8 @@
 ---
 title: Micro Focus dev/test environments on Azure | Microsoft Docs
 description: Rehost your IBM z/OS mainframe workloads using Micro Focus solutions on Azure virtual machines (VMs).
-author: sread
+author: njray
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple

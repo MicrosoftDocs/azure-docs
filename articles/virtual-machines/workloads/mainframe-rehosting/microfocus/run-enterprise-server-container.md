@@ -3,7 +3,8 @@ title: Run Micro Focus Enterprise Server 4.0 in a Docker Container on Azure Virt
 description: Rehost your IBM z/OS mainframe workloads by running Micro Focus Enterprise Server in a Docker container on Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter:
-author: sread
+author: njray
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple

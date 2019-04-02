@@ -1,7 +1,8 @@
 ---
 title: Move mainframe compute to Azure Virtual Machines
 description: Azure compute resources compare favorably to mainframe capacity so you can migrate and modernize IBM z14 applications.
-author: larryme
+author: njray
+ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple

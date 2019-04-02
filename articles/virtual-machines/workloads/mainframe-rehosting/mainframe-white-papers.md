@@ -3,7 +3,8 @@ title: Azure white papers about mainframe topics using Azure Virtual Machines an
 description: Get resources about mainframe migration, rehosting, and moving IBM Z-based systems to Microsoft Azure.
 services: multiple
 documentationcenter:
-author: larryme
+author: njray
+ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple

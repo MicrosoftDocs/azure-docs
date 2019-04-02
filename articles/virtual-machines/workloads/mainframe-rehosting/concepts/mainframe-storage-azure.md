@@ -1,8 +1,9 @@
 ---
 title: Move mainframe storage to Azure Storage
 description: Massively scalable Azure storage resources can help mainframe-based organizations migrate and modernize IBM z14 applications.
-author: larryme
-ms.date: 03/02/2019
+author: njray
+ms.author: larryme
+ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ---
