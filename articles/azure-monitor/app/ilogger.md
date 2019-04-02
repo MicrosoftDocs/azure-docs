@@ -11,9 +11,9 @@ ms.reviewer: mbullwin
 ms.author: cithomas
 ---
 
-# ApplicationInsightsLoggerProvider for .NET Core ILogger logs.
+# ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
-ASP.NET Core supports a logging API that works with different kinds of built-in and third-party logging providers. This article shows how to use ApplicationInsightsLoggerProvider to capture ILogger logs in both console and ASP.NET Core applications. This article also talks about how ApplicationInsightsLoggerProvider is integrated with other telemetry collection (Requests, Dependencies and so on) features provided by Application Insights SDK. 
+ASP.NET Core supports a logging API that works with different kinds of built-in and third-party logging providers. This article shows how to use ApplicationInsightsLoggerProvider to capture ILogger logs in both console and ASP.NET Core applications. This article also talks about how ApplicationInsightsLoggerProvider is integrated with other telemetry collection (Requests, Dependencies, and so on) features provided by Application Insights SDK. 
 To learn more about ILogger based logging, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## ASP.NET Core applications
@@ -182,7 +182,7 @@ public class Startup
 
 ## Migrating from old ApplicationInsightsLoggerProvider
 
-Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.0-beta2, supported a logging provider which is now obsolete. This provider was enabled with `AddApplicationInsights()` extension method of `ILoggerFactory`. This provider is now obsolete, and users are suggested to migrate to the new provider. Migration involves two steps.
+Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.0-beta2, supported a logging provider that is now obsolete. This provider was enabled with `AddApplicationInsights()` extension method of `ILoggerFactory`. This provider is now obsolete, and users are suggested to migrate to the new provider. Migration involves two steps.
 
 1. Remove ILoggerFactory.AddApplicationInsights() call from `Startup.Configure()` method to avoid double logging.
 2. Re-apply any filtering rules in code as they will not be respected by the new provider. Overloads of ILoggerFactory.AddApplicationInsights() took minimum LogLevel or filter functions. With the new provider, filtering is part of the logging framework itself, and not done by ApplicationInsights provider. So any filters provided via `ILoggerFactory.AddApplicationInsights()` should be removed, and filtering rules should be provided following [this](../../azure-monitor/app/ilogger.md#control-logging-level). If you use `appsettings.json` to filter logging, it will continue to work with new provider as both use the same Provider Alias - **ApplicationInsights**.
@@ -191,7 +191,7 @@ While old provider can still be used (it is obsolete now and will be removed onl
 
 1. Previous provider lacked support of [Scopes](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
 2. Logs can now be captured much earlier in the application startup pipeline. i.e Logs from Program and Startup classes can now be captured.
-3. With new provider, the filtering is done at the framework level itself. Filtering of logs to ApplicationInsights provider can be done in exact same way as for other providers, including built-in providers like Console, Debug and so on. It is also possible to apply same filters to multiple providers.
+3. With new provider, the filtering is done at the framework level itself. Filtering of logs to ApplicationInsights provider can be done in exact same way as for other providers, including built-in providers like Console, Debug, and so on. It is also possible to apply same filters to multiple providers.
 4. The [recommended](https://github.com/aspnet/Announcements/issues/255) way in Asp.Net Core (2.0 onwards) to enable logging providers is by using extension methods on ILoggingBuilder in `Program.cs` itself.
 
 > [!Note]
@@ -199,7 +199,7 @@ The new Provider is available for applications targeting `NETSTANDARD2.0` or hig
 
 ## Console application
 
-The following shows a sample Console application configured to send ILogger traces to Application Insights.
+The following code shows a sample Console application configured to send ILogger traces to Application Insights.
 
 Packages installed:
 
@@ -300,7 +300,7 @@ The following section shows how to override the default `TelemetryConfiguration`
 
 ## Control logging level
 
-The Asp.Net Core ILogger infra has built-in mechanism to apply [filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) of logs, which allows users to control the logs sent to each registered providers, including ApplicationInsights provider. This can be done either in configuration (typically using appsettings.json file) or in code. This facility is provided by the framework itself, and is not specific to Application Insights provider.
+The Asp.Net Core ILogger infra has built-in mechanism to apply [filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) of logs, which allows users to control the logs sent to each registered providers, including ApplicationInsights provider. This filtering can be done either in configuration (typically using `appsettings.json` file) or in code. This facility is provided by the framework itself, and is not specific to Application Insights provider.
 
 Examples of applying the filter rules to ApplicationInsightsLoggerProvider is given below.
 
@@ -375,7 +375,7 @@ The below code snippet configures logs `Warning` and above from all categories, 
 
 *3. I updated to [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3, and I am now seeing that logs from ILogger are captured automatically. How can I turn off this feature completely?*
 
-* See [this](../../azure-monitor/app/ilogger.md#control-logging-level) section to know how to filter logs in general. To completely turn-off ApplicationInsightsLoggerProvider use `LogLevel.None` for it.
+* See [this](../../azure-monitor/app/ilogger.md#control-logging-level) section to know how to filter logs in general. To turn-off ApplicationInsightsLoggerProvider use `LogLevel.None` for it.
 
   In code
     ```csharp
