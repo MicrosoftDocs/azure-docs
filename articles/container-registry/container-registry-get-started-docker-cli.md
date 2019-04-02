@@ -126,7 +126,7 @@ Now that you know the basics, you're ready to start using your registry! For exa
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) to work with your Azure container registries. For example, pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 
 <!-- LINKS - external -->
