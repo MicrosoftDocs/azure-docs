@@ -30,49 +30,38 @@ This article shows how to create a project from scratch and also how to create a
 > Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-1. Select the **Projects** tab. 
-1. Click **Create new project**. If you have created projects before, you see all of your projects. 
+1. Select the **Projects** tab. If you have created projects before, you  will see all of your other projects here.
+1. Click **Create new project**.  
 
     ![New project](./media/video-indexer-view-edit/new-project.png)
-1. Give your project a name by clicking on the pencil icon.
+1. Give your project a name by clicking on the pencil icon. Replace the text that says "Untitled project" with your project name and click on the check.
 
     ![New project](./media/video-indexer-view-edit/new-project3.png)
-1. Add a video that you want to work with to this project by selecting **Add videos**.
+    
+### Add videos to the project
+1. Add videos that you want to work with in this project by selecting **Add videos**.
 
-    You see all the videos in your account and a search box that says "Search for text, keywords, or visual content". You can search for videos with the specified criteria (person, label, brand, keyword, or occurrence in the transcript and OCR). For example, in the image below, we are looking for videos that contain "GitHub".
+    You will see all the videos in your account and a search box that says "Search for text, keywords, or visual content". You can use       this search box to search for a person, label, brand, keyword, or occurrence in the transcript and OCR. 
+    
+    For example, in the image below, we are looking for videos that mention "GitHub".
     
     ![GitHub](./media/video-indexer-view-edit/github.png)
 
-    You can further filter your results by selecting **Filter options**. <br/> You can also specify the scope of your query. For example, if you want to search "GitHub" in the OCR, select **Visual Text**.
+    You can further filter your results by selecting **Filter results**. You can filter to show videos that have a certain person in them or to specify that you only want to see video results that are a in a certain language or have a specific owner. <br/> You can also specify the scope of your query. For example, if you want to search "GitHub" in the OCR, select **Visual Text**.
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     You can layer multiple filters to your query. Use **+**/**-** button to add/remove filters. Use **Clear filters** to remove all filters.
-1. To add the video, select them and then select Add.
-1. You can rearrange the order of the videos by hovering over each video and choosing to move it. Or, drag and drop videos. 
+1. To add the video, select them and then select **Add**.
+1. Now, you will see all of the videos you chose. These are the videos from which you are going to select clips for your project.
+
+You can rearrange the order of the videos by dragging and dropping or by selecting the list menu button and selecting **Move down** or **Move up**. From the list menu, you will also be able to remove the video from this project. 
 
     ![Rearrange](./media/video-indexer-view-edit/rearrange.png)
-1. You can remove the video.
-1. You can add multiple occurrences of the same video to your project. 
+    
+You have the option to add more videos to this project at any time by selecting **Add videos**. You can also add multiple occurrences of the same video to your project. You might want to do this if you want to show a clip from one video and then a clip from another and then another clip from the first video. 
 
-    You might want to do it if you want to show a clip from one video and then a clip from another and then you want to go back to show another clip from the first video. 
-1. Once you are done, make sure that your project has been saved. You can now render this project. Select **Render and Download**. 
-
-    ![Save](./media/video-indexer-view-edit/save.png)
-
-    A popup that tells you that Video indexer will render a file and then the download link will be send to your email. Select Proceed. You will see a notification that the project is being rendered. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click here to download the project. It will download the project in mp4 format.
-
-1. You can access saved projects from the **Project** tab. 
-
-    If you select this project, you  see all the insights and the timeline of this project. If you select **Video editor**, you can continue making edits. 
-
-    ![Video editor](./media/video-indexer-view-edit/video-editor.png)
-
-1. Click the pencil icon to make edits to the project. 
- 
-    Edits include adding or removing videos and clips or renaming the project.
-
-## Edit insights
+### Select clips to put in your project
 
 If you click on the downward arrow on the right side of each video, you will open up the insights in the video based on time stamps (clips of the video). 
 
@@ -107,6 +96,24 @@ If you click on the downward arrow on the right side of each video, you will ope
 ![Preview](./media/video-indexer-view-edit/preview.png)
 
 Remember to save your project when you make changes by selecting Save project. 
+
+### Render and download the project
+1. Once you are done, make sure that your project has been saved. You can now render this project. Select **Render and Download**. 
+
+    ![Save](./media/video-indexer-view-edit/save.png)
+
+    A popup that tells you that Video indexer will render a file and then the download link will be send to your email. Select Proceed. You will see a notification that the project is being rendered. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click here to download the project. It will download the project in mp4 format.
+
+1. You can access saved projects from the **Project** tab. 
+
+    If you select this project, you  see all the insights and the timeline of this project. If you select **Video editor**, you can continue making edits. 
+
+    ![Video editor](./media/video-indexer-view-edit/video-editor.png)
+
+1. Click the pencil icon to make edits to the project. 
+ 
+    Edits include adding or removing videos and clips or renaming the project.
+
 
 ## Create a project from your video
 
