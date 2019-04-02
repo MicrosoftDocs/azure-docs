@@ -25,12 +25,12 @@ This article describes how to enable alerts for the following situations:
 * *NotReady* status node counts
 *  *Failed*, *Pending*, *Unknown*, *Running**, or *Succeeded** pod-phase counts
 
-To alert for high CPU or memory utilization on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.
+To alert for high CPU or memory utilization on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
 
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
-The queries in this section are provided to support each alerting scenario. They are used in step 7 of the [create alert](#create-alert-rule) section of this article.
+The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-alert-rule) section of this article.
 
 The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
 
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->The following queries use the placeholder values <your-cluster-name> and <your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
+>The following queries use the placeholder values \<your-cluster-name> and \<your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
 
 The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute. The measurement is a percentage of the limit set up for a container.
 
@@ -248,7 +248,7 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown**, modify the last line of the query. For example to alert on *FailedCount*: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown**, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 ## Create alert rule
 Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
@@ -261,21 +261,21 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 2. Select **Monitor** from the pane on the left side. Under **Insights**, select **Containers**.
 3. On the **Monitored Clusters** tab, select a cluster from the list.
 4. In the pane on the left side under **Monitoring**, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
-5. On the **Logs** page, select **+ New alert rule**.
+5. On the **Logs** page, select **+New alert rule**.
 6. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
 7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
 8. Configure the alert as follows:
 
-    a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement create an alert for each object in the query that has a value above our specified threshold.
-    b. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold**. Or enter a different value that meets your criteria.  
-    c. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**. 
-    d. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. 
-    e. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
+   a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
+   a. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold**. Or enter a different value that meets your criteria.
+   a. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**.
+   c. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. 
+   d. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
 
 9. Select **Done** to complete the alert rule.
 10. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
 11. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
-12. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
+12. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
 13. Select **Create alert rule** to complete the alert rule. It starts running immediately.
 
 ## Next steps
