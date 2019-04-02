@@ -155,7 +155,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## More resources
+## Next steps
 
-[Create a Ruby on Rails App in App Service on Linux](quickstart-ruby.md)  
-[Build a Ruby and Postgres app in Azure App Service on Linux](tutorial-ruby-postgres-app.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
