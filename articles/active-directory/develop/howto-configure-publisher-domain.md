@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
@@ -71,7 +71,7 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 
 ### To verify a new domain for your app
 
-1. Create a file named `microsoft-identity-configuration.json` and paste the following JSON code snippet.
+1. Create a file named `microsoft-identity-association.json` and paste the following JSON code snippet.
 
    ```json
    {
@@ -85,7 +85,7 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 
 1. Replace the placeholder *{YOUR-APP-ID-HERE}* with the application (client) ID that corresponds to your app.
 
-1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-configuration.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
+1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
 
 1. Click the **Verify and save domain** button.
 
