@@ -176,7 +176,7 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
     c. In the **Last Name Attribute** textbox, type **lastname** of user **Simon**.
 
-    d. In the **Email Attribute** textbox, type **emailaddress** of user **BrittaSimon@contoso.com**.
+    d. In the **Email Attribute** textbox, type **emailaddress** of user `BrittaSimon@contoso.com`.
 
     e. Click **Save Changes**.
 
