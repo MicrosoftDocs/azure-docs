@@ -725,7 +725,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicefabric/
+    href: /powershell/module/az.servicefabric/
   - name: PowerShell
     href: /powershell/module/servicefabric/?view=azureservicefabricps
   - name: Azure CLI (az sf)

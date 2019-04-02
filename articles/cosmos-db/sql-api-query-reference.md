@@ -2660,7 +2660,8 @@ SELECT
  
  The following are examples with invalid input.
  Even though they are valid within a query, they will not parse to valid objects. 
- Strings within the string of object must either be escaped "{\"a\":\"str\"}" or the surrounding quote must be single '{"a": "str"}'.
+ Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
+ '{"a": "str"}'.
 
  Single quotes surrounding property names are not valid JSON.
 
