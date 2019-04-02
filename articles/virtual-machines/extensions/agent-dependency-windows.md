@@ -24,6 +24,8 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### Operating system
 
 The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
@@ -126,11 +128,11 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMExtension` command can be used to deploy the Dependency agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table. 
+The `Set-AzVMExtension` command can be used to deploy the Dependency agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table. 
 
 ```powershell
 
-Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
+Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
@@ -146,7 +148,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgen
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Extension execution output is logged to files found in the following directory:
