@@ -55,6 +55,34 @@ Output is returned as a single JSON document, with results for each text documen
 
 Data is not stored in your account. Operations performed by the Text Analytics API are stateless, which means the text you provide is processed and results are returned immediately.
 
+
+## Use cases
+
+### Analyze Survey results​
+
+Draw insights from customer and employee survey results by processing the raw text responses using Sentiment Analysis. Aggregate the findings for analysis, follow up, and driving engagements.​
+
+![](media/use-cases/survey-results.svg)
+
+### Analyze recorded inbound customer calls​
+
+Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Do this in batch mode for reporting, or in real-time for intervention. ​
+
+![](media/use-cases/azure-inbound.svg)
+
+
+### Process and categorize support incidents​
+
+Use Key Phrase Extraction and Entity Recognition to process support requests submitted in unstructured textual format. Use the extracted phrases and entities to categorize the requests for resource planning and trend analysis.
+
+![](media/use-cases/support-incidents.svg)
+
+### Monitor your product’s social media feeds​
+
+Monitor user product feedback on your product’s twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases regarding features and feature requests, or address customer complaints  as they happen.​
+
+![](media/use-cases/social-feed.svg)
+
 <a name="supported-languages"></a>
 
 ## Supported languages
@@ -88,35 +116,3 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 + Dig in a little deeper with this [sentiment analysis tutorial](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
 
 + Check out our list of blog posts and more videos on how to use Text Analytics API with other tools and technologies in our [External & Community Content page](text-analytics-resource-external-community.md).
-
-## Use cases
-
-### Analyze Survey results​
-
-Draw insights from customer and employee survey results by processing the free form text responses using Sentiment analysis. Aggregate the findings for analysis, follow ups and driving engagements.​
-
-![](media/use-cases/survey-results.svg)
-
-### Analyze recorded inbound customer calls​
-
-Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​
-
-![](media/use-cases/azure-inbound.svg)
-
-Can be done in batch mode  for reporting or real-time for intervention. ​
-
-### Process and categorize support incidents​
-
-Use Key Phrase Extraction and Entity Recognition to process support requests submitted in unstructured textual format. Use the extracted phrases and entities to categorize the requests for resource planning and trend analysis.​
-
-![](media/use-cases/support-incidents.svg)
-
-Can be done in batch or real-time.​
-
-### Monitor your product’s social media feeds​
-
-Monitor user product feedback on your product’s twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases regarding features and feature requests, or address customer complaints in near real-time.​
-
-![](media/use-cases/social-feed.svg)
-
-Can be done in batch or real-time.​
