@@ -42,6 +42,8 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
+As you can see from the PowerShell script, the template used is from Azure Quickstart templates. To use your own, you need to first upload the template file to the Cloud shell, and then use the `-TemplateFile` switch to specify the file name.  For an example, see [Deploy the template](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+
 ## Next steps
 
 Now you have deployed an IoT hub by using an Azure Resource Manager template, you may want to explore further:
