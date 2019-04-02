@@ -160,6 +160,8 @@
         href: create-environment-service-fabric-cluster.md
       - name: Connect an environment to your lab's virtual network
         href: connect-environment-lab-virtual-network.md
+      - name: Integrate environments into your Azure DevOps CI/CD pipeline
+        href: integrate-environments-devops-pipeline.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
