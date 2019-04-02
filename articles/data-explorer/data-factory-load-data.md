@@ -37,22 +37,18 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
    ![Create a new data factory](media/data-factory-load-data/select-adf.png)
 
-1. In the **New data factory** pane:
+1. In the **New data factory** pane, provide values for the following fields and then Select **Create**.
 
     ![New data factory page](media/data-factory-load-data/new-data-factory.png)
-
-    1. Provide values for following fields:
-    
-        * **Name**: Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).
-        * **Subscription**: Select your Azure subscription in which to create the data factory.
-        * **Resource Group**:
-            * Select **Create new** and enter the name of a resource group. Or:
-            * Select **Use existing** and select an existing resource group from the drop-down list.
-            To learn about resource groups, see [Using resource groups to manage your Azure resources](/azure-resource-manager/resource-group-overview.md).  
-        * **Version**: Select **V2**.
-        * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions.
-    
-    1. Select **Create**.
+     
+    **Setting**  | **Field description**
+    |---|---|
+    | **Name** | Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
+    | **Subscription** | Select your Azure subscription in which to create the data factory. |
+    | **Resource Group** | Select **Create new** and enter the name of a new resource group. Select **Use existing**, if you have an existing resource group. |
+    | **Version** | Select **V2** |
+    | **Location** | Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions. |
+    | | |
 
 1. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
 
