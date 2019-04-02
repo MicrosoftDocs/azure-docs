@@ -51,7 +51,7 @@ from pprint import pprint
 from IPython.display import HTML
 ```
 
-Then replace `subscription_key` with a valid subscription key that you obtained earlier.
+Add your key information to your file, then replace `subscription_key` with a valid subscription key that you obtained earlier.
 
 ```python
 subscription_key = '<ADD KEY HERE>'
