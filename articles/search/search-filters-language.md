@@ -34,7 +34,7 @@ In our samples, including the [real-estate sample](search-get-started-portal.md)
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
+> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](search-create-index-rest-api.md).
 
 ## Build and load an index
 

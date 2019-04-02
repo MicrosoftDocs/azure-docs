@@ -64,10 +64,15 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time the database spent waiting on different wait types. | Yes | No |
 | [Timeouts](#time-outs-dataset): Contains information about timeouts on the database. | Yes | No |
 | [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
+| [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on the database. | Yes | No |
+| [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations on the database. | Yes | No |
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
 > [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
+
+> [!NOTE]
+> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## Azure portal
 
@@ -131,7 +136,7 @@ To enable streaming of diagnostics telemetry for single or pooled databases, fol
 1. Repeat these steps for each database you want to monitor.
 
 > [!NOTE]
-> Security audit logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Repeat these steps for each Azure SQL Database you want to monitor.
 
