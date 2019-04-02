@@ -26,9 +26,6 @@ This article shows how to create a project from scratch and also how to create a
 
 ## Create new project and manage videos
 
-> [!NOTE]
-> Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
-
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Select the **Projects** tab. If you have created projects before, you  will see all of your other projects here.
 1. Click **Create new project**.  
@@ -61,6 +58,9 @@ This article shows how to create a project from scratch and also how to create a
     ![Rearrange](./media/video-indexer-view-edit/rearrange.png)
     
     You have the option to add more videos to this project at any time by selecting **Add videos**. You can also add multiple occurrences of the same video to your project. You might want to do this if you want to show a clip from one video and then a clip from another and then another clip from the first video. 
+
+> [!NOTE]
+> Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
 
 ### Select clips to put in your project
 
