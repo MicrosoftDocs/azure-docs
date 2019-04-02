@@ -5,7 +5,7 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
 ---
@@ -47,6 +47,24 @@ When you subscribe to the Standard tier in Azure Security Center, Advanced Threa
 Use an Azure Resource Manager template to deploy an Azure Storage account with Advanced Threat Protection enabled.
 For more information, see
 [Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### Using Azure Policy
+
+Use an Azure Policy to enable Advanced Threat Protection across storage accounts under a specific subscription or resource group.
+
+1. Lunch the Azure **Policy - Definitions** page.
+
+1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
+
+     ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Select an Azure subscription or resource group.
+
+    ![Select Subscription Or Group](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Assign the policy.
+
+    ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### Using REST API
 Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific storage account.
