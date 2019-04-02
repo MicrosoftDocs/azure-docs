@@ -53,9 +53,11 @@ To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-act
 * [Australia](#australia)
 * [United States](#united-states)
 
+With the exception of active learning data (detailed below), LUIS follows the [data storage practices for regional services](http://azuredatacentermap.azurewebsites.net/). 
+
 ### Europe
 
-The [eu.luis.ai](https://eu.luis.ai) portal and Europe Authoring (also known as Programmatic) APIs are hosted in Azure's Europe geography. The eu.luis.ai portal and Europe Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
+The [eu.luis.ai](https://eu.luis.ai) portal and Europe Authoring (also known as Programmatic APIs ) are hosted in Azure's Europe geography. The eu.luis.ai portal and Europe Authoring (also known as Programmatic APIs)  support deployment of endpoints to the following Azure geographies:
 
 * Europe
 * France
@@ -65,7 +67,7 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 ### Australia
 
-The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known as Programmatic APIs) are hosted in Azure's Australia geography. The au.luis.ai portal and Australia Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
+The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known as Programmatic APIs) are hosted in Azure's Australia geography. The au.luis.ai portal and Australia Authoring (also known as Programmatic  APIs) support deployment of endpoints to the following Azure geographies:
 
 * Australia
 
@@ -73,9 +75,9 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 ### United States
 
-The [luis.ai](https://www.luis.ai) portal and United States Authoring (also known as Programmatic) APIs are hosted in Azure's United States geography. The luis.ai portal and United States Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
+The [luis.ai](https://www.luis.ai) portal and United States Authoring (also known as Programmatic APIs) are hosted in Azure's United States geography. The luis.ai portal and United States Authoring (also known as Programmatic APIs) support deployment of endpoints to the following Azure geographies:
 
-* Azure geographies not supported in Europe or Australia
+* Azure geographies not supported by the Europe or Australia authoring regions
 
 When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
