@@ -3,7 +3,7 @@ title: Manage Azure Marketplace and AppSource publisher profile | Microsoft Docs
 description: Explains how to manage Azure Marketplace and AppSource publisher profiles
 services: Azure, Marketplace, AppSource, Cloud Partner Portal 
 documentationcenter:
-author: v-milar
+author: v-miclar
 manager: pbutlerm  
 editor:
 ms.assetid: 
@@ -18,7 +18,7 @@ ms.author: pbutlerm
 
 # Manage your Azure Marketplace and AppSource publisher profile
 
-This article explains how to use the [Cloud Partner Portal](https://cloudpartner.azure.com/) to view and manage your publisher profile.  You must already be a registered Microsoft cloud partner to access this portal.  For more information, see [Get started with the cloud partner portal](../cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md).
+This article explains how to use the [Cloud Partner Portal](https://cloudpartner.azure.com/) to view and manage your publisher profile.  You must already be a registered Microsoft cloud partner to access this portal.  For more information, see [Get started with the cloud partner portal](../../cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md).
 
 By this time, you've completed the steps to become an Azure Marketplace and AppSource publisher. The publisher profile is registered on the Cloud Partner Portal following approval of your partner request. Your publisher profile will apply to all the offers and SKUs published from the account used during
 partner registration.

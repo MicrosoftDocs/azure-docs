@@ -41,4 +41,4 @@ This section contains the following articles that explain how to manage marketpl
 
 ## Next steps
 
-If you have not already done so, [Create a Microsoft Developer account](./cpp-create-deve-account.md).  Afterwards, you should take the [Cloud Partner Portal Tour](../portal-tour/cpp-portal-tour.md).
+You must meet the [Prerequisites for managing accounts](./cpp-manage-prerequisites.md) before continuing.  Afterwards, you should also take the [Cloud Partner Portal Tour](../portal-tour/cpp-portal-tour.md) to familiarize yourself with the portal's user interface.
