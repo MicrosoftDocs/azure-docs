@@ -103,9 +103,9 @@ All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s.
 >
 > Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
 >
-> eGress rate = 60 MiB/s + 0.06 provisioned GiB (up to 6 GiB/s)
+> egress rate = 60 MiB/s + 0.06 provisioned GiB (up to 6 GiB/s)
 >
-> inGress rate = 40 MiB/s + 0.04 provisioned GiB (up to 4 GiB)
+> ingress rate = 40 MiB/s + 0.04 provisioned GiB (up to 4 GiB)
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
 
@@ -113,7 +113,7 @@ The following table illustrates a few examples of these formulae for the provisi
 
 (Sizes denoted by an * are in limited public preview)
 
-|Capacity (GiB) | Baseline IOPS | Burst limit | eGress (MiB/s) | inGress (MiB/s) |
+|Capacity (GiB) | Baseline IOPS | Burst limit | egress (MiB/s) | ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Up to 300     | 66   | 44   |
 |500         | 500     | Up to 1,500   | 90   | 60   |
@@ -122,7 +122,7 @@ The following table illustrates a few examples of these formulae for the provisi
 |10,240 *     | 10,240  | Up to 30,720  | 675 | 450   |
 |33,792 *     | 33,792  | Up to 100,000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Up to 100,000 | 3,132 | 2,088   |
-|102,400 *    | 100,000 | Up to 100,000 | 6,204 | 4,136   |
+|100,000 *    | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
 Currently, file share sizes up to 5 TiB are in public preview, while sizes up to 102 TiB are in limited public preview, to request access to the limited public preview complete [this survey.](https://aka.ms/azurefilesatscalesurvey)
 
