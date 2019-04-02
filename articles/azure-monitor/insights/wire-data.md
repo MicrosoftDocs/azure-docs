@@ -28,7 +28,7 @@ In addition to the Log Analytics agent, the Wire Data solution uses Microsoft De
 >[!NOTE]
 >If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), there is a new connection metrics data set they collect and store in Azure Monitor that provides comparable information to Wire Data.
 
-By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either sides closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
+By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either side closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
 If you've used [sFlow](http://www.sflow.org/) or other software with [Cisco's NetFlow protocol](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), then the statistics and data you see from wire data will be familiar to you.
 
@@ -47,7 +47,7 @@ Some of the types of built-in Log search queries include:
 
 When you search using wire data, you can filter and group data to view information about the top agents and top protocols. Or you can view when certain computers (IP addresses/MAC addresses) communicated with each other, for how long, and how much data was sent—basically, you view metadata about network traffic, which is search-based.
 
-However, since you're viewing metadata, it's not necessarily useful for in-depth troubleshooting. Wire data in Azure Monitor is not a full capture of network data.  It is not intended for deep packet-level troubleshooting. The advantage of using the agent, compared to other collection methods, is that you don't have to install appliances, reconfigure your network switches, or preform complicated configurations. Wire data is simply agent-based—you install the agent on a computer and it will monitor its own network traffic. Another advantage is when you want to monitor workloads running in cloud providers or hosting service provider or Microsoft Azure, where the user doesn't own the fabric layer.
+However, since you're viewing metadata, it's not necessarily useful for in-depth troubleshooting. Wire data in Azure Monitor is not a full capture of network data.  It is not intended for deep packet-level troubleshooting. The advantage of using the agent, compared to other collection methods, is that you don't have to install appliances, reconfigure your network switches, or perform complicated configurations. Wire data is simply agent-based—you install the agent on a computer and it will monitor its own network traffic. Another advantage is when you want to monitor workloads running in cloud providers or hosting service provider or Microsoft Azure, where the user doesn't own the fabric layer.
 
 ## Connected sources
 
@@ -172,7 +172,8 @@ Perform the following steps to configure the Wire Data solution for your workspa
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
 > 
-> ### Install the Dependency Agent on Windows
+ 
+### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
 
@@ -336,8 +337,6 @@ When Wire Data is activated in a Log Analytics workspace, a 300-KB management pa
 The management pack is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor. It's written to: %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. The data source that the management pack uses is: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## Using the solution
-
-**Installing and configuring the solution**
 
 Use the following information to install and configure the solution.
 
