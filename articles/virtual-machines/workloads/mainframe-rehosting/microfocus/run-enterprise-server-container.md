@@ -25,8 +25,8 @@ Before getting started, check out these prerequisites:
 
 - The Micro Focus software and a valid license (or trial license). If you're an existing Micro Focus customer, contact your Micro Focus representative. Otherwise, [request a trial](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
-> [!NOTE]
-> The Docker demonstration files are included with Enterprise Server 4.0. This tutorial uses ent\_server\_dockerfiles\_4.0\_windows.zip. Access it from the same place that you accessed the Enterprise Server installation file, or go to *Micro Focus* to get started.
+     > [!NOTE]
+     > The Docker demonstration files are included with Enterprise Server 4.0. This tutorial uses ent\_server\_dockerfiles\_4.0\_windows.zip. Access it from the same place that you accessed the Enterprise Server installation file, or go to *Micro Focus* to get started.
 
 - The documentation for [Enterprise Server and Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#").
 
