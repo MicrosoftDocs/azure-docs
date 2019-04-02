@@ -48,9 +48,6 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 The Mesh environment exposes a handful of metrics indicating how your containers are performing. The following metrics are available via the Azure portal and Azure monitor CLI:
 
-> [!NOTE]
-> The following metrics are currently only available for Windows container based applications.
-
 | Metric | Description | Units|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu as a percentage | % |
@@ -66,7 +63,7 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | RestartCount | Number of container restarts | N/A |
 
 > [!NOTE]
-> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric.
+> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
 
 Each metric is available on different dimensions so you can see aggregates at different levels. The current list of dimensions are as follows:
 
@@ -74,6 +71,9 @@ Each metric is available on different dimensions so you can see aggregates at di
 * ServiceName
 * ServiceReplicaName
 * CodePackageName
+
+> [!NOTE]
+> The CodePackageName dimension is not available for Linux applications. 
 
 Each dimension corresponds to different components of the [Service Fabric Application model](service-fabric-mesh-service-fabric-resources.md#applications-and-services)
 
