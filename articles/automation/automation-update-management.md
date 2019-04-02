@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -46,9 +46,9 @@ The solution reports how up-to-date the computer is based on what source you're 
 > [!NOTE]
 > To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
-You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope. 
+You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and set a period of time during which updates can be installed.
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and set a period of time during which updates can be installed. This period of time is called the maintenance window. Ten minutes of the maintenance window is reserved for reboots if a reboot is needed and you selected the appropriate reboot option. If patching takes longer than expected and there is less than ten minutes in the maintenance window, a reboot will not occur.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
