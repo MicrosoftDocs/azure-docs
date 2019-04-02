@@ -51,9 +51,9 @@ With the 3.0 APIs we are exposing two additional export targets: ARM and Vision 
 * To use ARM, you just need to pick a Compact domain and then choose DockerFile and then ARM as the export options.
 * For Vision AI Dev Kit, the project must be created with the __General (Compact)__ domain as well as specifying VAIDK in the target export platforms argument.
 
-### Updating default iterations
+### Deprecating default iterations
 
-The 3.0 APIs do not support default iterations, but if an iteration needs to be marked default you can still use the 2.x APIs to update the default iteration. This is done the same as before, calling the UpdateIteration method marking the iteration default, as desired.
+The 3.0 APIs do not use default iterations. Until we deprecate the older APIs you can continue to use the 2.x APIs to mark or unmark an iteration as default. Older SDKs will be maintained, for a period of time, and you can call the UpdateIteration method marking the iteration default. Moving forward rather than use a single default the process would be to name an iteration and publish it. Prediciton apps would then predict against that published iteration using the name as the target. Instead of toggling the default marking you would instead publish and unpublish an iteration and that name will give similiar functionaliy as the default iteration.
 
 ## Next steps
 
