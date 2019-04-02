@@ -94,9 +94,9 @@
     items:
     - name: Twitter sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
-    - name: Real time fraud detection
+    - name: Real-time fraud detection
       href: stream-analytics-real-time-fraud-detection.md
-    - name: Run jobs on IoT edge
+    - name: Run jobs on IoT Edge
       href: stream-analytics-edge.md
     - name: Toll booth sensor data analysis
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
@@ -106,7 +106,7 @@
       href: stream-analytics-high-frequency-trading.md
     - name: Process IoT streaming data
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
-    - name: Threshold based rules
+    - name: Threshold-based rules
       href: stream-analytics-threshold-based-rules.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
@@ -422,7 +422,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: https://blogs.msdn.com/b/streamanalytics/
+    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Forum
