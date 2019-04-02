@@ -34,10 +34,10 @@ You need to be logged into your Azure subscription, used for the HANA Large Inst
 For more information, see the article [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 
 
-### Register through Azure Portal
-You can (re-)register the HANA Large Instance Resource Provider through Azure Portal. You need to list your subscription in Azure Portal and double-click on the subscription which was used to deploy your HANA Large Instance unit(s). One you are in the overview page of your subscription, select "Resource providers" as shown below and type "HANA" into the search window. 
+### Register through Azure portal
+You can (re-)register the HANA Large Instance Resource Provider through Azure portal. You need to list your subscription in Azure portal and double-click on the subscription, which was used to deploy your HANA Large Instance unit(s). One you are in the overview page of your subscription, select "Resource providers" as shown below and type "HANA" into the search window. 
 
-![Register HLI RP through Azure Portal](./media/hana-li-portal/portal-register-hli-rp.png)
+![Register HLI RP through Azure portal](./media/hana-li-portal/portal-register-hli-rp.png)
 
 In the screenshot shown, the resource provider was already registered. In case the resource provider is not yet registered, press "re-register" or "register".
 
@@ -45,7 +45,7 @@ For more information, see the article [Azure resource providers and types](https
 
 
 ## Display of HANA Large Instance units in the Azure portal
-When submitting an HANA Large Instance deployment request, you are asked to specify the Azure subscription that you are connecting to the HANA Large Instances as well. It is recommended to use the same subscription you are using to deploy the SAP application layer that works against the HANA Large Instance units.
+When submitting an HANA Large Instance deployment request, you are asked to specify the Azure subscription that you are connecting to the HANA Large Instances as well. It is recommended, to use the same subscription you are using to deploy the SAP application layer that works against the HANA Large Instance units.
 As your first HANA Large Instances are getting deployed, a new [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) is created in the Azure subscription you submitted in the deployment request for your HANA Large Instance(s).  The new resource group will list all your HANA Large Instance units you have deployed in the specific subscription.
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
@@ -74,7 +74,7 @@ In the overview screen, you are getting a presentation of the unit, which looks 
 
 ![Show overview of an HLI unit](./media/hana-li-portal/portal-show-overview.png)
 
-Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units, are shown here:
+Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left-hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right-hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units, are shown here:
 
 - [Available SKUs for HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [SAP HANA (Large Instances) storage architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
@@ -106,7 +106,7 @@ The section **Properties** includes important information that you get when the 
 
 ![top part of HLI properties in Azure portal](./media/hana-li-portal/portal-properties-top.png)
 
-The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you get when you got the first deployed units handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [configuration file for storage snapshot backups](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you got as the first deployed units were handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [configuration file for storage snapshot backups](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
 
 As you scroll down in the property pane, you get additional data like a unique resource ID for your HANA Large Instance unit, or the subscription ID which was assigned to the deployment.
 
@@ -139,7 +139,7 @@ In the list of services, you can find the service **SAP HANA Large Instance**. A
 
 ![Select problem class in Azure portal](./media/hana-li-portal/portal-select-problem-class.png)
 
-Under each of the different problem types, you are offered a selection of problem subtypes you need to select to characterize your problem further. After selecting the subtype, you now can name the subject. Once you are done with the selection process, you can move to next step of the creation. In the **Solutions** section, you are pointed to documentation around HANA Large Instances, which might give a pointer to a solution of your problem. If you can't find a solution for your problem in the documentation suggested, you go to the next step. In the next step, you are going to be asked whether the issue is with VMs or with HANA Large Instance units. This helps to direct the support request to the correct specialists. 
+Under each of the different problem types, you are offered a selection of problem subtypes you need to select to characterize your problem further. After selecting the subtype, you now can name the subject. Once you are done with the selection process, you can move to next step of the creation. In the **Solutions** section, you are pointed to documentation around HANA Large Instances, which might give a pointer to a solution of your problem. If you can't find a solution for your problem in the documentation suggested, you go to the next step. In the next step, you are going to be asked whether the issue is with VMs or with HANA Large Instance units. This information helps to direct the support request to the correct specialists. 
 
 ![Details of support case in Azure portal](./media/hana-li-portal/portal-support-request-details.png)
 
