@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Manabi Pocket, perform the following s
     `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com / https://support.ed-cl.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Manabi Pocket, perform the following s
 
 ### Configure Manabi Pocket Single Sign-On
 
-To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com / https://support.ed-cl.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -180,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Manabi Pocket test user
 
-In this section, you create a user called Britta Simon in Manabi Pocket. Work with [Manabi Pocket support team](mailto:info-ed-cl@ntt.com / https://support.ed-cl.com) to add the users in the Manabi Pocket platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Manabi Pocket. Work with [Manabi Pocket support team](mailto:info-ed-cl@ntt.com) to add the users in the Manabi Pocket platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
