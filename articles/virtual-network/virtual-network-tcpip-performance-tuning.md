@@ -20,31 +20,33 @@ ms.author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
 
 # TCP/IP performance tuning for Azure VMs
 
-The purpose of this article is to discuss common TCP/IP performance tuning techniques and their considerations for virtual machines running on Microsoft Azure. It's important first to have a basic understanding of the concepts and then discuss how they can be tuned.
+This article discusses common TCP/IP performance tuning techniques and some things to consider when you use them for virtual machines running on Azure. It will provide a basic overview of the techniques and explore how they can be tuned.
 
 ## Common TCP/IP tuning techniques
 
-### MTU, fragmentation, and Large Send Offload (LSO)
+### MTU, fragmentation, and Large Send Offload
 
-#### Explanation of MTU
+#### MTU
 
-The maximum transmission unit (MTU) is the largest size frame (packet), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting and the default MTU used on Azure VMs, and the default setting on most network devices globally, is 1500 bytes.
+The maximum transmission unit (MTU) is the largest size frame (packet), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting. The default MTU used on Azure VMs, and the default setting on most network devices globally, is 1500 bytes.
 
-#### Explanation of fragmentation
+#### Fragmentation
 
-Fragmentation occurs when a packet is sent that exceeds the MTU of a network interface. The TCP/IP stack will break the packet into smaller pieces (fragments) that conform to the interfaces MTU. Fragmentation occurs at the IP layer and is independent of the underlying protocol (such as TCP). When a 2000-byte packet is sent over a network interface with an MTU of 1500, then it will be broken down into one 1500-byte packet and one 500-byte packet.
+Fragmentation occurs when a packet is sent that exceeds the MTU of a network interface. The TCP/IP stack will break the packet into smaller pieces (fragments) that conform to the interface's MTU. Fragmentation occurs at the IP layer and is independent of the underlying protocol (such as TCP). When a 2000-byte packet is sent over a network interface with an MTU of 1500, the packet will be broken down into one 1500-byte packet and one 500-byte packet.
 
 Network devices in the path between a source and destination have the option to drop packets that exceed the MTU or to fragment the packet into smaller pieces.
 
-#### The "Don’t Fragment (DF)" bit in an IP packet
+#### The Don’t Fragment bit in an IP packet
 
-The Don’t Fragment bit is a flag in the IP Protocol Header. When the DF bit is set, it indicates that intermediary network devices on the path between the sender and receiver must not fragment the packet. There are many reasons why this bit may be set (see Path Discovery section below for one example). When a network device receives a packet with the Don’t Fragment bit set, and that packet exceeds the devices interface MTU, then the standard behavior is for the device to drop the packet and send a “ICMP Fragmentation Needed” packet back to the original source of the packet.
+The Don’t Fragment (DF) bit is a flag in the IP protocol header. The DF bit indicates that network devices on the path between the sender and receiver must not fragment the packet. This bit could be set for many reasons. (See the "Path MTU Discovery" section of this article for one example.) When a network device receives a packet with the Don’t Fragment bit set, and that packet exceeds the device's interface MTU, the standard behavior is for the device to drop the packet. The device sends an ICMP Fragmentation Needed message back to the original source of the packet.
 
 #### Performance implications of fragmentation
 
-Fragmentation can have negative performance implications. One of the main reasons for performance impact is the CPU/memory impact of fragmentation and reassembly of packets. When a network device needs to fragment a packet, it will have to allocate CPU/memory resources to perform fragmentation. The same must happen when the packet is reassembled. The network device must store all fragments until they're received so it can reassemble them into the original packet. This process of fragmentation/re-assembly can also cause latency due to the fragmentation/re-assembly process.
+Fragmentation can have negative performance implications. One of the main reasons for the effect on performance is the CPU/memory impact of the fragmentation and reassembly of packets. When a network device needs to fragment a packet, it will have to allocate CPU/memory resources to perform fragmentation. The same thing happens when the packet is reassembled. The network device has to store all the fragments until they're received so it can reassemble them into the original packet. This process of fragmentation and reassembly can also cause latency.
 
-The other possible negative performance implication of fragmentation is that fragmented packets may arrive out of order. Out of order packets can cause certain types of network devices to drop the out of order packets - which will then require the entire packet to be retransmitted. Typical scenarios for dropping fragments include security devices like network firewalls or when a network device’s receive buffers are exhausted. When a network device's receive buffers are exhausted, a network device is attempting to reassemble a fragmented packet but doesn't have the resources to store and reassume the packet.
+The other possible negative performance implication of fragmentation is that fragmented packets might arrive out of order. When packets are received out of order, some types of network devices can drop them. When that happens, the whole packet has to be retransmitted.
+
+Typical scenarios for dropping fragments include security devices like network firewalls or when a network device’s receive buffers are exhausted. When a network device's receive buffers are exhausted, a network device is attempting to reassemble a fragmented packet but doesn't have the resources to store and reassume the packet.
 
 Fragmentation can be perceived as a negative operation, but support for fragmentation is necessary for connecting diverse networks over the Internet.
 
@@ -95,9 +97,9 @@ This setting is agreed in the TCP three-way handshake when a TCP session is set 
 
 Intermediary network devices, like VPN Gateways, including Azure VPN Gateway, have the ability to adjust the MTU independent of the source and destination to ensure optimal network performance. So, it should be noted that the MTU of the source and destination alone is not the sole factors in the actual MSS value.
 
-#### Explanation of Path MTU Discovery (PMTUD)
+#### Explanation of Path MTU Discovery
 
-While MSS is negotiated, it may not indicate the actual MSS that can be used as other network devices in the path between source and destination may have a lower MTU value than the source and destination. In this case, the device whose MTU is smaller than the packet will drop the packet, and send back an Internet Control Message Protocol (ICMP) Fragmentation Needed (Type 3, Code 4) message containing its MTU. This ICMP message allows the source host to reduce its Path MTU appropriately. The process is called Path MTU discovery.
+While MSS is negotiated, it may not indicate the actual MSS that can be used as other network devices in the path between source and destination may have a lower MTU value than the source and destination. In this case, the device whose MTU is smaller than the packet will drop the packet, and send back an Internet Control Message Protocol (ICMP) Fragmentation Needed (Type 3, Code 4) message containing its MTU. This ICMP message allows the source host to reduce its Path MTU appropriately. The process is called Path MTU discovery (PMTUD).
 
 The process of PMTUD is inherently inefficient and has implications to network performance. When packets are sent that exceed a network paths MTU, then those packets must be retransmitted with a lower MSS. If the sender does not receive the ICMP Fragmentation Needed packet, perhaps due to a network firewall in the path (commonly referred to as PMTUD blackhole), then the sender does not know it needs to lower the MSS and will continuously retransmit the packet. For this reason, we don’t recommend increasing the Azure VM MTU.
 
