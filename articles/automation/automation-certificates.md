@@ -27,7 +27,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 |[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Creates a new certificate into Azure Automation.| 
 [Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Removes a certificate from Azure Automation.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
-|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
+|[Add-AzureCertificate](/previous-versions/azure/dn495214(v=azure.100))|Uploads a service certificate for the specified cloud service.|
 
 
 ## Activities
@@ -35,7 +35,7 @@ The activities in the following table are used to access certificates in a runbo
 
 | Activities | Description |
 |:---|:---|
-|Get-AutomationCertificate|Gets a certificate to use in a runbook or DSC configuration. Returns a [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) object.|
+|Get-AutomationCertificate|Gets a certificate to use in a runbook or DSC configuration. Returns a [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) object.|
 
 > [!NOTE] 
 > You should avoid using variables in the –Name parameter of **Get-AutomationCertificate**  in a runbook or DSC configuration as it complicates discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
