@@ -1027,22 +1027,22 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-intro.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-ingredients.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-implementation.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
@@ -4313,6 +4313,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
       "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-overview.md",
+      "redirect_url": "/azure/connectors/apis-list",
       "redirect_document_id": true
     },
     {
@@ -36725,6 +36730,11 @@
       "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+      "redirect_document_id": true
     }
   ]
 }
