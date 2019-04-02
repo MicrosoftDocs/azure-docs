@@ -1,6 +1,6 @@
 ---
-title: Azure Functions premium plan (preview) | Microsoft Docs
-description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions premium plan.
+title: Azure Functions Premium plan (preview) | Microsoft Docs
+description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -16,16 +16,16 @@ ms.author: jehollan
 
 # Azure Functions Premium plan (preview)
 
-The Azure Functions premium plan is a hosting option for function apps. The premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 > [!NOTE]
-> The premium plan preview currently supports functions running in .NET, Node, or Java through Windows infrastructure.
+> The Premium plan preview currently supports functions running in .NET, Node, or Java through Windows infrastructure.
 
-## Create a premium plan
+## Create a Premium plan
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-You can also create a premium plan from the Azure CLI
+You can also create a Premium plan from the Azure CLI
 
 ```azurecli-interactive
 az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
@@ -53,9 +53,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Private network connectivity
 
-Azure Functions deployed to a premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
+Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
 
-When assigning a subnet to your premium function app, you need a subnet with enough IP addresses for each potential instance. Though the maximum number of instances may vary during the preview, we require an IP block with at least 100 available addresses.
+When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. Though the maximum number of instances may vary during the preview, we require an IP block with at least 100 available addresses.
 
 Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
@@ -69,7 +69,7 @@ Azure Functions in a Consumption plan are limited to 10 minutes for a single exe
 
 ## Plan and SKU settings
 
-When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  The minimum instances for a premium plan is 1, and the maximum burst during the preview is 20.  Minimum instances are reserved and always running.
+When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  The minimum instances for a Premium plan is 1, and the maximum burst during the preview is 20.  Minimum instances are reserved and always running.
 
 > [!IMPORTANT]
 > You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
