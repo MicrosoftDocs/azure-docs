@@ -258,9 +258,6 @@ Build and run the program. The quickstart program asks a couple of questions to 
 ## Clean up resources
 When you are done with the quickstart, remove all the files created in this quickstart. 
 
-## Clean up resources
-When you are done with the quickstart, remove all the files created in this quickstart. 
-
 ## Next Steps
 
 * [Review Personalizer overview](what-is-personalizer.md)
