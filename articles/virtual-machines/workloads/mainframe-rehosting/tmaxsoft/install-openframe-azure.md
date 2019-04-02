@@ -702,7 +702,7 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
      ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
      ```
 
-5. When the installation is complete, start the installed OpenFrame suites by typing 'tmboot' at the command prompt.
+5. When the installation is complete, start the installed OpenFrame suites by typing `tmboot` at the command prompt.
 
     ![tmboot output](media/tmboot-01.png)
 
@@ -975,7 +975,9 @@ ProSort is a utility used in batch transactions for sorting data.
 
 ## Install OFCOBOL
 
-OFCOBOL is the OpenFrame compiler that interprets the mainframe’s COBOL programs. To install OFCOBOL:
+OFCOBOL is the OpenFrame compiler that interprets the mainframe’s COBOL programs. 
+
+**To install OFCOBOL**
 
 1. Make sure that the Batch/Online installation succeeded, then verify that the OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64.bin installer file is present.
 
@@ -1109,7 +1111,7 @@ OFASM is the OpenFrame compiler that interprets the mainframe’s assembler prog
      Here is the [SYSLIB] section *after* the change:
 
      ```
-     [SYSLIB] [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
+     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
 7. Open the OpenFrame\_ASM\_InstallLog.log file in vi and verify that there are no errors. For example:
@@ -1378,7 +1380,8 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      ```
 
      For example, <http://192.168.92.133:9736/webadmin/login.> The logon screen appears:
-    ![JEUS WebAdmin logon screen](media/jeus-01.png)
+    
+     ![JEUS WebAdmin logon screen](media/jeus-01.png)
 
      > [!NOTE]
      > If you experience any issues with port security, open port 9736 or disable the firewall (`systemctl stop firewall`).
@@ -1466,7 +1469,7 @@ The start screen appears:
 
 That completes the installation of the OpenFrame components.
 
-## Learn more
+## Next steps
 
 If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
 
