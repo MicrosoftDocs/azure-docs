@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Create and manage virtual machines with DevTest Labs using the Azure CLI
-This quick start will guide you through creating, starting, connecting, updating and cleaning up a development machine in your lab. 
+This quickstart will guide you through creating, starting, connecting, updating, and cleaning up a development machine in your lab. 
 
 Before you begin:
 
@@ -26,15 +26,15 @@ Before you begin:
 * [Install the Azure CLI](/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
 
 ## Create and verify the virtual machine 
-Before you execute DevTest Lab related commands, set the appropriate Azure context by using the `az account set` command:
+Before you execute DevTest Labs related commands, set the appropriate Azure context by using the `az account set` command:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-The command to create a virtual machine is: `az lab vm create`. The resource group for the lab, lab name and virtual machine name are all required. The rest of the arguments change depending on the type of virtual machine.
+The command to create a virtual machine is: `az lab vm create`. The resource group for the lab, lab name, and virtual machine name are all required. The rest of the arguments change depending on the type of virtual machine.
 
-The following command creates a Windows-based image from Azure Market Place. The name of the image is the same as you would see when creating a virtual machine using the Azure Portal. 
+The following command creates a Windows-based image from Azure Market Place. The name of the image is the same as you would see when creating a virtual machine using the Azure portal. 
 
 ```azurecli
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
@@ -46,7 +46,7 @@ The following command creates a virtual machine based on a custom image availabl
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-The **image-type** argument has changed from **gallery** to **custom**. The name of the image matchs what you see if you were to create the virtual machine in the Azure Portal.
+The **image-type** argument has changed from **gallery** to **custom**. The name of the image matches what you see if you were to create the virtual machine in the Azure portal.
 
 The following command creates a VM from a marketplace image with ssh authentication:
 
@@ -54,7 +54,7 @@ The following command creates a VM from a marketplace image with ssh authenticat
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-You can also create virtual machines based on formulas by setting the **image-type** parameter to **formula**. If you need to choose a specific virtual network for your virtual machine, use the **vnet-name** and **subnet** parameters. For more infrmation, see [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
+You can also create virtual machines based on formulas by setting the **image-type** parameter to **formula**. If you need to choose a specific virtual network for your virtual machine, use the **vnet-name** and **subnet** parameters. For more information, see [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## Verify that the VM is available.
 Use the `az lab vm show` command to verify that the VM is available before you start and connect to it. 
