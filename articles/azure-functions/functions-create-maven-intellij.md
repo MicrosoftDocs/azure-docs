@@ -15,10 +15,7 @@ ms.author: jehollan
 ms.custom: mvc, devcenter
 ---
 
-# Create your first Azure function with Java and IntelliJ (preview)
-
-> [!NOTE]
-> Java for Azure Functions is currently in preview.
+# Create your first Azure function with Java and IntelliJ
 
 This article shows you:
 - How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven

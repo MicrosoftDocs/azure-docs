@@ -147,7 +147,9 @@
       - name: Import a VM
         href: devtest-lab-import-vm.md
       - name: Start or stop a VM using PowerShell or CLI
-        href: use-command-line-start-stop-virtual-machines.md                
+        href: use-command-line-start-stop-virtual-machines.md
+      - name: Start VMs using Automation runbooks
+        href: start-machines-use-automation-runbooks.md
     - name: Use environments in a lab
       items:
       - name: Create an environment
@@ -158,6 +160,8 @@
         href: create-environment-service-fabric-cluster.md
       - name: Connect an environment to your lab's virtual network
         href: connect-environment-lab-virtual-network.md
+      - name: Integrate environments into your Azure DevOps CI/CD pipeline
+        href: integrate-environments-devops-pipeline.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
