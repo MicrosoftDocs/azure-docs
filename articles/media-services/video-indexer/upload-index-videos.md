@@ -286,4 +286,4 @@ The status codes listed in the following table may be returned by the Upload ope
 
 ## Next steps
 
-[Examine the Azure Video Indexer output produced by v2 API](video-indexer-output-json-v2.md)
+[Examine the Azure Video Indexer output produced by API](video-indexer-output-json-v2.md)
