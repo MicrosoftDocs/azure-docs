@@ -95,7 +95,7 @@ To publish to the other regions, you create LUIS apps at [https://www.luis.ai](h
 
 ## Endpoints
 
-LUIS currently has 2 endpoints: one for authoring and one for text analysis.
+LUIS currently has 2 endpoints: one for authoring and one for query prediction analysis.
 
 |Purpose|URL|
 |--|--|
