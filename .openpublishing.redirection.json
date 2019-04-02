@@ -36736,5 +36736,10 @@
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
       "redirect_document_id": true
     }
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
+      "redirect_url": "articles/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier.md",
+      "redirect_document_id": false
+    }	
   ]
 }
