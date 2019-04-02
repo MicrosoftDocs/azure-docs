@@ -2231,6 +2231,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
+      "redirect_url": "/azure/iot-edge/how-to-visual-studio-develop-module",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
       "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
       "redirect_document_id": false
@@ -36714,6 +36719,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-poc.md",
       "redirect_url": "/azure/azure-stack/azure-stack-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
     }
   ]
