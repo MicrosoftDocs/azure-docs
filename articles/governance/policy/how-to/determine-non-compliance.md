@@ -119,11 +119,21 @@ The following matrix maps each possible _reason_ to the responsible
 
 For Audit policies in the Guest Configuration category there could be multiple settings evaluated inside the VM and you will need to view per-setting details. For example, if you are auditing for a list of installed applications and the assignment status is not-compliant, you will need to know which specific applications are missing.
 
+You also might not have access to log in to the VM directly but you need to report on why the VM is not compliant.  For example, you might audit that VMs are joined to the correct domain and include the current domain membership in the reporting details.
+
 ### Azure Portal
 
-From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource. Click the Guest Assignment in the Name column to navigate to the Resource Compliance view. Finally, click the View Resource button at the top of the page to open the Guest Assignment page.
+From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource.
 
-From the Guest Assignment page, you can see all available compliance details. Each row in the view represents a check that was performed inside the virtual machine. In the column named Reason, you will see a phrase describing why the assignment is out of compliance. For example, if you are auditing for a list of installed applications, the Reason column would display text "The following applications are not installed: Name, Name, Name"
+   ![View compliance details](../media/determine-non-compliance/GuestConfig_Compliance.png)
+
+Click the Guest Assignment in the Name column to navigate to the Resource Compliance view. Finally, click the View Resource button at the top of the page to open the Guest Assignment page.
+
+   ![View audit definition details](../media/determine-non-compliance/GuestConfig_Audit.png)
+
+From the Guest Assignment page, you can see all available compliance details. Each row in the view represents a check that was performed inside the virtual machine. In the column named Reason, you will see a phrase describing why the assignment is out of compliance. For example, if you are auditing that VMs should be joined to a domain, the Reason column would display text including the current domain membership.
+
+   ![View compliance details](../media/determine-non-compliance/GuestConfig_Compliance.png)
 
 ### Azure PowerShell
 
