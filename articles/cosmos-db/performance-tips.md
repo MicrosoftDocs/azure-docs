@@ -70,7 +70,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     By default, the first request has a higher latency because it has to fetch the address routing table. To avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
 
-        await client.OpenAsync();
+        await client.OpenAsync().ConfigureAwait(false);
    <a id="same-region"></a>
 3. **Collocate clients in same Azure region for performance**
 
@@ -116,7 +116,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     
     With version 1.19 and later of the .NET SDK, there is a mechanism to log additional diagnostic information and troubleshoot latency issues as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand the number of times you observed 429s for a given request.
     ```csharp
-    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink).ConfigureAwait(false);
     readDocument.RequestDiagnosticsString 
     ```
     
@@ -163,7 +163,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded).ConfigureAwait(false);
     ```
 
     For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
@@ -183,13 +183,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     ```csharp
     // Measure the performance (request units) of writes
-    ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
+    ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument).ConfigureAwait(false);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
     // Measure the performance (request units) of queries
     IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
     while (queryable.HasMoreResults)
          {
-              FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
+              FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>().ConfigureAwait(false);
               Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
          }
     ```             
