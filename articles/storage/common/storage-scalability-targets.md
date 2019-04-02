@@ -18,7 +18,7 @@ Be sure to test your service to determine whether its performance meets your req
 
 When your application reaches the limit of what a partition can handle for your workload, Azure Storage begins to return error code 503 (Server Busy) or error code 500 (Operation Timeout) responses. If 503 errors are occurring, consider modifying your application to use an exponential backoff policy for retries. The exponential backoff allows the load on the partition to decrease, and to ease out spikes in traffic to that partition.
 
-## Standard performance storage account scale limits
+## Storage account scale limits
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
