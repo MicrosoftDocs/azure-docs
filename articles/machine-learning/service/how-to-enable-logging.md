@@ -110,7 +110,7 @@ You can also log custom stack traces for your web service by enabling Applicatio
 service.update(enable_app_insights=True)
 ```
 
-See the [how-to](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) for more information on how to work with Application Insights in the Azure portal.
+See the [how-to](how-to-enable-app-insights.md) for more information on how to work with Application Insights in the Azure portal.
 
 ## Python native logging settings
 

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot your Kubernetes deployment to Azure Stack | Microsoft Docs
-description: Learn how to troubleshoot your Kubernetes deployment to Azure Stack.
+title: Troubleshoot Kubernetes deployment on Azure Stack | Microsoft Docs
+description: Learn how to troubleshoot Kubernetes deployment on Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,13 +12,13 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
 
 ---
 
-# Troubleshoot your Kubernetes deployment to Azure Stack
+# Troubleshoot Kubernetes deployment to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -27,11 +27,11 @@ ms.lastreviewed: 03/20/2019
 
 The following article looks at troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You might need to collect the deployment logs from Azure Stack or the Linux VMs that host Kubernetes. You might also need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
 
-## Overview of deployment
+## Overview of Kubernetes deployment
 
 Before you start troubleshooting your cluster, you might want to review the Azure Stack Kubernetes cluster deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and install the ACS Engine for your cluster.
 
-### Deployment workflow
+### Kubernetes deployment workflow
 
 The following diagram shows the general process for deploying the cluster.
 

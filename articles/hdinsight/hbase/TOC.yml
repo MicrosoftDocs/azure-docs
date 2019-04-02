@@ -137,9 +137,6 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
-    - name: Enhanced Writes
-      href: ../hbase/apache-hbase-enhanced-writes.md
-      maintainContext: true
     - name: Scale an HDInsight cluster
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true

@@ -23,7 +23,7 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal) o
 
 ## Deploy with the portal
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## Deploy with PowerShell
 
