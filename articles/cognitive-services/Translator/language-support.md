@@ -263,7 +263,7 @@ You can retrieve a list of supported languages for the Translator Text API v3.0 
 
 ## Customization
 
-The following languages are available for customization to or from English using [Custom Translator](http://aka.ms/CustomTranslator).
+The following languages are available for customization to or from English using [Custom Translator](https://aka.ms/CustomTranslator).
 
 | Language    | Language code |
 |:----------- |:-------------:|
