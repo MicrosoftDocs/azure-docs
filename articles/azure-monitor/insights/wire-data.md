@@ -88,6 +88,8 @@ The following sections list the supported operating systems for the Dependency A
 
 #### Windows Server
 
+- Windows Server 2019
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
@@ -95,96 +97,68 @@ The following sections list the supported operating systems for the Dependency A
 
 #### Windows desktop
 
+- Windows 10 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
 
-#### Red Hat Enterprise Linux, CentOS Linux, and Oracle Linux (with RHEL Kernel)
+#### Supported Linux operating systems
+The following section list the supported operating systems for the Dependency agent on Linux.  
 
 - Only default and SMP Linux kernel releases are supported.
-- Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of _2.6.16.21-0.8-xen_ is not supported.
+- Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
 - Custom kernels, including recompiles of standard kernels, are not supported.
-- CentOSPlus kernel is not supported.
-- Oracle Unbreakable Enterprise Kernel (UEK) is covered in a later section of this article.
 
-#### Red Hat Linux 7
+##### Red Hat Linux 7
 
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
+| OS version | Kernel version |
+|:--|:--|
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
-#### Red Hat Linux 6
+##### Red Hat Linux 6
 
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
+| OS version | Kernel version |
+|:--|:--|
+| 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
-#### Red Hat Linux 5
+##### CentOSPlus
+| OS version | Kernel version |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398 <br> 2.6.18-400 <br>2.6.18-402 <br>2.6.18-404 <br>2.6.18-406 <br> 2.6.18-407 <br> 2.6.18-408 <br> 2.6.18-409 <br> 2.6.18-410 <br> 2.6.18-411 <br> 2.6.18-412 <br> 2.6.18-416 <br> 2.6.18-417 <br> 2.6.18-419 |
+##### Ubuntu Server
 
-#### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
+| OS version | Kernel version |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
-#### Oracle Linux 6
+##### SUSE Linux 11 Enterprise Server
 
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+| OS version | Kernel version
+|:--|:--|
+| 11 SP4 | 3.0.* |
 
-#### Oracle Linux 5
+##### SUSE Linux 12 Enterprise Server
 
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| OS version | Kernel version
+|:--|:--|
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
-#### SUSE Linux Enterprise Server
+### Dependency agent downloads
 
-#### SUSE Linux 11
-
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
-
-#### SUSE Linux 10
-
-| **OS version** | **Kernel version** |
-| --- | --- |
-| 10 SP4 | 2.6.16.60 |
-
-#### Dependency Agent downloads
-
-| **File** | **OS** | **Version** | **SHA-256** |
-| --- | --- | --- | --- |
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| File | OS | Version | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
 
