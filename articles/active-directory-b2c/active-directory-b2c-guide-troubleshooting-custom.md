@@ -40,7 +40,7 @@ You might find a review of XML rules helpful. Azure AD B2C rejects any XML forma
 Error snippet: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * The ClaimType value might be misspelled, or does not exist in the schema.
 * ClaimType values must be defined in at least one of the files in the policy. 
-    For example: ` <ClaimType Id="socialIdpUserId">`
+    For example: `<ClaimType Id="socialIdpUserId">`
 * If ClaimType is defined in the extensions file, but it's also used in a TechnicalProfile value in the base file, uploading the base file results in an error.
 
 Error snippet: `...makes a reference to a ClaimsTransformation with id...`
