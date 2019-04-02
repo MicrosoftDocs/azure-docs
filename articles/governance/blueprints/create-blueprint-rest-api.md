@@ -45,7 +45,7 @@ instructions. Following is a sample header for authenticating with Azure. Genera
 authentication header, sometimes called a **Bearer token**, and provide the REST API URI to connect
 to with any parameters or a **Request Body**:
 
-```powershell-interactive
+```azurepowershell-interactive
 # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
 $azContext = Get-AzureRmContext
