@@ -113,7 +113,7 @@ Check the following to confirm that the certificate can be automatically updated
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-where `(your_FS_name) `is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
+where `(your_FS_name)` is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
 
 Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renew the token signing certificate manually <a name="manualrenew"></a>

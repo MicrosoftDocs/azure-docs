@@ -184,52 +184,52 @@ There are certain sets of claims that define how and when they're used in tokens
 
 | Claim type (URI) |
 | ----- |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
-| `http://schemas.microsoft.com/identity/claims/accesstoken` |
-| `http://schemas.microsoft.com/identity/claims/openid2_id` |
-| `http://schemas.microsoft.com/identity/claims/identityprovider` |
-| `http://schemas.microsoft.com/identity/claims/objectidentifier` |
-| `http://schemas.microsoft.com/identity/claims/puid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]` |
-| `http://schemas.microsoft.com/identity/claims/tenantid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
-| `http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` |
-| `http://schemas.microsoft.com/claims/groups.link` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/wids` |
-| `http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant` |
-| `http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown` |
-| `http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged` |
-| `http://schemas.microsoft.com/2014/03/psso` |
-| `http://schemas.microsoft.com/claims/authnmethodsreferences` |
-| `http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier` |
-| `http://schemas.microsoft.com/identity/claims/scope` |
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## Claims mapping policy properties
 
