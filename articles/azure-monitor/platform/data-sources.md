@@ -16,7 +16,14 @@ ms.author: bwren
 
 ---
 
-# Sources of data in Azure Monitor
+# Sources of monitoring data for Azure Monitor
+Azure Monitor collects monitoring data into a common data platform that includes Logs and Metrics so they can be analyzed together using a common set of tools. Some data sources will write directly to these data stores while others write to some other location and require configuration before being collected into this common platform. Some monitoring data 
+
+- Write directly to Azure Monitor Metrics and Logs
+- Write to
+- 
+
+
 This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-platform.md) for details on how this data stored and how you can view it.
 
 Monitoring data in Azure comes from a variety of sources that can be organized into tiers, the highest tiers being your application and any operating systems and the lower tiers being components of Azure platform. This is illustrated in the following diagram with each tier described in detail in the following sections.
@@ -30,8 +37,10 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 
 ![Azure tenant collection](media/data-sources/tenant-collection.png)
 
-### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. These audit logs can be written to Azure Monitor logs to analyze them with other log data.
+| Data Source | Destination | Description |
+|:---|:---|:---|
+| Azure Active Directory Audit Logs | | [Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. These audit logs can be written to Azure Monitor logs to analyze them with other log data. |
+
 
 
 ## Azure platform
@@ -39,8 +48,9 @@ Telemetry related to the health and operation of Azure itself includes data abou
 
 ![Azure subscription collection](media/data-sources/azure-collection.png)
 
-### Azure Service Health
-[Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
+| Data Source | Destination | Description |
+|:---|:---|:---|
+| Azure Service Health | Activity Logs<br>Logs | [Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs. |
 
 ### Azure Activity Log
 The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](activity-log-schema.md).
