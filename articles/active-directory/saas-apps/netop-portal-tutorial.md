@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Netop Portal, perform the following st
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. In the **Namespace** textbox, type https://secure.netop.com.
+	c. In the **Namespace** textbox, type https:\//secure.netop.com.
 
 	d. Select Source as **Attribute**.
 
