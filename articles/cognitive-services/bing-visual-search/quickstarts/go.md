@@ -20,7 +20,7 @@ This quickstart uses the Go programming language to call the Bing Visual Search 
 ## Prerequisites
 
 * Install the [Go binaries](https://golang.org/dl/).
-* The go-spew deep pretty printer is used to display results. You can install go-spew from `$ go get -u https://github.com/davecgh/go-spew`.
+* The go-spew deep pretty printer is used to display results. You can install go-spew with the `$ go get -u https://github.com/davecgh/go-spew` command.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
