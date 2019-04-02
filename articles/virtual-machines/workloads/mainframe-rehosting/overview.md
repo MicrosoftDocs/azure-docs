@@ -106,7 +106,7 @@ Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP H
 
 To get started, download [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## Learn more
+## Next steps
 
 Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. For detailed guidance about choosing a partner solution, see the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) website.
 

@@ -115,3 +115,5 @@ When Enterprise Developer loads, your deployment of a Micro Focus development an
 ## Next steps
 
 - [Set up the Bank Demo application](./demo.md)
+- [Run Enterprise Server in Docker containers](./run-enterprise-server-container.md)
+- [Mainframe application migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
