@@ -84,17 +84,17 @@ The following example demonstrates deploy a certificate to your Automation Accou
 
 ```powershell-interactive
 $AutomationAccountName = "<automation account name>"
-$PfxCertPath = '<enter a path>'
+$PfxCertPath = '<PFX cert path'
 $CertificatePassword = '<password>'
-$certificateName = "<certificate name>"
-
+$certificateName = '<certificate name>'
+$AutomationAccountName = '<automation account name>'
 $flags = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable `
     -bor [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::PersistKeySet `
     -bor [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::MachineKeySet
 # Load the certificate into memory
 $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPath, $CertificatePassword, $flags)
 # Export the certificate and convert into base 64 string
-$Base64Value = [System.Convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12))
+$Base64Value = [System.Convert]::ToBase64String($PfxCert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12))
 $Thumbprint = $PfxCert.Thumbprint
 
 
