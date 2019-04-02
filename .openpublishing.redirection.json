@@ -36725,6 +36725,11 @@
       "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+      "redirect_document_id": true
     }
   ]
 }
