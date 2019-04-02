@@ -71,7 +71,7 @@ Azure Event Hubs can be used in Azure Government supporting Impact Level 5 workl
 
 Azure HDInsight can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Azure HDInsight can be deployed to existing storage accounts which have enabled appropriate [Storage Service Encryption](#Storage-Encryption-with-Key-Vault-Managed-Keys) as discussed in the Azure Storage for guidance.
+- Azure HDInsight can be deployed to existing storage accounts which have enabled appropriate [Storage Service Encryption](#storage-encryption-with-key-vault-managed-keys) as discussed in the Azure Storage for guidance.
 - Azure HDInsight enables a database option for certain configurations, ensure the appropriate database configuration for TDE is enabled on the chosen option as discussed in the SQL Database for guidance.
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
@@ -133,7 +133,7 @@ Azure Service Fabric can be used in Azure Government supporting Impact Level 5 w
 
 Microsoft Azure Virtual Machines can be used through multiple deployment mediums. This includes single Virtual Machines as well as Virtual Machines deployed using Azure's virtual machine scale sets feature.
 
-All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk Encryption for virtual machine scale sets,** or place Virtual Machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#Storage-Encryption-with-Key-Vault-Managed-Keys).
+All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk Encryption for virtual machine scale sets,** or place Virtual Machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -349,7 +349,7 @@ Azure Cache for Redis can be used in Azure Government supporting Impact Level 5 
 
 ### [Azure Import/Export](../storage/common/storage-import-export-service.md)
 
-Azure Import/Export can be used in Azure Government to import/export Impact Level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of Impact Level 5 data add storage encryption with customer managed keys (additional documentation and guidance found in the [storage services section](#Storage-Encryption-with-Key-Vault-Managed-Keys)).
+Azure Import/Export can be used in Azure Government to import/export Impact Level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of Impact Level 5 data add storage encryption with customer managed keys (additional documentation and guidance found in the [storage services section](#storage-encryption-with-key-vault-managed-keys)).
 
 The target storage account for Import and source storage account for Export can reside in any of the following regions:
 
