@@ -51,7 +51,7 @@ To edit the NameID (name identifier value):
 
 If the SAML request contains the element NameIDPolicy with a specific format, then Azure AD will honor the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then you can specify the format and Azure AD will issue the NameID with the selected format. Otherwise, Azure AD will use the default source format associated with the claim source selected.
+If the SAML request doesn't contain an element for NameIDPolicy, then Azure AD will issue the NameID with the  format you specify. If no format is specified Azure AD will use the default source format associated with the claim source selected.
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
