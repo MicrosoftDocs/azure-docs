@@ -12,55 +12,35 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ---
-# About the Speech SDK compressed audio input stream API
+# About the Speech SDK compressed audio input stream
 
-The Speech SDK's **Compressed audio Input Stream** API provides a way to stream compressed audio streams into the recognizers using PullStream or PushStream.
+The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the speech service using PullStream or PushStream.
 
-The following steps are required when using compressed audio input streams:
+Compressed audio input format is currently only supported for C++, C#, and Java on the Ubuntu 16.04 and Ubuntu 18.04 platform. Only MP3 and OPUS/OGG are the supported input audio formats.
 
-- Identify the format of the input audio stream. The format must be supported by the speech SDK. Currently, only MP3 and  OPUS/OGG are the supported input audio format. 
-- Compressed audio input format is currently supported only on the Ubuntu 16.04 and Ubuntu 18.04 platforms for C/C++/C# and Java. The following needs to be installed on the machine to get the compressed audio input format feature.
+On Linux, you need to install these additional SDK dependencies to enable the compressed audio input format feature.
 
-  ```
+  ```sh
   sudo apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
   ```
 
+To stream a compressed audio format to the speech service, you create your own `PullAudioInputStream` or `PushAudioInputStream`. Then create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-  The corresponding code in the application that creates the audio format with the compressed audio input stream looks like the following. This is the C# sample. Please look at the API documentation for C/C++ and Java.
+If you have an instance of your input stream class `myPushStream` and the OPUS/OGG format, the code will look similar to this:
 
-  ```
+  ```C#
   var audioFormat = AudioStreamFormat.GetCompressedFormat(Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.OGG_OPUS);
+  var audioConfig = AudioConfig.FromStreamInput(myPushStream, audioFormat);
   ```
 
-- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent (following is for C#), but the code will look similar to this code sample:
+Finally you create your speech recognizer. Pass in both, your regular speech configuration, and the audio input configuration.
 
-  ```
-   public class YourPullAudioStream : PullAudioInputStreamCallback {
-      YourPrivateInfo info;
-
-      public YourPullAudioStream(const YourPrivateInfo& info) {
-          this.info = info;
-      }
-
-      public int Read(byte[] buffer, uint size) {
-          // returns audio data to the caller.
-          // e.g. return read(info.StreamHandle, buffer, size);
-      }
-
-      public void Close() {
-          // close and cleanup resources.
-          // close(info.StreamHandle);
-      }
-   };
-  ```
-
-- Create an audio configuration based on your audio format and input stream. Pass in both your regular speech configuration and the audio input configuration when you create your recognizer. For example:
-
-  ```
-  var audioFormat = AudioStreamFormat.GetCompressedFormat(Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.OGG_OPUS);
-  var audioConfig = AudioConfig.FromStreamInput(new YourPullAudioStream(yourPrivateInfo), audioFormat);
-
+  ```C#
   var speechConfig = SpeechConfig.FromSubscription(...);
+  
+  var audioFormat = AudioStreamFormat.GetCompressedFormat(Microsoft.CognitiveServices.Speech.Audio.AudioStreamContainerFormat.OGG_OPUS);
+  var audioConfig = AudioConfig.FromStreamInput(myPushStream, audioFormat);
+
   var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
   // run stream through recognizer
