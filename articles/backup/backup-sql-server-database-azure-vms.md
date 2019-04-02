@@ -65,6 +65,7 @@ Avoid the following for database names:
   * Trailing/Leading spaces
   * Trailing ‘!’
   * Close square bracket ‘]’
+  * Databases names starting with ‘F:\’
 
 We do have aliasing for Azure table unsupported characters, but we recommend avoiding them. [Learn more](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
