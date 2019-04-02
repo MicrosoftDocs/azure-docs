@@ -83,7 +83,7 @@ The following are the property descriptions:
 | nicPrefixOverride | string | --- | Subnet Prefix like "10.0.0.0/24" |
 | commonNames | string[] | --- | Common Names of installed cluster certificates |
 | x509StoreName | string | --- | Name of Store where installed cluster certificate is located |
-| typeHandlerVersion | 1.0 | --- | Version of Extension |
+| typeHandlerVersion | 1.1 | --- | Version of Extension. 1.0 classic version of extension are recommended to upgrade to 1.1 |
 
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
