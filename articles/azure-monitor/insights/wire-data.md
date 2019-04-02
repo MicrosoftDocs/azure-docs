@@ -28,7 +28,7 @@ In addition to the Log Analytics agent, the Wire Data solution uses Microsoft De
 >[!NOTE]
 >If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), there is a new connection metrics data set they collect and store in Azure Monitor that provides comparable information to Wire Data.
 
-By default,Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either sides closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
+By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either sides closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
 If you've used [sFlow](http://www.sflow.org/) or other software with [Cisco's NetFlow protocol](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), then the statistics and data you see from wire data will be familiar to you.
 
@@ -70,8 +70,8 @@ The Dependency Agent does not transmit any data itself, and it does not require 
 
 If you are a System Center Operations Manager user with a management group connected to Azure Monitor:
 
-- No additional configuration is required when your System Center Operations Manager agents can access the Internet to connect to Azure Monitor.
-- You need to configure the Log Analytics gateway to work with System Center Operations Manager when your System Center Operations Manager agents cannot access Azure Monitor over the Internet.
+- No additional configuration is required when your System Center Operations Manager agents can access the internet to connect to Azure Monitor.
+- You need to configure the Log Analytics gateway to work with System Center Operations Manager when your System Center Operations Manager agents cannot access Azure Monitor over the internet.
 
 If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Azure Monitor using the Log Analytics gateway. You can download the Log Analytics gateway from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
@@ -104,7 +104,7 @@ The following sections list the supported operating systems for the Dependency A
 - Windows 7
 
 #### Supported Linux operating systems
-The following section list the supported operating systems for the Dependency agent on Linux.  
+The following sections list the supported operating systems for the Dependency agent on Linux.  
 
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
@@ -166,7 +166,7 @@ The following section list the supported operating systems for the Dependency ag
 
 Perform the following steps to configure the Wire Data solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add mnitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 2. Install the Dependency Agent on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 > [!NOTE]
