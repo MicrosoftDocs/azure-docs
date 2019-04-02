@@ -70,17 +70,17 @@ When you create a new certificate, you upload a .cer or .pfx file to Azure Autom
 The following example demonstrates how to create a new Automation certificate and mark it exportable. This imports an existing .pfx file.
 
 ```powershell-interactive
-$certName = 'MyCertificate'
-$certPath = '.\MyCert.pfx'
-$certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
+$certificateName = 'MyCertificate'
+$PfxCertPath = '.\MyCert.pfx'
+$CertificatePassword = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
+New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ### Create a new certificate with Resource Manager template
 
-The following example demonstrates deploy a certificate to your Automation Account using a Resource Manager template:
+The following example demonstrates how to deploy a certificate to your Automation Account using a Resource Manager template through PowerShell:
 
 ```powershell-interactive
 $AutomationAccountName = "<automation account name>"
