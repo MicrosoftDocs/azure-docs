@@ -162,7 +162,7 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 That's it! Now you're running and managing a CICS application in a Docker container.
 
-## Learn more
+## Next steps
 
 - [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./set-up-micro-focus-on-azure.md)
 - [Mainframe application migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
