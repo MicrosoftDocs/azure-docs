@@ -116,15 +116,15 @@ Azure Functions running on Premium plans share the same underlying infrastructur
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png
-[2]: ./media/functions-create-vnet/Create-Function-App.png
-[3]: ./media/functions-create-vnet/Create-App-Service-Plan.PNG
-[4]: ./media/functions-create-vnet/configure-VNET.png
-[5]: ./media/functions-create-vnet/create-VM-1.png
-[6]: ./media/functions-create-vnet/create-VM-2.png
-[7]: ./media/functions-create-vnet/create-VM-2.1.png
-[8]: ./media/functions-create-vnet/Networking-1.png
-[9]: ./media/functions-create-vnet/Networking-2.png
-[10]: ./media/functions-create-vnet/Networking-3.png
-[11]: ./media/functions-create-vnet/New-Proxy.png
-[12]: ./media/functions-create-vnet/Create-Proxy.png
-[14]: ./media/functions-create-vnet/VM-Networking.png
+[2]: ./media/functions-create-vnet/create-function-app.png
+[3]: ./media/functions-create-vnet/create-app-service-plan.png
+[4]: ./media/functions-create-vnet/configure-vnet.png
+[5]: ./media/functions-create-vnet/create-vm-1.png
+[6]: ./media/functions-create-vnet/create-vm-2.png
+[7]: ./media/functions-create-vnet/create-vm-2-1.png
+[8]: ./media/functions-create-vnet/networking-1.png
+[9]: ./media/functions-create-vnet/networking-2.png
+[10]: ./media/functions-create-vnet/networking-3.png
+[11]: ./media/functions-create-vnet/new-proxy.png
+[12]: ./media/functions-create-vnet/create-proxy.png
+[14]: ./media/functions-create-vnet/vm-networking.png

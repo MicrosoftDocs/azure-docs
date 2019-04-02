@@ -1,6 +1,6 @@
 ---
-title: Functions Networking FAQs
-description: Frequently asked questions about networking  in Azure Functions
+title: Frequently Asked Questions about Networking in Azure Functions
+description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
 services: functions
 author: alexkarcher-msft
 manager: jehollan

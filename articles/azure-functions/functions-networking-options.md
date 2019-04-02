@@ -1,5 +1,5 @@
 ---
-title: Functions Networking Options
+title: Azure Functions Networking Options
 description: An overview of all networking options available in Azure Functions
 services: functions
 author: alexkarcher-msft
@@ -10,7 +10,7 @@ ms.date: 1/14/2019
 ms.author: alkarche
 
 ---
-# Functions Networking Options
+# Azure Functions Networking Options
 
 This document describes the suite of networking features available across the Azure Functions hosting options. All of the following networking options provide some ability to access resources without using internet routable addresses, or restrict internet access to a Function App. The hosting models all have different levels of network isolation available, and choosing the correct one will allow you to meet your network isolation requirements.
 

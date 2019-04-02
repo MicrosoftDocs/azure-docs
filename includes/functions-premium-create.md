@@ -16,14 +16,14 @@ ms.custom: include file
 3. Select **Serverless Function App**
 4. Enter all of your information into the creation settings and set your **Hosting plan** to **App Service Plan**:
     
-    ![Create function app plan](./media/functions-premium-create/Create-Function-App-Plan.png)  
+    ![Create function app plan](./media/functions-premium-create/create-function-app-plan.png)  
 
     1. Select a Premium Plan (EP) Service Plan level. 
-        ![Select premium plan](./media/functions-premium-create/Hosting-Plan.png)  
+        ![Select premium plan](./media/functions-premium-create/hosting-plan.png)  
 
     1. Validate your completed plan settings.  
-        ![Finished app service plan](./media/functions-premium-create/Create-App-Service-Plan.png)  
+        ![Finished app service plan](./media/functions-premium-create/create-app-service-plan.png)  
     
 1. Validate your app and plan settings and click **Create**
 
-    ![Finished app service plan](./media/functions-premium-create/Create-Function-App.png)  
+    ![Finished app service plan](./media/functions-premium-create/create-function-app.png)  
