@@ -105,7 +105,7 @@ Log Analytics can collect events from the Linux Syslog and performance counters 
 2. You add an event log by typing in the name of the log. Type **Syslog** and then click the plus sign **+**.  
 3. In the table, uncheck the severities **Info**, **Notice** and **Debug**. 
 4. Click **Save** at the top of the page to save the configuration.
-5. Select **Linux Performance Data** to enable collection of performance counters on a Linux server. 
+5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each. 
 
     ![Default Windows performance counters selected](media/quick-collect-linux-computer/linux-perfcounters-default.png)
