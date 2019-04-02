@@ -89,7 +89,7 @@
           href: widevine-license-template-overview.md
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
-    - name: Streaming Endpoints
+    - name: Streaming Endpoints/Origin
       displayName: origins, cdn 
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
@@ -130,10 +130,8 @@
     items:
     - name: Azure Media Player
       href: use-azure-media-player.md
-  - name: Media Services entities
-    items:
-    - name: Sorting, filtering, paging of entities
-      href: entities-overview.md 
+  - name: Developing with v3 APIs
+    href: entities-overview.md 
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -146,10 +144,17 @@
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
-    - name: Start developing
+    - name: Develop with REST
+      items:
+      - name: Connect with Postman
+        href: media-rest-apis-with-postman.md       
+    - name: Develop with SDKs
       href: developers-guide.md
-    - name: Configure Postman
-      href: media-rest-apis-with-postman.md      
+      items:
+      - name: Connect with .NET 
+        href: configure-connect-dotnet-howto.md
+      - name: Connect with Node.js
+        href: configure-connect-nodejs-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET

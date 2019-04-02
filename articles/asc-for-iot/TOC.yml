@@ -1,4 +1,4 @@
-- name: ASC for IoT Preview Documentation
+- name: Azure Security Center (ASC) for IoT Preview Documentation
   href: index.yml
 - name: Overview
   href: overview.md
