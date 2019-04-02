@@ -16,7 +16,7 @@ ms.author: wolfma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C++ console application for macOS 10.13 and above. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for macOS](https://aka.ms/csspeech/macosbinary) and your Mac's default C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for macOS 10.13 and above. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your Mac's microphone. The application is built with the [Speech SDK for macOS](https://aka.ms/csspeech/macosbinary) and your Mac's default C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
