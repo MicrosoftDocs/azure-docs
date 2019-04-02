@@ -33,7 +33,7 @@ To include a service in Impact Level 5 scope, there are two key areas that will 
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running operations and workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated on dedicated physical nodes.
+The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated on dedicated physical nodes.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
 
@@ -147,7 +147,7 @@ All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk
 
 Specific VM types when deployed consume the entire physical host for that VM. These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions.  In addition to deploying on these hosts, the underlying storage and disks for these virtual machines must be configured with encryption at rest.
 
-Each of the above VM types can be deployed leveraging Virtual Machine scale sets to provide proper compute isolation with all the benefits of Virtual Machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
+Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 Current VM SKUs that offer necessary compute isolation include specific offerings from our VM families:
 
@@ -333,19 +333,19 @@ Azure Key Vault can be used in Azure Government supporting all impact levels wit
 
 ### [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
 
-Azure Analysis Services can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Analysis Services can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Azure Analysis Services** | X | X | X | X | X | X |
+| **Azure Analysis Services** |  |  |  |  | X | X |
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
-Azure Cache for Redis can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Cache for Redis can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Azure Cache for Redis** | X | X | X | X | X | X |
+| **Azure Cache for Redis** |  |  |  |  | X | X |
 
 ### [Azure Import/Export](../storage/common/storage-import-export-service.md)
 
