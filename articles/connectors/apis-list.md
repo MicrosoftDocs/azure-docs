@@ -262,11 +262,6 @@ you can [submit connectors for Microsoft certification](../logic-apps/custom-con
 * To submit or vote on ideas for Azure Logic Apps and connectors, 
 visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
-* Are the docs missing articles or details you think are important? 
-If yes, you can help by adding to the existing articles or by writing your own. 
-The documentation is open source and hosted on GitHub. 
-Get started at the Azure documentation's [GitHub repository](https://github.com/Microsoft/azure-docs). 
-
 ## Next steps
 
 * Find the [connectors' full list](https://docs.microsoft.com/connectors)
