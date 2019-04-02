@@ -3,7 +3,7 @@ title: 'Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK 
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart

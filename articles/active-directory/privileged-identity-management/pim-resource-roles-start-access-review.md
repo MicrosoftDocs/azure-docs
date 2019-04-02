@@ -1,5 +1,5 @@
 ---
-title: Start an access review for Azure resource roles in PIM | Microsoft Docs
+title: Start an access review for Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to start an access review for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 
 # Start an access review for Azure resource roles in PIM
-Role assignments become "stale" when users have privileged access that they don't need anymore. To reduce the risk that's associated with these stale role assignments, privileged role administrators should regularly review roles. This document covers the steps for starting an access review in Privileged Identity Management (PIM) for Azure resources.
+Role assignments become "stale" when users have privileged access that they don't need anymore. To reduce the risk that's associated with these stale role assignments, privileged role administrators should regularly review roles. This document covers the steps for starting an access review in Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 From the PIM application main page, go to:
 
@@ -72,4 +72,4 @@ Until the review period is over, you can remind users to complete their review, 
 
 - [Complete an access review for Azure resource roles in PIM](pim-resource-roles-complete-access-review.md)
 - [Perform an access review of my Azure resource roles in PIM](pim-resource-roles-perform-access-review.md)
-- [Start an access review for Azure AD directory roles in PIM](pim-how-to-start-security-review.md)
+- [Start an access review for Azure AD roles in PIM](pim-how-to-start-security-review.md)

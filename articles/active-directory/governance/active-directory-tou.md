@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Terms of use| Microsoft Docs'
-description: Describes how to get started using Azure AD Terms of use to present information to employees or guests before getting access.
+title: Terms of use - Azure Active Directory | Microsoft Docs
+description: Describes how to get started using Azure Active Directory Terms of use to present information to employees or guests before getting access.
 services: active-directory
 author: rolyon
 manager: mtillman
