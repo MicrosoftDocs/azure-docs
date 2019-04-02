@@ -26,6 +26,10 @@ This article shows how to create a project from scratch and also how to create a
 
 ## Create new project and manage videos
 
+> [!NOTE]
+> Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
+
+
 1. In the home page of the Video Indexer website, select the **Projects** tab. 
 1. Click **Create new project**. If you have created projects before, you see all of your projects. 
 
@@ -45,7 +49,7 @@ This article shows how to create a project from scratch and also how to create a
 
     You can layer multiple filters to your query. Use +/- button to add/remove filters. Use **Clear filters** to remove all filters.
 1. To add the video, select them and then select Add.
-1. You can rearrange the order of the videos by hovering over each video and choosing to drag and drop. 
+1. You can rearrange the order of the videos by hovering over each video and choosing to move it. Or, drag and drop videos. 
 
     ![Rearrange](./media/video-indexer-view-edit/rearrange.png)
 1. You can remove the video by clicking on the list menu button.
@@ -67,9 +71,6 @@ This article shows how to create a project from scratch and also how to create a
 1. Click the pencil icon to make edits to the project. 
  
     Edits include adding or removing videos and clips or renaming the project.
-
-> [!NOTE]
-> Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
 
 ## Manage videos and edit insights
 
