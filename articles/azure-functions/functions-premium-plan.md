@@ -14,7 +14,7 @@ ms.author: jehollan
 
 ---
 
-# Azure Functions premium plan (preview)
+# Azure Functions Premium plan (preview)
 
 The Azure Functions premium plan is a hosting option for function apps. The premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
@@ -33,13 +33,13 @@ az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --numb
 
 ## Features
 
-The following features are available to apps deployed to an Azure Function premium plan.
+The following features are available to function apps deployed to a Premium plan.
 
 ### Pre-warmed instances
 
-If no events and executions occur today in the consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
 
-In the Azure Functions premium plan, you can have your app pre-warmed on a specified number of instances.  Pre-warmed  instances allow you to avoid cold start.  Pre-warmed instances also give you the ability to pre-scale an app before high load. As the app scales out, it will first scale into the pre-warmed instances. The plan will immediately continue to buffer out and warm additional instances in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start.  Pre-warmed instances is a feature of the premium plan, and as such you need at least one instance running and available at all times the plan is active.
+In the Premium plan, you can have your app pre-warmed on a specified number of instances.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
 You can configure the number of pre-warmed instances in the Azure portal by selecting  **Scale Out** in the **Platform Features** tab.
 
@@ -57,15 +57,15 @@ Azure Functions deployed to a premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your premium function app, you need a subnet with enough IP addresses for each potential instance. Though the maximum number of instances may vary during the preview, we require an IP block with at least 100 available addresses.
 
-More information can be found on how to [integrate your function app with a VNet](functions-create-vnet.md)
+Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
-Additional compute instances will be added for your app automatically using the same rapid scaling logic as the consumption plan.  More info on how scaling works can be found in [function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### Unbounded run duration
 
-Azure Functions in a consumption plan are limited to 10 minutes for a single execution.  In the premium plan, the run duration is unbounded.  By default an app is limited to 30 minutes (to prevent runaway executions), but you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevents runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
 
 ## Plan and SKU settings
 

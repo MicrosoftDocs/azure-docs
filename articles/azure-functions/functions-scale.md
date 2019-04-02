@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 Azure Functions runs in two different plans: Consumption plan and Premium plan (public preview). The Consumption plan automatically adds compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  The Premium plan will also automatically scale and add additional compute power when your code is running.  The Premium plan comes with additional features like premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.  If you have an existing App Service Plan, you can also run your function apps within them.
 
 > [!NOTE]  
-> Consumption plan for Linux is [now in Public Preview](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
+> Both [Premium plan](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) and [Consumption plan for Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) are currently in preview.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
@@ -33,7 +33,7 @@ When you create a function app, you choose the hosting plan for functions in the
 * Instance features like VNet connectivity.
 
 > [!NOTE]
-> You can move between consumption and premium plan for an app that is already created by modifying the plan property of the app resource.
+> You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
 
 ## Consumption plan
 
@@ -81,7 +81,7 @@ Consider an App Service plan in the following cases:
 * You have existing, underutilized VMs that are already running other App Service instances.
 * You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
-You will pay the same for functions in an App Service Plan as you would for other resources like Web Apps in an App Service Plan. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md). 
+You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md). 
 
 With an App Service plan, you can manually scale out by adding more VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
 
@@ -126,7 +126,7 @@ In the consumption and premium plans, the scale controller automatically scales 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
 > [!NOTE]
-> When you're using a blob trigger on a consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium Plan, or use the Event Grid trigger. For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium plan, or use the [Event Grid trigger](functions-bindings-event-grid.md). For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
 
 ### Runtime scaling
 

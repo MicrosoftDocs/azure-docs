@@ -10,7 +10,7 @@ ms.date: 12/03/2018
 ms.author: alkarche
 
 ---
-# Integrate a Function App with an Azure Virtual Network
+# Integrate a function app with an Azure virtual network
 
 This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET.
 
@@ -26,7 +26,7 @@ For more information on how the system works, troubleshooting, and advanced conf
 
 To start off, we will create a pre-configured VM running Wordpress inside of a VNET. 
 
-Wordpress on a VM was chosen because it is one of the least expensive resources that can be deployed inside of a VNET. Note that this scenario can also work with any resource in a VNET including REST APIs, other Azure Services, App Service environments, etc.
+Wordpress on a VM was chosen because it is one of the least expensive resources that can be deployed inside of a VNET. Note that this scenario can also work with any resource in a VNET, such as REST APIs, App Service environments, and other Azure services.
 
 1. Go to the Azure portal
 2. Add a new resource by opening the “Create a resource” blade
@@ -38,7 +38,7 @@ Wordpress on a VM was chosen because it is one of the least expensive resources 
     1. Select the size as B1s (1 vcpu, 1 GB memory)
     1. For the administrator account, choose password authentication and enter a unique username and password. For this tutorial, you will not need to sign in to the VM unless you need to troubleshoot.
     
-        <img src="./media/functions-create-vnet/create-VM-1.png" width="700">
+        ![Create VM Basics tab](./media/functions-create-vnet/create-VM-1.png)
 
 1. Move to the networking tab and enter the following information:
     1.	Create a new virtual network
@@ -66,7 +66,7 @@ The next step is to create a function app in a premium plan. The premium plan is
 
 ## Connect your Function App to your VNET
 
-Now we have a wordpress site hosing many files from within a VNET, and will now need to connect the Function app to that VNET.
+With a WordPress site hosing files from within your VNET, you can now connect the function app to the VNET.
 
 1.	In the portal for the Function App from the previous step select **Platform features**, then select **Networking**
 
@@ -74,7 +74,7 @@ Now we have a wordpress site hosing many files from within a VNET, and will now 
 
 1.	Select **Click to configure** under VNet Integration
 
-    <img src="./media/functions-create-vnet/Networking-1.png" width="450">
+    ![Configure network feature status](./media/functions-create-vnet/Networking-1.png)
 
 1. In the VNET integration page, select **Add VNet (preview)**
 
@@ -106,7 +106,7 @@ Your Function App is connected to both the Internet and your VNET. The proxy is 
 
 ## Next Steps
 
-Azure Functions running on Premium plans share the same underlying infrastructure as web apps, so all of the documentation for Web Apps will apply to Premium plan Functions.
+Functions running in a Premium plan share the same underlying App Service infrastructure as Web Apps. This means that all of the documentation for Web Apps applies to your Premium plan functions.
 
 1. [Learn more about VNET integration with App Service / Functions here](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Learn more about VNETs in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
