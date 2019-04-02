@@ -57,7 +57,9 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1902 (if any) before updating to 1903.
+> Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1902 (if any) before updating to 1903.
+
+- Make sure to use the latest version of the [Azure Stack capacity planner](https://aka.ms/azstackcapacityplanner) to do your workload planning and sizing. The latest version contains bug fixes and provides new features that are released with each Azure Stack update.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
