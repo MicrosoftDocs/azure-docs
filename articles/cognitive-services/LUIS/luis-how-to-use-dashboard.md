@@ -1,7 +1,7 @@
 ---
 title: Summary dashboard
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Problem solve with the summary dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
+description: Fix intents with the summary dashboard, a visualized reporting tool.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: diberry
 
 # How to use the Summary dashboard to improve your app
 
-The summary dashboard enables you to find and fix problems with your trained app's intents and entities. The summary dashboard displays overall app information, with highlights of intents that should be fixed. Intents can have several problematic issues: data imbalance, unclear predictions or incorrect predictions. 
+Find and fix problems with your trained app's intents. The summary dashboard displays overall app information, with highlights of intents that should be fixed. 
 
 ## What issues can be fixed from dashboard?
 
@@ -57,11 +57,11 @@ Each problem area has intents that need to be fixed. When you select the intent 
 
 ### Compare changes across versions
 
-Create a new version before making changes to the app. In the new version, make the suggested changes to the intent's example utterances, then train again. On the Summary page, use the **Show change from version** to compare the changes. 
+Create a new version before making changes to the app. In the new version, make the suggested changes to the intent's example utterances, then train again. On the Summary page's **Training evaluation** card, use the **Show change from trained version** to compare the changes. 
 
 ![Compare changes across versions](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### Fix app by adding or editing example utterances and retraining
+### Fix version by adding or editing example utterances and retraining
 
 The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](luis-concept-utterance.md).
 
@@ -69,7 +69,7 @@ Adding example utterances should be done by someone who:
 
 * has a high degree of understanding of what utterances are in the different intents
 * knows how utterances in one intent may be confused with another intent
-* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the differences pulled out with entities
+* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the different data pulled out with entities
 
 ### Patterns and phrase lists
 
