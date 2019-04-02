@@ -23,12 +23,12 @@ To use the Custom Vision Service for image classification, you must first build 
 - A set of images with which to train your classifier. See below for tips on choosing images.
 
 
-## Create Custom Vision resources in the Azure Portal
+## Create Custom Vision resources in the Azure portal
 To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
 
 ## Create a new project
 
-In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure Portal.
+In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure portal.
 
 ![Image of the sign-in page](./media/browser-home.png)
 
@@ -39,8 +39,8 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
-> [!NOTE]
-> If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure Portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
+   > [!NOTE]
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
 1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You will be able to change the classification type later if you wish.
 
