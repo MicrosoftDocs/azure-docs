@@ -18,8 +18,10 @@ When you create a logic app, you can expand your logic
 app's definition into an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
 You can then use this template for automating deployments 
 by defining the resources and parameters you want used for 
-deployment. That way, you can deploy logic apps more easily 
-and to any environment or Azure resource group you want. 
+deployment and providing the parameter values through a 
+[parameters file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+That way, you can deploy logic apps more easily and 
+to any environment or Azure resource group you want. 
 
 For more about Azure Resource Manager templates, 
 see these articles:
@@ -51,9 +53,9 @@ Inside your logic app definition, references to these connections
 appear inside your logic app definition's `parameters` section.
 
 To create a logic app template that you can use with Azure resource group deployments,
-you must define the resources and parameterize as needed.
-For example, if you're deploying to a development, test, and production environment,
-you likely want to use different connection strings to a SQL database in each environment.
+you must define the resources and parameterize as necessary. For example, if you're 
+deploying to a development, test, and production environment, you likely want 
+to use different connection strings to a SQL database in each environment.
 Or, you might want to deploy within different subscriptions or resource groups.  
 
 ## Create logic app deployment templates
@@ -91,13 +93,13 @@ strings so that you can set those values at deployment.
 
 ### Install PowerShell module for logic app templates
 
-Either The easiest way to install the module, use this command 
-is from the 
+For the easiest way to install the module from the 
 [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), 
+use this command:
 
 `Install-Module -Name LogicAppTemplate`
 
-Or, you can manually install the PowerShell module:
+You can also manually install the PowerShell module:
 
 1. Download the latest [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
 
@@ -112,79 +114,80 @@ After PowerShell is installed, you can generate a template by using the followin
 
 `$SubscriptionId` is the Azure subscription ID. This line first gets an access token via ARMClient, then pipes it through to the PowerShell script, and then creates the template in a JSON file.
 
-## Add parameters to logic app template
+## Parameters in logic app templates
 
-After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
+After you create your logic app template, you can 
+add and edit any necessary parameters. Your template 
+has more than one `parameters` section, for example: 
 
-To store the values for your parameters, create a
-[parameters file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+* Your logic app's workflow definition has its own 
+[`parameters` section](../logic-apps/logic-apps-workflow-definition-language.md#parameters) 
+where you can define all the parameters that your 
+logic app uses for accepting inputs at deployment.
 
-### Add references for dependent resources to Visual Studio deployment templates
+* Your Resource Manager template has its own 
+[`parameters` section](../azure-resource-manager/resource-group-authoring-templates.md#parameters), 
+separate from your logic app's `parameters` section. 
+For example:
 
-When you want your logic app to reference dependent resources, you can use 
-[Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) 
-in your logic app deployment template. 
+  [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-For example, you might want your logic app to reference an Azure Function 
-or integration account that you want to deploy alongside your logic app. 
-Follow these guidelines about how to use parameters in your deployment template 
-so that the Logic App Designer renders correctly. 
+For example, suppose your logic app definition references 
+a resource ID that represents an Azure function or a nested 
+logic app workflow, and you want to deploy that resource ID 
+along with your logic app as a single deployment. You can 
+add that ID as a resource in your template and parameterize 
+that ID. You can use this same approach for references to 
+custom APIs or OpenAPI endpoints (formerly "Swagger") 
+that you want deployed with each Azure resource group.
 
-You can use logic app parameters in these kinds of triggers and actions:
+When you use parameters in your deployment template, 
+follow this guidance so the Logic Apps Designer can 
+show those parameters correctly:
 
-* Child workflow
-* Function app
-* API Management call
-* API connection runtime URL
-* API connection path
+* Use parameters only in these triggers and actions:
 
-And you can use template functions such as parameters, variables, 
-resourceId, concat, and so on. When you use parameters, 
-make sure to include the `defaultValue` property value so that 
-the Logic App Designer can display the parameters correctly. 
+  * Azure Functions app
+  * Nested or child logic app workflow
+  * API Management call
+  * API connection runtime URL
+  * API connection path
 
-For example, here's how you can define a parameter 
-that replaces the Azure Function resource ID:
+* When you define parameters, make sure that you provide 
+default values by using the `defaultValue` property value, 
+for example:
+
+  ```json
+  "parameters": {
+     "IntegrationAccount": {
+        "type":"string",
+        "minLength": 1,
+        "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource=group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+     }
+  },
+  ```
+
+* To secure or hide sensitive information in templates, 
+secure your parameters. Learn more about 
+[how to use secured parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow).
+
+Here's an example that shows how you can parameterize 
+the Azure Service Bus "Send message" action:
 
 ```json
-"parameters":{
-   "functionName": {
-      "type":"string",
-      "minLength":1,
-      "defaultValue":"<FunctionName>"
-   }
-}
-```
-
-And how you use the parameter:
-
-```json
-"MyFunction": {
-   "type": "Function",
-   "inputs": {
-      "body":{},
-      "function":{
-         "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-      }
-   },
-   "runAfter":{}
-}
-```
-
-Here's another example that shows how you can parameterize 
-the Azure Service Bus "send message" operation:
-
-``` json
 "Send_message": {
    "type": "ApiConnection",
    "inputs": {
       "host": {
          "connection": {
             "name": "@parameters('$connections')['servicebus']['connectionId']"
-         }
+         },
+         // If the `host.runtimeUrl` property appears in your template, 
+         // you can remove this property, which is optional, for example:
+         "runtimeUrl": {}
       },
-      "method": "post",
-      "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+      "method": "POST",
+      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
       "body": {
          "ContentData": "@{base64(triggerBody())}"
       },
@@ -193,7 +196,45 @@ the Azure Service Bus "send message" operation:
       }
    },
    "runAfter": {}
-}
+},
+```
+
+### Reference dependent resources
+
+If your logic app requires references to dependent resources, you can use 
+[Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) 
+in your logic app's deployment template. For example, suppose you want your 
+logic app to reference an Azure function or an integration account with definitions 
+for partners, agreements, and other artifacts you want deployed alongside your logic app.
+You can use Resource Manager template functions, such as `parameters`, 
+`variables`, `resourceId`, `concat`, and so on.
+
+Here's an example that shows how you can replace the resource 
+ID for an Azure function by defining these parameters:
+
+``` json
+"parameters": {
+   "<Azure-function-name>": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<Azure-function-name>"
+   }
+},
+```
+
+Here's how you use these parameters when referencing the Azure function:
+
+```json
+"MyFunction": {
+   "type": "Function",
+   "inputs": {
+      "body": {},
+      "function": {
+         "id":"[resourceid('Microsoft.Web/sites/functions','<Azure-Functions-app-name>', parameters('<Azure-function-name>'))]"
+      }
+   },
+   "runAfter": {}
+},
 ```
 
 ## Add logic app to Resource Group project
@@ -249,7 +290,7 @@ that you can add to any build or release pipeline.
 
 For authorization to deploy and generate the release pipeline, 
 you also need an Azure Active Directory (AD) 
-[service principal](../active-directory/develop/app-objects-and-service-principals). 
+[service principal](../active-directory/develop/app-objects-and-service-principals.md). 
 Learn more about [using service principals with Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure).
 
 1. In Azure Pipelines, choose **Empty** so that you create an empty pipeline.
@@ -264,3 +305,9 @@ manually or as part of the build process.
 
 5. Continue to build out steps in the release process for any other environment, 
 automated test, or approvers as needed.
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+
