@@ -250,4 +250,4 @@ Auto play – by default the player will start playing the video. you can choose
 
 For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) article.
 
-Also, check out [Video indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).
+Also, check out [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

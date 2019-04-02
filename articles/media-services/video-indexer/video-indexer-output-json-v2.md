@@ -14,7 +14,7 @@ ms.author: juliako
 
 # Examine the Video Indexer output produced by API
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, OCRs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -149,7 +149,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |sourceLanguage|The video's source language (assuming one master language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |language|The insights language (translated from the source language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |transcript|The [transcript](#transcript) dimension.|
-|ocr|The [ocr](#ocr) dimension.|
+|ocr|The [OCR](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
 |blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
