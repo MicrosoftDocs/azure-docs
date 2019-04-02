@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Enhanced Writes for Apache HBase (preview) 
+title: Azure HDInsight Enhanced Writes for Apache HBase
 description: Gives an overview of the Azure HDInsight Enhanced Writes feature, which uses premium managed disks to improve performance of the Apache HBase Write Ahead Log.
 services: hdinsight
 ms.service: hdinsight
