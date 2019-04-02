@@ -98,7 +98,7 @@
   - name: REST
     href: /rest/api/container-instances
   - name: PowerShell
-    href: /powershell/module/azurerm.containerinstance#container_instances
+    href: /powershell/module/az.containerinstance
   - name: .NET
     href: /dotnet/api/overview/azure/containerinstance
   - name: Python

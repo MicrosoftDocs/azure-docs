@@ -197,7 +197,7 @@
   - name: Go
     href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicebus
+    href: /powershell/module/az.servicebus
   - name: REST
     href: /rest/api/servicebus
   - name: Resource Manager template

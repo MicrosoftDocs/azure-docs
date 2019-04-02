@@ -28,6 +28,17 @@ In the second block of code, a data source object is created using the [DataSour
 
 A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders line objects wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). The last block of code creates and adds a line layer to the map. See properties of a line layer at [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). The data source and the line layer are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that the line is displayed after the map loads fully.
 
+## Add symbols along a line
+
+This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the "placement" option to "line", this will render the symbols along the line and rotate the icons (0 degrees = right).
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Show arrow along line" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show arrow along line</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Customize a line layer
 
 The Line layer several styling options. Here is a tool to try them out.
@@ -79,6 +90,17 @@ In the second block of code, a data source object is created using the [DataSour
 A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) renders data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) on the map. See properties of a polygon layer at [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) is an array of lines. See properties of a line layer at [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). The third block of code creates polygon and line layers.
 
 The last block of code adds the polygon and line layers to the map. The data source and the layers are created and added to the map within the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to ensure that the polygon is displayed after the map loads fully.
+
+## Fill a polygon with a pattern
+
+In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Polygon fill pattern" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon fill pattern</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## Customize a polygon layer
 

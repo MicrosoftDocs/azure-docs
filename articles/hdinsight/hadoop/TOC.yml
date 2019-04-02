@@ -28,6 +28,9 @@
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Cluster capacity planning
@@ -413,6 +416,9 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+      maintainContext: true
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true

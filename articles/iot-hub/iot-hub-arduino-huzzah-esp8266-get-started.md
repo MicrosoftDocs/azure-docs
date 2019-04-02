@@ -163,10 +163,10 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
 9. In the **User Settings** window, copy and paste the following at the end of the file
 
-   ```
+   ```json
    "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
-   
+
    ![Configure Arduino package URL in VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
 10. Save the file and close the **User Settings** tab.
@@ -208,7 +208,7 @@ The sample application can simulate temperature and humidity data in case you do
    ```c
    define SIMULATED_DATA true
    ```
-   
+
    ![Configure the sample application to use simulated data](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 3. Save the file.
@@ -246,8 +246,14 @@ If you see the following output from the serial monitor window and the blinking 
 
 ![Final output in Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
+## Read the messages received by your hub
+
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+For more ways to process data sent by your device, continue on to the next section.
+
 ## Next steps
 
-You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub, and sent the captured sensor data to your IoT hub. 
+You have successfully connected a Feather HUZZAH ESP8266 to your IoT hub, and sent the captured sensor data to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

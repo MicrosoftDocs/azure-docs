@@ -52,8 +52,20 @@
       href: quickstart-device-streams-proxy-c.md
 - name: Tutorials
   items:
-  - name: Routing messages
-    href: tutorial-routing.md
+  - name: Routing messages 
+    items:
+    - name: Part 1 - Configure message routing
+      items:
+      - name: Portal
+        href: tutorial-routing.md
+      - name: Azure RM template
+        href: tutorial-routing-config-message-routing-RM-template.md
+      - name: Azure CLI
+        href: tutorial-routing-config-message-routing-CLI.md
+      - name: PowerShell
+        href: tutorial-routing-config-message-routing-PowerShell.md
+    - name: Part 2 - View message routing results
+      href: tutorial-routing-view-message-routing-results.md 
   - name: Use metrics and diagnostic logs
     href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
