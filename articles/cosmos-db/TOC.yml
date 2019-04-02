@@ -465,6 +465,9 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Model and partition a real-world example
+        displayName: model, partition, example
+        href: how-to-model-partition-example.md
       - name: Configure time to live
         displayName: delete, delete data, ttl
         href: how-to-time-to-live.md
@@ -484,9 +487,6 @@
         href: how-to-write-javascript-query-api.md
       - name: Use stored procedures, triggers, & UDFs
         href: how-to-use-stored-procedures-triggers-udfs.md 
-    - name: How to model and partition a real-world example
-      displayName: model, partition, example
-      href: how-to-model-partition-example.md
     - name: Security
       items:
       - name: Configure IP firewall

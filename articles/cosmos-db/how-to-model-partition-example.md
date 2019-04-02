@@ -10,13 +10,13 @@ ms.author: thweiss
 
 # How to model and partition a real-world example
 
-This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
+This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
-If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into sub-optimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity co-location and container partitioning.
+If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
 ## The domain
 
-The domain we are going to consider for our exercise is the one of a blogging platform where *users* can create *posts*. Users can also *like* and add *comments* to those posts.
+For this exercise, we are going to consider the domain of a blogging platform where *users* can create *posts*. Users can also *like* and add *comments* to those posts.
 
 > [!TIP]
 > We have highlighted some words in *italic*; these words identify the kind of "things" our model will have to manipulate.
@@ -24,7 +24,7 @@ The domain we are going to consider for our exercise is the one of a blogging pl
 Adding more requirements to our specification:
 
 - a front page displays a feed of recently created posts,
-- it is possible to fetch all posts for a user, all comments for a post and all likes for a post,
+- we can fetch all posts for a user, all comments for a post and all likes for a post,
 - posts are returned with the username of their authors and a count of how many comments and likes they have,
 - comments and likes are also returned with the username of the users who have created them,
 - when displayed as lists, posts only have to present a truncated summary of their content.
@@ -33,7 +33,7 @@ Adding more requirements to our specification:
 
 To start, we give some structure to our initial specification by identifying our solution's access patterns. When designing a data model for Azure Cosmos DB, it's important to understand which requests our model will have to serve to make sure that the model will serve those requests efficiently.
 
-To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) where commands are write requests (i.e. intents to update the system) and queries are read-only requests.
+To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) where commands are write requests (that is, intents to update the system) and queries are read-only requests.
 
 Here is the list of requests that our platform will have to expose:
 
@@ -48,13 +48,13 @@ Here is the list of requests that our platform will have to expose:
 - [Q5] List a post's likes
 - [Q6] List the *x* most recent posts created in short form (feed)
 
-Note that as this stage, we haven't really thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. This is much less of a concern with a document database that doesn't enforce any schema at write.
+As this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
 The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability.
 
 ## V1: A first version
 
-We start with 2 containers: `users` and `posts`.
+We start with two containers: `users` and `posts`.
 
 ### Users container
 
@@ -69,7 +69,7 @@ We partition this container by `id`, which means that each logical partition wit
 
 ### Posts container
 
-This container hosts posts, comments and likes:
+This container hosts posts, comments, and likes:
 
     {
       "id": "<post-id>",
@@ -100,9 +100,9 @@ This container hosts posts, comments and likes:
 
 We partition this container by `postId`, which means that each logical partition within that container will contain one post, all the comments for that post and all the likes for that post.
 
-Note that we have introduced a `type` property in the items stored in this container in order to distinguish between the three types of entities that this container hosts.
+Note that we have introduced a `type` property in the items stored in this container to distinguish between the three types of entities that this container hosts.
 
-Also, note that we have chosen to reference related data instead of embedding it (check [this section](modeling-data.md) for details about these concepts) because:
+Also, we have chosen to reference related data instead of embedding it (check [this section](modeling-data.md) for details about these concepts) because:
 
 - there's no upper limit to how many posts a user can create,
 - posts can be arbitrarily long,
@@ -111,11 +111,11 @@ Also, note that we have chosen to reference related data instead of embedding it
 
 ## How well does our model perform?
 
-It's now time to assess the performance and scalability of our first version. For each of the requests we have previously identified, we measure its latency and how many request units it consumes. This measurement is done against a dummy data set containing 100,000 users with 5 to 50 posts per user, and up to 25 comments and 100 likes per post.
+It's now time to assess the performance and scalability of our first version. For each of the requests previously identified, we measure its latency and how many request units it consumes. This measurement is done against a dummy data set containing 100,000 users with 5 to 50 posts per user, and up to 25 comments and 100 likes per post.
 
 ### [C1] Create/edit a user
 
-This request is pretty straightforward to implement as we just create or update an item in the `users` container. The requests will nicely spread across all partitions by virtue of the `id` partition key.
+This request is straightforward to implement as we just create or update an item in the `users` container. The requests will nicely spread across all partitions thanks to the `id` partition key.
 
 ![Writing a single item to the users container](./media/how-to-model-partition-example/V1-C1.png)
 
@@ -125,7 +125,7 @@ This request is pretty straightforward to implement as we just create or update 
 
 ### [Q1] Retrieve a user
 
-Just as easy, retrieving a user is done by reading the corresponding item from the `users` container.
+Retrieving a user is done by reading the corresponding item from the `users` container.
 
 ![Retrieving a single item from the users container](./media/how-to-model-partition-example/V1-Q1.png)
 
@@ -149,7 +149,7 @@ We start by retrieving the corresponding document from the `posts` container. Bu
 
 ![Retrieving a post and aggregating additional data](./media/how-to-model-partition-example/V1-Q2.png)
 
-Each of the additional queries filters on the partition key of its respective container, which is exactly what we want to maximize performance and scalability. But we eventually have to perform 4 operations in order to return a single post, so this can be improved in a next iteration.
+Each of the additional queries filters on the partition key of its respective container, which is exactly what we want to maximize performance and scalability. But we eventually have to perform four operations to return a single post, so we'll improve that in a next iteration.
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -161,7 +161,7 @@ First, we have to retrieve the desired posts with a SQL query that fetches the p
 
 ![Retrieving all posts for a user and aggregating their additional data](./media/how-to-model-partition-example/V1-Q3.png)
 
-This presents many drawbacks:
+This implementation presents many drawbacks:
 
 - the queries aggregating the counts of comments and likes have to be issued for each post returned by the first query,
 - the main query does not filter on the partition key of the `posts` container, leading to a fan-out and a partition scan across the container.
@@ -172,7 +172,7 @@ This presents many drawbacks:
 
 ### [C3] Create a comment
 
-This is simply achieved by creating the corresponding item in the `posts` container.
+A comment is created by writing the corresponding item in the `posts` container.
 
 ![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -186,13 +186,13 @@ We start with a query that fetches all the comments for that post and once again
 
 ![Retrieving all comments for a post and aggregating their additional data](./media/how-to-model-partition-example/V1-Q4.png)
 
-Although the main query does filter on the container's partition key, aggregating the usernames separately penalizes the overall performance. This is something that we can improve later on.
+Although the main query does filter on the container's partition key, aggregating the usernames separately penalizes the overall performance. We'll improve that later on.
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
 | 23 ms | 27.72 RU | ⚠ |
 
-## [C4] Like a post
+### [C4] Like a post
 
 Just like [C3], we create the corresponding item in the `posts` container.
 
@@ -218,7 +218,7 @@ We fetch the most recent posts by querying the `posts` container sorted by desce
 
 ![Retrieving most recent posts and aggregating their additional data](./media/how-to-model-partition-example/V1-Q6.png)
 
-Once again, our initial query does not filter on the partition key of the `posts` container, which triggers a costly fan-out. This one is even worse as we target a much larger result set and sort the results with an `ORDER BY` clause, which makes it more expensive in terms of request units.
+Once again, our initial query doesn't filter on the partition key of the `posts` container, which triggers a costly fan-out. This one is even worse as we target a much larger result set and sort the results with an `ORDER BY` clause, which makes it more expensive in terms of request units.
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Once again, our initial query does not filter on the partition key of the `posts
 
 ## Reflecting on the performance of V1
 
-Looking at the performance issues we faced in the previous section, we can identify 2 main classes of problems:
+Looking at the performance issues we faced in the previous section, we can identify two main classes of problems:
 
 - some requests require multiple queries to be issued in order to gather all the data we need to return,
 - some queries don't filter on the partition key of the containers they target, leading to a fan-out that impedes our scalability.
@@ -235,7 +235,7 @@ Let's resolve each of those problems, starting with the first one.
 
 ## V2: Introducing denormalization to optimize read queries
 
-The reason why we have to issue additional requests in some cases is because the results of the initial request does not contain all the data we need to return. When working with a non-relational data store like Azure Cosmos DB, this kind of issue is usually solved by denormalizing data across our data set.
+The reason why we have to issue additional requests in some cases is because the results of the initial request doesn't contain all the data we need to return. When working with a non-relational data store like Azure Cosmos DB, this kind of issue is commonly solved by denormalizing data across our data set.
 
 In our example, we modify post items to add the username of the post's author, the count of comments and the count of likes:
 
@@ -315,7 +315,7 @@ This stored procedure take the ID of the post and the body of the new comment as
 
 As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
 
-We obviously call a similar stored procedure when adding new likes in order to increment the `likeCount`.
+We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
 ### Denormalizing usernames
 
@@ -349,7 +349,7 @@ function updateUsernames(userId, username) {
 
 This stored procedure takes the ID of the user and the user's new username as parameters, then:
 
-- fetches all items matching the `userId` (which can be posts, comments or likes)
+- fetches all items matching the `userId` (which can be posts, comments, or likes)
 - for each of those items
   - replaces the `userUsername`
   - replaces the item
@@ -391,11 +391,11 @@ Exact same situation when listing the likes.
 
 ## V3: Making sure all requests are scalable
 
-Looking at our overall performance improvements, there are still 2 requests that we haven't fully optimized: [Q3] and [Q6]. Those are the requests involving queries that don't filter on the partition key of the containers they target.
+Looking at our overall performance improvements, there are still two requests that we haven't fully optimized: [Q3] and [Q6]. They are the requests involving queries that don't filter on the partition key of the containers they target.
 
 ### [Q3] List a user's posts in short form
 
-This request already benefits from the improvements introduced in V2 which spares additional queries.
+This request already benefits from the improvements introduced in V2, which spares additional queries.
 
 ![Retrieving all posts for a user](./media/how-to-model-partition-example/V2-Q3.png)
 
@@ -404,7 +404,7 @@ But the remaining query is still not filtering on the partition key of the `post
 The way to think about this situation is actually simple:
 
 1. This request *has* to filter on the `userId` because we want to fetch all posts for a particular user
-1. It does not perform well because it is executed against the `posts` container, which is not partitioned by `userId`
+1. It doesn't perform well because it is executed against the `posts` container, which is not partitioned by `userId`
 1. Stating the obvious, we would solve our performance problem by executing this request against a container that *is* partitioned by `userId`
 1. It turns out that we already have such a container: the `users` container!
 
@@ -455,9 +455,9 @@ We have to deal with a similar situation here: even after sparing the additional
 
 ![Retrieving most recent posts](./media/how-to-model-partition-example/V2-Q6.png)
 
-Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is actually conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts for example, without the need to paginate through the entire data set.
+Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
 
-So to optimize this last request, we introduce a third container to our design, totally dedicated to serving this request. We denormalize our posts to that new `feed` container:
+So to optimize this last request, we introduce a third container to our design, entirely dedicated to serving this request. We denormalize our posts to that new `feed` container:
 
     {
       "id": "<post-id>",
@@ -472,9 +472,9 @@ So to optimize this last request, we introduce a third container to our design, 
       "creationDate": "<post-creation-date>"
     }
 
-This container is partitioned by `type`, which will always be `post` in our items. This ensures that all the items in this container will sit in the same partition.
+This container is partitioned by `type`, which will always be `post` in our items. Doing that ensures that all the items in this container will sit in the same partition.
 
-To achieve the denormalization, we just have to hook on the change feed pipeline we have just introduced in order to dispatch the posts to that new container. One important thing to bare in mind is that we need to make sure that we only store the 100 most recent posts; otherwise, the content of the container may grow beyond the maximum size of a partition. This is done by calling a [post-trigger](stored-procedures-triggers-udfs.md#triggers) every time a document is added in the container:
+To achieve the denormalization, we just have to hook on the change feed pipeline we have previously introduced to dispatch the posts to that new container. One important thing to bare in mind is that we need to make sure that we only store the 100 most recent posts; otherwise, the content of the container may grow beyond the maximum size of a partition. This is done by calling a [post-trigger](stored-procedures-triggers-udfs.md#triggers) every time a document is added in the container:
 
 ![Denormalizing posts into the feed container](./media/how-to-model-partition-example/denormalization-3.png)
 
@@ -525,7 +525,7 @@ function truncateFeed() {
 }
 ```
 
-The final step is to re-route our query to our new `feed` container:
+The final step is to reroute our query to our new `feed` container:
 
 ![Retrieving most recent posts](./media/how-to-model-partition-example/V3-Q6.png)
 
