@@ -4646,6 +4646,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-certificates.md",
+      "redirect_url": "/azure/automation/shared-resources/certificates",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-variables.md",
       "redirect_url": "/azure/automation/shared-resources/variables",
       "redirect_document_id": false
