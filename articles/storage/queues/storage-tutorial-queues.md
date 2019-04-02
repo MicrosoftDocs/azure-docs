@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure storage account
 
-The first step in creating a queue is to create the Azure Storage Account that will store our data. There are several options you can supply when you create the account, most of which you can use the default selection. See the [Create a storage account](../common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart for a step-by-step guide to creating a storage account.
+The first step in creating a queue is to create the Azure Storage Account that will store our data. There are several options you can supply when you create the account, most of which you can use the default selection. See the [Create a storage account](../common/storage-quickstart-create-account) quickstart for a step-by-step guide to creating a storage account.
 
 ## Identify your queue
 
