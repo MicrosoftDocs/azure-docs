@@ -32,13 +32,13 @@ For .NET SDK Version 3.0 (Preview) code samples, see the latest samples in the [
 Visual Studio 2017 with the Azure development workflow installed
 - You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
+The [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
+
 An Azure subscription or free Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
   
-- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month, which you can use for paid Azure services.
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
-
-The [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
 > [!NOTE]
 > The samples are self-contained, and set up and clean up after themselves with multiple calls to [CreateDocumentCollectionAsync()](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx). Each occurrence bills your subscription for one hour of usage in your collection's performance tier. 
