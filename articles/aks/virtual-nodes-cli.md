@@ -42,7 +42,7 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## Regional availability limitations
+## Regional availability
 
 The following regions are supported for virtual node deployments:
 
