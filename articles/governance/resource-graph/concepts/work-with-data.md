@@ -92,7 +92,7 @@ matched the query.
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response won't include the **$skipToken**.
+> the query, the response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.
