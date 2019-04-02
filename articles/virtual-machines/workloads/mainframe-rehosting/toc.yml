@@ -9,25 +9,25 @@
   - name: Concepts
     items:
     - name: Compute
-      href: concepts/mainframe-compute-on-azure.md
+      href: concepts/mainframe-compute-azure.md
     - name: Storage
-      href: concepts/mainframe-storage-on-azure.md
+      href: concepts/mainframe-storage-azure.md
   - name: Micro Focus
     items:
     - name: Get started
       href: microfocus/get-started.md
     - name: Install Enterprise Server
-      href: microfocus/set-up-micro-focus-on-azure.md
+      href: microfocus/set-up-micro-focus-azure.md
     - name: Run CICS BankDemo
       href: microfocus/demo.md
     - name: Enterprise Server in containers
-      href: microfocus/run-enterprise-server-in-container.md
+      href: microfocus/run-enterprise-server-container.md
   - name: TmaxSoft OpenFrame
     items:
     - name: Get started
       href: tmaxsoft/get-started.md
     - name: Install OpenFrame
-      href: tmaxsoft/install-openframe-on-azure.md
+      href: tmaxsoft/install-openframe-azure.md
   - name: IBM
     items:
     - name: Get started

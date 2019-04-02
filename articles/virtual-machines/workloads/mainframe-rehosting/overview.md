@@ -34,7 +34,7 @@ Micro Focus Enterprise Server is one of the largest mainframe rehosting platform
 
 To get started:
 
-- [Install Enterprise Server and Enterprise Developer on Azure](./microfocus/set-up-micro-focus-on-azure.md)
+- [Install Enterprise Server and Enterprise Developer on Azure](./microfocus/set-up-micro-focus-azure.md)
 - [Set up CICS BankDemo for Enterprise Developer on Azure](./microfocus/demo.md)
 - [Run Enterprise Server in a Docker Container on Azure](./microfocus/run-enterprise-server-in-container.md)
 
@@ -46,7 +46,7 @@ TmaxSoft OpenFrame is a popular mainframe rehosting solution used in lift-and-sh
 To get started:
 
 - [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
+- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
 
 ## IBM zD&T 12.0
 
@@ -73,7 +73,7 @@ When you migrate mainframe workloads to Azure infrastructure as a service (IaaS)
 
 Azure compute power compares favorably to a mainframe’s capacity. If you're thinking of moving a mainframe workload to Azure, compare the mainframe metric of one million instructions per second (MIPS) to virtual CPUs. 
 
-Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-on-azure.md).
+Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azure.md).
 
 ### High availability and failover
 
@@ -90,7 +90,7 @@ Mainframes typically scale up, while cloud environments scale out. Azure offers 
 
 In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
-Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-on-azure.md).
+Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-azure.md).
 
 ### Backup and recovery
 
@@ -119,7 +119,7 @@ See also:
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md
-[microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
+[microfocus-setup]: /microfocus/set-up-micro-focus-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
 [ibm-install-z]: /ibm/install-ibm-z-environment.md
