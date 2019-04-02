@@ -36,7 +36,7 @@ To get started:
 
 - [Install Enterprise Server and Enterprise Developer on Azure](./microfocus/set-up-micro-focus-azure.md)
 - [Set up CICS BankDemo for Enterprise Developer on Azure](./microfocus/demo.md)
-- [Run Enterprise Server in a Docker Container on Azure](./microfocus/run-enterprise-server-in-container.md)
+- [Run Enterprise Server in a Docker Container on Azure](./microfocus/run-enterprise-server-container.md)
 
 
 ## TmaxSoft OpenFrame on Azure
