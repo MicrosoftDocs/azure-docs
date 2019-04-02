@@ -246,7 +246,6 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
                 config.AddAzureStorageCoreServices();
                 config.AddAzureStorage();
                 config.AddTimers();
-
                 config.AddDurableTask(options =>
                 {
                     options.HubName = "MyTaskHub";
