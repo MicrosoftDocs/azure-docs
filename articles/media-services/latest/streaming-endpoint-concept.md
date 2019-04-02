@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
 ---
 
@@ -21,6 +21,8 @@ In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video. 
+>  
+> You are only billed when your Streaming Endpoint is in running state.
 
 ## Naming convention
 
@@ -59,24 +61,11 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 <sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.
 
-## Working with CDN
-
-In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
-
-> [!NOTE]
-> The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
-
-### Detailed explanation of how caching works
-
-There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
- 
-You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
- 
 ## Properties 
 
 This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-- `accessControl` - Used to configure the following security settings for this streaming endpoint: Akamai signature header authentication keys and IP addresses that are allowed to connect to this endpoint.<br />This property can be set when `cdnEnabled` is set to false.
+- `accessControl` - Used to configure the following security settings for this streaming endpoint: Akamai signature header authentication keys and IP addresses that are allowed to connect to this endpoint.<br />This property can only be set when `cdnEnabled` is set to false.
 - `cdnEnabled` - Indicates whether or not the Azure CDN integration for this streaming endpoint is enabled (disabled by default). If you set `cdnEnabled` to true, the following configurations get disabled: `customHostNames` and `accessControl`.
   
     Not all data centers support the Azure CDN integration. To check whether or not your data center has the Azure CDN integration available, do the following:
@@ -126,6 +115,38 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Deleting - is being deleted
     
 - `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
+
+## Working with CDN
+
+In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
+
+### Considerations
+
+* The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
+* If you need the ability to test your content with or without CDN, you can create another Streaming Endpoint that isn't CDN enabled.
+
+### Detailed explanation of how caching works
+
+There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
+ 
+You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
+
+### Enable Azure CDN integration
+
+After a Streaming Endpoint is provisioned with CDN enabled there is a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
+
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in **starting** state and you might observe degraded performance.
+
+When the Standard streaming endpoint is created, it is configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs. 
+
+CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
+
+> [!IMPORTANT]
+> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](../../cdn/cdn-overview.md).
+
+### Determine if DNS change has been made
+
+You can determine if DNS change has been made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
 
 ## Next steps
 
