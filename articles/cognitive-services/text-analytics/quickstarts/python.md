@@ -18,12 +18,11 @@ ms.author: aahi
 
 This walkthrough shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Python.
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
+You can run this example from the command line or as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 ### Command line
-Another option is to run the sample from the command line (not the notebook).
 
 You may need to update [IPython](https://ipython.org/install.html), the kernel for Jupyter:
 ```bash
@@ -43,7 +42,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 * The [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-* The following imports, subscription key, and `text_analytics_base_url` are used for all quickstarts below.
+* The following imports, subscription key, and `text_analytics_base_url` are used for all quickstarts below. Add the imports.
 
     ```python
     import requests
@@ -52,14 +51,14 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
     from IPython.display import HTML
     ```
     
-    Add your key information to your file, then replace `subscription_key` with a valid subscription key that you obtained earlier.
+    Add these lines, then replace `subscription_key` with a valid subscription key that you obtained earlier.
     
     ```python
     subscription_key = '<ADD KEY HERE>'
     assert subscription_key
     ```
     
-    Next, verify that the region in `text_analytics_base_url` corresponds to the one you used when setting up the service. If you're using a free trial key, you don't need to change anything.
+    Next, add this line then verify that the region in `text_analytics_base_url` corresponds to the one you used when setting up the service. If you're using a free trial key, you don't need to change anything.
     
     ```python
     text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
