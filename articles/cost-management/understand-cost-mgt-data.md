@@ -66,7 +66,7 @@ If you don't see data for a subscription and you want to determine if your subsc
 
 ## Costs included in Cost Management
 
-The following tables show data that's included or isn't in Cost Management.
+The following tables show data that's included or isn't in Cost Management. Costs are estimated until the invoice is generated and do not include free and prepaid credits.
 
 **Cost and usage data**
 
