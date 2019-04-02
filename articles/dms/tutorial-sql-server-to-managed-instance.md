@@ -3,9 +3,9 @@ title: "Tutorial: Use DMS to migrate to an Azure SQL Database managed instance |
 description: Learn to migrate from SQL Server on-premises to an Azure SQL Database managed instance by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
@@ -147,9 +147,9 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Migration target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database managed instance to which you're migrating the **AdventureWorks2012** database.
 
-    If you haven't already provisioned the Azure SQL Database managed instance, select **No** for a link to help you provision the instance. You can still continue with project creation and then, when the Azure SQL Database managed instance is ready, return to this specific project to execute the migration.
+    If you haven't already provisioned the Azure SQL Database managed instance, select the [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) to help you provision the instance. You can still continue with project creation and then, when the Azure SQL Database managed instance is ready, return to this specific project to execute the migration.
 
-       ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+     ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. Select **Save**.
 

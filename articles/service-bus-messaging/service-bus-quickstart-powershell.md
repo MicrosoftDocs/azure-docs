@@ -93,15 +93,15 @@ To run the code, do the following:
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.	At the PowerShell prompt, type the following command:
+5. At the PowerShell prompt, type the following command:
 
    ```shell
    dotnet build
    ```
 
-6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+6. Navigate to the `bin\Debug\netcoreapp2.0` folder.
 
-7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+7. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

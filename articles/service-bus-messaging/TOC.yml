@@ -190,8 +190,14 @@
     href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
+  - name: PHP
+    href: https://github.com/Azure/azure-sdk-for-php
+  - name: Ruby
+    href: https://github.com/Azure/azure-sdk-for-ruby
+  - name: Go
+    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicebus
+    href: /powershell/module/az.servicebus
   - name: REST
     href: /rest/api/servicebus
   - name: Resource Manager template
@@ -218,8 +224,6 @@
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Pricing details
-    href: service-bus-pricing-billing.md
   - name: Serverless360
     href: https://www.serverless360.com/
   - name: Service Bus Explorer

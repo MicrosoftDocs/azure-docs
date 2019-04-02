@@ -208,7 +208,7 @@ Indexer configuration is in the body of the request. It requires a data source a
 
 Schedule and parameters are optional. If you omit them, the indexer runs immediately, using `json` as the parsing mode.
 
-This particular indexer does not include [field mappings](#field-mappings). Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
+This particular indexer does not include field mappings. Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
 
 
 ### REST Example
@@ -250,7 +250,7 @@ All indexers require a target index that receives the data. The body of the requ
 
 ### Indexer request
 
-This request shows a fully-specified indexer. It includes [field mappings](#field-mappings), which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
+This request shows a fully-specified indexer. It includes field mappings, which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
 
 Creating the indexer on Azure Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
 

@@ -80,7 +80,7 @@ If present, ensure that the DNS server is able to resolve backend pool member's 
 
 | Probe property | Value | Description |
 | --- | --- | --- |
-| Probe URL |http://127.0.0.1/ |URL path |
+| Probe URL |`http://127.0.0.1/` |URL path |
 | Interval |30 |Probe interval in seconds |
 | Time-out |30 |Probe time-out in seconds |
 | Unhealthy threshold |3 |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
@@ -89,7 +89,7 @@ If present, ensure that the DNS server is able to resolve backend pool member's 
 
 * Ensure that a default site is configured and is listening at 127.0.0.1.
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
-* The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
+* The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
 * Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
 * If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
@@ -115,7 +115,7 @@ Custom health probes allow additional flexibility to the default probing behavio
 Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
-* If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+* If Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 * Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
 * If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself.

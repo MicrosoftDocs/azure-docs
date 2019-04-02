@@ -28,7 +28,7 @@ With the latest cloud API release, Chef provides seamless integration with Azure
 In this article, you set up your Chef environment to provision Azure virtual machines and walk through creating a policy or “Cookbook” and then deploying this cookbook to an Azure virtual machine.
 
 ## Chef basics
-Before you begin, [review the basic concepts of Chef](http://www.chef.io/chef).
+Before you begin, [review the basic concepts of Chef](https://www.chef.io/chef).
 
 The following diagram depicts the high-level Chef architecture.
 

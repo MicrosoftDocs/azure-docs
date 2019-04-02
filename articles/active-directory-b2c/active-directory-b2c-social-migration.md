@@ -28,14 +28,14 @@ This article is a continuation of the user migration article, and focuses on soc
 * **Combine local account with social identity**. As mentioned, local account sign-in names, and social account identities are stored in different attributes. `signInNames` is used for local account, while `userIdentities` for social account. A single Azure AD B2C account, can be a local account only, social account only, or combine a local account with social identity in one user record. This behavior allows you to manage a single account, while a user can sign in with the local account credential(s) or with the social identities.
 
 * `UserIdentity` Type - Contains information about the identity of a social account user in an Azure AD B2C tenant:
-    * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
-    * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
+  * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
+  * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 

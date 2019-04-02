@@ -101,6 +101,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
     ![Periscope Data Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type any of the URLs:
+    
 	| |
 	|--|
 	| `https://app.periscopedata.com/` |
@@ -134,7 +135,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
 
-    f. The first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
+    f. Find the first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
 
     g. Find the tag **IDPSSODescriptor** with SAML protocol. Within that section, find the tag **KeyDescriptor** with **use=signing**. copy the value of **X509Certificate** and paste it in the **Certificate** textbox.
 
@@ -162,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -215,7 +216,7 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
     b. In **Last Name** text box, enter the last name of user like **Simon**.
 
-    c. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+    c. In **Email** text box, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Click **ADD**.
 

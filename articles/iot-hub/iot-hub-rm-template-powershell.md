@@ -1,16 +1,16 @@
 ﻿---
-title: Create an Azure IoT Hub using a template | Microsoft Docs
-description: How to use an Azure Resource Manager template to create an IoT Hub.
+title: Create an Azure IoT Hub using a template (PowerShell) | Microsoft Docs
+description: How to use an Azure Resource Manager template to create an IoT Hub with Azure PowerShell.
 author: robinsh
 manager: philmea
 ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/02/2019
 ---
 
-# Create an IoT hub using Azure Resource Manager template
+# Create an IoT hub using Azure Resource Manager template (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -26,22 +26,21 @@ The Resource Manager template used in this quickstart is from [Azure Quickstart 
 
 The template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging), and a consumer group. For more template samples, see [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). The Iot Hub template schema can be found  [here](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
-1. Select the following image to sign in to Azure and open the template. 
+There are several methods for deploying a template.  You use Azure PowerShell in this tutorial.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-with-consumergroup-create%2Fazuredeploy.json"><img src="./media/iot-hub-rm-template-powershell/deploy-to-azure.png" alt="deploy to azure"/></a>
+To run the PowerShell script, Select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select Paste:
 
-2. Select or enter the following values.  
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$iotHubName = Read-Host -Prompt "Enter the IoT Hub name"
 
-    ![Resource Manager template create Azure Iot Hub](./media/iot-hub-rm-template-powershell/create-azure-iot-hub-using-template-portal.png)
-
-    Unless it is specified, use the default value to create the Iot Hub and the consumer group.
-
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
-    * **Location**: select a location.  For example, **Central US**.
-    * **Iot Hub Name**: enter a unique name for the Iot Hub.  
-    * **I agree to the terms and conditions state above**: Select.
-3. Select **Purchase**.
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-with-consumergroup-create/azuredeploy.json" `
+    -iotHubName $iotHubName
+```
 
 ## Next steps
 

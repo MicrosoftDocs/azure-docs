@@ -71,6 +71,7 @@ The limitation is in the fact that when a non-selective `yum update` is run agai
 > RHEL 6 set of images were not moved to the new naming convention.
 
 The following offers are SKUs are currently available for general use:
+
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
 RHEL | 7-RAW | RAW | Linux Agent | RHEL 7 family of images

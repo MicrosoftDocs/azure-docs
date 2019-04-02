@@ -100,7 +100,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### View AD DS permissions of an object 
-You can use the cmdlet below to view the list of permissions currently set on a Active Directory object by providing its DistinguishedName: 
+You can use the cmdlet below to view the list of permissions currently set on an Active Directory object by providing its DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -154,7 +154,7 @@ This cmdlet will set the following permissions:
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
-|Allow|AD DS Connector Account|Read/Write property|MS-DS-Consistency-Guid|Descendant User objects|
+|Allow|AD DS Connector Account|Read/Write property|Descendant User objects|
 
 ### Permissions for Password Hash Synchronization 
 To set permissions for the AD DS Connector account when using Password Hash Synchronization, run: 
@@ -267,7 +267,7 @@ This PowerShell script will tighten permissions for the AD Connector Account pro
 - Disable inheritance on the specified object 
 - Remove all ACEs on the specific object, except ACEs specific to SELF as we want to keep the default permissions intact when it comes to SELF. 
  
- The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
+  The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

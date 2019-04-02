@@ -266,7 +266,7 @@ In this section, you build a simple ASP.NET application that displays data retri
            public string Quantity { get; set; }
        }
 	}
-	```
+    ```
 2. In Solution Explorer, expand the **Controllers** folder, then double-click the **HomeController.cs** file to open it in Visual Studio.
 3. In **HomeController.cs**, replace the existing namespace definition with the following code:
 
@@ -426,14 +426,14 @@ The next step is to republish the Azure Web app **ProductsPortal** frontend. Do 
 
 1. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
 
-  > [!NOTE]
-  > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
->
->
+   > [!NOTE]
+   > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
+   >
+   >
 
 2. Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
-  ![URL of the deployed app][9]
+   ![URL of the deployed app][9]
 
 3. Close the browser window to stop the running application.
 

@@ -30,6 +30,7 @@ The next diagram shows the process for creating a SaaS App offer.
 ## Offer components
 
 The SaaS App offer consists of five sections, described in the following table:
+
 |  **Asset group**   |  **Description**  |
 |  ---------------   |  ---------------  |
 |    Offer Settings  |  Use to configure a unique identity for the SaaS app.                 |

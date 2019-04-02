@@ -66,6 +66,7 @@ To add roles and users to a deployed model database, you must be connected to th
 2. In **Create Role**, enter a role name and description.
 
 3. Select a permission.
+
    |Permission|Description|  
    |----------------|-----------------|  
    |**Full control (Administrator)**|Members can modify the model schema, process, and can query all data.| 

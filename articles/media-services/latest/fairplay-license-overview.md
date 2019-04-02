@@ -1,6 +1,6 @@
 ---
 title: Media Services and Apple FairPlay license support - Azure | Microsoft Docs
-description: This topic gives an overview of a Apple FairPlay license requirements and configuration.
+description: This topic gives an overview of an Apple FairPlay license requirements and configuration.
 author: juliako
 manager: femila
 editor: ''

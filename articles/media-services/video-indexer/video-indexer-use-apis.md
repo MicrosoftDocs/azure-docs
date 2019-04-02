@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
 ---
 
@@ -29,10 +29,10 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	
 	![Sign in](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * You must use the same provider you used when you signed up for Video Indexer.
-    > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
-    > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
+   > [!Important]
+   > * You must use the same provider you used when you signed up for Video Indexer.
+   > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
+   > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
 
 2. Subscribe.
 
@@ -69,19 +69,6 @@ To make things easier, you can use the **Authorization** API > **GetAccounts** t
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
 You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://api-portal.videoindexer.ai/).
-
-## Location
-
-All operation APIs require a Location parameter, which indicates the region to which the call should be routed and in which the account was created.
-
-The values described in the following table apply. The **Param value** is the value you pass when using the API.
-
-|**Name**|**Param value**|**Description**|
-|---|---|---|
-|Trial|trail|Used for trial accounts.|
-|West US|westus2|Used for the Azure West US 2 region.|
-|North Europe |northeurope|Used for the Azure North Europe region.|
-|East Asia|eastasia|Used for the Azure East Asia region.|
 
 ## Account ID 
 
@@ -218,8 +205,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
+## See also
+
+- [Video Indexer overview](video-indexer-overview.md)
+- [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
 ## Next steps
 
 [Examine details of the output JSON](video-indexer-output-json-v2.md).
 
-[Video Indexer overview](video-indexer-overview.md)

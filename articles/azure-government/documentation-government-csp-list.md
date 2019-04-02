@@ -15,6 +15,7 @@ Since the launch of the [Azure Government in the Cloud Solution Provider Program
 
 Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **February 28, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 ## Approved direct CSPs
+
 |Partner Name|
 |----------------------------|
 |[10th Magnitude](https://www.10thmagnitude.com)|
@@ -240,7 +241,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
-|[Synergy Technical, LLC](http://www.syntechva.com/)|
+|[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
@@ -280,6 +281,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Zones Inc](https://www.zones.com/site/home/index.html)|
 
 ## Approved indirect CSPs
+
 |Partner Name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
@@ -289,10 +291,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Tech Data Corporation](https://www.techdata.com/)|
 
 ## Approved LSPs
+
 |LSP Name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
-|CompuCom Systems Inc.|sales@compucom.com|972-856-3600|
+|CompuCom Systems Inc.|sales\@compucom.com|972-856-3600|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |En Pointe Technologies|govsales@enpointe.com|310-337-5977|
 |Hewlett Packard||877-686-9637|

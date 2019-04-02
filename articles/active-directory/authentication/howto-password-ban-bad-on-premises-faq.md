@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory
@@ -15,12 +15,7 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Azure AD Password Protection on-premises - Frequently asked questions
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection on-premises - Frequently asked questions
 
 ## General questions
 
@@ -84,6 +79,10 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
 
+**Q: In what order should the DC agents and proxies be installed and registered?**
+
+Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
+
 **Q: Should I be concerned about the performance hit on my domain controllers from deploying this feature?**
 
 The Azure AD Password Protection DC Agent service shouldn't significantly impact domain controller performance in an existing healthy Active Directory deployment.
@@ -107,6 +106,10 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
+
+**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+
+Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
 
 ## Additional content
 

@@ -48,7 +48,7 @@ Access to query the endpoint is controlled by a setting on the **Application Inf
 A private app's endpoint is only available to the following:
 
 |Key and user|Explanation|
-|--|--|--|
+|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
 |Any key assigned to LUIS by an author or collaborator|Based on key usage tier|

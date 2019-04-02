@@ -69,6 +69,8 @@
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
+      - name: Group multiple actions on rules
+        href: howto-use-action-groups.md
       - name: Create webhook actions on rules
         href: howto-create-webhooks.md
       - name: Build workflows in Microsoft Flow
@@ -78,7 +80,6 @@
       - name: Trigger Azure Functions
         href: howto-trigger-azure-functions.md
       - name: Export your data
-        href: howto-export-data.md
         items:
         - name: Export to Event Hubs and Service Bus
           href: howto-export-data-event-hubs-service-bus.md

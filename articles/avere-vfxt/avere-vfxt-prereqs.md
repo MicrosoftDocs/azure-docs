@@ -120,6 +120,7 @@ You must create the cluster node role before you can create the Avere vFXT for A
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.Network/networkInterfaces/read",
           "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/read",
           "Microsoft.Network/virtualNetworks/subnets/read",
           "Microsoft.Network/virtualNetworks/subnets/join/action",
           "Microsoft.Network/networkSecurityGroups/join/action",
@@ -168,7 +169,7 @@ Create the storage service endpoint from the Azure portal.
 1. Leave the service as ``Microsoft.Storage`` and choose the cluster's subnet.
 1. At the bottom, click **Add**.
 
-  ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
+   ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
 
 ## Next step: Create the vFXT cluster

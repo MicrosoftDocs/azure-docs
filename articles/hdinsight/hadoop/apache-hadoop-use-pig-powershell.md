@@ -1,6 +1,6 @@
 ---
 title: Use Apache Pig with PowerShell in HDInsight - Azure 
-description: Learn how to submit Apache Pig jobs to a Apache Hadoop cluster on HDInsight using Azure PowerShell.
+description: Learn how to submit Apache Pig jobs to an Apache Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -16,12 +16,14 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-This document provides an example of using Azure PowerShell to submit Apache Pig jobs to a Apache Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin) that models data transformations, rather than map and reduce functions.
+This document provides an example of using Azure PowerShell to submit Apache Pig jobs to an Apache Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin) that models data transformations, rather than map and reduce functions.
 
 > [!NOTE]  
 > This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **An Azure HDInsight cluster**
 
@@ -36,11 +38,11 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on H
 
 The following cmdlets are used when running Pig jobs on a remote HDInsight cluster:
 
-* **Connect-AzureRmAccount**: Authenticates Azure PowerShell to your Azure Subscription.
-* **New-AzureRmHDInsightPigJobDefinition**: Creates a *job definition* by using the specified Pig Latin statements.
-* **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
-* **Wait-AzureRmHDInsightJob**: Uses the job object to check the status of the job. It waits until the job has completed, or the wait time has been exceeded.
-* **Get-AzureRmHDInsightJobOutput**: Used to retrieve the output of the job.
+* **Connect-AzAccount**: Authenticates Azure PowerShell to your Azure Subscription.
+* **New-AzHDInsightPigJobDefinition**: Creates a *job definition* by using the specified Pig Latin statements.
+* **Start-AzHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
+* **Wait-AzHDInsightJob**: Uses the job object to check the status of the job. It waits until the job has completed, or the wait time has been exceeded.
+* **Get-AzHDInsightJobOutput**: Used to retrieve the output of the job.
 
 The following steps demonstrate how to use these cmdlets to run a job on your HDInsight cluster.
 
@@ -72,7 +74,7 @@ If no information is returned when the job completes, view the error logs. To vi
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `

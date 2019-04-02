@@ -111,7 +111,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-This command saves the logs for the app named 'appname' to a file named **diagnostics.zip** in the current directory.
+This command saves the logs for the app named 'appname' to a file named **webapp_logs.zip** in the current directory.
 
 > [!NOTE]
 > If you haven't installed Azure CLI, or haven't configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

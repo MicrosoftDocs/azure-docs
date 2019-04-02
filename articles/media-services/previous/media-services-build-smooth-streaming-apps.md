@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
@@ -200,7 +200,7 @@ In this XAML file, some event handlers are associated with the controls.  You mu
          }
          # endregion
    ```
-The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
+   The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
 6. Press **CTRL+S** to save the file.
 
 The finished the code behind file shall look like this:
@@ -804,7 +804,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
             changeStreams(selectedStreams);
         }
    ```
-**To compile and test the application**
+   **To compile and test the application**
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -1006,7 +1006,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             changeStreams(selectedStreams);
          }
    ```
-**To compile and test the application**
+   **To compile and test the application**
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.

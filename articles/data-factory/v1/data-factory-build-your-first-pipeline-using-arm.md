@@ -49,6 +49,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 * See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
+
 | Entity | Description |
 | --- | --- |
 | Azure Storage linked service |Links your Azure Storage account to the data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. |
@@ -314,22 +315,22 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 ## Create data factory
 1. Start **Azure PowerShell** and run the following command: 
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
-	```PowerShell
-	Connect-AzAccount
-	```  
+     ```PowerShell
+     Connect-AzAccount
+     ```  
    * Run the following command to view all the subscriptions for this account.
-	```PowerShell
-	Get-AzSubscription
-	``` 
+     ```PowerShell
+     Get-AzSubscription
+     ``` 
    * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
-	```
-	Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-	```   
+     ```
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```   
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
 	```PowerShell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
-	```
+    ```
 
 ## Monitor pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
@@ -618,6 +619,7 @@ Here is a sample Resource Manager template for creating a logical gateway in the
 This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
 
 ## See Also
+
 | Topic | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |

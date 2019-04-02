@@ -45,8 +45,8 @@ Before you upgrade, note the following:-
     - Ensure that you the new SCVMMs that you add to the cluster has the same names as was before. 
 
 - If you are replicating between two of your sites managed by SCVMMs on both sides, ensure that you upgrade your recovery side first before you upgrade the primary side.
-> [!WARNING]
-> While upgrading the SCVMM 2012 R2, under Distributed Key Management, select to **store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selection, encrypted data such as passwords in templates might not be available after the upgrade, and can potentially affect replication with Azure Site Recovery
+  > [!WARNING]
+  > While upgrading the SCVMM 2012 R2, under Distributed Key Management, select to **store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selection, encrypted data such as passwords in templates might not be available after the upgrade, and can potentially affect replication with Azure Site Recovery
 
 > [!IMPORTANT]
 > Please refer to the detailed SCVMM documentation of [prerequisites](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)

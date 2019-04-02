@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/06/2019
+ms.date: 03/26/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -39,7 +39,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 - The Business Critical service tier is appropriate for business workloads where IO latency is a priority.
 
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
 |  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
 | **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
@@ -210,7 +210,7 @@ No. In public preview, you can’t move a Hyperscale database to another service
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
 
 ### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
