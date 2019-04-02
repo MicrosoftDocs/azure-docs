@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Security Center for IoT Edge module | Microsoft Docs
-description: Learn about how deploy Azure Security Center for IoT security agent on IoT Edge.
+description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/1/2019
 ms.author: mlottner
 
 ---
 
-# Deploy security module on your IoT Edge device
+# Deploy a security module on your IoT Edge device
 
 > [!IMPORTANT]
 > Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Security Center (ASC) for IoT **azureiotsecurity** module provides a comprehensive security solution for your IoT Edge device.
-Security module collects, aggregates and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
+**Azure Security Center (ASC) for IoT** module provides a comprehensive security solution for your IoT Edge device.
+Security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
 To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
 In this guide, you learn how to deploy a security module on your IoT Edge device.
@@ -37,37 +37,120 @@ Use the following steps to deploy an ASC for IoT security module for IoT Edge.
 
 ### Prerequisites
 
-1. Make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal).
+- In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-1. The ASC for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) installed on the Edge device.
+- ASC for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
-   Install the framework by running the following command on your Edge device:
+    - Install the framework by running the following command on your IoT Edge device:
    
-   `apt-get install auditd audispd-plugins`
+      `sudo apt-get install auditd audispd-plugins`
+   
+    - Verify AuditD is active by running the following command:
+   
+      `sudo systemctl status auditd`
+      
+        The expected response is `active (running)`. 
 
 ### Deployment using Azure portal
 
-1. Open **Marketplace** in Azure portal.
+1. From Azure portal, open **Marketplace**.
 
-1. Search for **azure iot security** and click on **Azure IoT Security**.
+1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
 
-   ![](media/howto/edge_onboarding_7.png)
+   ![Select Azure Security Center for IoT](media/howto/edge-onboarding-8.png)
 
-1. Click **Create**.
+1. Click **Create** to configure the deployment. 
 
-1. Choose your **Subscription**, **IoT Hub** and **IoT Edge Device Name**, then click **Create**.
+1. Choose the Azure **Subscription** of your IoT Hub, then select your **IoT Hub**.<br>Select **Deploy to a device** to target a single device or select **Deploy at Scale** to target multiple devices, and click **Create**. For more information about deploying at scale, see [How to deploy](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
 
-1. Click **Next** twice to **Review Deployment**.
+    >[!Note] 
+    >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
 
-1. Make sure **edgeHub.settings.createOptions** is configured as follows:
+There are three steps to create an IoT Edge deployment for Azure Security Center for IoT. The following sections walk through each one. 
 
-   `"createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"`
+#### Step 1: Add Modules
 
-1. Click **Submit** to complete the deployment.
+1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
+   
+1. Change the **name** to **azureiotsecurity**.
+1. Change the name  of **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
+      
+1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
+      
+    ``` json
+      "properties.desired": {
+        "azureiot*com^securityAgentConfiguration^1*0*0": {
+        }
+      }
+      ```
 
+1. Click **Save**.
+1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
+   
+  >[!Note]
+  > Do **not** disable AMQP communication for the IoT Edge Hub.
+  > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
+   
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
+      
+1. Verify **Create Options** is set to: 
+         
+    ``` json
+    {
+      "HostConfig": {
+        "PortBindings": {
+          "8883/tcp": [{"HostPort": "8883"}],
+          "443/tcp": [{"HostPort": "443"}],
+          "5671/tcp": [{"HostPort": "5671"}]
+        }
+      }
+    }
+    ```
+      
+1. Click **Save**.
+   
+1. Click **Next**.
+
+#### Step 2: Specify Routes 
+
+1. In the **Specify Routes** tab, set the **ASCForIoTToIoTHub** route to **"FROM /messages/modules/azureiotsecurity/\* INTO $upstream"**, and click **Next**.
+
+   ![Specify routes](media/howto/edge-onboarding-9.png)
+
+#### Step 3: Review Deployment
+
+1. In the **Review Deployment** tab, review your deployment information, then select **Submit** to complete the deployment.
+
+## Diagnostic steps
+
+If you encounter an issue, container logs are the best way to learn about the state of an IoT Edge security module device. Use the commands and tools in this section to gather information.
+
+### Verify the required containers are installed and functioning as expected
+
+1. Run the following command on your IoT Edge device:
+    
+     `sudo docker ps`
+   
+1. Verify that the following containers are running:
+   
+   | Name | IMAGE |
+   | --- | --- |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
+   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
+   
+   If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).
+
+### Inspect the module logs for errors
+   
+1. Run the following command on your IoT Edge device:
+
+   `sudo docker logs azureiotsecurity`
+   
+1. For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
 
 ## Next steps
 
 To learn more about configuration options, continue to the how-to guide for module configuration. 
 > [!div class="nextstepaction"]
-> [Module configuration how to guide](./how-to-agent-configuration.md)
+> [Module configuration how-to guide](./how-to-agent-configuration.md)
