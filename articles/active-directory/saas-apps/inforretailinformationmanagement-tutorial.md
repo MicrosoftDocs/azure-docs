@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Infor Retail – Information Management | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Infor Retail – Information Management.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 5ff49168-ef81-4169-8e5e-dc86e24dd5e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Infor Retail – Information Management
 
@@ -108,6 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Infor Retail – Information Management Domain and URLs single sign-on information IDP](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following patterns: 
+	
 	|	|
 	| -- |
 	| `https://<company name>.mingle.infor.com` |

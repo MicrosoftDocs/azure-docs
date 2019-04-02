@@ -1,18 +1,18 @@
 ---
-title: Azure Container Instances overview
-description: Understand Azure Container Instances
+title: What is Azure Container Instances?
+description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
-ms.author: seanmck
-ms.custom: mvc
+ms.date: 11/30/2018
+ms.author: danlep
+ms.custom: "seodec18, mvc"
 ---
 
-# Azure Container Instances
+# What is Azure Container Instances?
 
 Containers are becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service.
 
@@ -34,6 +34,8 @@ Historically, containers have offered application dependency isolation and resou
 
 Containers are typically optimized to run just a single application, but the exact needs of those applications can differ greatly. Azure Container Instances provides optimum utilization by allowing exact specifications of CPU cores and memory. You pay based on what you need and get billed by the second, so you can fine-tune your spending based on actual need.
 
+For compute-intensive jobs such as machine learning, Azure Container Instances can schedule Linux containers to use NVIDIA Tesla [GPU resources](container-instances-gpu.md) (preview).
+
 ## Persistent storage
 
 To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](container-instances-mounting-azure-files-volume.md).
@@ -42,9 +44,15 @@ To retrieve and persist state with Azure Container Instances, we offer direct [m
 
 Azure Container Instances can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md).
 
-Some features are currently restricted to Linux containers. While we work to bring feature parity to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+Some features are currently restricted to Linux containers:
 
-Azure Container Instances supports Windows images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
+* Multiple containers per container group
+* Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
+* [Resource usage metrics](container-instances-monitor.md) with Azure Monitor
+* [Virtual network deployment](container-instances-vnet.md) (preview)
+* [GPU resources](container-instances-gpu.md) (preview)
+
+Azure Container Instances currently supports Windows Server 2016 images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
 
 ## Co-scheduled groups
 
@@ -55,7 +63,7 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 Currently in preview, this feature of Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). By deploying container instances into a subnet within your virtual network, they can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Deployment of container groups to a virtual network is currently in preview, and some [limitations apply](container-instances-vnet.md#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> Certain features of Azure Container Instances are in preview, and some [limitations apply](container-instances-vnet.md#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of these features may change prior to general availability (GA).
 
 ## Next steps
 

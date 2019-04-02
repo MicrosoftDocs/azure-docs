@@ -1,5 +1,5 @@
 ---
-title: RESTful API with CORS in Azure App Service | Microsoft Docs
+title: Host RESTful API with CORS - Azure App Service | Microsoft Docs
 description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
 services: app-service\api
 documentationcenter: dotnet
@@ -13,14 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.custom: seodec18
 
 ---
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
 
 In this tutorial, you learn how to:
 
@@ -128,7 +129,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
 Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
 
@@ -171,6 +172,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 ```
 
 You can set more than one client URL in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
+
+> [!NOTE]
+> If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true` in your CORS config. This cannot be enabled when `allowedOrigins` includes `'*'`.
 
 ### Test CORS again
 

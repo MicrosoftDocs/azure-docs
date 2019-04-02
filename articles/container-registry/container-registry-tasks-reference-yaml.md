@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
 ---
 
@@ -82,7 +82,7 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | No | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. | No | None |
-| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. This property can be overridden in a step by setting the step's [timeout](#timeout) property. | Yes | 600 (10 minutes) |
+| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. This property can be overridden in a step by setting the step's timeout property. | Yes | 600 (10 minutes) |
 | `totalTimeout` | int (seconds) | Yes | The maximum number of seconds that a task may run. A "run" includes the execution and completion of all steps in the task, whether successful or failed. Also included is printing task output like detected image dependencies and task execution status. | No | 3600 (1 hour) |
 
 ## Task step types
@@ -108,7 +108,7 @@ steps:
       [property]: [value]
 ```
 
-The `build` step type supports the following parameters:
+The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -118,7 +118,7 @@ The `build` step type supports the following parameters:
 
 ### Properties: build
 
-The `build` step type supports the following properties You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
+The `build` step type supports the following properties. You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
@@ -435,5 +435,5 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-configure]: /cli/azure/reference-index#az-configure

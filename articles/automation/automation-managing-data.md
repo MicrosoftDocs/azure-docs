@@ -3,7 +3,7 @@ title: Managing Azure Automation data
 description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -33,7 +33,7 @@ The following table summarizes the retention policy for different resources.
 
 The retention policy applies to all users and currently cannot be customized.
 
-However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+However, if you need to retain data for a longer period of time, you can forward runbook job logs to Azure Monitor logs.  For further information, review [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).   
 
 ## Backing up Azure Automation
 When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
@@ -71,4 +71,5 @@ The following table shows the available primary and secondary region pairings.
 | Japan East |Japan West |
 
 In the unlikely event that a primary region data is lost, Microsoft attempts to recover it. If the primary data cannot be recovered, then geo-failover is performed and the affected customers will be notified about this through their subscription.
+
 

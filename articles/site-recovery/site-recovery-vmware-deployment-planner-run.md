@@ -1,16 +1,15 @@
 ---
-title: Azure Site Recovery deployment planner for VMware-to-Azure| Microsoft Docs
-description: his article describes the mode of runnign Azure Site Recovery deployment planner for VMware to Azure scenario.
-services: site-recovery
+title: Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure| Microsoft Docs
+description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.date: 12/28/2018
+ms.author: mayg
 
 ---
-# Run Azure Site Recovery deployment planner for VMware to Azure
+# Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 
@@ -38,7 +37,7 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 
 			Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
+4. You may optionally need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
 
 			Add-PSSnapin VMware.VimAutomation.Core
 
@@ -86,7 +85,7 @@ During profiling, you can optionally pass a storage-account name and key to find
 
 You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
 
-By default, the tool is configured to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+By default, the tool is configured to profile and generate report up to 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -134,6 +133,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ## Generate report
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<unique numeric identifier>.xlsm and placed in the specified directory.
 
+>[!NOTE]
+>The report requires decimal symbol configured as "." to produce cost estimates on the server where you run the deployment planner. In case you have setup "," as decimal symbol on a Windows machine, please go to "Change date, time or number formats" in Control Panel and go to "Additional Settings" to change the decimal symbol to ".".
+
 After profiling is complete, you can run the tool in report-generation mode. The following table contains a list of mandatory and optional tool parameters to run in report-generation mode.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
@@ -156,13 +158,13 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
-|-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the specified currency.|
+|-SubscriptionId |(Optional) The subscription GUID. Note that this parameter is required when you need to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the **specified currency**.|
 |-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to the list of [supported target regions](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (Pay-As-You-Go).|
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-By default, the tool is configurd to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
-```
+By default, the tool is configured to profile and generate report up to 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -185,7 +187,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### Example 5: Generate a report with a subset of profiled data
@@ -200,6 +202,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ```
 
 #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID
+
+Note that the subscription ID is required to generate cost report in a specific currency.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -210,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the VMs. This metric ensures that the 100th percentile spike your VMs might see because of temporary events is not used to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
 
 Using 95th percentile values gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Azure. We do not anticipate that you would need to change this number. If you do change the value (to the 90th percentile, for example), you can update the configuration file *ASRDeploymentPlanner.exe.config* in the default folder and save it to generate a new report on the existing profiled data.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />

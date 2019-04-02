@@ -1,27 +1,28 @@
 ---
-title: LUIS Prebuilt entities currency reference - Azure | Microsoft Docs
+title: Currency Prebuilt entity
 titleSuffix: Azure
 description: This article contains currency prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
-# Currency entity
+# Currency prebuilt entity for a LUIS app
 The prebuilt currency entity detects currency in many denominations and countries, regardless of LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing currency to the application intents. Currency entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
 
 ## Types of currency
-Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) Github repository
+Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub repository
 
 ## Resolution for currency entity
 The following example shows the resolution of the **builtin.currency** entity.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

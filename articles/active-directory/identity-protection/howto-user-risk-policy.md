@@ -4,20 +4,21 @@ description: Learn how to configure the Azure AD Identity Protection user risk p
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
-ms.author: markvi
-ms.reviewer: raluthra
+ms.date: 03/14/2019
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 
 
@@ -39,7 +40,7 @@ All risk events that have been detected for a user and didn't get resolved are k
 The user risk policy is an automated response you can configure for a specific user risk level. With a user risk policy, you can block access to your resources or require a password change to get a user account back into a clean state.
 
 
-## How do I access the sign-in risk policy?
+## How do I access the user risk policy?
    
 The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    

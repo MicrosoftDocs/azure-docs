@@ -1,15 +1,16 @@
 ---
 title: Adding chit-chat to a QnA Maker knowledge base
 titleSuffix: Azure Cognitive Services
-description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB. This can be a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.  
+description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB. 
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
 # Add Chit-chat to a knowledge base
@@ -25,7 +26,7 @@ Some examples of the different personalities:
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
 |`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Who made you?`|`There wouldn't be time to list everyone.`|`So many people!`|`Nerds.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
 
 
 > [!NOTE]

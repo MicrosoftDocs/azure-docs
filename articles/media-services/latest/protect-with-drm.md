@@ -4,16 +4,17 @@ description: You can use Azure Media Services to deliver your streams encrypted 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/15/2018 
+ms.topic: conceptual
+ms.date: 02/10/2019
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Use DRM dynamic encryption and license delivery service
@@ -47,14 +48,14 @@ This article is based on the [Encrypting with DRM](https://github.com/Azure-Samp
 
     You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already.  
 
-    ![protect with drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
 
 The sample described in this article produces the following result:
 
-![protect with drm](./media/protect-with-drm/ams_player.png)
+![AMS with DRM protected video](./media/protect-with-drm/ams_player.png)
 
 ## Prerequisites
 
@@ -143,7 +144,7 @@ After the encoding is complete, and the content key policy is set, the next step
 
 The process of creating the **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the SecureStreaming policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use PredefinedStreamingPolicy.SecureStreamingWithFairPlay. 
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the predefined StreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.

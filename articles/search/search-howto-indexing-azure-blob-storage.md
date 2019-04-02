@@ -1,14 +1,17 @@
 ---
-title: Indexing Azure Blob Storage with Azure Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search
-author: chaosrealm
-manager: jlembicz
+title: Index Azure Blob storage content for full text search - Azure Search
+description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
+
+ms.date: 03/01/2019
+author: mgottein 
+manager: cgronlun
+ms.author: magottei
+
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
+ms.custom: seodec2018
 ---
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -28,7 +31,6 @@ You can set up an Azure Blob Storage indexer using:
 
 > [!NOTE]
 > Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically.
->
 >
 
 Here, we demonstrate the flow using the REST API.
@@ -63,7 +65,8 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 
 You can provide the credentials for the blob container in one of these ways:
 
-- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`
+ You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
 - **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
  The SAS should have the list and read permissions on containers and objects (blobs in this case).
 -  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
@@ -330,7 +333,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
 
-For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## Indexing plain text 

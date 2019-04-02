@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Node.js | Microsoft Docs
-description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using the Node.js service SDK
+description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using the Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/21/2017
@@ -35,19 +35,19 @@ Although the steps in this article work on both Windows and Linux machines, this
 
 For this quickstart, you must have a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service. 
 
-The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. Certificates created with the SDK tooling are designed to be used for **development testing only**. These certificates **must not be used in production**. They contain hard-coded passwords ("1234") that expire after 30 days. To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. Certificates created with the SDK tooling are designed to use for **development testing only**. These certificates **must not be used in production**. They contain hard-coded passwords ("1234") that expire after 30 days. To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 
 To use this test tooling to generate certificates, perform the following steps: 
  
 1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-  The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
+   The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 
 2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
@@ -102,7 +102,7 @@ To use this test tooling to generate certificates, perform the following steps:
         });
       }
     });
-    ````
+    ```
 
 ## Run the enrollment group sample
  
@@ -110,7 +110,7 @@ To use this test tooling to generate certificates, perform the following steps:
     1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
     2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
-    ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
+       ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
 3. As stated in [Prepare test certificates](quick-enroll-device-x509-node.md#prepare-test-certificates), you also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, click  **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.

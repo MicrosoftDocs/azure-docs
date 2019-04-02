@@ -1,13 +1,10 @@
 ---
 title: Migrate a database using Import and Export in Azure Database for PostgreSQL
 description: Describes how extract a PostgreSQL database into a script file and import the data into the target database from that file.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
 ---
 # Migrate your PostgreSQL database using export and import
@@ -43,4 +40,4 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 ## Next steps
 - To migrate a PostgreSQL database using dump and restore, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-dump-and-restore.md).
-- For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](http://aka.ms/datamigration). 
+- For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](https://aka.ms/datamigration). 

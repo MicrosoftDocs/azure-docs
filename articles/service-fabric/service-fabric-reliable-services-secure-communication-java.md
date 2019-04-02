@@ -4,7 +4,7 @@ description: Learn how to secure service remoting based communication for Java r
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 
 ms.assetid:
 ms.service: service-fabric

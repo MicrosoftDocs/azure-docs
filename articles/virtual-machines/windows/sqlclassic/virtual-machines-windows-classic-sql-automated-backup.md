@@ -3,7 +3,7 @@ title: Automated Backup for SQL Server Virtual Machines (Classic) | Microsoft Do
 description: 'Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Automated Backup for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
@@ -68,7 +68,8 @@ The following table describes the options that can be configured for Automated B
 | **Retention Period** |1-30 days (30 days) |The number of days to retain a backup. |
 | **Storage Account** |Azure storage account (the storage account created for the specified VM) |An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and machine name. |
 | **Encryption** |Enable/Disable (Disabled) |Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
-| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. | **Backup system databases** | Enable/Disable (Disabled) | Take full backups of Master, Model, and MSDB |
+| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
+| **Backup system databases** | Enable/Disable (Disabled) | Take full backups of Master, Model, and MSDB |
 | **Configure backup schedule** | Manual/Automated (Automated) | Select **Automated** to automatically take full and log backups based on log growth. Select **Manual** to specify the schedule for full and log backups. |
 
 ## Configuration with PowerShell

@@ -31,7 +31,7 @@ Azure provides a variety of networking capabilities that can be used together or
 - [Manageability](#manageability): Monitor and manage your Azure networking resources.
 - [Deployment and configuration tools](#tools): Use a web-based portal or cross-platform command-line tools to deploy and configure network resources.
 
-## <a name="Connectivity"></a>Connectivity between Azure resources
+## <a name="connectivity"></a>Connectivity between Azure resources
 
 Azure resources such as Virtual Machines, Cloud Services, Virtual Machines Scale Sets, and Azure App Service Environments can communicate privately with each other through an Azure Virtual Network (VNet). A VNet is a logical isolation of the Azure cloud dedicated to your [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). You can implement multiple VNets within each Azure subscription and Azure [region](https://azure.microsoft.com/regions). Each VNet is isolated from other VNets. For each VNet you can:
 
@@ -133,8 +133,8 @@ Azure creates default route tables that enable resources connected to any subnet
 ## <a name="manageability"></a>Manageability
 
 Azure provides the following tools to monitor and manage networking:
-- **Activity logs:** All Azure resources have activity logs which provide information about operations taken place, status of operations and who initiated the operation. To learn more about activity logs, read the [Activity logs overview](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
-- **Diagnostic logs:** Periodic and spontaneous events are created by network resources and logged in Azure storage accounts, sent to an Azure Event Hub, or sent to Azure Log Analytics. Diagnostic logs provide insight to the health of a resource. Diagnostic logs are provided for Load Balancer (Internet-facing), Network Security Groups, routes, and Application Gateway. To learn more about diagnostic logs, read the [Diagnostic logs overview](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
+- **Activity logs:** All Azure resources have activity logs which provide information about operations taken place, status of operations and who initiated the operation. To learn more about activity logs, read the [Activity logs overview](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
+- **Diagnostic logs:** Periodic and spontaneous events are created by network resources and logged in Azure storage accounts, sent to an Azure Event Hub, or sent to Azure Monitor logs. Diagnostic logs provide insight to the health of a resource. Diagnostic logs are provided for Load Balancer (Internet-facing), Network Security Groups, routes, and Application Gateway. To learn more about diagnostic logs, read the [Diagnostic logs overview](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Metrics:** Metrics are performance measurements and counters collected over a period of time on resources. Metrics can be used to trigger alerts based on thresholds. Currently metrics are available on Application Gateway. To learn more about metrics, read the [Metrics overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Troubleshooting:** Troubleshooting information is accessible directly in the Azure portal. The information helps diagnose common problems with ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer, and Traffic Manager.
 - **Role-based access control (RBAC):** Control who can create and manage networking resources with role-based access control (RBAC). Learn more about RBAC by reading the [Get started with RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) article. 
@@ -147,8 +147,8 @@ Azure provides the following tools to monitor and manage networking:
 
 You can deploy and configure Azure networking resources with any of the following tools:
 
-- **Azure portal:** A graphical user interface that runs in a browser. Open the [Azure portal](http://portal.azure.com).
-- **Azure PowerShell:** Command-line tools for managing Azure from Windows computers. Learn more about Azure PowerShell by reading the [Azure PowerShell overview](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) article.
+- **Azure portal:** A graphical user interface that runs in a browser. Open the [Azure portal](https://portal.azure.com).
+- **Azure PowerShell:** Command-line tools for managing Azure from Windows computers. Learn more about Azure PowerShell by reading the [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Azure command-line interface (CLI):** Command-line tools for managing Azure from Linux, macOS, or Windows computers. Learn more about the Azure CLI by reading the [Azure CLI overview](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Azure Resource Manager templates:** A file (in JSON format) that defines the infrastructure and configuration of an Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about authoring templates, read the [Best practices for creating templates](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) article. Templates can be deployed with the Azure portal, CLI, or PowerShell. To get started with templates right away, deploy one of the many pre-configured templates in the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=network) library. 
 

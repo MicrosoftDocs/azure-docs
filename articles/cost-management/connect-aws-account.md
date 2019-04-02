@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: benshy
+ms.custom: seodec18
 ---
 
 # Connect an Amazon Web Services account
@@ -33,7 +33,7 @@ The first step is to get the unique connection passphrase from the Cloudyn porta
 2. Click the cog symbol and then select **Cloud Accounts**.
 3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +**.
 4. In the **Add AWS Account** dialog, copy the **External ID** and save the value for AWS Role creation steps in the next section. The External ID is unique to your account. In the following image, the example External ID is _Contoso_ followed by a number. Your ID differs.  
-    ![External ID](./media/connect-aws-account/external-id.png)
+    ![External ID shown in the Add AWS Account box](./media/connect-aws-account/external-id.png)
 
 ### Add AWS read-only role-based access
 
@@ -41,12 +41,12 @@ The first step is to get the unique connection passphrase from the Cloudyn porta
 2. Click **Create Role** and then select **Another AWS account**.
 3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cloudyn data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
 4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cloudyn. Then click **Next: Permissions**.  
-    ![Create role](./media/connect-aws-account/create-role01.png)
+    ![paste External ID from Cloudyn on the Create role page](./media/connect-aws-account/create-role01.png)
 5. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, then click **Next: Review**.  
-    ![Read-only access](./media/connect-aws-account/readonlyaccess.png)
+    ![select Read-only access in the list of policy names](./media/connect-aws-account/readonlyaccess.png)
 6. On the Review page, ensure your selections are correct and type a **Role name**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. For example, _Role assignment for Cloudyn_, then click **Create role**.
 7. In the **Roles** list, click the role you created and copy the **Role ARN** value from the Summary page. Use the Role ARN (Amazon Resource Name) value later when you register your configuration in Cloudyn.  
-    ![Role ARN](./media/connect-aws-account/role-arn.png)
+    ![copy the Role ARN from the Summary page](./media/connect-aws-account/role-arn.png)
 
 ### Configure AWS IAM role access in Cloudyn
 
@@ -56,12 +56,12 @@ The first step is to get the unique connection passphrase from the Cloudyn porta
 4. In **Account Name**, type a name for the account.
 5. Next to **Access Type**, select **IAM Role**.
 6. In the **Role ARN** field, paste the value you previously copied and then click **Save**.  
-    ![Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
+    ![paste the Role ARN in the Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
 
 
 Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cloudyn can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
 
-![AWS account status](./media/connect-aws-account/aws-account-status01.png)
+![AWS account status shown on the Accounts Management page](./media/connect-aws-account/aws-account-status01.png)
 
 Cloudyn starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
 
@@ -76,14 +76,14 @@ The following sections walk you through creating a read-only user to provide acc
 2. Click **Add User**.
 3. In the **User name** field, type a user name.
 4. For **Access type**, select **Programmatic access** and click **Next: Permissions**.  
-    ![Add user](./media/connect-aws-account/add-user01.png)
+    ![enter a user name on the Add user page](./media/connect-aws-account/add-user01.png)
 5. For permissions, select **Attach existing policies directly**.
 6. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, and then click **Next: Review**.  
-    ![Set permissions for user](./media/connect-aws-account/set-permission-for-user.png)
+    ![select ReadOnlyAccess to set permissions for the user](./media/connect-aws-account/set-permission-for-user.png)
 7. On the Review page, ensure your selections are correct then click **Create user**.
 8. On the Complete page, your Access key ID and Secret access key are shown. You use this information to configure registration in Cloudyn.
 9. Click **Download .csv** and save the credentials.csv file to a secure location.  
-    ![Download credentials](./media/connect-aws-account/download-csv.png)
+    ![click Download .csv to save the credentials](./media/connect-aws-account/download-csv.png)
 
 ### Configure AWS IAM user-based access in Cloudyn
 
@@ -117,16 +117,16 @@ You create an S3 bucket to store detailed billing information.
 2. In the Service Search box type *S3*, and select **S3**.
 3. On the Amazon S3 page, click **Create bucket**.
 4. In the Create bucket wizard, choose a Bucket name and Region and then click **Next**.  
-    ![Create bucket](./media/connect-aws-account/create-bucket.png)
+    ![example information one the Create bucket page](./media/connect-aws-account/create-bucket.png)
 5. On the **Set properties** page, keep the default values, and then click **Next**.
 6. On the Review page, click **Create bucket**. Your bucket list is displayed.
 7. Click the bucket that you created and select the **Permissions** tab and then select **Bucket Policy**. The Bucket policy editor opens.
 8. Copy the following JSON example and paste it in the Bucket policy editor.
-  - Replace `<BillingBucketName>` with the name of your S3 bucket.
-  - Replace `<ReadOnlyUserOrRole>` with the Role or User ARN that you had previously copied.
+   - Replace `<BillingBucketName>` with the name of your S3 bucket.
+   - Replace `<ReadOnlyUserOrRole>` with the Role or User ARN that you had previously copied.
 
-  ```
-  {
+   ```json
+   {
   	"Version": "2012-10-17",
   	"Id": "Policy1426774604000",
   	"Statement": [
@@ -164,11 +164,11 @@ You create an S3 bucket to store detailed billing information.
   			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
   		}
   	]
-  }
-  ```
+   }
+   ```
 
 9. Click **Save**.  
-    ![Bucket policy editor](./media/connect-aws-account/bucket-policy-editor.png)
+    ![click Save in the Bucket policy editor](./media/connect-aws-account/bucket-policy-editor.png)
 
 
 ### Enable AWS billing reports
@@ -178,11 +178,11 @@ After you create and configure the S3 bucket, navigate to [Billing Preferences](
 1. On the Preferences page, select **Receive Billing Reports**.
 2. Under **Receive Billing Reports**, enter the name of the bucket that you created and then click **Verify**.  
 3. Select all four report granularity options and then click **Save preferences**.  
-    ![Enable reports](./media/connect-aws-account/enable-reports.png)
+    ![select granularity to enable reports](./media/connect-aws-account/enable-reports.png)
 
 Cloudyn retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
 
-![Account Consolidated Status](./media/connect-aws-account/consolidated-status.png)
+![consolidation status shown on the AWS Accounts tab](./media/connect-aws-account/consolidated-status.png)
 
 Some of the optimization reports may require a few days of data to get an adequate data sample size for accurate recommendations.
 

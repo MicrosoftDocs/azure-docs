@@ -2,12 +2,12 @@
 title: Azure Event Grid resource group event schema
 description: Describes the properties that are provided for resource group events with Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
+ms.date: 01/12/2019
+ms.author: spelluru
 ---
 
 # Azure Event Grid event schema for resource groups
@@ -246,7 +246,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | authorization | object | The requested authorization for the operation. |
-| claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| claims | object | The properties of the claims. For more information, see [JWT specification](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
 | httpRequest | object | The details of the operation. This object is only included when updating an existing resource or deleting a resource. |
 | resourceProvider | string | The resource provider for the operation. |

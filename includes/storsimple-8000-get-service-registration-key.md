@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 06/22/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To get the StorSimple service registration key
 

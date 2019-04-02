@@ -1,5 +1,5 @@
 ---
-title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
+title: 'Explore data using the Azure Time Series Insights explorer | Microsoft Docs'
 description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
+ms.custom: seodec18
 ---
 
 # Azure Time Series Insights explorer
@@ -86,27 +87,27 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 10. The **Chart** lets you visually explore your data. Chart tools include:
 
-   - Select/click, which enables a selection of a specific timespan or of a single data series.  
-   - Within a time span selection, you can zoom or explore events.  
-   - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
-   - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series or specifically pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
-   - When viewing multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same Y-axis across all terms with the buttons in the top right-hand corner of the chart.
+    - Select/click, which enables a selection of a specific timespan or of a single data series.  
+    - Within a time span selection, you can zoom or explore events.  
+    - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
+    - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series or specifically pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
+    - When viewing multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same Y-axis across all terms with the buttons in the top right-hand corner of the chart.
  
-   ![Chart tool](media/time-series-insights-explorer/explorer5.png) 
+    ![Chart tool](media/time-series-insights-explorer/explorer5.png) 
 
 11. The **heatmap** can be used to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+    ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
 12. **Events**:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files. Note that Time Series Insights stores all raw data.
 
-   ![Events](media/time-series-insights-explorer/explorer7.png)
+    ![Events](media/time-series-insights-explorer/explorer7.png)
 
 13. Click the **STATS** tab after exploring events to expose patterns and column stats.  
 
-   - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
+    - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
 
-   - **Column Stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
+    - **Column Stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 

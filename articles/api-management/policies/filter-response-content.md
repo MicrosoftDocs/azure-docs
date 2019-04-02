@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Filter response content | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to filter data elements from the response payload based on the product associated with the request.
+title: Azure API management policy sample - Filter response content | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to filter data elements from the response payload based on the product associated with the request.
 services: api-management
 documentationcenter: ''
 author: vladvino

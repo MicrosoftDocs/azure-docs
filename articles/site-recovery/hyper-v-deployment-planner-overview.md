@@ -1,17 +1,15 @@
 ﻿---
-title: Azure Site Recovery deployment planner for Hyper-V-to-Azure| Microsoft Docs
-description: This is the Azure Site Recovery deployment planner user guide for Hyper-V to Azure scenario.
-services: site-recovery
+title: About the Azure Site Recovery Deployment Planner for disaster recovery of Hyper-V VMs to Azure | Microsoft Docs
+description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---
-# Site Recovery Deployment Planner for Hyper-V to Azure
+# About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
 
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
@@ -81,7 +79,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 
 | Server requirement | Description |
 |---|---|
-|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers’ VMs to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more to add servers into TrustedHosts list](#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
+|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more to add servers into TrustedHosts list](#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
 | Report generation | A Windows PC or Windows Server with Microsoft Excel 2013 or later |
 | User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials i.e. user name and password
  |
@@ -112,9 +110,9 @@ The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 1.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.2.zip
+Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
@@ -129,7 +127,7 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest ASR Deployment Planner tool version is 2.2.
+The latest ASR Deployment Planner tool version is 2.3.
 Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 

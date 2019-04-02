@@ -3,21 +3,21 @@ title: Define a OpenId Connect technical profile in a custom policy in Azure Act
 description: Define a OpenId Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Define a OpenId Connect technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
 
 ## Protocol
 

@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 
 
@@ -13,7 +20,7 @@ For background information about planning an HPC Pack cluster, see the [Product 
 * **Script configuration file**: Create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article and the file Manual.rtf that accompanies the deployment script.
 
 ## Syntax
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -46,7 +53,7 @@ The following example creates an HPC Pack cluster using the
 configuration file *MyConfigFile.xml*, and specifies administrator
 credentials for installing the cluster.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

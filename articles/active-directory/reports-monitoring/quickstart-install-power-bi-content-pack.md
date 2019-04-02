@@ -3,21 +3,23 @@ title: Install Azure AD Power BI content pack | Microsoft Docs
 description: Learn how to install Azure AD Power BI content pack
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 
 ms.assetid: fd5604eb-1334-4bd8-bfb5-41280883e2b5
 ms.service: active-directory
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
-ms.author: priyamo
+ms.date: 11/13/2018
+ms.author: markvi
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to install Active Directory Power BI content pack so I can use the pre-configured reports to get insights about my environment.
+ms.collection: M365-identity-device-management
 ---
+
 # Quickstart: Install Azure Active Directory Power BI Content pack
 
 |  |
@@ -25,7 +27,7 @@ ms.reviewer: dhanyahk
 |Currently, the Azure AD Power BI content pack uses the Azure AD Graph APIs to retrieve data from your Azure AD tenant. As a result, you may see some disparity between the data available in the content pack and the data retrieved using the [Microsoft Graph APIs for reporting](concept-reporting-api.md). |
 |  |
 
-The Power BI content pack for Azure Active Directory gives you the ability to gain deep insights into what’s going on with your active directory. You can download the pre-built content pack and use it to report all the activities within your directory using the rich visualization experience that Power BI offers. You can also create your own dashboard and share it easily with anyone in your organization. 
+The Power BI content pack for Azure Active Directory (Azure AD) gives you the ability to visualize the reporting data from your environment. You can download the pre-built content pack and use it to report all the activities within your directory using the rich visualization experience that Power BI offers. You can also create your own dashboard and share it easily with anyone in your organization. 
 
 In this quickstart, you learn how to install the content pack.
 
@@ -35,7 +37,7 @@ To complete this quickstart, you need:
 
 * A Power BI account. This is the same account as your O365 or Azure AD account. 
 * Your Azure AD tenant ID. This is the **Directory ID** of your directory from the [properties page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) of the Azure portal.
-* An Azure AD Premium (P1/P2) license. 
+* An Azure AD Premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
 
 ## Install Azure AD Power BI content pack 
 

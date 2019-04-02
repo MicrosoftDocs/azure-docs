@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Reservations usage for Enterprise | Microsoft Docs
+title: Understand Azure reservations usage for Enterprise | Microsoft Docs
 description: Learn how to read your usage to understand how the Azure reservation for your Enterprise enrollment is applied.
 services: 'billing'
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
-ms.author: cwatson
+ms.date: 03/13/2019
+ms.author: banders
 
 ---
 # Understand Azure reservation usage for your Enterprise enrollment
@@ -49,7 +49,7 @@ You can download the Enterprise usage CSV file from the Enterprise portal. In th
 
 ## Usage for SQL Database & Cosmos DB reserved capacity reservations
 
-The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 
 Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
 
@@ -60,7 +60,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 |Product| SQL Database Gen 4 (2 Core)|
 |Region | eastus |
 
-### Usage in CSV file 
+### Usage in CSV file
 
 Filter on **Additional Info** and type in your **Reservation ID**, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. The following screenshot shows the fields related to the reservation.
 
@@ -78,19 +78,20 @@ Your Azure reservation usage also shows up in usage summary section of Enterpris
 1. You aren't charged for the hardware component of the VM as it is covered by reservation. For a SQL Database reservation, you see a line with **Service Name** as Azure SQL Database reserved capacity usage.
 2. In this example, you don't have the Azure Hybrid Benefit so you're charged for the Windows software used with the VM.
 
+## Need help? Contact us.
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md) 
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## Need help? Contact support
-
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 

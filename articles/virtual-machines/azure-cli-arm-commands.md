@@ -1451,7 +1451,7 @@ Parameter options:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2

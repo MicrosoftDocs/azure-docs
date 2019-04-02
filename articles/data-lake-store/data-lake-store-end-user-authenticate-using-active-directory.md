@@ -41,7 +41,7 @@ This article talks about how to create an **Azure AD native application for end-
   
     ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## End-user authentication
 This authentication mechanism is the recommended approach if you want an end user to log in to your application via Azure AD. Your application is then able to access Azure resources with the same level of access as the end user that logged in. Your end user needs to provide their credentials periodically in order for your application to maintain access.
@@ -70,7 +70,7 @@ Your application can directly provide user credentials to Azure AD. This method 
 
 ## Step 1: Create an Active Directory native application
 
-Create and configure an Azure AD native application for end-user authentication with Data Lake Storage Gen1 using Azure Active Directory. For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Create and configure an Azure AD native application for end-user authentication with Data Lake Storage Gen1 using Azure Active Directory. For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md).
 
 While following the instructions in the link, make sure you select **Native** for application type, as shown in the following screenshot:
 
@@ -78,7 +78,7 @@ While following the instructions in the link, make sure you select **Native** fo
 
 ## Step 2: Get application ID and redirect URI
 
-See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID.
+See [Get the application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID.
 
 To retrieve the redirect URI, do the following steps.
 

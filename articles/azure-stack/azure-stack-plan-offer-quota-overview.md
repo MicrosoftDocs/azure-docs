@@ -12,17 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/12/2018
+ms.topic: conceptual
+ms.date: 03/26/2019
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: efemmano
+ms.lastreviewed: 10/12/2018
 
 ---
 # Plan, offer, quota, and subscription overview
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As an Azure Stack operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure Stack](azure-stack-poc.md) enables you to deliver a wide variety of services, such as virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As an Azure Stack operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
 
 Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you can manage:
 
@@ -48,6 +49,9 @@ Plans are groupings of one or more services. As an Azure Stack operator, you [cr
 
 To help you manage your cloud capacity, you can use pre-configured *quotas*, or create a new quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines (VMs).
 
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
+
 You can configure quotas by region. For example, a plan that provides compute services for Region A could have a quota of two VMs.
 
 >[!NOTE]
@@ -71,9 +75,9 @@ When you [create an offer](azure-stack-create-offer.md), you must include at lea
 
 ## Subscriptions
 
-A subscription is how users access your offers. If you're an Azure Stack operator for a service provider, your users (tenants) buy your services by subscribing to your offers. If you're an Azure Stack operator at an organization, your users (employees) can subscribe to the services you offer without paying.
+A subscription is how users access your offers. If you are an Azure Stack operator for a service provider, your users (tenants) buy your services by subscribing to your offers. If you're an Azure Stack operator at an organization, your users (employees) can subscribe to the services you offer without paying.
 
-Each combination of a user with an offer is a unique subscription. A user can have subscriptions to multiple offers, but each subscription only applies to one offer. Plans, offers, and quotas only apply to a unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+Each combination of a user with an offer is a unique subscription. A user can have subscriptions to multiple offers, but each subscription only applies to one offer. Plans, offers, and quotas only apply to a unique subscription – they cannot be shared between subscriptions. Each resource that a user creates is associated with one subscription.
 
 ### Default provider subscription
 

@@ -4,16 +4,17 @@ description: In this tutorial, you will enable password writeback to get cloud i
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password writeback to get password changes in the cloud back to on-premises AD DS
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Enabling password writeback
 

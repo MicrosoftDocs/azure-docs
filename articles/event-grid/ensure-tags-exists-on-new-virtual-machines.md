@@ -9,12 +9,12 @@ manager:
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 01/14/2019
 ms.author: eamono
 
 ---
 
-# Integrate Azure Automation with Event Grid and Microsoft Teams
+# Tutorial: Integrate Azure Automation with Event Grid and Microsoft Teams
 
 In this tutorial, you learn how to:
 
@@ -28,6 +28,8 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 

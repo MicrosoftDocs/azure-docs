@@ -3,8 +3,8 @@ title: Application scenarios and design | Microsoft Docs
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
+ms.author: atsenthi
 
 ---
 # Service Fabric application scenarios
@@ -52,8 +52,6 @@ Stateful microservices simplify application designs because they remove the need
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* Listen to [customer case studies](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
-)
 * Read about [customer case studies](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 * Learn more about [patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 

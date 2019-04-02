@@ -4,7 +4,7 @@ description: This article shows you how to use the Azure Media Services telemetr
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -31,7 +31,7 @@ The steps described in this topic are:
 - Getting the Notification Endpoints
 - Creating a Notification Endpoint for Monitoring. 
 
-	To create a Notification Endpoint, set the EndPointType to AzureTable (2) and endPontAddress set to the storage table (for example, https://telemetryvalidationstore.table.core.windows.net/).
+	To create a Notification Endpoint, set the EndPointType to AzureTable (2) and endPontAddress set to the storage table (for example, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Get the monitoring configurations
 
@@ -118,12 +118,12 @@ The steps described in this topic are:
 	
 	{  
    		"Name":"monitoring",
-   		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+   		"EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
    		"EndPointType":2
 	}
 
->[!NOTE]
->Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+> [!NOTE]
+> Don't forget to change the "https:\//telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
 ### Response
 

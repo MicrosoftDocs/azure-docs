@@ -8,7 +8,7 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018 
 ms.author: agaiha
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
@@ -33,9 +33,7 @@ This extension works with both Azure deployment models.
 
 ## Installing the extension in your VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](features-linux.md).
-
-The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
+You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
 
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
@@ -313,7 +311,7 @@ type | Identifies the actual provider of the metric.
 class | Together with "counter", identifies the specific metric within the provider's namespace.
 counter | Together with "class", identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the [`builtin` metric definitions](#metrics-supported-by-builtin).
+condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
 sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If not set, the collection interval is set by the value of [sampleRateInSeconds](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Should be one of these strings: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
@@ -383,7 +381,7 @@ This optional section controls execution of arbitrary [OMI](https://github.com/M
 
 Element | Value
 ------- | -----
-namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | The OMI query to be executed.
 table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.

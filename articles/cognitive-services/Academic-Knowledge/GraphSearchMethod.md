@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use the Graph Search method in the Academic Knowledge API to return a set of academic entities based on specific graph patterns.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
@@ -25,6 +25,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## Request Parameters  
+
 Name     | Value | Required?  | Description
 -----------|-----------|---------|--------
 **mode**       | Text string | Yes | Name of the mode that you wish to use. The value is either *json* or *lambda*.
@@ -41,7 +42,9 @@ For the *json* search, the POST body is a JSON object. The JSON object describes
 For the *lambda* search, the POST body is a plain-text string. The POST body is a LIKQ lambda query string, which  is a single C# statement (see the [specification of query string](LambdaSearchSyntax.md) for *lambda* search). 
 
 <br>
+
 ## Response (JSON)
+
 Name | Description
 -------|-----   
 **results** | An array of 0 or more entities that match the query expression. Each entity contains the values of requested attributes. This field is present if the request has been successfully processed.
@@ -51,6 +54,7 @@ Name | Description
 If a query cannot be processed within _800 ms_, a _timeout_ error will be returned. 
 
 <br>
+
 #### Example:
 
 ##### JSON Search

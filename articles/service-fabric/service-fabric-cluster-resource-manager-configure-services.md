@@ -4,11 +4,11 @@ description: Learn how to describe a Service Fabric service by specifying metric
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

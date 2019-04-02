@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Convert text script - Translator Text, Ruby"
+title: "Quickstart: Convert text script, Ruby - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
-
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.author: nolachar
+ms.date: 02/08/2019
+ms.author: erhopf
 ---
-# Quickstart: Transliterate text with Ruby
+# Quickstart: Transliterate text with the Translator Text REST API (Ruby)
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 

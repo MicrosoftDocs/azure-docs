@@ -31,7 +31,7 @@ This article helps you add Site-to-Site (S2S) connections to a VPN gateway that 
 This article applies to Resource Manager VNets that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
 
 ### Deployment models and methods
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 We update this table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from this table.
 
@@ -48,7 +48,7 @@ Verify the following items:
 * You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 ## <a name="part1"></a>Part 1 - Configure a connection
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
 3. On the **Virtual network gateway** page, click **Connections**.
    
@@ -90,4 +90,4 @@ Verify the following items:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [virtual machines learning path](/learn/paths/deploy-a-website-with-azure-virtual-machines/) for more information.

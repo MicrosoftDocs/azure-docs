@@ -84,7 +84,7 @@ and to the most frequently asked questions.
 This field determines the countries/regions in which your offer will be
 available for trial. You can only choose countries where Microsoft
 Dynamics 365 Business Central is already available or in preview. For the current list, see
-[Countries and Translations Supported](https://docs.microsoft.com/en-gb/dynamics-nav/compliance/apptest-countries-and-translations).
+[Countries and Translations Supported](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
 ![Select countries and translations supported](./media/d365-financials/image008.png)
 

@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 >[!NOTE]
 > This tutorial walks through the process of creating and using a generalized VM image. It is not supported to create a scale set from a specialized VM image.
 
-First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
+First, create a resource group with [az group create](/cli/azure/group), then create a VM with [az vm create](/cli/azure/vm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm#az_vm_create) command. SSH to the public IP address of your VM as follows:
+The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -83,7 +83,8 @@ exit
 ## Create a custom VM image from the source VM
 The source VM is now customized with the Nginx web server installed. Let's create the custom VM image to use with a scale set.
 
-To create an image, the VM needs to be deallocated. Deallocate the VM with [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#az_vm_generalize) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
+To create an image, the VM needs to be deallocated. Deallocate the VM with [az vm deallocate](/cli//azure/vm). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -92,7 +93,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 It may take a few minutes to deallocate and generalize the VM.
 
-Now, create an image of the VM with [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from your VM:
+Now, create an image of the VM with [az image create](/cli//azure/image). The following example creates an image named *myImage* from your VM:
 
 ```azurecli-interactive
 az image create \
@@ -118,7 +119,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Test your scale set
-To allow traffic to reach your scale set and that verify that the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
+To allow traffic to reach your scale set and that verify that the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -132,7 +133,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-To see your scale set in action, get the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example gets the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your scale set in action, get the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example gets the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -148,7 +149,7 @@ Type the public IP address into your web browser. The default NGINX web page is 
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

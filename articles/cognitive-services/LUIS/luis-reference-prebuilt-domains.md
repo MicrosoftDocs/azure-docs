@@ -1,18 +1,19 @@
 ---
-title: Prebuilt domain reference - Azure| Microsoft Docs
+title: Prebuilt domain reference
 titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 03/04/2019
 ms.author: diberry
 ---
 
-# Prebuilt domain reference
+# Prebuilt domain reference for your LUIS app
 This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
@@ -56,7 +57,7 @@ The Calendar domain provides intents and entities related to calendar entries. T
 | Add | Add a new one-time item to the calendar.| Make an appointment with Lisa at 2pm on Sunday <br/><br/>I want to schedule a meeting<br/><br/>I need to set up a meeting|
 | CheckAvailability | Find availability for an appointment or meeting on the user's calendar or another person's calendar.| When is Jim available to meet? <br/><br/>Show when Carol is available tomorrow<br/><br/>Is Chris free on Saturday?|
 | Delete | Request to delete a calendar entry.| Cancel my appointment with Carol. <br/><br/>Delete my 9 am meeting<br/>|
-| Edit | Request to change an existing meeting or calendar entry.| Move my 9 am meeting to 10 am.<br/><br/>I want to update my schedule.<br/><br/>Reschdule my meeting with Ryan.|
+| Edit | Request to change an existing meeting or calendar entry.| Move my 9 am meeting to 10 am.<br/><br/>I want to update my schedule.<br/><br/>Reschedule my meeting with Ryan.|
 | Find | Display my weekly calendar.| Find the dentist review appointment. <br/><br/>Show my calendar<br/>|
 
 ### Entities
@@ -100,7 +101,7 @@ The Communication domain provides intents and entities related to email, message
 | Confirm| Confirm an action.|Yes<br/>Okay<br/>All right<br/>I confirm that I want to send this email.<br/>|
 | Dial| Make a phone call.|Call Jim<br/>Please dial 311<br/>|
 | FindContact| Find contact information by name.|Find Carol's number<br/>Show me Carol's number<br/>|
-| FindSpeedDial| Find the speedial number a phone number is set to and vice versa.|What is my dial number 5?<br/>Do I have speed dial set?<br/>What is the dial number for 941-5555-333?|
+| FindSpeedDial| Find the speed dial number a phone number is set to and vice versa.|What is my dial number 5?<br/>Do I have speed dial set?<br/>What is the dial number for 941-5555-333?|
 | GetForwardingsStatus| Get the current status of call forwarding.|Is my call forwarding turned on?<br/>Tell me if my call status is on or off<br/>|
 | Goback| Go back to the previous step.|Go back to twitter<br/>Go back a step<br/>Go back|
 | Ignore| Ignore an incoming call.|Don't answer<br/>Ignore call|
@@ -236,16 +237,17 @@ The HomeAutomation domain provides intents and entities related to controlling s
 The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
 
 ### Examples
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Examples|
+|--|
+|Book me two tickets for Captain Omar and the two Musketeers|
+|Cancel tickets|
+|When is Captain Omar showing?|
 
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
-| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captian Omar Part 2 next Wednesday|
+| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captain Omar Part 2 next Wednesday|
 |GetShowTime| Get the showtime of a movie.|When is Captain Omar showing?|
 
 
@@ -261,11 +263,12 @@ When is Captain Omar showing?
 The Music domain provides intents and entities related to playing music on a music player.
 
 ### Examples
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Examples|
+|--|
+|play Beethoven|
+|Increase track volume|
+|Skip to the next song|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -292,11 +295,12 @@ Skip to the next song
 The Note domain provides intents and entities related to creating, editing, and finding notes.
 
 ### Examples
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Examples|
+|--|
+|Add to my groceries note lettuce tomato bread coffee|
+|Check off bananas from my grocery list|
+|Remove all items from my vacation list|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -325,11 +329,13 @@ Remove all items from my vacation list
 The OnDevice domain provides intents and entities related to controlling the device.
 
 ### Examples
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Examples|
+|--|
+|Close video player|
+|Cancel playback|
+|Can you make the screen brighter?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -376,11 +382,13 @@ Can you make the screen brighter?
 The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
 
 ### Examples
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Examples|
+|--|
+|Save this location to my favorites|
+|How far away is Holiday Inn?|
+|At what time does Safeway close?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -389,7 +397,7 @@ At what time does Safeway close?
 |CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
 |CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
 |CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
-|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffice to Kirkland<br/>How is the traffic to Seattle?| 
+|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffic to Kirkland<br/>How is the traffic to Seattle?| 
 |Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
 |Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
 |FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
@@ -399,7 +407,7 @@ At what time does Safeway close?
 |GetMenu|Ask for the menu items for a restaurant.|Does Zucca serve anything vegan?<br/>What's on the menu at Sizzler<br/>Show me Applebee's menu|
 |GetPhoneNumber| Ask for the phone number of a place.|What is the phone number of the nearest Starbucks?<br/>Give the number for Home Depot| 
 |GetPriceRange| Asks for the price range of a place.|Is Zucca cheap?<br/>Is the Cineplex half price on Wednesdays?<br/>How much does a whole lobster dinner cost at Sizzler?|
-|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecase Factory<br/>Read Cineplex reviews in Yelp|
+|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecake Factory<br/>Read Cineplex reviews in Yelp|
 |GetRoute|Ask for directions to a place.|How to walk to Bellevue square<br/>Show me the shortest way to 8th and 59th from here<br/>Get me directions to Mountain View CA|
 |GetStarRating|Ask for the star rating of a place.|How is Zucca rated according to Yelp?<br/>How many stars does the French Laundry have?<br/>Is the aquarium in Monterrey good?|
 |GetTransportationSchedule|Get the bus schedule for a place.|What time is the next bus to downtown?<br/>Show me the buses in King County|
@@ -445,11 +453,13 @@ restart|
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
 
 ### Examples
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Examples|
+|--|
+|Change my interview to 9 am tomorrow|
+|Remind me to buy milk on my way back home|
+|Can you check if I have a reminder about Christine's birthday?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -468,11 +478,12 @@ Can you check if I have a reminder about Christine's birthday?
 The RestaurantReservation domain provides intents and entities related to managing restaurant reservations.
 
 ### Examples
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Examples|
+|--|
+|Reserve at Zucca for two for tonight|
+|Book a table at BJ's for tomorrow|
+|Table for 3 in Palo Alto at 7|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -497,11 +508,12 @@ Table for 3 in Palo Alto at 7
 The Taxi domain provides intents and entities for creating and managing taxi bookings.
 
 ### Examples
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Examples|
+|--|
+|Get me a cab at 3 pm|
+|How much longer do I have to wait for my taxi?|
+|Cancel my Uber|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -526,11 +538,13 @@ Cancel my Uber
 The Translate domain provides intents and entities related to translating text to a target language.
 
 ### Examples
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Examples|
+|--|
+|Translate to French|
+|Translate hello to German|
+|Translate this sentence to English|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -549,11 +563,12 @@ Translate this sentence to English
 The TV domain provides intents and entities for controlling TVs.
 
 ### Examples
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Examples|
+|--|
+|Switch channel to BBC|
+|Show TV guide|
+|Watch National Geographic|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -571,11 +586,13 @@ Watch National Geographic
 The Utilities domain provides intents for tasks that are common to many tasks, such as greetings, cancellation, confirmation, help, repetition, navigation, starting and stopping.
 
 ### Examples
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Examples|
+|--|
+|Go back to Twitter|
+|Please help|
+|Repeat last question please|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -595,11 +612,13 @@ Repeat last question please
 The Weather domain provides intents and entities for getting weather reports and forecasts.
 
 ### Examples
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Examples|
+|--|
+|weather in London in september|
+|What?s the 10 day forecast?|
+|What's the average temperature in India in september?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -616,11 +635,12 @@ What's the average temperature in India in september?
 The Web domain provides an intent for navigating to a website.
 
 ### Examples
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Examples|
+|--|
+|Navigate to facebook.com|
+|Go to www.twitter.com|
+|Navigate to www.bing.com|
 
 ### Intents
 | Intent name | Description | Examples |

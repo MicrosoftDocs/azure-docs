@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing Visual Search API. 
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: scottwhi

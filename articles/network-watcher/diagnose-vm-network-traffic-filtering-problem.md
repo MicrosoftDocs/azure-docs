@@ -34,7 +34,7 @@ Log in to the Azure portal at https://portal.azure.com.
 ## Create a VM
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 17.10 VM**.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or a version of **Ubuntu Server**.
 3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
 
     |Setting|Value|
@@ -82,7 +82,7 @@ When you create a VM, Azure allows and denies network traffic to and from the VM
     | Direction         | Outbound                                                                                          |
     | Local IP address  | 10.0.0.4                                                                                          |
     | Local port      | 60000                                                                                                |
-    | Remote IP address | 13.107.21.200 - One of the addresses for www.bing.com.                                             |
+    | Remote IP address | 13.107.21.200 - One of the addresses for <www.bing.com>.                                             |
     | Remote port       | 80                                                                                                |
 
     ![IP flow verify](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

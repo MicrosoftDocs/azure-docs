@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Ruby - Computer Vision"
+title: "Quickstart: Extract printed text - REST, Ruby"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 03/11/2019
+ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract printed text (OCR) using the REST API and Ruby in Computer Vision
 
@@ -137,13 +138,9 @@ A successful response is returned in JSON. The sample parses and displays a succ
 }
 ```
 
-## Clean up resources
-
-When no longer needed, delete the file.
-
 ## Next steps
 
-Explore the Computer Vision API used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore the Computer Vision API to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

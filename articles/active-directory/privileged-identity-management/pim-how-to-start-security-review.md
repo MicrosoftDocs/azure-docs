@@ -1,6 +1,6 @@
 ---
-title: Start an access review for Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to start an access review for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: Start an access review for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to start an access review for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,13 +10,14 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
-# Start an access review for Azure AD directory roles in PIM
-Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators or global administrators should regularly create access reviews to ask admins to review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
+# Start an access review for Azure AD roles in PIM
+Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators or global administrators should regularly create access reviews to ask admins to review the roles that users have been given. This document covers the steps for starting an access review in Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 ## Start an access review
 > [!NOTE]
@@ -74,6 +75,6 @@ Until the review period is over, you can remind users to complete their review, 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Complete an access review for Azure AD directory roles in PIM](pim-how-to-complete-review.md)
-- [Perform an access review of my Azure AD directory roles in PIM](pim-how-to-perform-security-review.md)
+- [Complete an access review for Azure AD roles in PIM](pim-how-to-complete-review.md)
+- [Perform an access review of my Azure AD roles in PIM](pim-how-to-perform-security-review.md)
 - [Start an access review for Azure resource roles in PIM](pim-resource-roles-start-access-review.md)

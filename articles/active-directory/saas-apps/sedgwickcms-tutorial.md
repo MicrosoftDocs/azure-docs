@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Sedgwick CMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sedgwick CMS.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Sedgwick CMS
 
@@ -108,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Sedgwick CMS Domain and URLs single sign-on information](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. In the **Identifier** textbox, type the URL: 
+
 	| |
 	|--|
 	| `expresspreview.sedgwickcms.net/voe/sso` |
 	| `claimlookup.com/Voe/sso` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<subdomain>.sedgwickcms.net/voe/sso` |
@@ -131,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **Sedgwick CMS** side, you need to send the downloaded **Metadata XML** to [Sedgwick CMS support team](https://www.sedgwick.com/contact/Pages/contactform.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Sedgwick CMS** side, you need to send the downloaded **Metadata XML** to [Sedgwick CMS support team](https://www.sedgwick.com/help). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +173,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Sedgwick CMS test user
 
-In this section, you create a user called Britta Simon in Sedgwick CMS. Work with [Sedgwick CMS support team](https://www.sedgwick.com/contact/Pages/contactform.aspx) to add the users in the Sedgwick CMS platform. Users must be created and activated before you use single sign-on.  
+In this section, you create a user called Britta Simon in Sedgwick CMS. Work with [Sedgwick CMS support team](https://www.sedgwick.com/help) to add the users in the Sedgwick CMS platform. Users must be created and activated before you use single sign-on.  
 
 ### Assign the Azure AD test user
 

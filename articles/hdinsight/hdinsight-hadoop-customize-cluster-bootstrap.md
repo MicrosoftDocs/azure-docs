@@ -2,14 +2,14 @@
 title: Customize HDInsight Clusters using bootstrap - Azure 
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Customize HDInsight clusters using Bootstrap
@@ -39,6 +39,8 @@ There are three methods to use bootstrap:
 * Use .NET SDK
 * Use Azure Resource Manager template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 For information on installing additional components on HDInsight cluster during the creation time, see:
@@ -46,20 +48,20 @@ For information on installing additional components on HDInsight cluster during 
 * [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## Use Azure PowerShell
-The following PowerShell code customizes a Hive configuration:
+The following PowerShell code customizes an [Apache Hive](https://hive.apache.org/) configuration:
 
 ```powershell
 # hive-site.xml configuration
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-$config = New-AzureRmHDInsightClusterConfig `
-    | Set-AzureRmHDInsightDefaultStorage `
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzureRmHDInsightConfigValues `
+    | Add-AzHDInsightConfigValues `
         -HiveSite $hiveConfigValues 
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
     -ResourceGroupName $existingResourceGroupName `
     -ClusterName $clusterName `
     -Location $location `
@@ -102,7 +104,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## Use .NET SDK
 See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
@@ -112,7 +114,7 @@ You can use bootstrap in Resource Manager template:
 
 ```json
 "configurations": {
-    …
+    ï¿½
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",
@@ -124,14 +126,13 @@ You can use bootstrap in Resource Manager template:
 ![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
-* [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
+* [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
-* [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
-* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+* [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
+* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-write-script]: hdinsight-hadoop-script-actions.md
+[hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
@@ -179,8 +180,8 @@ $ErrorActionPreference = "Stop"
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
+try{Get-AzContext}
+catch{Connect-AzAccount}
 #endregion
 
 #region - Create an HDInsight cluster
@@ -188,24 +189,24 @@ catch{Connect-AzureRmAccount}
 # Create dependent components
 ####################################
 Write-Host "Creating a resource group ..." -ForegroundColor Green
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
     -Name  $resourceGroupName `
     -Location $location
 
 Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $defaultStorageAccountName `
     -Location $location `
     -Type Standard_GRS
 
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
+$defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
-New-AzureStorageContainer `
+New-AzStorageContainer `
     -Name $defaultBlobContainerName `
     -Context $defaultStorageContext #use the cluster name as the container name
 
@@ -214,11 +215,11 @@ New-AzureStorageContainer `
 ####################################
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-$config = New-AzureRmHDInsightClusterConfig `
-    | Set-AzureRmHDInsightDefaultStorage `
+$config = New-AzHDInsightClusterConfig `
+    | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzureRmHDInsightConfigValues `
+    | Add-AzHDInsightConfigValues `
         -HiveSite $hiveConfigValues 
 
 ####################################
@@ -230,7 +231,7 @@ $httpCredential = New-Object System.Management.Automation.PSCredential($httpUser
 $sshPW = ConvertTo-SecureString -String $sshPassword -AsPlainText -Force
 $sshCredential = New-Object System.Management.Automation.PSCredential($sshUserName,$sshPW)
 
-New-AzureRmHDInsightCluster `
+New-AzHDInsightCluster `
     -ResourceGroupName $resourceGroupName `
     -ClusterName $hdinsightClusterName `
     -Location $location `
@@ -245,7 +246,7 @@ New-AzureRmHDInsightCluster `
 ####################################
 # Verify the cluster
 ####################################
-Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
 
 #endregion
 ```

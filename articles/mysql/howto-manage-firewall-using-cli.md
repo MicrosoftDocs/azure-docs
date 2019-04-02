@@ -1,14 +1,11 @@
 ---
 title: Create and manage Azure Database for MySQL firewall rules using Azure CLI
 description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command-line.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 
@@ -33,31 +30,31 @@ Commands:
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
 1. From the command-line, run the following command:
-```azurecli
-az login
-```
-This command outputs a code to use in the next step.
+    ```azurecli
+    az login
+    ```
+   This command outputs a code to use in the next step.
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 
 3. At the prompt, log in using your Azure credentials.
 
 4. After your login is authorized, a list of subscriptions is printed in the console. Copy the ID of the desired subscription to set the current subscription to use. Use the [az account set](/cli/azure/account#az-account-set) command.
-   ```azurecli-interactive
-   az account set --subscription <your subscription id>
-   ```
+    ```azurecli-interactive
+    az account set --subscription <your subscription id>
+    ```
 
 5. List the Azure Databases for MySQL servers for your subscription and resource group if you are unsure of the names. Use the [az mysql server list](/cli/azure/mysql/server#az-mysql-server-list) command.
 
-   ```azurecli-interactive
-   az mysql server list --resource-group myresourcegroup
-   ```
+    ```azurecli-interactive
+    az mysql server list --resource-group myresourcegroup
+    ```
 
    Note the name attribute in the listing, which you need to specify the MySQL server to work on. If needed, confirm the details for that server and using the name attribute to ensure it is correct. Use the [az mysql server show](/cli/azure/mysql/server#az-mysql-server-show) command.
 
-   ```azurecli-interactive
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-   ```
+    ```azurecli-interactive
+    az mysql server show --resource-group myresourcegroup --name mydemoserver
+    ```
 
 ## List firewall rules on Azure Database for MySQL Server 
 Using the server name and the resource group name, list the existing server firewall rules on the server. Use the [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list) command.  Notice that the server name attribute is specified in the **--server** switch and not in the **--name** switch. 

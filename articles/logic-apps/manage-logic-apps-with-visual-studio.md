@@ -3,14 +3,14 @@ title: Manage logic apps with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # Manage logic apps with Visual Studio
@@ -56,6 +56,16 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     directly from the Visual Studio Marketplace, or learn 
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
+
+* Cloud Explorer for either Visual Studio 2017 or Visual Studio 2015
+
+  * For Visual Studio 2017, run the Visual Studio installer, 
+  and install the **Azure workload**. For more information, see 
+  [Manage resources associated with your Azure accuonts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
+
+  * For Visual Studio 2015, 
+  [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+  For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Access to the web while using the embedded Logic Apps Designer
 
@@ -107,12 +117,12 @@ or as Azure Resource Manager projects with Visual Studio.
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open with Logic App Editor**.
+   select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
-  ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 
@@ -253,6 +263,21 @@ and select **Delete**.
 > All in-progress and pending runs are canceled. 
 > If you have thousands of runs, cancellation might 
 > take significant time to complete. 
+
+## Troubleshooting
+
+When you open your logic app project in the Logic Apps Designer, 
+you might not get the option for selecting your Azure subscription. 
+Instead, your logic app opens with an Azure subscription that's not 
+the one you want to use. This behavior happens because after you 
+open a logic app's .json file, Visual Studio caches the first 
+selected subscription for future use. To resolve this problem, 
+try one of these steps:
+
+* Rename the logic app's .json file. The subscription cache depends on the file name. 
+* To remove previously selected subscriptions for *all* logic apps in your solution, 
+delete the *hidden* .vs folder in your solution's directory. This location stores 
+your subscription information. 
 
 ## Next steps
 

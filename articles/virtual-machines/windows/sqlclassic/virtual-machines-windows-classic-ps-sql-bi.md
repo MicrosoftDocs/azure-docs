@@ -213,7 +213,7 @@ For information on report server permissions, see [Granting Permissions on a Nat
 To verify the configuration, browse to report manager on the VM.
 
 1. On the VM, start Internet Explorer with administrator privileges.
-2. Browse to http://localhost/reports on the VM.
+2. Browse to http:\//localhost/reports on the VM.
 
 ### To Connect to Remote web portal, or Report Manager for 2014 and 2012
 If you want to connect to the web portal, or Report Manager for 2014 and 2012, on the virtual machine from a remote computer, create a new virtual machine TCP Endpoint. By default, the report server listens for HTTP requests on **port 80**. If you configure the report server URLs to use a different port, you must specify that port number in the following instructions.
@@ -333,7 +333,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 ![ports to open for bi applications in Azure VMs](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## Resources
-* Review the support policy for Microsoft server software used in the Azure Virtual Machine environment. The following topic summarizes support for features such as BitLocker, Failover Clustering, and Network Load Balancing. [Microsoft server software support for Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
+* Review the support policy for Microsoft server software used in the Azure Virtual Machine environment. The following topic summarizes support for features such as BitLocker, Failover Clustering, and Network Load Balancing. [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672).
 * [SQL Server on Azure Virtual Machines Overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
