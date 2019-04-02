@@ -1,5 +1,5 @@
 ---
-title: Configure Application Insights Provider for .NET Core ILogger logs
+title: Explore .NET trace logs in Azure Appication Insights with ILogger
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
 services: application-insights
 author: cijothomas
@@ -126,10 +126,10 @@ Following shows examples of `Program.cs` and `Startup.cs` using this capability.
                     // or if you want to capture logs from early in the application startup pipeline from Startup.cs or Program.cs itself.
                     builder.AddApplicationInsights("ikey");
 
-                    // Adding the filter below to ensure logs of all severity from Program.cs is sent to ApplicationInsights. 
+                    // Adding the filter below to ensure logs of all severity from Program.cs is sent to ApplicationInsights.
                     // Replace YourAppName with the namespace of your application's Program.cs
                     builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("YourAppName.Program", LogLevel.Trace);
-                    // Adding the filter below to ensure logs of all severity from Startup.cs is sent to ApplicationInsights. 
+                    // Adding the filter below to ensure logs of all severity from Startup.cs is sent to ApplicationInsights.
                     // Replace YourAppName with the namespace of your application's Startup.cs
                     builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("YourAppName.Startup", LogLevel.Trace);
                   }
@@ -158,7 +158,7 @@ public class Startup
         services.AddApplicationInsightsTelemetry();
 
         // The following will be picked up by Application Insights.
-        _logger.LogInformation("Logging from ConfigureServices."); 
+        _logger.LogInformation("Logging from ConfigureServices.");
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -196,7 +196,7 @@ While old provider can still be used (it is obsolete now and will be removed onl
 4. The [recommended](https://github.com/aspnet/Announcements/issues/255) way in Asp.Net Core (2.0 onwards) to enable logging providers is by using extension methods on ILoggingBuilder in `Program.cs` itself.
 
 > [!Note]
-The new Provider is available for applications targeting `NETSTANDARD2.0` or higher. If your application is targeting older framework like .NET Core 1.1, .NET Framework 4.5 etc, continue to use the old provider.
+The new Provider is available for applications targeting `NETSTANDARD2.0` or higher. If your application is targeting older .NET Core versions like .NET Core 1.1 or if targeting .NET Framework, continue to use the old provider.
 
 ## Console application
 
