@@ -39,7 +39,6 @@ After calling the `executionProfile()` step, the response will be a JSON object 
 
 The following is an annotated example of the output that will be returned:
 
-
 > [!NOTE]
 > This example is annotated with comments that explain the general structure of the response. An actual executionProfile response won't contain any comments.
 
@@ -130,18 +129,19 @@ The following is an annotated example of the output that will be returned:
 ## Execution profile response objects
 
 The response of an executionProfile() function will yield a hierarchy of JSON objects with the following structure:
-  - Gremlin operation object: Represents the entire Gremlin operation that was executed. Contains the following properties.
+  - **Gremlin operation object**: Represents the entire Gremlin operation that was executed. Contains the following properties.
     - `gremlin`: The explicit Gremlin statement that was executed.
     - `totalTime`: The time, in milliseconds, that the execution of the step incurred in. 
     - `metrics`: An array that contains each of the Cosmos DB runtime operators that were executed to fulfill the query. This list is sorted in order of execution.
-  - Cosmos DB runtime operators: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
+    
+  - **Cosmos DB runtime operators**: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
     - `name`: Name of the operator. This is the type of step that was evaluated and executed. Read more in the table below.
     - `time`: Amount of time, in milliseconds, that a given operator took.
     - `annotations`: Contains additional information, specific to the operator that was executed.
     - `annotations.percentTime`: Percentage of the total time that it took to execute the specific operator.
     - `counts`: Number of objects that were returned from the storage layer by this operator. This is contained in the `counts.resultCount` scalar value within.
-    - `storeOps`: Represents a storage operation that can span one or multiple data partitions.
-    - `storeOps.fanoutFactor`: Represents the number of partitions that this specific storage operation scanned.
+    - `storeOps`: Represents a storage operation that can span one or multiple partitions.
+    - `storeOps.fanoutFactor`: Represents the number of partitions that this specific storage operation accessed.
     - `storeOps.count`: Represents the number of results that this storage operation returned.
     - `storeOps.size`: Represents the size in bytes of the result of a given storage operation.
 
