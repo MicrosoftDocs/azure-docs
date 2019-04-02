@@ -11,6 +11,7 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ---
+
 # Create and deploy logic apps with Azure Resource Manager templates
 
 Azure Logic Apps provides Azure Resource Manager templates
@@ -22,6 +23,7 @@ customize the template to meet your requirements. Learn more about the
 and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md). For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 ## Define the logic app
+
 This example logic app definition runs once an hour,
 and pings the location specified in the `testUri` parameter.
 The template uses parameter values for the logic app name (```logicAppName```)
