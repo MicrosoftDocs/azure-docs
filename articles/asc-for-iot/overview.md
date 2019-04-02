@@ -1,7 +1,8 @@
 ---
 title: What is Azure Security Center for IoT Preview| Microsoft Docs
 description: Learn about Azure Security Center for IoT features and service.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
