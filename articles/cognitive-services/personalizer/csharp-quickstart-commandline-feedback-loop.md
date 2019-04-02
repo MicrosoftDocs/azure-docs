@@ -249,6 +249,15 @@ namespace PersonalizationExample
 }
 ```
 
+## Run the program
+
+Build and run the program. The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.
+
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+
+## Clean up resources
+When you are done with the quickstart, remove all the files created in this quickstart. 
+
 ## Clean up resources
 When you are done with the quickstart, remove all the files created in this quickstart. 
 
