@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -22,6 +22,27 @@ ms.custom: H1Hack27Feb2017
 
 # Azure HANA Large Instances control through Azure portal
 This document covers the way how [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) are presented in [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
+
+## Register HANA Large Instance Resource Provider
+Usually your Azure subscription you were using for HANA Large Instance deployments is registered for the HANA Large Instance Resource Provider. However, if you can’t see you deployed HANA Large Instance units, you should register the Resource Provider in your Azure subscription. There are two ways in registering the HANA Large Instance Resource provider
+
+### Register through CLI interface
+You need to be logged into your Azure subscription, used for the HANA Large Instance deployment via the Azure CLI interface. You can (re-)register the HANA Large Instance Provider with this command:
+    
+    az provider register --namespace Microsoft.HanaOnAzure
+
+For more information, see the article [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+
+
+### Register through Azure Portal
+You can (re-)register the HANA Large Instance Resource Provider through Azure Portal. You need to list your subscription in Azure Portal and double-click on the subscription which was used to deploy your HANA Large Instance unit(s). One you are in the overview page of your subscription, select "Resource providers" as shown below and type "HANA" into the search window. 
+
+![Register HLI RP through Azure Portal](./media/hana-li-portal/portal-register-hli-rp.png)
+
+In the screenshot shown, the resource provider was already registered. In case the resource provider is not yet registered, press "re-register" or "register".
+
+For more information, see the article [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+
 
 ## Display of HANA Large Instance units in the Azure portal
 When submitting an HANA Large Instance deployment request, you are asked to specify the Azure subscription that you are connecting to the HANA Large Instances as well. It is recommended to use the same subscription you are using to deploy the SAP application layer that works against the HANA Large Instance units.
@@ -42,6 +63,8 @@ As you found the resource group, list the details of it. The list you received c
 ![HLI list in Azure portal](./media/hana-li-portal/portal-hli-units-list.png)
 
 All the units listed are representing a single HANA Large Instance unit that has been deployed in your subscription. In this case, you look at eight different HANA Large Instance units, which were deployed in your subscription.
+
+If you deployed several HANA Large Instance tenants under the same Azure subscription, you will find multiple Azure resource groups 
 
 
 ## Look at attributes of single HLI Unit
@@ -96,6 +119,9 @@ As you are pressing the restart button, you are asked whether you really want to
 
 > [!NOTE]
 > In the restart process, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
+
+> [!IMPORTANT]
+> Dependent on the amount of memory in your HANA Large Instance unit, a restart and reboot of the hardware and the operating system can take up to one hour
 
 
 ## Open a support request for HANA large Instances
