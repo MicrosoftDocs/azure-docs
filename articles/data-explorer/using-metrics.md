@@ -6,7 +6,7 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: 
+ms.topic: conceptual
 ms.date: 04/01/2019
 ---
 
