@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
 #Customer intent: 
+
 ---
 
 # Quickstart: Create feedback loop using C# 
@@ -37,7 +38,7 @@ Getting started with Personalization involves the following steps:
 * [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
 * The Microsoft.Azure.CognitiveServices.Personalization SDK NuGet package. Installation instructions are provided below.
 
-## Creating a new console app and referencing the Personlizer SDK 
+## Creating a new console app and referencing the Personalizer SDK 
 
 <!--
 Get the latest code as a Visual Studio solution from [GitHub] (add link).
@@ -247,6 +248,12 @@ namespace PersonalizationExample
     }
 }
 ```
+
+## Run the program
+
+Build and run the program. The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.
+
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 ## Clean up resources
 When you are done with the quickstart, remove all the files created in this quickstart. 
