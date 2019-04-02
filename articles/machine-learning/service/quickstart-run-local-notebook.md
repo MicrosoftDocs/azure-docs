@@ -15,18 +15,13 @@ ms.custom: seodec18
 
 # Quickstart: Use your own notebook server to get started with Azure Machine Learning
 
-In this article, you use your own notebook server to run code that is logged in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
+Use your own notebook server to run code that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
-This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no installation, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no SDK installation, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md) 
 
 View a video version of this quickstart:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-In this quickstart, you:
-
-* Write code that logs values inside the workspace.
-* View the logged values in your workspace.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
