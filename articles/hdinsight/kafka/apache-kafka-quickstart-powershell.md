@@ -77,7 +77,7 @@ New-AzStorageAccount `
         -Location $location
 ```
 
-HDInsight stores data in the storage account in a blob container. Use [New-AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer) to create a new container.
+HDInsight stores data in the storage account in a blob container. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) to create a new container.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"

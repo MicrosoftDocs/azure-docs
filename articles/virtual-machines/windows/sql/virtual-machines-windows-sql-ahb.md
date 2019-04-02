@@ -26,6 +26,7 @@ The **bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid B
 
 Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Remarks
 
@@ -96,9 +97,9 @@ Register SQL Server VM using PowerShell with the following code snippet:
 
 ```powershell
 # Register your existing SQL Server VM with the new resource provider
-# example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest
-$vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
+# example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
+$vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 ## Change licensing model
