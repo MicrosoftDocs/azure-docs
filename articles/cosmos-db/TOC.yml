@@ -284,9 +284,10 @@
           href: mongodb-indexing.md
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-        - name: Use custom commands
-          href: mongodb-custom-commands.md
           maintainContext: true
+        - name: MongoDB extension commands
+          href: mongodb-custom-commands.md
+          displayName: custom commands
     - name: Gremlin API
       displayName: graph, graph database
       items: 
