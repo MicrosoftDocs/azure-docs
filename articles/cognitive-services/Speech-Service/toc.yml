@@ -123,6 +123,9 @@
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
     displayName: audio, microphone, input, device
+  - name: Enable logging (SDK)
+    href: how-to-use-logging.md
+    displayName: debug, log, logging
   - name: Customization
     items:
     - name: Speech-to-text
