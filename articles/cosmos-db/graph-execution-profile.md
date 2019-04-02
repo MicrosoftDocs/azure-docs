@@ -33,7 +33,7 @@ For example:
     g.V('mary').out().executionProfile()
 ```
 
-After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the back-end operations that the statement resulted in.
+After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the Cosmos DB runtime operators that the statement resulted in.
 
 > [!NOTE]
 > This implementation for Execution Profile isn't defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB Gremlin API's implementation.
@@ -137,20 +137,20 @@ The response of an executionProfile() function will yield a hierarchy of JSON ob
   - Gremlin operation object: Represents the entire Gremlin operation that was executed. Contains the following properties.
     - `gremlin`: The explicit Gremlin statement that was executed.
     - `totalTime`: The time, in milliseconds, that the execution of the step incurred in. 
-    - `metrics`: An array that contains each of the back-end substeps that were executed to fulfill the query. This list is sorted in order of execution.
-  - Back-end step objects: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
-    - `name`: Name of the back-end step. This is the type of step that was evaluated and executed. Read more in the table below.
-    - `time`: Amount of time, in milliseconds, that a given back-end step took.
-    - `annotations`: Contains additional information, specific to the back-end step that was executed.
-    - `annotations.percentTime`: Percentage of the total time that it took to execute the specific back-end step.
-    - `counts`: Number of objects that were returned from the storage layer by this back-end step. This is contained in the `counts.resultCount` scalar value within.
+    - `metrics`: An array that contains each of the Cosmos DB runtime operators that were executed to fulfill the query. This list is sorted in order of execution.
+  - Cosmos DB runtime operators: Represents each of the components of the entire Gremlin operation. This list is sorted in order of execution. Each object contains the following properties:
+    - `name`: Name of the operator. This is the type of step that was evaluated and executed. Read more in the table below.
+    - `time`: Amount of time, in milliseconds, that a given operator took.
+    - `annotations`: Contains additional information, specific to the operator that was executed.
+    - `annotations.percentTime`: Percentage of the total time that it took to execute the specific operator.
+    - `counts`: Number of objects that were returned from the storage layer by this operator. This is contained in the `counts.resultCount` scalar value within.
     - `storeOps`: Represents a storage operation that can span one or multiple data partitions.
     - `storeOps.fanoutFactor`: Represents the number of partitions that this specific storage operation scanned.
     - `storeOps.count`: Represents the number of results that this storage operation returned.
     - `storeOps.size`: Represents the size in bytes of the result of a given storage operation.
     - `storeOps.size`: Represents the size in bytes of the result of a given storage operation.
 
-Back-end Step|Description
+Cosmos DB Gremlin Runtime Operator|Description
 ---|---
 `GetVertices`| This step obtains a predicated set of objects from the persistence layer. 
 `GetEdges`| This step obtains the edges that are adjacent to a set of vertices. This step can result in one or many store operations.
@@ -160,6 +160,9 @@ Back-end Step|Description
 `ConstantSourceOperator`| This step computes an expression to produce a constant value as a result.
 `ProjectOperator`| This step prepares and serializes a response using the result of preceding operations.
 `ProjectAggregation`| This step prepares a and serializes a response for an aggregate operation.
+
+> [!NOTE]
+> This list will continue to be updated as new operators are added.
 
 ## Examples on how to analyze an ExecutionProfile response
 
