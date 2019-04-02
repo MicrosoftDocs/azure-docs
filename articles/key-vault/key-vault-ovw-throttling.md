@@ -112,7 +112,7 @@ Code that implements exponential backoff is shown below.
 ```
 
 
-Using this code in a client C\# application (another Web API client microservice, an ASP.NET MVC application, or even a C\# Xamarin application) is straightforward. The following example shows how, using the HttpClient class.
+Using this code in a client C\# application is straightforward. The following example shows how, using the HttpClient class.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
