@@ -24,7 +24,7 @@ By this time, you've completed the steps to become an Azure Marketplace and AppS
 partner registration.
 
 
-## Publisher Profile
+## Publisher profile
 
 Your publisher profile distinguishes your company on the Azure Marketplace and AppSource. It consists of your publisher ID, display name, and owner email(s). A well-managed profile will increase your visibility and help marketplace users easily identify and select an appropriate offer.
 
@@ -44,7 +44,7 @@ Your **Profile** dialog will be displayed.
 ![Publisher Profile Details - publisher profile details](./media/publisherprofiledetails.png)
 
 
-### Link your Dev Center Account
+### Link your Dev Center account
 
 You can also link your existing Dev Center account with your publisher profile on the Cloud Partner Portal.  First sign in to the portal with the same email address used to register your Dev Center account. Then your publisher profile page displays your Dev Center account status, Dev Center account owner email, and Dev Center account name.
 
