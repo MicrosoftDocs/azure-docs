@@ -1,5 +1,5 @@
 ---
-title: How to: Migrate your application to 3.0 SDK
+title: How to migrate your application to 3.0 SDK
 titlesuffix: Azure Cognitive Services
 description: Learn how to migrate applications using the previous version of the api to the 3.0 API.
 services: cognitive-services
