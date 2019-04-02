@@ -254,7 +254,7 @@ let endDateTime = now();
 Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
 
 >[!NOTE]
->The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for Log Alerts](../platform/alerts-log-api-switch.md).
+>The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
