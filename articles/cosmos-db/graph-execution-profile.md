@@ -21,7 +21,7 @@ To use this step, simply append the `executionProfile()` function call at the en
 
 For example:
 
-```csharp
+```java
     // Basic traversal
     g.V('mary').out()
 
