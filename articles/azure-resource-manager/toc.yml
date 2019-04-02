@@ -231,7 +231,7 @@
   - name: REST - Deployment Manager
     href: /rest/api/deploymentmanager/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET

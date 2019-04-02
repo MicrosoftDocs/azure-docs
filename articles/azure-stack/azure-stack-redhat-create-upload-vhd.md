@@ -263,22 +263,55 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ClientAliveInterval 180
     ```
 
-1. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
+1. When creating a custom vhd for Azure Stack, keep in mind that WALinuxAgent version between 2.2.20 and 2.2.35.1 (both exclusive) do not work on Azure Stack environments that are running a build before 1903. To resolve this, apply the 1901/1902 hotfix or follow the second half of this portion of instructions. 
+
+If you are running an Azure Stack build 1903 (or above) or have the 1901/1902 hotfix, download the WALinuxAgent package from the Redhat extras repository like so:
+    
+   The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository      by running the following command:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Install the Azure Linux Agent by running the following command:
+   Install the Azure Linux Agent by running the following command:
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    Enable the waagent service:
+   Enable the waagent service:
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+If you are running an Azure Stack build before 1903 and have not applied the 1901/1902 hotfix, then follow these instructions to download the WALinuxAgent:
+    
+   a.	Download setuptools
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. Download and unzip the latest version of the agent from our github. This is an example where we download "2.2.36" version from the github repo.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. Do not create swap space on the operating system disk.
