@@ -63,7 +63,7 @@ The Azure services that support Availability Zones are:
 - ExpressRoute
 - Application Gateway (preview)
 
-&#42; Resources created before the launch of Availability Zones in UK South will be converted to be zone redundant.
+&#42; Resources created in UK South before March 25, 2019 will soon be converted to be zone redundant.
 
 ## Services resiliency
 All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
