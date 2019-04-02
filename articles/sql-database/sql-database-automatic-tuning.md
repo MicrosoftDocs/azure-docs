@@ -44,7 +44,7 @@ Azure SQL Database Automatic tuning is sharing its core logic with the SQL Serve
 
 ## Use Automatic tuning
 
-Automatic tuning needs to be manually enabled on your subscription. To enable automatic tuning using Azure portal, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
+Automatic tuning needs to be enabled on your subscription. To enable automatic tuning using Azure portal, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 
 Automatic tuning can operate autonomously through automatically applying tuning recommendations, including automated verification of performance gains. 
 
