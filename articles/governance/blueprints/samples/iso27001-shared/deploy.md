@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Deploy the ISO 27001 Shared Services blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:
@@ -130,7 +130,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
+   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure

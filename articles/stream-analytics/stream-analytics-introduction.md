@@ -77,7 +77,7 @@ As a cloud service, Stream Analytics is optimized for cost. There are no upfront
 ## Mission-critical ready
 Azure Stream Analytics is available across multiple regions worldwide and is designed to run mission-critical workloads by supporting reliability, security and compliance requirements.
 ### Reliability
-Azure Stream Analytics guarantees exactly-once event processing and at-least-once delivery of events, so events are never lost. Exacty-once processing is guaranteed with selected output as described in [Event Delivery Guarantees](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). 
+Azure Stream Analytics guarantees exactly-once event processing and at-least-once delivery of events, so events are never lost. Exactly-once processing is guaranteed with selected output as described in [Event Delivery Guarantees](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). 
 Azure Stream Analytics has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability at the minute level. For more information, see  the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. 

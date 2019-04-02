@@ -118,7 +118,7 @@ There are basically two scenarios to consider when you are deciding how to respo
 
     In this scenario, there is a performance penalty because all your read requests will try the primary endpoint first, wait for the timeout to expire, then switch to the secondary endpoint.
 
-For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](https://msdn.microsoft.com/library/dn589784.aspx).
+For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
 
 ### Update requests
 

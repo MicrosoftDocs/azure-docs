@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -39,7 +39,7 @@ You must be a Global administrator or User administrator in the organization to 
 
 2. Select **Groups**, and then select **General**.
   
-   ![Self-service group settings](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![Self-service group settings page](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. Set  **Users can create Office 365 groups** to **Yes**.
 
@@ -47,9 +47,9 @@ You must be a Global administrator or User administrator in the organization to 
 
 ## Set group expiration
 
-1. Iin to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
+1. Sign in to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
   
-   ![Expiration settings](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Expiration settings page for group](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Set the expiration interval. Select a preset value or enter a custom value over 31 days. 
 
@@ -63,13 +63,13 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ## Clean up resources
 
-**To remove the expiration policy**
+### To remove the expiration policy
 
 1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your tenant.
 2. Select **Azure Active Directory** > **Groups** > **Expiration**.
 3. Set **Enable expiration for these Office 365 groups** to **None**.
 
-**To turn off user creation for groups**
+### To turn off user creation for groups
 
 1. Select **Azure Active Directory** > **Groups** > **General**. 
 2. Set **Users can create Office 365 groups in Azure portals** to **No**.

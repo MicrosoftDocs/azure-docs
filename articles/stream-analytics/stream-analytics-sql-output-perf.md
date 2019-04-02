@@ -2,13 +2,13 @@
 title: Azure Stream Analytics output to Azure SQL Database
 description: Learn about outputting data to SQL Azure from Azure Stream Analytics and achieve higher write throughput rates.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 3/18/2019
 ---
 # Azure Stream Analytics output to Azure SQL Database
 
@@ -27,7 +27,7 @@ Here are some configurations within each service that can help improve overall t
 
 - **Batch Size** - SQL output configuration allows you to specify the maximum batch size in an Azure Stream Analytics SQL output based on the nature of your destination table/workload. Batch size is the maximum number of records that sent with every bulk insert transaction. In clustered columnstore indexes, batch sizes around [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) allow for more parallelization, minimal logging, and locking optimizations. In disk-based tables, 10K (default) or lower may be optimal for your solution, as higher batch sizes may trigger lock escalation during bulk inserts.
 
-- **Input Message Tuning** – If you've optimized using inherit partitioning and batch size, increasing the number of input events per message per partition helps further pushing up your write throughput. Input message tuning allows batch sizes within Azure Stream Analytics to be up to the specified Batch Size, thereby improving throughput. This can be achieved by using [compression](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) or larger message sizes available in Premium EventHub SKU.
+- **Input Message Tuning** – If you've optimized using inherit partitioning and batch size, increasing the number of input events per message per partition helps further pushing up your write throughput. Input message tuning allows batch sizes within Azure Stream Analytics to be up to the specified Batch Size, thereby improving throughput. This can be achieved by using [compression](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) or increasing input message sizes in EventHub or Blob.
 
 ## SQL Azure
 
@@ -37,7 +37,16 @@ Here are some configurations within each service that can help improve overall t
 
 ## Azure Data Factory and In-Memory Tables
 
-- **In-Memory Table as temp table** – [In-Memory tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) allow for very high speed data loads but data needs to fit in memory. Benchmarks show bulk loading from an in-memory table to a disk-based table is about 10 times faster than directly bulk inserting using a single writer into the disk-based table with an identity column and a clustered index. To leverage this bulk insert performance, set up a [copy job using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) that copies data from the in-memory table to the disk-based table.
+- **In-Memory Table as temp table** – [In-Memory tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) allow for very high-speed data loads but data needs to fit in memory. Benchmarks show bulk loading from an in-memory table to a disk-based table is about 10 times faster than directly bulk inserting using a single writer into the disk-based table with an identity column and a clustered index. To leverage this bulk insert performance, set up a [copy job using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) that copies data from the in-memory table to the disk-based table.
+
+## Avoiding Performance Pitfalls
+Bulk inserting data is much faster than loading data with single inserts because the repeated overhead of transferring the data, parsing the insert statement, running the statement, and issuing a transaction record is avoided. Instead, a more efficient path is used into the storage engine to stream the data. The setup cost of this path is however much higher than a single insert statement in a disk-based table. The break-even point is typically around 100 rows, beyond which bulk loading is almost always more efficient. 
+
+If the incoming events rate is low, it can easily create batch sizes lower than 100 rows, which makes bulk insert inefficient and uses too much disk space. To work around this limitation, you can do one of these actions:
+* Create an INSTEAD OF [trigger](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) to use simple insert for every row.
+* Use an In-Memory temp table as described in the previous section.
+
+Another such scenario occurs when writing into a non-clustered columnstore index (NCCI), where smaller bulk inserts can create too many segments, that can crash the index. In this case, the recommendation is to use a Clustered Columnstore index instead.
 
 ## Summary
 

@@ -56,11 +56,11 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 The current version of the Cognitive Services Speech SDK is `1.3.1`.
 
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
-It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
+It is hosted in a Maven repository at https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
 
-1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-06-add-maven-repository.png)
 

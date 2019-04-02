@@ -167,5 +167,3 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 ## Next steps
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
-
-* [Install Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).

@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor and manage my industrial IoT devices. 

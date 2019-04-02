@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
+ms.lastreviewed: 03/25/2019
 
 ---
 # App Service on Azure Stack update 4 release notes
@@ -60,6 +60,8 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 - Added support for App Service 2018-02-01 API version
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates **Azure Functions runtime** to **v1.0.11959**.
 
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 

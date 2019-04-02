@@ -83,7 +83,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- Create a Machine Learning service workspace to get started [by using the Azure portal](quickstart-get-started.md) (no-install approach) or [in Python](quickstart-create-workspace-with-python.md) (SDK install approach).
+- [Create a Machine Learning service workspace](setup-create-workspace.md) to get started.
 
 - Follow the full-length tutorials: 
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
@@ -95,4 +95,4 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
 
-- For more information, see [other machine learning products from Microsoft](./overview-more-machine-learning.md).
+- For more information, see [other machine learning products from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).
