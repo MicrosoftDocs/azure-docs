@@ -13,8 +13,8 @@ ms.author: cithomas
 
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
-ASP.NET Core supports a logging API that works with different kinds of built-in and third-party logging providers. This article shows how to use ApplicationInsightsLoggerProvider to capture ILogger logs in both console and ASP.NET Core applications. This article also talks about how ApplicationInsightsLoggerProvider is integrated with other telemetry collection (Requests, Dependencies, and so on) features provided by Application Insights SDK. 
-To learn more about ILogger based logging, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+ASP.NET Core supports a logging API that works with different kinds of built-in and third-party logging providers. Logging is done by calling Log() or a variant of it on ILogger instances. This article shows how to use ApplicationInsightsLoggerProvider to capture ILogger logs in both console and ASP.NET Core applications. This article also describes how ApplicationInsightsLoggerProvider is integrated with other Application Insights telemetry.
+To learn more about based logging in Asp.Net Core, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## ASP.NET Core applications
 
