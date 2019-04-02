@@ -294,7 +294,7 @@
         href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
       - name: Help wiki
         href: ./cloud-partner-portal-orig/help-wiki.md
-    - name: IoT edge module offer
+    - name: IoT Edge module offer
       href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
       items:
       - name: Prerequisites
