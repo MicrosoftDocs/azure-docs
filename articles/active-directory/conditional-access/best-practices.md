@@ -107,9 +107,9 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 Yes, you can use Exchange ActiveSync in a conditional access policy.
 
+### How should you assign Office 365 apps to policies?
 
-
-
+Because Office 365 apps are connected in many ways, we recommend assigning all the most commonly used apps (Flow, Planner, PowerApps, Teams, Exchange, SharePoint, Yammer, and Delve) together to a policy instead of assigning an individual app. This is especially important for policies that require user interaction, like MFA, so that access is controlled at the beginning of a session or task. If you don’t do this, users may be unable to complete some tasks within an app. For example, if you require MFA on unmanaged devices for SharePoint but not Exchange, users working in their email won’t be able to attach SharePoint files to a message.
 
 
 ## What you should avoid doing
