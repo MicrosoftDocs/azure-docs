@@ -59,7 +59,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
-	using System.Threading.Tasks;
+    using System.Threading.Tasks;
     ```
 
 3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
@@ -105,7 +105,7 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
-	using System.Threading.Tasks;
+    using System.Threading.Tasks;
     ```
 
 2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values:
