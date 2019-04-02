@@ -18,7 +18,7 @@ To learn more logging in Asp.Net Core, see [this article](https://docs.microsoft
 
 ## ASP.NET Core applications
 
-Starting with [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 onwards, `ApplicationInsightsLoggerProvider` is enabled by default when enabling regular Application Insights monitoring using either of the standard methods - by calling `UseApplicationInsights` extension method on IWebHostBuilder or `AddApplicationInsightsTelemetry` extension method on IServiceCollection. `ILogger` logs captured by `ApplicationInsightsLoggerProvider` are subject to same configuration as any other telemetry collected. i.e they have the same set of `TelemetryInitializer`s, `TelemetryProcessor`s, uses the same `TelemetryChannel` and will be correlated and sampled in the same way as every other telemetry.  If you are on this version of SDK or higher, then no action is required to capture `ILogger` logs.
+Starting with [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 onwards, `ApplicationInsightsLoggerProvider` is enabled by default when enabling regular Application Insights monitoring using either of the standard methods - by calling `UseApplicationInsights` extension method on IWebHostBuilder or `AddApplicationInsightsTelemetry` extension method on IServiceCollection. `ILogger` logs captured by `ApplicationInsightsLoggerProvider` are subject to same configuration as any other telemetry collected. i.e they have the same set of `TelemetryInitializer`s, `TelemetryProcessor`s, uses the same `TelemetryChannel`, and will be correlated and sampled in the same way as every other telemetry.  If you are on this version of SDK or higher, then no action is required to capture `ILogger` logs.
 
 By default, only `ILogger` logs of `Warning` or above (from all categories) are sent to Application Insights. This behavior can be changed by applying Filters as shown [here](#control-logging-level). Also additional steps are required if `ILogger` logs from `Program.cs` or `Startup.cs` are to be captured as shown [here](#capturing-ilogger-logs-from-startupcs-programcs-in-aspnet-core-applications).
 
@@ -94,7 +94,7 @@ public class ValuesController : ControllerBase
 
 ### Capturing ILogger logs from Startup.cs, Program.cs in Asp.Net Core Applications
 
-With the new ApplicationInsightsLoggerProvider, it is possible to capture logs from early in the application startup pipeline. Even though ApplicationInsightsLoggerProvider is automatically enabled when enabling Application Insights (from 2.7.0-beta3 onwards), it do not have instrumentation key setup until later in the pipeline, so only logs from Controller/other classes will be captured. To capture every logs starting with `Program.cs` and `Startup.cs` itself, one need to explicitly enable ApplicationInsightsLoggerProvider with an instrumentation key. It is also important to note that `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will use a bare minimum configuration, which uses InMemoryChannel, no sampling, and no standard telemetry initializers or processors.
+With the new ApplicationInsightsLoggerProvider, it is possible to capture logs from early in the application startup pipeline. Even though ApplicationInsightsLoggerProvider is automatically enabled  Application Insights (from 2.7.0-beta3 onwards), it do not have instrumentation key setup until later in the pipeline, so only logs from Controller/other classes will be captured. To capture every logs starting with `Program.cs` and `Startup.cs` itself, one need to explicitly enable ApplicationInsightsLoggerProvider with an instrumentation key. It is also important to note that `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will use a bare minimum configuration, which uses InMemoryChannel, no sampling, and no standard telemetry initializers or processors.
 
 Following shows examples of `Program.cs` and `Startup.cs` using this capability.
 
@@ -186,7 +186,7 @@ public class Startup
 Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.0-beta2, supported a logging provider that is now obsolete. This provider was enabled with `AddApplicationInsights()` extension method of `ILoggerFactory`. This provider is now obsolete, and users are suggested to migrate to the new provider. Migration involves two steps.
 
 1. Remove ILoggerFactory.AddApplicationInsights() call from `Startup.Configure()` method to avoid double logging.
-2. Re-apply any filtering rules in code as they will not be respected by the new provider. Overloads of ILoggerFactory.AddApplicationInsights() took minimum LogLevel or filter functions. With the new provider, filtering is part of the logging framework itself, and not done by Application Insights provider. So any filters provided via `ILoggerFactory.AddApplicationInsights()` should be removed, and filtering rules should be provided following [this](#control-logging-level). If you use `appsettings.json` to filter logging, it will continue to work with new provider as both use the same Provider Alias - **ApplicationInsights**.
+2. Reapply any filtering rules in code as they will not be respected by the new provider. Overloads of ILoggerFactory.AddApplicationInsights() took minimum LogLevel or filter functions. With the new provider, filtering is part of the logging framework itself, and not done by Application Insights provider. So any filters provided via `ILoggerFactory.AddApplicationInsights()` overloads should be removed, and filtering rules should be provided following [these](#control-logging-level) instructions. If you use `appsettings.json` to filter logging, it will continue to work with new provider as both use the same Provider Alias - **ApplicationInsights**.
 
 While old provider can still be used (it is obsolete now and will be removed only in major version change to 3.xx), migrating to newer provider is highly recommended because of the following reasons.
 
@@ -328,7 +328,7 @@ For ApplicationInsightsLoggerProvider, the provider alias is `ApplicationInsight
 
 ### Create filter rules in code
 
-The below code snippet configures logs `Warning` and above from all categories, `Error` and above from categories starting with 'Microsoft' to be sent to `ApplicationInsightsLoggerProvider`. This is the same filter rules as the above config done in `appsettings.json`.
+The below code snippet configures logs `Warning` and above from all categories, `Error` and above from categories starting with 'Microsoft' to be sent to `ApplicationInsightsLoggerProvider`. This config is the same as the above config done in `appsettings.json`.
 
 ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -350,7 +350,7 @@ The below code snippet configures logs `Warning` and above from all categories, 
 
 *2. I'm seeing some `ILogger` logs are shown twice in Application Insights?*
 
-* This is possible if you have the older (now obsolete) version of `ApplicationInsightsLoggerProvider` enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your `Configure` method has
+* This duplication is possible if you have the older (now obsolete) version of `ApplicationInsightsLoggerProvider` enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your `Configure` method has
   the following, and remove it.
 
    ```csharp
@@ -361,7 +361,7 @@ The below code snippet configures logs `Warning` and above from all categories, 
     }
    ```
 
-* If you're experiencing double logging when debugging from Visual Studio, then modify the code used to enable Application Insights as follows, by setting `EnableDebugLogger` to be false. This is only relevant when debugging the application.
+* If you're experiencing double logging when debugging from Visual Studio, then modify the code used to enable Application Insights as follows, by setting `EnableDebugLogger` to be false. This duplication issue and fix is only relevant when debugging the application.
 
    ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -401,7 +401,7 @@ The below code snippet configures logs `Warning` and above from all categories, 
 
 *5. What Application Insights telemetry type is produced from `ILogger` logs? or Where can I see `ILogger` logs in Application Insights?*
 
-* ApplicationInsightsLoggerProvider captures `ILogger` logs and creates `TraceTelemetry` from it. If an Exception object is passed to the Log() method on ILogger, then instead of `TraceTelemetry`, an `ExceptionTelemetry` is created. These telemetry can be found in same places as any other `TraceTelemetry` or `ExceptionTelemetry` for Application Insights, including portal, analytics, or Visual Studio local debugger.
+* ApplicationInsightsLoggerProvider captures `ILogger` logs and creates `TraceTelemetry` from it. If an Exception object is passed to the Log() method on ILogger, then instead of `TraceTelemetry`, an `ExceptionTelemetry` is created. These telemetry items can be found in same places as any other `TraceTelemetry` or `ExceptionTelemetry` for Application Insights, including portal, analytics, or Visual Studio local debugger.
 If you prefer to always send `TraceTelemetry`, then use the snippet ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
 
 *5. I don't have SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider?*
