@@ -306,7 +306,7 @@ Azure PowerShell can be used to deploy the templates.
     ```
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment' is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
+    > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
 
 2. Verify the service topology and the underlined resources have been created successfully using the Azure portal:
 
