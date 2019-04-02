@@ -7,7 +7,6 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
@@ -155,12 +154,12 @@ Cosmos DB Gremlin Runtime Operator|Description
 `CartesianProductOperator`| This step computes a cartesian product between two datasets. Usually executed whenever the predicates `to()` or `from()` are used.
 `ConstantSourceOperator`| This step computes an expression to produce a constant value as a result.
 `ProjectOperator`| This step prepares and serializes a response using the result of preceding operations.
-`ProjectAggregation`| This step prepares a and serializes a response for an aggregate operation.
+`ProjectAggregation`| This step prepares and serializes a response for an aggregate operation.
 
 > [!NOTE]
 > This list will continue to be updated as new operators are added.
 
-## Examples on how to analyze an ExecutionProfile response
+## Examples on how to analyze an execution profile response
 
 The following are examples of common optimizations that can be spotted using the Execution Profile response:
   - Blind fan-out query.
@@ -214,7 +213,7 @@ The following conclusions can be made from it:
 - Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
 - If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data) were accessed by this operation.
 
-As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](graph-partitioning.md).
+As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](graph-partitioning.md). A more optimal query would be `g.V('tt0093640').has('partitionKey', 't1001')`.
 
 ### Unfiltered query patterns
 
