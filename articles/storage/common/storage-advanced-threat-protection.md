@@ -56,7 +56,7 @@ Use an Azure Policy to enable Advanced Threat Protection across storage accounts
 
 1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
 
-     ![Searh Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+     ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
   
 1. Select an Azure subscription or resource group.
 
