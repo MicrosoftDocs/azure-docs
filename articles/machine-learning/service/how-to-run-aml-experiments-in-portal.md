@@ -24,7 +24,7 @@ In this article you learn how to create, run and manage automated machine learni
 
 < workspace and azure subscription >
 
-## Getting Started in Portal
+## Getting Started
 
 Left pane Automated Machine Learning under Application
 
@@ -38,7 +38,7 @@ Otherwise you will see your workspace dashboard
 
 < insert screen shot of workspace dashboard >
 
-## Create an experiment in Portal
+## Create an experiment
 
 Use the Create Experiment button
 
@@ -127,10 +127,10 @@ Do we need a section that:
 
 * if you run an experiment via the SDK by python it will also showup in your dashboard
 
-< what about functionality for how to add properties and tags filter/search/sort >
+< what about functionality for how to add properties and tags filter/search/sort? >
 
 < May need to create a matrix of what computes are supported via the UI. Databricks is not supported as a compute for either the SDk or portal >
 
 ## Next steps
 
-* To run an experiment via the SDK
+* < what next steps should we link to here?>
