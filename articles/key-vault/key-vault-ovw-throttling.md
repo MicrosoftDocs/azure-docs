@@ -31,7 +31,7 @@ If you have a valid business case for higher throttle limits, please contact us.
 
 ## How to throttle your app in response to service limits
 
-The following are **best practices** for throttling your app:
+The following are **best practices** you should implement when your service is throttled:
 - Reduce the number of operations per request.
 - Reduce the frequency of requests.
 - Avoid immediate retries. 
