@@ -22,6 +22,8 @@ Microsoft provides tools to help developers create and deploy cloud applications
 
 When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#check-endpoints-in-azure).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Migrate existing applications and workloads
 Migrating an application or workload hosted elsewhere takes time and planning. To migrate to Microsoft Azure China 21Vianet:
 - [Move virtual machines](/azure/china/china-how-to-rehost) from classic Azure Service Manager (ASM) to Azure Resource Manager.
@@ -73,7 +75,7 @@ See also:
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
