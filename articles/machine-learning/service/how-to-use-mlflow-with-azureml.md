@@ -82,3 +82,7 @@ The metrics and artifacts from Mlflow logging appear in your Azure ML Workspace.
 ## Use Mlflow User Interface with Azure ML
 
 (TBD)
+
+## Next steps
+
+ * Try out [example notebooks for Mlflow with Azure ML](TBD)
