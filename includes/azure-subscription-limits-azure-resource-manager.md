@@ -22,15 +22,15 @@
 | Azure Resource Manager API request size |4,194,304 bytes. |4,194,304 bytes. |
 | Tags per subscription<sup>2</sup> |Unlimited. |Unlimited. |
 | Unique tag calculations per subscription<sup>2</sup> | 10,000 | 10,000 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |N/A<sup>2</sup> |N/A<sup>2</sup> |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |N/A<sup>2</sup> |N/A<sup>2</sup> |
+| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |N/A<sup>3</sup> |N/A<sup>3</sup> |
+| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Subscription-level deployments](../articles/azure-resource-manager/deploy-to-subscription.md) per location | 800 | 800 |
 
 <sup>1</sup>Default limits vary by offer category type, such as Free Trial and Pay-As-You-Go, and by series, such as Dv2, F, and G.
 
 <sup>2</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager returns a [list of unique tag name and values](/rest/api/resources/tags) in the subscription only when the number of tags is 10,000 or less. You still can find a resource by tag when the number exceeds 10,000.  
 
-<sup>2</sup>These features are no longer required with Azure resource groups and Resource Manager.
+<sup>3</sup>These features are no longer required with Azure resource groups and Resource Manager.
 
 > [!NOTE]
 > Virtual machine cores have a regional total limit. They also have a limit for regional per-size series, such as Dv2 and F. These limits are separately enforced. For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription can deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores. An example of a combination is 10 A1 VMs and 20 D1 VMs.  
