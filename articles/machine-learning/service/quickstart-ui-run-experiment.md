@@ -20,9 +20,10 @@ In this quickstart you'll explore and prepare data:
 
 - Create your first experiment
 - Add data
+- Select columns in the data
+- Run the experiment
 - Visualize the data
 - Prepare the data
-- Run an experiment
 - Visualize the results
 
 After you complete this quickstart, you can use this experiment to [train a model]().
@@ -64,6 +65,8 @@ The first thing you need for machine learning is data. There are several sample 
  > If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
 
 ## Select columns
+
+Select which columns of data to work with.  For now, view all the available columns.
 
 1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
@@ -113,7 +116,10 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
     ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
 
-    Your compute resource will now be created. This step takes approximately 10 minutes. After the resource has been created, you can reuse it and skip this wait. View the status in the top-right corner of the experiment.
+    Your compute resource will now be created. View the status in the top-right corner of the experiment. 
+
+    > [!NOTE]
+    > It takes approximately 10 minutes to create a compute target. After the resource has created, you can reuse it and skip this wait time for future runs.
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
@@ -164,8 +170,15 @@ First,  remove the **normalized-losses** column completely.
         
     ![Property pane](./media/quickstart-ui-run-experiment/property-pane.png)
         
-    > [!TIP]
-    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the **Select Columns in Dataset** module and type the comment "Exclude normalized losses."
+    You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. 
+
+1. Double-click the **Select Columns in Dataset** module and type the comment "Exclude normalized losses." 
+    
+    After you type the comment, click outside the module.  A down-arrow appears to show that the module contains a comment.
+
+1. Click on the down-arrow to display the comment.
+
+    The module now shows an up-arrow to hide the comment.
         
     ![Comments](./media/quickstart-ui-run-experiment/comments.png)
 
@@ -191,7 +204,7 @@ Now add another module that removes any remaining row that has missing data.
 
 ## Visualize the results
 
-Since you made changes to the modules in your experiment, the status has changed to "In draft".  To visualize the new clean data, you first have to **RUN** the experiment again.
+Since you made changes to the modules in your experiment, the status has changed to "In draft".  To visualize the new clean data, you first have to run the experiment again.
 
 1. Select **Run** at the bottom to run the experiment.
 
@@ -215,9 +228,10 @@ In this quickstart, you learned how to:
 
 - Create your first experiment
 - Add data
+- Select columns in the data
+- Run the experiment
 - Visualize the data
 - Prepare the data
-- Run an experiment
 - Visualize the results
 
 Continue to the tutorial to use this data to predict the price of an automobile.
