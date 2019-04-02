@@ -41,7 +41,7 @@ See [Understand Azure AD App Proxy Connectors](https://docs.microsoft.com/azure/
 
    * Connector hosts must [be enabled for TLS 1.2d](application-proxy-add-on-premises-application.md) before installing the connectors.
 
-   * If possible, connectors should be deployed in the [same network](application-proxy-network-topology) and segment as the back-end web application servers. It's best to deploy connector hosts after you complete a discovery of applications.
+   * If possible, connectors should be deployed in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connector hosts after you complete a discovery of applications.
 
 * **Network access settings**: Azure AD Application Proxy connectors [attempt to connect to Azure via HTTPS (TCP Port 443) or HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
 
