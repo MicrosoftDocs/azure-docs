@@ -334,3 +334,7 @@ Additional information can be found below:
 Azure customers may see TCP packets with TCP Flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) in packet captures that may indicate network performance issues. These packets specifically indicate network inefficiencies as a result of packet loss. However, packet loss is not necessarily due to Azure performance issues. Performance issues could be the result of application, operating system, or other issues that might not be directly related to the Azure platform. It’s also important to note that some retransmission or duplicate ACKs on a network is normal – TCP protocols were built to be reliable. And, evidence of these TCP packets in a packet capture does not necessarily indicate a systemic network problem unless they are excessive.
 
 However, it should be stated clearly that these packet types are indications that TCP throughput is not achieving its maximum performance – for reasons discussed in other sections.
+
+## Next Steps
+
+Now that we've discussed TCP/IP performance tuning for Azure VMs, next steps include [planning other Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) considerations or [learn more about connecting and configuring Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
