@@ -44,6 +44,12 @@ The following is an example of how to declare Mesh Secrets resources in a JSON f
       }
     }
   },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
+  },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
@@ -108,6 +114,12 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
         "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
     }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
