@@ -29,28 +29,32 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Danish      | `da`          | ✔ \*     | ✔           |             |     |
-| Dutch       | `nl`          | ✔ \*     | ✔          |             |     |
-| English     | `en`          | ✔        | ✔           |  ✔ \*   |      |
-| Finnish     | `fi`          | ✔ \*     | ✔           |             |     |
-| French      | `fr`          | ✔        | ✔           |             |     |
-| German      | `de`          | ✔ \*     | ✔           |            |     |
+| Arabic      | `ar`          |  ✔ \*     | ✔ \*       | ✔ \*                     | |
+| Czech       | `cs`          | ✔ \*      | ✔ \*       | ✔ \*                     | |
+| Chinese-Simplified | `zh-CN`| ✔ \*     | ✔ \*        | ✔ \*        |    |
+| Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
+| Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| English     | `en`          | ✔        | ✔           |  ✔      |      |
+| Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
+| German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
-| Italian     | `it`          | ✔ \*     | ✔           |             |     |
-| Japanese    | `ja`          |          | ✔           |            |     |
-| Korean      | `ko`          |          | ✔           |            |     |
-| Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
-| Polish      | `pl`          | ✔ \*     |  ✔          |             |     |
-| Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` also accepted|
-| Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |     |
-| Russian     | `ru`          | ✔ \*     | ✔           |             |     |
-| Spanish     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| Swedish     | `sv`          | ✔ \*     | ✔           |             |     |
-| Turkish     | `tr`          | ✔ \*     |             |             |  |
+| Hungarian   | `hu`          |           |             |  ✔ \*          |     | l
+| Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Japanese    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
+| Norwegian  (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
+| Polish      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
+| Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` also accepted|
+| Portuguese (Brazil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
+| Russian     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Spanish     | `es`          |         |            |   ✔ \*\*      |     |
+| Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
+| Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
 \* indicates language support in preview
 
-\*\* Entity extraction for Spanish is only available in [(version 2.1)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+\*\* Only [Named Entity Recognition](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for Spanish 
 
 ## See also
 
