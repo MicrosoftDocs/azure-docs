@@ -119,9 +119,65 @@ The following matrix maps each possible _reason_ to the responsible
 
 For Audit policies in the Guest Configuration category there could be multiple settings evaluated inside the VM and you will need to view per-setting details. For example, if you are auditing for a list of installed applications and the assignment status is not-compliant, you will need to know which specific applications are missing.
 
-From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource. Click the Guest Assignment in the Name column to navigate to the Resource Compliance view. Finally, click the View Resource button at the top of the page to will open the Guest Assignment page.
+### Azure Portal
+
+From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource. Click the Guest Assignment in the Name column to navigate to the Resource Compliance view. Finally, click the View Resource button at the top of the page to open the Guest Assignment page.
 
 From the Guest Assignment page, you can see all available compliance details. Each row in the view represents a check that was performed inside the virtual machine. In the column named Reason, you will see a phrase describing why the assignment is out of compliance. For example, if you are auditing for a list of installed applications, the Reason column would display text "The following applications are not installed: Name, Name, Name"
+
+### Azure PowerShell
+
+You can also view compliance details from PowerShell.
+First, make sure you have the Guest Configuration module installed.
+
+```PowerShell
+Install-Module Az.GuestConfiguration
+```
+
+You can view the current status of all Guest Assignments for a VM using the following command.
+
+```PowerShell
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+To view only the phrase that describes why the VM is not compliant, return only the Reason child property.
+
+```PowerShell
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+The following applications are not installed: '<name>'.
+```
+
+You can also output a compliance history for Guest Assignments in scope for the virtual machine.
+The output from this command will include the details of each report for the VM.
+
+**The output could return a high amount of data.  As a best practice, store the output in a variable.**
+
+```PowerShell
+Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+To simplify this view, use the **-ShowChanged** parameter.
+The output from this command will only include the reports that followed a change in compliance status.
+
+```PowerShell
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
 
 ## Change history (Preview)
 
