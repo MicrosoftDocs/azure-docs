@@ -1,25 +1,21 @@
 ---
-title: Customize HDInsight clusters by using script actions, Azure 
+title: Customize Azure HDInsight clusters by using script actions
 description: Add custom components to Linux-based HDInsight clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-
 ---
-# Customize Linux-based HDInsight clusters by using script actions
+
+# Customize Azure HDInsight clusters by using script actions
 
 Azure HDInsight provides a configuration method called **script actions** that invokes custom scripts to customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be used during or after cluster creation.
 
 > [!IMPORTANT]  
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
->
-> Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight Windows retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. For more information on HDInsight applications, see [Publish an HDInsight application in the Azure Marketplace](hdinsight-apps-publish-applications.md).
 
@@ -273,7 +269,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
-Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?).
 
 The following example shows how to apply a script action to a running cluster:
 
