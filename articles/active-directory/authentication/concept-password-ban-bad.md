@@ -107,8 +107,11 @@ Since this password is at least 5 points, it is accepted.
 
 |   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
-| Cloud-only users | Azure AD Free | Azure AD Basic |
+| Cloud-only users | Azure AD Free | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
+
+> [!NOTE]
+> On-premises Windows Server Active Directory users that not synchronized to Azure Active Directory also avail the benefits of Azure AD password protection based on existing licensing for synchronized users.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
