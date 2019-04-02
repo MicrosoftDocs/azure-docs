@@ -6,7 +6,7 @@ author: stevelas
 
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 04/01/2019
 ms.author: stevelas
 ms.custom: "seodec18, mvc"
 ---
@@ -27,7 +27,9 @@ Pull images from an Azure container registry to various deployment targets:
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) or [Jenkins](https://jenkins.io/).
 
-Configure ACR Tasks to automatically rebuild application images when their base images are updated. Use ACR Tasks to automate image builds when your team commits code to a Git repository.
+Configure [ACR Tasks](#azure-container-registry-tasks) to automatically rebuild application images when their base images are updated. Use ACR Tasks to automate image builds when your team commits code to a Git repository.
+
+Azure provides Azure CLI, Azure portal, and API support for your Azure container registries. Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) to work with your Azure container registries. For example, pull and push images to an Azure container registry, or run ACR Tasks, within Visual Studio Code.
 
 ## Key concepts
 
