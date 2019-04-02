@@ -9,7 +9,7 @@ ms.author: tarcher
 ms.topic: tutorial
 ---
 
-# Create, update and delete Azure Virtual Network Peering using Ansible
+# Manage Azure Virtual Network Peering using Ansible
 
 [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
