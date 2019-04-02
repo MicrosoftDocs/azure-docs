@@ -115,7 +115,7 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Move mainframe storage to Azure](mainframe-storage-on-Azure.md)
+- [Move mainframe storage to Azure](mainframe-storage-Azure.md)
 
 ### IBM resources
 
