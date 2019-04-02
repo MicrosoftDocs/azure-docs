@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn about network and application security groups. Security groups help you filter network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: jdial
+ms.author: malop;kumud
 ---
 
 # Security groups
