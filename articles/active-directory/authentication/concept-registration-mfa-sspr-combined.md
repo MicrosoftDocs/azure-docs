@@ -37,7 +37,7 @@ My Profile pages are localized based on the language settings of the computer ac
 
 ## Methods available in combined registration
 
-Combined registration supports the following methods and actions:
+Combined registration supports the following authentication methods and actions:
 
 |   | Register | Change | Delete |
 | --- | --- | --- | --- |
@@ -71,7 +71,7 @@ There are two modes of combined registration: interrupt and manage.
 
 - **Manage mode** is part of the user profile and allows users to manage their security info.
 
-For both modes, if a user has previously registered a method that can be used for Multi-Factor Authentication, they'll need to perform Multi-Factor Authentication before they can access their security info.
+For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
 
 ### Interrupt mode
 
@@ -83,11 +83,11 @@ Here are several scenarios in which users might be prompted to register or refre
 * Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
 * Multi-Factor Authentication registration enforced through conditional access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
 * SSPR registration enforced: Users are asked to register during sign in. They register only SSPR methods.
-* SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can verify the current info or make changes if needed.
+* SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
 When registration is enforced, users are shown the minimum number of methods needed to be compliant with both Multi-Factor Authentication and SSPR policies, from most to least secure.
 
-Example:
+For example:
 
 * A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
    * This user is required to register two methods.
@@ -112,7 +112,7 @@ Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https:/
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
 
 ### Set up security info from My Profile
 
