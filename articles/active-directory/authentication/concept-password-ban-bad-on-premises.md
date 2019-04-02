@@ -81,16 +81,6 @@ Deployment of Azure AD password protection in an Active Directory forest require
 
 The Active Directory forest and all deployed proxy services within a forest must be registered with the same tenant. It is not supported to have an Active Directory forest or any proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
 
-## License requirements
-
-The benefits of the global banned password list apply to all users of Azure AD.
-
-The custom banned-password list requires Azure AD Basic licenses.
-
-Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses.
-
-For additional licensing information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
 ## Download
 
 The two required agent installers for Azure AD password protection are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).

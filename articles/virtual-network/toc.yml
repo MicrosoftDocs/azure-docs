@@ -83,6 +83,8 @@
     items:
     - name: Virtual networks
       href: virtual-network-vnet-plan-design-arm.md
+    - name: TCP/IP Performance Tuning for Azure VMs
+      href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
     - name: Network security groups
