@@ -95,7 +95,7 @@ At this point, the VM is running and attached via RDP. You're signed in and read
         docker version
     ```
 
->   For example, the version was 18.09.0 when this was written.
+     For example, the version was 18.09.0 when this was written.
 
 3. To change the directory, type **cd \Sandbox\ent_server_dockerfiles_4.0_windows\EnterpriseServer**.
 

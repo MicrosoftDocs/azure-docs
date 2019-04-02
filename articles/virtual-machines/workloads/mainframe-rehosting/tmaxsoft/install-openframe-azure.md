@@ -169,18 +169,18 @@ When giving new individuals access the VM:
 
 1. In Azure portal, in the **Choose a size** blade, choose the Linux machine hardware settings you want. The *minimum* requirements for installing both Tibero and OpenFrame are 2 CPUs and 4 GB RAM as shown in this example installation:
 
-    ![Create virtual machine - Basics](media/createVM-01.png)
+    ![Create virtual machine - Basics](media/create-vm-01.png)
 
 2. Click **3 Settings** and use the default settings to configure optional features.
 3. Review your payment details.
 
-    ![Create virtual machine - Purchase](media/createVM-02.png)
+    ![Create virtual machine - Purchase](media/create-vm-02.png)
 
 4. Submit your selections. Azure begins to deploy the VM. This process typically takes a few minutes.
 
 5. When the VM is deployed, its dashboard is displayed, showing all the settings that were selected during the configuration. Make a note of the **Public IP address**.
 
-    ![tmax on Azure dashboard](media/createVM-03.png)
+    ![tmax on Azure dashboard](media/create-vm-03.png)
 
 6. Open PuTTY.
 
