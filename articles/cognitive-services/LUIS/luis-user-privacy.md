@@ -25,7 +25,7 @@ Language Understanding Intelligent Service (LUIS) preserves customer content to 
 Customer content is stored encrypted in Microsoft regional Azure storage and includes:
 
 - User account content collected at registration
-- Training data required to build the models (i.e. intent & entities)
+- Training data required to build the models
 - Logged user queries used by [active learning](luis-concept-review-endpoint-utterances.md) to help improve the model
   - Users can turn off query logging by appending `&log=false` to the request, details [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
@@ -47,7 +47,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 ## Location of active learning
 
-To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in one or more of the following Azure geographies:
+To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
 
 * [Europe](#europe)
 * [Australia](#australia)
@@ -60,13 +60,12 @@ The [eu.luis.ai](https://eu.luis.ai) portal and Europe Authoring (also known as 
 * Europe
 * France
 * United Kingdom
-* Germany
 
 When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Europe geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 ### Australia
 
-The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known as Programmatic) APIs are hosted in Azure's Australia geography. The au.luis.ai portal and Australia Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
+The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known as Programmatic APIs) are hosted in Azure's Australia geography. The au.luis.ai portal and Australia Authoring (also known as Programmatic) APIs support deployment of endpoints to the following Azure geographies:
 
 * Australia
 
