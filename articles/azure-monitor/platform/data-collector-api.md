@@ -162,6 +162,11 @@ If you then submitted the following entry, before the record type was created, A
 
 ![Sample record 4](media/data-collector-api/record-04.png)
 
+## Reserved properties
+The following properties are reserved and should not be used in a custom record type. You will receive an error if your payload includes any of these field names.
+
+- Tenant
+
 ## Data limits
 There are some constraints around the data posted to the Azure Monitor Data collection API.
 
