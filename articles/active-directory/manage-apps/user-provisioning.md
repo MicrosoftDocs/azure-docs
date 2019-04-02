@@ -20,37 +20,37 @@ ms.collection: M365-identity-device-management
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 
 ## What is automated user provisioning for SaaS apps?
-Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
+Azure Active Directory (Azure AD) lets you automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
-**Below are some examples of what this feature allows you to do:**
+**This feature lets you:**
 
-* Automatically create new accounts in the right systems for new people when they join your team or organization.
-* Automatically deactivate accounts in the right systems when people leave the team or organization.
-* Ensure that the identities in your apps and systems are kept up-to-date based on changes in the directory, or your human resources system.
-* Provision non-user objects, such as groups, to applications that support them.
+- Automatically create new accounts in the right systems for new people when they join your team or organization.
+- Automatically deactivate accounts in the right systems when people leave the team or organization.
+- Ensure that the identities in your apps and systems are kept up-to-date based on changes in the directory, or your human resources system.
+- Provision non-user objects, such as groups, to applications that support them.
 
-**Automated user provisioning also includes the following functionality:**
+**Automated user provisioning also includes this functionality:**
 
-* The ability to match existing identities between source and target systems.
-* Customizable attribute mappings that define what user data should flow from the source system to the target system.
-* Optional email alerts for provisioning errors.
-* Reporting and activity logs to help with monitoring and troubleshooting.
+- The ability to match existing identities between source and target systems.
+- Customizable attribute mappings that define what user data should flow from the source system to the target system.
+- Optional email alerts for provisioning errors.
+- Reporting and activity logs to help with monitoring and troubleshooting.
 
 ## Why use automated provisioning?
 
 Some common motivations for using this feature include:
 
-* Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
-* Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts.
-* To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a large number of users into a particular SaaS application or system.
-* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
+- Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
+- Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts.
+- Securing your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
+- Easily importing a large number of users into a particular SaaS application or system.
+- Having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 ## How does automatic provisioning work?
 	
-The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems, by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. 
+The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. 
 
 ![Provisioning](./media/user-provisioning/provisioning0.PNG)
 *Figure 1: The Azure AD Provisioning Service*
@@ -73,7 +73,7 @@ For a list of all applications for which Azure AD supports a pre-integrated prov
 To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
-> In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
+> In order for an application to support automated user provisioning, it must first provide the necessary user management APIs that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support user management APIs, the Azure AD engineering team can then build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers. 
 
 ### Connecting applications that support SCIM 2.0
 
@@ -92,31 +92,29 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
 1. Choose **+ New application** to add an application. Add either of the following depending on your scenario:
 
-   * The **Add your own app** option supports custom-developed SCIM integrations.
+   - The **Add your own app** option supports custom-developed SCIM integrations.
 
-   * All applications in the **Add from the gallery** > **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md) for additional ones.
+   - All applications in the **Add from the gallery** > **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md) for additional ones.
 
 1. Provide any details and select **Add**. The new app is added to the list of enterprise applications and opens to its application management screen.
 
-1. Select **Provisioning** to manage user account provisioning settings for your app.
+1. Select **Provisioning** to manage user account provisioning settings for the app.
 
    ![Settings](./media/user-provisioning/provisioning_settings0.PNG)
 
 1. Select the Automatic option for the **Provisioning Mode** to specify settings for admin credentials, mappings, starting and stopping, and synchronization.
 
-   * Expand **Admin credentials** to enter the credentials required for Azure AD to connect to the application's user management API. This section also lets you enable email notifications if the credentials fail, or the provisioning job goes into [quarantine](#quarantine).
+   - Expand **Admin credentials** to enter the credentials required for Azure AD to connect to the application's user management API. This section also lets you enable email notifications if the credentials fail, or the provisioning job goes into [quarantine](#quarantine).
 
-   * Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated. If the target application supports it, this section lets you optionally configure provisioning of groups and user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](functions-for-customizing-application-data.md)" allow you to modify and transform the values retrieved from the source system before they're written to the target system. For more information, see [Customizing Attribute Mappings](customize-application-attributes.md).
-
-* **Scoping filters** tell the provisioning service which users and groups in the source system should be provisioned or deprovisioned to the target system. There are two aspects to scoping filters that are evaluated together that determine who is in scope for provisioning:
-
-    * **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
-
-    * **Filter on assignments** - The "Scope" menu in the Provisioning > Settings section of the portal allows you to specify whether only "assigned" users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md).
+   - Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated. If the target application supports it, this section lets you optionally configure provisioning of groups and user accounts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize user attributes.
+   
+     **Scoping filters** tell the provisioning service which users and groups in the source system should be provisioned or deprovisioned to the target system. In the **Attribute mapping** pane, select **Source Object Scope** to filter on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 	
-* **Settings** control the operation of the provisioning service for an application, including whether it's currently running.
+     For more information, see [Customizing Attribute Mappings](customize-application-attributes.md).
 
-* **Audit logs** provide records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+   - **Settings** control the operation of the provisioning service for an application, including whether it's currently running. The **Scope** menu lets you specify whether only assigned users and groups should be in scope for provisioning, or if all users in the Azure AD directory should be provisioned. For information on "assigning" users and groups, see [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md).
+
+In the app management screen, select **Audit logs** to view records of every operation run by the Azure AD provisioning service. For more information, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ![Settings](./media/user-provisioning/audit_logs.PNG)
 
@@ -158,21 +156,21 @@ After the initial sync, all other syncs will:
 10. Persist a new watermark at the end of the incremental sync, which provides the starting point for the later incremental syncs.
 
 >[!NOTE]
-> You can optionally disable the create, update, or delete operations by using the **Target object actions** check boxes in the [Attribute Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
+> You can optionally disable the **Create**, **Update**, or **Delete** operations by using the **Target object actions** check boxes in the [Mappings](customize-application-attributes.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
 
-The provisioning service will continue to run back-to-back incremental syncs indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md), until one of the following events occurs:
+The provisioning service continues running back-to-back incremental syncs indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md), until one of the following events occurs:
 
-* The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
-* A new initial sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
-* A new initial sync is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
-* The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
+- The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
+- A new initial sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again.
+- A new initial sync is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
+- The provisioning process goes into quarantine (see below) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
 ### Errors and retries
 
-If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation will be retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators will need to check the [audit logs](check-status-user-account-provisioning.md) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
+If an individual user can't be added, updated, or deleted in the target system because of an error in the target system, then the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [audit logs](check-status-user-account-provisioning.md) for "process escrow" events to determine the root cause and take the appropriate action. Common failures can include:
 
-* Users not having an attribute populated in the source system that is required in the target system
-* Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record
+- Users not having an attribute populated in the source system that is required in the target system
+- Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record
 
 These failures can be resolved by adjusting the attribute values for the affected user in the source system, or by adjusting the attribute mappings to not cause conflicts.   
 
@@ -182,12 +180,12 @@ If most or all of the calls made against the target system consistently fail bec
 
 When in quarantine, the frequency of incremental syncs is gradually reduced to once per day. 
 
-The provisioning job will be removed from quarantine after all of the offending errors being fixed, and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
+The provisioning job will be removed from quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
 
 ## How long will it take to provision users?
 
-Performance depends on whether your provisioning job is running an initial sync or an incremental sync, as described in the previous section.
+Performance depends on whether your provisioning job is running an initial sync or an incremental sync.
 
 For **initial syncs**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. A comprehensive list of factors that affect initial sync performance are summarized later in this section.
 
@@ -215,24 +213,24 @@ For the configuration **Sync assigned user and groups only**, you can use the fo
 	
 Summary of factors that influence the time it takes to complete an **initial sync**:
 
-* The total number of users and groups in scope for provisioning.
+- The total number of users and groups in scope for provisioning.
 
-* The total number of users, groups, and group members present in the source system (Azure AD).
+- The total number of users, groups, and group members present in the source system (Azure AD).
 
-* Whether users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take about *twice as long* as sync jobs for which all users are matched to existing users.
+- Whether users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take about *twice as long* as sync jobs for which all users are matched to existing users.
 
-* Number of errors in the [audit logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state.	
+- Number of errors in the [audit logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state.	
 
-* Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling, which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
+- Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling, which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
 
-* The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
+- The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
 
 
 ## How can I tell if users are being provisioned properly?
 
 All operations run by the user provisioning service are recorded in the Azure AD audit logs. This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
 
-For information on how the read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
+For information on how to read the audit logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 
 ## How do I troubleshoot issues with user provisioning?
@@ -260,9 +258,9 @@ Yes. When configured to "sync only assigned users and groups", the Azure AD user
 
 However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, keep these caveats and recommendations in mind:
 
-* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+- How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
-* When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership will result in a deprovisioning event.
+- When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership results in a deprovisioning event.
 
 ### Does automatic user provisioning to SaaS apps work with nested groups in Azure AD?
 
@@ -274,9 +272,9 @@ As a workaround, you should explicitly assign (or otherwise [scope in](https://d
 
 ## Related articles
 
-* [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
-* [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
-* [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)
-* [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
+- [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
+- [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)
+- [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
+- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
