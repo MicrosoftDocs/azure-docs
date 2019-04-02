@@ -14,16 +14,16 @@ ms.author: jnoller
 
 # Azure Kubernetes Service (AKS) Support Policies
 
-This article provides details around AKS technical support policies, limitations and details including worker node management, managed control plane components, 3rd party open source components and security / patch management.
+This article provides details around AKS technical support policies, limitations, and details including worker node management, managed control plane components, 3rd party open-source components and security / patch management.
 
 ## Service Updates & Releases
 
-* For release notes/list of AKS releases please see our [Github Releases][1]
-* For public preview / in testing features, please see our [Preview document][2]
+* For release notes/list of AKS releases see our [Github Releases][1]
+* For public preview / in testing features, see our [Preview document][2]
 
 ## What is 'managed'
 
-Unlike base IaaS cloud components such as compute or networking that expose low-level controls and customization options for users to leverage, the AKS service provides a turn-key Kubernetes deployment that represents the common set of configurations and capabilities required for Kubernetes. This means that users leveraging this service have a limited number of customizations, deployment and other options. This also means that customers do not need to worry or manage the Kubernetes cluster(s) directly.
+Unlike base IaaS cloud components such as compute or networking that expose low-level controls and customization options for users to leverage, the AKS service provides a turn-key Kubernetes deployment that represents the common set of configurations and capabilities required for Kubernetes. This means that users leveraging this service have a limited number of customizations, deployment, and other options. This also means that customers do not need to worry or manage the Kubernetes cluster(s) directly.
 
 With AKS, the customer gets a fully managed **control plane** – where the control plane contains all components and services required to operate and provide Kubernetes clusters to end users. This means that all Kubernetes components are maintained and operated by Microsoft.
 
@@ -36,18 +36,18 @@ With the managed **control plane** the following components are managed and moni
 
 As noted later in this document, AKS is not a 100% managed **cluster** solution, meaning that certain components (such as worker nodes) have certain **shared responsibilities** cases where actions to maintain the AKS cluster require user interaction. For example, worker node OS security patch application.
 
- **Managed**, to recap means that Microsoft and the AKS team deploys, operates and is responsible for the availability and functionality of these services. This means_ **customers can not alter these components** _. Customization is limited to ensure a consistent and scalable user experience. For a fully customizable solution, please see [_AKS-Engine_](https://github.com/Azure/aks-engine)._
+ **Managed**, to recap means that Microsoft and the AKS team deploys, operates and is responsible for the availability and functionality of these services. This means **customers can not alter these components**. Customization is limited to ensure a consistent and scalable user experience. For a fully customizable solution, see [AKS-Engine](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> It's important to understand that Azure Kubernetes Service worker nodes appear in the Azure Portal as regular Azure IaaS Resources, although these Virtual Machines are deployed into a custom Azure Resource Group (prefixed with MC\_\*). This means user may alter them, ssh into them, etc, just like normal virtual machines (you cannot however change the base OS image, and changes may not persist through an update/reboot), and you can attach other Azure resource to them, or otherwise modify them. **However, doing this of out of band management and customization means that the AKS cluster itself can become unsupportable. Please avoid worker node alteration unless directed by Microsoft Support.**
+> It's important to understand that Azure Kubernetes Service worker nodes appear in the Azure Portal as regular Azure IaaS Resources, although these Virtual Machines are deployed into a custom Azure Resource Group (prefixed with MC\\*). This means user may alter them, ssh into them just like normal virtual machines (you cannot however change the base OS image, and changes may not persist through an update/reboot), and you can attach other Azure resource to them, or otherwise modify them. **However, doing this of out of band management and customization means that the AKS cluster itself can become unsupportable. Avoid worker node alteration unless directed by Microsoft Support.**
 
 ## What is shared responsibility
 
-At cluster creation time, AKS creates a number of Kubernetes worker nodes defined by the customer. These nodes, as noted are where customer workloads are executed. This means that the customers own (and can see in the Azure Portal) these worker nodes.
+At cluster creation time, AKS creates a number of Kubernetes worker nodes defined by the customer. These nodes, as noted are where customer workloads are executed. This means that customers own and can view/modify these worker nodes.
 
-Because these nodes are executing private code, store sensitive data, etc Microsoft support has **limited access** to all Customer cluster nodes. This means support cannot log into, execute commands or view logs for these nodes without express customer permission or asking customers to execute debugging commands on behalf of Microsoft support.
+Because these nodes are executing private code and store sensitive data Microsoft support has **limited access** to all Customer cluster nodes. This means support can not log into, execute commands or view logs for these nodes without express customer permission or asking customers to execute debugging commands on behalf of Microsoft support.
 
-Due to the sensitive nature of these worker nodes, Microsoft takes great care to limit the 'behind the scenes' management of these nodes. Even if the Kubernetes master nodes, etcd, and other components fail (managed by Microsoft) your workload will continue to run in many cases. If worker nodes are modified without care, it can result in data loss, workload loss, etc.
+Due to the sensitive nature of these worker nodes, Microsoft takes great care to limit the 'behind the scenes' management of these nodes. Even if the Kubernetes master nodes, etcd, and other components fail (managed by Microsoft) your workload will continue to run in many cases. If worker nodes are modified without care it can result in data loss, workload loss and render the cluster unsupportable.
 
 ## Azure Kubernetes Service Support coverage
 
@@ -56,17 +56,17 @@ Due to the sensitive nature of these worker nodes, Microsoft takes great care to
 * Connectivity to all Kubernetes components provided and supported by the Kubernetes service (such as the API server)
 * Management, Uptime, QoS and operations of Kubernetes control plane services (Kubernetes Master nodes, API Server, etcd, kube-dns for example.
 * Etcd support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups are not available directly to customers/users and are used to ensure data reliability and consistency
-* Any integration points in the Azure Cloud Provider driver for Kubernetes such as integrations to other Azure services such as Loadbalancers, Persistent Volumes, Networking (Kubernetes and Azure CNI)
+* Any integration points in the Azure Cloud Provider driver for Kubernetes such as integrations to other Azure services such as Load balancers, Persistent Volumes, Networking (Kubernetes and Azure CNI)
 * Questions or issues around customization of control plane components such as the Kubernetes API server, etcd, kube-dns, etc.
-* Issues regarding networking topics, such as Azure CNI, Kubenet or other network access and functionality issues (DNS resolution, packet loss, routing, etc).
-  * Networking scenarios supported include Kubenet (Basic) and Advanced Networking (Azure CNI) within the cluster and associated components, connectivity to other Azure services and applications. Additionally, ingress controllers and ingress/Loadbalancer configuration, network performance and latency are supported by Microsoft.
+* Issues regarding networking topics, such as Azure CNI, Kubenet or other network access and functionality issues (DNS resolution, packet loss, routing, etc.).
+  * Networking scenarios supported include Kubenet (Basic) and Advanced Networking (Azure CNI) within the cluster and associated components, connectivity to other Azure services and applications. Additionally, ingress controllers and ingress/load balancer configuration, network performance and latency are supported by Microsoft.
 
 **Microsoft does not provide technical support for the following:**
 
 * Advisory/"How-To" use Kubernetes questions, e.g. how to create custom ingress controllers, application workload questions, and third-party/OSS packages or tools are out of scope.
   * Advisory tickets for AKS cluster functionality, customization, tuning – e.g Kubernetes operations issues/how-tos are within scope.
-* Third-party Open source projects not provided as part of the Kubernetes control plane or deployed with AKS clusters, such as Istio, Helm, Envoy, and others.
-  * In the case of 3rdparty open source projects, such as Helm and Kured, best effort support is provided for examples and applications provided in Microsoft documentation and where that 3rd party open source tool integrates with the Kubernetes Azure cloud provider or other AKS specific bugs.
+* Third-party open-source projects not provided as part of the Kubernetes control plane or deployed with AKS clusters, such as Istio, Helm, Envoy, and others.
+  * In the case of third-party open-source projects, such as Helm and Kured, best effort support is provided for examples and applications provided in Microsoft documentation and where that third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS specific bugs.
 * Third-party closed-source software – this can include security scanning tools, networking devices or software.
 * Issues regarding "multi-cloud" or multi-vendor build-outs are not supported for example running a Federated multi public cloud vendor solution is not supported.
 * Specific network customizations, other than those specifically documented in the official [AKS documentation][3].
@@ -112,7 +112,7 @@ If a security patch requires worker node reboots, we will notify customer of thi
 
 ### Node maintenance and access
 
-Because worker nodes are a shared responsibility and under the ownership of customers, customers can log into these workers are perform potentially harmful changes, such as kernel updates, removing packages, etc.
+Because worker nodes are a shared responsibility and under the ownership of customers, customers can log into these workers and perform potentially harmful changes, such as kernel updates, removing packages and installing new packages.
 
 If customers perform destructive actions, or actions that trigger control plane components to go offline or otherwise become non-functional, the AKS service will detect this failure and perform auto-remediation to restore the worker node to the previous working state.
 
@@ -137,7 +137,7 @@ There are two cases where Alpha or Beta features may be rolled out prior to GA:
 
 For features and functionality that require extended testing, community and user feedback, Microsoft will release new preview features, or features behind a feature flag. These features should be considered pre-release / Beta, and are exposed to give users a chance to try out these new features.
 
-However, these preview / feature flag features are not meant for production use – APIs, behavior , bugfixes and other changes can be made that can result in unstable clusters and downtime. Support for these features is limited to bug/issue reporting. Do not enable these features on production systems or subscriptions.
+However, these preview / feature flag features are not meant for production use – APIs, behavior change, bug fixes and other changes can be made that can result in unstable clusters and downtime. Support for these features is limited to bug/issue reporting. Do not enable these features on production systems or subscriptions.
 
 > [!NOTE]
 >Note: enabling preview features takes effect at the Azure **subscription** level. Do not install preview features on production subscription as it can change default API behavior impacting regular operations.
