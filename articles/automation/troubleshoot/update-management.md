@@ -23,7 +23,7 @@ There is an agent troubleshooter for Hybrid Worker agent to determine the underl
 
 You continue to see the following message on a virtual machine 15 minutes after onboarding:
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -41,7 +41,7 @@ This error can be caused by the following reasons:
    1. In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates` if it is shown. Saved searches can be found under **General** in your workspace.
    2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Run `Restart-Service HealthService` to restart the `HealthService`. This will recreate the key and generate a new UUID.
-   4. If this doesnt work, sysprep the image first and install the MMA agent after the fact.
+   4. If this doesn't work, sysprep the image first and install the MMA agent after the fact.
 
 ### <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
 
@@ -49,7 +49,7 @@ This error can be caused by the following reasons:
 
 You receive the following error when trying to create an update deployment for machines in another Azure tenant:
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -98,7 +98,7 @@ The following section highlights specific error messages and a possible resoluti
 
 You receive the following error message:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -116,15 +116,15 @@ Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook 
 
 You receive one of the following error messages:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -142,7 +142,7 @@ Review your networking and ensure appropriate ports and addresses are allowed. S
 
 You receive one of the following error messages:
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -197,7 +197,7 @@ The Linux Hybrid Worker is unhealthy.
 
 Make a copy of the following log file and preserve it for troubleshooting purposes:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -223,7 +223,7 @@ In some cases, package updates can interfere with Update Management preventing a
 
 If you can't resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

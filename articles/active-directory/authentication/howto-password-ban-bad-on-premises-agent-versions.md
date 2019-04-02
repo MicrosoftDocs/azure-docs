@@ -24,6 +24,9 @@ Release date: 3/22/2019
 * Fix minor typo errors in event log messages
 * Update EULA agreement to final General Availability version
 
+> [!NOTE]
+> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
+
 ## 1.2.116.0
 
 Release date: 3/13/2019
