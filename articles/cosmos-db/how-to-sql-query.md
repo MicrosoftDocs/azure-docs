@@ -14,7 +14,7 @@ Azure Cosmos DB SQL API accounts support querying items using Structured Query L
 
 * Support SQL, one of the most familiar and popular query languages, instead of inventing a new query language. SQL provides a formal programming model for rich queries over JSON items.  
 
-* Use JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. These roots provide a natural programming model for features like relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript.
+* Use JavaScript's programming model as the foundation for the query language. JavaScript's type system, expression evaluation, and function invocation are the roots of the SQL API. These roots provide a natural programming model for features like relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript.
 
 This article walks you through some example SQL queries on simple JSON items. To learn more about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md).
 
@@ -237,7 +237,7 @@ The results are:
     }]
 ```
 
-In the preceding example, the `SELECT` clause needs to create a JSON object, and since no key is provided, it uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
+In the preceding example, the `SELECT` clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -391,7 +391,7 @@ The results are:
     ]
 ```
 
-The preceding query used an array as the source, but an object can also be used as the source. Any valid, defined JSON value in the source is considered for inclusion in the query result. The following example would exclude `Families` that don’t have an `address.state` value.
+The preceding query used an array as the source, but you can also use an object as the source. The query considers any valid, defined JSON value in the source for inclusion in the result. The following example would exclude `Families` that don’t have an `address.state` value.
 
 ```sql
     SELECT *
@@ -409,9 +409,9 @@ The results are:
 
 ## <a id="WhereClause"></a>WHERE clause
 
-The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy to be included in the query results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result. For more information about the syntax, see [WHERE syntax](sql-api-query-reference.md#bk_where_clause).
+The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result. For more information about the syntax, see [WHERE syntax](sql-api-query-reference.md#bk_where_clause).
 
-The following query requests items that contain an `id` property whose value is `AndersenFamily`. Any item that does not have an `id` property or whose value doesn't match `AndersenFamily` is excluded.
+The following query requests items that contain an `id` property whose value is `AndersenFamily`. It excludes any item that does not have an `id` property or whose value doesn't match `AndersenFamily`.
 
 ```sql
     SELECT f.address
@@ -541,7 +541,7 @@ Unlike in ANSI SQL, you can also use the BETWEEN clause in the FROM clause, as i
 In SQL API, unlike ANSI SQL, you can express range queries against properties of mixed types. For example, `grade` might be a number like `5` in some items and a string  like `grade4` in others. In these cases, as in JavaScript, the comparison between the two different types results in `Undefined`, so the item is skipped.
 
 > [!TIP]
-> For faster query execution times, create an indexing policy that uses a range index type against any numeric properties or paths that are filtered in the BETWEEN clause.
+> For faster query execution times, create an indexing policy that uses a range index type against any numeric properties or paths that the BETWEEN clause filters.
 
 ## IN keyword
 
@@ -594,7 +594,7 @@ Use the Coalesce (??) operator to efficiently check for a property in an item wh
 
 ## <a id="TopKeyword"></a>TOP operator
 
-The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use `TOP` with the `ORDER BY` clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows are affected by `TOP`. 
+The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use `TOP` with the `ORDER BY` clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows `TOP` affects. 
 
 You can use `TOP` with a constant value, as in the following example, or with a variable value using parameterized queries. For more information, see [Parameterized queries](#parameterized-queries).
 
@@ -914,7 +914,7 @@ The results are:
 The `from_source` of the `JOIN` clause is an iterator. So, the flow in the preceding example is:  
 
 1. Expand each child element `c` in the array.
-2. Apply a cross product with the root of the item `f` with each child element `c` that was flattened in the first step.
+2. Apply a cross product with the root of the item `f` with each child element `c` that the first step flattened.
 3. Finally, project the root object `f` `id` property alone.
 
 The first item, `AndersenFamily`, contains only one `children` element, so the result set contains only a single object. The second item, `WakefieldFamily`, contains two `children`, so the cross product produces two objects, one for each `children` element. The root fields in both these items are the same, just as you would expect in a cross product.
@@ -1004,7 +1004,7 @@ The results are:
 
 The SQL API provides support for user-defined functions (UDFs). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
 
-The SQL syntax is extended to support custom application logic using UDFs. You can register UDFs with the SQL API, and reference them in SQL queries. In fact, the UDFs are exquisitely designed to call from queries. As a corollary, UDFs do not have access to the context object like other JavaScript types, such as stored procedures and triggers. Queries are read-only, and can run either on primary or secondary replicas. UDFs, unlike other JavaScript types, are designed to run on secondary replicas.
+The API extends the SQL syntax to support custom application logic using UDFs. You can register UDFs with the SQL API, and reference them in SQL queries. In fact, the UDFs are exquisitely designed to call from queries. As a corollary, UDFs do not have access to the context object like other JavaScript types, such as stored procedures and triggers. Queries are read-only, and can run either on primary or secondary replicas. UDFs, unlike other JavaScript types, are designed to run on secondary replicas.
 
 The following example registers a UDF under an item container in the Cosmos DB database. The example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values, `input` and `pattern`, and checks if the first matches the pattern specified in the second using JavaScript's `string.match()` function.
 
@@ -1173,7 +1173,7 @@ You can also aggregate over the results of an array iteration. For more informat
 
 ## <a id="BuiltinFunctions"></a>Built-in functions
 
-Cosmos DB also supports a number of built-in functions for common operations, which can be used inside queries like user-defined functions (UDFs).
+Cosmos DB also supports a number of built-in functions for common operations, which you can use inside queries like user-defined functions (UDFs).
 
 | Function group | Operations |
 |---------|----------|
@@ -1407,7 +1407,7 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 | ST_ISVALID | Returns a Boolean value indicating whether the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid. |
 | ST_ISVALIDDETAILED | Returns a JSON value containing a Boolean value if the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid, and if invalid, the reason as a string value. |
 
-Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family items that are within 30 km of a specified location using the `ST_DISTANCE` built-in function:
+You can use spatial functions to perform proximity queries against spatial data. For example, here's a query that returns all family items that are within 30 km of a specified location using the `ST_DISTANCE` built-in function:
 
 ```sql
     SELECT f.id
@@ -1475,9 +1475,9 @@ For more information about Azure Cosmos DB JavaScript integration, see [JavaScri
 
 Cosmos DB, by virtue of being a JSON database, draws parallels with JavaScript operators and evaluation semantics. Cosmos DB tries to preserve JavaScript semantics in terms of JSON support, but the operation evaluation deviates in some instances.
 
-In the SQL API, unlike in traditional SQL, the types of values are often not known until the values are retrieved from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
+In the SQL API, unlike in traditional SQL, the types of values are often not known until the API retrieves the values from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
 
-Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. Any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0` will not be matched. This is in contrast to JavaScript, where string values are implicitly cast to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
+Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. It does not match any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0`. This contrasts with JavaScript, where string values are implicitly cast to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
 
 ## <a id="ExecutingSqlQueries"></a>SQL query execution
 
@@ -1487,7 +1487,7 @@ The following examples show how to create a query and submit it against a Cosmos
 
 ### <a id="RestAPI"></a>REST API
 
-Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which is provisioned by an Azure subscription. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, *UDFs*, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
+Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which an Azure subscription provisions. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, UDFs, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
 
 The basic interaction model with these resources is through the HTTP verbs `GET`, `PUT`, `POST`, and `DELETE`, with their standard interpretations. Use `POST` to create a new resource, execute a stored procedure, or issue a Cosmos DB query. Queries are always read-only operations with no side-effects.
 
@@ -1615,7 +1615,7 @@ If a query has an aggregation function like `COUNT`, the query page may return a
 
 To manage the data consistency policy for queries, use the `x-ms-consistency-level` header as in all REST API requests. Session consistency also requires echoing the latest `x-ms-session-token` cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings for containers, the index is always current with the item contents, and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB consistency levels][consistency-levels].
 
-If the configured indexing policy on the container can't support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. You can specify the `x-ms-documentdb-query-enable-scan` header to allow the query to perform a scan when an index isn't available.
+If the configured indexing policy on the container can't support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message returns for queries with paths explicitly excluded from indexing. You can specify the `x-ms-documentdb-query-enable-scan` header to allow the query to perform a scan when an index isn't available.
 
 You can get detailed metrics on query execution by setting the `x-ms-documentdb-populatequerymetrics` header to `true`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 
@@ -1849,7 +1849,7 @@ The query provider type system supports only the JSON primitive types: numeric, 
 
 The query provider supports the following scalar expressions:
 
-- Constant values, including constant values of the primitive data types at the time the query is evaluated.
+- Constant values, including constant values of the primitive data types at query evaluation time.
   
 - Property/array index expressions that refer to the property of an object or an array element. For example:
   
@@ -1874,7 +1874,7 @@ The query provider supports the following scalar expressions:
     child.givenName == s; //s is a string variable
   ```
   
-- Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. These values can be nested.
+- Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. You can nest these values.
   
   ```
     new Parent { familyName = "Wakefield", givenName = "Robin" };
@@ -1888,7 +1888,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 
 - **Select**: Projections translate to SQL `SELECT`, including object construction.
 - **Where**: Filters translate to SQL `WHERE`, and support translation between `&&`, `||`, and `!` to the SQL operators
-- **SelectMany**: Allows unwinding of arrays to the SQL `JOIN` clause. Can be used to chain or nest expressions to filter on array elements.
+- **SelectMany**: Allows unwinding of arrays to the SQL `JOIN` clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to `ORDER BY` with `ASC` or `DESC`.
 - **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. Commonly used for strings, since they’re not comparable in .NET.
@@ -1902,7 +1902,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 
 ### SQL query operators
 
-The following examples illustrate how some of the standard LINQ query operators are translated to Cosmos DB queries.
+The following examples illustrate how some of the standard LINQ query operators translate to Cosmos DB queries.
 
 #### Select operator
 
