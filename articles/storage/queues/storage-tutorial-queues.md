@@ -20,14 +20,17 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Create an Azure storage queue
-> - Identify the queue
+> - Create the app
+> - Get your connection string
 > - Insert messages into the queue
 > - Get messages from the queue
 > - Delete messages from the queue
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure subscription. If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- This tutorial assumes you have an Azure subscription. If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- This tutorial also assumes you have Visual Studio Code installed. If you don't already have it, get your free copy of [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## Sign in to Azure
 
@@ -37,29 +40,52 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 The first step in creating a queue is to create the Azure Storage Account that will store our data. There are several options you can supply when you create the account, most of which you can use the default selection. See the [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart for a step-by-step guide to creating a storage account.
 
-## Identify your queue
+## Create the app
 
-Every queue has a name that you assign during creation. The name must be unique within your storage account but doesn't need to be globally unique (unlike the storage account name). The combination of your storage account name and your queue name uniquely identifies a queue.
+We'll create a .NET Core application that you can run on Linux, macOS, or Windows. Let's name it **QueueApp**. For simplicity, we'll use a single app that will both send and receive messages through our queue.
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+1. Use the `dotnet new` command to create a new console app with the name **QueueApp**. You can type commands into the Cloud Shell on the right, or if you are working locally, in a terminal/console window. This command creates a simple app with a single source file: `Program.cs`.
 
-### Get your connection string
+```azurecli
+dotnet new console -n QueueApp
+```
 
-The client library uses a **connection string** to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal
+1. Switch to the newly created `QueueApp` folder and build the app to verify that all is well.
+
+```azurecli
+cd QueueApp
+```
+
+```azurecli
+dotnet build
+```
+
+
+## Get your connection string
+
+The client library uses a **connection string** to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal. Click the **Copy** button to the right of the **Connection string** field.
+
+![Connection string](media/get-connection-string.png)
+
+The connection string will look something like this:
 
 ```csharp
-string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
+const string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
 ```
+
+### Add the connection string to the app
+
+Add the connection string into the app so it can access the storage account.
+
+
 
 ## Insert messages into the queue
 
 Include a sentence or two to explain only what is needed to complete the procedure.
 
 1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+2. Step 2 of the procedure
+3. Step 3 of the procedure
 
 ## Get messages from the queue
 
