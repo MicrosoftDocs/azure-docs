@@ -37,13 +37,13 @@ The following are prerequisites that should be met before beginning your impleme
    * a VM hosted within any hypervisor solution
    * a VM hosted in Azure to enable outbound connection to the Application Proxy service.
 
-See [Understand Azure AD App Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)Understand Azure AD Application Proxy connectors for a more detailed overview.
+See [Understand Azure AD App Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors) for a more detailed overview.
 
-   * Connector hosts must [be enabled for TLS 1.2d](application-proxy-add-on-premises-application.md) before installing the connectors.
+   * Connector hosts must [be enabled for TLS 1.2](application-proxy-add-on-premises-application.md) before installing the connectors.
 
    * If possible, connectors should be deployed in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connector hosts after you complete a discovery of applications.
 
-* **Network access settings**: Azure AD Application Proxy connectors [attempt to connect to Azure via HTTPS (TCP Port 443) or HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
+* **Network access settings**: Azure AD Application Proxy connectors [attempt to connect to Azure via HTTPS (TCP Port 443) and HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
 
    * Terminating connector TLS traffic is not supported and will prevent connectors from establishing a secure channel with their respective Azure App Proxy endpoints.
 
@@ -69,22 +69,21 @@ The following core requirements must be met in order to configure and implement 
 
 * **Administrative rights and roles**
 
-   * **Connector installation** requires local admin rights of the Windows server that it's being installed on. It also requires a minimum of an Application Admin role to authenticate and register the connector instance to your Azure AD tenant. A role elevation may be required to obtain Application Administrator rights through [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM), so make sure your account is eligible. 
+   * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an Application Admin role to authenticate and register the connector instance to your Azure AD tenant. 
 
-   * **Global administrative permission is only required to enable the Application Proxy service and register connectors. In general publishing and administration of applications must be done by using new RBAC roles that eligible users can request through Privileged Identity Manager:
-
-   * Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access.
-
-   * Cloud Application Administrators have all abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
+   * **Application publishing and admistration** requires the *Application Adminstrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
 * **Licensing**: Application Proxy is available through the Azure AD Basic subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features. 
+
+* A role elevation may be required to obtain Application Administrator rights through [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM), so make sure your account is eligible. 
 
 ### Application Discovery
 
 Compile an inventory of all in-scope applications that are being published via Application Proxy by collecting the following information:
 
-| Service Type| For example: SharePoint, SAP, CRM, Custom Web Application, API |
+| Information Type| Information to collect |
 | - | - |
+| Service Type| For example: SharePoint, SAP, CRM, Custom Web Application, API |
 | Application platform| For example: Windows IIS, Apache on Linux, Tomcat, NGINX |
 | Domain membership| Web server’s fully qualified domain name (FQDN). |
 | Application location| Where the web server or farm is located in your infrastructure |
@@ -118,7 +117,7 @@ The following are areas for which you should define your organization’s busine
 
 **Performance**
 
-* Accessing corporate applications from outside the internal network meets company performance standards.
+* There is no degradation of applciation performance compared to accessing application from internal network.
 
 **User Experience**
 
@@ -169,7 +168,7 @@ The steps to deploy your Application Proxy are covered in this [tutorial for add
 
 Publishing applications assumes that you have satisfied all the pre-requisites and that you have several connectors showing as registered and active in the Application Proxy page.
 
-Azure AD Application Proxy can also be published via  [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
+You can also publish applications by using [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
 
 Below are some best practices to follow when publishing an application:
 
@@ -222,11 +221,11 @@ Leaving this option set to No allows users to access the on-premises application
 
 Once your application is published, it should be accessible by typing its external URL in a browser or by its icon at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
-#
+
 
 ### Enable pre-authentication
 
-Verify that your application is accessible through the Application Proxy. Azure AD will challenge you for authentication and then the back-end application should also challenge you if it requires authentication.
+Verify that your application is accessible through the Application Proxy. 
 
 1. Navigate to Azure Active Directory > Enterprise applications > All applications and choose the app you want to manage.
 
@@ -234,27 +233,27 @@ Verify that your application is accessible through the Application Proxy. Azure 
 
 3. In the Pre-Authentication field, use the dropdown list to select Azure Active Directory, and hit Save
 
-Changing the pre-authentication from Passthrough to Azure Active Directory also configures the external URL with HTTPS, so any application initially configured for HTTP will now be secured with HTTPS.
+With pre-authentication enabled, Azure AD will challenge you for authentication and then the back-end application should also challenge you if it requires authentication. Changing the pre-authentication from Passthrough to Azure Active Directory also configures the external URL with HTTPS, so any application initially configured for HTTP will now be secured with HTTPS.
 
-### Single Sign-On
+### Enable Single Sign-On
 
-Performing SSO is only possible if Azure AD recognizes the user requesting access to a resource, so your application must be configured to pre-authenticate users upon access.
+SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure Active Directory. Once a user has pre-authenticated, SSO is performed by the Application Proxy connector authenticating to the on-premises application, on behalf of the user. The backend application processes the login as if it were the user themselves. 
 
-SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure Active Directory. Once authenticated, SSO is handled by the Application Proxy connector authenticating to the on-premises application on behalf of the user. The back-end application processes the login as if it were the user themselves.
+Choosing the **Passthrough** option allows users to access the published application without ever having to authenticate to Azure AD.
 
-The Passthrough option allows users to access the published application without ever having to authenticate to Azure AD, so Azure AD could not perform “on behalf of” SSO to an application without a user identity to send down to the connector.
+Performing SSO is only possible if Azure AD can identify the user requesting access to a resource, so your application must be configured to pre-authenticate users upon access for SSO to function, otherwise the SSO options will be disabled.
 
 Read [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) to help you choose the most appropriate SSO method when configuring your applications.
 
 ###  Working with other types of applications
 
-Azure AD Application Proxy can also publish other types of applications that have been developed to use our Azure AD Authentication Library ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) or Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
+Azure AD Application Proxy can also support applications that have been developed to use our Azure AD Authentication Library ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) or Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
 
 Read [publishing native and mobile client apps](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) and [claims-based applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) to learn about available configurations of Application Proxy.
 
 ### Use Conditional Access to strengthen security
 
-Business security requires a holistic and innovative approach that can protect from and respond to complex threats on-premises and in the cloud. Attackers most often gain corporate network access through weak, default, or stolen user credentials.  Microsoft identity-driven security reduces use of stolen credentials by managing and protecting both privileged and non-privileged identities.
+Application security requires an advanced set of security capabilities that can protect from and respond to complex threats on-premises and in the cloud. Attackers most often gain corporate network access through weak, default, or stolen user credentials.  Microsoft identity-driven security reduces use of stolen credentials by managing and protecting both privileged and non-privileged identities.
 
 The following capabilities can be used to support Azure AD Application Proxy:
 
@@ -283,22 +282,20 @@ Microsoft advocates the principle of granting the least possible privilege to pe
 | Application owner| Create and manage all aspects of enterprise applications, application registrations, and application proxy settings.| Application Admin |
 | Infrastructure Admin| Certificate Rollover Owner| Application Admin |
 
-
+Minimizing the number of people who have access to secure information or resources will help in reducing the chance of a malicious actor obtaining unauthorized access, or an authorized user inadvertently impacting a sensitive resource. 
  
+However, users still need to carry out day to day privileged operations, so enforcing just-in-time (JIT) based [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) policies to provide on-demand privileged access to Azure resources and Azure AD is our recommended approach towards effectively managing administrative access and auditing.
 
-Use [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
-
-Choose a scaled approach when managing access to resources. Common approaches include: using on-premises groups by syncing via Azure AD Connect, [creating Dynamic Groups in Azure AD based on user attributes](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal), or creating [self-service groups](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) in Azure AD managed by a resource owner.
 
 ### Reporting and monitoring
 
 Azure AD can provide additional insights into your organization’s user provisioning usage and operational health through audit logs and reports. 
 
-Application audit logs
+**Application audit logs**
 
  These logs detail logins to applications configured with Application Proxy, as well as information about the device and the user accessing the application. They are located in the Azure management portal and in Audit API.
 
-Windows event logs and performance counters
+**Windows event logs and performance counters**
 
 Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs, and follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
