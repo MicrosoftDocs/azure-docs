@@ -1,5 +1,5 @@
 ---
-title: More sign-in options for Microsoft accounts - Microsoft 365 | Microsoft Docs
+title: More sign-in options for Azure Active Directory accounts - Microsoft 365 | Microsoft Docs
 description: How on-screen messaging reflects username lookup during sign-in 
 services: active-directory
 author: curtand
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # More sign-in options for Microsoft accounts in Microsoft 365
 
-We're updating the Microsoft 365 sign-in page in Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts, also called "personal accounts."
+We're updating the Microsoft 365 sign-in page for Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts, also called "personal accounts."
 
 ## Sign-in pages that support Microsoft accounts
 
