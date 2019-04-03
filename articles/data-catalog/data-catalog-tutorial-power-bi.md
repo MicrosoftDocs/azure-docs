@@ -7,7 +7,7 @@ ms.author: maghan
 manager: kfile
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 01/18/2018
+ms.date: 04/02/2019
 #Customer intent: As a user, I want to access my company's data all in one place so I can build a Power BI report.
 ---
 

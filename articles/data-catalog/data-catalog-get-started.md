@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Data Catalog quickstart
+title: Create an Azure Data Catalog
 description: A quickstart on how to create an Azure Data Catalog.
 services: data-catalog
 author: markingmyname
@@ -7,7 +7,7 @@ ms.author: maghan
 manager: kfile
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 04/02/2019
 #Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
@@ -19,11 +19,11 @@ This quickstart helps you get started with creating an Azure Data Catalog.
 
 In this quickstart, you learn how to:
 > [!div class="checklist"]
-> * Create a new Azure Data Catalog for Azure Active Directory.
+> Create a new Azure Data Catalog for Azure Active Directory.
 
 ## Prerequisites
 
-To get started, you're required to have:
+To get started, you need to have:
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
 * You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
