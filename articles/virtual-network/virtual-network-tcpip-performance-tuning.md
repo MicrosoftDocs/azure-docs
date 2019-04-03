@@ -24,15 +24,15 @@ This article discusses common TCP/IP performance tuning techniques and some thin
 
 ## Common TCP/IP tuning techniques
 
-### MTU, fragmentation, and Large Send Offload
+### MTU, fragmentation, and large send offload
 
 #### MTU
 
-The maximum transmission unit (MTU) is the largest size frame (packet), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting. The default MTU used on Azure VMs, and the default setting on most network devices globally, is 1500 bytes.
+The maximum transmission unit (MTU) is the largest size frame (packet), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting. The default MTU used on Azure VMs, and the default setting on most network devices globally, is 1,500 bytes.
 
 #### Fragmentation
 
-Fragmentation occurs when a packet is sent that exceeds the MTU of a network interface. The TCP/IP stack will break the packet into smaller pieces (fragments) that conform to the interface's MTU. Fragmentation occurs at the IP layer and is independent of the underlying protocol (such as TCP). When a 2000-byte packet is sent over a network interface with an MTU of 1500, the packet will be broken down into one 1500-byte packet and one 500-byte packet.
+Fragmentation occurs when a packet is sent that exceeds the MTU of a network interface. The TCP/IP stack will break the packet into smaller pieces (fragments) that conform to the interface's MTU. Fragmentation occurs at the IP layer and is independent of the underlying protocol (such as TCP). When a 2,000-byte packet is sent over a network interface with an MTU of 1,500, the packet will be broken down into one 1,500-byte packet and one 500-byte packet.
 
 Network devices in the path between a source and destination have the option to drop packets that exceed the MTU or to fragment the packet into smaller pieces.
 
@@ -42,70 +42,76 @@ The Don’t Fragment (DF) bit is a flag in the IP protocol header. The DF bit in
 
 #### Performance implications of fragmentation
 
-Fragmentation can have negative performance implications. One of the main reasons for the effect on performance is the CPU/memory impact of the fragmentation and reassembly of packets. When a network device needs to fragment a packet, it will have to allocate CPU/memory resources to perform fragmentation. The same thing happens when the packet is reassembled. The network device has to store all the fragments until they're received so it can reassemble them into the original packet. This process of fragmentation and reassembly can also cause latency.
+Fragmentation can have negative performance implications. One of the main reasons for the effect on performance is the CPU/memory impact of the fragmentation and reassembly of packets. When a network device needs to fragment a packet, it will have to allocate CPU/memory resources to perform fragmentation.
+
+The same thing happens when the packet is reassembled. The network device has to store all the fragments until they're received so it can reassemble them into the original packet. This process of fragmentation and reassembly can also cause latency.
 
 The other possible negative performance implication of fragmentation is that fragmented packets might arrive out of order. When packets are received out of order, some types of network devices can drop them. When that happens, the whole packet has to be retransmitted.
 
-Typical scenarios for dropping fragments include security devices like network firewalls or when a network device’s receive buffers are exhausted. When a network device's receive buffers are exhausted, a network device is attempting to reassemble a fragmented packet but doesn't have the resources to store and reassume the packet.
+Fragments are typically dropped by security devices like network firewalls or when a network device’s receive buffers are exhausted. When a network device's receive buffers are exhausted, a network device is attempting to reassemble a fragmented packet but doesn't have the resources to store and reassume the packet.
 
-Fragmentation can be perceived as a negative operation, but support for fragmentation is necessary for connecting diverse networks over the Internet.
+Fragmentation can be seen as a negative operation, but support for fragmentation is necessary when you're connecting diverse networks over the internet.
 
 #### Benefits and consequences of modifying the MTU
 
-As a general statement, increasing the MTU can create a more efficient network. Every packet that is transmitted has additional header information that is added to the original packet. More packet means more header overhead, and the network is less efficient as a result.
+Generally speaking, you can create a more efficient network by increasing the MTU. Every packet that's transmitted has header information that's added to the original packet. When fragmentation creates more packets, there's more header overhead, and that makes the network less efficient.
 
-For example, the Ethernet header size is 14 bytes plus a 4-byte Frame Check Sequence (FCS) to ensure frame consistency. If one 2000-byte packet is sent, then 18 bytes of Ethernet overhead is added on the network. If the packet is fragmented into a 1500-byte packet and a 500-byte packet, then each packet will have 18 bytes of Ethernet header - or 36 bytes. Whereas a single 2000-byte packet would only have an Ethernet header of 18 bytes.
+Here's an example. The Ethernet header size is 14 bytes plus a 4-byte frame check sequence to ensure frame consistency. If one 2,000-byte packet is sent, 18 bytes of Ethernet overhead is added on the network. If the packet is fragmented into a 1,500-byte packet and a 500-byte packet, each packet will have 18 bytes of Ethernet header, a total of 36 bytes.
 
-It's important to note that increasing the MTU in itself will not necessarily create a more efficient network. If an application sends only 500-byte packets, then the same header overhead will exist whether the MTU is 1500 bytes or 9000 bytes. In order for the network to be more efficient, then it must also use larger packet sizes that are relative to the MTU.
+Keep in mind that increasing the MTU won't necessarily create a more efficient network. If an application sends only 500-byte packets, the same header overhead will exist whether the MTU is 1,500 bytes or 9,000 bytes. The network will become more efficient only if it uses larger packet sizes that are affected by the MTU.
 
 #### Azure and VM MTU
 
-The default MTU for Azure VMs is 1500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1400 bytes. However, the Azure Virtual Network stack will allow packets up to 2006 bytes when the "Don't Fragment" bit is set in the IP Header.
+The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes. But the Virtual Network stack will allow packets up to 2,006 bytes when the Don't Fragment bit is set in the IP header.
 
-It's important to note that this fragmentation doesn't imply the Azure Virtual Network stack is inherently inefficient because it fragments packets at 1400 bytes while VMs have an MTU of 1500. The reality is that a large percentage of network packets is much smaller than 1400 bytes or 1500 bytes.
+Note that the Virtual Network stack isn't inherently inefficient because it fragments packets at 1,400 bytes even though VMs have an MTU of 1,500. A large percentage of network packets are much smaller than 1,400 or 1,500 bytes.
 
 #### Azure and fragmentation
 
-Azure's Virtual Network stack today is configured to drop "Out of Order Fragments" - meaning fragmented packets that don't arrive in their original fragmented order. These packets are dropped primarily due to a network security vulnerability announced in November 2018 called FragmentStack.
+Virtual Network stack is set up to drop "out of order fragments," that is, fragmented packets that don't arrive in their original fragmented order. These packets are dropped mainly because of a network security vulnerability announced in November 2018 called FragmentStack.
 
-FragmentSmack is a defect in the way the Linux kernel handled reassembly of fragmented IPv4 and IPv6 packets. A remote attacker could use this flaw to trigger expensive fragment reassembly operations, which lead to increased CPU and a denial of service on the target system.
+FragmentSmack is a defect in the way the Linux kernel handled reassembly of fragmented IPv4 and IPv6 packets. A remote attacker could use this flaw to trigger expensive fragment reassembly operations, which could lead to increased CPU and a denial of service on the target system.
 
 #### Tune the MTU
 
-Azure VMs support a configurable MTU just as any other operating system. However, the fragmentation that occurs within Azure, and is detailed above, should be considered when configuring the MTU.
+You can configure an Azure VM MTU, as you can in any other operating system. But you should consider the fragmentation that occurs in Azure, described above, when you're configuring an MTU.
 
-Azure doesn't encourage customers to increase their VM MTU. This discussion is intended to explain in detail how Azure implements MTU and performs fragmentation today.
+We don't encourage customers to increase VM MTUs. This discussion is meant to explain the details of how Azure implements MTU and performs fragmentation.
 
 > [!IMPORTANT]
->Increasing MTU has not shown to improve performance and could have a negative effect on application performance.
+>Increasing MTU isn't known to improve performance and could have a negative effect on application performance.
 >
 >
 
-#### Large Send Offload (LSO)
+#### Large send offload
 
-Large Send Offload (LSO) can improve network performance by offloading the segmentation of packets to the Ethernet Adapter. With LSO enabled, the TCP/IP stack will create a large TCP packet and then send to the Ethernet adapter for segmentation before forwarding it. The benefit of LSO is that it can free the CPU from segmenting packets into packet sizes that conform to the MTU and offload that processing to the Ethernet interface where it is performed in hardware. More information about the benefits of LSO can be found in [Performance in Microsoft Network Adapter documentation](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
+Large send offload (LSO) can improve network performance by offloading the segmentation of packets to the Ethernet adapter. When LSO is enabled, the TCP/IP stack creates a large TCP packet and sends it to the Ethernet adapter for segmentation before forwarding it. The benefit of LSO is that it can free the CPU from segmenting packets into sizes that conform to the MTU and offload that processing to the Ethernet interface where it's performed in hardware. To learn more about the benefits of LSO, see [Supporting large send offload](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-When LSO is enabled, Azure customers may see large frame sizes when performing packet captures. These large frame sizes may lead some customers to believe that fragmentation or a jumbo MTU is being used when it’s not. With LSO, the ethernet adapter can advertise a larger MSS to the TCP/IP stack in order to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. However, the packet will be broken down into many smaller frames by the Ethernet adapter according to the Ethernet adapter’s MTU.
+When LSO is enabled, Azure customers might see large frame sizes when performing packet captures. These large frame sizes might lead some customers to think fragmentation is occurring or that a large MTU is being used when it’s not. With LSO, the Ethernet adapter can advertise a larger maximum segment size (MSS) to the TCP/IP stack to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. But the packet will be broken down into many smaller frames by the Ethernet adapter, according to the Ethernet adapter’s MTU.
 
-### TCP/MSS window scaling and PMTUD
+### TCP MSS window scaling and PMTUD
 
-#### Explanation of TCP MSS
+#### TCP maximum segment size
 
-TCP Maximum Segment Size (MSS) is a setting intended to set the maximum TCP segment size as to avoid fragmentation of TCP packets. Operating systems will typically set MSS as MSS = MTU - IP & TCP Header size (20 bytes each or 40 bytes total). So an interface with a MTU of 1500 will have an MSS of 1460. The MSS, however, is configurable.
+TCP maximum segment size (MSS) is a setting that limits the size of TCP segments, which avoids fragmentation of TCP packets. Operating systems will typically use this formula to set MSS:
 
-This setting is agreed in the TCP three-way handshake when a TCP session is set up between a source and destination. Both sides send an MSS value and the lower of the two is used for the TCP connection.
+`MSS = MTU - (IP header size + TCP header size)`
 
-Intermediary network devices, like VPN Gateways, including Azure VPN Gateway, have the ability to adjust the MTU independent of the source and destination to ensure optimal network performance. So, it should be noted that the MTU of the source and destination alone is not the sole factors in the actual MSS value.
+The IP header and the TCP header are 20 bytes each, or 40 bytes total. So an interface with an MTU of 1,500 will have an MSS of 1,460. But the MSS is configurable.
 
-#### Explanation of Path MTU Discovery
+This setting is agreed to in the TCP three-way handshake when a TCP session is set up between a source and a destination. Both sides send an MSS value, and the lower of the two is used for the TCP connection.
 
-While MSS is negotiated, it may not indicate the actual MSS that can be used as other network devices in the path between source and destination may have a lower MTU value than the source and destination. In this case, the device whose MTU is smaller than the packet will drop the packet, and send back an Internet Control Message Protocol (ICMP) Fragmentation Needed (Type 3, Code 4) message containing its MTU. This ICMP message allows the source host to reduce its Path MTU appropriately. The process is called Path MTU discovery (PMTUD).
+Keep in mind that the MTUs of the source and destination aren't the only factors that determine the MSS value. Intermediary network devices, like VPN gateways, including Azure VPN Gateway, can adjust the MTU independently of the source and destination to ensure optimal network performance.
 
-The process of PMTUD is inherently inefficient and has implications to network performance. When packets are sent that exceed a network paths MTU, then those packets must be retransmitted with a lower MSS. If the sender does not receive the ICMP Fragmentation Needed packet, perhaps due to a network firewall in the path (commonly referred to as PMTUD blackhole), then the sender does not know it needs to lower the MSS and will continuously retransmit the packet. For this reason, we don’t recommend increasing the Azure VM MTU.
+#### Path MTU Discovery
 
-#### VPN considerations with MTU
+MSS is negotiated, but it might not indicate the actual MSS that can be used. This is because other network devices in the path between the source and the destination might have a lower MTU value than the source and destination. In this case, the device whose MTU is smaller than the packet will drop the packet. The device will send back an ICMP Fragmentation Needed (Type 3, Code 4) message that contains its MTU. This ICMP message allows the source host to reduce its Path MTU appropriately. The process is called Path MTU Discovery (PMTUD).
 
-Customers that use VMs that perform encapsulation (such as IPSec VPNs) can have additional implications to packet size and MTU. VPNs add additional headers will be added to the original packet thus increasing packet size and requiring a smaller MSS.
+The PMTUD process is inefficient and affects network performance. When packets are sent that exceed a network path's MTU, the packets need to be retransmitted with a lower MSS. If the sender doesn't receive the ICMP Fragmentation Needed message, maybe because of a network firewall in the path (commonly referred to as a *PMTUD blackhole*), the sender doesn't know it needs to lower the MSS and will continuously retransmit the packet. This is why we don’t recommend increasing the Azure VM MTU.
+
+#### VPN and MTU
+
+If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add additional headers will be added to the original packet thus increasing packet size and requiring a smaller MSS.
 
 The current recommendation for Azure is to set TCP MSS clamping to 1350 bytes and tunnel interface MTU to 1400. More information can be found at the [VPN devices and IPSec/IKE parameters page](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
