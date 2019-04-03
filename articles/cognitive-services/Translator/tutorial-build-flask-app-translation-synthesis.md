@@ -47,7 +47,9 @@ Let's review the software and subscription keys that you'll need for this tutori
 * [Git tools](https://git-scm.com/downloads)
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
-* A **Translator Text** subscription key (**Note**: You aren't required to select a region).
+* A **Translator Text** subscription key 
+> [!NOTE] 
+> You aren't required to select a region.
 * A **Text Analytics** subscription key in the **West US** region.
 * A **Speech Services** subscription key in the **West US** region.
 
