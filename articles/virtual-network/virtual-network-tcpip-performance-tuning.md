@@ -87,7 +87,7 @@ We don't encourage customers to increase VM MTUs. This discussion is meant to ex
 
 Large send offload (LSO) can improve network performance by offloading the segmentation of packets to the Ethernet adapter. When LSO is enabled, the TCP/IP stack creates a large TCP packet and sends it to the Ethernet adapter for segmentation before forwarding it. The benefit of LSO is that it can free the CPU from segmenting packets into sizes that conform to the MTU and offload that processing to the Ethernet interface where it's performed in hardware. To learn more about the benefits of LSO, see [Supporting large send offload](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-When LSO is enabled, Azure customers might see large frame sizes when performing packet captures. These large frame sizes might lead some customers to think fragmentation is occurring or that a large MTU is being used when it’s not. With LSO, the Ethernet adapter can advertise a larger maximum segment size (MSS) to the TCP/IP stack to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. But the packet will be broken down into many smaller frames by the Ethernet adapter, according to the Ethernet adapter’s MTU.
+When LSO is enabled, Azure customers might see large frame sizes when they perform packet captures. These large frame sizes might lead some customers to think fragmentation is occurring or that a large MTU is being used when it’s not. With LSO, the Ethernet adapter can advertise a larger maximum segment size (MSS) to the TCP/IP stack to create a larger TCP packet. This entire non-segmented frame is then forwarded to the Ethernet adapter and would be visible in a packet capture performed on the VM. But the packet will be broken down into many smaller frames by the Ethernet adapter, according to the Ethernet adapter’s MTU.
 
 ### TCP MSS window scaling and PMTUD
 
@@ -111,132 +111,152 @@ The PMTUD process is inefficient and affects network performance. When packets a
 
 #### VPN and MTU
 
-If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add additional headers will be added to the original packet thus increasing packet size and requiring a smaller MSS.
+If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add more headers to packets, which increases the packet size and requires a smaller MSS.
 
-The current recommendation for Azure is to set TCP MSS clamping to 1350 bytes and tunnel interface MTU to 1400. More information can be found at the [VPN devices and IPSec/IKE parameters page](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPSec/IKE parameters page](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 ### Latency, round-trip time, and TCP window scaling
 
 #### Latency and round-trip time
 
-Network latency is governed by the speed of light over a fiber optic network. The reality is, network throughput of TCP is also effectively governed (practical maximums) because of of the Round-Trip Time (RTT) between two network devices.
+Network latency is governed by the speed of light over a fiber optic network. Network throughput of TCP is also effectively governed by the round-trip time (RTT) between two network devices.
 
 | | | | |
 |-|-|-|-|
-|Route|Distance|One-way time|Round-trip time (RTT)|
+|**Route**|**Distance**|**One-way time**|**RTT**|
 |New York to San Francisco|4,148 km|21 ms|42 ms|
 |New York to London|5,585 km|28 ms|56 ms|
 |New York to Sydney|15,993 km|80 ms|160 ms|
 
-This table shows the straight-line distance between two locations, however, in networks, the distance is typically longer than the straight-line distance. A simple formula to calculate MINIMUM RTT as governed by the speed of light is: minimum RTT = 2 * (Distance kilometers / Speed of propagation).
+This table shows the straight-line distance between two locations. In networks, the distance is typically longer than the straight-line distance. Here's a simple formula to calculate minimum RTT as governed by the speed of light:
+`minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-A standard value of 200 can be used for speed of propagation -  value is the distance in meters light travels in 1 millisecond.
+You can use 200 for the speed of propagation. This is the distance, in meters, that light travels in 1 millisecond.
 
-In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 20). The output of the equation will be in milliseconds.
+Let's take New York to San Francisco as an example. The straight-line distance is 4,148 km. Plugging that value into the equation, we get the following:
 
-As the physical distance between two locations is a fixed reality, if maximum network performance is required, then the most logical option is to select destinations with the smallest distance between them. Secondarily, design decisions within the virtual network can be made to optimize the path of traffic and reduce latency. These virtual network considerations are described in the Network Design Considerations section below.
+`Minimum RTT = 2 * (4,148 / 20)`
+
+The output of the equation is in milliseconds.
+
+If you want to get the best network performance, the logical option is to select destinations with the shortest distance between them. You should also design your virtual network to optimize the path of traffic and reduce latency. For more information, see the "Network design considerations" section of this article.
 
 #### Latency and round-trip time effects on TCP
 
-Round trip time (RTT) has a direct effect on maximum TCP throughput. The TCP protocol has a concept of Window Size. The Window Size is the maximum amount of traffic that can be sent over a TCP connection before the sender must receive acknowledgement from the receiver. If the TCP MSS is set to 1460, and the TCP Window Size is set to 65535 then the sender can send 45 packets before it must receive acknowledgement from the receiver. If acknowledgement is not received then the sender will retransmit. In this example, TCP Window Size / TCP MSS = packets sent. Or 65535 / 1460 is rounded up to 45.
+Round-trip time has a direct effect on maximum TCP throughput. In TCP protocol, *window size* is the maximum amount of traffic that can be sent over a TCP connection before the sender needs to receive acknowledgement from the receiver. If the TCP MSS is set to 1,460 and the TCP window size is set to 65,535, the sender can send 45 packets before it has to receive acknowledgement from the receiver. If the sender doesn't get acknowledgement, it will retransmit. Here's the formula:
 
-This "waiting for acknowledgement" state, as a mechanism to create a reliable delivery of data, is what effectively causes RTT to affect TCP throughput. The longer the sender waits for acknowledgement, the longer it must also wait before sending more data.
+`TCP window size / TCP MSS = packets sent`
 
-The formula for calculating maximum throughput of a single TCP connection is as follows:
-Window Size / (RTT latency in milliseconds / 1000) = Maximum bytes/second. The table below is formatted in Megabytes for readability and shows the maximum megabyte/per second throughput of a single TCP connection.
+In this example, 65,535 / 1,460 is rounded up to 45.
 
-| | | | |
-|-|-|-|-|
-|TCP Window Size in Bytes|RTT Latency<br/>in Milliseconds|Maximum<br/>Megabytes per Second Throughput|Maximum<br/> Megabit per Second Throughput|
-|65535|1|65.54|524.29|
-|65535|30|2.18|17.48|
-|65535|60|1.09|8.74|
-|65535|90|.73|5.83|
-|65535|120|.55|4.37|
+This "waiting for acknowledgement" state, a mechanism to ensure reliable delivery of data, is what causes RTT to affect TCP throughput. The longer the sender waits for acknowledgement, the longer it needs to wait before sending more data.
 
-If there is any packet loss, then it will reduce the maximum throughput of a TCP connection while the sender retransmits data it has already sent.
+Here's the formula for calculating the maximum throughput of a single TCP connection:
 
-#### Explanation of TCP window scaling
+`Window size / (RTT latency in milliseconds / 1,000) = maximum bytes/second`
 
-TCP Window Scaling is a concept that dynamically increases the TCP Window Size allowing more data to be sent before an acknowledgement is required. In our previous example, 45 packets would be sent before an acknowledgement was required. If the number of packets that are sent before an acknowledgement is increased, then the TCP maximum throughput is also increased by reducing the number of times a sender is waiting for acknowledgement.
-
-TCP throughput is demonstrated in a simple table below:
+This table shows the maximum megabytes/per second throughput of a single TCP connection. (For readability, megabytes is used for the unit of measure.)
 
 | | | | |
 |-|-|-|-|
-|TCP Window Size<br/>in Bytes|RTT Latency in  Milliseconds|Maximum<br/>Megabytes per Second Throughput|Maximum<br/> Megabit per Second Throughput|
-|65535|30|2.18|17.48|
+|**TCP window size (bytes)**|**RTT latency (ms)**|**Maximum megabyte/second throughput**|**Maximum megabit/second throughput**|
+|65,535|1|65.54|524.29|
+|65,535|30|2.18|17.48|
+|65,535|60|1.09|8.74|
+|65,535|90|.73|5.83|
+|65,535|120|.55|4.37|
+
+If packets are lost, the maximum throughput of a TCP connection will be reduced while the sender retransmits data it has already sent.
+
+#### TCP window scaling
+
+TCP window scaling is a technique that dynamically increases the TCP window size to allow more data to be sent before an acknowledgement is required. In the previous example, 45 packets would be sent before an acknowledgement was required. If you increase the number of packets that can be sent before an acknowledgement is needed, you're reducing the number of times a sender is waiting for acknowledgement, which increases the TCP maximum throughput.
+
+This table illustrates those relationships:
+
+| | | | |
+|-|-|-|-|
+|**TCP window size (bytes)**|**RTT latency (ms)**|**Maximum megabyte/second throughput**|**Maximum megabit/second throughput**|
+|65,535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
 |524,280|30|17.48|139.81|
 
-However, the TCP header value for TCP Window Size is only 2 bytes long, which means the maximum value for a receive window is 65535. In order to increase the maximum window size, a TCP Window Scale Factor was introduced.
+But the TCP header value for TCP window size is only 2 bytes long, which means the maximum value for a receive window is 65,535. To increase the maximum window size, a TCP window scale factor was introduced.
 
-The scale factor is also a setting that can be configured in an operating system. The formula for calculating the TCP Window Size using scale factors is as follows: TCP Window Size = TCP Window Size in Bytes \* (2^Scale Factor). If the Window Scale Factor is 3 and Window Size of 65535, calculation is as follows: 65535 \* (2^3) = 262,140 bytes. A Scale Factor of 14 results in a TCP Window Size of 14 (the maximum offset allowed), then the TCP Window Size will be 1,073,725,440 bytes (8.5 gigabits).
+The scale factor is also a setting that you can configure in an operating system. Here's the formula for calculating the TCP window size by using scale factors:
+
+`TCP window size = TCP window size in bytes \* (2^scale factor)`
+
+Here's the calculation for a window scale factor of 3 and a window size of 65,535:
+
+`65,535 \* (2^3) = 262,140 bytes`
+
+A scale factor of 14 results in a TCP window size of 14 (the maximum offset allowed). The TCP window size will be 1,073,725,440 bytes (8.5 gigabits).
 
 #### Support for TCP window scaling
 
-Windows has the ability to set different scaling factors on a per connection type basis - there are several classes of connections (datacenter, internet, and so on). You can see the window scaling connection classification with the Get-NetTCPConnection powershell command.
+Windows can set different scaling factors for different connection types. (Classes of connections include datacenter, internet, and so on.) You use the `Get-NetTCPConnection` PowerShell command to view the window scaling connection type:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-You can see the values of each class with the Get-NetTCPSetting powershell command.
+You can use the `Get-NetTCPSetting` PowerShell command  to view the values of each class:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-The initial TCP Window Size and TCP Scaling Factor can be set in Windows via the Set-NetTCPSetting powershell command. More information can be found at the [Set-NetTCPSetting page](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)
+You can set the initial TCP window size and TCP scaling factor in Windows by using the `Set-NetTCPSetting` PowerShell command. For more information, see  [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-The effective TCP settings for AutoTuningLevel are as follows.
+These are the effective TCP settings for `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|AutoTuningLevel|Scaling factor|Scaling multiplier|Formula to<br/>calculate maximum window size|
-|Disabled|None|None|Window Size|
-|Restricted|4|2^4|Window Size * (2^4)|
-|Highly-Restricted|2|2^2|Window Size * (2^2)|
-|Normal|8|2^8|Window Size * (2^8)|
-|Experimental|14|2^14|Window Size * (2^14)|
+|**AutoTuningLevel**|**Scaling factor**|**Scaling multiplier**|**Formula to<br/>calculate maximum window size**|
+|Disabled|None|None|Window size|
+|Restricted|4|2^4|Window size * (2^4)|
+|Highly restricted|2|2^2|Window size * (2^2)|
+|Normal|8|2^8|Window size * (2^8)|
+|Experimental|14|2^14|Window size * (2^14)|
 
-While these settings are the most likely to affect TCP performance, it should be noted that many other factors across the Internet, outside the control of Azure, can also affect TCP performance.
+These settings are the most likely to affect TCP performance, but keep in mind that many other factors across the internet, outside the control of Azure, can also affect TCP performance.
 
 #### Increase MTU size
 
-A logical question to ask is "can increasing the MTU increase TCP performance as a larger MTU means a larger MSS"? The simple answer is – probably not. As discussed, There are pros and cons to packet size that are applicable beyond just TCP traffic. As discussed above, the most important factors affecting TCP throughput performance is TCP Window Size, packet loss, and RTT.
+Because a larger MTU means a larger MSS, you might wonder whether increasing the MTU can increase TCP performance. Probably not. There are pros and cons to packet size beyond just TCP traffic. As discussed earlier, the most important factors affecting TCP throughput performance are TCP window size, packet loss, and RTT.
 
 > [!IMPORTANT]
-> Azure does not recommend that Azure customers modify the default MTU value on Virtual Machines.
+> We don't recommend that Azure customers change the default MTU value on virtual machines.
 >
 >
 
-### Accelerated Networking and Receive Side Scaling
+### Accelerated networking and receive side scaling
 
-#### Accelerated Networking
+#### Accelerated networking
 
-Virtual Machine network functions have historically been CPU intensive on both the VM Guest and the Hypervisor/Host. Every packet that transits through the host is processed in software by the host CPU - including all the Virtual Network encapsulation/de-capsulation. So, the more traffic that goes through the host, then the higher the CPU load. And, if the host CPU is busy doing other operations, then that will also affect network throughput and latency. This issue has been addressed through Accelerated Networking.
+Virtual machine network functions have historically been CPU intensive on both the guest VM and the hypervisor/host. Every packet that transits through the host is processed in software by the host CPU, including all virtual network encapsulation and decapsulation. So, the more traffic that goes through the host, the higher the CPU load. And if the host CPU is busy with other operations, that will also affect network throughput and latency. Azure addresses this issue with accelerated networking.
 
-Accelerated Networking provides consistent ultra-low network latency via Azure's in-house programmable hardware and technologies such as SR-IOV. By moving much of Azure's software-defined networking stack off the CPUs and into FPGA-based SmartNICs, compute cycles are reclaimed by end-user applications, putting less load on the VM, decreasing jitter and inconsistency in latency. In other words, performance can be more deterministic.
+Accelerated networking provides consistent ultralow network latency via the in-house programmable hardware of Azure and technologies like SR-IOV. Accelerated networking moves much of the Azure software-defined networking stack off the CPUs and into FPGA-based SmartNICs. This change enables end-user applications to reclaim compute cycles, which puts less load on the VM, decreasing jitter and inconsistency in latency. In other words, performance can be more deterministic.
 
-Accelerated Networking achieves performance improvements by allowing the Guest VM to bypass the host and establish a datapath directly with a host’s SmartNIC. Benefits of Accelerated Networking are:
+Accelerated networking improves performance by allowing the guest VM to bypass the host and establish a datapath directly with a host’s SmartNIC. Here are some benefits of accelerated networking:
 
-- **Lower Latency / Higher packets per second (pps)**: Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
+- **Lower latency/higher packets per second (pps)**: Removing the virtual switch from the datapath eliminates the time packets spend in the host for policy processing and increases the number of packets that can be processed in the VM.
 
-- **Reduced jitter**: Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
+- **Reduced jitter**: Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that's doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, eliminating the host-to-VM communication and all software interrupts and context switches.
 
 - **Decreased CPU utilization**: Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
 
-Accelerated Networking must be explicitly enabled on a per VM basis. Instructions for enabling Accelerated Networking on a VM are available at the [Create a Linux virtual machine with Accelerated Networking page](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+To use accelerated networking, you need to explicitly enable it on each applicable VM. See [Create a Linux virtual machine with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) for instructions.
 
-#### Receive Side Scaling (RSS)
+#### Receive side scaling
 
-Receive Side Scaling is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multi-processor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. A more technical discussion of RSS can be found at the [Introduction to Receive Side Scaling page](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multi-processor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. A more technical discussion of RSS can be found at the [Introduction to Receive Side Scaling page](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
 RSS is required to achieve maximum performance when Accelerated Networking is enabled on a VM. There can also be benefits in using RSS on VMs that don’t have accelerated networking enabled. An overview of how to determine if RSS is enabled and configuration for enabling it can be found at the [Optimize network throughput for Azure virtual machines page](http://aka.ms/FastVM).
 
