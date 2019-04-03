@@ -60,7 +60,7 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [All metrics](#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. | Yes | Yes |
-| [Errors](#errors-dataset): Contains information about database SQL errors on a database. | Yes | Yes |
+| [Errors](#errors-dataset): Contains information about SQL errors on a database. | Yes | Yes |
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types. | Yes | No |
 | [Timeouts](#time-outs-dataset): Contains information about timeouts on a database. | Yes | No |
 | [Blocks](#blockings-dataset): Contains information about blocking events on a database. | Yes | No |
