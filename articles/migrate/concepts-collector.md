@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -77,7 +77,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 ### Connect to the internet via a proxy
 
 - If the proxy server requires authentication, you can specify the username and password when you set up the Collector.
-- The IP address/FQDN of the Proxy server should specified as *http://IPaddress* or *http://FQDN*.
+- The IP address/FQDN of the Proxy server should specified as *http:\//IPaddress* or *http:\//FQDN*.
 - Only HTTP proxy is supported. HTTPS-based proxy servers aren't supported by the Collector.
 - If the proxy server is an intercepting proxy, you must import the proxy certificate to the Collector VM.
   1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
@@ -145,6 +145,9 @@ vCenter Server | TCP 443 | The Collector must be able to communicate with the vC
 RDP | TCP 3389 |
 
 ## Collected metadata
+
+> [!NOTE]
+> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
 The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 

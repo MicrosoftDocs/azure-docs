@@ -23,7 +23,7 @@ Azure App Configuration keeps records of the precise times when a new key-value 
 
 To retrieve past key values, specify a time at which key values are snapshot in the HTTP header of a REST API call. For example:
 
-        GET /revisions HTTP/1.1
+        GET /kv HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
 
 Currently, App Configuration keeps seven days of change history.

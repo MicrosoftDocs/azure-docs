@@ -90,7 +90,7 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer.
 
 ### PaaS services in this blueprint
 
@@ -114,7 +114,7 @@ This template deploys the following App Service features:
 
 #### Azure SQL Database
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
 Azure SQL Database in this blueprint
 

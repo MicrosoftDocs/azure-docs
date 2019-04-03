@@ -127,7 +127,7 @@ public static class BindingExpressionsExample
 
 The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
 
-The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the consumption plan](functions-scale.md#how-the-consumption-plan-works). For this reason, the file only has trigger info, not input or output bindings.
+The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the consumption plan](functions-scale.md#how-the-consumption-and-premium-plans-work). For this reason, the file only has trigger info, not input or output bindings.
 
 The generated *function.json* file includes a `configurationSource` property that tells the runtime to use .NET attributes for bindings, rather than *function.json* configuration. Here's an example:
 
@@ -270,7 +270,7 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 ## Cancellation tokens
 
-A function can accept a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
 The following example shows how to check for impending function termination.
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
-[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
+[TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 
 ### Multiple attribute example
 

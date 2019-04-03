@@ -516,7 +516,14 @@ apply sampling to those items already sampled in the SDK itself.'
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
-* Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
+* The best way to achieve this is to write a custom [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. This ensures that all sampling techniques will ignore this item from any sampling considerations.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Service Fabric CLI Script Sample - Update an application with a new
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: 
 

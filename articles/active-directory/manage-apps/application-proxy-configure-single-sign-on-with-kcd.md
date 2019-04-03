@@ -79,7 +79,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
 3. Set the single sign-on mode to **Integrated Windows Authentication**.  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com. This SPN needs to be in the list of services to which the connector can present delegated credentials. 
-5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#Working-with-different-on-premises-and-cloud-identities)
+5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#working-with-different-on-premises-and-cloud-identities)
 
    ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
