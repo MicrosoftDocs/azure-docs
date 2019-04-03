@@ -94,7 +94,7 @@ Commit all your changes and deploy your code again. Composer should now be runni
 
 ## Access environment variables
 
-In App Service, you can [set app settings](web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
+In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
 ```javascript
 getenv("DB_HOST")

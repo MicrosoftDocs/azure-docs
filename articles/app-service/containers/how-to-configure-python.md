@@ -144,7 +144,7 @@ To provide a custom command, do the following steps:
 
 ## Access environment variables
 
-In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
