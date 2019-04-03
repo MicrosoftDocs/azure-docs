@@ -234,6 +234,8 @@ error: You must be logged in to the server (Unauthorized)
 
 ## Next Steps
 
+To use Azure AD users and groups to control access to cluster resources, see [Control access to cluster resources using role-based access controls and Azure AD identities in AKS][azure-ad-rbac].
+
 For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
 
 For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
@@ -250,3 +252,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
+[azure-ad-rbac]: azure-ad-rbac.md
