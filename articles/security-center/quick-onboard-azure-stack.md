@@ -54,7 +54,7 @@ You must have an Azure subscription on Security Center’s Standard tier before 
 7. On the right of **Primary Key**, select the copy icon and paste the key into Notepad.
 
 ## Add the virtual machine extension to your existing Azure Stack virtual machines
-You must now add the Azure Monitor **Update and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack.
+You must now add the **Azure Monitor, Update and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack.
 
 1. In a new browser tab, log into your **Azure Stack** portal.
 2. Go to **Virtual machines** page, select the virtual machine that you want to protect with Security Center. For information on how to create a virtual machine on Azure Stack, please see [this quickstart for Windows virtual machines](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-quick-linux-portal).
