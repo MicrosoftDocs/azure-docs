@@ -78,7 +78,7 @@ The Azure Automation web service provides special functionality for parameters u
 
 ### Named values
 
-If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook receives the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) with properties that correspond to each named value.
+If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook receives the parameter as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) with properties that correspond to each named value.
 
 Consider the following test runbook that accepts a parameter called user.
 
