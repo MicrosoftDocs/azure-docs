@@ -37,7 +37,7 @@ Switching between the two license models incurs **no downtime**, does not restar
 
  - The ability to convert the licensing model is currently only available when starting with a pay-as-you-go SQL Server VM image. If you start with a bring-your-own-license image from the portal, you will not be able to convert that image to pay-as-you-go.
   - Currently, changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
-   - Currently, changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
+   - Currently changing the licensing model is only enabled for Public Cloud installations.
 
 ## Prerequisites
 
