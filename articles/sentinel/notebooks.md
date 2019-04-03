@@ -18,47 +18,61 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 ---
 
-# Use notebooks to hunt for anomalies
+# Use notebooks to hunt for security threats
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Sentinel leverages the power of Jupyter interactive notebooks to provide insight and actions to investigate or hunt for security anomalies within your environment. Azure Sentinel comes preloaded with notebooks that were developed by Microsoft's security analysts. Each notebook is purpose built with a self-contained workflow for a specific use case. Visualizations are included in each notebook for faster data exploration and threat hunting.​ You customize the built-in notebooks to meet your needs, create new notebooks from scratch or import notebooks from the Azure Sentinel' GitHub community. Jupyter notebooks are imported as a project in the Azure Notebooks page – this enables user to access all of their Azure Sentinel notebooks in one place. Notebooks can be run with a click of a button or can be configured by user to match their environment.
+Azure Sentinel leverages the power of [Jupyter](https://jupyter.org/) notebooks and Python to provide insight and actions to investigate or hunt for security anomalies within your environment. Azure Sentinel comes preloaded with notebooks that were developed by Microsoft's security analysts. Azure Sentinel provides a high-performance rest API to access all of the data in your workspace. Using the powerful [Kusto Query Language](https://docs.microsoft.com/en-us/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) you can query, import and process your security logs from Jupyter.
 
-The fully integrated experience enables notebooks to run on Cloud Compute and Storage with no underlying maintenance overhead. The ability to leverage the existing Jupyter Notebooks ecosystem enables you to crowd source models, without sharing customer data. 
+Many of the notebook are purpose built with a workflow for a specific use case, while others are illustrative samples that illustrate techniques and features. The notebooks make use of data tools and a variety of visualizations for data exploration and threat hunting.​ You customize the built-in notebooks to meet your needs, create new notebooks from scratch or import notebooks from the Azure Sentinel' GitHub community. From the Azure Sentinel portal you can create an [Azure Notebooks](https://notebooks.azure.com/) project populated with the hunting and investigation notebooks. This allows you to access and all of your Azure Sentinel notebooks in one place. Notebooks can cloned and edited and run with a click of a button.
 
+By default, the notebooks run on Azure Cloud Compute and Storage at no cost and little or no maintenance overhead. You can also opt to run your notebooks on more powerful compute resources such as [Data Science Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/) (DSVM). In either case, you have a flexible, browser based development and execution environment accessible from anywhere. You can use an existing Azure account or create a new one: notebooks in your account are kept private unless you choose to share them. You can also run any of the notebooks locally if you have a Python environment on your computer.
 
-Each notebook is hosted on the Azure Notebooks (currently in preview), an interactive development environment in the Azure cloud. Notebooks are always accessible, always available from any browser, anywhere in the world.  The Azure Sentinel' built-in notebooks for investigation and hunting are cloned into a project that belongs to you, and which you can modify and tailor to your environment. Some of the most popular built-in notebooks are:
+The notebooks make use of many popular Python libraries such as pandas, matplotlib, bokey and others. The vibrant Python ecosystem means that you have access to a vast array of visualizations, data processing and machine learning capabilities to extend the power of your notebooks. Microsoft has also released a set of Jupyter security tools designed to make building and using notebooks easier and more productive - see the details at the [msticpy](https://github.com/Microsoft/msticpy/) GitHub repository. 
 
-- **Alert investigation and hunting**: This interactive notebook enables quick triage of different classes of alerts by retrieving related activity and enriching the alert with associated activity and data from which the alert was generated.​
+Over the coming months more notebooks will be added to the core set. The intial set include:
 
-- **Endpoint host guided hunting**: Allows you to hunt for signs of a security breach by drilling down into the security relevant activities associated with an endpoint host.  ​
+- **Alert investigation and hunting**: This notebook allows you to quickly triage alerts by analyzing activity on the affected host(s).​
 
-- **Office sign in guided hunting**: Enables you to hunt for suspicious sign-ins by visualizing geographic locations of suspect logs as well as displaying unusual sign-in patterns derived from  Office 365 data.​
+- **Endpoint host guided hunting**: Can be used in the context of hunting or investigation, allow you explore logon activity, processe executions, network activity and other events on a host.  ​
+
+- **Office activity guided hunting**: Enables you to hunt for suspicious Office 365 activity by analyzing and visualizing auditing logs from multiple O365 data sets.​
 
 ## Run a notebook
-In the following example, we run the built-in notebook to search for deep diving into location anomalies to see if anyone in an unexpected location is doing something on your network.
+In the following example, we create an Azure Notebooks project from the Azure Sentinel portal. This will populate the project with notebooks. When using these notebooks, it is a good idea to *clone* the notebook and work on the copy. This means that you can easily update the notebook to a newer version without overwriting any of your data.
 
-1. In the Azure Sentinel portal, click **Notebooks** and then select any of the built-in notebooks.
+1. In the Azure Sentinel portal, click **Notebooks** in the navigation menu. To create a new Azure Notebooks project click **Clone Azure Sentinel Notebooks** or to open your existing notebooks projects click **Go to your Notebooks**.
   
    ![select notebook](./media/notebooks/select-notebook.png)
 
-3. Click **Import** to clone the GitHub repo into your Azure Notebooks project.
+2. If you chose **Clone Azure Sentinel Notebooks** in the previous step the following dialog will appear. Click **Import** to clone the GitHub repo into your Azure Notebooks project. If you do not have an existing Azure Notebook you will be prompted to login and one will be created.
    ![Import notebook](./media/notebooks/import1.png)
-4. Each notebook walks you through the steps for performing a hunt or investigation. Models, libraries, and other dependencies and configuration for connectivity to Azure Sentinel is automatically imported to enable one-click execution. All code and libraries necessary to run a notebook are pre-loaded. You can immediately begin running a notebook against your Log Analytics workspace with no configuration.
+3. If you are creating a new project from GitHub you will be prompted to name the project. You can keep the default name or type in a new one. You do not need to check the **Clone Recursively** option - this refers to linked GitHub repos. Clicking on **Import** starts cloning the GitHub content; this can take a few minutes to complete.
+   ![Import notebook](./media/notebooks/import1.png)
+4. Each notebook walks you through the steps for performing a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the Notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps. Your notebooks are ready to run against your Azure Sentinel Log Analytics workspace.
 
    ![Import repo](./media/notebooks/import2.png)
 
-5. Explore, modify and run all the sample notebooks provided. These can be used as building blocks for many different scenarios.
+5. Open a Notebook. Free Compute is selected by default to run the notebooks (highlighted). If you have configured a DSVM to use (see above), select this and authenticate before opening the first notebook. You will find the main scenario notebooks in the Notebooks folder (highlighted). Click on one to open it. 
 
    ![select notebook](./media/notebooks/import3.png)
 
+6. Selecting the Python version. When you first open a notebook it may prompt you to select a kernel version. If not, select the kernel to use as follows. Python 3.6 or later should be showing as the selected kernel in the top right of the notebook screen. 
+
+   ![select notebook](./media/notebooks/import3.png)
+   
+For a quick introduction to querying data in Azure Sentinel, look at the **GetStarted** notebook in the main Notebooks. Additional sample notebooks with saved data can be found in the **Samples** subfolder. The **HowTos** folder contains notebooks describing how to set up your Azure Notebooks default Python environment, configure a DSVM, create and read Azure Sentinel bookmarks and other topics.  
+
+These notebooks are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks. o gian be used as building blocks for many different scenarios.
+
+We welcome feedback whether suggestions, requests for features, contributed Notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
 
 ## Next steps
-In this article, you learned how to run a hunting investigation using notebooks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to get started using Jupyter notebooks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
