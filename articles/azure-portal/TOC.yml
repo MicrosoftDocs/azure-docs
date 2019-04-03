@@ -22,6 +22,8 @@
     href: azure-portal-markdown-tile.md
   - name: Export or delete user settings
     href: azure-portal-export-delete-settings.md
+  - name: Azure portal how-to video series
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
 - name: Reference
   items:
   - name: Keyboard shortcuts
@@ -30,8 +32,6 @@
     href: azure-portal-dashboards-structure.md
 - name: Resources
   items:
-  - name: Azure portal how-to video series
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn
