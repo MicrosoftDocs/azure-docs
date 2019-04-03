@@ -47,9 +47,9 @@ An additional benefit of this work is improved error messaging. Here are some ex
   
 ## Additional info
 
-In addition to the improved sign-in user experience, this change includes mechanisms that can help mitigate the abuse of large-scale username enumeration. <!--Secret mechanisms that we can never tell you.-->
+In addition to the improved sign-in user experience, this change includes mechanisms that can help mitigate the abuse of large-scale username enumeration.
 
-This change is initially targeted for managed domains and begins rolling out in June 2019, but won't start rolling out to federated domains by the end of 2019. The exact roll-out dates for federated domains depends on customer feedback.
+This change is initially targeted for managed domains and begins rolling out in May 2019, but won't start rolling out to federated domains by the end of 2019. The exact roll-out dates for federated domains depends on customer feedback.
 
 > [!IMPORTANT]
 > This feature will have significant impact on federated domains relying on the old domain level Home Realm Discovery to force federation. Some organizations have trained their employees to sign in with a username that doesn’t exist in Azure Active Directory but contains the proper domain name, because the domain names routes users currently to their organization's domain endpoint. The new sign-in behavior doesn't allow this. The user is notified to correct the user name, and they aren't allowed to sign in with a username that does not exist in Azure Active Directory.
