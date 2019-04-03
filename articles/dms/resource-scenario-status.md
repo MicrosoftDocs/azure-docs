@@ -32,10 +32,10 @@ The following tables show which migration scenarios are supported when using Azu
 > To view scenarios currently supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
 
 ### Offline (one-time) migration support
-The following table shows Azure Database Migration Service support, for offline migrations.
+The following table shows Azure Database Migration Service support for offline migrations.
 
 | Target  | Source | Support | Status |
-| ------------- | ------------- | :-------------: | :-------------: |
+| ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
@@ -54,7 +54,7 @@ The following table shows Azure Database Migration Service support, for offline 
 The following table shows Azure Database Migration Service support for online migrations.
 
 | Target  | Source | Support | Status |
-| ------------- | ------------- | :-------------: | :-------------: |
+| ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
