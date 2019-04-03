@@ -14,8 +14,6 @@ ms.custom: mvc
 
 # Back up a virtual machine in Azure with PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module is used to create and manage Azure resources from the command line or in scripts. 
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with the AZ module. Alternatively, you can back up a VM using the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
@@ -24,6 +22,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Log in and register
 
@@ -72,7 +71,7 @@ Now create a vault.
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > Storage Redundancy can be modified only if there are no backup items protected to the vault.

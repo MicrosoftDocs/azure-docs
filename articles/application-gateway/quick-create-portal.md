@@ -15,6 +15,9 @@ This quickstart shows you how to use the Azure portal to create an application g
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -117,7 +120,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -128,7 +131,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzureRmVMExtension** cmdlet.
+3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
 
 ### Add backend servers to backend pool
 
