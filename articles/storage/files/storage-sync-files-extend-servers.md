@@ -312,7 +312,7 @@ A server endpoint represents a specific location on a registered server. For exa
 
 Your files are now in sync across your Azure file share and Windows Server.
 
-![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-AzStorage.png)
+![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## Clean up resources
 
