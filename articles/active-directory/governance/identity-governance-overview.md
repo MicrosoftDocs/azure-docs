@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -74,7 +74,7 @@ While there is no perfect solution or recommendation for every customer, the fol
 
 ## Next steps
 
-- [What are Azure AD access reviews?](access-reviews-overview.md)
 - [What is Azure AD entitlement management? (Preview)](entitlement-management-overview.md)
-- [What can I do with Terms of use?](active-directory-tou.md)
+- [What are Azure AD access reviews?](access-reviews-overview.md)
 - [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+- [What can I do with Terms of use?](active-directory-tou.md)

@@ -32,14 +32,6 @@ sections:
       style: unordered
       items:
       - html: <a href="/azure/active-directory/governance/identity-governance-overview">What is identity governance?</a>
-  - title: Access reviews
-    items:
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What are Azure AD access reviews?</a>
-      - html: <a href="/azure/active-directory/governance/create-access-review">Create an access review of groups or apps</a>
-      - html: <a href="/azure/active-directory/governance/perform-access-review">Review access to group or apps</a>
   - title: Entitlement management (Preview)
     items:
     - type: list
@@ -48,6 +40,14 @@ sections:
       - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is Azure AD entitlement management?</a>
       - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">Tutorial - Create your first access package</a>
       - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Edit and manage an existing access package</a>
+  - title: Access reviews
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What are Azure AD access reviews?</a>
+      - html: <a href="/azure/active-directory/governance/create-access-review">Create an access review of groups or apps</a>
+      - html: <a href="/azure/active-directory/governance/perform-access-review">Review access to group or apps</a>
   - title: Terms of use
     items:
     - type: list
