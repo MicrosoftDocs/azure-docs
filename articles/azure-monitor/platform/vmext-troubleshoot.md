@@ -48,7 +48,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 3. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Ensure the virtual machine can run PowerShell scripts
 5. Ensure permissions on C:\Windows\temp haven’t been changed
-6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 For more information, see [troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).

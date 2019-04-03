@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Overview of the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Overview of the ISO 27001 Shared Services blueprint sample
 
 The ISO 27001 Shared Services blueprint sample provides a set of compliant infrastructure patterns
 and policy guard-rails that help towards ISO 27001 attestation. This blueprint helps customers

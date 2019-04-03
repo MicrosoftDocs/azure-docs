@@ -1,6 +1,96 @@
 {
   "redirections": [
     {
+      "source_path": "articles/batch-ai/cli-samples.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cli-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/clusters.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/cntk-training-python.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cntk-training-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/how-to-migrate.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/migrate-to-new-api.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/how-to-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/index.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/overview.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/overview-what-happened-batch-ai.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-create-cluster-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-create-cluster-portal.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-create-cluster-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quickstart-tensorflow-training-cli.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quickstart-tensorflow-training-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/quota-limits.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/quota-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/resource-concepts.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/tutorial-horovod-tensorflow.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/tutorial-horovod-tensorflow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/use-azure-storage.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/use-azure-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-config-file",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-dedicated",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/scripts/batch-ai-cli-sample-create-cluster-low-priority",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
@@ -937,22 +1027,22 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-intro.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-ingredients.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-implementation.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
-      "redirect_url": "http://aka.ms/aadpocplaybook",
+      "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
     },
     {
@@ -1179,6 +1269,11 @@
       "source_path": "articles/cosmos-db/programming.md",
       "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/table-storage-how-to-use-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/tutorial-develop-table-dotnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query-metrics.md",
@@ -1856,6 +1951,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/r-developers-guide.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/r-developers-guide",
+      "redirect_document_id": true
+    },
+{
       "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
       "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
       "redirect_document_id": true
@@ -2134,6 +2234,11 @@
       "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
       "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
+      "redirect_url": "/azure/iot-edge/how-to-visual-studio-develop-module",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
@@ -4216,6 +4321,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/connectors/connectors-overview.md",
+      "redirect_url": "/azure/connectors/apis-list",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/connectors/connectors-create-api-sharepointserver.md",
       "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
       "redirect_document_id": true
@@ -4543,6 +4653,21 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-certificates.md",
+      "redirect_url": "/azure/automation/shared-resources/certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-variables.md",
+      "redirect_url": "/azure/automation/shared-resources/variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-source-control-integration-legacy.md",
+      "redirect_url": "/azure/automation/source-control-integration-legacy",
       "redirect_document_id": false
     },
     {
@@ -9105,47 +9230,52 @@
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1808.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-update-1809.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
@@ -36352,6 +36482,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/data-collection.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -36552,6 +36687,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/tags.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images#text-reviews",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/credentials.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#credentials",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/connectors.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#connectors",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop#review-tool-dashboard",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/SubTeams.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-tool-user-guide/configure#manage-team-and-subteams",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/workflow-api.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-api#workflows",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
@@ -36570,6 +36740,40 @@
       "source_path": "articles/azure-stack/azure-stack-poc.md",
       "redirect_url": "/azure/azure-stack/azure-stack-overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
+      "redirect_document_id": false
+    },
+
+
+    {
+      "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
+      "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-cpp-winrt.md",
+      "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-winrt",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-cpp-ndk.md",
+      "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-ndk",
+      "redirect_document_id": false
+    },
+
+
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
+	  "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
+      "redirect_document_id": false
+    }	
   ]
 }
