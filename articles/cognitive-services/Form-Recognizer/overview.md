@@ -15,33 +15,33 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it into your workflow or application. You only need five form documents or an empty form of the same type as your input material to get started. You can get results quickly, accurately and tailored to your specific content without the need for heavy manual intervention or extensive data science expertise.
 
 ## What it does
 
-The Form Recognizer service uses machine learning algorithms to extract key-value pairs and tables out of forms. You, the developer, must submit a minimum of five sample forms or an empty form of the same type as your input material. Then the algorithm trains to this data, clusters the forms by types, discovers what are the keys and tables in the forms and learns to associate values to keys and entries to tables. Once the model is trained, you can test, retrain, and eventually use it to extract key-value pairs and tables from forms according to the needs of your app.
+When you submit your input data the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present in the forms, and learns to associate values to keys and entries to tables. Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 ## What it includes
 
-The Form Recognizer private preview service is available as a container. You can create, train and score a model by invoking the Form Recognizer container REST API. You can install the Form Recognizer Docker container closer to your data in the cloud or locally.
+Form Recognizer is available as a REST API. You can create, train and score a model by invoking this API, and you can optionally run the model in a local Docker container.
 
 ## Input requirements
 
-The Form Recognizer private preview release can extract key-value pairs and tables from forms that meet the following requirements:
+Form Recognizer works on input documents that meet the following requirements:
 
-* The forms must be presented in PDF (text or scanned), JPG and PNG format
+* PDF (text or scanned), JPG, or PNG format
 * For images:
-  * The file size of the image must be less than 4 megabytes (MB)
-  * The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
-* Latin alphabet forms (English characters forms)
-* Printed forms
-* Keys and values must appear on the form
-* Keys can be on the top or on the left (keys under or on the right are not supported)
-* Forms should be good quality scanned images or PDF
+  * File size must be less than 4 megabytes (MB)
+  * Dimensions must be between 50x50 and 4200x4200 pixels
+* Must use the Latin alphabet (English characters)
+* Printed data (not handwritten)
+* Must contain keys and values
+* Keys must appear on the top or the left of the document
+* If scanned from paper documents, forms should be high-quality scans
 
 ## Data privacy and security
 
-The service is offered as a [Preview](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). You will retain ownership of your data and we only use it to provide the Online Services as explained in your agreement:  
+The service is offered as a [Preview](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). You will retain ownership of your data and we only use it to provide the Online Services as explained in your agreement:
 
 ### Processing of customer data; ownership
 
