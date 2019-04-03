@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Yodeck, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * Yodeck single sign-on enabled subscription
 
 ## Scenario description
