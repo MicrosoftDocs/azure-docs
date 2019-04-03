@@ -23,38 +23,40 @@ To complete the steps in this article, you need the following resources:
 
 ## Sample Devkits application
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
+An application created from the **Sample Devkits** application template includes a **MXChip** device template that defines the following device characteristics:
 
-- Telemetry, which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
-- State, which contains an example measurement for **Device State**.
-- Event measurement with a **Button B Pressed** event.
-- Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-- Properties containing device properties **die number** and **Device Location**, which is a location property, and the cloud property **Manufactured In**.
-- Commands including **Echo** and **Countdown**. When a real device receives an **Echo** command, it shows the sent value on the device's display. When a real device receives a **Countdown** command, the LED cycles through a pattern and the device sends countdown values back to IoT Central.
+- Telemetry measurements for **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
+- State measurement for **Device State**.
+- Event measurement for **Button B Pressed**.
+- Settings for **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
+- Device properties **die number** and **Device Location**, which is a location property.
+- Cloud property **Manufactured In**.
+- Commands **Echo** and **Countdown**. When a real device receives an **Echo** command, it shows the sent value on the device's display. When a real device receives a **Countdown** command, the LED cycles through a pattern, and the device sends countdown values back to IoT Central.
 
-For full details on the configuration refer to [MXChip Device template details](#mxchip-device-template-details)
+For full details about the configuration, see [MXChip Device template details](#mxchip-device-template-details)
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details (**Scope ID, Device ID, and Primary key**).
+### Get your device connection details
+
+In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details: **Scope ID, Device ID, and Primary key**:
 
 1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
 
-   * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
-   * Enter the Device Name or use the suggested name
+    * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
+    * Enter a **Device Name**, or use the suggested name
 
-     ![Add Device](media/howto-connect-devkit/add-device.png)
+    ![Add Device](media/howto-connect-devkit/add-device.png)
 
-1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
+1. To get the device connection details, **Scope ID**, **Device ID**, and **Primary key**, select **Connect** on the device page.
 
     ![Connection details](media/howto-connect-devkit/device-connect.png)
 
-1. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
+1. Make a note of the connection details. You're temporarily disconnected from the internet when you prepare your DevKit device in the next step.
 
 ### Prepare the DevKit device
 
-> [!NOTE]
-> If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
+If you've previously used the device and want to reconfigure it to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons at the same time. If it doesn't work, press **Reset** button and try again.
 
 #### To prepare the DevKit device
 
@@ -76,17 +78,17 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 
 1. The device is now in access point (AP) mode. You can connect to this WiFi access point from your computer or mobile device.
 
-1. On your computer, phone, or tablet connect to the WiFi network name shown on the screen of the device. When you connect to this network, you do not have internet access. This state is expected, and you are only connected to this network for a short time while you configure the device.
+1. On your computer, phone, or tablet connect to the WiFi network name shown on the screen of the device. When you connect to this network, you don't have internet access. This state is expected, and you're only connected to this network for a short time while you configure the device.
 
 1. Open your web browser and navigate to [http://192.168.0.1/start](http://192.168.0.1/start). The following web page displays:
 
     ![Device configuration page](media/howto-connect-devkit/configpage.png)
 
-    In the web page:
-    - add the name of your WiFi network
-    - your WiFi network password
-    - PIN CODE shown on the device LCD
-    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)
+    On the web page, enter:
+    - The name of your WiFi network
+    - Your WiFi network password
+    - The PIN code shown on the device's display
+    - The connection details **Scope ID**, **Device ID**, and **Primary key** of your device (you should have already saved this following the steps)
     - Select all the available telemetry measurements
 
 1. After you choose **Configure Device**, you see this page:
@@ -151,19 +153,27 @@ The previous command downloads the source code to a folder called `iot-central-f
 
 ## Review the code
 
-Use Visual Studio Code, which was installed when you prepared your development environment, to open the `MXCHIP/mxchip_advanced` folder in the `iot-central-firmware` folder:
+Use Visual Studio Code to open the `MXCHIP/mxchip_advanced` folder in the `iot-central-firmware` folder:
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-To see how the telemetry is sent to the Azure IoT Central application, open the **telemetry.cpp** file in the source folder.
+To see how the telemetry is sent to the Azure IoT Central application, open the **telemetry.cpp** file in the `src` folder:
 
-The function `buildTelemetryPayload` creates the JSON telemetry payload using data from the sensors on the device.
+- The function `TelemetryController::buildTelemetryPayload` creates the JSON telemetry payload using data from the sensors on the device.
 
-The function `sendTelemetryPayload` calls `sendTelemetry` in the **AzureIOTClient.cpp** to send the JSON payload to the IoT Hub your Azure IoT Central application uses.
+- The function `TelemetryController::sendTelemetryPayload` calls `sendTelemetry` in the **AzureIOTClient.cpp** to send the JSON payload to the IoT Hub your Azure IoT Central application uses.
 
-To see how property values are reported to the Azure IoT Central application, open the **telemetry.cpp** file in the source folder.
+To see how property values are reported to the Azure IoT Central application, open the **telemetry.cpp** file in the `src` folder:
 
-The function `TelemetryController::loop` sends the **doubleTap** reported property when the accelerometer detects a double tap. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+- The function `TelemetryController::loop` sends the **location** reported property approximately every 30 seconds. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+
+- The function `TelemetryController::loop` sends the **dieNumber** reported property when the device accelerometer detects a double tap. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+
+To see how the device responds to commands called from the IoT Central application, open the **registeredMethodHandlers.cpp** file in the `src` folder:
+
+- The **dmEcho** function is the handler for the **echo** command. It shows the **displayedValue** filed in the payload on the device's screen.
+
+- The **dmCountdown** function is the handler for the **countdown** command. It changes the color of the device's LED and uses a reported property to send the countdown value back to the IoT Central application. The reported property has the same name as the command. The function uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
 
 The code in the **AzureIOTClient.cpp** source file uses functions from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) to interact with IoT Hub.
 
@@ -191,7 +201,6 @@ An application created from the Sample Devkits application template includes a M
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
 
 #### States 
 | Name          | Display name   | NORMAL | CAUTION | DANGER | 
@@ -236,4 +245,4 @@ Toggle settings
 
 ## Next steps
 
-Now that you have learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Now that you've learned how to connect a DevKit device to your Azure IoT Central application, the suggested next step is to [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
