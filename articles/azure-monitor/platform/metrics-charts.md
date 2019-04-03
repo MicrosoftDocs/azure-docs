@@ -81,9 +81,15 @@ You can also create charts that plot multiple metrics or show multiple metric ch
 
 For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
 
-To put multiple metrics on a chart, [create a new chart](#create-a-new-chart). Click **Add Metric** and repeat the steps to add another metric on a new chart.
+### Multiple metrics on a chart
 
-To create multiple charts, click the **Add chart** and create another chart with a different metric.
+First, [create a new chart](#create-a-new-chart). Click **Add Metric** and repeat the steps to add another metric on a new chart.
+
+### Multiple charts
+
+Click the **Add chart** and create another chart with a different metric.
+
+### Order or delete multiple charts
 
 To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item.
 
