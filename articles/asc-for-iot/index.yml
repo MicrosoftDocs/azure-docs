@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Security Center (ASC) for IoT Preview Documentation
+title: Azure Security Center for IoT Preview Documentation
 metadata:
-  title: Azure Security Center (ASC) for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  title: Azure Security Center for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -14,7 +14,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Use Azure Security Center for IoT Preview to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
+  description: Use Azure Security Center (ASC) for IoT Preview to extend your existing cybersecurity view to your entire IoT solution. Gain a true panoramic view of the security of all your Azure-related resources. Fast deployment options and full integration with IoT Hub module twins give you a wide range of customization options and easy integration with your current device management tools. 
 sections:
 - title: 5-Minute Quickstarts
   items: 
@@ -26,19 +26,19 @@ sections:
     - image: 
         src: media/index/deploy.svg
       text: Enable ASC for IoT
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image: 
         src: media/index/get-started.svg
       text: Get started with ASC for IoT
-      href: /azure/ascforiot/quickstart-getting-started
-- title: Step-by-Step Tutorials
+      href: /azure/asc-for-iot/getting-started
+- title: How-to guides
   items:
   - type: paragraph
     text: Learn how to define security policies, protect your devices against malicious activity, and respond to security alerts and incidents.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">Detect threats with ASC for IoT</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detect threats with ASC for IoT</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

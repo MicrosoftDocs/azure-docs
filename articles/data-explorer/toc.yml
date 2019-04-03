@@ -84,6 +84,10 @@
       href: delete-data.md
     - name: Deal with duplicate data
       href: dealing-with-duplicates.md
+  - name: Monitoring
+    items:
+    - name: Using metrics to monitor cluster health
+      href: using-metrics.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python

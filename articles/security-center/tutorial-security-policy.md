@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/14/2019
+ms.date: 3/28/2019
 ms.author: monhaber
 ---
 
@@ -105,7 +105,7 @@ For further information about recommendations, see [Managing security recommenda
 
    ![policy management](./media/tutorial-security-policy/policy-management.png)
 
-2. Click the subscription for which you want to disable the recommendation.
+2. Click the subscription or management group for which you want to disable the recommendation.
 
 1. Click the assigned policy.
 
