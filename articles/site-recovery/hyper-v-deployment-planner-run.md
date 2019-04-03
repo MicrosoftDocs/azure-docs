@@ -14,9 +14,9 @@ ms.author: mayg
 # Run the Azure Site Recovery deployment planner for Hyper-V disaster recovery to Azure
 
 You can run the Site Recovery deployment planner command-line tool (ASRDeploymentPlanner.exe) in any of these four modes: 
--	[Get the virtual machine (VM) list](#get-vm-list-for-profiling-hyper-v-vms)
+-	Get the virtual machine (VM) list
 -	[Profile](#profile-hyper-v-vms)
--	[Generate a report](#generate-report)
+-	Generate a report
 -	[Get throughput](#get-throughput)
 
 First, run the tool to get the list of VMs from a single or multiple Hyper-V hosts. Then run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth and storage requirements.
@@ -31,6 +31,7 @@ The following table contains a list of mandatory and optional parameters of the 
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | GetVMList |
@@ -71,7 +72,7 @@ The tool queries the Hyper-V host once every 15 seconds to ensure profiling accu
 The tool seamlessly handles VM migration from one node to another node in the cluster and storage migration within a host.
 
 ### Getting the VM list to profile
-To create a list of VMs to profile, refer to the [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) operation.
+To create a list of VMs to profile, refer to the GetVMList operation.
 
 After you have the list of VMs to be profiled, you can run the tool in profiling mode. 
 
@@ -80,6 +81,7 @@ The following table lists mandatory and optional parameters of the tool to run i
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | StartProfiling |
@@ -161,6 +163,7 @@ The following table contains a list of mandatory and optional tool parameters to
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | Parameter name | Description |
 |---|---|
 | -Operation | GenerateReport |
@@ -268,6 +271,7 @@ Open a command-line console and go to the folder for the Azure Site Recovery dep
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  Parameter name | Description |
 |---|---|
 | -Operation | GetThroughput |

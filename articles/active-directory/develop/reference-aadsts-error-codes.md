@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Authentication and authorization error codes
@@ -25,6 +26,8 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
+>
+> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.  
 
 ## AADSTS error codes
 
@@ -63,7 +66,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
 | AADSTS50033 | RetryableError - Indicates a transient error not related to the database operations. |
 | AADSTS50034 | UserAccountNotFound - To sign into this application, the account must be added to the directory. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principal. Contact the tenant admin. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principle. Contact the tenant admin. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
@@ -135,7 +138,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
-| AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. |
@@ -186,7 +189,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90016 | MissingRequiredClaim - The access token isn't valid. The required claim is missing. |
 | AADSTS90019 | MissingTenantRealm - Azure AD was unable to determine the tenant identifier from the request. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format is not valid, or does not meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - The authentication service request is not valid. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) is not available. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - An unexpected, non-retryable error from the WCF service hosted by MSODS has occurred. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
@@ -250,6 +253,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - The resource is not configured to accept device-only tokens. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - The user isn't authorized to register devices in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - The id_token can't be used as `urn:ietf:params:oauth:grant-type:jwt-bearer` grant.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - The tenant admin has configured a security policy that blocks this request. Check the security policies that are defined on the tenant level to determine if your request meets the policy requirements. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - The application wasn't found in the directory/tenant. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have misconfigured the identifier value for the application or sent your authentication request to the wrong tenant. |
 | AADSTS700020 | InteractionRequired - The access grant requires interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |

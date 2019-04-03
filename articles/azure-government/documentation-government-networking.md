@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/30/2018
+ms.date: 3/29/2019
 ms.author: jawalte
 
 ---
@@ -102,9 +102,6 @@ Virtual Network is generally available in Azure Government. For more information
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
-### Variations
-* Azure Load Balancer Standard is not available in Azure Government. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33417523-azure-load-balancer-standard-in-azure-government)
-
 ## Support for DNS
 DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
 
@@ -135,7 +132,21 @@ The URLs for accessing and managing the Service Bus service are different:
 | --- | --- | --- |
 | Service Bus | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
 
+## Support for Azure Firewall
 
+Azure Firewall is available in Azure Government in the following regions:
+- usgovarizona
+- usgovtexas
+- usgovvirginia
+
+The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
+
+### Limitations
+
+- Traffic Manager service tags do not work, by design.
+- App Service Environment FQDN tags currently do not work.
+
+For more information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 ## Next Steps
 For supplemental information and updates please subscribe to the

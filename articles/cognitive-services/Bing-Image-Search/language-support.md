@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by the Bing Image Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

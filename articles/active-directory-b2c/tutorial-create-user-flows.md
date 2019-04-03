@@ -1,17 +1,18 @@
 ---
-title: Tutorial - Create user flows in Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Create user flows - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to Create user flows for your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-
+ms.subservice: B2C
 ---
+
 # Tutorial: Create user flows in Azure Active Directory B2C
 
 In your applications, you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.
@@ -35,29 +36,30 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 
     ![Switch to subscription directory](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. In the left menu, select **User flows**, and then select **New user flow**.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. In the left menu, select **User flows**, and then select **New user flow**.
 
     ![Select new user flow](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Select the **Sign-up and sign-in** user flow on the Recommended tab.
+5. Select the **Sign-up and sign-in** user flow on the Recommended tab.
 
     ![Select the sign-up and sign-in user flow](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Enter a **Name** for the user flow. For example, *signupsignin1*.
-6. For **Identity providers**, select **Email signup**.
+6. Enter a **Name** for the user flow. For example, *signupsignin1*.
+7. For **Identity providers**, select **Email signup**.
 
     ![Set the flow properties](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
+8. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 
     ![Select attributes and claims](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+9. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
 
@@ -119,4 +121,4 @@ In this article, you learned how to:
 > * Create a password reset user flow
 
 > [!div class="nextstepaction"]
-> [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md)

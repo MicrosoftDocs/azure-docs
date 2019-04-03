@@ -72,7 +72,7 @@ az acs kubernetes install-cli
 
 ## Connect with kubectl
 
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli-interactive 

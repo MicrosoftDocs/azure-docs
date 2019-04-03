@@ -3,8 +3,8 @@ title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,9 +12,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: barbkess
+ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
+ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy
@@ -80,7 +81,7 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
 6. In the RD Gateway tab, change the **Server name** field to the External URL that you set for the RD host endpoint in Application Proxy.
 7. Change the **Logon method** field to **Password Authentication**.
 
-  ![Deployment Properties screen on RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Deployment Properties screen on RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Run this command for each collection. Replace *\<yourcollectionname\>* and *\<proxyfrontendurl\>* with your own information. This command enables single sign-on between RD Web and RD Gateway, and optimizes performance:
 
@@ -92,8 +93,8 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->The above command uses a backtick in "`nrequire".
+   >[!NOTE]
+   >The above command uses a backtick in "`nrequire".
 
 9. To verify the modification of the custom RDP properties as well as view the RDP file contents that will be downloaded from RDWeb for this collection, run the following command:
     ```

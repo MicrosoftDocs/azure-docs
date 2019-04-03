@@ -34,7 +34,7 @@ When you click on the virtual machine, the **Properties** pane is expanded on th
 
 ![System properties of the computer](./media/vminsights-maps/properties-pane-01.png)
 
-On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
+On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Azure Monitor and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
 
 ![Log search list in Properties pane](./media/vminsights-maps/properties-pane-logs-01.png)
 

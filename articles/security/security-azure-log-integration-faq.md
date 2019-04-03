@@ -29,6 +29,8 @@ Azure Log Integration is a Windows operating system service that you can use to 
 
 The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Is the Azure Log Integration software free?
 
 Yes. There is no charge for the Azure Log Integration software.
@@ -93,7 +95,7 @@ The **azlog createazureid** command attempts to create a service principal in al
 
 Error:
 
-  *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Warning creating Role Assignment - AuthorizationFailed: The client janedo\@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
 The **azlog authorize** command assigns the role of reader to the Azure AD service principal (created with **azlog createazureid**) to the provided subscriptions. If the Azure login is not a co-administrator or an owner of the subscription, it fails with an "Authorization Failed" error message. Azure Role-Based Access Control (RBAC) of co-administrator or owner is needed to complete this action.
 
@@ -114,8 +116,8 @@ For details on how to get, modify, and set the Azure Diagnostics configuration, 
 
 The following example gets the Azure Diagnostics configuration:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -132,7 +134,7 @@ The following example modifies the Azure Diagnostics configuration. In this conf
 The following example sets the Azure Diagnostics configuration:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 After you make changes, check the storage account to ensure that the correct events are collected.
 

@@ -1,10 +1,10 @@
 ---
 title: Get the Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: The Speech Service works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article you'll learn how to get access to the Speech Devices SDK and start developing.
+description: The Speech Services work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article you'll learn how to get access to the Speech Devices SDK and start developing.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -41,7 +41,7 @@ Subject: You're invited to the Microsoft organization
 
 Complete the following steps to join Azure AD with the email address you provided during registration. This process grants you access to the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/).
 
-1. In the email message you received, select **Get Started**. If your organization is already an Office 365 customer, you are prompted to sign in and you can skip ahead to step 8.
+1. In the email message you received, select **Get Started**. If your organization is already an Office 365 customer, you are prompted to sign in and you can skip ahead to step 7.
 
 2. In the browser window that opens, select **Next**.
 

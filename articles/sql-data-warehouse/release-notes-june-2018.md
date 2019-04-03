@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
@@ -15,13 +15,15 @@ ms.reviewer: twounder
 # What's new in Azure SQL Data Warehouse? June 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in June 2018. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## User Defined Restore Points
 SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 hours guaranteeing an eight-hour recovery point objective (RPO). While this automated snapshots ease the management burden of running your data warehouse, there is a need to take snapshots at critical times based on your business need. For example, taking a snapshot right before a significant data load or the deployment of new scripts into the data warehouse to enable a restore point right before the operation. 
 
-SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
-```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+```powershell
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
@@ -119,7 +121,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

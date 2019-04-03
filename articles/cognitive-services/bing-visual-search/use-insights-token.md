@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Shows how to use an image's insight token with Bing Visual Search API to get insights about an image.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
@@ -18,7 +18,7 @@ ms.author: scottwhi
 Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate uploading an image to get insights, see the quickstarts ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
 
-If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest". For details about the `imageInfo` object, see [The request](#the-request).
+If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest". For details about the `imageInfo` object, see The request.
 
 ```json
 {
@@ -282,7 +282,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -369,19 +369,19 @@ To run this application, follow these steps:
 1. Create a folder for your project (or use your favorite IDE or editor).
 2. From a command prompt or terminal, navigate to the folder you just created.
 3. Install the request modules:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Install the form-data modules:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Create a file named GetVisualInsights.js and add the following code to it.
 5. Replace the `subscriptionKey` value with your subscription key.
 7. Run the program.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

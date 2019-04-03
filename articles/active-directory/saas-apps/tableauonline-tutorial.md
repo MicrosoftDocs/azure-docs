@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Tableau Online
 
@@ -111,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. In the **Sign-on URL** textbox, type the URL: `https://sso.online.tableau.com`
 
-	b. In the **Identifier** textbox, type the URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
+	b. In the **Identifier** textbox, type the URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 

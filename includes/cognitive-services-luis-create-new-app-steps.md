@@ -5,12 +5,12 @@ services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
---- 
+---
 
 1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
 

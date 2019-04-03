@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Verify the action to ensure that the virtual machine was successfully resized
 
 ## Prerequisites
-Recommendations are available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Recommendations are available for a variety of scopes and Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). You must have at least read access to one or more of the following scopes to view cost data. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Subscription
 - Resource group
@@ -36,7 +36,9 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## View cost optimization recommendations
 
-In the Azure portal, click **Cost Management + Billing** in the list of services. Then in the list under **Cost Management**, select **Advisor Recommendations**. Advisor Cost recommendations are shown.
+To view cost optimization recommendations for a subscription, open the desired scope in the Azure portal and select **Advisor recommendations**.
+
+To view recommendations for a management group, open the desired scope in the Azure portal and select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope, such as a management group. Select **Advisor recommendations** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 ![Cost Management Advisor recommendations shown in the Azure portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
@@ -48,7 +50,7 @@ The **Impact** category, along with the **Potential yearly savings**, are design
 
 Azure Advisor monitors your virtual machine usage for 14 days and then identifies underutilized virtual machines. Virtual machines whose CPU utilization is five percent or less and network usage is seven MB or less for four or more days are considered low-utilization virtual machines.
 
-The 5% or less CPU utilization setting is the default, but you can adjust the settings. For more information about adjusting the setting, see the [Configure the average CPU utilization rule](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) article [for the low usage virtual machine recommendation](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+The 5% or less CPU utilization setting is the default, but you can adjust the settings. For more information about adjusting the setting, see the [Configure the average CPU utilization rule or the low usage virtual machine recommendation](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Although some scenarios can result in low utilization by design, you can often save money by changing the size of your virtual machines to less expensive sizes. Your actual savings might vary if you choose a resize action. Let's walk through an example of resizing a virtual machine.
 

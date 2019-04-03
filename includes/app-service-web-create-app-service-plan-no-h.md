@@ -10,7 +10,7 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest) command.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
 

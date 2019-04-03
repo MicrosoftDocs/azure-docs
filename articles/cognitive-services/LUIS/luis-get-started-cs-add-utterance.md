@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -33,7 +33,7 @@ ms.author: diberry
 
 ## Create quickstart code 
 
-In Visual Studio, create a new **Windows Classic Desktop Console** app using the .Net Framework. 
+In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. 
 
 ![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 

@@ -4,7 +4,7 @@ description: Learn about things you should know and what it is you should avoid 
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,9 +16,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/25/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # Best practices for conditional access in Azure Active Directory
 
@@ -41,11 +42,11 @@ When you create a new policy, there are no users, groups, apps, or access contro
 To make your policy work, you must configure:
 
 
-|What           | How                                  | Why|
-|:--            | :--                                  | :-- |
-|**Cloud apps** |Select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
+| What           | How                                  | Why |
+| :--            | :--                                  | :-- |
+| **Cloud apps** |Select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
 | **Users and groups** | Select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access controls** | Select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
+| **Access controls** | Select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do. |
 
 
 
@@ -106,6 +107,13 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 Yes, you can use Exchange ActiveSync in a conditional access policy.
 
+### How should you configure conditional access with Office 365 apps?
+
+Because Office 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
+
+Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
+
+It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don’t, users won’t be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won’t be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory conditional access?](service-dependencies.md).
 
 
 

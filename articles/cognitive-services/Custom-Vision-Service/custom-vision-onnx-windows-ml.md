@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure Cognitive Services.
 services: cognitive-services
 author: larryfr
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
 # As a developer, I want to use a custom vision model with Windows ML.
 ---
@@ -47,7 +47,7 @@ The example application is available at [https://github.com/Azure-Samples/cognit
 
 1. Use the `F5` key to start the application from Visual Studio. You may be prompted to enable Developer mode. For more information, see the [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) document.
 
-2. When the application starts, use the button to select an image for scoring.
+1. When the application starts, use the button to select an image for scoring.
 
 ## Use your own model
 
@@ -61,8 +61,8 @@ To use your own model, use the following steps:
 
 1. In Solutions Explorer, right-click the Assets Folder and select __Add Existing Item__. Select the ONNX file.
 
-1. In Solutions Explorer, select the ONNX file from the Assets folder. Change the following properties for the file: 
-    
+1. In Solutions Explorer, select the ONNX file from the Assets folder. Change the following properties for the file:
+
     * __Build Action__ -> __Content__
     * __Copy to Output Directory__ -> __Copy if newer__
 

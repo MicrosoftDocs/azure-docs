@@ -27,7 +27,7 @@ Questions and answers are arranged into the following categories:
 
  - [StorSimple and Cloud Solutions Provider Program (CSP) model](#storsimple-and-csp-model)
  - [Deploy and manage virtual array as a partner](#deploy-and-manage-storsimple-as-a-partner)
- - [Support for StorSimple partners for CSP](#support-for-storsimple-partners)
+ - Support for StorSimple partners for CSP
 
 ## StorSimple and CSP model
 
@@ -59,7 +59,7 @@ There are multiple solutions:
 - They can also discover new business models by delivering managed services.
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?
-For information on incentives, go to [CSP program incentives ](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## Deploy and manage StorSimple as a partner

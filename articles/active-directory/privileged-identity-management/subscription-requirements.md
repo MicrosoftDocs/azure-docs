@@ -1,5 +1,5 @@
 ---
-title: License requirements to use PIM - Azure | Microsoft Docs
+title: License requirements to use PIM - Azure Active Directory | Microsoft Docs
 description: Describes the licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,6 +17,7 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 
+ms.collection: M365-identity-device-management
 ---
 
 # License requirements to use PIM
@@ -29,6 +30,7 @@ To use PIM, your directory must have one of the following paid or trial licenses
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 For more information, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
 
@@ -39,7 +41,7 @@ Each administrator or user who interacts with or receives a benefit from PIM mus
 - Administrators with Azure AD roles managed using PIM
 - Administrators with Azure resource roles managed using PIM
 - Administrators assigned to the Privileged Role Administrator role
-- Users assigned as eligible to directory roles managed using PIM
+- Users assigned as eligible to Azure AD roles managed using PIM
 - Users able to approve/reject requests in PIM
 - Users assigned to an Azure resource role with just-in-time or direct (time-based) assignments  
 - Users assigned to an access review
@@ -59,5 +61,6 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, PIM features will n
 
 ## Next steps
 
+- [Deploy PIM](pim-deployment-plan.md)
 - [Start using PIM](pim-getting-started.md)
 - [Roles you cannot manage in PIM](pim-roles.md)

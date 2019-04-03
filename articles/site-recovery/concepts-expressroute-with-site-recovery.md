@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 3/8/2019
 ms.author: mayg
 
 ---
@@ -33,7 +33,7 @@ Learn more about and compare ExpressRoute routing domains [here](../expressroute
 
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
 
-Site Recovery replicates data to an Azure Storage account over a public endpoint. To use ExpressRoute for Site Recovery replication, you can utilize [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft peering is the recommended routing domain for replication. Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) are also met for replication. After virtual machines or servers fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replication is not supported over private peering.
+Site Recovery replicates data to an Azure Storage account over a public endpoint. To use ExpressRoute for Site Recovery replication, you can utilize [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new creations) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft peering is the recommended routing domain for replication. Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) are also met for replication. After virtual machines or servers fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replication is not supported over private peering.
 
 The combined scenario is represented in the following diagram:
 ![On-premises-to-Azure with ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
@@ -52,4 +52,4 @@ You can replicate Azure virtual machines to any Azure region within the same geo
 - Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
 - Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Learn more about [ExpressRoute locations](../expressroute/expressroute-locations.md).
-- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

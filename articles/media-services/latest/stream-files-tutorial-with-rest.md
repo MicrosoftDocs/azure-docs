@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/18/2019
 ms.author: juliako
 ---
 
@@ -37,10 +37,6 @@ This tutorial shows you how to:
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](create-account-cli-how-to.md).
 
@@ -189,7 +185,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
 A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. In the left window of the Postman, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
@@ -225,6 +221,10 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
 The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
+
+#### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### Create a streaming locator
 

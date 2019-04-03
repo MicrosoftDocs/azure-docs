@@ -53,7 +53,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the accessing API steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -85,6 +85,13 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## See also
+
+- [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
+- [Create filters with Media Services - REST](filters-dynamic-manifest-rest-howto.md)
+- [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## Next steps
 
-[Stream files with REST](stream-files-tutorial-with-rest.md).  
+- [Stream files with REST](stream-files-tutorial-with-rest.md).  
+- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)

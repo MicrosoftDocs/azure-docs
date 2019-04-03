@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: High-level overview about using Bing Custom Search to get videos from your custom view of the Web.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

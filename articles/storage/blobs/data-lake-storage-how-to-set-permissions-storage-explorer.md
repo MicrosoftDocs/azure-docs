@@ -1,6 +1,6 @@
 ---
 title: "Set permissions for Data Lake Storage Gen2 with Azure Storage Explorer"
-description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 (Preview) capable storage account.
+description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
 services: storage
 author: roygara
 
@@ -12,9 +12,9 @@ ms.date: 12/11/2018
 ms.author: rogarana
 ---
 
-# Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2 (Preview)
+# Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2
 
-Files stored in Azure Data Lake Storage Gen2 (Preview) support fine grained permissions and access control list (ACL) management. Together, fine grained permissions and ACL management allow you to manage access to your data at a very granular level.
+Files stored in Azure Data Lake Storage Gen2 support fine grained permissions and access control list (ACL) management. Together, fine grained permissions and ACL management allow you to manage access to your data at a very granular level.
 
 In this article, you learn how to use Azure Storage Explorer to:
 
@@ -29,7 +29,7 @@ In order to best depict the process, we require that you complete our [Azure Sto
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+You can set permissions at the root of your filesystem. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your filesystem and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

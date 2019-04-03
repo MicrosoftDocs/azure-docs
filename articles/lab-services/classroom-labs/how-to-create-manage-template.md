@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
 
 ---
@@ -68,7 +68,7 @@ First, you can set up and publish a template while creating a classroom lab.
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see [Publish the template](#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see Publish the template section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
@@ -88,7 +88,7 @@ Use the following steps to set title and description for the first time, and upd
 1. In the **Template** section, move your mouse over **name** of the template or **description** of the template, and select it. 
 2. Enter the **new name** or **new description** for the template, and press **ENTER**.
 
-    ![Templae name and description](../media/how-to-create-manage-template/template-name-description.png)
+    ![Template name and description](../media/how-to-create-manage-template/template-name-description.png)
 
 ## Set up or update a template VM
  You connect to the template VM and install any required software on it before making it available to your students. Use the following steps to set up a template VM for the first time or to update the VM. 
@@ -99,7 +99,12 @@ Use the following steps to set title and description for the first time, and upd
 1. Review the warning, and select **Start**. 
 
     ![Start template - warning](../media/how-to-create-manage-template/start-template-warning.png)
+2. You see the status on the lab tile in the **Template** section.
+
+    ![Start template - status](../media/how-to-create-manage-template/template-start-status.png)
 1. After it's started, to connect to the VM, select **Connect**, and follow instructions. 
+
+    ![Connect to or stop the template VM](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 
 2. Disconnect (close your remote desktop session) from the template VM. 
 3. **Stop** the template VM by selecting **Stop**. 

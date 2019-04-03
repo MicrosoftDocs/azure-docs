@@ -17,6 +17,7 @@ ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory consent framework
@@ -53,14 +54,14 @@ The following steps show you how the consent experience works for both the appli
 
     **To consent to an app's delegated permissions**
 
-    1. Go to the **Settings** page for your application
-    1. Select **Required permissions**.
-    1. Click on the **Grant permissions** button.
+   1. Go to the **Settings** page for your application
+   1. Select **Required permissions**.
+   1. Click on the **Grant permissions** button.
 
-    ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+   > [!IMPORTANT]
+   > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 ## Next steps
 

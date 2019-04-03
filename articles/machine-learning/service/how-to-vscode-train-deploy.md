@@ -23,7 +23,7 @@ And you can deploy these models for your testing and production needs.
 
 ## Prerequisites
 
-+ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
++ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 + Have the [Azure Machine Learning for VS Code](how-to-vscode-tools.md) extension set up.
 
@@ -106,9 +106,9 @@ To use a remote compute target when training, you need to create a run configura
 
 #### The conda dependencies file
 
-By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies in the `aml_config/conda_dependencies.yml` file.
+By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies and their versions in the `aml_config/conda_dependencies.yml` file. 
 
-This is a snippet from the default 'aml_config/conda_dependencies.yml'.
+This is a snippet from the default 'aml_config/conda_dependencies.yml'. For example, you can specify 'tensorflow=1.12.0' as seen below. If you do not specify the version of the dependency, then the latest version will be used.  
 You can add additional dependencies in the config file.
 
 ```yaml
@@ -121,7 +121,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

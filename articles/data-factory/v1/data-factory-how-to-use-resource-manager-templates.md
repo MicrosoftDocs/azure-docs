@@ -25,7 +25,7 @@ robots: noindex
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
 
-Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad-hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
+Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
 
 In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities in each data factory), but uses a separate parameter file for each manufacturing plant.
 
@@ -56,7 +56,7 @@ The following sections provide details about defining Data Factory resources in 
 The top-level template for defining a data factory is:
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },
@@ -233,7 +233,7 @@ For best practices on parameterizing, see [Best practices for creating Azure Res
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)
 
-If you need to pull secrets from [Azure Key Vault](../../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
+If you need to pull secrets from [Azure Key Vault](../../key-vault/key-vault-overview.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
 
 ```JSON
 "parameters": {

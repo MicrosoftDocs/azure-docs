@@ -4,13 +4,12 @@ description: Learn the Apache Hadoop components and versions in HDInsight and th
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 services: hdinsight
 ms.reviewer: jasonh
-author: kkampf
-
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: kakampf
+ms.date: 03/26/2019
+ms.author: hrasheed
 
 ---
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -46,11 +45,14 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows only) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0 * (See Note below) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache Slider |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> Due to system performance considerations, support for Kafka version 0.10 was expired in March 2019.
 
 ## Check for current Hadoop component version information
 
@@ -68,23 +70,23 @@ The following tables list the versions of HDInsight. The HDP versions that corre
 
 ### Available versions
 
-The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployment methods like PowerShell and .NET SDK.
+The following table lists the versions of HDInsight that are available in the Azure portal as well as other deployment methods like PowerShell and .NET SDK.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Preview) |HDP 3.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | | |Yes |Yes |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |September 30, 2016 |March 13, 2019 |March 13, 2019 |Yes |Yes |
+| HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |September 30, 2016 |March 13, 2019 |March 13, 2019 |Yes |Yes |
 
 *&ast; HDInsight 3.5 support was extended only for Spark cluster types*
 
 > [!NOTE]  
-> After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) command and the .NET SDK until the version retirement date.
+> After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
 >
 
 ### Retired versions
 
-The following table lists the versions of HDInsight that are **not** available in the Azure Portal.
+The following table lists the versions of HDInsight that are **not** available in the Azure portal.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -118,12 +120,12 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 - Authorization for data
 
-    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
-    - You can set access control on files and folders.
+  - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+  - You can set access control on files and folders.
 
     For more information, see:
 
-    - [Configure Apache Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configure Apache Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
 - View the audit logs to monitor accesses and the configured policies. 
 
@@ -224,16 +226,36 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
 * All supported regions except Brazil South and Japan West:
 
-  | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | Head: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | Worker: default VM size |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Worker: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: default VM size | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: recommended VM sizes | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
-  | Edge: default VM size | | | | | |D4 v2 |
-  | Edge: recommended VM size | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
+|Cluster type|Hadoop|HBase|Interactive Query|Storm|Spark|ML Server|Kafka|
+|---|---|---|---|---|---|---|---|
+|Head: default VM size|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
+|Head: recommended VM sizes|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
+||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
+||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
+||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
+|Worker: default VM size|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 with 2 S30 disks per broker|
+|Worker: recommended VM sizes|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
+||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
+||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
+||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
+||||E32 v3||E16 v3|E16 v3|ES4 v3|
+||||E64 v3||E20 v3|E20 v3|E8 v3|
+||||||E32 v3|E32 v3|ES8 v3|
+||||||E64 v3|E64 v3||
+|ZooKeeper: default VM size||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
+|ZooKeeper: recommended VM sizes||A4 v2||A2 v2|||A2M v2|
+|||A8 v2||A4 v2|||D3 v2|
+|||A2m v2||A8 v2|||E8 v3|
+|Edge: default VM size||||||D4 v2||
+|Edge: recommended VM size||||||D4 v2||
+|||||||D12 v2||
+|||||||D13 v2||
+|||||||D14 v2||
+|||||||E16 v3||
+|||||||E20 v3||
+|||||||E32 v3||
+|||||||E64 v3||
+
 * Brazil South and Japan West only (no v2 sizes):
 
   | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |

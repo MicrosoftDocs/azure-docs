@@ -3,7 +3,7 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
@@ -144,23 +145,13 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to [generate a script to download your data](tutorial-signin-logs-download-script.md).  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSON file of the most recent 250,000 records.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
-
-If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 
 > [!IMPORTANT]
 > The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
-### Running the script on a Windows 10 machine
-
-If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
-
-1. Install the [Az module](/powershell/azure/install-az-ps).
-2. Import the module by opening a PowerShell prompt and running the command **Import-Module Az**.
-3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
-4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
 ## Sign-ins data shortcuts
 
@@ -173,7 +164,7 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 
 ### Users sign-ins data in Identity security protection
 
-The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -220,7 +211,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
 
@@ -236,7 +227,7 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 ## Office 365 activity logs
 
-You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
 You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

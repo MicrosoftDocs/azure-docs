@@ -13,6 +13,7 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
+ms.collection: M365-identity-device-management
 ---
 
 # Delete a group using Azure Active Directory

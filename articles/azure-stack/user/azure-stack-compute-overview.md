@@ -6,11 +6,11 @@ author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed:  01/05/2019
+ms.lastreviewed: 01/05/2019
 
 ---
 # Introduction to Azure Stack virtual machines

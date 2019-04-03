@@ -1,10 +1,10 @@
-﻿---
+---
 title: Secure your Internet of Things (IoT) in Azure | Microsoft Docs
 description: " Azure internet of things (IoT) services offer a broad range of capabilities. This article helps you understand how to secure your IoT solutions in Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 1473c8dd-8669-48fb-86db-b3c50e2eaf59
@@ -41,7 +41,7 @@ This article discusses the following topics:
 
 * [Security Starts with a Threat Model](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [Security in IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Threat Modeling the Azure IoT Reference Architecture](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Threat Modeling the Azure IoT Reference Architecture](/azure/iot-fundamentals/iot-security-architecture)
 
 ## Security from the ground up
 The IoT poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and many devices within a solution.

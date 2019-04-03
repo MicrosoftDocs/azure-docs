@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Skillport
 
@@ -123,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     c. In the **Reply URL** textbox, type the URL:
     
-      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
+      EU Datacenter: `https://adfs.skillport.eu/adfs/ls/`
     
 	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
  

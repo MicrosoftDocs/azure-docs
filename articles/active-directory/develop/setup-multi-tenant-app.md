@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure a new multi-tenant application
@@ -23,8 +24,8 @@ ms.author: celested
 Here is a list of recommended topics to learn more about multi-tenant applications:
 
 - Get a general understanding of [what it means to be a multi-tenant application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Get a general understanding of [how to configure an application to be multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-multi-tenant-applications)
-- Get a step-by-step overview of [how the Azure AD consent framework is used to implement consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework), which is required for multi-tenant applications
+- Get a general understanding of [how to configure an application to be multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- Get a step-by-step overview of [how the Azure AD consent framework is used to implement consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), which is required for multi-tenant applications
 - For more depth, learn [how a multi-tenant application is configured and coded end-to-end](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios
 
 ## Next steps

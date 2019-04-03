@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workpath
 
@@ -117,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.workpath.com/ `
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.workpath.com/`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Workpath support team](https://help.workpath.com) to get these values.

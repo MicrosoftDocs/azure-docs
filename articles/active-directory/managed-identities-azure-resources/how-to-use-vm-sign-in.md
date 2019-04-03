@@ -3,7 +3,7 @@ title: How to use managed identities for Azure resources on an Azure VM for sign
 description: Step by step instructions and examples for using an Azure VM managed identities for Azure resources service principal for script client sign in and resource access.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign in 
@@ -76,14 +77,14 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
 
 ## Error handling guidance 
 
 Responses such as the following may indicate that the VM's managed identity for Azure resources has not been correctly configured:
 
 - PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
-- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
+- CLI: *MSI: Failed to retrieve a token from `http://localhost:50342/oauth2/token` with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 

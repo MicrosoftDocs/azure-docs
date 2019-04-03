@@ -35,6 +35,11 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Preview feature limitations
+Multi-container is currently in preview, the following App Service platform features are not supported. We expect to enable these features for Multi-container Web App before General Availability (GA):
+* Authentication / Authorization
+* Managed Identities
+
 ## Prerequisites
 
 To complete this tutorial, you need experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).

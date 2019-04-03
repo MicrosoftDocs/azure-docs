@@ -19,6 +19,8 @@ Learn how to use Python in streaming MapReduce operations. Apache Hadoop provide
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * A Linux-based Apache Hadoop on HDInsight cluster
 
   > [!IMPORTANT]
@@ -29,7 +31,7 @@ Learn how to use Python in streaming MapReduce operations. Apache Hadoop provide
   > [!IMPORTANT]
   > The text editor must use LF as the line ending. Using a line ending of CRLF causes errors when running the MapReduce job on Linux-based HDInsight clusters.
 
-* The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## Word count
 
@@ -178,7 +180,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
    * **-output**: The directory that the output is written to.
 
-    As the MapReduce job works, the process is displayed as percentages.
+     As the MapReduce job works, the process is displayed as percentages.
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
         15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%

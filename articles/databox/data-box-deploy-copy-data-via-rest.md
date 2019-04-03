@@ -150,7 +150,7 @@ The first step is to create a container, because blobs are always uploaded into 
 
    ![Create blob containers context menu](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
+4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md) for information on rules and restrictions on naming blob containers.
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
    ![Blob container created](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

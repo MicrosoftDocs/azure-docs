@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial

@@ -1,6 +1,6 @@
 ---
-title: Parse text data in Azure Log Analytics | Microsoft Docs
-description: Describes different options for parsing data in Log Analytics records when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
+title: Parse text data in Azure Monitor logs | Microsoft Docs
+description: Describes different options for parsing log data in Azure Monitor records when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -13,10 +13,10 @@ ms.date: 12/04/2018
 ms.author: bwren
 ---
 
-# Parse text data in Log Analytics
-Some data collected by Log Analytics will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../../log-analytics/log-analytics-data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
+# Parse text data in Azure Monitor logs
+Some log data collected by Azure Monitor will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../../log-analytics/log-analytics-data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
 
-This article describes different options for parsing data in Log Analytics records when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
+This article describes different options for parsing log data in Azure Monitor when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
 
 
 ## Parsing methods
@@ -50,15 +50,15 @@ Advantages to this method include the following:
  
 Disadvantages to this method include the following:
 
-- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#Use-function-to-simulate-a-table).
+- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#use-function-to-simulate-a-table).
 - Must replicate parsing logic in multiple queries. Can share some logic through functions.
 - Can create overhead when running complex logic against very large record sets (billions of records).
 
 ## Parse data as it's collected
-See [Create custom fields in Log Analytics](../../log-analytics/log-analytics-custom-fields.md) for details on parsing data as it's collected. This creates custom properties in the table that can be used by queries just like any other property.
+See [Create custom fields in Azure Monitor](../platform/custom-fields.md) for details on parsing data as it's collected. This creates custom properties in the table that can be used by queries just like any other property.
 
 ## Parse data in query using patterns
-When the data you want to parse can be identified by a pattern repeated across records, you can use different operators in the [Data Explorer query language](/azure/kusto/query/) to extract the specific piece of data into one or more new properties.
+When the data you want to parse can be identified by a pattern repeated across records, you can use different operators in the [Kusto query language](/azure/kusto/query/) to extract the specific piece of data into one or more new properties.
 
 ### Simple text patterns
 
@@ -101,7 +101,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-To enable efficient parsing at large scale, Log Analytics uses re2 version of Regular Expressions, which is similar but not identical to some of the other regular expression variants. Refer to the [re2 expression syntax](https://aka.ms/kql_re2syntax) for details.
+To enable efficient parsing at large scale, Azure Monitor uses re2 version of Regular Expressions, which is similar but not identical to some of the other regular expression variants. Refer to the [re2 expression syntax](https://aka.ms/kql_re2syntax) for details.
 
 
 ## Parse delimited data in a query
@@ -134,7 +134,7 @@ MyCustomCSVLog_CL
 ```
 
 ## Parse predefined structures in a query
-If your data is formatted in a known structure, you may be able to use one of the functions in the [Data Explorer query language](/azure/kusto/query/) for parsing predefined structures:
+If your data is formatted in a known structure, you may be able to use one of the functions in the [Kusto query language](/azure/kusto/query/) for parsing predefined structures:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

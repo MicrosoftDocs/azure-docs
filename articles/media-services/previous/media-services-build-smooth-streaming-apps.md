@@ -4,7 +4,7 @@ description: Learn how to use Azure Media Services to create a C# Windows Store 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
-# How to Build a Smooth Streaming Windows Store Application
+# How to Build a Smooth Streaming Windows Store Application  
 
-The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). For more information, see [Player Framework for Windows 8](http://playerframework.codeplex.com/). 
+The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). For more information, see [Player Framework for Windows 8](https://playerframework.codeplex.com/). 
 
 This tutorial contains four lessons:
 
@@ -34,7 +34,7 @@ This tutorial contains four lessons:
 
 * Windows 8 32-bit or 64-bit.
 * Visual Studio versions 2012 through 2015.
-* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttps://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): 
 
@@ -104,7 +104,7 @@ After adding the references, you must select the targeted platform (x64 or x86),
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -200,7 +200,7 @@ In this XAML file, some event handlers are associated with the controls.  You mu
          }
          # endregion
    ```
-The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
+   The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
 6. Press **CTRL+S** to save the file.
 
 The finished the code behind file shall look like this:
@@ -804,7 +804,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
             changeStreams(selectedStreams);
         }
    ```
-**To compile and test the application**
+   **To compile and test the application**
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -1006,7 +1006,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             changeStreams(selectedStreams);
          }
    ```
-**To compile and test the application**
+   **To compile and test the application**
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -1023,8 +1023,8 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Other Resources:
-* [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Smooth Streaming Technical Overview](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

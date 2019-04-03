@@ -5,7 +5,7 @@ description: Use a pattern to extract data from a well-formatted template uttera
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
@@ -365,7 +365,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 The intent score is now much higher and the role names are part of the entity response.

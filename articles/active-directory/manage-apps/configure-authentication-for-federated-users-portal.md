@@ -3,8 +3,8 @@ title: Configure sign-in auto-acceleration for an application using a Home Realm
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: barbkess
+ms.author: celested
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy

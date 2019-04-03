@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workstars
 
@@ -130,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the main toolbar, click **Settings**.
 
-	![Workstars sett](./media/workstars-tutorial/tutorial_workstars_sett.png)
+	![Workstars settings](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
 1. Go to **Sign On** > **Settings**.
 

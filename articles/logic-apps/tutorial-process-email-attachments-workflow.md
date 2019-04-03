@@ -78,7 +78,7 @@ with these settings:
    | **Deployment model** | Resource manager | The [deployment model](../azure-resource-manager/resource-manager-deployment-model.md) for managing resource deployment | 
    | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Location** | West US | The region where to store information about your storage account | 
-   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Replication](../storage/common/storage-introduction.md#replication). | 
+   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy-lrs.md). | 
    | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). | 
    | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription | 
@@ -102,7 +102,7 @@ get your storage account's access key:
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
    To get your storage account's access key, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Create a blob storage container for your email attachments.
@@ -124,7 +124,7 @@ get your storage account's access key:
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
    To create a storage container, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer), 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Next, connect Storage Explorer to your storage account.
@@ -186,6 +186,7 @@ with these settings:
    | **Resource Group** | LA-Tutorial-RG | The same Azure resource group that you previously used | 
    | **Hosting Plan** | Consumption Plan | This setting determines how to allocate and scale resources, such as computing power, for running your function app. See [hosting plans comparison](../azure-functions/functions-scale.md). | 
    | **Location** | West US | The same region that you previously used | 
+   | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose .NET for C# and F# functions. |
    | **Storage** | cleantextfunctionstorageacct | Create a storage account for your function app. Use only lowercase letters and numbers. <p>**Note:** This storage account contains your function apps, and differs from your previously created storage account for email attachments. | 
    | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md), but for this tutorial, choose the **Off** setting. | 
    |||| 
@@ -235,24 +236,29 @@ set to **Function**, and choose **Create**.
 which removes the HTML and returns results to the caller:
 
    ``` CSharp
-   using System.Net;
-   using System.Text.RegularExpressions;
+    #r "Newtonsoft.Json"
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"HttpWebhook triggered");
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    using System.Text.RegularExpressions;
 
-      // Parse query parameter
-      string emailBodyContent = await req.Content.ReadAsStringAsync();
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("HttpWebhook triggered");
 
-      // Replace HTML with other characters
-      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-      updatedBody = updatedBody.Replace("\\r\\n", " ");
-      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+        // Parse query parameter
+        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-      // Return cleaned text
-      return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-   }
+         // Replace HTML with other characters
+        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+        updatedBody = updatedBody.Replace("\\r\\n", " ");
+        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+
+        // Return cleaned text
+        return (ActionResult) new OkObjectResult(new { updatedBody });
+    }
    ```
 
 6. When you're done, choose **Save**. To test your function, 
@@ -500,7 +506,7 @@ and select this action: **Choose an Azure function - Azure Functions**
 
    1. Under **Request Body**, enter this text with a trailing space: 
    
-      ```{ "emailBody": ``` 
+      ```{ "emailBody":``` 
 
       While you work on this input in the next steps, 
       an error about invalid JSON appears until your 
@@ -759,8 +765,8 @@ To add blank lines in an edit box, press Shift + Enter.
 
    | Setting | Value | Notes | 
    | ------- | ----- | ----- | 
-   | **Body** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
-   | **Subject**  | ```ASAP - Review applicant for position: ``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. | 
+   | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. | 
    | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. | 
    |||| 
 

@@ -19,7 +19,7 @@ Application Insights now supports distributed tracing of Go applications through
 
 - You need an Azure Subscription.
 - Go should be installed, this article uses the version 1.11 [Go Download](https://golang.org/dl/).
-- Follow the instructions to install the [local forwarder as a Windows service](./opencensus-local-forwarder.md#windows-service).
+- Follow the instructions to install the [local forwarder as a Windows service](./opencensus-local-forwarder.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -52,7 +52,7 @@ First you have to create an Application Insights resource which will generate an
 
    ![Screenshot of instrumentation key](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](./opencensus-local-forwarder.md#windows-service) the file is located at `C:\LF-WindowsServiceHost`
+2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](./opencensus-local-forwarder.md) the file is located at `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -181,7 +181,7 @@ First you have to create an Application Insights resource which will generate an
 
 3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder), it will be located in `C:\LF-WindowsServiceHost`.
 
     In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
     

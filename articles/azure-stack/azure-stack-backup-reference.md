@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
@@ -85,17 +85,20 @@ The requirements include:
 Infrastructure Backup Controller will back up data on demand. The recommendation is to back up at last two times a day and keep at most seven days of backups. 
 
 **1811 and beyond**
+
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nodes        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pre-1811**
+
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nodes, ASDK  | 10 GB                     | 140 GB                        |
 
 ### Network requirements
+
 | Storage location                                                                 | Details                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB file share hosted on a storage device within the trusted network environment | Port 445 is required if the Azure Stack instance resides in a firewalled environment. Infrastructure Backup Controller will initiate a connection to the SMB file server over port 445. |
@@ -104,12 +107,31 @@ Infrastructure Backup Controller will back up data on demand. The recommendation
 > [!Note]  
 > No inbound ports need to be opened.
 
+### Encryption Requirements
+
+Starting in 1901, the infrastructure backup service will use a certificate with a public key (.CER) to encrypt backup data and a certificate with the private key (.PFX) to decrypt backup data during cloud recovery.   
+ - The certificate is used for transport of keys and is not used to establish secure authenticated communication. For this reason the certificate can be a self-signed certificate. Azure Stack does not need to verify root or trust for this certificate so external internet access is not required.
+ 
+The self-signed certificate comes in two parts, one with the public key and one with the private key:
+ - Encrypt backup data: Certificate with the public key (exported to .CER file) is used to encrypt backup data
+ - Decrypt backup data: Certificate with the private key (exported to .PFX file) is used to decrypt backup data
+
+The certificate with the public key (.CER) is not managed by internal secret rotation. To rotate the certificate, you will need to create a new self-signed certificate and update backup settings with the new file (.CER).  
+ - All existing backups remain encrypted using the previous public key. New backups will use the new public key. 
+ 
+The certificate used during cloud recovery with the private key (.PFX) is not persisted by Azure Stack for security reasons. This file will need to be provided explicitly during cloud recovery.  
+
+**Backwards compatibility mode**
+Starting in 1901, encryption key support is deprecated and will be removed in a future release. If you updated from 1811 with backup already enabled using an encryption key, Azure Stack will continue to use the encryption key. Backwards compatibility mode will be supported for at least 3 release. After that time, a certificate will be required. 
+ * Updating from encryption key to certificate is a one way operation.  
+ * All existing backups will remain encrypted using the encryption key. New backups will use the certificate. 
 
 ## Infrastructure Backup Limits
 
 Consider these limits as you plan, deploy, and operate your Microsoft Azure Stack instances. The following table describes these limits.
 
 ### Infrastructure Backup limits
+
 | Limit identifier                                                 | Limit        | Comments                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Backup type                                                      | Full only    | Infrastructure Backup Controller only supports full backups. Incremental backups are not supported.                                          |

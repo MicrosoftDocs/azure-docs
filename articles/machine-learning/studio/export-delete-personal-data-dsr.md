@@ -1,13 +1,13 @@
 ---
-title: Export and delete your data from Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
+title: Export and delete your data
+titleSuffix: Azure Machine Learning Studio
 description: In-product data stored by Azure Machine Learning Studio is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
@@ -49,7 +49,7 @@ There are three kinds of accounts in Machine Learning Studio. The kind of accoun
 	- You can export personal and customer data through the UI, REST APIs, or PowerShell package
 	- You can delete your data in the Azure portal.
 
-## Delete workspace data in Studio 
+## <a name="delete"></a>Delete workspace data in Studio 
 
 ### Delete individual assets
 
@@ -66,8 +66,8 @@ Users can also delete their entire workspace:
 ![Delete a free workspace in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## Export Studio data with PowerShell
-Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio using commands. For information, see the [PowerShell module for Azure Machine Learning](powershell-module.md) article.
+Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio using commands. For information, see the [PowerShell module for Azure Machine Learning Studio](powershell-module.md) article.
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 

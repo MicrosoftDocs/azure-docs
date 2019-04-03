@@ -3,24 +3,24 @@ title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
+ms.date: 02/19/2019
+ms.author: spelluru
 
 ---
 
 # Get an Event Hubs connection string
 
-To use Event Hubs, you need to create an Event Hubs namespace. A namespace is a scoping container that can house multiple Event Hubs / Kafka topics. This namespace gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Once a namespace is created, you can obtain the connection string required to communicate with Event Hubs.
+To use Event Hubs, you need to create an Event Hubs namespace. A namespace is a scoping container for multiple event hubs or Kafka topics. This namespace gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Once a namespace is created, you can obtain the connection string required to communicate with Event Hubs.
 
 The connection string for Azure Event Hubs has the following components embedded within it,
 
-* FQDN = the FQDN of the EventHubs namespace you created (this will include the EventHubs namespace name followed by servicebus.windows.net)
+* FQDN = the FQDN of the EventHubs namespace you created (it includes the EventHubs namespace name followed by servicebus.windows.net)
 * SharedAccessKeyName = the name you chose for your application's SAS keys
 * SharedAccessKey = the generated value of the key.
 
@@ -35,27 +35,29 @@ An example connection string might look like
 This article walks you through various ways of obtaining the connection string.
 
 ## Get connection string from the portal
+1. Sign in to [Azure portal](https://portal.azure.com). 
+2. Select **All services** on the left navigational menu. 
+3. Select **Event Hubs** in the **Analytics** section. 
+4. In the list of event hubs, select your event hub.
+6. On the **Event Hubs Namespace** page, select **Shared Access Policies** on the left menu.
 
-Once you have the Event Hubs namespace, the overview section of the portal can give you the connection string as shown below:
+    ![Shared Access Policies menu item](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Select a **shared access policy** in the list of policies. The default one is named: **RootManageSharedAccessPolicy**. You can add a policy with appropriate permissions (read, write), and use that policy. 
 
-![Event Hubs Connection String](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Event Hubs shared access policies](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Select the **copy** button next to the **Connection string-primary key** field. 
 
-When you click on the connection string link in the overview section, it opens the SAS policies tab as shown in the figure below:
-
-![Event Hubs SAS Polices](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-You can either add a new SAS policy and get the connection string or use the default policy that is already created for you. When the policy is opened, the connection string is obtained as shown in the below figure:
-
-![Event Hubs get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Event Hubs - get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## Getting the connection string with Azure PowerShell
-You can use the Get-AzureRmEventHubNamespaceKey to get the connection string for the specific policy/rule name as shown below:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+You can use the [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) to get the connection string for the specific policy/rule name as shown below:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
-
-Refer to [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) for more details.
 
 ## Getting the connection string with Azure CLI
 You can use the following to get the connection string for the namespace:
@@ -64,7 +66,7 @@ You can use the following to get the connection string for the namespace:
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Refer to [Azure CLI for Event Hubs](https://docs.microsoft.com/cli/azure/eventhubs) to learn more.
+For more information about Azure CLI commands for Event Hubs, see [Azure CLI for Event Hubs](/cli/azure/eventhubs).
 
 ## Next steps
 

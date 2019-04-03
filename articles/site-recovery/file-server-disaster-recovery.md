@@ -52,11 +52,12 @@ The following diagram helps you determine what strategy to use for your file ser
 |---------|---------|---------|
 |File server environment with or without DFSR|   [Use Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery doesn't support shared disk clusters or network attached storage (NAS). If your environment uses these configurations, use any of the other approaches, as appropriate. <br> Site Recovery doesn't support SMB 3.0. The replicated VM incorporates changes only when changes made to the files are updated in the original location of the files.
 |File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth-crunched environments. This approach requires an Azure VM that is up and running all the time. You need to account for the cost of the VM in your planning.         |
-|Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
+|Azure IaaS VM     |     File Sync    |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
 
 
 ### Site Recovery support
 Because Site Recovery replication is application agnostic, these recommendations are expected to hold true for the following scenarios.
+
 | Source	|To a secondary site	|To Azure
 |---------|---------|---------|
 |Azure|	-|Yes|
@@ -88,7 +89,7 @@ Azure Files can be used to completely replace or supplement traditional on-premi
 
 The following steps briefly describe how to use File Sync:
 
-1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Azure file share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and forced failover (preview) in Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Create a file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Start File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) on your Azure file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. A sync group also must contain one server endpoint, which represents a path on a Windows server.
@@ -137,7 +138,7 @@ To integrate File Sync with Site Recovery:
 
 Follow these steps to use File Sync:
 
-1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Azure file share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and forced failover (preview) in Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
 2. [Create a file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Deploy File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) in your on-premises file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. The sync group also must contain one server endpoint, which represents a path on the on-premises Windows server.

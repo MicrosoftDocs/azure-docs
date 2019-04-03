@@ -3,8 +3,8 @@ title: Azure Service Fabric patch orchestration application | Microsoft Docs
 description: Application to automate operating system patching on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: novino
-manager: timlt
+author: khandelwalbrijeshiitr
+manager: chackdan
 editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
+ms.date: 2/01/2019
+ms.author: brkhande
 
 ---
 
@@ -25,6 +25,12 @@ ms.author: nachandr
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> Application version 1.2.* is going out of support on 30 April 2019. Please upgrade to the latest version.
+
 
 [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
 
@@ -57,6 +63,9 @@ The patch orchestration app is composed of the following subcomponents:
 > The patch orchestration app uses the Service Fabric repair manager system service to disable or enable the node and perform health checks. The repair task created by the patch orchestration app tracks the Windows Update progress for each node.
 
 ## Prerequisites
+
+> [!NOTE]
+> Minimum .NET framework version required is 4.6.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -128,11 +137,11 @@ To enable the repair manager service:
     ],
     ```
 
-3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
+3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
-### Disable automatic Windows Update on all nodes
+### Configure Windows Updates for all nodes
 
-Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
+Automatic Windows Updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or Group Policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
 
 ## Download the app package
 
@@ -316,7 +325,7 @@ If your cluster can tolerate running on N-1 number of upgrade domains during pat
 
 Q. **How much time does it take to patch a node?**
 
-A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/en-us/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
  - The size of updates
  - Number of updates, which have to be applied in a patching window
  - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.
@@ -413,3 +422,6 @@ An administrator must intervene and determine why the application or cluster bec
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
 - Fixing bug where InstallWindowsOSOnlyUpdates configuration is always picked as True.
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
+
+### Version 1.3.2
+- Fixing an issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

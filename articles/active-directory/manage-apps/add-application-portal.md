@@ -2,15 +2,16 @@
 title: 'Add an app to your Azure Active Directory tenant | Microsoft Docs'
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Add an application to your Azure Active Directory tenant
 
@@ -107,35 +108,35 @@ To edit the application properties
 
 4. Use the following tables to help you choose the options that are best for your needs.
 
-    - Behavior for **assigned** users:
+   - Behavior for **assigned** users:
 
-        | Application property settings | | | Assigned-user experience | |
-        |---|---|---|---|---|
-        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
-        | yes | yes | yes | yes | yes  |
-        | yes | yes | no  | yes | no   |
-        | yes | no  | yes | yes | yes  |
-        | yes | no  | no  | yes | no   |
-        | no  | yes | yes | no  | no   |
-        | no  | yes | no  | no  | no   |
-        | no  | no  | yes | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Application property settings | | | Assigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
+       | yes | yes | yes | yes | yes  |
+       | yes | yes | no  | yes | no   |
+       | yes | no  | yes | yes | yes  |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - Behavior for **unassigned** users:
+   - Behavior for **unassigned** users:
 
-        | Application property settings | | | Unassigned-user experience | |
-        |---|---|---|---|---|
-        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
-        | yes | yes | yes | no  | no   |
-        | yes | yes | no  | no  | no   |
-        | yes | no  | yes | yes | no   |
-        | yes | no  | no  | yes | no   |
-        | no  | yes | yes | no  | no   |
-        | no  | yes | no  | no  | no   |
-        | no  | no  | yes | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Application property settings | | | Unassigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
+       | yes | yes | yes | no  | no   |
+       | yes | yes | no  | no  | no   |
+       | yes | no  | yes | yes | no   |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    *Can the user see the application in the access panel and the Office 365 app launcher?
+     *Can the user see the application in the access panel and the Office 365 app launcher?
 
 ## Use a custom logo
 

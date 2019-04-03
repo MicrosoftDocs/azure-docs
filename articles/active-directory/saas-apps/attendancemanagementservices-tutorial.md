@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Attendance Management Services
 
@@ -83,7 +84,7 @@ To configure and test Azure AD single sign-on with Attendance Management Service
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create an Attendance Management Services test user](#create-an-attendance-management-service-test-user)** - to have a counterpart of Britta Simon in Attendance Management Services that is linked to the Azure AD representation of user.
+1. **Create an Attendance Management Services test user** - to have a counterpart of Britta Simon in Attendance Management Services that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -202,7 +203,7 @@ To enable Azure AD users to log in to Attendance Management Services, they must 
 
 	![Add Employee](./media/attendancemanagementservices-tutorial/user4.png)
 
-	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon@contoso.com**.
+	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon\@contoso.com**.
 
 	b. In the **Password** textbox, type the password of user.
 

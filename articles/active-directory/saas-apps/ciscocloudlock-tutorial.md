@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with The Cloud Security Fabric | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and The Cloud Security Fabric.
 services: active-directory
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with The Cloud Security Fabric
 

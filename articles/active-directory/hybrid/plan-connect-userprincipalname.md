@@ -5,10 +5,11 @@ author: billmath
 ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.service: active-Directory
+ms.service: active-directory
 manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD UserPrincipalName population

@@ -1,21 +1,21 @@
 ---
 title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
 description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: wesmc
+ms.author: yegu
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 
@@ -77,7 +77,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     using System.Data.Entity.SqlServer;
     ```
 
-1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
+1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team

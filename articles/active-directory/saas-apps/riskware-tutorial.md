@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Riskware
 
@@ -106,6 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Riskware Domain and URLs single sign-on information](./media/riskware-tutorial/tutorial_riskware_url.png)
 
 	a. In the **Sign on URL** textbox, type a URL using the following pattern:
+
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -114,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|||
 
     b. In the **Identifier (Entity ID)** textbox, type a URL:
+	
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT| `https://riskcloud.net/uat` |
@@ -243,7 +246,7 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 	a. Under **Authentication** section, select the **Authentication** mode, which you have setup like AZURE Configuration for SSO.
 
-	b. Under **Logon Details** section, in the **User ID** textbox, enter the email of user like **brittasimon@contoso.com**.
+	b. Under **Logon Details** section, in the **User ID** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	c. In the **Password** textbox, enter password of the user.
 

@@ -4,7 +4,7 @@ description: This article provides basic explanations about core network securit
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
@@ -58,8 +58,8 @@ Azure supports several types of network access control, such as:
 
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
->[!NOTE]
-Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
+> [!NOTE]
+> Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
 
 #### Network security rules (NSGs)
 
@@ -81,7 +81,7 @@ Learn more:
 
 Learn more:
 
-* [Azure Security Center Just in T](../security-center/security-center-just-in-time.md)
+* [Azure Security Center Just in Time Access](../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
@@ -175,7 +175,7 @@ One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia
 Learn more:
 
 * [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Planning and design for VPN gateway](../vpn-gateway/vpn-gateway-plan-design.md)
+* [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Connect your on-premises network to a virtual network with a dedicated WAN link
 
@@ -321,7 +321,7 @@ Microsoft provides DDoS protection known as **Basic** as part of the Azure Platf
 * **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time. Layer 3 to layer 7 protection: Provides full stack DDoS protection, when used with a web application firewall.
 * **Extensive mitigation scale:** Over 60 different attack types can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
 * **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
-* **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Log Analytics, Splunk, Azure Storage, Email, and the Azure portal.
+* **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
 * **Cost guarantee:**  Data-transfer and application scale-out service credits for documented DDoS attacks.
 * **DDoS Rapid responsive** DDoS Protection Standard customers now have access to Rapid Response team during an active attack. DRR can help with attack investigation, custom mitigations during an attack and post-attack analysis.
 
@@ -362,8 +362,8 @@ Azure Network Watcher can help you troubleshoot, and provides a whole new set of
 
 For more information on Network Watcher and how to start testing some of the functionality in your labs, see [Azure network watcher monitoring overview](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### Azure Security Center
 
@@ -398,4 +398,4 @@ Logging at a network level is a key function for any network security scenario. 
 You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
 Learn more:
 
-* [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Azure Monitor logs for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)

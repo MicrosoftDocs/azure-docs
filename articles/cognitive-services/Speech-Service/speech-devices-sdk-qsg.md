@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -33,21 +33,23 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 * Get the latest version of the Speech Devices SDK, which includes an Android sample app, from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). Extract the .zip file to a local folder, like C:\SDSDK.
 
-* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](http://vysor.io/download/) on your PC.
+* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](https://vysor.io/download/) on your PC.
 
-* Get a [Speech service subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
+* Get a [Speech Services subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
 
-* If you want to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* If you want to use the Speech Services' intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
 ## Set up the development kit
 
-1. Connect the development kit to a PC or power adapter by using a mini USB cable. When the kit is connected, a green power indicator lights up under the top board.
-
-1. Connect the development kit to a computer by using a second mini USB cable.
+1. The development kit has two micro USB connectors. The left connector is to power the development kit and is highlighted as Power in the image below. The right one is to control it, and is marked Debug in the image.
 
     ![Connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
+
+1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
+
+1. To control the development kit connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
 
 1. Orient your development kit for either the circular or linear configuration.
 
@@ -58,7 +60,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     ![Linear dev kit orientation](media/speech-devices-sdk/qsg-2.png)
 
-1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a Command Prompt window:
+1. Install the certificates and set the permissions of the sound device. Type the following commands in a Command Prompt window:
 
    ```
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
@@ -71,6 +73,8 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     > [!NOTE]
     > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    >
+    > If you see an error `no devices/emulators found` then check your USB cable is conected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.
@@ -106,92 +110,68 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 To run the ROOBO tests and validate your development kit setup, build and install the sample application:
 
-1.	Start Android Studio.
+1. Start Android Studio.
 
-1.	Select **Open an existing Android Studio project**.
+1. Select **Open an existing Android Studio project**.
 
-    ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
 
-1.	Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
+1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
-1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
+1. Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
-    Your keys and application information go in the following lines in the source file MainActivity.java:
+   Your keys and application information go in the following lines in the source file MainActivity.java:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
 
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To install the wake word you want to use:
+    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-    * Create a keyword folder in the data folder on the device by running the following commands in a Command Prompt window:
+   * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Update the MainActivity.java with the keyword and the package name: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. Update the following lines, which contain the microphone array geometry settings:
 
-    * Copy the files kws.table, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   The following table describes the available values:
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Reference these files in the sample application. Find the following lines in MainActivity.java. Make sure that the keyword specified is the one you're using, and that the path points to the `kws.table` file that you pushed to the device.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > In your own code, you can use the kws.table file to create a keyword model instance and start recognition:
-        >
-        > ```java
-    	> KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.	Update the following lines, which contain the microphone array geometry settings:
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    The following table describes the available values:
-
-    |Variable|Meaning|Available values|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
-    |||For a linear dev kit: `Linear4`|
-    |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
-    |||For a circular dev kit that uses four mics: `Circular3+1`|
-    |||For a linear dev kit that uses all mics: `Linear4`|
-    |||For a linear dev kit that uses two mics: `Linear2`|
+   |Variable|Meaning|Available values|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
+   |||For a linear dev kit: `Linear4`|
+   |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
+   |||For a circular dev kit that uses four mics: `Circular3+1`|
+   |||For a linear dev kit that uses all mics: `Linear4`|
+   |||For a linear dev kit that uses two mics: `Linear2`|
 
 
-1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
+1. To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
 1. Select your device, and then select **OK** to deploy the application to the device.
 
     ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
 
-1.	The Speech Devices SDK example application starts and displays the following options:
+1. The Speech Devices SDK example application starts and displays the following options:
 
-    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
+   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
 1. Experiment!
 
@@ -199,7 +179,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 
 ### Certificate failures
 
-If you get certificate failures when you use the Speech service, make sure that your device has the correct date and time:
+If you get certificate failures when using the Speech Services, make sure that your device has the correct date and time:
 
 1. Go to **Settings**. Under **System**, select **Date & time**.
 

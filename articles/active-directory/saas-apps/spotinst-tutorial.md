@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Spotinst
 
@@ -217,7 +218,7 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
 
-	* In the **Email** textbox, enter the email address of the user like **brittasimon@contoso.com**.
+	* In the **Email** textbox, enter the email address of the user like **brittasimon\@contoso.com**.
 
 	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 

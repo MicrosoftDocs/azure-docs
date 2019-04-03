@@ -19,6 +19,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 #Customer intent: As an application developer, I want to know how to sign in users and call the Microsoft Graph API from my iOS app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS app
@@ -114,7 +115,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 
 ## Step 4: Use ADAL to get tokens from Azure AD
 
-The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.
+The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken :`, and ADAL does the rest.
 
 1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.
 

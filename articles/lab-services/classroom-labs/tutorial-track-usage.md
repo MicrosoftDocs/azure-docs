@@ -52,6 +52,9 @@ As you hover the mouse over a row in the list of virtual machine, you see contro
 - Stop a VM
 - Delete a VM
 
+
+![VM controls](../media/tutorial-track-usage/vm-controls.png)
+
 You can also use toolbar buttons to start, stop, or delete a VM. 
 
 

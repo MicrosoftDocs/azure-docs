@@ -4,7 +4,7 @@ description: Learn how to use Azure REST APIs to review Azure service resource u
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: 
 editor: ''
 ms.service: billing
 ms.devlang: na

@@ -1,6 +1,6 @@
 ---
 title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
-description: Reference for the supported VM sizes in Azure Stack.
+description: Reference for the supported Virtual machine sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
@@ -22,11 +22,11 @@ ms.lastreviewed: 01/11/2019
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article lists the virtual machine (VM) sizes that are available in Azure Stack.
+This article lists the virtual machine sizes that are available in Azure Stack.
 
-Disk IOPS (Input/Output Operations Per Second) on Azure Stack is a function of VM size instead of the disk type. This means that for a Standard_Fs series VM, regardless of whether you choose SSD or HDD for the disk type, the IOPS limit for a single additional data disk is 2300 IOPS. The IOPS limits imposed is a cap (maximum possible) to prevent noisy neighbors. It is not an assurance of IOPS that you will get on a specific VM size.
+Disk IOPS (Input/Output Operations Per Second) on Azure Stack is a function of virtual machine (VM) size instead of the disk type. This means that for a Standard_Fs series VM, regardless of whether you choose SSD or HDD for the disk type, the IOPS limit for a single additional data disk is 2300 IOPS. The IOPS limits imposed is a cap (maximum possible) to prevent noisy neighbors. It is not an assurance of IOPS that you will get on a specific VM size.
 
-## General purpose
+## Virtual machine general purpose
 
 General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers. Each data disk is 2300 IOPS for the premium VM sizes, except for the Basic A series. For Basic A, the data disk size is 500 IOPS.
 
@@ -132,14 +132,14 @@ General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used f
 ### Fsv2-series
 *Requires Azure Stack version 1804 or later* 
 
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) |
-|---------------------|----|----|-----|-----|-------|--------------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
+|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
+|---------------------|----|----|-----|-----|-------|--------------|---------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |4 |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |8 |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |8 |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
 ## Memory optimized
@@ -174,10 +174,10 @@ Memory optimized VM sizes provide a high memory-to-CPU ratio that is designed fo
 ### <a name="mo-dsv2"></a>DSv2-series
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
 
 ## Next steps

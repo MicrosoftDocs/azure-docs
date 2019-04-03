@@ -17,7 +17,7 @@ ms.date: 12/27/2018
 
 In this article, you learn how to create [Apache Hadoop](https://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
-In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Similar templates can be viewed at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Similar templates can be viewed at [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -117,10 +117,10 @@ How to get HDInsight Tools in Visual Studio, see [Use Data Lake Tools for Visual
 
 You have two options for creating and running Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-To create and run ad-hoc queries:
+To create and run ad hoc queries:
 
 1. In **Server Explorer**, select **Azure** > **HDInsight Clusters**.
 
@@ -229,7 +229,7 @@ After you complete the article, you may want to delete the cluster. With HDInsig
 In this article, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
@@ -252,6 +252,10 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 * To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Apache Ambari](../hdinsight-hadoop-manage-ambari.md).
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](../hdinsight-hadoop-provision-linux-clusters.md).
 
+To learn more about creating HDInsight cluster using Azure Resource Manager templates, see:
+
+* [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
+* [Azure template reference](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 

@@ -4,19 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Get answers to frequently asked questions about the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/26/2017
+ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
 
 # Computer Vision API Frequently Asked Questions
 
-### If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact [Help and Support on UserVoice](https://cognitive.uservoice.com/)
+> [!TIP]
+> If you can't find answers to your questions in this FAQ, try asking the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact [Help and Support on UserVoice](https://cognitive.uservoice.com/)
 
 -----
 
@@ -52,7 +53,7 @@ Supported languages include:
 
 -----
 
-**Question:** *Which languages are supported for handwriting recognition?*
+**Question**: *Which languages are supported for handwriting recognition?*
 
 **Answer**: Currently, only English is supported.
 

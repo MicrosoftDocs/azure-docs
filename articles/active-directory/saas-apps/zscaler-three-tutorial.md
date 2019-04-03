@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Three
 
@@ -155,43 +156,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 ### Configure Zscaler Three Single Sign-On
 
-9. In a different web browser window, log in to your Zscaler Three company site as an administrator.
+1. In a different web browser window, log in to your Zscaler Three company site as an administrator.
 
-10. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+1. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
-	![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
+   ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
-	a. Under Authentication Type, choose **SAML**.
+   a. Under Authentication Type, choose **SAML**.
 
-	b. Click **Configure SAML**.
+   b. Click **Configure SAML**.
 
-11. On the **Edit SAML** window, perform the following steps: and click Save.  
+1. On the **Edit SAML** window, perform the following steps: and click Save.  
    			
-	![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
 	
-	a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
+   a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
 
-	b. In the **Login Name Attribute** textbox, enter **NameID**.
+   b. In the **Login Name Attribute** textbox, enter **NameID**.
 
-	c. Click **Upload**, to  upload the Azure SAML signing certificate that you  have downloaded from Azure portal in the **Public SSL Certificate**.
+   c. Click **Upload**, to  upload the Azure SAML signing certificate that you  have downloaded from Azure portal in the **Public SSL Certificate**.
 
-	d. Toggle the **Enable SAML Auto-Provisioning**.
+   d. Toggle the **Enable SAML Auto-Provisioning**.
 
-	e. In the **User Display Name Attribute** textbox, enter **displayName** if you want to enable SAML auto-provisioning for displayName attributes.
+   e. In the **User Display Name Attribute** textbox, enter **displayName** if you want to enable SAML auto-provisioning for displayName attributes.
 
-	f. In the **Group Name Attribute** textbox, enter **memberOf** if you want to enable SAML auto-provisioning for memberOf attributes.
+   f. In the **Group Name Attribute** textbox, enter **memberOf** if you want to enable SAML auto-provisioning for memberOf attributes.
 
-	g. In the **Department Name Attribute** Enter **department** if you want to enable SAML auto-provisioning for department attributes.
+   g. In the **Department Name Attribute** Enter **department** if you want to enable SAML auto-provisioning for department attributes.
 
-	i. Click **Save**.
+   i. Click **Save**.
 
-12. On the **Configure User Authentication** dialog page, perform the following steps:
+1. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![Administration](./media/zscaler-three-tutorial/ic800207.png)
+   ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
-	a. Hover over the **Activation** menu near the bottom left.
+   a. Hover over the **Activation** menu near the bottom left.
 
-    b. Click **Activate**.
+   b. Click **Activate**.
 
 ## Configuring proxy settings
 ### To configure the proxy settings in Internet Explorer
@@ -242,7 +243,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.

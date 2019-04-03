@@ -4,15 +4,16 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
+
 # Quickstart: Extract printed text (OCR) using the REST API and JavaScript in Computer Vision
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
@@ -42,7 +43,7 @@ To create and run the sample, do the following steps:
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -238,10 +239,6 @@ A successful response is returned in JSON. The sample webpage parses and display
   ]
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the file.
 
 ## Next steps
 

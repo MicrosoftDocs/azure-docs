@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
 
 
@@ -28,29 +28,34 @@ ms.author: sngun
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**SDK Download**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
-
-<tr><td>**Minimum supported runtime**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## Release notes
+
+### <a name="2.1.3"/>2.1.3
+* Fixed bug in PartitionKey for Hash V2.
+
+### <a name="2.1.2"/>2.1.2
+* Added support for composite indexes.
+* Fixed bug in global endpoint manager to force refresh.
+* Fixed bug for upserts with pre-conditions in direct mode.
+
+### <a name="2.1.1"/>2.1.1
+* Fixed bug in gateway address cache.
 
 ### <a name="2.1.0"/>2.1.0
 * Multi-region write support added for direct mode.
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
 * Fixed a bug in endpoint discovery retry policy.
 * Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
-* Fixed a bug to ensure Query Iterator does not return nulls.
+* Fixed a bug to ensure QueryIterator does not return nulls.
 * Fixed a bug to ensure large PartitionKey is allowed
 
 ### <a name="2.0.0"/>2.0.0
@@ -214,7 +219,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |Nov 21, 2018 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
 | [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
 | [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
@@ -245,7 +253,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.3.0](#1.3.0) |October 05, 2015 |--- |
 | [1.2.0](#1.2.0) |August 05, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
-| [1.0.1](#1.0.1) |May 12, 2015 |--- |
+| 1.0.1 |May 12, 2015 |--- |
 | [1.0.0](#1.0.0) |April 07, 2015 |--- |
 | 0.9.5-prelease |Mar 09, 2015 |February 29, 2016 |
 | 0.9.4-prelease |February 17, 2015 |February 29, 2016 |

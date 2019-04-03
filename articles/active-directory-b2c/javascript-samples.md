@@ -15,13 +15,13 @@ ms.subservice: B2C
 
 # JavaScript samples for use in Azure Active Directory B2C
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. This article describes how you can change your [custom policy](active-directory-b2c-overview-custom.md) to enable script execution.
+You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. This article describes how you can change your [user flow](user-flow-javascript-overview.md) or [custom policy](active-directory-b2c-overview-custom.md) to enable script execution.
 
 ## Prerequisites
 
-Select a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your custom policy.
+Select a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your user flow or custom policy.
 
 ## Add the ScriptExecution element
 
@@ -45,7 +45,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 
 Follow these guidelines when you customize the interface of your application using JavaScript:
 
-- Don't bind a click event on `<a>` HTML elements. 
+- Don't bind a click event on `<a>` HTML elements.
 - Don’t take a dependency on Azure AD B2C code or comments.
 - Don't change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
 - You can call any RESTful service with these considerations:
@@ -109,9 +109,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### Add terms of use 
+### Add terms of use
 
-Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.	
+Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -120,18 +120,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -141,4 +141,3 @@ In the code, replace `terms-of-use-url` with the link to your terms of use agree
 ## Next steps
 
 Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-

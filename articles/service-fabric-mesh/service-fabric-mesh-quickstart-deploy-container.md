@@ -5,8 +5,8 @@ title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh | Microsoft 
 description: This quickstart shows you how to deploy a Service Fabric Mesh application to Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ. 
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
@@ -109,5 +109,5 @@ To learn more about creating and deploying Service Fabric Mesh applications, con
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
 
 <!-- Links / Internal -->
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-group-delete]: /cli/azure/group
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

@@ -4,7 +4,7 @@ description: Learn how to configure an authorization policy for a content key.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -62,7 +62,7 @@ When you configure the token-restricted policy, you must specify the primary ver
 ### PlayReady
 When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
           <LicenseTemplates>
             <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
               <ContentKey i:type="ContentEncryptionKeyFromHeader" />

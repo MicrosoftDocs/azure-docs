@@ -17,6 +17,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Application types in v1.0

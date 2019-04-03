@@ -1,5 +1,5 @@
 ---
-title: Collect and analyze Syslog messages in Log Analytics | Microsoft Docs
+title: Collect and analyze Syslog messages in Azure Monitor | Microsoft Docs
 description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create.
 services: log-analytics
 documentationcenter: ''
@@ -11,34 +11,52 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
 ---
 
-# Syslog data sources in Log Analytics
-Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Log Analytics where a corresponding record is created.  
+# Syslog data sources in Azure Monitor
+Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to Azure Monitor where a corresponding record is created.  
 
 > [!NOTE]
-> Log Analytics supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
+> Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
 >
 >
 
 ![Syslog collection](media/data-sources-syslog/overview.png)
 
+The following facilities are supported with the Syslog collector:
+
+* kern
+* user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+For any other facility, [configure a Custom Logs data source](data-sources-custom-logs.md) in Azure Monitor.
+ 
 ## Configuring Syslog
-The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
+The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources). This configuration is delivered to the configuration file on each Linux agent.
 
-You can add a new facility by typing in its name and clicking **+**.  For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect.  You cannot provide any additional criteria to filter messages.
+You can add a new facility by typing in its name and clicking **+**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
 
 ![Configure Syslog](media/data-sources-syslog/configure.png)
 
-By default, all configuration changes are automatically pushed to all agents.  If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
+By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 
 ### Configure Syslog on Linux agent
-When the [Log Analytics agent is installed on a Linux client](../../azure-monitor/learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
+When the [Log Analytics agent is installed on a Linux client](../../azure-monitor/learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected. You can modify this file to change the configuration. The configuration file is different depending on the Syslog daemon that the client has installed.
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
@@ -46,7 +64,7 @@ When the [Log Analytics agent is installed on a Linux client](../../azure-monito
 >
 
 #### rsyslog
-The configuration file for rsyslog is located at **/etc/rsyslog.d/95-omsagent.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities with a level of warning or higher.
+The configuration file for rsyslog is located at **/etc/rsyslog.d/95-omsagent.conf**. Its default contents are shown below. This collects syslog messages sent from the local agent for all facilities with a level of warning or higher.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -66,13 +84,13 @@ The configuration file for rsyslog is located at **/etc/rsyslog.d/95-omsagent.co
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-You can remove a facility by removing its section of the configuration file.  You can limit the severities that are collected for a particular facility by modifying that facility's entry.  For example, to limit the user facility to messages with a severity of error or higher you would modify that line of the configuration file to the following:
+You can remove a facility by removing its section of the configuration file. You can limit the severities that are collected for a particular facility by modifying that facility's entry. For example, to limit the user facility to messages with a severity of error or higher you would modify that line of the configuration file to the following:
 
     user.error    @127.0.0.1:25224
 
 
 #### syslog-ng
-The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities and all severities.   
+The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below. This collects syslog messages sent from the local agent for all facilities and all severities.   
 
     #
     # Warnings (except iptables) in one file:
@@ -123,7 +141,7 @@ The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.c
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-You can remove a facility by removing its section of the configuration file.  You can limit the severities that are collected for a particular facility by removing them from its list.  For example, to limit the user facility to just alert and critical messages, you would modify that section of the configuration file to the following:
+You can remove a facility by removing its section of the configuration file. You can limit the severities that are collected for a particular facility by removing them from its list.  For example, to limit the user facility to just alert and critical messages, you would modify that section of the configuration file to the following:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -163,7 +181,7 @@ You can change the port number by creating two configuration files: a FluentD co
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* The syslog-ng config should be modified by copying the example configuration shown below and adding the custom modified settings to the end of the syslog-ng.conf configuration file located in `/etc/syslog-ng/`.  Do **not** use the default label **%WORKSPACE_ID%_oms** or **%WORKSPACE_ID_OMS**, define a custom label to help distinguish your changes.  
+* The syslog-ng config should be modified by copying the example configuration shown below and adding the custom modified settings to the end of the syslog-ng.conf configuration file located in `/etc/syslog-ng/`. Do **not** use the default label **%WORKSPACE_ID%_oms** or **%WORKSPACE_ID_OMS**, define a custom label to help distinguish your changes.  
 
     > [!NOTE]
     > If you modify the default values in the configuration file, they will be overwritten when the agent applies a default configuration.
@@ -200,6 +218,6 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
 
 ## Next steps
-* Learn about [log queriesi](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
 * Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
 * [Configure Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) to collect other types of data.

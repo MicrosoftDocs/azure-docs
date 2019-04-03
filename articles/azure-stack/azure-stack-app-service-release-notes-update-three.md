@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
@@ -52,10 +52,12 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
+- Updates **Azure Functions runtime** to **v1.0.11820**.
+
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
-  - Added ASP.Net Core 2.1.2
+  - Added ASP.NET Core 2.1.2
   - Added NodeJS 10.0.0
   - Added Zulu OpenJDK 8.30.0.1
   - Added Tomcat 8.5.31 and 9.0.8
@@ -193,7 +195,7 @@ If you chose to deploy into an existing virtual network and an internal IP addre
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
 
-Refer to the documentation in the [Azure Stack 1807 Release Notes](azure-stack-update-1807.md)
+Refer to the documentation in the Azure Stack 1807 Release Notes.
 
 ## Next steps
 

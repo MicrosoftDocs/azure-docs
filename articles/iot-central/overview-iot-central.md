@@ -1,6 +1,6 @@
 ---
 title: What is Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is a end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
+description: Azure IoT Central is an end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017

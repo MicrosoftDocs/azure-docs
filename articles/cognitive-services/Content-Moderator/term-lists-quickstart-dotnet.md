@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

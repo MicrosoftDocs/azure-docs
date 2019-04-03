@@ -10,8 +10,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
@@ -42,7 +42,7 @@ Your requirements determine which of the following tools works best for you:
 
     An easy-to-use stand-alone app with a user interface.
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     A virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. 
 
@@ -68,7 +68,7 @@ There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Li
 
 ### AzCopy command examples for data transfer
 
-The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) and [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](/azure/storage/common/storage-use-azcopy.md) and [AzCopy on Linux](/azure/storage/common/storage-use-azcopy-linux.md).
 
 ### Download all blobs to a local disk
 
@@ -153,7 +153,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
    > [!NOTE]
    > This script has to be run at the root directory for **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

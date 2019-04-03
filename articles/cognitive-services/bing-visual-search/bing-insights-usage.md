@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Shows examples of image insights shown on Bing.com.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search

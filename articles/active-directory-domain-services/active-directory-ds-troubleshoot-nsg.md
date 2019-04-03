@@ -33,7 +33,7 @@ Invalid NSG configurations are the most common cause of network errors for Azure
 2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
 3. Under **Settings** in the left-hand panel, click **Inbound security rules**
 4. Review the rules in place and identify which rules are blocking access to [these ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or [create a new, compliant NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) are below
+5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or create a new, compliant NSG are below
 
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.

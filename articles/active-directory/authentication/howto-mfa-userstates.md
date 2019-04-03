@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Multi-Factor Authentication User States
+title: Azure Multi-Factor Authentication user states - Azure Active Directory
 description: Learn about user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # How to require two-step verification for a user
 
@@ -62,10 +63,10 @@ Use the following steps to access the page where you can view and manage user st
 
 1. Use the preceding steps to get to the Azure Multi-Factor Authentication **users** page.
 2. Find the user you want to enable for Azure MFA. You might need to change the view at the top.
-   ![Find user - screenshot](./media/howto-mfa-userstates/enable1.png)
+   ![Select the user to change status for from the users tab](./media/howto-mfa-userstates/enable1.png)
 3. Check the box next to their name.
 4. On the right, under **quick steps**, choose **Enable** or **Disable**.
-   ![Enable selected user - screenshot](./media/howto-mfa-userstates/user1.png)
+   ![Enable selected user by clicking Enable on the quick steps menu](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Enabled* users are automatically switched to *Enforced* when they register for Azure MFA. Do not manually change the user state to *Enforced*.
@@ -86,45 +87,52 @@ Don't move users directly to the *Enforced* state. If you do, non-browser-based 
 
 Install the Module first, using:
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > Don't forget to connect first using **Connect-MsolService**
 
+This example PowerShell script enables MFA for an individual user:
 
-Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+Using PowerShell is a good option when you need to bulk enable users. As an example, the following script loops through a list of users and enables MFA on their accounts:
 
-The following script is an example:
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
-To disabled MFA, used this script:
+To disable MFA, use this script:
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
-or also can be shorten to:
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+which can also be shortened to:
+
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## Next steps
 
-Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
-
-To configure additional settings like trusted IPs, custom voice messages, and fraud alerts, see the article [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
-
-Information about managing user settings for Azure Multi-Factor Authentication can be found in the article [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md)
+* Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* To configure additional settings like trusted IPs, custom voice messages, and fraud alerts, see the article [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+* Information about managing user settings for Azure Multi-Factor Authentication can be found in the article [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md)

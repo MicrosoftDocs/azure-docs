@@ -4,20 +4,18 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual 
-ms.date: 01/22/2019
+ms.date: 04/01/2019
 ms.author: diberry 
 ---
 
 # Configure Language Understanding Docker containers 
 
 The **Language Understanding** (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
-
-Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
 
 ## Configuration settings
 
@@ -54,7 +52,7 @@ Do not use the starter key or the authoring key.
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following places:
 
@@ -97,11 +95,6 @@ The following table describes the settings supported.
 |-------|------|-----------|-------------|
 |Yes| `Input` | String | The target of the input mount. The default value is `/input`. This is the location of the LUIS package files. <br><br>Example:<br>`--mount type=bind,src=c:\input,target=/input`|
 |No| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes LUIS query logs and container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## Hierarchical settings
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 
 ## Example docker run commands
 
@@ -156,7 +149,7 @@ ApiKey={ENDPOINT_KEY}
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
-### Logging example with command-line arguments
+### Logging example 
 
 The following command sets the logging level, `Logging:Console:LogLevel`, to configure the logging level to [`Information`](https://msdn.microsoft.com). 
 
@@ -168,26 +161,11 @@ mcr.microsoft.com/azure-cognitive-services/luis:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY} \
-Logging:Console:LogLevel=Information
-```
-
-### Logging example with environment variable
-
-The following commands use an environment variable, named `Logging:Console:LogLevel` to configure the logging level to [`Information`](https://msdn.microsoft.com). 
-
-```bash
-SET Logging:Console:LogLevel=Information
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={APPLICATION_ID} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

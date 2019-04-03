@@ -49,20 +49,20 @@ Before you begin, ensure that you have:
 
 3. In the **Add Automation**:
 
-    1. Supply the **Name** of your automation account.
-    2. Select the **Subscription** linked to your StorSimple Data Manager service.
-    3. Create a new resource group or select from an existing resource group.
-    4. Select a **Location**.
-    5. Leave the default **Create Run As account** option selected.
-    6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
+   1. Supply the **Name** of your automation account.
+   2. Select the **Subscription** linked to your StorSimple Data Manager service.
+   3. Create a new resource group or select from an existing resource group.
+   4. Select a **Location**.
+   5. Leave the default **Create Run As account** option selected.
+   6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
 
-    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    After the automation account is successfully created, you are notified.
+      After the automation account is successfully created, you are notified.
     
-    ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
+      For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
 
 3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
 
@@ -102,7 +102,7 @@ Perform the following steps to import, publish, and run the runbook to trigger j
 
     ![Add runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated reource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated resource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Add runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

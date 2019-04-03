@@ -3,8 +3,8 @@ title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
 documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -47,12 +47,12 @@ Certificates are composed of three interrelated resources linked together as a K
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
--   Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
-    -   Ex. MyDigiCertIssuer  
-        -   Provider  
-        -   Credentials – CA account credentials. Each CA has its own specific data.  
+- Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
+  - Ex. MyDigiCertIssuer  
+    -   Provider  
+    -   Credentials – CA account credentials. Each CA has its own specific data.  
 
-     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
+    For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
 
 **Step 3.1** - Set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 

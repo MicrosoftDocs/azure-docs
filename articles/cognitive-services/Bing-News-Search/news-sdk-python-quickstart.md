@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
@@ -81,4 +81,4 @@ else:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

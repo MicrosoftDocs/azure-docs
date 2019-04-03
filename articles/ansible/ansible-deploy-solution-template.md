@@ -1,7 +1,7 @@
 ---
 title: Deploy the Ansible solution template for Azure to CentOS
 description: Learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 author: tomarchermsft
 manager: jeconnoc
@@ -32,30 +32,30 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
-    - **Name** - Specify the name your Ansible instance. For demo purposes, the name `ansiblehost` is used.
-    - **User name:** - Specify the user name that will have access to the Ansible instance. For demo purposes, the name `ansibleuser` is used.
-    - **Authentication type:** - Select either **Password** or **SSH public key**. For demo purposes, **SSH public key** is selected.
-    - **Password** and **Confirm password** - If you select **Password** for **Authentication type**, enter your password for these values.
-    - **SSH public key** - If you select **SSH public key** for **Authentication type**, enter your RSA public key in the single-line format - starting with `ssh-rsa`.
-    - **Subscription** - Select your Azure subscription from the dropdown list.
-    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
-    - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
+   - **Name** - Specify the name your Ansible instance. For demo purposes, the name `ansiblehost` is used.
+   - **User name:** - Specify the user name that will have access to the Ansible instance. For demo purposes, the name `ansibleuser` is used.
+   - **Authentication type:** - Select either **Password** or **SSH public key**. For demo purposes, **SSH public key** is selected.
+   - **Password** and **Confirm password** - If you select **Password** for **Authentication type**, enter your password for these values.
+   - **SSH public key** - If you select **SSH public key** for **Authentication type**, enter your RSA public key in the single-line format - starting with `ssh-rsa`.
+   - **Subscription** - Select your Azure subscription from the dropdown list.
+   - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
+   - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-    ![Azure portal tab for Ansible basic settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Azure portal tab for Ansible basic settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Select **OK**.
 
 1. In the **Additional Settings** tab, enter the required information:
 
-    - **Size** - The Azure portal defaults to a standard size. To specify a different size that accommodates your specific scenario, select the arrow to display a list of different sizes.
-    - **VM disk size** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected for its performance benefits. For more information on each these types of disk storage, see the following articles:
-        - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
-        - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
-    - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 
-    - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
-    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Select the information icon next to **Ansible version** to see more information about available versions.
+   - **Size** - The Azure portal defaults to a standard size. To specify a different size that accommodates your specific scenario, select the arrow to display a list of different sizes.
+   - **VM disk type** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected for its performance benefits. For more information on each these types of disk storage, see the following articles:
+       - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
+       - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
+   - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 
+   - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
+   - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Select the information icon next to **Ansible version** to see more information about available versions.
 
-    ![Azure portal tab for Ansible additional settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Azure portal tab for Ansible additional settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Select **OK**.
 
@@ -67,7 +67,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
 
-    ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Select **OK**.
 
@@ -75,7 +75,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once the deployment is complete, select  **Go to resource group**. 
 
-    ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. On the resource group page, get the IP address of your Ansible host and sign in to manage your Azure resources using Ansible.
 

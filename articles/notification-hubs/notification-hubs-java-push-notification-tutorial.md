@@ -35,7 +35,7 @@ The SDK currently supports:
 * Regular Sends
 * Scheduled Sends
 * Async operations via Java NIO
-* Supported platforms: APNS (iOS), GCM (Android), WNS (Windows Store apps), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android without Google services)
+* Supported platforms: APNS (iOS), FCM (Android), WNS (Windows Store apps), MPNS(Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android without Google services)
 
 ## SDK Usage
 
@@ -116,7 +116,7 @@ To build:
     hub.createRegistration(reg);
     ```
 
-Similarly you can create registrations for Android (GCM), Windows Phone (MPNS), and Kindle Fire (ADM).
+Similarly you can create registrations for Android (FCM), Windows Phone (MPNS), and Kindle Fire (ADM).
 
 **Create template registrations:**
 
@@ -314,7 +314,7 @@ The Notification object is simply a body with headers, some utility methods help
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 
@@ -385,4 +385,4 @@ This topic showed you how to create a simple Java REST client for Notification H
 [Send localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Send notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Send cross-platform notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
@@ -20,7 +20,7 @@ ms.lastreviewed: 10/16/2018
 
 # Create SQL databases
 
-You can create and manage self-service databases in the user portal. An Azure Stack user needs a subscription with an offer that includes the  SQL database service.
+You can create and manage self-service databases in the user portal. An Azure Stack user needs a subscription with an offer that includes the SQL database service.
 
 1. Sign in to the [Azure Stack](azure-stack-poc.md) user portal.
 

@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
@@ -23,7 +23,7 @@ Let’s assume that Managed Instance host is `mi-demo.xxxxxx.database.windows.ne
 
 ![Resolving internal host name](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Now do another `nslookup` for highlighted name removing the `.vnet.` segment. You’ll get the public IP address as a result of executing this command.
+Now do another `nslookup` for highlighted name removing the `.vnet.` segment. You’ll get the public IP address when you execute this command.
 
 ![Resolving public IP address](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

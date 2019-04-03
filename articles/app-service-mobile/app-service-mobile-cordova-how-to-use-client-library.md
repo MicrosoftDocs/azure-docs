@@ -56,7 +56,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Add the following lines to `app.component.ts` to create the client object:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -117,8 +117,8 @@ Follow these instructions to add your local settings to the configuration:
              "https://localhost:3000"
          ],
 
-    Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
-    service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
+    Replace the URLs with the URLs of your service.  Examples include `http://localhost:3000` (for the Node.js sample
+    service), or `http://localhost:4400` (for the Ripple service).  However, these URLs are examples - your situation,
     including for the services mentioned in the examples, may be different.
 8. Click the **Read/Write** button in the top-right corner of the screen.
 9. Click the green **PUT** button.
@@ -141,7 +141,7 @@ Install the [phonegap-plugin-push] to handle push notifications.  This plugin ca
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The
 following code in your Apache Cordova app registers your device for push notifications:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'

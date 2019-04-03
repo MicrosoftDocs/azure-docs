@@ -3,7 +3,7 @@ title: What is device management in Azure Active Directory? | Microsoft Docs
 description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/25/2018
-ms.author: markvi
+ms.date: 03/01/2019
+ms.author: joflore
 ms.reviewer: jairoc
-#Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
+#Customer intent: As an IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
+ms.collection: M365-identity-device-management
 ---
 # What is device management in Azure Active Directory?
 
@@ -32,6 +33,11 @@ Through devices, your users are getting access to your corporate assets. To prot
 Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
 
 This article explains how device management in Azure Active Directory works.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
+
 
 ## Getting devices under the control of Azure AD
 
@@ -81,7 +87,7 @@ Azure AD Join can be deployed by using any of the following methods:
 
 Implementing Azure AD joined devices provides you with the following benefits:
 
-- **Single-Sign-On (SSO)** to your Azure managed SaaS apps and services. Your users don’t see additional authentication prompts when accessing work resources. The SSO functionality is even when they are not connected to the domain network available.
+- **Single-Sign-On (SSO)** to your Azure managed SaaS apps and services. Your users don’t see additional authentication prompts when accessing work resources. The SSO functionality is available, even when your users are not connected to the domain network.
 
 - **Enterprise compliant roaming** of user settings across joined devices. Users don’t need to connect a Microsoft account (for example, Hotmail) to see settings across devices.
 

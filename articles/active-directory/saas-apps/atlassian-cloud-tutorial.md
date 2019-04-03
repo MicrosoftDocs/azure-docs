@@ -8,14 +8,15 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Atlassian Cloud
 
@@ -35,6 +36,7 @@ To configure Azure AD integration with Atlassian Cloud, you need the following i
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Atlassian Cloud single sign-on enabled subscription
+* To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## Scenario description
 
@@ -124,29 +126,15 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
     > [!NOTE]
 	> The preceding Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Atlassian Cloud Client support team](https://support.atlassian.com/) to get this value.
 
-6. Your Atlassian Cloud application expects to find the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML Token Attributes configuration.
-
-	By default, the **User Identifier** value is mapped to user.userprincipalname. Change this value to map to user.mail. You can also choose any other appropriate value according to your organization's setup but, in most of the cases, email should work. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+6. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Atlassian Cloud application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, perform the following steps:
-
-	a. Click **Edit icon** to open the **Manage user claims** dialog.
-
-	![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-	![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-	b. From the **Source attribute** list, select **user.mail**.
-
-	c. Click **Save**.
-
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-9. On the **Set up Atlassian Cloud** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Atlassian Cloud** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -207,7 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -269,9 +257,9 @@ When you click the Atlassian Cloud tile in the Access Panel, you should be autom
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
    

@@ -17,7 +17,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Create an Azure Cosmos DB account**||
 |[Create and configure a Cosmos account with SQL API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the SQL API. |
 |[Create and configure a Cosmos account with Azure Cosmos DB's API for MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Cosmos account with Azure Cosmos DB's API for MongoDB. |
-|[Create and configure a Cosmos account with Gremlin API ](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Gremlin API. |
+|[Create and configure a Cosmos account with Gremlin API](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Gremlin API. |
 |[Create and configure a Cosmos account with Cassandra API](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Cassandra API. |
 |[Create and configure a Cosmos account with Table API](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Table API. |
 |**Scale Azure Cosmos DB**||

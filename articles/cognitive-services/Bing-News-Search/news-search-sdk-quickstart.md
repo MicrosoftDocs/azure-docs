@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
@@ -22,7 +22,7 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 * The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installing this package also installs the following:
     * Microsoft.Rest.ClientRuntime
@@ -87,4 +87,4 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

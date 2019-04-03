@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure your account for offline streaming of Widevine protected content - Azure
 description: This topic shows how to configure your Azure Media Services account for offline streaming of Widevine protected content.
 services: media-services
@@ -13,11 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/20/2019
 ms.author: willzhan, dwgeo
 
 ---
-# Offline Widevine streaming for Android
+# Offline Widevine streaming for Android  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 3](../latest/offline-widevine-for-android.md)
+> * [Version 2](offline-widevine-for-android.md)
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
@@ -146,7 +150,7 @@ If you upgrade your mobile Chrome browser to v62 (or higher) on an Android phone
 
 The above open-source PWA app is authored in Node.js. If you want to host your own version on an Ubuntu server, keep in mind the following common encountered issues that can prevent playback:
 
-1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: https://biograf-155113.appspot.com (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https://13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: https://biograf-155113.appspot.com (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 2. Certificate issue: Starting from Chrome v 58, EME for Widevine requires HTTPS. Therefore, you need to host the sample app over HTTPS with an X509 certificate. A usual test certificate does not work due to the following requirements: You need to obtain a certificate meeting the following minimum requirements:
     - Chrome and Firefox require SAN-Subject Alternative Name setting to exist in the certificate
     - The certificate must have trusted CA and a self-signed development certificate does not work

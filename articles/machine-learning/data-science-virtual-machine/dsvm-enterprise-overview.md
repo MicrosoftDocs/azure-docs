@@ -10,7 +10,7 @@ ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -43,7 +43,7 @@ This series of articles provides guidance and pointers for each of the preceding
 * [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Logging and auditing](https://docs.microsoft.com/azure/security/azure-log-audit)
 * [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
-* [Policy setting and enforcement](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Policy setting and enforcement](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 * [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)

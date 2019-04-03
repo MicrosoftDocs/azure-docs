@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
 
---- 
+---
 
 
 # Handling planned maintenance notifications for Windows virtual machines
@@ -75,30 +75,33 @@ It is best to use self-service maintenance in the following cases:
 
 ## Check maintenance status using PowerShell
 
-You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) cmdlet when you use the `-status` parameter.
+You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
  
 Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
+Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 The following properties are returned under MaintenanceRedeployStatus: 
+
 | Value	| Description	|
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time ||
-| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
-| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM ||
-| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM ||
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM |
 
 
 
-You can also get the maintenance status for all VMs in a resource group by using [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) and not specifying a VM.
+You can also get the maintenance status for all VMs in a resource group by using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) and not specifying a VM.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName -Status
+Get-AzVM -ResourceGroupName rgName -Status
 ```
 
 The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
@@ -107,18 +110,18 @@ The following PowerShell function takes your subscription ID and prints out a li
 
 function MaintenanceIterator
 {
-    Select-AzureRmSubscription -SubscriptionId $args[0]
+    Select-AzSubscription -SubscriptionId $args[0]
 
-    $rgList= Get-AzureRmResourceGroup 
+    $rgList= Get-AzResourceGroup 
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
         $rg = $rgList[$rgIdx]        
-	$vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+	$vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
+            $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
               if ($vmDetails.MaintenanceRedeployStatus )
             {
                 Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
@@ -134,7 +137,7 @@ function MaintenanceIterator
 Using information from the function in the previous section, the following starts maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
 
 ```powershell
-Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
+Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
 
 ## Classic deployments

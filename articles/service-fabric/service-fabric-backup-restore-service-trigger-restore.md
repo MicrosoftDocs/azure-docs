@@ -4,7 +4,7 @@ description: Use the periodic backup and restore feature in Service Fabric for r
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 
 ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
@@ -153,7 +153,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You can track the progress of a restore with [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
+You can track the progress of a restore with TrackRestoreProgress.
 
 ### Data restore for _data corruption_/_data loss_
 
@@ -193,7 +193,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You can track the restore progress by using [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
+You can track the restore progress by using TrackRestoreProgress.
 
 ## Track restore progress
 

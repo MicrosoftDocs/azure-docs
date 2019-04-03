@@ -145,32 +145,13 @@ Now that we've taken a look at how to insert geospatial data, let's take a look 
 ### Spatial SQL built-in functions
 Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](how-to-sql-query.md).
 
-<table>
-<tr>
-  <td><strong>Usage</strong></td>
-  <td><strong>Description</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.</td>
-</tr>
-</table>
+|**Usage**|**Description**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.|
+|ST_WITHIN (spatial_expr, spatial_expr) | Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.|
+|ST_ISVALID| Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.|
+| ST_ISVALIDDETAILED| Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.|
 
 Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
@@ -233,7 +214,7 @@ Azure Cosmos DB also supports performing inverse queries, that is, you can index
 
 ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
-** Query **
+**Query**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

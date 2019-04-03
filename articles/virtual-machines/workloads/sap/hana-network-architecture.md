@@ -23,7 +23,7 @@ The architecture of Azure network services is a key component of the successful 
 
 - Deployed SAP systems on-premises. Due to their sizes, these systems currently can't be hosted in Azure. An example is a production SAP ERP system that runs on SQL Server (as the database) and requires more CPU or memory resources than VMs can provide.
 - Deployed SAP HANA-based SAP systems on-premises.
-- Deployed SAP systems in VMs. These systems can be development, testing, sandbox, or production instances for any of the SAP NetWeaver-based applications that can successfully deploy in Azure (on VMs), based on resource consumption and memory demand. These systems also can be based on databases such as SQL Server. For more information, see [SAP Support Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E). And these systems can be based on databases such as SAP HANA. For more information, see [SAP HANA certified IaaS platforms](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Deployed SAP systems in VMs. These systems can be development, testing, sandbox, or production instances for any of the SAP NetWeaver-based applications that can successfully deploy in Azure (on VMs), based on resource consumption and memory demand. These systems also can be based on databases such as SQL Server. For more information, see [SAP Support Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E). And these systems can be based on databases such as SAP HANA. For more information, see [SAP HANA certified IaaS platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - Deployed SAP application servers in Azure (on VMs) that leverage SAP HANA on Azure (Large Instances) in Azure Large Instance stamps.
 
 A hybrid SAP landscape with four or more different deployment scenarios is typical. There also are many customer cases of complete SAP landscapes that run in Azure. As VMs become more powerful, the number of customers that move all their SAP solutions on Azure increases.
@@ -109,7 +109,7 @@ For a more scalable network architecture:
 - Leverage multiple virtual networks for a single, larger SAP application layer.
 - Deploy one separate virtual network for each SAP system deployed, compared to combining these SAP systems in separate subnets under the same virtual network.
 
- A more scalable networking architecture for SAP HANA on Azure (Large Instances):
+  A more scalable networking architecture for SAP HANA on Azure (Large Instances):
 
 ![Deploy SAP application layer over multiple virtual networks](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -128,12 +128,12 @@ Three network routing considerations are important for SAP HANA on Azure (Large 
 
 * SAP HANA on Azure (Large Instances) units have an assigned IP address from the server IP pool address range that you submitted. For more information, see [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This IP address is accessible through the Azure subscriptions and ExpressRoute that connects virtual networks to HANA on Azure (Large Instances). The IP address assigned out of that server IP pool address range is directly assigned to the hardware unit. It's *not* assigned through NAT anymore, as was the case in the first deployments of this solution. 
 
-> [!NOTE] 
+> [!NOTE]
 > To overcome the restriction in transient routing as explained in the first two list items, use additional components for routing. Components that can be used to overcome the restriction can be:
-
+> 
 > * A reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
 > * Using [IPTables rules](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in a Linux VM to enable routing between on-premises locations and HANA Large Instance units, or between HANA Large Instance units in different regions.
-
+> 
 > Be aware that implementation and support for custom solutions involving third-party network appliances or IPTables isn't provided by Microsoft. Support must be provided by the vendor of the component used or the integrator. 
 
 ## Internet connectivity of HANA Large Instance

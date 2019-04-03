@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Training is the process of teaching your Language Understanding (LUIS) app version to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -55,5 +55,5 @@ In order to know when training is complete, you have to poll the status until al
 
 ## Next steps
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

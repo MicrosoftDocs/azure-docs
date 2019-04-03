@@ -1,20 +1,11 @@
 ---
 title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
 ms.date: 9/4/2018
-ms.author: shtabriz
 
 ---
 
@@ -23,6 +14,9 @@ ms.author: shtabriz
 This article will show you how to create Resource Health Activity Log Alerts programmatically using Azure Resource Manager templates and Azure PowerShell.
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
+
+> [!NOTE]
+> Resource Health alerts are currently in preview.
 
 ## Prerequisites
 

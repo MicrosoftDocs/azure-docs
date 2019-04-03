@@ -11,53 +11,41 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 11/30/2018
+ms.date: 03/01/2019
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
 
-This article explains how you can use the public preview of Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R. It also explains how to wrap well-formed R code in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in a SQL database.
+This article explains how you can use the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). It walks you through the basics of moving data between a SQL database and R. It also explains how to wrap well-formed R code in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in a SQL database.
 
-Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
+Use the power of R language to deliver advanced analytics and machine learning in-database. This ability brings calculations and processing to where the data resides, eliminating the need to pull data across the network. Also, leverage the power of enterprise R packages to deliver advanced analytics at scale.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+Machine Learning Services includes a base distribution of R, overlaid with enterprise R packages from Microsoft. Microsoft's R functions and algorithms are engineered for both scale and utility, delivering predictive analytics, statistical modeling, data visualizations, and leading-edge machine learning algorithms.
 
-## Sign up for the preview
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
-
-Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new database on an R enabled service.
-
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
-
-When Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
-
-Currently, R is the only supported language. There is no support for Python at this time.
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 ## Prerequisites
 
-To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, as described above.
+To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 You can connect to the SQL Database and run the R scripts any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
 For the [add a package](#add-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
 
-This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
-
-## Different from SQL Server
-
-The functionality of Machine Learning Services (with R) in Azure SQL Database is similar to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). However, there are some differences:
-
-- R only. Currently there is no support for Python.
-- No need to configure `external scripts enabled` via `sp_configure`.
-- Packages have to be installed via **sqlmlutils**.
-- There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 ## Verify R exists
 
 You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
 
-1. Open SQL Server Management Studio and connect to your SQL database.
+1. Open SQL Server Management Studio and connect to your SQL database. For more information on how to connect, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
 1. Run the code below. 
 
@@ -165,7 +153,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *@input_data_1* variable.
+3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *\@input_data_1* variable.
 
     In this script, the names of the output and input variables for the stored procedure have been changed to *SQL_out* and *SQL_in*:
 
@@ -181,7 +169,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     Note that R is case-sensitive, so the case of the input and output variables in `@input_data_1_name` and `@output_data_1_name` have to match the ones in the R code in `@script`. 
 
-    Also, the order of the parameters is important. You must specify the required parameters *@input_data_1* and *@output_data_1* first, in order to use the optional parameters *@input_data_1_name* and *@output_data_1_name*.
+    Also, the order of the parameters is important. You must specify the required parameters *\@input_data_1* and *\@output_data_1* first, in order to use the optional parameters *\@input_data_1_name* and *\@output_data_1_name*.
 
     Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results. 
 
@@ -258,7 +246,6 @@ Microsoft provides a number of R packages pre-installed with Machine Learning Se
 
     ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## Create a predictive model
 
 You can train a model using R and save the model to a table in your SQL database. In this exercise, you will train a simple regression model that predicts the stopping distance of a car based on speed. You'll use the `cars` dataset included with R, because it is small and easy to understand.
@@ -283,34 +270,34 @@ You can train a model using R and save the model to a table in your SQL database
 
     The requirements of a linear model are simple:
 
-    - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
+   - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
 
-    - Provide input data to use in training the model.
+   - Provide input data to use in training the model.
 
-    > [!TIP]
-    > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    To build the model, you define the formula inside your R code, and pass the data as an input parameter.
+     To build the model, you define the formula inside your R code, and pass the data as an input parameter.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    The first argument to rxLinMod is the *formula* parameter, which defines distance as dependent on speed. The input data is stored in the variable `CarsData`, which is populated by the SQL query. If you don't assign a specific name to your input data, the default variable name would be _InputDataSet_.
+     The first argument to rxLinMod is the *formula* parameter, which defines distance as dependent on speed. The input data is stored in the variable `CarsData`, which is populated by the SQL query. If you don't assign a specific name to your input data, the default variable name would be _InputDataSet_.
 
 2. Next, create a table where you store the model so you can retrain or use it for prediction. The output of an R package that creates a model is usually a **binary object**. Therefore, the table must provide a column of **VARBINARY(max)** type.
 
@@ -409,23 +396,23 @@ Use the model you created in the previous section to score predictions against n
 
     The script above performs the following steps:
 
-    + Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
+   + Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
 
-    + After retrieving the model from the table, call the `unserialize` function on the model.
+   + After retrieving the model from the table, call the `unserialize` function on the model.
 
-        > [!TIP] 
-        > Also check out the new [serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
-    + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
+       > [!TIP] 
+       > Also check out the new [serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
+   + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
 
-    + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
+   + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
 
-    + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
+   + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
 
-    **Results**
+     **Results**
 
-    ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
+     It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
 
 <a name="add-package"></a>
 
@@ -525,8 +512,9 @@ If you need to use a package that is not already installed in your SQL database,
 
 ## Next steps
 
-For more information on Machine Learning Services, see the articles below on SQL Server Machine Learning Services. While these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
+For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
 
+- [Azure SQL Database Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Tutorial: Learn in-database analytics using R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)

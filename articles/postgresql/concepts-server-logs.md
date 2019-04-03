@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 02/28/2019
 ---
 # Server logs in Azure Database for PostgreSQL 
 Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. (Access to transaction logs is not included). 
@@ -22,8 +22,10 @@ If you've enabled logs, you can access them from the Azure Database for PostgreS
 
 
 ## Diagnostic logs
-Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server, you can choose to have them emitted to [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how-to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server, you can choose to have them emitted to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how-to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).
 
 The following table describes what's in each log. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary. 
 

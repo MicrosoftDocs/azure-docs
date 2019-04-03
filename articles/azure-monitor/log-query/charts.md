@@ -1,6 +1,6 @@
 ---
-title: Creating charts and diagrams from Azure Log Analytics queries | Microsoft Docs
-description: Describes various visualizations in Azure Log Analytics to display your data in different ways.
+title: Creating charts and diagrams from Azure Monitor log queries | Microsoft Docs
+description: Describes various visualizations in Azure Monitor to display your log data in different ways.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,14 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Creating charts and diagrams from Log Analytics queries
+# Creating charts and diagrams from Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) before completing this lesson.
+> You should complete [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes various visualizations in Azure Log Analytics to display your data in different ways.
+This article describes various visualizations in Azure Monitor to display your log data in different ways.
 
 ## Charting the results
 Start by reviewing how many computers there are per operating system, during the past hour:
@@ -88,7 +88,7 @@ You can switch between by selecting the dropdown with the column name.
 ![Bar chart AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

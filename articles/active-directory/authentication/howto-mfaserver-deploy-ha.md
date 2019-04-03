@@ -1,5 +1,5 @@
 ---
-title: Configure Azure MFA Server for high availability | Microsoft Docs
+title: Configure Azure MFA Server for high availability - Azure Active Directory
 description: Deploy multiple instances of Azure Multi-Factor Authentication Server in configurations that provide high availability.
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability
 
@@ -22,7 +23,7 @@ To achieve high-availability with your Azure Server MFA deployment, you need to 
 
 The Azure MFA Server service architecture comprises several components as shown in the following diagram:
 
- ![MFA Server Architecture](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 An MFA Server is a Windows Server that has the Azure Multi-Factor Authentication software installed. The MFA Server instance must be activated by the MFA Service in Azure to function. More than one MFA Server can be installed on-premises.
 

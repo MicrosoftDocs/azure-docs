@@ -108,7 +108,7 @@ for {
 
 // 2. send messages within program
 ctx = context.Background()
-hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!")
+hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!"))
 ```
 
 ## Extras
@@ -120,7 +120,7 @@ info, err := hub.GetRuntimeInformation(ctx)
 if err != nil {
 	log.Fatalf("failed to get runtime info: %s\n", err)
 }
-log.Printf("got partition IDs: %s\n, info.PartitionIDs)
+log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 ```
 
 Run the application to send events to the event hub. 

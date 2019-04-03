@@ -23,7 +23,7 @@ The pipelines you create are visible to the members of your Azure Machine Learni
 
 Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) to hold all your pipeline resources. 
 
- ```python
- ws = Workspace.create(
+  ```python
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## Set up machine learning resources
 
@@ -101,6 +101,9 @@ output_data1 = PipelineData(
 
 In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](how-to-set-up-training-targets.md) for a full list of compute targets and how to create and attach them to your workspace.  The process for creating and or attaching a compute target is the same regardless of whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
 
+> [!IMPORTANT]
+> Performing management operations on compute targets is not supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.
+
 Below are examples of creating and attaching compute targets for:
 
 * Azure Machine Learning Compute
@@ -111,27 +114,27 @@ Below are examples of creating and attaching compute targets for:
 
 You can create an Azure Machine Learning compute for running your steps.
 
-    ```python
-    compute_name = "aml-compute"
-     if compute_name in ws.compute_targets:
-        compute_target = ws.compute_targets[compute_name]
-        if compute_target and type(compute_target) is AmlCompute:
-            print('Found compute target: ' + compute_name)
-    else:
-        print('Creating a new compute target...')
-        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                    min_nodes = 1, 
-                                                                    max_nodes = 4)
-         # create the compute target
-        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-        
-        # Can poll for a minimum number of nodes and for a specific timeout. 
-        # If no min node count is provided it will use the scale settings for the cluster
-        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-        
-         # For a more detailed view of current cluster status, use the 'status' property    
-        print(compute_target.status.serialize())
-    ```
+```python
+compute_name = "aml-compute"
+ if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('Found compute target: ' + compute_name)
+else:
+    print('Creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                min_nodes = 1, 
+                                                                max_nodes = 4)
+     # create the compute target
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # Can poll for a minimum number of nodes and for a specific timeout. 
+    # If no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
+```
 
 ### <a id="databricks"></a>Azure Databricks
 
@@ -228,7 +231,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>Construct your pipeline steps
 
-Once you create and attach a compute target to your workspace, you are ready to define a pipeline step. There are many built-in steps available via the Azure Machine Learning SDK. The most basic of these steps is a [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), which runs a Python script in a specified compute target.
+Once you create and attach a compute target to your workspace, you are ready to define a pipeline step. There are many built-in steps available via the Azure Machine Learning SDK. The most basic of these steps is a [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), which runs a Python script in a specified compute target:
 
 ```python
 trainStep = PythonScriptStep(
@@ -265,7 +268,7 @@ dbStep = DatabricksStep(
     notebook_path=notebook_path,
     notebook_params={'myparam': 'testparam'},
     run_name='demo run name',
-    databricks_compute=databricks_compute,
+    compute_target=databricks_compute,
     allow_reuse=False
 )
 # List of steps to run
@@ -274,6 +277,8 @@ steps = [dbStep]
 # Build the pipeline
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
+
+For more information, see the [azure-pipeline-steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) and [Pipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) reference.
 
 ## Submit the pipeline
 
@@ -297,29 +302,31 @@ When you first run a pipeline, Azure Machine Learning:
 
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
+For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
+
 ## Publish a pipeline
 
 You can publish a pipeline to run it with different inputs later. For the REST endpoint of an already published pipeline to accept parameters, you must parameterize the pipeline before publishing. 
 
 1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. Add this `PipelineParameter` object as a parameter to any of the steps in the pipeline as follows:
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. Publish this pipeline that will accept a parameter when invoked.
 
@@ -333,7 +340,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 
 All published pipelines have a REST endpoint. This endpoint invokes the run of the pipeline from external systems, such as non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) or get more details at [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 
@@ -346,7 +353,7 @@ response = requests.post(published_pipeline1.endpoint,
 See the list of all your pipelines and their run details:
 1. Sign in to the [Azure portal](https://portal.azure.com/).  
 
-1. [View your workspace](how-to-manage-workspace.md#view-a-workspace) to find the list of pipelines.
+1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.

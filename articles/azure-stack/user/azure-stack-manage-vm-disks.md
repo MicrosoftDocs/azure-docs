@@ -3,7 +3,7 @@ title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Create disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -11,9 +11,9 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
 ---
@@ -28,9 +28,9 @@ This article describes how to create virtual machine disk storage by using the A
 
 Beginning with version 1808, Azure Stack supports the use of managed disks and unmanaged disks on virtual machines, as both an operating system (OS) and a data disk. Before version 1808, only unmanaged disks are supported. 
 
-**[Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
+**[Managed disks](../../virtual-machines/windows/managed-disks-overview.md)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
 
-**[Unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, require that you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
+Unmanaged disks, require that you create a storage account to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
 
 ### Best practice guidelines
 
@@ -46,7 +46,7 @@ The following table summarizes how to add disks by using the portal and by using
 
 | Method | Options
 |-|-|
-|[User portal](#use-the-portal-to-add-additional-disks-to-a-vm)|- Add new data disks to an existing VM. New disks are created by Azure Stack. </br> </br>- Add an existing disk (.vhd) file to a  previously created VM. To do this, you must prepare the .vhd  and then upload the file to Azure Stack. |
+|User portal|- Add new data disks to an existing VM. New disks are created by Azure Stack. </br> </br>- Add an existing disk (.vhd) file to a  previously created VM. To do this, you must prepare the .vhd  and then upload the file to Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Create a new VM with an OS disk, and at the same time add one or more data disks to that VM. |
 
 ## Use the portal to add disks to a VM
@@ -64,56 +64,56 @@ Each unmanaged disk you add should be put in a separate container.
 
 ### Use the portal to create and attach a new data disk
 
-1.  In the portal, choose **All services** > **Virtual machines**.    
-    ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. In the portal, choose **All services** > **Virtual machines**.    
+   ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Select a virtual machine that has previously been created.   
-    ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Select a virtual machine that has previously been created.   
+   ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  For the virtual machine, select **Disks** > **Add data disk**.       
-    ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. For the virtual machine, select **Disks** > **Add data disk**.       
+   ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  For the Data disk:
-    -  Enter the **LUN**. The LUN must be a valid number.
-    -  Select **Create disk**.
-    ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. For the Data disk:
+   -  Enter the **LUN**. The LUN must be a valid number.
+   -  Select **Create disk**.
+   ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  In the create managed disk blade:
-    -  Enter the **Name** of the disk.
-    -  Select an existing or create a new **Resource group**.
-    -  Select the **Location**. By default, the location is set to the same container that holds the OS disk.
-    -  Select the **Account type**. 
-        ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. In the create managed disk blade:
+   - Enter the **Name** of the disk.
+   - Select an existing or create a new **Resource group**.
+   - Select the **Location**. By default, the location is set to the same container that holds the OS disk.
+   - Select the **Account type**. 
+      ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads.
+      **Premium SSD**  
+      Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads.
        
-        **Standard HDD**  
-        Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across  multiple zones and are available even if a single zone is down. 
+      **Standard HDD**  
+      Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across  multiple zones and are available even if a single zone is down. 
 
-    -  Select the **Source type**.
+   - Select the **Source type**.
 
-       Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
+     Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
 
-        **Snapshot**  
-        Select a snapshot, if it is available. The snapshot must be in available in the VM's subscription and location.
+      **Snapshot**  
+      Select a snapshot, if it is available. The snapshot must be in available in the VM's subscription and location.
 
-        **Storage blob**  
-        - Add the URI of the Storage blob that contains the disk image.  
-        - Select **Browse** to open the Storage accounts blade. For instructions see [Add a data disk from a storage account](#add-a-data-disk-from-a-storage-account).
-        - Select the OS type of the image, either **Windows**, **Linux**, or **None (data disk)**.
+      **Storage blob**  
+     - Add the URI of the Storage blob that contains the disk image.  
+     - Select **Browse** to open the Storage accounts blade. For instructions see [Add a data disk from a storage account](#add-a-data-disk-from-a-storage-account).
+     - Select the OS type of the image, either **Windows**, **Linux**, or **None (data disk)**.
 
-        **None (empty disk)**
+       **None (empty disk)**
 
-    -  Select the **Size (GiB)**.
+   - Select the **Size (GiB)**.
 
-       Standard disk costs increase based on the size of the disk. Premium disk costs and performance  increase based on the size of the disk. For more information, see [Managed Disks pricing](https://go.microsoft.com/fwlink/?linkid=843142).
+     Standard disk costs increase based on the size of the disk. Premium disk costs and performance  increase based on the size of the disk. For more information, see [Managed Disks pricing](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Select **Create**. Azure Stack creates and validates the managed disk.
+   - Select **Create**. Azure Stack creates and validates the managed disk.
 
-5.  After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **DATA DISKS**.   
+5. After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **DATA DISKS**.   
 
-    ![Example: View disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Example: View disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### Add a data disk from a storage account
 

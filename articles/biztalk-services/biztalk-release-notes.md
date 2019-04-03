@@ -20,7 +20,7 @@ ms.author: deonhe
 # Release Notes for Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
@@ -43,7 +43,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) and [Create an EDIFACT Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) and [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) and [Use Derived Types in Mapping Scenarios and Examples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## Know Issues
+
+## Known Issues
 
 ### Connectivity Issues after BizTalk Services Portal Update
   If you have the BizTalk Services Portal open while BizTalk Services is upgraded to roll in changes to the service, you might face connectivity issues with the BizTalk Services Portal.  
@@ -124,7 +125,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>

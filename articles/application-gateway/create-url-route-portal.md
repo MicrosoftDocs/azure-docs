@@ -45,26 +45,26 @@ A virtual network is needed for communication between the resources that you cre
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter these values for the application gateway:
 
-    - *myAppGateway* - for the name of the application gateway.
-    - *myResourceGroupAG* - for the new resource group.
+   - *myAppGateway* - for the name of the application gateway.
+   - *myResourceGroupAG* - for the new resource group.
 
-    ![Create new application gateway](./media/create-url-route-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
 8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
 9. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
-the deployment finishes successfully before moving on to the next section.
+   the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
 
@@ -96,6 +96,8 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Install IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
     ![Install custom extension](./media/create-url-route-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ In this example, you create three virtual machines to be used as backend servers
       -Settings $publicSettings
     ```
 
-3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzureRmVMExtension.
+3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzVMExtension.
 
 ## Create backend pools with the virtual machines
 

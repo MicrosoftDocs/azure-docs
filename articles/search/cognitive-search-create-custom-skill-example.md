@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -34,7 +34,7 @@ Although this example uses an Azure Function to host a web API, it is not requir
 
 1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+1. Select **Azure Functions v2 (.NET Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
 
 1. Select the type to be **HTTP Trigger**
 
@@ -301,7 +301,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-## Next Steps
+## Next steps
 Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)

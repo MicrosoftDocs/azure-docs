@@ -2,35 +2,35 @@
 title: Monitor the health of your Azure IoT Hub | Microsoft Docs
 description: Use Azure Monitor and Azure Resource Health to monitor your IoT Hub and diagnose problems quickly
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/27/2019
 ms.author: kgremban
 ---
 
 
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
 
-Businesses that implement Azure IoT Hub expect reliable performance from their resources. To help you maintain a close watch on your operations, IoT Hub is fully integrated with [Azure Monitor][lnk-AM] and [Azure Resource Health][lnk-ARH]. These two services work in tandem to provide you with the data you need to keep your IoT solutions up and running in a healthy state. 
+Businesses that implement Azure IoT Hub expect reliable performance from their resources. To help you maintain a close watch on your operations, IoT Hub is fully integrated with [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md). These two services work to provide you with the data you need to keep your IoT solutions up and running in a healthy state. 
 
-Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the diagnostic logs that Azure Monitor generates to Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
+Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the diagnostic logs that Azure Monitor generates to Azure Monitor logs, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
 
 > [!IMPORTANT]
 > The events emitted by the IoT Hub service using Azure Monitor diagnostic logs are not guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Diagnostic logs also aren't meant to be real-time, and it may take several minutes for events to be logged to your choice of destination.
 
-Azure Resource Health helps you diagnose and get support when an Azure issue impacts your resources. A personalized dashboard provides current and past health status for your IoT Hubs. Continue reading this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
+Azure Resource Health helps you diagnose and get support when an Azure issue impacts your resources. A dashboard provides current and past health status for each of your IoT hubs. Continue to the section at the bottom of this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
 
-IoT Hub also provides its own metrics that you can use to understand the state of your IoT resources. To learn more, see [Understand IoT Hub metrics][lnk-metrics].
+IoT Hub also provides its own metrics that you can use to understand the state of your IoT resources. To learn more, see [Understand IoT Hub metrics](iot-hub-metrics.md).
 
 ## Use Azure Monitor
 
 Azure Monitor provides diagnostics information for Azure resources, which means that you can monitor operations that take place within your IoT hub. 
 
-Azure Monitor's diagnostics settings replaces the IoT Hub operations monitor. If you currently use operations monitoring, you should migrate your workflows. For more information, see [Migrate from operations monitoring to diagnostics settings][lnk-migrate].
+Azure Monitor's diagnostics settings replaces the IoT Hub operations monitor. If you currently use operations monitoring, you should migrate your workflows. For more information, see [Migrate from operations monitoring to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md).
 
-To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor][lnk-AM-metrics] and [Supported services, schemas, and categories for Azure Diagnostic Logs][lnk-AM-schemas].
+To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -43,7 +43,7 @@ Azure Monitor tracks different operations that occur in IoT Hub. Each category h
 The connections category tracks device connect and disconnect events from an IoT hub as well as errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
 
 > [!NOTE]
-> For reliable connection status of devices check [Device heartbeat][lnk-devguide-heartbeat].
+> For reliable connection status of devices check [Device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 
 ```json
@@ -298,12 +298,118 @@ The direct methods category tracks request-response interactions sent to individ
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### Distributed Tracing (Preview)
+
+The distributed tracing category tracks the correlation IDs for messages that carry the trace context header. To fully enable these logs, client-side code must be updated by following [Analyze and diagnose IoT applications end-to-end with IoT Hub distributed tracing (preview)](iot-hub-distributed-tracing.md).
+
+Note that `correlationId` conforms to the [W3C Trace Context](https://github.com/w3c/trace-context) proposal, where it contains a `trace-id` as well as a `span-id`. 
+
+##### IoT Hub D2C (device-to-cloud) logs
+
+IoT Hub records this log when a message containing valid trace properties arrives at IoT Hub. 
+
+```json
+{
+	"records": 
+	[
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Here, `durationMs` is not calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Integer | The size of device-to-cloud message in bytes |
+| **deviceId** | String of ASCII 7-bit alphanumeric characters | The identity of the device |
+| **callerLocalTimeUtc** | UTC timestamp | The creation time of the message as reported by the device local clock |
+| **calleeLocalTimeUtc** | UTC timestamp | The time of message arrival at the IoT Hub's gateway as reported by IoT Hub service side clock |
+
+##### IoT Hub ingress logs
+
+IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hub.
+
+```json
+{
+	"records": 
+	[
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In the `properties` section, this log contains additional information about message ingress
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | String | Either true or false, indicates whether or not message routing is enabled in the IoT Hub |
+| **parentSpanId** | String | The [span-id](https://w3c.github.io/trace-context/#parent-id) of the parent message, which would be the D2C message trace in this case |
+
+##### IoT Hub egress logs
+
+IoT Hub records this log when [routing](iot-hub-devguide-messages-d2c.md) is enabled and the message is written to an [endpoint](iot-hub-devguide-endpoints.md). If routing is not enabled, IoT Hub doesn't record this log.
+
+```json
+{
+	"records": 
+	[
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In the `properties` section, this log contains additional information about message ingress
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | String | The name of the routing endpoint |
+| **endpointType** | String | The type of the routing endpoint |
+| **parentSpanId** | String | The [span-id](https://w3c.github.io/trace-context/#parent-id) of the parent message, which would be the IoT Hub ingress message trace in this case |
+
 
 ### Read logs from Azure Event Hubs
 
@@ -336,7 +442,7 @@ class Program 
     { 
         Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
         CancellationTokenSource cts = new CancellationTokenSource(); 
         var tasks = new List<Task>(); 
         foreach (string partition in d2cPartitions) 
@@ -377,28 +483,18 @@ class Program 
 
 Use Azure Resource Health to monitor whether your IoT hub is up and running. You can also learn whether a regional outage is impacting the health of your IoT hub. To understand specific details about the health state of your Azure IoT Hub, we recommend that you [Use Azure Monitor](#use-azure-monitor). 
 
-Azure IoT Hub indicates health at a regional level. If a regional outage impacts your IoT hub, the health status shows as **Unknown**. To learn more, see [Resource types and health checks in Azure resource health][lnk-ARH-checks].
+Azure IoT Hub indicates health at a regional level. If a regional outage impacts your IoT hub, the health status shows as **Unknown**. To learn more, see [Resource types and health checks in Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 To check the health of your IoT hubs, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Service Health** > **Resource health**.
-1. From the drop-down boxes, select your subscription and **IoT Hub**.
+1. From the drop-down boxes, select your subscription then select **IoT Hub** as the resource type.
 
-To learn more about how to interpret health data, see [Azure resource health overview][lnk-ARH]
+To learn more about how to interpret health data, see [Azure resource health overview](../service-health/resource-health-overview.md).
 
 ## Next steps
 
-- [Understand IoT Hub metrics][lnk-metrics]
-- [IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox][lnk-monitoring-notifications]
+- [Understand IoT Hub metrics](iot-hub-metrics.md)
+- [IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
-[lnk-AM-schemas]: ../azure-monitor/platform/diagnostic-logs-schema.md
-[lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
-[lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

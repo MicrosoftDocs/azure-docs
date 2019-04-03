@@ -4,15 +4,15 @@ titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
---- 
+---
 
 # Tutorial: Extract contextually related data from an utterance
 
@@ -70,7 +70,7 @@ The hierarchical entity is a good fit for this type of data because the two piec
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [ ![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
@@ -87,7 +87,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 1. In the utterance, `move John W. Smith leaving Seattle headed to Dallas`, select the word `Seattle`. A drop-down menu appears with a text box at the top. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
 
-    [![Screenshot of creating new entity on intent page](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Screenshot of creating new entity on intent page](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
@@ -95,7 +95,7 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 1. The label for `Seattle` is marked as `Location` because LUIS doesn't know if the term was the origin or destination, or neither. Select `Seattle`, then select **Location**, then follow the menu to the right and select `Origin`.
 
-    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Label the other locations in all the other utterances. When all locations are marked, the utterances begin to look like a pattern. 
 

@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
 ---
 
 # Start and stop Azure Stack
-You should follow the procedures in this article to properly shut down and restart Azure Stack services. Shutdown will physically power off the entire Azure Stack environment. Startup powers on all infrastructure roles and returns tenant resources to the power state they were in prior to shutdown.
+You should follow the procedures in this article to properly shut down and restart Azure Stack services. Shutdown will physically power off the entire Azure Stack environment. Start up powers on all infrastructure roles and returns tenant resources to the power state they were in prior to shutdown.
 
 ## Stop Azure Stack 
 

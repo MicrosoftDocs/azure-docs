@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -34,7 +34,7 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 > [!NOTE]
 > Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.
 >
-> For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). 
+> For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
@@ -56,11 +56,9 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 * You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
-### Blob storage accounts
+### Block blob storage accounts
 
-A Blob storage account is a specialized storage account for storing unstructured object data as block blobs. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
-
-Blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+A block blob storage account is a specialized storage account for storing unstructured object data as block blobs or append blobs. Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
 ## Naming storage accounts
 
@@ -74,7 +72,7 @@ When naming your storage account, keep these rules in mind:
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
 * A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A premium performance tier for storing unmanaged virtual machine disks only.
 
 ## Access tiers for block blob data
 
@@ -82,20 +80,14 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-> [!NOTE]
-> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in limited preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions. To learn how to register for the preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
-
 * The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
 * The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
 * The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers. 
 
-
-If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
-
-
 
 ## Replication
 
@@ -133,7 +125,7 @@ Every request made against your storage account must be authorized. At the level
 
 You can grant access to the data in your storage account using any of the following approaches:
 
-- **Azure Active Directory:** Use Azure Active Directory (Azure AD) credentials to authenticate a user, group, or other identity for access to blob and queue data (preview). If authentication of an identity is successful, then Azure AD returns a token to use in authorizing the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (preview)](storage-auth-aad.md).
+- **Azure Active Directory:** Use Azure Active Directory (Azure AD) credentials to authenticate a user, group, or other identity for access to blob and queue data. If authentication of an identity is successful, then Azure AD returns a token to use in authorizing the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 - **Shared Key authorization:** Use your storage account access key to construct a connection string that your application uses at runtime to access Azure Storage. The values in the connection string are used to construct the *Authorization* header that is passed to Azure Storage. For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
 - **Shared access signature:** Use a shared access signature to delegate access to resources in your storage account, if you are not using Azure AD authentication. A shared access signature is a token that encapsulates all of the information needed to authorize a request to Azure Storage on the URL. You can specify the storage resource, the permissions granted, and the interval over which the permissions are valid as part of the shared access signature. For more information, see [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

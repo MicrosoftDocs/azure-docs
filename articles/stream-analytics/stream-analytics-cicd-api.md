@@ -1,5 +1,5 @@
 ---
-title: Implement CI/CD for Azure Stream Analytics using REST APIs
+title: Implement CI/CD for Azure Stream Analytics on IoT Edge using REST APIs
 description: Learn how to implement a continuous integration and deployment pipeline for Azure Stream Analytics using REST APIs.
 services: stream-analytics
 author: mamccrea
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ---
 
-# Implement CI/CD for Stream Analytics using APIs
+# Implement CI/CD for Stream Analytics on IoT Edge using APIs
 
 You can enable continuous integration and deployment for Azure Stream Analytics jobs using REST APIs. This article provides examples on which APIs to use and how to use them. REST APIs aren't supported on Azure Cloud Shell.
 

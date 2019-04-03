@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use the Entity Linking Intelligence Service API for entity-linking tasks.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: entity-linking-intelligence

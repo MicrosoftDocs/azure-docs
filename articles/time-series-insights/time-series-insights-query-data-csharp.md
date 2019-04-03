@@ -107,7 +107,7 @@ namespace TimeSeriesInsightsQuerySample
                 toAvailabilityTimestamp);
             Console.WriteLine();
 
-            // Assume data for the whole availablility range is requested.
+            // Assume data for the whole availability range is requested.
             DateTime from = fromAvailabilityTimestamp;
             DateTime to = toAvailabilityTimestamp;
 

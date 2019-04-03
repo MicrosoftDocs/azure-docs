@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to return a Content Moderator client using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

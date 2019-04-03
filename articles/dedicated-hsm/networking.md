@@ -3,7 +3,7 @@ title: Networking considerations - Azure Dedicated HSM | Microsoft Docs
 description: Overview of networking considerations applicable to Azure Dedicated HSM deployments
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
@@ -49,8 +49,8 @@ When creating cloud-based resources, it is a typical requirement for a private c
 A key decision point here is the nature of the connection as there are options.  The most flexible option is Site-to-Site VPN as there will likely be multiple on-premises resources that require secure communication with resources (including HSMs) in the Azure cloud. This will require a customer organization to have a VPN device to facilitate the connection. A Point-to-Site VPN connection can be used if there is only a single end-point on-premises such as a single administration workstation.
 For more information on connectivity options, see [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-At this time, ExpressRoute is not an option for connection to on-premises resources. It should also be noted that the ExpressRoute Gateway used as described above, is not for connections to on-premises infrastructure.
+> [!NOTE]
+> At this time, ExpressRoute is not an option for connection to on-premises resources. It should also be noted that the ExpressRoute Gateway used as described above, is not for connections to on-premises infrastructure.
 
 ### Point-to-Site VPN
 
@@ -58,7 +58,7 @@ A point-to-site Virtual Private Network is the simplest form of secure connectio
 
 ### Site-to-Site VPN
 
-A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premise and needing a connection between the two for running the backup.
+A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premises and needing a connection between the two for running the backup.
 
 ## Connecting virtual networks
 
@@ -78,8 +78,8 @@ The HSM devices have the ability, via software libraries, to redirect traffic to
 
 For globally distributed applications or for high availability regional failover scenarios, it is required to connect virtual networks across regions. With Azure Dedicated HSM, high-availability can be achieved by using a VPN Gateway that provides a secure tunnel between the two virtual networks. For more information on Vnet-to-Vnet connections using VPN Gateway, see the article titled [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 
+> [!NOTE]
+> Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 
 
 ![global-vnet](media/networking/global-vnet.png)
 

@@ -3,7 +3,8 @@ title: "Create, train, publish knowledge base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
-manager: cgronlun
+manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
@@ -37,7 +38,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 5. In step 3, name your KB **My Sample QnA KB**.
 
 6. To add content to your KB, select three types of data sources. In step 4, under **Populate your KB**, add the 
-[BitLocker Recovery FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
+   [BitLocker Recovery FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
 
    ![Select a QnA service KB](../media/qnamaker-quickstart-kb/add-datasources.png)
 
@@ -49,7 +50,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 10. In the upper right, select **Add QnA pair** to add a new row in the **Editorial** section of the KB. Under **Question**, enter **Hi.** Under **Answer**, enter **Hello. Ask me bitlocker questions.**
 
-   ![Add a QnA pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Add a QnA pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. In the upper right, select **Save and train** to save your edits and train the QnA Maker model. Edits aren't kept unless they're saved.
 
@@ -57,7 +58,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 13. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the KB before they're published.
 
-   ![Test Panel](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Test Panel](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Select **Test** again to close the **Test** pop-up.
 
@@ -65,7 +66,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 16. The QnA Maker service is now successfully published. You can use the endpoint in your application or bot code.
 
-   ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## Next steps
 

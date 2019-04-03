@@ -21,13 +21,13 @@ These alerts are for Azure resources, can be created by using an Azure Resource 
 ## Azure portal
 
 > [!NOTE]
-
+> 
 >  While creating the alert rules, ensure the following:
-
+> 
 > - Subscription in the scope is not different from the subscription where the alert is created.
-- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
-- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
-- When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+> - Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+> - There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+> - When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 
 ### Create with Azure portal
 
@@ -44,36 +44,36 @@ Use the following procedure:
 
 3. **Under Define Alert condition,** provide the following information, and click **Done**.
 
-    - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
+   - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > you can select a resource, resource group, or an entire subscription for activity log signal.
 
-    > you can select a resource, resource group, or an entire subscription for activity log signal.
-
-    **Alert target sample view**
+     **Alert target sample view**
      ![Select Target](media/alerts-activity-log/select-target.png)
 
-    - Under **Target Criteria**, click **add criteria** and all available signals for the target are displayed including those from various categories of  **Activity Log**; with category name appended in **Monitor Service** name.
+   - Under **Target Criteria**, click **add criteria** and all available signals for the target are displayed including those from various categories of  **Activity Log**; with category name appended in **Monitor Service** name.
 
-    - Select the signal from the list displayed of various operations possible for the type **Activity Log**.
+   - Select the signal from the list displayed of various operations possible for the type **Activity Log**.
 
-    You can select the log history timeline and the corresponding alert logic for this target signal:
+     You can select the log history timeline and the corresponding alert logic for this target signal:
 
-    **Add criteria screen**
+     **Add criteria screen**
 
-    ![add criteria](media/alerts-activity-log/add-criteria.png)
+     ![add criteria](media/alerts-activity-log/add-criteria.png)
 
-    **History time**: Events available for selected operation is can be plotted over the last 6/12/24 hours (or) Over the last Week.
+     **History time**: Events available for selected operation is can be plotted over the last 6/12/24 hours (or) Over the last Week.
 
-    **Alert logic**:
+     **Alert logic**:
 
      - **Event Level**- The severity level of the event. _Verbose_, _Informational_, _Warning_, _Error_, or _Critical_.
      - **Status**: The status of the event. _Started_, _Failed_, or _Succeeded_.
      - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
-        Sample signal graph with alert logic applied:
+       Sample signal graph with alert logic applied:
 
-        ![ criteria selected](media/alerts-activity-log/criteria-selected.png)
+       ![ criteria selected](media/alerts-activity-log/criteria-selected.png)
 
 4. Under **define alert rules details**, provide the following details:
 
@@ -88,7 +88,7 @@ Use the following procedure:
 
     The new alert rule for the activity log is created and a confirmation message appears at the top right of the window.
 
-    You can enable, disable, edit, or delete a rule. [Learn more](#view-and-manage-activity-log-alert-rules-in-azure-portal) about managing activity log rules.
+    You can enable, disable, edit, or delete a rule. Learn more about managing activity log rules.
 
 
 Alternatively, a simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button; then follow steps 4 onwards as stated in tutorial above.
@@ -110,15 +110,15 @@ Alternatively, a simple analogy for understanding conditions on which alert rule
 
     You can use the available filters - _Subscription_, _Resource group_,  _Resource_, _Signal Type_, or _Status_ to find the activity rule that you want to edit.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > You can only edit **Description** , **Target criteria** and **Action groups**.
 
-    > You can only edit **Description** , **Target criteria** and **Action groups**.
+3. Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
 
-3.  Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
+   ![ manage alert rules](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ manage alert rules](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
+4. You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
 
 
 ## Azure Resource Template
@@ -198,20 +198,41 @@ The sample json above can be saved as (say) sampleActivityLogAlert.json for the 
 [Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
 ## PowerShell
-Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### Deploy Resource Manager Template with PowerShell
+To use PowerShell to deploy the sample Resource Template shown in a previous [Resource Template section](#resource-manager-template, use the following command:
+
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
-Wherein the sampleActivityLogAlert.parameters.json has the values provided for the parameters needed for alert rule creation.
+
+where the sampleActivityLogAlert.parameters.json contains the values provided for the parameters needed for alert rule creation.
+
+### Use Activity Log PowerShell cmdlets
+
+Activity log alerts have dedicated PowerShell cmdlets available:
+
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Creates a new or update an existing activity log alert.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Gets one or more activity log alert resources.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Enables an existing activity log alert and sets its Tags.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Disables an existing activity log alert and sets its tags.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)	: Removes an activity log alert.
 
 ## CLI
-Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-The *sampleActivityLogAlert.parameters.json* file has the values provided for the parameters needed for alert rule creation.
+Dedicated Azure CLI commands under the set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) are available for managing activity log alert rules.
 
+To create a new activity log alert rule, use in this order:
+
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create new activity log alert rule resource
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Add action group to the activity log alert rule
+
+To retrieve one activity log alert rule resource, the Azure CLI command [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) can be used. And for viewing all activity log alert rule resource in a resource group, use [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Activity log alert rule resources can be removed using Azure CLI command [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## Next steps
 

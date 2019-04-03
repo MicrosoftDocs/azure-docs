@@ -78,7 +78,7 @@ To export the LDAPS certificate to a .PFX file:
 
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next**.
 
-    ![Password for certificate export ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password for certificate export](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

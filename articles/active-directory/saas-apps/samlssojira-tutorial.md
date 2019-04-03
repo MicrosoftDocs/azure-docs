@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Jira by resolution GmbH
 
@@ -204,7 +205,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 	
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
 	
-16. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+16. In the appearing dialog reading **Skipping the test means...**, click **OK**.
 	
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
 
@@ -226,7 +227,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -302,9 +303,9 @@ When you click the SAML SSO for Jira by resolution GmbH tile in the Access Panel
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

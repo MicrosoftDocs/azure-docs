@@ -4,15 +4,16 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Node.js.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
+
 # Quickstart: Extract printed text (OCR) using the REST API and Node.js in Computer Vision
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
@@ -48,7 +49,7 @@ To create and run the sample, do the following steps:
 1. Open a command prompt window.
 1. At the prompt, use the `node` command to run the file. For example, `node get-printed-text.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

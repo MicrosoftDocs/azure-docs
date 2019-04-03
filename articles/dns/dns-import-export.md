@@ -116,11 +116,11 @@ To verify the DNS zone after you import the file, you can use any one of the fol
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* You can list the records by using the PowerShell cmdlet `Get-AzureRmDnsRecordSet`.
+* You can list the records by using the Azure CLI command `az network dns record-set ns list`.
 * You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The following sample shows how to retrieve the name server names assigned to the zone. This also shows how to query the "www" record by using `nslookup`.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json
@@ -188,6 +188,6 @@ As with the zone import, you first need to sign in, choose your subscription, an
 
 To export the existing Azure DNS zone **contoso.com** in resource group **myresourcegroup** to the file **contoso.com.txt** (in the current folder), run `azure network dns zone export`. This command  calls the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```

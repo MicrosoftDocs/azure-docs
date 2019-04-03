@@ -3,9 +3,8 @@ title: User provisioning management for enterprise apps in the Azure Active Dire
 description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,10 +13,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: barbkess
-
+ms.author: celested
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it. To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).

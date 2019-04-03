@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
+ms.lastreviewed: 02/08/2019
 
 ---
 # Infrastructure Backup Service best practices
@@ -39,9 +39,18 @@ The Universal Naming Convention (UNC) string for the path must use a fully quali
 
 ### Encryption
 
+#### Version 1901 and newer
+
+The encryption certificate is used to encrypt backup data that gets exported to external storage. The certificate can be a self-signed certificate since the certificate is only used to transport keys. Refer to New-SelfSignedCertificate for more information on how to create a certificate.  
+The key must be stored in a secure location (for example, global Azure Key Vault certificate). The CER format of the certificate is used to encrypt data. The PFX format must be used during cloud recovery deployment of Azure Stack to decrypt backup data.
+
+![Stored the certificate in a secure location.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### 1811 and older
+
 The encryption key is used to encrypt backup data that gets exported to external storage. The key is generated as part of [enabling backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
+The key must be stored in a secure location (for example, global Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 
 ![Stored the key a secure location.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -70,7 +79,7 @@ Region: nyc
 
 MASBackup folder is where Azure Stack stores its backup data. You should not use this folder to store your own data. OEM should not use this folder to store any backup data either. 
 
-OEMs are encouraged to store backup data for their components under the region folder. Each network switches, hardware lifecycle host (HLH), and so on may be stored in its own subfolder. For example:
+OEMs are encouraged to store backup data for their components under the region folder. Each network switches, hardware lifecycle host (HLH), and so on, may be stored in its own subfolder. For example:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -91,6 +100,6 @@ The following alerts are supported by the system:
 
 ## Next steps
 
-Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).
+Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md)
 
-Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).
+Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md)

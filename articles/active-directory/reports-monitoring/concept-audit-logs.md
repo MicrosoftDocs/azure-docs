@@ -4,7 +4,7 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Audit activity reports in the Azure Active Directory portal 
 
@@ -37,7 +38,7 @@ This article gives you an overview of the audit report.
  
 ## Who can access the data?
 
-* Users in the **Security Admininistrator**, **Security Reader** or **Global Administrator** roles
+* Users in the **Security Admininistrator**, **Security Reader**, **Report Reader** or **Global Administrator** roles
 * In addition, all users (non-administrators) can see their own audit activities
 
 ## Audit logs
@@ -49,38 +50,93 @@ The Azure AD audit logs provide records of system activities for compliance. To 
 An audit log has a default list view that shows:
 
 - the date and time of the occurrence
-- the initiator / actor (*who*) of an activity 
-- the activity (*what*) 
+- the service that logged the occurrence
+- the category and name of the activity (*what*) 
+- the status of the activity (success or failure)
 - the target
+- the initiator / actor (who) of an activity
 
-![Audit logs](./media/concept-audit-logs/18.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/listview.png "Audit logs")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Audit logs](./media/concept-audit-logs/19.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/columns.png "Audit logs")
 
 This enables you to display additional fields or remove fields that are already displayed.
 
-![Audit logs](./media/concept-audit-logs/21.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/columnselect.png "Audit logs")
 
 Select an item in the list view to get more detailed information.
 
-![Audit logs](./media/concept-audit-logs/22.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/details.png "Audit logs")
 
 
 ## Filtering audit logs
 
 You can filter the audit data on the following fields:
 
-- Date range
-- Initiated by (Actor)
+- Service
 - Category
-- Activity resource type
 - Activity
+- Status
+- Target
+- Initiated by (Actor)
+- Date range
 
-![Audit logs](./media/concept-audit-logs/23.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/filter.png "Audit logs")
 
-The **date range** filter enables to you to define a timeframe for the returned data.  
+The **Service** filter allows you to select from a dropdown of the following services:
+
+- All
+- Access Reviews
+- Account Provisioning 
+- Application SSO
+- Authentication Methods
+- B2C
+- Conditional Access
+- Core Directory
+- Entitlement Management
+- Identity Protection
+- Invited Users
+- PIM
+- Self-service Group Management
+- Self-service Passord Management
+- Terms of Use
+
+The **Category** filter enables you to select one of the following filters:
+
+- All
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contact
+- Device
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Other
+- Policy
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
+
+You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](reference-audit-activities.md).
+
+The **Status** filter allows you to filter based on the status of an audit operation. The status can be one of the following:
+
+- All
+- Success
+- Failure
+
+The **Target** filter allows you to search for a particular target by name or user principal name (UPN). The target name and UPN are case-sensitive. 
+
+The **Initiated by** filter enables you to define an actor's name or a universal principal name (UPN). The name and UPN are case-sensitive.
+
+The **Date range** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
 
 - 1 month
@@ -90,41 +146,9 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **initiated by** filter enables you to define an actor's name or a universal principal name (UPN).
+You can also choose to download the filtered data, upto 250,000 records, by selecting the **Download** button. You may choose to download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
 
-The **category** filter enables you to select one of the following filter:
-
-- All
-- Core category
-- Core directory
-- Self-service password management
-- Self-service group management
-- Account provisioning- Automated password rollover
-- Invited users
-- MIM service
-- Identity Protection
-- B2C
-
-The **activity resource type** filter enables you to select one of the following filters:
-
-- All 
-- Group
-- Directory
-- User
-- Application
-- Policy
-- Device
-- Other
-
-When you select **Group** as **activity resource type**, you get an additional filter category that enables you to also provide a **Source**:
-
-- Azure AD
-- O365
-
-
-The **activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
-
-You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](reference-audit-activities.md).
+![Audit logs](./media/concept-audit-logs/download.png "Audit logs")
 
 ## Audit logs shortcuts
 
@@ -153,9 +177,13 @@ With user and group-based audit reports, you can get answers to questions such a
 
 - What licenses have been assigned to a group or a user?
 
-If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of the **Users and Groups**. This entry point has **Users and groups** as preselected **Activity Resource Type**.
+If you just want to review auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Activity** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
 
-![Audit logs](./media/concept-audit-logs/93.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/users.png "Audit logs")
+
+If you just want to review auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Activity** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
+
+![Audit logs](./media/concept-audit-logs/groups.png "Audit logs")
 
 ### Enterprise applications audit logs
 
@@ -167,17 +195,13 @@ With application-based audit reports, you can get answers to questions such as:
 * Have the names of applications been changed?
 * Who gave consent to an application?
 
-If you want to review audit data related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** preselected as the **Activity Resource Type**.
+If you want to review audit data related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** preselected as the **Application Type**.
 
-![Audit logs](./media/concept-audit-logs/134.png "Audit logs")
-
-You can filter this view down to **groups** or **users**.
-
-![Audit logs](./media/concept-audit-logs/25.png "Audit logs")
+![Audit logs](./media/concept-audit-logs/enterpriseapplications.png "Audit logs")
 
 ## Office 365 activity logs
 
-You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
 You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

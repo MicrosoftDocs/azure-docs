@@ -8,7 +8,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage database accounts in Azure Cosmos DB
+# Manage an Azure Cosmos account
 
 This article describes how to manage your Azure Cosmos DB account. You learn how to set up multi-homing, add or remove a region, configure multiple write regions, and set up failover priorities. 
 
@@ -27,61 +27,56 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ## Configure clients for multi-homing
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK
+### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK v2
 
 ```csharp
-// Create a new connection policy.
 ConnectionPolicy policy = new ConnectionPolicy
     {
-        // Note: These aren't required settings for multi-homing,
-        // just suggested defaults.
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp,
-        UseMultipleWriteLocations = true,
+        UseMultipleWriteLocations = true
     };
-// Add regions to preferred locations.
-// The name of the location will match what you see in the portal, etc.
-policy.PreferredLocations.Add("East US");
-policy.PreferredLocations.Add("North Europe");
+policy.SetCurrentLocation("West US 2");
 
 // Pass the connection policy with the preferred locations on it to the client.
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
+```
+
+### <a id="configure-clients-multi-homing-dotnet-v3"></a>.NET SDK v3 (preview)
+
+```csharp
+CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
+config.UseCurrentRegion("West US");
+CosmosClient client = new CosmosClient(config);
 ```
 
 ### <a id="configure-clients-multi-homing-java-async"></a>Java Async SDK
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
-policy.setPreferredLocations(Collections.singleton("West US"));
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Collections.singletonList(region));
+
 AsyncDocumentClient client =
-        new AsyncDocumentClient.Builder()
-                .withMasterKey(this.accountKey)
-                .withServiceEndpoint(this.accountEndpoint)
-                .withConnectionPolicy(policy).build();
-```
-
-### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync SDK
-
-```java
-ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-Collection<String> preferredLocations = new ArrayList<String>();
-preferredLocations.add("Australia East");
-connectionPolicy.setPreferredLocations(preferredLocations);
-DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
+    new AsyncDocumentClient.Builder()
+        .withMasterKeyOrResourceToken(this.accountKey)
+        .withServiceEndpoint(this.accountEndpoint)
+        .withConsistencyLevel(ConsistencyLevel.Eventual)
+        .withConnectionPolicy(policy).build();
 ```
 
 ### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
-// Set up the connection policy with your preferred regions.
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
-connectionPolicy.PreferredLocations = ["West US", "Australia East"];
+connectionPolicy.UseMultipleWriteLocations = true;
+connectionPolicy.PreferredLocations = [region];
 
-// Pass that connection policy to the client.
 const client = new CosmosClient({
   endpoint: config.endpoint,
   auth: { masterKey: config.key },
-  connectionPolicy
+  connectionPolicy,
+  consistencyLevel: ConsistencyLevel.Eventual
 });
 ```
 
@@ -89,9 +84,10 @@ const client = new CosmosClient({
 
 ```python
 connection_policy = documents.ConnectionPolicy()
-connection_policy.PreferredLocations = ['West US', 'Japan West']
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy)
+connection_policy.UseMultipleWriteLocations = True
+connection_policy.PreferredLocations = [region]
 
+client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## Add/remove regions from your database account
@@ -116,13 +112,13 @@ In multi-region write mode, you can add or remove any region if you have at leas
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
 ```
 
 ## Configure multiple write-regions
@@ -215,9 +211,9 @@ The following JSON code is an example of an Azure Resource Manager template. You
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: 'eastus=0 westus=1'
+# Given your account currently has regions with priority like so: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
 ```
 
 ## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos DB account
@@ -274,7 +270,8 @@ You can't modify the write region on this menu. To change the write region manua
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+# Assume region order is initially eastus=0 westus=1 automatic failover on account creation
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies westus=0 eastus=1
 ```
 
 ## Next steps

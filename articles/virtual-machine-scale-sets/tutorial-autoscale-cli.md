@@ -58,7 +58,7 @@ az vmss create \
 
 ## Define an autoscale profile
 
-To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continuedly creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
+To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -103,7 +103,7 @@ az monitor autoscale rule create \
 
 To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU load causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
-First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -137,7 +137,7 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -148,7 +148,7 @@ Ctrl-c
 exit
 ```
 
-Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -204,7 +204,7 @@ Exit *watch* with `Ctrl-c`. The scale set continues to scale in every 5 minutes 
 
 ## Clean up resources
 
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

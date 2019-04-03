@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -79,12 +79,14 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 ## Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### List role assignment at the root scope (/)
 
-To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
+To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -107,10 +109,10 @@ To remove a User Access Administrator role assignment for a user at the root sco
 1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at the root scope.
 
 
-1. Use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command to remove the User Access Administrator role assignment.
+1. Use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command to remove the User Access Administrator role assignment.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 
@@ -173,7 +175,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 	```http
 	GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
-	```
+    ```
 
 	```json
 	{
@@ -208,7 +210,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 	  ],
 	  "nextLink": null
 	}
-	```
+    ```
 
     Save the ID from the `name` parameter, in this case `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
@@ -216,47 +218,47 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 	```http
 	GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
-	```
+    ```
 	
 	>[!NOTE] 
 	>A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results: 
 	> `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
 		
-	2. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
+   1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
 	
-	Sample role assignment:
+      Sample role assignment:
 
-    	```json
-        {
-          "value": [
-            {
-              "properties": {
-                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-                "principalId": "{objectID}",
-                "scope": "/",
-                "createdOn": "2016-08-17T19:21:16.3422480Z",
-                "updatedOn": "2016-08-17T19:21:16.3422480Z",
-                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
-                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
-              },
-              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-              "type": "Microsoft.Authorization/roleAssignments",
-              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
-            }
-          ],
-          "nextLink": null
-        }
-    	```
+       ```json
+       {
+         "value": [
+           {
+             "properties": {
+               "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+               "principalId": "{objectID}",
+               "scope": "/",
+               "createdOn": "2016-08-17T19:21:16.3422480Z",
+               "updatedOn": "2016-08-17T19:21:16.3422480Z",
+               "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+               "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+             },
+             "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+             "type": "Microsoft.Authorization/roleAssignments",
+             "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+           }
+         ],
+         "nextLink": null
+       }
+       ```
 		
-	Again, save the ID from the `name` parameter, in this case e7dd75bc-06f6-4e71-9014-ee96a929d099.
+      Again, save the ID from the `name` parameter, in this case e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-	3. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
+   1. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
 
-	```http
-	DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
-	```
+      ```http
+      DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+      ```
 
 ## Next steps
 
-- [Understand the different roles](rbac-and-directory-admin-roles.md)
-- [Role-based access control with REST](role-assignments-rest.md)
+- [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
+- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)

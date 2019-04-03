@@ -4,18 +4,19 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a remote image using the Computer Vision API with cURL.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
+
 # Quickstart: Analyze a remote image using the REST API and cURL in Computer Vision
 
-In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you analyze a remotely stored image to extract visual features using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
@@ -100,10 +101,6 @@ A successful response is returned in JSON. The sample application parses and dis
   }
 }
 ```
-
-## Clean up resources
-
-When no longer needed, close the command prompt window and the text editor.
 
 ## Next steps
 

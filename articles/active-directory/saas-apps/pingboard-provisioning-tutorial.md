@@ -19,6 +19,7 @@ ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Pingboard for automatic user provisioning

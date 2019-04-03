@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Create a zone-redundant virtual machine scale set with PowerShell
+# Create a zone-redundant virtual machine scale set with Azure CLI
 This script creates a virtual machine scale set running Ubuntu across multiple Availability Zones. After running the script, you can access the virtual machine over RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -44,7 +44,7 @@ This script uses the following commands to create a resource group, virtual mach
 |---|---|
 | [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
 | [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
-| [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).

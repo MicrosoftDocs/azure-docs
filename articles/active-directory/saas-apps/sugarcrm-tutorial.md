@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Sugar CRM
 
@@ -110,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.sugarondemand.com` |

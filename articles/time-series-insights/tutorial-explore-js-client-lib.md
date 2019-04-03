@@ -143,7 +143,7 @@ The populating and rendering of chart controls follows a general pattern. You fi
    | `splitByObject`   | The string property that you wish to split by (optional – can be null). | `{property: 'Station', type: 'String'}` |
    | `color`         | The color of the objects that you wish to render. | `'pink'` |
    | `alias`           | A friendly name for the aggregate expression. | `'Factory3Temperature'` |
-   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see [Pop-up context menus in the Advanced features section.](#popup-context-menus) |
+   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see Pop-up context menus in the Advanced features section. |
 
 3. Call a TSI query by using the `TsiClient.Server` APIs to request the aggregate data:
 
@@ -256,7 +256,7 @@ The screenshot shows the charts with their respective pop-up context menus. The 
 
 Brushes are used to scope a time range to define actions like zoom and explore.
 
-The code that's used to illustrate brushes is shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example that describes [Pop-up context menus](#popup-context-menus-section).
+The code that's used to illustrate brushes is shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example that describes Pop-up context menus.
 
 1. Brush actions are similar to a context menu in that they define a series of custom actions for the brush. Each action contains an array with one or more elements. Each element defines a single context menu item:
    - `name`: The text that's used for the menu item: "Print parameters to console."

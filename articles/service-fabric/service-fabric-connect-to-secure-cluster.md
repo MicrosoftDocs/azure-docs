@@ -3,8 +3,8 @@ title: Connect securely to an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Connect to a secure cluster
@@ -177,7 +177,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 using System.Fabric;

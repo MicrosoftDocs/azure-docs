@@ -5,7 +5,7 @@
  author: KumudD
  ms.service: load-balancer
  ms.topic: include
- ms.date: 01/09/2018
+ ms.date: 02/08/2018
  ms.author: kumud
  ms.custom: include file
 ---
@@ -21,7 +21,7 @@
 | HA Ports | Internal Load Balancer | Not available. |
 | Secure by default | Public IP, public Load Balancer endpoints, internal Load Balancer endpoints are closed to inbound flows unless whitelisted by a network security group. | Open by default, network security group optional. |
 | [Outbound connections](../articles/load-balancer/load-balancer-outbound-connections.md) | You can explicitly define pool-based outbound NAT with [outbound rules](../articles/load-balancer/load-balancer-outbound-rules-overview.md). You can use multiple frontends with per load balancing rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine, availability set, virtual machine scale set to use outbound connectivity.  Virtual Network Service Endpoints can be reached without defining outbound connectivity and don't count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, availability set, or virtual machine scale set, outbound connections via default SNAT aren't available; use [outbound rules](../articles/load-balancer/load-balancer-outbound-rules-overview.md) instead. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, availability set, or virtual machine scale set, default SNAT is used. |
-| [Outbound Rules](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Declarative outbound NAT configuration, using public IP addresses or public IP prefixes or both, configurable outbound idle timeout, custom SNAT port allocation | Not available. |
+| [Outbound Rules](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Declarative outbound NAT configuration, using public IP addresses or public IP prefixes or both, configurable outbound idle timeout (4-120 minutes), custom SNAT port allocation | Not available. |
 |  [TCP Reset on Idle](../articles/load-balancer/load-balancer-tcp-reset.md) | Enable TCP Reset (TCP RST) on Idle Timeout on any rule | Not available |
 | [Multiple frontends](../articles/load-balancer/load-balancer-multivip-overview.md) | Inbound and [outbound](../articles/load-balancer/load-balancer-outbound-connections.md) | Inbound only |
 | Management Operations | Most operations < 30 seconds | 60-90+ seconds typical. |

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
 description: This specification outlines two modes that are supported by Media Services for signaling timed metadata within live streaming. This includes support for generic timed metadata signals, as well as SCTE-35 signaling for ad splice insertion. 
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 03/20/2019
 ms.author: johndeu;
 
 ---
-# Signaling Timed Metadata in Live Streaming
+# Signaling Timed Metadata in Live Streaming 
 
 
 ## 1 Introduction 
@@ -124,6 +124,7 @@ The ‘moov’ box SHOULD contain a **TrackHeaderBox (‘tkhd’)** box as defin
 | **Field Name** | **Field Type**          | **Required?** | **Description**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | 64-bit unsigned integer | Required      | SHOULD be 0, since the track box has zero samples and the total duration of the samples in the track box is 0. |
+
 -------------------------------------
 
 The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
@@ -132,6 +133,7 @@ The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 | **Field Name** | **Field Type**          | **Required?** | **Description**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | 32-bit unsigned integer | Required      | SHOULD be ‘meta’. |
+
 -------------------------------------
 
 The ‘stsd’ box SHOULD contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name SHOULD be 'scte'.
@@ -238,7 +240,7 @@ Azure Media Services will embed timed metadata in the EXT-X-CUE tag defined in [
 
 | **Attribute Name** | **Type**                      | **Required?**                             | **Description**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | quoted string                 | Required                                  | The message encoded as a base64 string as described in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). For [SCTE-35] messages, this is the base64 encoded splice_info_section().                                                                                                |
+| CUE                | quoted string                 | Required                                  | The message encoded as a base64 string as described in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). For [SCTE-35] messages, this is the base64 encoded splice_info_section().                                                                                                |
 | TYPE               | quoted string                 | Required                                  | A URN or URL identifying the message scheme. For [SCTE-35] messages, the type takes the special value “scte35”.                                                                                                                                |
 | ID                 | quoted string                 | Required                                  | A unique identifier for the event. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                          |
 | DURATION           | decimal floating point number | Required                                  | The duration of the event. If unknown, the value should be 0. Units are factional seconds.                                                                                                                                                                                           |
@@ -319,7 +321,7 @@ Zero or more Event elements are contained within the EventStream element, and th
 | presentation_time   | 64-bit unsigned integer | Optional      | MUST be the media presentation time of the event relative to the start of the Period. The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. |
 | duration            | 32-bit unsigned integer | Optional      | The duration of the event. This MUST be omitted if the duration is unknown.                                                                                                                                                 |
 | id                  | 32-bit unsigned integer | Optional      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.             |
-| Event element value | string                  | Required      | The event message as a base64 string as described in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Event element value | string                  | Required      | The event message as a base64 string as described in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### XML Syntax and Example for DASH manifest (MPD) Signaling
 
@@ -440,7 +442,7 @@ formats, 2nd edition
 
 **[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]** ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest
 Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)

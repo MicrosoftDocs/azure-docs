@@ -3,8 +3,8 @@ title: Key Vault versions
 description: The various versions of Azure Key Vault
 services: key-vault
 documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -45,7 +45,7 @@ The following changes were made at this release:
 
 ## 2015-02-01-preview 
 
-Second preview version 2015-02-01-preview, announced on April 20, 2015. For more information, see [REST API Update](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blog post.
+Second preview version 2015-02-01-preview, announced on April 20, 2015. For more information, see [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blog post.
 
 The following tasks were updated:
 

@@ -97,7 +97,7 @@ Now, let's perform the actual sync operation, and get data from the remote back 
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity

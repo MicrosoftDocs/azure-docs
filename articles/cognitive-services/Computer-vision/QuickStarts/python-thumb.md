@@ -4,46 +4,29 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the REST API and Python in Computer Vision
 
-In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
+In this quickstart, you will generate a thumbnail from an image using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can specify the desired height and width, and Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
-You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/try/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
-
-## Prerequisites
-
-- You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
 - You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Create and run the sample
 
-To create and run the sample, do the following steps:
-
-1. Copy the following code into a text editor.
-1. Make the following changes in code where needed:
-    1. Replace the value of `subscription_key` with your subscription key.
-    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of `image_url` with the URL of a different image for which you want to generate a thumbnail.
-1. Save the code as a file with an `.py` extension. For example, `get-thumbnail.py`.
-1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python get-thumbnail.py`.
+To create and run the sample, copy the following code into the code editor. 
 
 ```python
 import requests
@@ -87,13 +70,27 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+Next, do the following:
+1. Replace the value of `subscription_key` with your subscription key.
+1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+1. Optionally, replace the value of `image_url` with the URL of a different image for which you want to generate a thumbnail.
+1. Save the code as a file with an `.py` extension. For example, `get-thumbnail.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python get-thumbnail.py`.
+
 ## Examine the response
 
-A successful response is returned as binary data, which represents the image data for the thumbnail. If the request succeeds, the thumbnail is generated from the binary data in the response and displayed by the sample. If the request fails, the response is displayed in the command prompt window. The response for the failed request contains an error code and a message to help determine what went wrong.
+A successful response is returned as binary data which represents the image data for the thumbnail. The sample should display this image. If the request fails, the response is displayed in the command prompt window and should contain an error code.
+
+## Run in Jupyter (optional)
+
+You can optionally run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Next, learn more detailed information about the thumbnail generation feature.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
+> [Generating thumbnails](../concept-generating-thumbnails.md)

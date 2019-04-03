@@ -4,11 +4,11 @@ description: Learn about how to configure and use metrics in Service Fabric to m
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -41,6 +41,7 @@ For basic workloads, the default metrics provide a decent distribution of work i
 Here's what you get:
 
 <center>
+
 ![Cluster Layout with Default Metrics][Image1]
 </center>
 
@@ -211,6 +212,7 @@ As a reminder, this syntax is ("MetricName, MetricWeight, PrimaryDefaultLoad, Se
 Let's see what one possible cluster layout could look like:
 
 <center>
+
 ![Cluster Balanced with both Default and Custom metrics][Image2]
 </center>
 
@@ -235,6 +237,7 @@ The real impact of different metric weights in the cluster is that the Cluster R
 Let’s look at an example of some load reports and how different metric weights results in different allocations in the cluster. In this example, we see that switching the relative weight of the metrics causes the Cluster Resource Manager to create different arrangements of services.
 
 <center>
+
 ![Metric Weight Example and Its Impact on Balancing Solutions][Image3]
 </center>
 
@@ -252,6 +255,7 @@ There are multiple weights that are tracked for every metric. The first weight i
 What would happen if the Cluster Resource Manager didn’t care about both global and local balance? Well, it’s easy to construct solutions that are globally balanced, but which result in poor resource balance for individual services. In the following example, let’s look at a service configured with just the default metrics, and see what happens when only global balance is considered:
 
 <center>
+
 ![The Impact of a Global Only Solution][Image4]
 </center>
 

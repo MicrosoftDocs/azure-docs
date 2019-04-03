@@ -5,7 +5,7 @@ description: This article provides an overview of Azure operational security.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
 ms.assetid: 
@@ -27,13 +27,13 @@ ms.author: tomsh
 
 An IT operations team is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
+[Microsoft Azure Monitor logs](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
 
 ### Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export. 
 
-You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Log Analytics also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
+You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Azure Monitor logs also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
 
 ### Automation
 
@@ -91,7 +91,7 @@ Security Center assesses the configuration of your resources to identify securit
 >[!Note]
 >To learn more about roles and allowed actions in Security Center, see [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Log Analytics service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 

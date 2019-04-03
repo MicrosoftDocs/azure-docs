@@ -17,6 +17,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Tenancy in Azure Active Directory

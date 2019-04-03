@@ -115,26 +115,26 @@ az provider register --name Microsoft.Compute
 **PowerShell**: 
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 **Q.** How can I list all the Shared Image Gallery resources across subscriptions? 
  
  A. In order to list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
 
- 1.	Open the [Azure portal](https://portal.azure.com).
- 1.	Go to **All Resources**.
- 1.	Select all the subscriptions under which you’d like to list all the resources.
- 1.	Look for resources of type **Private gallery**.
+1. Open the [Azure portal](https://portal.azure.com).
+1. Go to **All Resources**.
+1. Select all the subscriptions under which you’d like to list all the resources.
+1. Look for resources of type **Private gallery**.
  
- To see the image definitions and image versions, you should also select **Show hidden types**.
+   To see the image definitions and image versions, you should also select **Show hidden types**.
  
- To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
+   To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **Q.** How do I share my images across subscriptions?
@@ -150,9 +150,9 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: If you have an unmanaged generalized image, you can create a managed image from it, and then create an image definition and image version from it. 
 
- Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it. 
-	- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-	- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it.
+- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **Q.** Can I create an image version from a specialized disk?

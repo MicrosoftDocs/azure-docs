@@ -30,7 +30,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to move
 Data factory currently supports only moving data from an SFTP server to other data stores, but not for moving data from other data stores to an SFTP server. It supports both on-premises and cloud SFTP servers.
 
 > [!NOTE]
-> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline.
 
 ## Supported scenarios and authentication types
 You can use this SFTP connector to copy data from **both cloud SFTP servers and on-premises SFTP servers**. **Basic** and **SshPublicKey** authentication types are supported when connecting to the SFTP server.
@@ -48,7 +48,7 @@ You can create a pipeline with a copy activity that moves data from an SFTP sour
 The following table provides description for JSON elements specific to FTP linked service.
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | type | The type property must be set to `Sftp`. |Yes |
 | host | Name or IP address of the SFTP server. |Yes |
 | port |Port on which the SFTP server is listening. The default value is: 21 |No |
@@ -63,7 +63,7 @@ The following table provides description for JSON elements specific to FTP linke
 To use basic authentication, set `authenticationType` as `Basic`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username | User who has access to the SFTP server. |Yes |
 | password | Password for the user (username). | Yes |
 
@@ -113,7 +113,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 To use SSH public key authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username |User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
 | privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
@@ -170,7 +170,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
@@ -203,7 +203,7 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },

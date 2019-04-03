@@ -67,8 +67,8 @@ The following properties are supported for Impala linked service.
             "authenticationType" : "UsernameAndPassword",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

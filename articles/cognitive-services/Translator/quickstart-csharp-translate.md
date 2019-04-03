@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you translate text from one language to another using the Translator Text API with C#.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -149,6 +149,8 @@ dotnet run
 ```
 
 ## Sample response
+
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 [

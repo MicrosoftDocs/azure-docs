@@ -10,7 +10,7 @@ editor: spelluru
 ms.assetid: 
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
@@ -37,40 +37,11 @@ This tutorial covers the following steps:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
-
-> [!NOTE] 
-> You can also create a Service Bus namespace and messaging entities using [PowerShell](/powershell/azure/get-started-azureps). For more information, see [Use PowerShell to manage Service Bus resources](service-bus-manage-with-ps.md).
-
-If you have already created a Service Bus Messaging namespace, jump to the [Create a topic using the Azure portal](#2-create-a-topic-using-the-azure-portal) section.
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a topic using the Azure portal
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Sign in to the [Azure portal][azure-portal].
-2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **All services**, or click on **All resources**). Click the namespace in which you would like to create the topic. 
-3. The namespace overview window opens. Click **Topics**:
-   
-    ![Create a topic][createtopic1]
-4. Click **+ Topic**.
-   
-    ![Select Topics][createtopic2]
-5. Enter a name for the topic. Leave the other options with their default values.
-   
-    ![Select New][createtopic3]
-6. At the bottom of the dialog, click **Create**.
-
-## 3. Create a subscription to the topic
-
-1. In the portal resources pane, click the namespace you created in step 1, then click **Topics**, and then click name of the topic you created in step 2.
-2. At the top of the overview pane, click **+ Subscription** to add a subscription to this topic.
-
-    ![Create subscription][createtopic4]
-
-3. Enter a name for the subscription. Leave the other options with their default values.
-
-## 4. Send messages to the topic
+## Send messages to the topic
 
 To send messages to the topic, write a C# console application using Visual Studio.
 
@@ -227,7 +198,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
       ![Message size][topic-message]
 
-## 5. Receive messages from the subscription
+## Receive messages from the subscription
 
 To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 

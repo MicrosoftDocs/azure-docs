@@ -4,11 +4,11 @@ titlesuffix: Azure Cognitive Services
 description: Configure various settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -17,18 +17,16 @@ ms.custom: seodec18
 
 The **Recognize Text** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
-Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
-
 ## Configuration settings
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Computer Vision_ resource specified for the [`Billing`](#billing-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Computer Vision_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
@@ -40,7 +38,7 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _Computer Vision_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Computer Vision_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Computer Vision_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Computer Vision_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following place:
 
@@ -79,10 +77,6 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Computer Vision containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Hierarchical settings
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## Example docker run commands 
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](computer-vision-how-to-install-containers.md#stop-the-container) it.
@@ -107,7 +101,7 @@ The following Docker examples are for the recognize text container.
 
 ### Basic example 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -115,26 +109,15 @@ The following Docker examples are for the recognize text container.
   ApiKey={BILLING_KEY} 
   ```
 
-### Logging example with command-line arguments
+### Logging example 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} \
   ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### Logging example with environment variable
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## Next steps

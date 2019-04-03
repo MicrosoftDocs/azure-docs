@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 
 This article compares the capabilities of **Video Indexer APIs** and **Media Services v3 APIs**. 
 
-Currently, there is an overlap between features offered by the [Video Indexer v2 APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities. 
+Currently, there is an overlap between features offered by the [Video Indexer APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities. 
 
 ## Compare
 

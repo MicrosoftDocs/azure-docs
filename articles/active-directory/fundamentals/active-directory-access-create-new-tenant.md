@@ -12,6 +12,7 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Create a new tenant in Azure Active Directory
@@ -24,13 +25,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Sign in to the Azure portal
 Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
 
-![Azure portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure portal screen, with Azure AD option](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## Create a new tenant for your organization
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 ### To create a new tenant
-1. Select **Azure Active Directory**, select **Create resources**, select **Identity**, and then select **Azure Active Directory**.
+1. Select **Create a resource**, select **Identity**, and then select **Azure Active Directory**.
 
     The **Create directory** page appears.
 
@@ -55,7 +56,7 @@ If you’re not going to continue to use this application, you can delete the te
 
     The tenant and its associated information is deleted.
 
-    ![Create directory page](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Create directory page, with sample information](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 - Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)

@@ -4,7 +4,7 @@ description: This article shows how Security Center can help you secure your dat
 services: sql-database
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480

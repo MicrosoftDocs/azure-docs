@@ -1,7 +1,7 @@
 ---
 title: Create and configure Azure Kubernetes Service clusters in Azure using Ansible
 description: Learn how to use Ansible to create and manage an Azure Kubernetes Service cluster in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
 author: tomarchermsft
 manager: jeconnoc
@@ -15,18 +15,18 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), note the following values: **appId**, **displayName**, **password**, and **tenant**.
+- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), note the following values: **appId**, **displayName**, **password**, and **tenant**.
 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
+> Ansible 2.6 is required to run the following the sample playbooks in this tutorial.
 
 ## Create a managed AKS cluster
 The code in this section presents a sample Ansible playbook to create a resource group, and an AKS cluster that resides in the resource group.
 
 > [!Tip]
-> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -66,8 +66,8 @@ The code in this section presents a sample Ansible playbook to create a resource
   ```
 
 The following bullets help to explain the preceding Ansible playbook code:
-- The first section within **tasks** defines a resource group named **myResourceGroup** within the **eastus** location. 
-- The second section within **tasks** defines an AKS cluster named **myAKSCluster** within the **myResourceGroup** resource group. 
+- The first section within **tasks** defines a resource group named **myResourceGroup** within the **eastus** location.
+- The second section within **tasks** defines an AKS cluster named **myAKSCluster** within the **myResourceGroup** resource group.
 
 To create the AKS cluster with Ansible, save the preceding sample playbook as `azure_create_aks.yml`, and run the playbook with the following command:
 
@@ -86,7 +86,7 @@ The output from the **ansible-playbook* command looks similar to the following s
   TASK [Create resource group] **************************************************************************************
   changed: [localhost]
 
-  TASK [Create a Azure Container Services (AKS) cluster] ***************************************************
+  TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
   changed: [localhost]
 
   PLAY RECAP *********************************************************************************************************
@@ -95,10 +95,10 @@ The output from the **ansible-playbook* command looks similar to the following s
 
 ## Scale AKS nodes
 
-The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block. 
+The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block.
 
 > [!Tip]
-> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
 ```yaml
 - name: Scale AKS cluster
@@ -115,10 +115,10 @@ The sample playbook in the previous section defines two nodes. If you need fewer
   tasks:
   - name: Scaling an existed AKS cluster
     azure_rm_aks:
-        name: "{{ aks_name }}"    
+        name: "{{ aks_name }}"
         location: "{{ location }}"
-        resource_group: "{{ resource_group }}" 
-        dns_prefix: "{{ aks_name }}" 
+        resource_group: "{{ resource_group }}"
+        dns_prefix: "{{ aks_name }}"
         linux_profile:
           admin_username: "{{ username }}"
           ssh_key: "{{ ssh_key }}"
@@ -163,7 +163,7 @@ The following sample Ansible playbook section illustrates how to delete an AKS c
       resource_group: myResourceGroup
       aks_name: myAKSCluster
     tasks:
-    - name: 
+    - name:
       azure_rm_aks:
         name: "{{ aks_name }}"
         resource_group: "{{ resource_group }}"
@@ -188,7 +188,7 @@ TASK [azure_rm_aks] ************************************************************
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
-  
+
 ## Next steps
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Tutorial: Scale application in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

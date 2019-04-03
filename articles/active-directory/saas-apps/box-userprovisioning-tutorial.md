@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Box for automatic user provisioning
 

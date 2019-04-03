@@ -4,10 +4,10 @@ titleSuffix: Cognitive Services - Azure
 description: "There are three ways to authenticate a request to an Azure Cognitive Services resource: a subscription key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
 ---
 
@@ -23,6 +23,8 @@ Each request to an Azure Cognitive Service must include an authentication header
 
 Before you make a request, you need an Azure account and an Azure Cognitive Services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
 
+You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) after creating your account, or activating a [free trial](https://azure.microsoft.com/try/cognitive-services/my-apis).
+ 
 ## Authentication headers
 
 Let's quickly review the authentication headers available for use with Azure Cognitive Services.
@@ -53,7 +55,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-The following video demonstrates using a Cognitive Services key. 
+The following video demonstrates using a Cognitive Services key.
 
 ## Authenticate with a multi-service subscription key
 
@@ -122,16 +124,15 @@ Authentication tokens are included in a request as the `Authorization` header. T
 
 ### Sample requests
 
-Use this URL to exchange a single-service subscription key for an authentication token: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Use this URL to exchange a subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-When using a multi-service subscription key, you must use a region specific endpoint for the token exchange. Use this URL to exchange a multi-service subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 These multi-service regions support token exchange:
 
@@ -142,13 +143,6 @@ These multi-service regions support token exchange:
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 After you get an authentication token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Translator Text API:
 

@@ -1,4 +1,4 @@
---- 
+---
 title: How to use the Anomaly Finder API with Java - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Java and the Anomaly Detection in Cognitive Services.
 services: cognitive-services

@@ -226,6 +226,7 @@ You can get started in several ways, depending on the characteristics of your ap
 * [ASP.NET web application](../../azure-monitor/app/asp-net.md)
 * [Java web application](../../azure-monitor/app/java-get-started.md)
 * [Node.js web application](../../azure-monitor/app/nodejs.md)
-* Already deployed apps, hosted on [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md), or [Azure](../../azure-monitor/app/app-insights-overview.md).
+* Already deployed apps, hosted on [IIS](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Web pages](../../azure-monitor/app/javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to test your app from the public internet.

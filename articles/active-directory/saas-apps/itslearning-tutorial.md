@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory integration with itslearning
@@ -110,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/itslearning-tutorial/tutorial_itslearning_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL as:
+	
 	| |
 	|--| 
 	| `https://www.itslearning.com/index.aspx`|
