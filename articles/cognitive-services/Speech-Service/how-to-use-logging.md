@@ -15,16 +15,16 @@ ms.author: amishu
 
 # Enable logging in the Speech SDK
 
-Logging to file is an optional feature. During development it can help you to get additional information and diagnostics from the Speeck SDK core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
+Logging to file is an optional feature. During development, it can help you to get additional information and diagnostics from the Speeck SDK core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
 
 > [!NOTE]
 > Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
 
-Currently you can't start a logging session from a `SpeechSynthesizer`, but once a logging session has been started, you will also receive diagnostics from the `SpeechSynthesizer`.
+A `SpeechSynthesizer` can't start a logging session. Once a logging session has been started, you will also receive diagnostics from a `SpeechSynthesizer`.
 
 ## Sample
 
-The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you have create an instance called `config`:
+The log file name is specified on a configuration object. Taking a `SpeechConfig` instance object you called `config` as an example:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -46,15 +46,15 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-You can then create a recognizer from the config object. This will activate the logging functionality.
+You can then create a recognizer from the config object and start the logging functionality.
 
 ## Create a log file on different platforms
 
-For Windows or Linux, the log file can be in any path the user has write permission for. In other environments you only have access to certain file system locations by default.
+For Windows or Linux, the log file can be in any path the user has write permission for. In other environments, you only have access to certain file system locations by default.
 
 ### Universal Windows Platform (UWP)
 
-To enable logging to file for UWP application, it is necessary to create a file in one of the application data locations (local, roaming or temporary) before starting a recognizer. For example, a log file can be created in the local folder of an application like this:
+UWP applications need to be places log files in one of the application data locations (local, roaming, or temporary). A log file can be created in the local application folder:
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -62,11 +62,11 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permissions for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+More about file access permission for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
 ### Android
 
-It is possible to save a log file to either internal storage, external storage, or the cache directory on Android. Files created in the internal storage or the cache directory are private to the application. It is preferable to create a log file in external storage. For example:
+You can save a log file to either internal storage, external storage, or the cache directory. Files created in the internal storage or the cache directory are private to the application. It is preferable to create a log file in external storage.
 
 ```java
 File dir = context.getExternalFilesDir(null);
@@ -74,9 +74,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-This will save a log file to the external storage in the root of an application-specific directory. A user can access the file with the file manager (usually in `Android/data/ApplicationName/logfile.txt`). The file will be deleted when the application is uninstalled.
+The code above will save a log file to the external storage in the root of an application-specific directory. A user can access the file with the file manager (usually in `Android/data/ApplicationName/logfile.txt`). The file will be deleted when the application is uninstalled.
 
-It is also necessary to request `WRITE_EXTERNAL_STORAGE` permission in the manifest file:
+You also need to request `WRITE_EXTERNAL_STORAGE` permission in the manifest file:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -90,7 +90,7 @@ More about data and file storage for Android applications is available [here](ht
 
 #### iOS
 
-It is only possible to access the directories inside the application sandbox directory on iOS. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. The following code snippet shows how to create a log file in the application document directory:
+Only directories inside the application sandbox are accessible. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. The following code snippet shows creation of a log file in the application document directory:
 
 ```objc
 NSString *filePath = [
