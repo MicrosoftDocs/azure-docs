@@ -64,6 +64,8 @@
       href: how-to-search-for-address.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
+    - name: Request transit data
+      href: how-to-request-transit-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
