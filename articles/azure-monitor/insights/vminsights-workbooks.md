@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Create interactive reports with Azure Monitor workbooks
 
-Workbooks combine text, [aalytics queries](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Workbooks are helpful for scenarios such as:
 
@@ -56,11 +56,11 @@ A workbook is made up of sections consisting of independently editable charts, t
 
     ![Screenshot of navigation to workbooks](media/vminsights-workbooks/workbook-option-01.png)
 
-6. From the drop-down list select **Go to Gallery** from the bottom of the list.
+6. From the drop-down list, select **Go to Gallery** from the bottom of the list.
 
     ![Screenshot of workbook drop-down list](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    This launches a workbook gallery with a number of prebuilt workbooks to help you get started.
+    It launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
 7. We'll start with the **Default Template**, which is located under the heading **Quick start**.
 
@@ -68,11 +68,11 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 ## Editing, rearranging, cloning, and deleting workbook sections
 
-Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. This shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. This allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
+Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-1. When you're done editing a section, click **Done Editing** in the bottom left corner of the section.
+1. When you're done editing a section, click **Done Editing** in the bottom-left corner of the section.
 
 2. To create a duplicate of a section, click the **Clone this section** icon. Creating duplicate sections is a great to way to iterate on a query without losing previous iterations.
 
@@ -96,7 +96,7 @@ Query sections are highly flexible and can be used to answer questions like:
 
 * How was my CPU utilization during the same time period as an increase in network traffic?
 * What was the trend in available disk space over the last month?
-* How many network connection failures did my VM experience over the last 2 weeks? 
+* How many network connection failures did my VM experience over the last two weeks? 
 
 You also aren't only limited to querying from the context of the virtual machine you launched the workbook from. You can query across multiple virtual machines, as well as Log Analytics workspaces, as long as you have access permission to those resources.
 
@@ -118,7 +118,7 @@ Each section has its own advanced settings, which are accessible via the setting
 
 Most of these settings are fairly intuitive, but to understand **Export a parameter** it is better to examine a workbook that makes use of this functionality.
 
-One of the prebuilt workbooks **TCP Traffic**, provides information on connection metrics from a VM.
+One of the prebuilt workbooks - **TCP Traffic**, provides information on connection metrics from a VM.
 
 The first section of the workbook is based on log query data. The second section is also based on log query data, but selecting a row in the first table will interactively update the contents of the charts:
 
@@ -130,7 +130,7 @@ This is possible through use of the **When an item is selected, export a paramet
 
 The second analytics query then utilizes the exported values when a row is selected to create a set of values that are then used by the section heading and charts. If no row is selected, it hides the section heading and charts. 
 
-For example, the hidden parameter in the second section use the following reference from the row selected in the grid:
+For example, the hidden parameter in the second section uses the following reference from the row selected in the grid:
 
 ```
 VMConnection
@@ -180,7 +180,7 @@ Whatever value the query returns will be replaced directly with no escaping or q
 
 The dropdown parameter type lets you create a drop-down control, allowing the selection of one or many values.
 
-The dropdown is populated by a log query or JSON. If the query returns one column, the values in that column are both the value and the label in the drop-down control. If the query returns two columns, the first column is the value, and the second column is the label shown in the dropd-own. If the query returns three columns, the third column is used to indicate the default selection in that drop-down. This column can be any type, but the simplest is to use bool or numeric types, where 0 is false, and 1 is true.
+The dropdown is populated by a log query or JSON. If the query returns one column, the values in that column are both the value and the label in the drop-down control. If the query returns two columns, the first column is the value, and the second column is the label shown in the drop-down. If the query returns three columns, the third column is used to indicate the default selection in that drop-down. This column can be any type, but the simplest is to use bool or numeric types, where 0 is false, and 1 is true.
 
 If the column is a string type, null/empty string is considered false, and any other value is considered true. For single selection drop-downs, the first value with a true value is used as the default selection.  For multiple selection drop-downs, all values with a true value are used as the default selected set. The items in the drop-down are shown in whatever order the query returned rows. 
 
@@ -192,7 +192,7 @@ This will launch the **Edit Parameter** menu item.
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
-The JSON lets you generate an arbitrary table populated with content. For example, the following JSON generates two values in the drop down::
+The JSON lets you generate an arbitrary table populated with content. For example, the following JSON generates two values in the drop-down:
 
 ```
 [
