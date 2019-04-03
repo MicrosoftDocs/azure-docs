@@ -1,7 +1,8 @@
 ---
 title: Accessing data using Azure Security Center for IoT Preview| Microsoft Docs
 description: Learn about how to access your security alert and recommendation data when using Azure Security Center for IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

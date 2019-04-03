@@ -36,7 +36,7 @@ Before starting this tutorial, you should read [Azure Firewall logs and metrics]
 It can take a few minutes for the data to appear in your logs after you complete this procedure to turn on diagnostic logging. If you don't see anything at first, check again in  a few more minutes.
 
 1. In the Azure portal, open your firewall resource group and click the firewall.
-2. Under **Monitoring**, click **Diagnostic logs**.
+2. Under **Monitoring**, click **Diagnostic settings**.
 
    For Azure Firewall, two service-specific logs are available:
 
