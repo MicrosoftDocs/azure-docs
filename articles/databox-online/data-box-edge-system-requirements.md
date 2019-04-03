@@ -89,6 +89,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 | URL pattern                      | Component or functionality                     |  
 |----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.us<br></br>https://\*.cdn.mscr.us | Microsoft container registry (required)               |
 | https://\*.azure-devices.us              | IoT Hub access (required)           |
 | https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
 
