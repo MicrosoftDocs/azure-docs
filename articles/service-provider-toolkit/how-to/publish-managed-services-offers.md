@@ -70,7 +70,7 @@ Finally, complete the **Manifest Details** section. This creates a manifest with
 
 When you're done adding plans, select **Save**, then continue to the **Marketplace** section.
 
-## Marketplace
+## Provide Marketplace text and images
 
 The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal.
 
