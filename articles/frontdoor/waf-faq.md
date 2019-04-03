@@ -28,7 +28,6 @@ An Azure WAF policy can be applied to web applications hosted on Application Gat
 Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
 
 ## How will I be charged for Azure WAF for Front Door??
-You are charged by number of requests multiple by requests cost. For example, if your WAF policy only contains custom rules, the cost would be $0.60 per million requests per month. If your WAF policy includes both custom and pre-configured default rule set, your request cost would be ($0.60 + $1.00) per million requests per month.
 During public preview, WAF usage at Front Door are free of charge. Note that Front Door charge is extra.See Front Door Service pricing [here](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## Does Azure WAF support HTTPS?
