@@ -71,7 +71,13 @@
         href: quickstart-translate-speech-java-jre.md
   - name: REST APIs
     items:
-    - name: Text-to-speech
+    - name: List supported voices by region
+      items:
+      - name: 'Node.js'
+        href: quickstart-nodejs-get-text-to-speech-voices.md
+      - name: 'Python'
+        href: quickstart-python-get-text-to-speech-voices.md
+    - name: Convert text-to-speech
       items:
       - name: 'C# (.NET Core)'
         href: quickstart-dotnet-text-to-speech.md

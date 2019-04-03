@@ -31,7 +31,7 @@ The steps described in this topic are:
 - Getting the Notification Endpoints
 - Creating a Notification Endpoint for Monitoring. 
 
-	To create a Notification Endpoint, set the EndPointType to AzureTable (2) and endPontAddress set to the storage table (for example, https://telemetryvalidationstore.table.core.windows.net/).
+	To create a Notification Endpoint, set the EndPointType to AzureTable (2) and endPontAddress set to the storage table (for example, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Get the monitoring configurations
 
@@ -118,12 +118,12 @@ The steps described in this topic are:
 	
 	{  
    		"Name":"monitoring",
-   		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+   		"EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
    		"EndPointType":2
 	}
 
 > [!NOTE]
-> Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+> Don't forget to change the "https:\//telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
 ### Response
 

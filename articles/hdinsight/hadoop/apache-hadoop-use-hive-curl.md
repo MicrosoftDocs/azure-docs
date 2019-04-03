@@ -62,7 +62,7 @@ This document also uses Windows PowerShell and [Jq](https://stedolan.github.io/j
 3. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
     
     ```powershell
@@ -180,10 +180,6 @@ For information on other ways you can work with Hadoop on HDInsight:
 * [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following documents for debugging information:
-
-* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
-
 For more information on the REST API used in this document, see the [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
@@ -197,7 +193,7 @@ For more information on the REST API used in this document, see the [WebHCat ref
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 
 

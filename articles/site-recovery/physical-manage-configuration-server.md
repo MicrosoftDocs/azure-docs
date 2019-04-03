@@ -144,7 +144,7 @@ ProxyPassword="Password"
 You can modify proxy settings for the configuration server machine as follows:
 
 1. Log on to the configuration server.
-2. Launch the cspsconfigtool.exe using the shortcut on your.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
 3. Click the **Vault Registration** tab.
 4. Download a new vault registration file from the portal, and provide it as input to the tool.
 
@@ -153,7 +153,7 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Open an Admin PowerShell command window.
 7. Run the following command:
 
-   ```PowerShell
+   ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
    net stop obengine
@@ -173,7 +173,7 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Open an Admin PowerShell command window.
 7. Run the following command
 
-    ```PowerShell
+    ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
     net stop obengine
@@ -260,7 +260,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzureRmAccount`
@@ -269,7 +269,7 @@ Upgrade the server as follows:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Now set up your vault context
     
-    ```PowerShell
+    ```powershell
     $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```
@@ -278,7 +278,7 @@ Upgrade the server as follows:
     `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
 > The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.

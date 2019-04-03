@@ -281,7 +281,6 @@ Other details such as the person or account that started the runbook can be retr
 $SubID = "00000000-0000-0000-0000-000000000000"
 $rg = "ResourceGroup01"
 $AutomationAccount = "MyAutomationAccount"
-$RunbookName = "Test-Runbook"
 $JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
 
 Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
