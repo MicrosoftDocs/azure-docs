@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with DocuSign, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * DocuSign single sign-on enabled subscription
 
 ## Scenario description
