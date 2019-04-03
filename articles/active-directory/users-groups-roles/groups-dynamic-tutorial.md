@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -25,7 +25,7 @@ In Azure Active Directory (Azure AD), you can automatically add or remove users 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create an automatically populated group of guest users from a particular partner company
+> * Create an automatically populated group of guest users from a partner company
 > * Assign licenses to the group for the partner-specific features for guest users to access
 > * Bonus: secure the **All users** group by removing guest users so that, for example, you can give your member users access to internal-only sites
 
@@ -43,7 +43,7 @@ First, you'll create a group for your guest users who all are from a single part
 
 1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your tenant.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
-   ![select the new group command](./media/groups-dynamic-tutorial/new-group.png)
+   ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
   
    * Select **Security** as the group type

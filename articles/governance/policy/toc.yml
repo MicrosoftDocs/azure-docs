@@ -290,9 +290,9 @@
       href: /powershell/module/az.resources/#policies
     - name: Policy Insights
       href: /powershell/module/az.policyinsights#policy_insights
-    - name: Guest Configuration (preview)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: REST API
+    - name: Guest Configuration
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: REST
     items:
     - name: Events
       href: /rest/api/policy-insights/policyevents
@@ -308,7 +308,7 @@
       href: /rest/api/policy-insights/policytrackedresources
     - name: Remediations
       href: /rest/api/policy-insights/remediations
-    - name: Guest Configuration (preview)
+    - name: Guest Configuration
       href: /rest/api/guestconfiguration/
   - name: Resource Manager templates
     items:

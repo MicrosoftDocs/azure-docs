@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication methods
+title: Authentication methods - Azure Active Directory
 description: What authentication methods are available in Azure AD for MFA and SSPR
 
 services: active-directory
@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # What are authentication methods?
 
-Azure AD self-service password reset (SSPR) and Multi-Factor Authentication (MFA) may ask for additional information, known as authentication methods or security info, to confirm you are who you say you are when using the associated features.
+As an administrator choosing authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) it is recommended that you require users to register multiple authentication methods. When an authentication method is not available for a user, they can choose to authenticate with another method.
 
-Administrators can define in policy which authentication methods are available to users of SSPR and MFA. Some authentication methods may not be available to all features.
+Administrators can define in policy which authentication methods are available to users of SSPR and MFA. Some authentication methods may not be available to all features. For more information about configuring your policies see the articles [How to successfully roll out self-service password reset](howto-sspr-deployment.md) and [Planning a cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft highly recommends Administrators enable users to select more than the minimum required number of authentication methods in case they do not have access to one.
 
@@ -152,13 +152,13 @@ Users may have a combination of up to 5 OATH hardware tokens or authenticator ap
 
 OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Note that secret keys are limited to 128 characters, which may not be compatible with all tokens.
 
-![Uploading OATH tokens to the MFA Server OATH tokens blade in the Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![Uploading OATH tokens to the MFA Server OATH tokens blade](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH hardware tokens are being supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Once tokens are acquired they must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as the example below shows.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

@@ -40,7 +40,7 @@ The files needed for deploying this application (Hue):
 
 **To install Hue to an existing HDInsight cluster**
 
-1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure Portal.
+1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -55,7 +55,7 @@ The files needed for deploying this application (Hue):
 
 **To install Hue while creating a cluster**
 
-1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure Portal.
+1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

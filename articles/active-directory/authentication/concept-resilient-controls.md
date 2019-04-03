@@ -1,5 +1,5 @@
 ---
-title: Create a resilient access control management strategy with Azure Active Directory
+title: Create a resilient access control management strategy - Azure Active Directory
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
@@ -125,9 +125,9 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
   
 This naming standard for the contingency policies will be as follows: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 

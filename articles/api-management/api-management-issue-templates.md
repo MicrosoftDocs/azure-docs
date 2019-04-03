@@ -94,11 +94,11 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|Issues|Collection of [Issue](api-management-template-data-model-reference.md#Issue) entities.|The issues visible to the current user.|  
-|Paging|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
-|IsAuthenticated|boolean|Whether the current user is signed-in to the developer portal.|  
-|CanReportIssues|boolean|Whether the current user has permissions to file an issue.|  
-|Search|string|This property is deprecated and should not be used.|  
+|`Issues`|Collection of [Issue](api-management-template-data-model-reference.md#Issue) entities.|The issues visible to the current user.|  
+|`Paging`|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
+|`IsAuthenticated`|boolean|Whether the current user is signed-in to the developer portal.|  
+|`CanReportIssues`|boolean|Whether the current user has permissions to file an issue.|  
+|`Search`|string|This property is deprecated and should not be used.|  
   
 ### Sample template data  
   
