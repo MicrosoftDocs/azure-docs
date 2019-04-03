@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/18/2019
+ms.lastreviewed: 04/04/2019
 
 ---
 
@@ -24,6 +24,10 @@ ms.lastreviewed: 03/18/2019
 This article provides information about changes, fixes, and known issues in the Azure Stack Development Kit (ASDK). If you're not sure which version you're running, you can [use the portal to check](../azure-stack-updates.md#determine-the-current-version).
 
 Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## Build 1903
+
+The 1903 payload does not include an ASDK release. Future releases will contain an ASDK release.
 
 ## Build 1.1902.0.69
 

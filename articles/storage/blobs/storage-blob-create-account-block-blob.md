@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 The block blob storage account type lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a block blob storage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
-For more information about block blob storage accounts, see see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+For more information about block blob storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ## Create account in the Azure portal
 
@@ -50,7 +50,7 @@ To create a block blob storage account in the Azure portal, follow these steps:
 
 1. Select **Create**.
 
-### Create account using Azure PowerShell
+## Create account using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

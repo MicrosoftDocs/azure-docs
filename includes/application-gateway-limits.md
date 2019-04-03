@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 3/26/2019
 ms.author: victorh
 ---
 | Resource | Default limit | Note |
@@ -25,7 +25,7 @@ ms.author: victorh
 | URL maps per listener |1 | |
 | Maximum path-based rules per URL map|100||
 | Redirect configurations |100<sup>1</sup>| |
-| Concurrent WebSocket connections |5,000| |
+| Concurrent WebSocket connections |Medium gateways 20k<br> Large gateways 50k| |
 | Maximum URL length|8,000||
 | Maximum file upload size, Standard |2 GB | |
 | Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |

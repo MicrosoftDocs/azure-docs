@@ -56,8 +56,6 @@
     href: custom-vision-onnx-windows-ml.md
   - name: Run TensorFlow model in Python
     href: export-model-python.md
-  - name: Build a model using the REST API
-    href: rest-api-tutorial.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Move your Limited Trial project to Azure
@@ -86,7 +84,7 @@
   items:
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Pricing and limits
+  - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service

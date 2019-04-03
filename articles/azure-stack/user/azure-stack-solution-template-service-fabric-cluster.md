@@ -58,7 +58,7 @@ Use the following script to create the KeyVault and add the *cluster certificate
 > [!TIP]  
 > Before the script can succeed, there must be a public offer that includes the services for Compute, Network, Storage, and KeyVault. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -209,7 +209,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

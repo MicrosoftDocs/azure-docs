@@ -38,6 +38,7 @@ Start from the prototype role available at <https://github.com/Azure/Avere/blob/
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Network/*/read",
     "Microsoft.Network/networkInterfaces/*",
+    "Microsoft.Network/virtualNetworks/read",
     "Microsoft.Network/virtualNetworks/subnets/join/action",
     "Microsoft.Network/virtualNetworks/subnets/read",
     "Microsoft.Resources/deployments/*",
