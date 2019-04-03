@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Release notes
 
-## Speech SDK 1.4.0: 2019-March release
+## Speech SDK 1.4.0: 2019-April release
 
 **New Features** 
 
