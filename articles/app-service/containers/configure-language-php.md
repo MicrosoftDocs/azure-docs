@@ -94,7 +94,7 @@ Commit all your changes and deploy your code again. Composer should now be runni
 
 ## Access environment variables
 
-In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
+In App Service, you can [set app settings](web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
 ```javascript
 getenv("DB_HOST")
@@ -114,7 +114,7 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 </IfModule>
 ```
 
-If you would rather not use .htaccess rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-docker-go.md) instead.
+If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-docker-go.md) instead.
 
 ## Detect HTTPS session
 
@@ -151,7 +151,7 @@ upload_max_filesize=10M
 ; log_errors=On
 ```
 
-Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md)), it's automatically restarted after deployment.
+Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), it's automatically restarted after deployment.
 
 As an alternative to using `.user.ini`, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
@@ -221,7 +221,7 @@ When a working PHP app behaves differently in App Service or have errors, try th
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in debug mode. For example, in [Laravel](http://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../web-sites-configure.md).
+- Run your app in App Service in debug mode. For example, in [Laravel](http://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## Next steps
 

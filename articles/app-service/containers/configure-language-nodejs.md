@@ -18,7 +18,7 @@ ms.author: cephalin
 
 # Configure a Linux Node.js app for Azure App Service
 
-Node.js apps needs to be deployed with all the required NPM dependencies. The App Service deployment engine (Kudu) automatically runs `npm install --production` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on. If you deploy your files using [FTP/S](../deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps needs to be deployed with all the required NPM dependencies. The App Service deployment engine (Kudu) automatically runs `npm install --production` for you when you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on. If you deploy your files using [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -144,7 +144,7 @@ Once finished with debugging, stop the debugger by selecting **Disconnect**. Whe
 
 ## Access environment variables
 
-In App Service, you can [set app settings](web-sites-configure.md#app-settings) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
+In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
 
 ```javascript
 process.env.NODE_ENV
@@ -260,7 +260,7 @@ When a working Node.js app behaves differently in App Service or have errors, tr
     - Depending on your *package.json*, different packages may be installed for production mode (`dependencies` vs. `devDependencies`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in development mode. For example, in [MEAN.js](http://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](../web-sites-configure.md).
+- Run your app in App Service in development mode. For example, in [MEAN.js](http://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## Next steps
 

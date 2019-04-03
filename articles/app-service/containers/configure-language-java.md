@@ -24,7 +24,7 @@ This guide provides key concepts and instructions for Java developers who use a 
 
 ## Logging and debugging apps
 
-Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
+Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. See the [Azure App Service diagnostics overview](../overview-diagnostics.md) for more information on how to access and use these diagnostic tools.
 
 ### SSH console access
 
@@ -38,7 +38,7 @@ For more information, see [Streaming logs with the Azure CLI](../troubleshoot-di
 
 ### App logging
 
-Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
+Enable [application logging](troubleshoot-diagnostic-logs.md#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -46,14 +46,14 @@ If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://l
 
 Azure App Service for Linux supports out of the box tuning and customization through the Azure Portal and CLI. Review the following articles for non-Java specific web app configuration:
 
-- [Configure App Service settings](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Set up a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Enable SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Add a CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure App Service settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Set up a custom domain](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Enable SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Add a CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](/azure/app-service/web-sites-configure#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
@@ -115,15 +115,15 @@ Java applications running in App Service for Linux have the same set of [securit
 
 ### Authenticate users
 
-Set up app authentication in the Azure Portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/configure-authentication-provider-aad) and the related articles for other identity providers.
+Set up app authentication in the Azure Portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) and the related articles for other identity providers.
 
-If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) article.
+If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
 
  Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
 
 ### Configure TLS/SSL
 
-Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+Follow the instructions in the [Bind an existing custom SSL certificate](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
 ## Configure APM platforms
 
@@ -137,7 +137,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic, it will have a file name similar to `newrelic-java-x.x.x.zip`.
 3. Copy your license key, you'll need it to configure the agent later.
-4. [SSH into your App Service instance](/azure/app-service/containers/app-service-linux-ssh-support) and create a new directory `/home/site/wwwroot/apm`.
+4. [SSH into your App Service instance](app-service-linux-ssh-support.md) and create a new directory `/home/site/wwwroot/apm`.
 5. Upload the unpacked NewRelic Java agent files into a directory under `/home/site/wwwroot/apm`. The files for your agent should be in `/home/site/wwwroot/apm/newrelic`.
 6. Modify the YAML file at `/home/site/wwwroot/apm/newrelic/newrelic.yml` and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
@@ -150,7 +150,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
 1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
 1. Download the Java agent from the AppDynamics website, the file name will be similar to `AppServerAgent-x.x.x.xxxxx.zip`
-1. [SSH into your App Service instance](/azure/app-service/containers/app-service-linux-ssh-support) and create a new directory `/home/site/wwwroot/apm`.
+1. [SSH into your App Service instance](app-service-linux-ssh-support.md) and create a new directory `/home/site/wwwroot/apm`.
 1. Upload the Java agent files into a directory under `/home/site/wwwroot/apm`. The files for your agent should be in `/home/site/wwwroot/apm/appdynamics`.
 1. In the Azure portal, browse to your application in App Service and create a new Application Setting.
     - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
@@ -162,7 +162,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 ### Connect to data sources
 
 >[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
+> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) to define these values for your application in the Azure portal or CLI.
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -270,7 +270,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 
@@ -287,7 +287,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. When you scale out the App Service Plan, each WildFly instance is configured as a standalone server.
 
- Scale your application vertically or horizontally with [scale rules](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) and by [increasing your instance count](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Scale your application vertically or horizontally with [scale rules](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) and by [increasing your instance count](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### Customize application server configuration
 
@@ -306,11 +306,11 @@ Do not use the interactive mode of the CLI to configure Wildfly. Instead, you ca
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Upload the startup script to `/home/site/deployments/tools` in your App Service instance. See [this document](/azure/app-service/deploy-configure-credentials#userscope) for instructions on getting your FTP credentials.
+Upload the startup script to `/home/site/deployments/tools` in your App Service instance. See [this document](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#userscope) for instructions on getting your FTP credentials.
 
 Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh`.
 
-Supply [application settings](/azure/app-service/web-sites-configure#application-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
+Supply [app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
 
 ### Modules and dependencies
 
