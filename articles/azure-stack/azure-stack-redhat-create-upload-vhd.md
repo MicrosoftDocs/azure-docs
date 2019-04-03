@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
@@ -260,7 +260,6 @@ This section assumes that you already have an ISO file from the Red Hat website 
 1. Ensure that the SSH server is installed and configured to start at boot time:
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -273,7 +272,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 1. When creating a custom vhd for Azure Stack, keep in mind that WALinuxAgent version between 2.2.20 and 2.2.35.1 (both exclusive) do not work on Azure Stack environments that are running a build before 1903. To resolve this, apply the 1901/1902 hotfix or follow the second half of this portion of instructions. 
 
-If you are running an Azure Stack build 1903 (or above) or have the 1901/1902 hotfix, download the WALinuxAgent package from the Redhat extras repository like so:
+    If you are running an Azure Stack build 1903 (or above) or have the 1901/1902 hotfix, download the WALinuxAgent package from the Redhat extras repository like so:
     
    The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository      by running the following command:
 
@@ -294,7 +293,7 @@ If you are running an Azure Stack build 1903 (or above) or have the 1901/1902 ho
     ```
     
     
-If you are running an Azure Stack build before 1903 and have not applied the 1901/1902 hotfix, then follow these instructions to download the WALinuxAgent:
+    If you are running an Azure Stack build before 1903 and have not applied the 1901/1902 hotfix, then follow these instructions to download the WALinuxAgent:
     
    a.	Download setuptools
     ```bash
