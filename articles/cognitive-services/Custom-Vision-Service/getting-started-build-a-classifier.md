@@ -121,9 +121,7 @@ Interpreting prediction calls with a high probability threshold tends to return 
 
 ## Manage training iterations
 
-Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. When you select one, you have the option of making it the _default iteration_ by clicking the **Make default** button at the top. The _default iteration_ is the model that will be used by default when you query it through the Prediction API (from an app, for instance). If you decline to update the _default iteration_, you can continue to train your model without affecting your app's current behavior; then, once you are satisfied with the improved model, you can update the default.
-
-In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
 ## Next steps
 
