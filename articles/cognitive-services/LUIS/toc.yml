@@ -214,7 +214,7 @@
     items:
     - name: Review endpoint utterances
       displayName: active learning
-      href: luis-how-to-review-endoint-utt.md
+      href: luis-how-to-review-endpoint-utterances.md
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
