@@ -31,7 +31,6 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
 | [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
 | [Deploy a container group with a virtual network (preview)][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
-
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 
