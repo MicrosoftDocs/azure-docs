@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Azure Stack virtual machi
 description: This quickstart shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines.
 services: security-center
 documentationcenter: na
-author: fiseraci
+author: monhaber
 manager: dsavage
 editor: ''
 
