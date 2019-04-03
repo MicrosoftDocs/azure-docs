@@ -56,7 +56,7 @@ Before you start, do the following:
 
 In addition, there are a couple of things that you might need to do in some circumstances:
 
-- **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent-if-needed).
+- **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 - **Explicitly allow outbound access**: Generally, you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup. However, some VMs might experience connection issues, showing the **ExtensionSnapshotFailedNoNetwork** error when attempting to connect. If this happens, you should [explicitly allow outbound access](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), so the Azure Backup extension can communicate with Azure public IP addresses for backup traffic.
 
 
@@ -139,7 +139,7 @@ To set permissions:
 
 You restore encrypted VMs as follows:
 
-1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disk).
+1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
 2. Then do one of the following:
     - Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Create a new VM from the restored disks using Powershell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
@@ -148,6 +148,6 @@ You restore encrypted VMs as follows:
 
 If you run into any issues, review
 
-- [Common errors](backup-azure-vms-troubleshooting.md#troubleshoot-backup-of-encrypted-vms)  when backing up and restoring encrypted Azure VMs.
-- [General](backup-azure-vms-troubleshooting.md) Azure VM issues.
+- [Common errors](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) when backing up and restoring encrypted Azure VMs.
+- [General](backup-azure-vms-troubleshoot.md) Azure VM issues.
 - [Azure VM agent/backup extension](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) issues.
