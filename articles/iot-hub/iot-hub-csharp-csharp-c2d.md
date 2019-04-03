@@ -102,6 +102,8 @@ First, retrieve the IoT Hub connection string from the portal.
 
 5. Select **iothubowner**. It shows the connection strings on the **iothubowner** panel. Select the copy icon for the **Connection string--primary key**. Save the connection string for later use.
 
+   ![Get IoT Hub connection string](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
+
 ## Send a cloud-to-device message
 
 Now you write a .NET console app that sends cloud-to-device messages to the device app.
