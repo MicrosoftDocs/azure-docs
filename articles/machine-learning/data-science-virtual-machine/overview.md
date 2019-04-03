@@ -84,7 +84,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git and GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
-| PowerBI Desktop | Y | N |
+| Power BI Desktop | Y | N |
 | SDKs to access Azure and Cortana Intelligence Suite of services | Y | Y |
 | **Data Movement and management Tools** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
