@@ -11,7 +11,7 @@ manager: carmonm
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Define and assign an Azure blueprint in the portal
+# Define and assign a blueprint in the portal
 
 When you learn how to create and assign blueprints, you can define common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
@@ -20,7 +20,7 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 > [!div class="checklist"]
 > - Create a new blueprint and add various supported artifacts
-> - Make changes to an existing blueprint still in **Draft** form
+> - Make changes to an existing blueprint still in **Draft**
 > - Mark a blueprint as ready to assign with **Published**
 > - Assign a blueprint to an existing subscription
 > - Check the status and progress of an assigned blueprint
@@ -32,8 +32,8 @@ before you begin.
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
-available resources. In this example, create a new blueprint named *MyBlueprint* to configure role
-and policy assignments for the subscription. Then, add a new resource group, and create a Resource Manager
+available resources. In this example, create a new blueprint named **MyBlueprint** to configure role
+and policy assignments for the subscription. Then add a new resource group, and create a Resource Manager
 template and role assignment on the new resource group.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
@@ -52,23 +52,23 @@ template and role assignment on the new resource group.
 1. In the **Definition location** box, select the ellipsis on the right, select the [management group](../management-groups/overview.md)
    or subscription where you want to save the blueprint, and choose **Select**.
 
-1. Verify that the information is correct, because the **Blueprint name** and **Definition location** fields
-   can't be changed later. Then select **Next: Artifacts** at the bottom of the page or the
+1. Verify that the information is correct. The **Blueprint name** and **Definition location** fields
+   can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the
    **Artifacts** tab at the top of the page.
 
-1. Add a role assignment at the subscription: 
+1. Add a role assignment at the subscription level: 
 
    a. Select the **+ Add artifact** row under
-   **Subscription**, and the **Add artifact** window opens on the right side of the browser. 
+      **Subscription**. The **Add artifact** window opens on the right side of the browser. 
    
-   b. Select
-   **Role assignment** for **Artifact type**. 
+   a. Select
+      **Role assignment** for **Artifact type**. 
    
-   c. Under **Role**, select **Contributor**. Leave the **Add
-   user, app or group** box with the check box that indicates a **dynamic parameter**. 
+   a. Under **Role**, select **Contributor**. Leave the **Add
+      user, app or group** box with the check box that indicates a **dynamic parameter**. 
    
-   d. Select **Add** to
-   add this artifact to the blueprint.
+   a. Select **Add** to
+      add this artifact to the blueprint.
 
    ![Role assignment for a blueprint artifact](./media/create-blueprint-portal/add-role-assignment.png)
 
@@ -77,20 +77,20 @@ template and role assignment on the new resource group.
    > a *static parameter*. If the parameter is assigned during blueprint assignment, it's a
    > *dynamic parameter*. For more information, see [Blueprint parameters](./concepts/parameters.md).
 
-1. Add a policy assignment at the subscription: 
+1. Add a policy assignment at the subscription level: 
 
    a. Select the **+ Add artifact** row under the role
-   assignment artifact. 
+      assignment artifact. 
    
    b. Select **Policy assignment** for **Artifact type**. 
    
    c. Change **Type** to **Built-in**. In **Search**, enter **tag**. 
    
-   d. Click out of **Search** for the filtering to occur. Select **Apply tag
-   and its default value to resource groups**. 
+   d. Click out of **Search** for the filtering to occur. Select **Apply     tag
+      and its default value to resource groups**. 
    
    e. Select **Add** to add this artifact
-   to the blueprint.
+      to the blueprint.
 
 1. Select the row of the policy assignment **Apply tag and its default value to resource groups**. 
 
@@ -100,36 +100,36 @@ template and role assignment on the new resource group.
    instead of during assignment (**dynamic parameters**). This example uses **dynamic parameters**
    during blueprint assignment, so leave the defaults and select **Cancel**.
 
-1. Add a resource group at the subscription: 
+1. Add a resource group at the subscription level: 
 
    a. Select the **+ Add artifact** row under
-   **Subscription**. 
+      **Subscription**. 
    
    b. Select **Resource group** for **Artifact type**. 
    
    c. Leave the **Artifact display name**,
-   **Resource Group Name**, and **Location** boxes blank, but make sure that the check box is checked
-   for each parameter property to make them **dynamic parameters**. 
+      **Resource Group Name**, and **Location** boxes blank, but make sure that the check box is checked
+      for each parameter property to make them **dynamic parameters**. 
    
    d. Select **Add** to add this
-   artifact to the blueprint.
+      artifact to the blueprint.
 
 1. Add a template under the resource group: 
 
    a. Select the **+ Add artifact** row under the
-   **ResourceGroup** entry. 
+      **ResourceGroup** entry. 
    
-   b. Select **Azure Resource Manager template** for **Artifact type**, set
-   **Artifact display name** to **StorageAccount**, and leave **Description** blank. 
+   b. Select **Azure Resource Manager template** for **Artifact type**,      set
+      **Artifact display name** to **StorageAccount**, and leave **Description** blank. 
    
    c. On the **Template**
-   tab in the editor box, paste the following Resource Manager template. After you paste the template,
-   select the **Parameters** tab and note that the template parameters **storageAccountType** and
-   **location** were detected. Each parameter was automatically detected and populated, but
-   configured as a **dynamic parameter**. 
+      tab in the editor box, paste the following Resource Manager template. After you paste the template,
+      select the **Parameters** tab and note that the template parameters **storageAccountType** and
+      **location** were detected. Each parameter was automatically detected and populated, but
+      configured as a **dynamic parameter**. 
    
-      > [!IMPORTANT]
-   > If you're importing the template, ensure that the file is only JSON and does not include HTML. When you're
+   > [!IMPORTANT]
+   > If you're importing the template, ensure that the file is only JSON and doesn't include HTML. When you're
    > pointing to a URL on GitHub, ensure that you have selected **RAW** to get the pure JSON file and
    > not the one wrapped with HTML for display on GitHub. An error occurs if the imported template
    > is not purely JSON.
@@ -184,11 +184,11 @@ template and role assignment on the new resource group.
    ```
 
    d. Clear the **storageAccountType** check box
-   and note that the drop-down list contains only values included in the Resource Manager template under
-   **allowedValues**. Select the box to set it back to a **dynamic parameter**. 
+      and note that the drop-down list contains only values included in the Resource Manager template under
+      **allowedValues**. Select the box to set it back to a **dynamic parameter**. 
    
    e. Select **Add** to add
-   this artifact to the blueprint.
+      this artifact to the blueprint.
 
    ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -214,22 +214,22 @@ to the new resource group. You can fix both by following these steps:
    assignment on the subscription, creates a ResourceGroup, and deploys a resource template and role
    assignment to that ResourceGroup.**
 
-1. Select **Next: Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the
+1. Select **Next : Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the
    page.
 
 1. Add a role assignment under the resource group: 
 
    a. Select the **+ Add artifact** row directly
-   under the **ResourceGroup** entry. 
+      under the **ResourceGroup** entry. 
    
    b. Select **Role assignment** for **Artifact type**. 
    
    c. Under **Role**,
-   select **Owner**, and clear the check box under the **Add user, app or group** box. 
+      select **Owner**, and clear the check box under the **Add user, app or group** box. 
    
    d. Search for and
-   select a user, app, or group to add. This artifact uses a **static parameter** set the same in
-   every assignment of this blueprint. 
+      select a user, app, or group to add. This artifact uses a **static parameter** set the same in
+      every assignment of this blueprint. 
    
    e. Select **Add** to add this artifact to the blueprint.
 
@@ -252,7 +252,7 @@ Publishing makes the blueprint available to be assigned to a subscription.
 1. In the list of blueprints, right-click the one you previously created and select **Publish
    blueprint**.
 
-1. In the dialog box that opens, provide a **Version** (letters, numbers, and hyphens with a maximum length
+1. In the pane that opens, provide a **Version** (letters, numbers, and hyphens with a maximum length
    of 20 characters), such as **v1**. Optionally, enter text in **Change notes**, such as **First publish**.
 
 1. Select **Publish** at the bottom of the page.
@@ -261,7 +261,7 @@ Publishing makes the blueprint available to be assigned to a subscription.
 
 After a blueprint has been published, it can be assigned to a subscription. Assign the blueprint that you
 created to one of the subscriptions under your management group hierarchy. If the blueprint is saved
-to a subscription, you can assign it to only that subscription.
+to a subscription, it can only be assigned to that subscription.
 
 1. Select **Blueprint definitions** from the page on the left.
 
@@ -271,10 +271,10 @@ to a subscription, you can assign it to only that subscription.
 1. On the **Assign blueprint** page, in the **Subscription** drop-down list, select the subscriptions that you want to deploy this blueprint to.
 
    If there are supported Enterprise offerings available from [Azure Billing](../../billing/index.md),
-     a **Create new** link is activated under the **Subscription** box. Follow these steps:
+   a **Create new** link is activated under the **Subscription** box. Follow these steps:
 
-   a. Select the **Create new** link to create a new subscription instead of selecting existing
-        ones.
+   a. Select the **Create new** link to create a new subscription instead    of selecting existing
+      ones.
 
    b. Provide a **Display name** for the new subscription.
 
@@ -310,14 +310,14 @@ to a subscription, you can assign it to only that subscription.
 
 1. Under **Managed Identity**, leave the default of **System assigned**.
 
-1. For the subscription-level role assignment **[User group or application name]: Contributor**, search for and select a user, app, or group.
+1. For the subscription-level role assignment **[User group or application name] : Contributor**, search for and select a user, app, or group.
 
 1. For the subscription-level policy assignment, set **Tag Name** to **CostCenter** and the **Tag Value** to **ContosoIT**.
 
 1. For **ResourceGroup**, provide a **Name** of **StorageAccount** and a **Location** of **East US 2** from the drop-down list.
 
    > [!NOTE]
-   > For each artifact that you added under the resource group during blueprint definition, that artifact is indented to align with the resource group or object that it will be deployed with. Artifacts that either don't take parameters or have no parameters to be defined at assignment are listed only for contextual information.
+   > For each artifact that you added under the resource group during blueprint definition, that artifact is indented to align with the resource group or object that you'll deploy it with. Artifacts that either don't take parameters or have no parameters to be defined at assignment are listed only for contextual information.
 
 1. On the Azure Resource Manager template **StorageAccount**, select **Standard_GRS** for the **storageAccountType** parameter.
 
@@ -360,7 +360,7 @@ assignment, follow these steps:
 1. Right-click the blueprint that you want to delete, and select **Delete blueprint**. Then select **Yes** in the confirmation dialog box.
 
 > [!NOTE]
-> Deleting a blueprint in this method also deletes all published versions of the selected blueprint. To delete a single version, open the blueprint, select the **Published versions** tab, select the version that you want to delete, and then select **Delete This Version**. Also, you can't delete a blueprint until you've deleted all the blueprint assignments.
+> Deleting a blueprint in this method also deletes all published versions of the selected blueprint. To delete a single version, open the blueprint, select the **Published versions** tab, select the version that you want to delete, and then select **Delete This Version**. Also, you can't delete a blueprint until you've deleted all blueprint assignment of that blueprint definition.
 
 ## Next steps
 
