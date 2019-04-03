@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create an Azure storage queue, and insert, get, and delete messages | Microsoft Docs
+title: Tutorial - Work with Azure storage queues
 description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages.
 services: storage
 author: mhopkins-msft
@@ -7,11 +7,11 @@ ms.author: mhopkins
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 #Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 
-# Tutorial: Create an Azure storage queue, and insert, get, and delete messages
+# Tutorial: Work with Azure storage queues
 
 Queues let your application scale automatically and immediately when demand changes. This makes them useful for critical business data that would be damaging to lose. A queue increases resiliency by temporarily storing waiting messages. At times of low or normal demand, the size of the queue remains small because the destination component removes messages from the queue faster than they are added. At times of high demand, the queue may increase in size, but messages are not lost. The destination component can catch up and empty the queue as demand returns to normal. The article demonstrates the basic steps for creating an Azure storage queue.
 
@@ -29,9 +29,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+- Get your free copy of the cross platform [Visual Studio Code](https://code.visualstudio.com/download) editor.
+- If you don't already have the .NET SDK installed by installing Visual Studio, download and install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 - If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- If you don't already have it, get your free copy of [Visual Studio Code](https://code.visualstudio.com/download).
 
 ### Sign in to Azure
 
@@ -47,17 +47,17 @@ We'll create a .NET Core application that you can run on Linux, macOS, or Window
 
 1. Use the `dotnet new` command to create a new console app with the name **QueueApp**. You can type commands into the Cloud Shell on the right, or if you are working locally, in a terminal/console window. This command creates a simple app with a single source file: `Program.cs`.
 
-```azurecli
+```console
 dotnet new console -n QueueApp
 ```
 
 1. Switch to the newly created `QueueApp` folder and build the app to verify that all is well.
 
-```azurecli
+```console
 cd QueueApp
 ```
 
-```azurecli
+```console
 dotnet build
 ```
 
@@ -77,13 +77,11 @@ private const string connectionString = "DefaultEndpointsProtocol=https;AccountN
 
 Add the connection string into the app so it can access the storage account.
 
-Type `code .` in the terminal to open the online code editor. Alternatively, if you are working on your own you can use the IDE of your choice. We recommend Visual Studio Code, which is an excellent cross-platform IDE.
+1. From the command line in the project directory, type `code .` to open Visual Studio Code.
 
-Open the `Program.cs` source file in the project.
+2. Open the `Program.cs` source file in the project.
 
-In the `Program` class, add a const string value to hold the connection string. You only need the value (it starts with the text DefaultEndpointsProtocol).
-
-Save the file. You can click the ellipse "..." in the right corner of the cloud editor, or use the accelerator key (`Ctrl+S` on Windows and Linux, `Cmd+S` on macOS).
+3. In the `Program` class, add a const string value to hold the connection string. You only need the value (it starts with the text DefaultEndpointsProtocol).
 
 Your code should look something like this (the string value will be unique to your account).
 
@@ -100,11 +98,13 @@ namespace QueueApp
 }
 ```
 
+4. Save the file.
+
 ## Programmatically access a queue
 
 1. Install the `WindowsAzure.Storage` package to the project with the `dotnet add package` command. Do this in the same folder as the project.
 
-```azurecli
+```console
 dotnet add package WindowsAzure.Storage
 ```
 
