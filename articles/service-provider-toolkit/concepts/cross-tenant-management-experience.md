@@ -28,11 +28,11 @@ With Azure Delegated Resource Management, the onboarding process specifies users
 
 For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
 
-![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.JPG)
+![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
 Using Azure Delegated Resource Management, authorized users can sign in to the service provider’s tenant to access these resources, as shown here:
 
-![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.JPG)
+![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
 ## Supported services and scenarios
 
