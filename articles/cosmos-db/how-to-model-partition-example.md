@@ -539,16 +539,16 @@ Let's have a look at the overall performance and scalability improvements we hav
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
-| C1 | 7 ms / 5.71 RU | 7 ms / 5.71 RU | 7 ms / 5.71 RU |
-| Q1 | 2 ms / 1 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| C2 | 9 ms / 8.76 RU | 9 ms / 8.76 RU | 9 ms / 8.76 RU |
-| Q2 | 9 ms / 19.54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| Q3 | 130 ms / 619.41 RU | 28 ms / 201.54 RU | 4 ms / 6.46 RU |
-| C3 | 7 ms / 8.57 RU | 7 ms / 15.27 RU | 7 ms / 15.27 RU |
-| Q4 | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
-| C4 | 6 ms / 7.05 RU | 7 ms / 14.67 RU | 7 ms / 14.67 RU |
-| Q5 | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
-| Q6 | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
+| **[C1]** | 7 ms / 5.71 RU | 7 ms / 5.71 RU | 7 ms / 5.71 RU |
+| **[Q1]** | 2 ms / 1 RU | 2 ms / 1 RU | 2 ms / 1 RU |
+| **[C2]** | 9 ms / 8.76 RU | 9 ms / 8.76 RU | 9 ms / 8.76 RU |
+| **[Q2]** | 9 ms / 19.54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
+| **[Q3]** | 130 ms / 619.41 RU | 28 ms / 201.54 RU | 4 ms / 6.46 RU |
+| **[C3]** | 7 ms / 8.57 RU | 7 ms / 15.27 RU | 7 ms / 15.27 RU |
+| **[Q4]** | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
+| **[C4]** | 6 ms / 7.05 RU | 7 ms / 14.67 RU | 7 ms / 14.67 RU |
+| **[Q5]** | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
+| **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
 
 ### We have optimized a read-heavy scenario
 
@@ -556,7 +556,7 @@ You may have noticed that we have concentrated our efforts towards improving the
 
 This is justified by the fact that a blogging platform (like most social apps) is read-heavy, which means that the amount of read requests it has to serve is usually orders of magnitude higher than the amount of write requests. So it makes sense to make write requests more expensive to execute in order to let read requests be cheaper and better performing.
 
-If we look at the most extreme optimization we have done, [Q6] went from 2000+ RUs to just 17 RUs; we have achieved that by denormalizing posts at a cost of around 10 RUs per item. As we would serve a lot more feed requests than creation or updates of posts, the cost of this denormalization is negligible considering the overall savings.
+If we look at the most extreme optimization we have done, **[Q6]** went from 2000+ RUs to just 17 RUs; we have achieved that by denormalizing posts at a cost of around 10 RUs per item. As we would serve a lot more feed requests than creation or updates of posts, the cost of this denormalization is negligible considering the overall savings.
 
 ### Denormalization can be applied incrementally
 
