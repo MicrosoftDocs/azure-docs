@@ -39,8 +39,6 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. In the **New data factory** pane, provide values for the following fields and then Select **Create**.
 
-    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
-     
     **Setting**  | **Field description**
     |---|---|
     | **Name** | Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
@@ -49,6 +47,8 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     | **Version** | Select **V2** |
     | **Location** | Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions. |
     | | |
+
+    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
 
 1. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
 
@@ -60,8 +60,8 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 There are two ways to load data into Azure Data Explorer using Azure Data Factory:
 
-1. Azure Data Factory user interface - [**Author** tab](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
-1. Azure Data Factory **Copy Data** tool (used in this topic)
+* Azure Data Factory user interface - [**Author** tab](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
+* Azure Data Factory **Copy Data** tool (used in this topic)
 
 ### Copy data from Amazon S3 (Source)
 
