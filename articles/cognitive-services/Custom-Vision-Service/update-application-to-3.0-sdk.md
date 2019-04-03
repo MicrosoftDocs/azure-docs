@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
+ms.topic: article
 ms.date: 04/01/2019
 ms.author: areddish
 ---
@@ -20,7 +20,7 @@ We have reached General Availability and updated our APIs. You can view the full
 
 With the release of the latest SDK we've introduced a few new features and a few breaking changes:
 * Prediction API is now split based on the project type.
-* VAIDK export options requires creating a project in a specific way.
+* VAIDK export option requires creating a project in a specific way.
 * Default iterations have been removed in favor of a publish / unpublish a named iteration.
 
 ## Changes to Prediction API
@@ -36,7 +36,7 @@ With the release of the latest SDK we've introduced a few new features and a few
 ## Changes to the Training API
 
 ### Publishing an iteration
-Once an iteration is trained you can make it available for prediction using the PublishIteration method to publish to a specific prediction resource. The prediction resource ID is available in the CustomVision portal's settings page, and in the Azure portal.
+Once an iteration is trained, you can make it available for prediction using the PublishIteration method to publish to a specific prediction resource. The prediction resource ID is available in the CustomVision portal's settings page, and in the Azure portal.
 
 ### How to retrieve the prediction resource ID
 
@@ -53,7 +53,7 @@ With the 3.0 APIs we are exposing two additional export targets: ARM and Vision 
 
 ### Deprecating default iterations
 
-The 3.0 APIs do not use default iterations. Until we deprecate the older APIs you can continue to use the 2.x APIs to mark or unmark an iteration as default. Older SDKs will be maintained, for a period of time, and you can call the UpdateIteration method marking the iteration default. Moving forward rather than use a single default the process would be to name an iteration and publish it. Prediciton apps would then predict against that published iteration using the name as the target. Instead of toggling the default marking you would instead publish and unpublish an iteration and that name will give similiar functionaliy as the default iteration.
+The 3.0 APIs do not use default iterations. Until we deprecate the older APIs, you can continue to use the 2.x APIs to mark or unmark an iteration as default. Older SDKs will be maintained, for a period of time, and you can call the UpdateIteration method marking the iteration default. Moving forward rather than use a single default the process would be to name an iteration and publish it. Prediction apps would then predict against that published iteration using the name as the target. Instead of toggling the default marking you would instead publish and unpublish an iteration and that name will give similar functionality as the default iteration.
 
 ## Next steps
 
