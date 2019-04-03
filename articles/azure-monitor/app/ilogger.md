@@ -35,36 +35,37 @@ If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK, or yo
 2.Modify `Program.cs` as below
 
 ```csharp
-    using Microsoft.AspNetCore;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
-    public class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-       public static void Main(string[] args)
-       {
-           CreateWebHostBuilder(args).Build().Run();
-       }
-
-       public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()
-        .ConfigureLogging(
-            builder =>
-                {
-                    // Providing an instrumentation key here is required if you are using
-                    // standalone package Microsoft.Extensions.Logging.ApplicationInsights
-                    // or if you want to capture logs from early in the application startup
-                    // pipeline from Startup.cs or Program.cs itself.
-                    builder.AddApplicationInsights("ikey");
-
-                    // Optional: Apply filters to control what logs are sent to Application Insights.
-                    // The following configures LogLevel Information or above to be sent to 
-                    // Application Insights for all categories.
-                    builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("", LogLevel.Information);
-                }
-            );
+        CreateWebHostBuilder(args).Build().Run();
     }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging(
+        builder =>
+            {
+                // Providing an instrumentation key here is required if you are using
+                // standalone package Microsoft.Extensions.Logging.ApplicationInsights
+                // or if you want to capture logs from early in the application startup
+                // pipeline from Startup.cs or Program.cs itself.
+                builder.AddApplicationInsights("ikey");
+
+                // Optional: Apply filters to control what logs are sent to Application Insights.
+                // The following configures LogLevel Information or above to be sent to
+                // Application Insights for all categories.
+                builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                                 ("", LogLevel.Information);
+            }
+        );
+}
 ```
 
 The above code will configure `ApplicationInsightsLoggerProvider`. Following shows an example Controller class, which uses `ILogger` to send logs, which are captured by ApplicationInsights.
