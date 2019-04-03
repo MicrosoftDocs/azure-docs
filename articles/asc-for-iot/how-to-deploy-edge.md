@@ -91,7 +91,7 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
    > Do **not** disable AMQP communication for the IoT Edge Hub.
    > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.0.8-preview**.
 
    >[!Note]
    > Azure Security Center for IoT module requires a forked version of IoT Edge Hub, based on SDK version 1.8.
