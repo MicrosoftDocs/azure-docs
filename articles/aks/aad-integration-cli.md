@@ -161,7 +161,7 @@ Get the object ID for the user currently logged in using the [az ad signed-in-us
 az ad signed-in-user show --query objectId -o tsv
 ```
 
-Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace *<user objectId>*  with the user object ID output from the previous command:
+Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace *userObjectId*  with the user object ID output from the previous command:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -175,7 +175,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: <user objectId>
+  name: userObjectId
 ```
 
 Create the ClusterRoleBinding using the [kubectl apply][kubectl-apply] command and specify the filename of your YAML manifest:
@@ -189,7 +189,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 Now let's test the integration of Azure AD authentication for the AKS cluster. Set the `kubectl` config context to use regular user credentials. This context passes all authentication requests back through Azure AD.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group  $aksname  --name $aksname --overwrite-existing
+az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
 ```
 
 Now use the [kubectl get pods][kubectl-get] command to view pods across all namespaces:
@@ -232,11 +232,12 @@ error: You must be logged in to the server (Unauthorized)
 
 For the complete script that contains the commands shown in this article, see the [Azure AD integration script in the AKS samples repo][complete-script].
 
-Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Authorization][rbac-authorization] documentation.
+For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
+
+For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
-[rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
@@ -260,3 +261,5 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [azure-ad-portal]: aad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-identity]: operator-best-practices-identity.md

@@ -234,11 +234,12 @@ error: You must be logged in to the server (Unauthorized)
 
 ## Next Steps
 
-Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Authorization][rbac-authorization] documentation.
+For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
+
+For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
-[rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
@@ -247,3 +248,5 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-identity]: operator-best-practices-identity.md
