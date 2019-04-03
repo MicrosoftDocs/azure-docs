@@ -68,8 +68,8 @@ When using a shared secret, a service-to-service access token request contains t
 | Parameter |  | Description |
 | --- | --- | --- |
 | `grant_type` | Required | The type of  token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Required | The application (client) ID that the [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or the new [App registrations (Preview) portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) has assigned to your app. |
-| `client_secret` | Required | The application secret that you generated for your app in the portal that you used to register your app. |
+| `client_id` | Required | The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
+| `client_secret` | Required | The client secret that you generated for your app in the Azure portal - App registrations page. |
 | `assertion` | Required | The value of the token used in the request. |
 | `scope` | Required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). |
 | `requested_token_use` | Required | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
@@ -100,7 +100,7 @@ A service-to-service access token request with a certificate contains the follow
 | Parameter |  | Description |
 | --- | --- | --- |
 | `grant_type` | Required | The type of the token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Required | The application (client) ID that the [Application Registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or the new [App registrations (Preview) portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) has assigned to your app. |
+| `client_id` | Required |  The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
 | `client_assertion_type` | Required | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. To learn how to register your certificate and the format of the assertion, see [certificate credentials](active-directory-certificate-credentials.md). |
 | `assertion` | Required | The value of the token used in the request. |
@@ -201,7 +201,7 @@ At this time, the personal Microsoft account system does not support combined co
 
 #### Pre-authorized applications
 
-A new feature of the preview application portal is "pre-authorized applications". In this way, a resource can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
+A feature of the application portal is "pre-authorized applications". In this way, a resource can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
 
 #### Admin consent
 

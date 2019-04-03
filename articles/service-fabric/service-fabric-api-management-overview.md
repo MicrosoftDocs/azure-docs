@@ -4,7 +4,7 @@ description: This article is an introduction to using Azure API Management as a 
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b

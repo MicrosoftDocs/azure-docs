@@ -69,7 +69,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://github.com/azure/azure-notificationhubs-samples
+    href: samples.md
   - name: PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -113,6 +113,20 @@
       href: notification-hubs-php-push-notification-tutorial.md
     - name: Create notification hub - Python
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: Configure Platform Notification Service settings
+    items:
+    - name: Configure Apple Push Notification Service settings
+      href: configure-apple-push-notification-service.md
+    - name: Configure Google Firebase Cloud Messaging settings
+      href: configure-google-firebase-cloud-messaging.md
+    - name: Configure Windows Push Notification Service
+      href: configure-windows-push-notification-service.md
+    - name: Configure Microsoft Push Notification Service
+      href: configure-microsoft-push-notification-service.md
+    - name: Configure Android Device Messaging
+      href: configure-android-device-messaging.md            
+    - name: Configure Baidu Cloud Push
+      href: configure-baidu-cloud-push.md      
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
@@ -126,9 +140,7 @@
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST API
-    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100) 
-  - name: Management API
-    href: /rest/api/notificationhubs
+    href: /rest/api/notificationhubs/
   - name: Resource Manager template
     href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Resources

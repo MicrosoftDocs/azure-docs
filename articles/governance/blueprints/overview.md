@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Blueprints
-description: Azure Blueprints is a service in Azure, that you use to create, define, and deploy artifacts in your Azure environment.
+description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -10,7 +10,7 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
 ---
-# What is Azure Blueprints?
+# Overview of the Azure Blueprints service
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a

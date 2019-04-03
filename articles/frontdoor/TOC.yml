@@ -56,12 +56,14 @@
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
+- name: FAQ
+  href: front-door-faq.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.frontdoor
+    href: /powershell/module/az.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
 - name: Resources
