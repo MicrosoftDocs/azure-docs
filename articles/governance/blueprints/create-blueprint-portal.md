@@ -65,7 +65,7 @@ template and role assignment on the new resource group.
       **Role assignment** for **Artifact type**. 
    
    c. Under **Role**, select **Contributor**. Leave the **Add
-      user, app or group** box with the check box that indicates a **dynamic parameter**. 
+      user, app or group** box with the check box that indicates a dynamic parameter. 
    
    d. Select **Add** to
       add this artifact to the blueprint.
@@ -96,8 +96,8 @@ template and role assignment on the new resource group.
 
 1. The
    window to provide parameters to the artifact as part of the blueprint definition opens and allows
-   setting the parameters for all assignments (**static parameters**) based on this blueprint
-   instead of during assignment (**dynamic parameters**). This example uses **dynamic parameters**
+   setting the parameters for all assignments (static parameters) based on this blueprint
+   instead of during assignment (dynamic parameters). This example uses dynamic parameters
    during blueprint assignment, so leave the defaults and select **Cancel**.
 
 1. Add a resource group at the subscription level: 
@@ -109,7 +109,7 @@ template and role assignment on the new resource group.
    
    c. Leave the **Artifact display name**,
       **Resource Group Name**, and **Location** boxes blank, but make sure that the check box is checked
-      for each parameter property to make them **dynamic parameters**. 
+      for each parameter property to make them dynamic parameters. 
    
    d. Select **Add** to add this
       artifact to the blueprint.
@@ -126,7 +126,7 @@ template and role assignment on the new resource group.
       tab in the editor box, paste the following Resource Manager template. After you paste the template,
       select the **Parameters** tab and note that the template parameters **storageAccountType** and
       **location** were detected. Each parameter was automatically detected and populated, but
-      configured as a **dynamic parameter**. 
+      configured as a dynamic parameter. 
    
    > [!IMPORTANT]
    > If you're importing the template, ensure that the file is only JSON and doesn't include HTML. When you're
@@ -185,7 +185,7 @@ template and role assignment on the new resource group.
 
    d. Clear the **storageAccountType** check box
       and note that the drop-down list contains only values included in the Resource Manager template under
-      **allowedValues**. Select the box to set it back to a **dynamic parameter**. 
+      **allowedValues**. Select the box to set it back to a dynamic parameter. 
    
    e. Select **Add** to add
       this artifact to the blueprint.
@@ -193,7 +193,7 @@ template and role assignment on the new resource group.
    ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Your completed blueprint should look similar to the following. Notice that each artifact has **_x_
-   out of _y_ parameters populated** in the **Parameters** column. The **dynamic parameters** are
+   out of _y_ parameters populated** in the **Parameters** column. The dynamic parameters are
    set during each assignment of the blueprint.
 
    ![Completed blueprint definition](./media/create-blueprint-portal/completed-blueprint.png)
@@ -228,7 +228,7 @@ to the new resource group. You can fix both by following these steps:
       select **Owner**, and clear the check box under the **Add user, app or group** box. 
    
    d. Search for and
-      select a user, app, or group to add. This artifact uses a **static parameter** set the same in
+      select a user, app, or group to add. This artifact uses a static parameter set the same in
       every assignment of this blueprint. 
    
    e. Select **Add** to add this artifact to the blueprint.
@@ -236,7 +236,7 @@ to the new resource group. You can fix both by following these steps:
    ![Second role assignment for the blueprint artifact](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Your completed blueprint should look similar to the following. Notice that the newly added role
-   assignment shows **1 out of 1 parameters populated**. That means it's a **static parameter**.
+   assignment shows **1 out of 1 parameters populated**. That means it's a static parameter.
 
    ![Second definition for the completed blueprint](./media/create-blueprint-portal/completed-blueprint-2.png)
 
@@ -310,9 +310,9 @@ to a subscription, it can only be assigned to that subscription.
 
 1. Under **Managed Identity**, leave the default of **System assigned**.
 
-1. For the subscription-level role assignment **[User group or application name] : Contributor**, search for and select a user, app, or group.
+1. For the subscription level role assignment **[User group or application name] : Contributor**, search for and select a user, app, or group.
 
-1. For the subscription-level policy assignment, set **Tag Name** to **CostCenter** and the **Tag Value** to **ContosoIT**.
+1. For the subscription level policy assignment, set **Tag Name** to **CostCenter** and the **Tag Value** to **ContosoIT**.
 
 1. For **ResourceGroup**, provide a **Name** of **StorageAccount** and a **Location** of **East US 2** from the drop-down list.
 
@@ -349,7 +349,7 @@ assignment, follow these steps:
 
 1. Select **Assigned blueprints** from the page on the left.
 
-1. In the list of blueprints, select the blueprint that you want to unassign, and then select the **Unassign blueprint** button at the top of the page.
+1. In the list of blueprints, select the blueprint that you want to unassign. Then select the **Unassign blueprint** button at the top of the page.
 
 1. Read the confirmation message and then select **OK**.
 
