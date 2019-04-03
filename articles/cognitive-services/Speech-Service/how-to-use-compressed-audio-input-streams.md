@@ -1,7 +1,9 @@
 ---
-title: Speech SDK compressed audio input stream concepts
+title: Stream compressed audio with the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: An overview of the capabilities of the Speech SDK's compressed audio input stream API.
+description: Learn how to stream compressed audio to Azure Speech Services with the Speech SDK. Available for C++, C#, and Java for Linux.
+
+An overview of the capabilities of the Speech SDK's compressed audio input stream API.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,23 +14,23 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ---
-# About the Speech SDK compressed audio input stream
+# Stream compressed audio with the Speech SDK
 
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
 
-> [!NOTE]
-> Compressed audio input format is currently only supported for C++, C#, and Java on Linux (Ubuntu 16.04 or Ubuntu 18.04).
-> MP3 and OPUS/OGG are the only supported input audio formats at this stage.
+> [!IMPORTANT]
+> Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04 or Ubuntu 18.04).
+> Support is limited to MP3 and OPUS/OGG.
 
-On Linux, you need to install these additional SDK dependencies to enable the compressed audio input format feature:
+You must install these dependencies to use compressed audio input with the Speech SDK for Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
 
-To stream in a compressed audio format to the Speech Service, you create your own `PullAudioInputStream` or `PushAudioInputStream`. Then create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-If you have an instance of your input stream class `myPushStream` and the OPUS/OGG format, the code will look similar to this:
+Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. This is what the code may look like: 
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -36,7 +38,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-// Create an audio config specifying the compressed audio format and the instance of you input stream class.
+// Create an audio config specifying the compressed audio format and the instance of your input stream class.
 var audioFormat = AudioStreamFormat.GetCompressedFormat(AudioStreamContainerFormat.OGG_OPUS);
 var audioConfig = AudioConfig.FromStreamInput(myPushStream, audioFormat);
 

@@ -1,5 +1,5 @@
 ---
-title: Speech SDK logging
+title: Speech SDK logging - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Enable logging in the Speech SDK.
 services: cognitive-services
