@@ -62,6 +62,8 @@
     - name: Enterprise security overview
       displayName: authorization authentication encryption
       href: concept-enterprise-security.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
     - name: Use virtual networks
       displayName: vnet
       href: how-to-enable-virtual-network.md
@@ -75,8 +77,6 @@
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
       href: how-to-create-workspace-template.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
@@ -89,15 +89,18 @@
         href: how-to-vscode-tools.md
       - name: Train and deploy
         href: how-to-vscode-train-deploy.md
-  - name: Prepare data
+  - name: Work with data
     displayName: data prep, etl, elt, data preparation
     items:
-    - name: Load data
-      href: how-to-load-data.md
-    - name: Transform data
-      href: how-to-transform-data.md
-    - name: Write data
-      href: how-to-write-data.md
+    - name: Explore and prep data
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: Load data
+        href: how-to-load-data.md
+      - name: Transform data
+        href: how-to-transform-data.md
+      - name: Write data
+        href: how-to-write-data.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -192,8 +195,10 @@
   - name: Known issues
     displayName: bugs errors troubleshoot
     href: resource-known-issues.md
-  - name: Get support
-    href: support-for-aml-services.md
+  - name: User forum
+    href: https://aka.ms/aml-forum-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true

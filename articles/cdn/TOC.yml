@@ -42,7 +42,7 @@
     href: cdn-pop-list-api.md        
   - name: Migrate from Standard Verizon Standard to Premium Verizon  
     href: cdn-migrate.md
-    name: DDoS Protection
+  - name: DDoS Protection
     href: cdn-ddos.md
 - name: How-to guides
   items:

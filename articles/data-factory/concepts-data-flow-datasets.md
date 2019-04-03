@@ -44,9 +44,27 @@ In Data Flow, you can ask ADF to create a new table definition in your target da
 
 ![Source Transformation schema](media/data-flow/dataset2.png "SQL Schema")
 
-## Delimited text dataset
+## Choose your type of data first
 
-In the delimited text dataset, you will set the delimiter to handle either single delimiters ('\t' for TSV, ',' for CSV, '|' ...) or use multiple characters for delimiter. Set the header row toggle and then go into the Source transformation to auto-detect data types.
+### Delimited text
+
+In the delimited text dataset, you will set the delimiter to handle either single delimiters ('\t' for TSV, ',' for CSV, '|' ...) or use multiple characters for delimiter. Set the header row toggle and then go into the Source transformation to auto-detect data types. If you are using a Delimited Text dataset to land data in a sink, just select a target folder. In the Sink settings, you can define the name of the output files.
+
+### Parquet
+
+Use Parquet as the preferred staging dataset type in ADF data flows. Parquet will store rich metadata schema along with the data.
+
+### Database types
+
+You can select Azure SQL DB or Azure SQL DW.
+
+For the other ADF dataset types, use the Copy Activity to stage your data. There is an ADF template in the template gallery to help you build this pattern.
+
+![copy staging](media/data-flow/templatedf.png "copy staging")
+
+## Choose your connection type
+
+If you are using Parquet or Delimited Text datasets, you can then select the location for your data: ADLS or Blob.
 
 ## Next steps
 

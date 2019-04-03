@@ -310,7 +310,9 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    1. On the **Libraries** tab, select **Restart**.
       
    Also consider:
-   + Some packages, such as `psutil`, can cause Databricks conflicts during installation. To avoid such errors, install packages by freezing lib version, such as `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + In Automl config, when using Azure Databricks please add the following parameters:
+    1. ```max_concurrent_iterations``` based on number of worker nodes in your cluster. 
+    2. ```spark_context=sc``` #databricks/spark default spark context. 
    + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
 If install was successful, the imported library should look like one of these:

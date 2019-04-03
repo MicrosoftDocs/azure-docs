@@ -76,7 +76,7 @@ Enter the relevant values into the following fields to update the scaling script
 | currentAzureSubscriptionId    | The ID of the Azure subscription where the session host VMs run                        |
 | tenantName                    | Windows Virtual Desktop tenant name                                                    |
 | hostPoolName                  | Windows Virtual Desktop host pool name                                                 |
-| RDBroker                      | URL to the WVD service, default value <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL to the WVD service, default value https:\//rdbroker.wvd.microsoft.com             |
 | Username                      | The service principal application ID (it’s possible to have the same service principal as in AADApplicationId) or standard user without multi-factor authentication |
 | isServicePrincipal            | Accepted values are **true** or **false**. Indicates whether the second set of credentials being used is a service principal or a standard account. |
 | BeginPeakTime                 | When peak usage time begins                                                            |
