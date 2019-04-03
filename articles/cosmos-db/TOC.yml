@@ -465,7 +465,7 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-      - name: Model and partition a real-world example
+      - name: Data modeling and partitioning - a real-world example
         displayName: model, partition, example
         href: how-to-model-partition-example.md
       - name: Configure time to live

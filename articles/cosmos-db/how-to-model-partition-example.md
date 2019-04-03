@@ -1,5 +1,5 @@
 ---
-title: How to model and partition a real-world example
+title: How to model and partition data on Azure Cosmos DB using a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -23,13 +23,13 @@ For this exercise, we are going to consider the domain of a blogging platform wh
 
 Adding more requirements to our specification:
 
-- a front page displays a feed of recently created posts,
-- we can fetch all posts for a user, all comments for a post and all likes for a post,
-- posts are returned with the username of their authors and a count of how many comments and likes they have,
-- comments and likes are also returned with the username of the users who have created them,
-- when displayed as lists, posts only have to present a truncated summary of their content.
+- A front page displays a feed of recently created posts,
+- We can fetch all posts for a user, all comments for a post and all likes for a post,
+- Posts are returned with the username of their authors and a count of how many comments and likes they have,
+- Comments and likes are also returned with the username of the users who have created them,
+- When displayed as lists, posts only have to present a truncated summary of their content.
 
-## Start by identifying the main access patterns
+## Identify the main access patterns
 
 To start, we give some structure to our initial specification by identifying our solution's access patterns. When designing a data model for Azure Cosmos DB, it's important to understand which requests our model will have to serve to make sure that the model will serve those requests efficiently.
 
@@ -306,7 +306,7 @@ function createComment(postId, comment) {
 }
 ```
 
-This stored procedure take the ID of the post and the body of the new comment as parameters, then:
+This stored procedure takes the ID of the post and the body of the new comment as parameters, then:
 
 - retrieves the post
 - increments the `commentCount`
