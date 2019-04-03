@@ -24,7 +24,7 @@ All ASEs have a public VIP which management traffic comes into. The incoming man
 
 You can use the Service Tag named AppServiceManagement in your Network Security Groups in order to lock down inbound management traffic to your ASE.  
 
-The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replys are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
+The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replies are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
 ## List of management addresses ##
 
