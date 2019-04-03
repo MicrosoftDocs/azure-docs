@@ -161,7 +161,7 @@ zone offset in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
 Your Scheduler job runs a primary **action** based on the specified schedule. 
 Scheduler supports HTTP, Storage queue, Service Bus queue, and Service Bus 
 topic actions. If the primary **action** fails, Scheduler can run a 
-secondary [**errorAction**](#errorAction) that handles the error. 
+secondary [**errorAction**](#erroraction) that handles the error. 
 The **action** object describes these elements:
 
 * The action's service type

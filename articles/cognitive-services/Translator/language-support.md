@@ -3,7 +3,7 @@ title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
@@ -263,7 +263,7 @@ You can retrieve a list of supported languages for the Translator Text API v3.0 
 
 ## Customization
 
-The following languages are available for customization to or from English using [Custom Translator](http://aka.ms/CustomTranslator).
+The following languages are available for customization to or from English using [Custom Translator](https://aka.ms/CustomTranslator).
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -285,6 +285,7 @@ The following languages are available for customization to or from English using
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
+| Icelandic | `is` |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 | Korean      | `ko`          |
@@ -304,6 +305,7 @@ The following languages are available for customization to or from English using
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
+| Welsh | `cy` |
 
 ## Access the list on the Microsoft Translator website
 

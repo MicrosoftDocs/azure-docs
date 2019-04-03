@@ -189,9 +189,7 @@
   - name: Integration
     items:
     - name: Overview
-      href: sql-data-warehouse-overview-integrate.md
-    - name: SQL Database elastic query
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
+      href: sql-data-warehouse-overview-integrate.md    
 - name: How-to guides
   items:
   - name: Secure
@@ -268,8 +266,6 @@
         href: sql-data-warehouse-integrate-azure-stream-analytics.md
     - name: Build dashboards and reports 
       items:
-      - name: Configure SQL Database elastic query
-        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
       - name: Visualize with Power BI
         href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
   - name: Troubleshoot
