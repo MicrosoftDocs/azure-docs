@@ -123,6 +123,8 @@
         href: service-bus-amqp-protocol-guide.md
       - name: AMQP request-response-based operations
         href: service-bus-amqp-request-response.md
+      - name: AMQP errors
+        href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
       - name: Use firewalls
