@@ -8,13 +8,13 @@ ms.date: 3/27/2019
 ms.author: thweiss
 ---
 
-# How to model and partition a real-world example
+# How to model and partition data on Azure Cosmos DB using a real-world example
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
-## The domain
+## The scenario
 
 For this exercise, we are going to consider the domain of a blogging platform where *users* can create *posts*. Users can also *like* and add *comments* to those posts.
 
@@ -37,16 +37,16 @@ To make the overall process easier to follow, we categorize those different requ
 
 Here is the list of requests that our platform will have to expose:
 
-- [C1] Create/edit a user
-- [Q1] Retrieve a user
-- [C2] Create/edit a post
-- [Q2] Retrieve a post
-- [Q3] List a user's posts in short form
-- [C3] Create a comment
-- [Q4] List a post's comments
-- [C4] Like a post
-- [Q5] List a post's likes
-- [Q6] List the *x* most recent posts created in short form (feed)
+- **[C1]** Create/edit a user
+- **[Q1]** Retrieve a user
+- **[C2]** Create/edit a post
+- **[Q2]** Retrieve a post
+- **[Q3]** List a user's posts in short form
+- **[C3]** Create a comment
+- **[Q4]** List a post's comments
+- **[C4]** Like a post
+- **[Q5]** List a post's likes
+- **[Q6]** List the *x* most recent posts created in short form (feed)
 
 As this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
@@ -121,7 +121,7 @@ This request is straightforward to implement as we just create or update an item
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 7 ms | 5.71 RU | ✔ |
+| 7 ms | 5.71 RU | ✅ |
 
 ### [Q1] Retrieve a user
 
@@ -131,17 +131,17 @@ Retrieving a user is done by reading the corresponding item from the `users` con
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 2 ms | 1 RU | ✔ |
+| 2 ms | 1 RU | ✅ |
 
 ### [C2] Create/edit a post
 
-Similarly to [C1], we just have to write to the `posts` container.
+Similarly to **[C1]**, we just have to write to the `posts` container.
 
 ![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 9 ms | 8.76 RU | ✔ |
+| 9 ms | 8.76 RU | ✅ |
 
 ### [Q2] Retrieve a post
 
@@ -178,7 +178,7 @@ A comment is created by writing the corresponding item in the `posts` container.
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 7 ms | 8.57 RU | ✔ |
+| 7 ms | 8.57 RU | ✅ |
 
 ### [Q4] List a post's comments
 
@@ -194,17 +194,17 @@ Although the main query does filter on the container's partition key, aggregatin
 
 ### [C4] Like a post
 
-Just like [C3], we create the corresponding item in the `posts` container.
+Just like **[C3]**, we create the corresponding item in the `posts` container.
 
 ![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 6 ms | 7.05 RU | ✔ |
+| 6 ms | 7.05 RU | ✅ |
 
 ### [Q5] List a post's likes
 
-Just like [Q4], we query the likes for that post, then aggregate their usernames.
+Just like **[Q4]**, we query the likes for that post, then aggregate their usernames.
 
 ![Retrieving all likes for a post and aggregating their additional data](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -277,7 +277,7 @@ We also modify comment and like items to add the username of the user who has cr
 
 What we want to achieve is that every time we add a comment or a like, we also increment the `commentCount` or the `likeCount` in the corresponding post. As our `posts` container is partitioned by `postId`, the new item (comment or like) and its corresponding post sit in the same logical partition. As a result, we can use a [stored procedure](stored-procedures-triggers-udfs.md) to perform that operation.
 
-Now when creating a comment ([C3]), instead of just adding a new item in the `posts` container we call the following stored procedure on that container:
+Now when creating a comment (**[C3]**), instead of just adding a new item in the `posts` container we call the following stored procedure on that container:
 
 ```javascript
 function createComment(postId, comment) {
@@ -367,7 +367,7 @@ Now that our denormalization is in place, we only have to fetch a single item to
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 2 ms | 1 RU | ✔ |
+| 2 ms | 1 RU | ✅ |
 
 ### [Q4] List a post's comments
 
@@ -377,7 +377,7 @@ Here again, we can spare the extra requests that fetched the usernames and end u
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 4 ms | 7.72 RU | ✔ |
+| 4 ms | 7.72 RU | ✅ |
 
 ### [Q5] List a post's likes
 
@@ -387,11 +387,11 @@ Exact same situation when listing the likes.
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 4 ms | 8.92 RU | ✔ |
+| 4 ms | 8.92 RU | ✅ |
 
 ## V3: Making sure all requests are scalable
 
-Looking at our overall performance improvements, there are still two requests that we haven't fully optimized: [Q3] and [Q6]. They are the requests involving queries that don't filter on the partition key of the containers they target.
+Looking at our overall performance improvements, there are still two requests that we haven't fully optimized: **[Q3]** and **[Q6]**. They are the requests involving queries that don't filter on the partition key of the containers they target.
 
 ### [Q3] List a user's posts in short form
 
@@ -447,7 +447,7 @@ We can now route our query to the `users` container, filtering on the container'
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 4 ms | 6.46 RU | ✔ |
+| 4 ms | 6.46 RU | ✅ |
 
 ### [Q6] List the x most recent posts created in short form (feed)
 
@@ -531,7 +531,7 @@ The final step is to reroute our query to our new `feed` container:
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
-| 9 ms | 16.97 RU | ✔ |
+| 9 ms | 16.97 RU | ✅ |
 
 ## Conclusion
 
