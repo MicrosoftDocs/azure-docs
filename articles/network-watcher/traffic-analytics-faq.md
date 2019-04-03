@@ -69,6 +69,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Central US
 - West US
 - West US 2
+- France Central
 - West Europe
 - North Europe
 - Brazil South
@@ -76,20 +77,26 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - UK South
 - Australia East
 - Australia Southeast 
+- East Asia
 - Southeast Asia
+- Korea Central
 - Central India
 - South India
 - Japan East
+- Japan West
 - US Gov Virginia
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US 2
 - East US
+- France Central
 - West Europe
 - UK South
 - Australia Southeast
 - Southeast Asia 
+- Korea Central
 - Central India
 - Japan East
 - US Gov Virginia
@@ -160,7 +167,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 

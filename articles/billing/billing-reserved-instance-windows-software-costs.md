@@ -65,15 +65,15 @@ If you don't have an Azure Hybrid Use Benefit on your reserved virtual machine i
 You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## Next steps
-To learn more about Azure Reservations, see the following articles:
+To learn more about reservations for Azure, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

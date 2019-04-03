@@ -248,7 +248,7 @@ To add a probe port:
 
 1. Check the current **ProbePort** value by running the following PowerShell command:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -267,7 +267,7 @@ To add a probe port:
 
    To set a new ProbePort value for the SAP \<SID\> IP cluster resource, run the following PowerShell script to update the PowerShell variables for your environment:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
@@ -325,7 +325,7 @@ To add a probe port:
 
    After you bring the SAP \<SID\> cluster role online, verify that **ProbePort** is set to the new value.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -342,7 +342,7 @@ To add a probe port:
 
 Open a Windows firewall probe port on both cluster nodes. Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -402,7 +402,7 @@ _**Figure 7:** In SIOS DataKeeper, replicate the local volume from cluster node 
    - Failover Cluster Manager  
    - Failover Cluster PowerShell
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

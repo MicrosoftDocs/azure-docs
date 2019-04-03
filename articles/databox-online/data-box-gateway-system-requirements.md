@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements
@@ -26,7 +26,7 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Virtual processors (cores)   | Minimum 4 |            
+| Virtual processors (cores)   | Minimum 4 |
 | Memory  | Minimum 8 GB|
 | Availability|Single node|
 | Disks| OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|
@@ -79,6 +79,10 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 > - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
+
+### URL patterns for Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
 ## Internet bandwidth
 

@@ -87,37 +87,37 @@ This sections shows how to use PowerShell commands create, view and manage class
 
 2. First, log in to your Azure subscription.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. You'll see a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. To change your working context to a different subscription, use the following command:
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. You can retrieve all classic metric alert rules on a resource group:
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. You can view details of a classic metric alert rule
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. You can retrieve all alert rules set for a target resource. For example, all alert rules set on a VM.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

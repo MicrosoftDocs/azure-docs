@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with Skillport, perform the following steps
 
     EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
 
-	US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
+	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

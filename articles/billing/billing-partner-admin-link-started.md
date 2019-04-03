@@ -18,8 +18,6 @@ ms.workload: na
 
 As a partner, you can track your impact across your customer engagements. You can link your partner ID to the accounts that are used to manage a customer's resources.
 
-This feature is available in a public preview.
-
 ## Get access from your customer
 
 Before you link your partner ID, your customer must give you access to their Azure resources by using one of the following options:
@@ -52,7 +50,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 1. Install the [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell module.
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

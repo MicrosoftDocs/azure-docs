@@ -120,6 +120,7 @@ You must create the cluster node role before you can create the Avere vFXT for A
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.Network/networkInterfaces/read",
           "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/read",
           "Microsoft.Network/virtualNetworks/subnets/read",
           "Microsoft.Network/virtualNetworks/subnets/join/action",
           "Microsoft.Network/networkSecurityGroups/join/action",
