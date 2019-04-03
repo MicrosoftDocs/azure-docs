@@ -112,3 +112,39 @@ If you see the message even after choosing anonymous access, you may have forgot
 Selecting the privacy levels should let your function be invoked on the time series data. Click **Close and upload**
 
 ## Visualize the Anomaly Detector API response
+
+Use the screenshot below to help build your chart.
+
+1. Select the line chart visualization.
+
+2. Add the `day` field from **Timestamp**, **Date Hierarchy** to the line chart's **Axis**.
+
+3. Add the following fields to the chart's **Values**. 
+    * Value
+    * UpperMargins
+    * LowerMargins
+    * ExpectedValues
+ 
+![An image of the new quick measure screen](../media/tutorials/chart-settings.png)
+
+Your chart will look similar to the below screenshot:
+
+![An image of the new quick measure screen](../media/tutorials/chart-visualization.png)
+
+### Display anomaly points
+
+On the right side of the screen, below **Fields**, right-click on **Value**. Select **New Quick Measure**.
+
+![An image of the new quick measure screen](../media/tutorials/new-quick-measure.png)
+
+On the screen that appears, select **Filtered value** as the calculation. Set **Base value** to `Sum of Value`. Then drag `IsAnomaly` from the fields in the invoked function.  
+
+![An image of the new quick measure screen](../media/tutorials/new-quick-measure-2.png)
+
+After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Add it to the chart's **Values**. Then select the **Format** tool, and set the X axis type to **Categorical**.
+
+![An image of the new quick measure screen](../media/tutorials/format-x-axis.png)
+
+Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
+
+![An image of the new quick measure screen](../media/tutorials/chart-final.jpg)
