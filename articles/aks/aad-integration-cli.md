@@ -112,7 +112,7 @@ Get the oAuth2 ID for the server app to allow the authentication flow between th
 oAuthPermissionId="$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)"
 ```
 
-Add the permissions for the client application and server application components to use the oAuth2 communication flow using the [az ad app permission add][az-ad-app permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] command:
+Add the permissions for the client application and server application components to use the oAuth2 communication flow using the [az ad app permission add][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] command:
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -161,7 +161,7 @@ Get the object ID for the user currently logged in using the [az ad signed-in-us
 az ad signed-in-user show --query objectId -o tsv
 ```
 
-Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace */<user objectId/>*  with the user object ID output from the previous command:
+Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace *<user objectId>*  with the user object ID output from the previous command:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -258,3 +258,5 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-account-show]: /cli/azure/account#az-account-show
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
 [azure-ad-portal]: aad-integration.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
