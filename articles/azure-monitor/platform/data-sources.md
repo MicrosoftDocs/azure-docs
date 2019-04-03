@@ -17,14 +17,9 @@ ms.author: bwren
 ---
 
 # Sources of monitoring data for Azure Monitor
-Azure Monitor collects monitoring data into a common data platform that includes Logs and Metrics so they can be analyzed together using a common set of tools. Some data sources will write directly to these data stores while others write to some other location and require configuration before being collected into this common platform. Some monitoring data 
+Azure Monitor collects monitoring data into a [common data platform](data-platform.md) that includes [Logs](data-platform-logs.md) and [Metrics](data-platform-metrics.md) so they can be analyzed together using a common set of tools. Some data sources will write directly to these locations while others require configuration before being collected into this common platform. Some monitoring data 
 
-- Write directly to Azure Monitor Metrics and Logs
-- Write to
-- 
-
-
-This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-platform.md) for details on how this data stored and how you can view it.
+This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.
 
 Monitoring data in Azure comes from a variety of sources that can be organized into tiers, the highest tiers being your application and any operating systems and the lower tiers being components of Azure platform. This is illustrated in the following diagram with each tier described in detail in the following sections.
 
@@ -32,47 +27,43 @@ Monitoring data in Azure comes from a variety of sources that can be organized i
 
 ![Tiers of monitoring data](media/data-sources/monitoring-tiers.png)
 
-## Azure Tenant
+## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
 
 ![Azure tenant collection](media/data-sources/tenant-collection.png)
 
 | Data Source | Destination | Description |
 |:---|:---|:---|
-| Azure Active Directory Audit Logs | | [Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. These audit logs can be written to Azure Monitor logs to analyze them with other log data. |
+| Azure Active Directory Audit Logs | Logs | [Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. See [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) for details on configuring them to be collected in Azure Monitor. |
 
 
 
-## Azure platform
-Telemetry related to the health and operation of Azure itself includes data about the operation and management of your Azure subscription. It includes service health data stored in the Azure Activity log and audit logs from Azure Active Directory.
+## Azure subscription
+Telemetry related to the health and operation of Azure itself includes data about the operation and management of your Azure subscription. It includes service health data stored in the Azure Activity log.
 
-![Azure subscription collection](media/data-sources/azure-collection.png)
+![Azure subscription](media/data-sources/azure-subscription.png)
 
 | Data Source | Destination | Description |
 |:---|:---|:---|
-| Azure Service Health | Activity Logs<br>Logs | [Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs. |
-
-### Azure Activity Log
-The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](activity-log-schema.md).
-
-You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](activity-logs-overview.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](activity-logs-stream-event-hubs.md).
+| Azure Service Health | Activity Log<br>Logs | [Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer or copy them into Azure Monitor Logs. |
+| Azure Activity Log   | Activity Log<br>Logs | The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view.<br><br>The Activity Log is collected  its own store that you can view from the Azure Monitor menu, use for Activity Log alerts, or stream it to other locations using [Event Hubs](activity-logs-stream-event-hubs.md). Copy the Activity Log to Azure Monitor Logs to analyze it with other monitoring data. |
+| Billing data |  | You can [Use Azure Billing APIs to programmatically get insight into your Azure usage](/azure/billing/billing-usage-rate-card-overview). |
 
 
 
-## Azure Services
+## Azure resources
 Metrics and resource level diagnostic logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and management solutions provide additional insights into particular services.
 
 ![Azure resource collection](media/data-sources/azure-resource-collection.png)
 
 
-### Metrics
-Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  They are accessible from metrics analytics and can be copied to logs for trending and other analysis using Log Analytics.
+| Data Source | Destination | Description |
+|:---|:---|:---|
+| Platform metrics | Metrics | Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  Access platform metrics from [metrics explorer](metrics-getting-started.md).  |
+|                  | Logs | [Copy platform metrics to Logs](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) for trending and other analysis using Log Analytics. |
+| Resource diagnostic logs | Logs<br>Storage<br>EventHubs | [Diagnostic logs](diagnostic-logs-overview.md) provide insights into the internal operation of an Azure resource.   The configuration requirements and content of these logs [varies by resource type](diagnostic-logs-schema.md).<br><br>You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](archive-diagnostic-logs.md) or [to Azure Monitor](diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Log Analytics](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).<br>Export dialog logs to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services. |
+| Storage accounts | Metrics<br>Storage  | Metrics for storage accounts are collected in Azure Monitor along with other resources, but logs are [written to the storage account](../../storage/common/storage-metrics-in-azure-monitor.md). You can import these logs into a Log Analytics workspace in Azure Monitor, but this [requires custom configurmation](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/). You can also retrieve this data with the [Storage Analytics API|( /rest/api/storageservices/storage-analytics).
 
-
-### Resource diagnostic Logs
-While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](diagnostic-logs-overview.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](diagnostic-logs-schema.md).
-
-You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Azure Monitor](diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Log Analytics](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### Monitoring Solutions
  [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Azure Monitor logs where it may be analyzed using the [query language](../../azure-monitor/log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution.
