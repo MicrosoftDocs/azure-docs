@@ -27,7 +27,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) provides organizations with enterprise-grade identity management for cloud applications. Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 
-## How io integrate
+## How to integrate
 
 There are several ways for your application to integrate with Azure AD. Take advantage of as many or as few of these scenarios as is appropriate for your application.
 
