@@ -57,10 +57,10 @@ You must have an Azure subscription on Security Center’s Standard tier before 
 You must now add the **Azure Monitor, Update and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack.
 
 1. In a new browser tab, log into your **Azure Stack** portal.
-2. Go to **Virtual machines** page, select the virtual machine that you want to protect with Security Center. For information on how to create a virtual machine on Azure Stack, please see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+2. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Security Center. For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
 3. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 4. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
-5. Select the **Azure Monitor, Update and Configuration Management** extension. Click **Create**. The **Install extension** configuration blade opens up.
+5. Select the **Azure Monitor, Update and Configuration Management** extension and click **Create**. The **Install extension** configuration blade opens up.
 6. On the **Install extension** configuration blade, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
 7.  When you have finish providing the necessary configuration settings, click **OK**.
 8. Once the extension installation completes, its status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Security Center portal.
