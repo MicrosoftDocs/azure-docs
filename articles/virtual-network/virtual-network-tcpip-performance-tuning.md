@@ -256,92 +256,95 @@ To use accelerated networking, you need to explicitly enable it on each applicab
 
 #### Receive side scaling
 
-Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multiprocessor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. A more technical discussion of RSS can be found at the [Introduction to Receive Side Scaling page](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multiprocessor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. For a more technical discussion of RSS, see [Introduction to receive side scaling](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-RSS is required to achieve maximum performance when Accelerated Networking is enabled on a VM. There can also be benefits in using RSS on VMs that don’t have accelerated networking enabled. An overview of how to determine if RSS is enabled and configuration for enabling it can be found at the [Optimize network throughput for Azure virtual machines page](http://aka.ms/FastVM).
+To get the best performance when accelerated networking is enabled on a VM, you need to enable RSS. RSS can also provide benefits on VMs that don’t use accelerated networking. For an overview of how to determine if RSS is enabled and how to enable it, see [Optimize network throughput for Azure virtual machines](http://aka.ms/FastVM).
 
-### TCP Time Wait and Time Wait Assassination
+### TCP TIME_WAIT and TIME_WAIT assassination
 
-Another common problem that affects network and application performance is the TCP Time Wait setting. On busy VMs that are opening and closing many sockets, either as a client or server (Source IP:Source Port + Destination IP:Destination Port), during the normal operation of TCP, a given socket can end up in a time wait state for a substantial amount of time. This "time wait" state, is meant to allow any additional data to be delivered on a socket prior to closing it. Therefore, TCP/IP stacks generally prevent the reuse of a socket by silently dropping the clients TCP SYN packet.
+TCP TIME_WAIT is another common setting that affects network and application performance. On busy VMs that are opening and closing many sockets, either as clients or servers (Source IP:Source Port + Destination IP:Destination Port), during the normal operation of TCP, a given socket can end up in a TIME_WAIT state for a long time. The TIME_WAIT state is meant to allow any additional data to be delivered on a socket before closing it. So TCP/IP stacks generally prevent the reuse of a socket by silently dropping the client's TCP SYN packet.
 
-This amount of time a socket is in time wait state is configurable but could range from 30 seconds to 240 seconds. Sockets are a finite resource, and the number of sockets that can be used at any given time are configurable (the number generally lies around 30,000 potential sockets). If this number is exhausted, or clients and servers have mismatched time wait settings, and a VM tries to reuse a socket in time wait state, then new connections will fail as TCP SYN packets are silently dropped.
+The amount of time a socket is in TIME_WAIT is configurable. It could range from 30 seconds to 240 seconds. Sockets are a finite resource, and the number of sockets that can be used at any given time is configurable. (The number of available sockets is typically about 30,000.) If the available sockets are consumed, or if clients and servers have mismatched TIME_WAIT settings, and a VM tries to reuse a socket in a TIME_WAIT state, new connections will fail as TCP SYN packets are silently dropped.
 
-Usually the value for port range for outbound sockets, as well as TCP Time Wait settings and socket reuse are configurable within the TCP/IP Stack of an operating system. Changing these numbers can potentially improve scalability, but depending on the scenario, could introduce interoperability issues and should be changed with caution.
+Usually, the value for port range for outbound sockets is configurable within the TCP/IP stack of an operating system. The same thing is true for TCP TIME_WAIT settings and socket reuse. Changing these numbers can potentially improve scalability. But, depending on the situation, these changes could cause interoperability issues. You should be careful if you change these values.
 
-A capability called Time Wait Assassination was introduced to address this scaling limitation. Time Wait Assassination allows a socket to be reused under certain scenarios like when the Sequence Number in the IP Packet of the new connection exceeds the Sequence Number of the last packet from the previous connection. In this case, the operating system will allow the new connection to be established (accept the new SYN ACK) and force close the previous connection that was in time wait state. This capability is supported on Windows VMs within Azure today and support within other VMs should be investigated by Azure customers with the respective OS vendors.
+You can use TIME_WAIT assassination to address this scaling limitation. TIME_WAIT assassination allows a socket to be reused in certain situations, like when the sequence number in the IP packet of the new connection exceeds the sequence number of the last packet from the previous connection. In this case, the operating system will allow the new connection to be established (it will accept the new SYN/ACK) and force close the previous connection that was in a TIME_WAIT state. This capability is supported on Windows VMs in Azure. To learn about support in other VMs, check with the OS vendor.
 
-Documentation on configuring TCP Time Wait settings and source port range is available at the [Settings that can be Modified to Improve Network Performance page](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+To learn about configuring TCP TIME_WAIT settings and source port range, see [Settings that can be modified to improve network performance](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
 
-## Virtual Network factors that can affect performance
+## Virtual network factors that can affect performance
 
 ### VM maximum outbound throughput
 
-Azure offers a variety of VM sizes and types, each with a different mix of performance capabilities. One such performance capability is network throughput (or bandwidth), measured in megabits per second (Mbps). Because virtual machines are hosted on shared hardware, the network capacity must be shared fairly among the virtual machines sharing the same hardware. Larger virtual machines are allocated relatively more bandwidth than smaller virtual machines.
+Azure provides a variety of VM sizes and types, each with a different mix of performance capabilities. One of these capabilities is network throughput (or bandwidth), which is measured in megabits per second (Mbps). Because virtual machines are hosted on shared hardware, the network capacity needs to be shared fairly among the virtual machines using the same hardware. Larger virtual machines are allocated more bandwidth than smaller virtual machines.
 
-The network bandwidth allocated to each virtual machine is metered on egress (outbound) traffic from the virtual machine. All network traffic leaving the virtual machine is counted toward the allocated limit, regardless of destination. For example, if a virtual machine has a 1,000-Mbps limit, that limit applies whether the outbound traffic is destined for another virtual machine in the same virtual network, or outside of Azure.
-Ingress is not metered or limited directly. However, there are other factors, such as CPU and storage limits, which can impact a virtual machine’s ability to process incoming data.
+The network bandwidth allocated to each virtual machine is metered on egress (outbound) traffic from the virtual machine. All network traffic leaving the virtual machine is counted toward the allocated limit, regardless of destination. For example, if a virtual machine has a 1,000-Mbps limit, that limit applies whether the outbound traffic is destined for another virtual machine in the same virtual network or one outside of Azure.
 
-Accelerated Networking is a feature designed to improve network performance, including latency, throughput, and CPU utilization. While Accelerated Networking can improve a virtual machine’s throughput, it can do so only up to the virtual machine’s allocated bandwidth.
+Ingress is not metered or limited directly. But there are other factors, like CPU and storage limits, that can affect a virtual machine’s ability to process incoming data.
 
-Azure virtual machines must have one, but may have several, network interfaces attached to them. Bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to a virtual machine. In other words, the allocated bandwidth is per virtual machine, regardless of how many network interfaces are attached to the virtual machine.
- 
-Expected outbound throughput and the number of network interfaces supported by each VM size is detailed here. To see maximum throughput, select a type, such as General Purpose, then select a size-series on the resulting page, such as the Dv2-series. Each series has a table with networking specifications in the last column titled, Max NICs / Expected network performance (Mbps).
+Accelerated networking is designed to improve network performance, including latency, throughput, and CPU utilization. Accelerated networking can improve a virtual machine’s throughput, but it can do that only up to the virtual machine’s allocated bandwidth.
 
-The throughput limit applies to the virtual machine. Throughput is unaffected by the following factors:
+Azure virtual machines have at least one network interface attached to them. They might have several. The bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to the machine. In other words, the bandwidth is allocated on a per-virtual machine basis, regardless of how many network interfaces are attached to the machine.
 
-- **Number of network interfaces**: The bandwidth limit is cumulative of all outbound traffic from the virtual machine.
+Expected outbound throughput and the number of network interfaces supported by each VM size are detailed in [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). To see maximum throughput, select a type, like **General purpose**, and then find the section about the size series on the resulting page (for example, Dv2-series). For each series, there's a table that provides networking specifications in the last column, which is titled "Max NICs / Expected network bandwidth (Mbps)."
 
-- **Accelerated networking**: Though the feature can be helpful in achieving the published limit, it does not change the limit.
+The throughput limit applies to the virtual machine. Throughput is not affected by these factors:
+
+- **Number of network interfaces**: The bandwidth limit applies to the sum of all outbound traffic from the virtual machine.
+
+- **Accelerated networking**: Though this feature can be helpful in achieving the published limit, it doesn't change the limit.
 
 - **Traffic destination**: All destinations count toward the outbound limit.
 
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
-A [table of maximum bandwidth per VM type can be found by visiting this page](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) and clicking on the respective VM type. In each type page, a table will show the maximum NICs and maximum expected network bandwidth.
-
-More information about VM Network Bandwidth can be found at [Virtual machine network bandwidth](http://aka.ms/AzureBandwidth).
+For more information, see [Virtual machine network bandwidth](http://aka.ms/AzureBandwidth).
 
 ### Internet performance considerations
 
-As discussed throughout this article, factors on the Internet and outside the control of Azure can affect network performance. Those factors are:
+As discussed throughout this article, factors on the internet and outside the control of Azure can affect network performance. Here are some of those factors:
 
-- **Latency**: The round-trip time between two destinations can be affected by issues on intermediate networks, traffic not taking the "shortest" distance path possible and suboptimal peering paths
+- **Latency**: The round-trip time between two destinations can be affected by issues on intermediate networks, by traffic that doesn't take the "shortest" distance path, and by suboptimal peering paths.
 
-- **Packet loss**: Packet loss can be caused by network congestion, physical path issues, and under-performing network devices
+- **Packet loss**: Packet loss can be caused by network congestion, physical path issues, and underperforming network devices.
 
-- **MTU size/Fragmentation**: Fragmentation along the path can lead to delays in data arrival or packets arriving out of order, which may affect delivery of packets
+- **MTU size/Fragmentation**: Fragmentation along the path can lead to delays in data arrival or in packets arriving out of order, which can affect the delivery of packets.
 
-Traceroute is a good tool to measure network performance characteristics (such as packet loss and latency) along every network path between a source and destination device.
+Traceroute is a good tool for measuring network performance characteristics (like packet loss and latency) along every network path between a source device and a destination device.
 
 ### Network design considerations
 
-Along with the above considerations, the topology of a Virtual Network can affect Virtual Network performance. For example, a hub and spoke design that backhauls traffic globally to a single hub virtual network will introduce network latency and thus effect overall network performance. Similarly, the number of network devices that network traffic passes through can also affect overall latency. For example, in a hub and spoke design, if traffic is passing through a spoke Network Virtual Appliance and a Hub Virtual Appliance before transiting to the Internet, then latency can be introduced by the Network Virtual Appliances.
+Along with the considerations discussed earlier in this article, the topology of a virtual network can affect the network's performance. For example, a hub-and-spoke design that backhauls traffic globally to a single-hub virtual network will introduce network latency, which will affect overall network performance.
 
-### Azure Regions, Virtual Networks, and Latency
+The number of network devices that network traffic passes through can also affect overall latency. For example, in a hub-and-spoke design, if traffic passes through a spoke network virtual appliance and a hub virtual appliance before transiting to the internet, the network virtual appliances can introduce latency.
 
-Azure Regions are made up of multiple data centers that exist within a general geographic area. These datacenters may not be physically next to each other and in some cases may be separated by as much as 10 kilometers. The Virtual Network is a logical overlay on top of Azure’s physical data center network and a Virtual Network does not imply any specific network topology within the data center. For example, VM A and VM B are in the same Virtual Network and subnet, but may be in different racks, rows or even datacenters. They may be separated by feet of fiber optic cable or kilometers of fiber optic cable. This reality may introduce variable latency (few milliseconds difference) between different VMs.
+### Azure regions, virtual networks, and latency
 
-This geographic placement, and thus latency between two VMs, can be influenced through the configuration of Availability Sets and Availability Zones, however, distance between datacenters in a region is region-specific and predominantly influenced by datacenter topology in the region.
+Azure regions are made up of multiple datacenters that exist within a general geographic area. These datacenters might not be physically next to each other. In some cases they're separated by as much as 10 kilometers. The virtual network is a logical overlay on top of the Azure physical datacenter network. A virtual network doesn't suggest any specific network topology within the datacenter.
+
+For example, two VMs that are in the same virtual network and subnet might be in different racks, rows, or even datacenters. They could be separated by feet of fiber optic cable or by kilometers of fiber optic cable. This variation could introduce variable latency (a few milliseconds difference) between different VMs.
+
+The geographic placement of VMs, and the potential resulting latency between two VMs, can be influenced by the configuration of availability sets and Availability Zones. But the distance between datacenters in a region is region-specific and primarily influenced by datacenter topology in the region.
 
 ### Source NAT port exhaustion
 
-A deployment in Azure can communicate with endpoints outside Azure in the public Internet and/or public IP space. When an instance initiates this outbound connection, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
+A deployment in Azure can communicate with endpoints outside of Azure on the public internet and/or in the public IP space. When an instance initiates this outbound connection, Azure dynamically maps the private IP address to a public IP address. After Azure creates this mapping, return traffic for the outbound originated flow can also reach the private IP address where the flow originated.
 
-For every outbound connection, the Azure Load Balancer must maintain this mapping for some period of time. With the multi-tenant nature of Azure, maintaining this mapping for every outbound flow for every VM can be resource-intensive. Therefore, there are limits that are set and based on the configuration of the Azure Virtual Network. Or stated more precisely - an Azure VM can only make a certain number of outbound connections at a given time. When these limits are exhausted, then the Azure VM will be prevented from making any further outbound connections.
+For every outbound connection, the Azure Load Balancer needs to maintain this mapping for some period of time. With the multitenant nature of Azure, maintaining this mapping for every outbound flow for every VM can be resource intensive. So there are limits that are set and based on the configuration of the Azure Virtual Network. Or, to say that more precisely, an Azure VM can only make a certain number of outbound connections at a given time. When these limits are met, then the VM won't be able to make more outbound connections.
 
-This behavior is, however, configurable. For more information about [SNAT and SNAT port exhaustion], see [this article](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+But this behavior is configurable. For more information about SNAT and SNAT port exhaustion, see [this article](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
 
 ## Measure network performance on Azure
 
-A number of the performance maximums in this article are related to network latency / round-trip time (RTT) between two VMs. This section provides some suggestions for how to test latency/RTT, as well as TCP performance and VM network performance. The TCP/IP & network values discussed above can be tuned and performance tested using the techniques described below. The values of latency, MTU, MSS, and window size can be used in the calculations listed above and theoretical maximums can be compared to actual values observed during testing.
+A number of the performance maximums in this article are related to the network latency / round-trip time (RTT) between two VMs. This section provides some suggestions for how to test latency/RTT, and how to test TCP performance and VM network performance. You can tune and performance test the TCP/IP and network values discussed earlier by using the techniques described in this section. You can plug latency, MTU, MSS, and window size values into the calculations provided earlier and compare theoretical maximums to actual values that you observe during testing.
 
 ### Measure round-trip time and packet loss
 
-TCP performance relies heavily on RTT and Packet Loss. The simplest way to measure RTT and Packet Loss is using the ping utility available in Windows and Linux. The output of ping will show min/max/avg latency between a source and destination as well as packet loss. Ping uses the ICMP protocol by default. To test TCP RTT, then PsPing can be used. More information on PsPing is available at [this link](https://docs.microsoft.com/sysinternals/downloads/psping).
+TCP performance relies heavily on RTT and packet Loss. The PING utility available in Windows and Linux provides the easiest way to measure RTT and packet loss. The output of PING will show the minimum/maximum/average latency between a source and destination. It will also show packet loss. PING uses the ICMP protocol by default. You can use PsPing to test TCP RTT. For more information, see [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
 
 ### Measure actual throughput of a TCP connection
 
-NTttcp is a tool that is used to test TCP performance of a Linux or Windows VM. Various TCP settings can be tweaked and the benefits tested using NTttcp. More information about NTttcp can be found at the links below.
+NTttcp is a tool for testing the TCP performance of a Linux or Windows VM. You can change various TCP settings and then test the benefits by using NTttcp. For more information see these resources:
 
 - [Bandwidth/Throughput testing (NTttcp)](https://aka.ms/TestNetworkThroughput)
 
@@ -349,9 +352,9 @@ NTttcp is a tool that is used to test TCP performance of a Linux or Windows VM. 
 
 ### Measure actual bandwidth of a virtual machine
 
-Performance testing of different VM types, Accelerated Networking, and so on, can be tested using a tool called Iperf, also available on Linux and Windows. Iperf can use TCP or UDP to test overall network throughput. TCP throughput tests using Iperf are influenced by the factors discussed in this article (latency, RTT, and so on). So, UDP may yield better results for simply testing maximum throughput.
+You can test the performance of different VM types, accelerated networking, and so on, by using a tool called iPerf. iPerf is also available on Linux and Windows. iPerf can use TCP or UDP to test overall network throughput. iPerf TCP throughput tests are influenced by the factors discussed in this article (like latency and RTT). So UDP might yield better results if you just want to test maximum throughput.
 
-Additional information can be found below:
+For more information, see these resources:
 
 - [Troubleshooting Expressroute network performance](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
@@ -359,6 +362,8 @@ Additional information can be found below:
 
 ### Detect inefficient TCP behaviors
 
-Azure customers may see TCP packets with TCP Flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) in packet captures that may indicate network performance issues. These packets specifically indicate network inefficiencies as a result of packet loss. However, packet loss is not necessarily due to Azure performance issues. Performance issues could be the result of application, operating system, or other issues that might not be directly related to the Azure platform. It’s also important to note that some retransmission or duplicate ACKs on a network is normal – TCP protocols were built to be reliable. And, evidence of these TCP packets in a packet capture does not necessarily indicate a systemic network problem unless they are excessive.
+In packet captures, Azure customers might see TCP packets with TCP flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) that could indicate network performance problems. These packets specifically indicate network inefficiencies as a result of packet loss. But packet loss isn't necessarily caused by Azure performance problems. Performance problems could be the result of application problems, operating system problems, or other problems that might not be directly related to the Azure platform.
 
-However, it should be stated clearly that these packet types are indications that TCP throughput is not achieving its maximum performance – for reasons discussed in other sections.
+Also, keep in mind that some retransmission and duplicate ACKs are normal on a network. TCP protocols were built to be reliable. Evidence of these TCP packets in a packet capture doesn't necessarily indicate a systemic network problem, unless they're excessive.
+
+Still, these packet types are indications that TCP throughput isn't achieving its maximum performance, for reasons discussed in other sections of this article.
