@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Azure Stack virtual machi
 description: This quickstart shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines.
 services: security-center
 documentationcenter: na
-author: fiseraci
+author: monhaber
 manager: dsavage
 editor: ''
 
@@ -57,7 +57,7 @@ You must have an Azure subscription on Security Center’s Standard tier before 
 You must now add the **Azure Monitor, Update and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack.
 
 1. In a new browser tab, log into your **Azure Stack** portal.
-2. Go to **Virtual machines** page, select the virtual machine that you want to protect with Security Center. For information on how to create a virtual machine on Azure Stack, please see [this quickstart for Windows virtual machines](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-quick-linux-portal).
+2. Go to **Virtual machines** page, select the virtual machine that you want to protect with Security Center. For information on how to create a virtual machine on Azure Stack, please see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
 3. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 4. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
 5. Select the **Azure Monitor, Update and Configuration Management** extension. Click **Create**. The **Install extension** configuration blade opens up.
