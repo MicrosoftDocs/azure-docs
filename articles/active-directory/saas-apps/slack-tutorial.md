@@ -204,7 +204,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -245,7 +245,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect is the synchronization tool which can sync on premise Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
+> Azure AD Connect is the synchronization tool which can sync on premises Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
 
 ### Test single sign-on 
 
@@ -261,4 +261,4 @@ When you click the Slack tile in the Access Panel, you should be automatically s
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configure User Provisioning](slack-provisioning-tutorial.md)
+- [Configure User Provisioning](slack-provisioning-tutorial.md)

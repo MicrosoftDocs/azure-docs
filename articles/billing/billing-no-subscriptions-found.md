@@ -52,4 +52,4 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

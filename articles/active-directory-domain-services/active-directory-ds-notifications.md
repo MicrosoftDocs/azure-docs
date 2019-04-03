@@ -43,7 +43,6 @@ The email specifies the managed domain that the alert is present on, as well as 
 
 > [!WARNING]
 > Always make sure that the email is coming from a verified Microsoft sender before clicking links in your emails. The emails always come from the email azure-noreply@microsoft.com
->
 
 
 ## Why would I receive email notifications?

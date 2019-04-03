@@ -146,6 +146,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
@@ -160,9 +161,10 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
@@ -263,7 +265,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

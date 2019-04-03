@@ -157,7 +157,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ./install.sh
     ```
 
-1. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
+1. Open your favorite web browser and access the application by accessing `http://localhost:8080`.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

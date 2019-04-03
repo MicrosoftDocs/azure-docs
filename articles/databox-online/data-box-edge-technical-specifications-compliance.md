@@ -7,15 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge technical specifications (preview)
+# Azure Data Box Edge technical specifications
 
 The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Power supply unit specifications
 
@@ -23,7 +20,7 @@ The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-p
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    |  750 W                     |
+| Maximum output power    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
@@ -34,7 +31,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## Storage specifications
 
-The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly XX TB. The following table has the details for the storage capacity of the device.
+The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -55,9 +52,17 @@ The following table lists the dimensions of the enclosure in millimeters and inc
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    304.8            |    12          |
-|    Width          |    660.4            |    26          |
-|    Depth          |    1041.4           |    41          |
+|    Height         |    44.45            |    1.75"          |
+|    Width          |    434.1           |    17.09"          |
+|    Length          |    740.4           |    29.15"          |
+
+The following table lists the dimensions of the shipping package in millimeters and inches.
+
+|     Package     |     Millimeters     |     Inches     |
+|-------------------|---------------------|----------------|
+|    Height         |    311.2            |    12.25"          |
+|    Width          |    642.8          |    25.31"          |
+|    Length          |   1,051.1          |    41.38"          |
 
 ### Enclosure weight
 
@@ -65,8 +70,8 @@ The device package weighs 66 lbs. and requires two persons to handle it. The wei
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight including the packaging       |    66 lbs.          |
-|    Weight of the device                       |    48.3 lbs.        |
+|    Total weight including the packaging       |    61 lbs.          |
+|    Weight of the device                       |    35 lbs.          |
 
 ## Enclosure environment specifications
 

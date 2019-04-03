@@ -56,7 +56,7 @@ Azure Backup takes snapshots according to the backup schedule.
 
 - **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.
 
-  - By default, Azure Backup takes full VSS backups. [Learn more](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+  - By default, Azure Backup takes full VSS backups. [Learn more](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - To change the setting so that Azure Backup takes VSS copy backups, set the following registry key from a command prompt:
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**

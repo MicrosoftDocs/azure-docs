@@ -16,7 +16,7 @@ ms.author: juliako
 
 ---
 
-# How to encode with a custom transform by using CLI
+# How to encode with a custom transform - CLI
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -133,7 +133,7 @@ We are going to save this transform in a file. In this example, we name the file
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if a Transform with a desired name and "recipe" already exist. If it does, reuse it. The following `show` command returns the `customTransformName` transform if it exists:
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if one already exist. If the Transform exists, reuse it. The following `show` command returns the `customTransformName` transform if it exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName

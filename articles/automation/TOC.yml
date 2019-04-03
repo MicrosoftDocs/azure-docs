@@ -121,8 +121,6 @@
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
-    - name: Manage Python 2 packages
-      href: python-packages.md
     - name: Learning PowerShell Workflow
       href: automation-powershell-workflow.md
     - name: Child runbooks
@@ -134,7 +132,7 @@
       href: source-control-integration.md
       displayName: github, vsts, azure devops, personal access token
     - name: Source control integration - legacy
-      href: automation-source-control-integration-legacy.md
+      href: source-control-integration-legacy.md
       displayname: github
   - name: Hybrid Runbook Worker
     items:
@@ -176,18 +174,20 @@
       displayName: DSC
   - name: Manage shared resources
     items:
-    - name: Certificates
-      href: automation-certificates.md
-    - name: Connections
-      href: automation-connections.md
+    - name: Schedules
+      href: shared-resources/schedules.md
+    - name: Modules
+      href: shared-resources/modules.md
+    - name: Manage Python 2 packages
+      href: python-packages.md
     - name: Credentials
       href: automation-credentials.md
-    - name: Integration modules
-      href: automation-integration-modules.md
-    - name: Schedules
-      href: automation-schedules.md
+    - name: Connections
+      href: automation-connections.md
+    - name: Certificates
+      href: shared-resources/certificates.md
     - name: Variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Update Azure PowerShell modules
       href: automation-update-azure-modules.md
     - name: Az modules in runbooks

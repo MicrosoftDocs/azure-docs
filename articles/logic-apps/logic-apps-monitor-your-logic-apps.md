@@ -109,10 +109,10 @@ Before you start, you need to have a Log Analytics workspace. Learn
 [how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
-find and select your logic app. 
+   find and select your logic app. 
 
 2. On the logic app blade menu, under **Monitoring**, 
-choose **Diagnostics** > **Diagnostic Settings**.
+   choose **Diagnostics** > **Diagnostic Settings**.
 
    ![Go to Monitoring, Diagnostics, Diagnostic Settings](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -125,9 +125,9 @@ choose **Diagnostics** > **Diagnostic Settings**.
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
    3. Under **OMS workspaces**, select the workspace 
-   to use for logging.
-   > [!NOTE]
-   > OMS workspaces are now referred to as Log Analytics workspaces.
+      to use for logging.
+      > [!NOTE]
+      > OMS workspaces are now referred to as Log Analytics workspaces.
    4. Under **Log**, select the **WorkflowRuntime** category.
    5. Choose the metric interval.
    6. When you're done, choose **Save**.

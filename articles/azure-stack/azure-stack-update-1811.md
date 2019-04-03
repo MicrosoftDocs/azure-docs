@@ -58,7 +58,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -119,13 +119,13 @@ This update includes the following new features and improvements for Azure Stack
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
 
 - Updates to the update experience in Azure Stack. The update enhancements include: 
-    - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
-    - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
-    - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
-    - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
-    - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
-    - Azure Stack scale units that are not connected can import the updates just like before. 
-    - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
+  - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
+  - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
+  - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
+  - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
+  - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
+  - Azure Stack scale units that are not connected can import the updates just like before. 
+  - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
 
     For more information, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
@@ -253,17 +253,17 @@ The following are post-installation known issues for this build version.
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 
-    - Alert #1:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+  - Alert #1:
+     - NAME:  Infrastructure role unhealthy
+     - SEVERITY: Warning
+     - COMPONENT: Health controller
+     - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-    - Alert #2:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+  - Alert #2:
+     - NAME:  Infrastructure role unhealthy
+     - SEVERITY: Warning
+     - COMPONENT: Health controller
+     - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
     Both alerts can be safely ignored. They will close automatically over time.  
 
@@ -343,7 +343,7 @@ The following are post-installation known issues for this build version.
 - During Azure Stack *Secret Rotation*, there is a period in which public IP addresses are unreachable for two to five minutes.
 
 <!-- 2664148 - IS ASDK --> 
--	In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
+- In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
 
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
@@ -355,9 +355,9 @@ The following are post-installation known issues for this build version.
 
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 

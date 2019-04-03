@@ -50,7 +50,7 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
 ### Improvements and issues that are fixed
 
 - Support for Azure Government cloud
-    - We have added preview support for the Azure Government cloud. This requires a white-listed subscription and a special agent download from Microsoft. To get access to the preview, please email us directly at [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - We have added preview support for the Azure Government cloud. This requires a white-listed subscription and a special agent download from Microsoft. To get access to the preview, please email us directly at [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Support for Data Deduplication
     - Data Deduplication is now fully supported with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
 - Support for offline data transfer (e.g. via Data Box)

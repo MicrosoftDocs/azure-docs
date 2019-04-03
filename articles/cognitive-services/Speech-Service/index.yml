@@ -20,7 +20,7 @@ metadata:
   ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
+  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Services also have REST APIs that works with any programming language that can make HTTP requests.
 sections:
 - items:
     - type: list

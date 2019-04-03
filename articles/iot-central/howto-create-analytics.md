@@ -25,7 +25,7 @@ You'll need to choose a **device set**, add a **filter** (optional), and select 
 * **Filters:** You can optionally add filters to your search to hone in on your data. You can add up to 10 filters at a time. For example, within all Refrigerators in Oakland, find those that have had temperature go above 60 degrees.
 * **Time period:** By default we'll retrieve data from the past 10 minutes. You can change this value to one of the predefined time ranges or select a custom time period.
 
- ![Analytics query](media/howto-create-analytics/analytics-query.png)
+  ![Analytics query](media/howto-create-analytics/analytics-query.png)
 
 ## Visualizing your data
 
@@ -46,7 +46,7 @@ You have various ways to change your query results to meet your visualization ne
 * **Show grid:** Your results are available in a table format, enabling you to view the specific value for each data point. This view also meets accessibility standards.
 * **Show chart:** Your results are displayed in a line format to help you identify upward or downward trends and anomalies.
 
- ![Showing the grid view for your analytics](media/howto-create-analytics/analytics-showgrid.png)
+  ![Showing the grid view for your analytics](media/howto-create-analytics/analytics-showgrid.png)
 
 Zoom lets you to home in on your data. If you find a time period you'd like to focus on within your result set, use your cursor to grab the area that you'd like to zoom in on and use the available controls to perform one of the following actions:
 
@@ -54,7 +54,7 @@ Zoom lets you to home in on your data. If you find a time period you'd like to f
 * **Zoom out:** This control enables you to zoom out one level from your last zoom. For example, if you've zoom in to your data three times, zoom out takes you back one step at a time.
 * **Zoom reset:** Once you've performed various levels of zooming, you can use the zoom reset control to return to your original result set.
 
- ![Perform zooming on your data](media/howto-create-analytics/analytics-zoom.png)
+  ![Perform zooming on your data](media/howto-create-analytics/analytics-zoom.png)
 
 You can change the line style to meet your needs. You have four options:
 
@@ -63,7 +63,7 @@ You can change the line style to meet your needs. You have four options:
 * **Step:** Line between each point on the chart is a step.
 * **Scatter:** All points are plotted on the chart without lines connecting them.
 
- ![Different line types available in Analytics](media/howto-create-analytics/analytics-linetypes.png)
+  ![Different line types available in Analytics](media/howto-create-analytics/analytics-linetypes.png)
 
 Lastly, you can arrange your data across the Y-axis by choosing from one of three modes:
 
@@ -71,7 +71,7 @@ Lastly, you can arrange your data across the Y-axis by choosing from one of thre
 * **Unstacked:** A graph for every measure is plotted against one Y-axis, but the values for the Y-axis are changed based on the highlighted measure. Unstacked graphs are useful when you want to overlay multiple measures and want to see patterns across these measures for the same time range.
 * **Shared Y-axis:** All the graphs share the same Y-axis and the values for the axis do not change. Shared Y-axis graphs are useful when you want to look at a single measure while slicing the data with split-by.
 
- ![Arrange data across y-axis with different visualization modes](media/howto-create-analytics/analytics-yaxis.png)
+  ![Arrange data across y-axis with different visualization modes](media/howto-create-analytics/analytics-yaxis.png)
 
 ## Next steps
 

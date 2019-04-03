@@ -33,8 +33,8 @@ There are two scenarios described in this document:
 1. Both virtual networks are using the Resource Manager deployment model
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
 
-> [!IMPORTANT]
-> Gateway transit is currently not supported with global virtual network peering.
+> [!IMPORTANT]	
+> Gateway transit is currently supported with global virtual network peering in preview. The preview is available in all Azure regions, China cloud regions, and Government cloud regions, but not across clouds. No whitelisting is required. You can test in preview through CLI, PowerShell, Templates, or API. Portal is not supported in the preview. 
 
 ## Requirements
 
@@ -125,13 +125,13 @@ Add-AzVirtualNetworkPeering `
 The steps are similar to the Resource Manager example, except the operations are applied on the Hub-RM virtual network only.
 
 1. Create or update the virtual network peering from Hub-RM to Spoke-RM from the Azure portal. Navigate to the Hub-RM virtual network resource, click on "Peerings", then "Add":
-    - Set the "Classic" option for Virtual network deployment model
-    - Select the "Spoke-Classic" virtual network in the corresponding subscription
-    - Make sure "Allow virtual network access" is "Enabled"
-    - Set the "**Allow gateway transit**" option
-    - Click "OK"
+   - Set the "Classic" option for Virtual network deployment model
+   - Select the "Spoke-Classic" virtual network in the corresponding subscription
+   - Make sure "Allow virtual network access" is "Enabled"
+   - Set the "**Allow gateway transit**" option
+   - Click "OK"
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. If the peering is already created, navigate to the peering resource, then enable the "**Allow gateway transit**" option similar to the screenshot shown in step (1)
 

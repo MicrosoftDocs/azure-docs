@@ -34,11 +34,13 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
 ### Out of the box Data Factory templates
 
-Data Factory uses Azure Resource Manager templates for saving data factory pipeline templates. You can see all the Resource Manager templates, along with the manifest file used for out of the box Data Factory templates, in the [official Azure Data Factory Github repo](https://github.com/Azure/Azure-DataFactory/tree/master/templates). The predefined templates provided by Microsoft include but are not limited to the following items:
+Data Factory uses Azure Resource Manager templates for saving data factory pipeline templates. You can see all the Resource Manager templates, along with the manifest file used for out of the box Data Factory templates, in the [official Azure Data Factory GitHub repo](https://github.com/Azure/Azure-DataFactory/tree/master/templates). The predefined templates provided by Microsoft include but are not limited to the following items:
 
 -   Copy templates:
 
     -   [Bulk copy from Database](solution-template-bulk-copy-with-control-table.md)
+	
+    -   [Copy new files by LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)
 

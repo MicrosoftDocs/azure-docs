@@ -87,7 +87,7 @@ To add the Bing Spell Check SDK to your project, click `Manage NuGet Packages` f
                 Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
                 Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
             }
-}
+   }
 
 ## Next steps
 

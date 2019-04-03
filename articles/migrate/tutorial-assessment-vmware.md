@@ -175,16 +175,16 @@ will be hosted.
 3. On the desktop, click the **Run collector** shortcut.
 4. Click **Check for updates** in the top bar of the collector UI and verify that the collector is running on the latest version. If not, you can choose to download the latest upgrade package from the link and update the collector.
 5. In the Azure Migrate Collector, open **Set up prerequisites**.
-    - Select the Azure cloud to which you plan to migrate (Azure Global or Azure Government).
-    - Accept the license terms, and read the third-party information.
-    - The collector checks that the VM has internet access.
-    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) that the collector accesses.
+   - Select the Azure cloud to which you plan to migrate (Azure Global or Azure Government).
+   - Accept the license terms, and read the third-party information.
+   - The collector checks that the VM has internet access.
+   - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) that the collector accesses.
 
-      > [!NOTE]
-      > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
+     > [!NOTE]
+     > The proxy address needs to be entered in the form http:\//ProxyIPAddress or http:\//ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
-    - The collector checks that the collector service is running. The service is installed by default on the collector VM.
-    - Download and install VMware PowerCLI.
+   - The collector checks that the collector service is running. The service is installed by default on the collector VM.
+   - Download and install VMware PowerCLI.
 
 6. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.

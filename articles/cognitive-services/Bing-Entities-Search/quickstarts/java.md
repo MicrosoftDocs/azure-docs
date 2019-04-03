@@ -30,25 +30,25 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
 
-  ```java
-  import java.io.*;
-  import java.net.*;
-  import java.util.*;
-  import javax.net.ssl.HttpsURLConnection;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  ```
+   ```java
+   import java.io.*;
+   import java.net.*;
+   import java.util.*;
+   import javax.net.ssl.HttpsURLConnection;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   ```
 
 2. In a new class, create variables for the API endpoint, your subscription key, and a search query.
 
-  ```java
-  public class EntitySearch {
+   ```java
+   public class EntitySearch {
 
       static String subscriptionKey = "ENTER KEY HERE";
     
@@ -57,9 +57,9 @@ While this application is written in Java, the API is a RESTful Web service comp
     
     	static String mkt = "en-US";
     	static String query = "italian restaurant near me";
-  //...
+   //...
     
-  ```
+   ```
 
 ## Construct a search request string
 
@@ -118,16 +118,16 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 2. Use the Gson library to create a new `GsonBuilder()`, and use `setPrettyPrinting().create()` to format the json. Then return it.    
   
-  ```java
-  //...
-  public static String prettify (String json_text) {
+   ```java
+   //...
+   public static String prettify (String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-  //...
-  ```
+   }
+   //...
+   ```
 
 ## Call the search function
 

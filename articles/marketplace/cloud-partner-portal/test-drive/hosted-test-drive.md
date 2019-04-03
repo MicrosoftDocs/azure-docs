@@ -47,13 +47,13 @@ Provide the following fields in the \'Technical Configuration\' section:
     Drive users. Recommended value of 3-5.
 - **Test Drive Duration (hours)**: Set this field to the number of hours the users Test Drive will be active for. After this many hours, the user will be deprovisioned from your tenant. Recommended
     value of 2-24 hours depending on the complexity of your App. The user can always request another Test Drive if they run out of time and want to access the Test Drive again.
-- **Instance URL**: Provide a URL that the Test Drive user will initially be navigated to when they start the Test Drive. This is typically the URL of your Dynamics 365 instance that has your App and sample data installed onto. Example Value:https://testdrive.crm.dynamics.com
+- **Instance URL**: Provide a URL that the Test Drive user will initially be navigated to when they start the Test Drive. This is typically the URL of your Dynamics 365 instance that has your App and sample data installed onto. Example Value: https:\//testdrive.crm.dynamics.com
 - **Azure AD Tenant ID**: Provide the ID of the Azure Tenant for your Dynamics 365 Instance. To retrieve this value, login to Azure portal and navigate to \'Azure Active Directory\' -\> Select Properties
     from menu blade -\> Copy the Directory ID. Example value: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD App ID**: ID of the Azure AD App you created in step 7.\ Example Value: 53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD App Key**: Secret for the Azure AD App created in step 7.\ Example Value: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Azure AD Tenant Name**: Provide the name of the Azure Tenant for your Dynamics 365 Instance. Use the format of \<tenantname.\>onmicrosoft.com. Example Value: testdrive.onmicrosoft.com
-- **Instance Web API URL**: Provide the Web API URL for your Dynamics 365 Instance. You can retrieve this value by logging into your Microsoft Dynamics 365 instance and navigating to Setting -\> Customization -\> Developer Resources -\> Instance Web API (Copy this URL). Example value:  https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **Instance Web API URL**: Provide the Web API URL for your Dynamics 365 Instance. You can retrieve this value by logging into your Microsoft Dynamics 365 instance and navigating to Setting -\> Customization -\> Developer Resources -\> Instance Web API (Copy this URL). Example value:  https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Role name**: Provide the name of the custom Dynamics 365 Security Role you have created for Test Drive. This is the role that will be assigned to users during their Test Drive. Example Value: testdriverole
 
 ## Next steps

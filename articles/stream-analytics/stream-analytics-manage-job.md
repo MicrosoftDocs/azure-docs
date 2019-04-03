@@ -178,7 +178,7 @@ The last step is to define an output sink for the job where it can write the tra
 3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
 
    |**Setting**  |**Suggested value**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Output alias  |  MyPBIoutput  |
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |

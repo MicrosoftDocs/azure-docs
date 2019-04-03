@@ -16,7 +16,7 @@ ms.author: juliako
 
 ---
 
-# How to encode with a custom transform by using REST
+# How to encode with a custom transform - REST
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-tutorial-with-rest.md#create-a-transform) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -130,7 +130,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if a Transform with a desired name and "recipe" already exist. If it does, reuse it. In REST, use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if the transform exists. 
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one already exists. If the Transform exists, reuse it. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 

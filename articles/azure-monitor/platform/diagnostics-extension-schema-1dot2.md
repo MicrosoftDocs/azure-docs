@@ -23,7 +23,7 @@ This schema defines the possible values you can use to initialize diagnostic con
 
  Download the public configuration file schema definition by executing the following PowerShell command:  
 
-```PowerShell  
+```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 

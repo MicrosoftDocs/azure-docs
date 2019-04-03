@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Zendesk with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
+> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), which is available to Zendesk teams on the Enterprise plan or better.
 
 ## Adding Zendesk from the gallery
 Before configuring Zendesk for automatic user provisioning with Azure AD, you need to add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
@@ -107,12 +107,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Secret Token**, and **Domain** of your Zendesk's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
+   * In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
 
-	*   In the **Secret Token** field, populate the secret token as described in Step 6.
+   * In the **Secret Token** field, populate the secret token as described in Step 6.
 
-	*   In the **Domain** field, populate the subdomain of your Zendesk tenant.
-	Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
+   * In the **Domain** field, populate the subdomain of your Zendesk tenant.
+     Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
 
 6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**.
    Ensure that **Token Access** is set to  **Enabled**.

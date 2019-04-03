@@ -14,6 +14,10 @@ ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ---
 
 # Machine Learning Anomaly Detection API
+
+> [!NOTE]
+> This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
+
 ## Overview
 [Anomaly Detection API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 
@@ -105,9 +109,9 @@ The anomaly detection API supports detectors in 3 broad categories. Details on s
 | Detector Category | Detector | Description | Input Parameters | Outputs |
 | --- | --- | --- | --- | --- |
 | Spike Detectors |TSpike Detector |Detect spikes and dips based on far the values are from first and third quartiles |*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive |TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise |
-| Spike Detectors | ZSpike Detector |Detect spikes and dips based on how far the datapoints are from their mean |*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive |ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise | |
+| Spike Detectors | ZSpike Detector |Detect spikes and dips based on how far the datapoints are from their mean |*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive |ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise |
 | Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |tscore: floating number representing anomaly score on trend |
-| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change | |
+| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change |
 
 ### Parameters
 More detailed information on these input parameters is listed in the table below:

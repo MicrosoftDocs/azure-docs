@@ -91,7 +91,7 @@ Run: php composer.phar install.
 
 ### Endpoint declaration
 
-An Azure Data Box Blob storage endpoint includes two parts: the name of a region and the Data Box domain. In the Data Box Blob storage SDK, the default endpoint is <serial no. of the device>.microsoftdatabox.com.  For more information on blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
+An Azure Data Box Blob storage endpoint includes two parts: the name of a region and the Data Box domain. In the Data Box Blob storage SDK, the default endpoint is \<serial no. of the device>.microsoftdatabox.com.  For more information on blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
  
 ## Examples
 

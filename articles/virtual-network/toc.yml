@@ -83,6 +83,8 @@
     items:
     - name: Virtual networks
       href: virtual-network-vnet-plan-design-arm.md
+    - name: TCP/IP Performance Tuning for Azure VMs
+      href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
     - name: Network security groups
@@ -332,7 +334,7 @@
   - name: Azure CLI
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network
+    href: /powershell/module/az.network
   - name: .NET
     href: /api/overview/azure/virtual-network
   - name: Java
@@ -354,7 +356,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: http://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Pricing
@@ -362,6 +364,6 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-network
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md

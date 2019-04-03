@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/29/2019
 ---
 
 # What is Azure SQL Database service?
@@ -150,6 +150,9 @@ We are also adding the [adaptive query processing](/sql/relational-databases/per
 
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements.
 
+> [!IMPORTANT]
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+
 ### Advance Threat Protection
 
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
@@ -237,7 +240,7 @@ SQL Database customers will have the following rights associated with Azure Hybr
 ## Engage with the SQL Server engineering team
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ask development questions
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ask development questions
 - [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ask technical questions
 - [Feedback](https://aka.ms/sqlfeedback): Report bugs and request feature
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server

@@ -66,25 +66,25 @@ Create the vault as follows:
     
 3. Set the vault context with [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext).
 
-    - The vault context is the type of data protected in the vault.
-    - Once the context is set, it applies to all subsequent cmdlets
+   - The vault context is the type of data protected in the vault.
+   - Once the context is set, it applies to all subsequent cmdlets
 
-    ```powershell
-    Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
-    ```
+     ```powershell
+     Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
+     ```
 
 ## Back up Azure VMs
 
 Backups run in accordance with the schedule specified in the backup policy. When you create a Recovery Services vault, it comes with default protection and retention policies.
 
-- The default protection policy triggers a backup job one a day at a specified time.
+- The default protection policy triggers a backup job once a day at a specified time.
 - The default retention policy retains the daily recovery point for 30 days. 
 
 To enable and backup up the Azure VM in this tutorial, we do the following:
 
-1. Specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Each VM for backup is an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Run an ad hoc backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem). 
+1. Specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Each VM for backup is an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Run an ad hoc backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem). 
     - The first initial backup job creates a full recovery point.
     - After the initial backup, each backup job creates incremental recovery points.
     - Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.

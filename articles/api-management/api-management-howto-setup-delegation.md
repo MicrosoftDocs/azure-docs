@@ -116,7 +116,7 @@ Then ensure the delegation endpoint performs the following actions:
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
    
-   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId, and **salt** query parameters:
+   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId**, and **salt** query parameters:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

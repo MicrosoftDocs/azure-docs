@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -48,7 +48,9 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Create a budget in the Azure portal
 
-You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group. For example, in the Azure portal, navigate to **Subscriptions** &gt; select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected. If you want to create a budget for a resource group, navigate to **Resource groups** > select a resource group > **Budgets**..
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a management group.
+
+To create or view a budget, open the desired scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 After you create budgets, they show a simple view of your current spending against them.
 

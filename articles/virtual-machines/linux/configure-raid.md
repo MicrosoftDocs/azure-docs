@@ -26,20 +26,20 @@ Two or more empty data disks are needed to configure a RAID device.  The primary
 
 ## Install the mdadm utility
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS & Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES and openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## Create the disk partitions
 In this example, we create a single disk partition on /dev/sdc. The new disk partition will be called /dev/sdc1.

@@ -6,7 +6,7 @@ ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: prashanthyv
-ms.author: pryerram
+ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
@@ -71,6 +71,8 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 > - Azure AD tenants in Azure government cloud use Application ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Azure AD tenants in Azure public cloud and all others use Application ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
+> - Currently you can use User Principal to ask Key Vault to manage a storage account and not a Service Principal
+
 
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
@@ -122,7 +124,7 @@ When this operation runs successfully, you should see output similar to as shown
    "se=2020-01-01&sp=***"
 ```
 
-2. In this step we will use the output ($sasToken) generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. In this step we will use the output ($sasToken) generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -144,8 +146,8 @@ In this section we will discuss how you can do operations on your storage accoun
 
 In the below section, we demonstrate how to fetch SAS tokens once a SAS definition is created as shown above.
 
-> [!NOTE] 
-  There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
 > - Using Managed Service Identity (Highly recommended)
 > - Using Service Principal and certificate 
 > - Using Service Principal and password (NOT recommended)

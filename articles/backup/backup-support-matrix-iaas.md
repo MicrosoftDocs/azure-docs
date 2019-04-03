@@ -35,7 +35,7 @@ Learn more about backup [using a backup server](backup-architecture.md#architect
 
 **Action** | **Support**
 --- | ---
-Enable backup when you create a Windows Azure VM | Supported for:  Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM and SP1)
+Enable backup when you create a Windows Azure VM | Supported for:  Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM and SP1)
 Enable backup when you create a Linux VM | Supported for:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Back up a VM that's shutdown/offline/seeking VM | Supported.<br/><br/> Snapshot is crash-consistent only, not app-consistent.
 Back up disks after migrating to managed disks | Supported.<br/><br/> Backup will continue to work. No action is required.
@@ -56,7 +56,7 @@ The following table summarizes the supported operating systems when backing up W
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | Windows Client: Not supported<br/><br/> Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM and SP1)
+Back up with Azure VM agent extension | Windows Client: Not supported<br/><br/> Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM and SP1)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#support-for-direct-backups) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -77,7 +77,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 - Azure Backup doesn't support Core OS Linux.
 - Azure Backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is available on the VM, and as long as Python is supported.
-
+- Azure Backup doesn't support a proxy-configured Linux VM if it does not have Python version 2.7 installed.
 
 
 ## Backup frequency and retention
@@ -124,7 +124,7 @@ Restore across subscription/region/zone. | Not supported.
 Restore to an existing VM | Use replace disk option.
 Restore disk with storage account enabled for Azure Storage Service Encryption (SSE) | Not supported.<br/><br/> Restore to an account that doesn't have SSE enabled.
 Restore to mixed storage accounts |	Not supported.<br/><br/> Based on the storage account type, all restored disks will be either premium or standard, and not mixed.
-Restore to storage account by using zone-redundant storage (ZRS) | Not supported.
+Restore to storage account by using zone-redundant storage (ZRS) | Supported (for VM that are backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available)
 Restore VM directly to an availability set | For managed disks, you can restore the disk and use the availability set option in the template.<br/><br/> Not supported for unmanaged disks. For unmanaged disks, restore the disk, and then create a VM in the availability set.
 Restore backup of unmanaged VMs after upgrading to managed VM| Supported.<br/><br/> You can restore disks, and then create a managed VM.
 Restore VM to restore point before the VM was migrated to managed disks | Supported.<br/><br/> You restore to unmanaged disks (default), convert the restored disks to managed disk, and create a VM with the managed disks.
@@ -144,6 +144,7 @@ Back up VMs that are deployed in a [scale set](https://docs.microsoft.com/azure/
 Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are deployed from a custom image (third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
+Back up VMs consistency | Unsupported. <br/><br/>Azure Backup doesn't support multi-VM consistency.
 
 
 
@@ -160,6 +161,7 @@ Disks with Write Accelerator enabled | Not supported.<br/><br/> If you're runnin
 Back up deduplicated disks | Not supported.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
+Shared storage| Backing up VMs using CSV or Scale-Out File Server is not recommended. CSV writers are likely to fail.
 
 ## VM network support
 

@@ -79,19 +79,19 @@ Reference data is not joined retroactively. This means that only current and fut
  
 13. Name the data set, by filling in the **Data set name** field above the data grid.
 
-   ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Provide the **Primary Key** column in the data set, by selecting the drop-down above the data grid.
 
-   ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
+    ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
 
-   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
+    Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
 
-15.  To upload the data, select the **Upload rows** button.
+15. To upload the data, select the **Upload rows** button.
 
-   ![Upload](media/add-reference-data-set/upload_rows.png)
+    ![Upload](media/add-reference-data-set/upload_rows.png)
 
-   The page confirms the completed upload and display the message **Successfully uploaded dataset**.
+    The page confirms the completed upload and display the message **Successfully uploaded dataset**.
 
 ## Next steps
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
