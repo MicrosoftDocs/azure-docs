@@ -244,4 +244,4 @@ public class MainActivity extends AppCompatActivity {
 In this tutorial, you've seen how to create a new Android app that integrates ARCore functionality with Azure Spatial Anchors. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
 
 > [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Create and locate anchors using Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview.md)
