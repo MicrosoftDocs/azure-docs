@@ -122,6 +122,8 @@ The following are post-installation known issues for this build version.
 <!-- Daniel 3/28 -->
 - In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message. To work around this issue, upload the blob using the **SAS** option.
 
+- When logged into the Azure Stack portals you might see notifications about the public Azure portal. You can safely ignore these notifications, as they do not currently apply to Azure Stack (for example, "1 new update - The following updates are now available: Azure portal April 2019 update").
+
 <!-- ### Health and monitoring -->
 
 ### Compute
