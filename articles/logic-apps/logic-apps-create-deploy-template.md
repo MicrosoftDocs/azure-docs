@@ -23,6 +23,15 @@ deployment and providing the parameter values through a
 That way, you can deploy logic apps more easily and 
 to any environment or Azure resource group you want. 
 
+Azure Logic Apps provides a 
+[prebuilt logic apps Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 
+that you can reuse, not only for creating logic apps,
+but also to define the resources and parameters to use for deployment. 
+You can use this template for your own business scenarios or
+customize the template to meet your requirements. Learn more about 
+[Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md). 
+For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+
 For more about Azure Resource Manager templates, 
 see these articles:
 
@@ -56,7 +65,7 @@ To create a logic app template that you can use with Azure resource group deploy
 you must define the resources and parameterize as necessary. For example, if you're 
 deploying to a development, test, and production environment, you likely want 
 to use different connection strings to a SQL database in each environment.
-Or, you might want to deploy within different subscriptions or resource groups.  
+Or, you might want to deploy within different subscriptions or resource groups.
 
 ## Create logic app deployment templates
 
@@ -237,10 +246,10 @@ Here's how you use these parameters when referencing the Azure function:
 },
 ```
 
-## Add logic app to Resource Group project
+## Add logic app to resource group project
 
-If you have an existing Resource Group project, 
-you can add your logic app to that project in 
+If you have an existing Azure Resource Group project, 
+you can add your logic app to that project by using 
 the JSON Outline window. You can also add another 
 logic app alongside the app you previously created.
 
@@ -260,54 +269,12 @@ Name your logic app, and choose **Add**.
 
    ![Add resource](./media/logic-apps-create-deploy-template/addresource.png)
 
-## Deploy logic app templates
-
-You can deploy your template by using tools such as PowerShell,
-REST API, [Azure DevOps Azure Pipelines](#azure-pipelines), 
-or template deployment through the Azure portal.
-Learn how to [deploy resources with Azure Resource Manager templates and PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-or [deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-## Authorize OAuth connections
-
-After deployment, the logic app works end-to-end with valid parameters.
-However, you must still authorize OAuth connections to generate a valid access token.
-To authorize OAuth connections, open the logic app in the Logic Apps Designer,
-and authorize these connections. Or for automated deployment,
-you can use a script to consent to each OAuth connection.
-There's an example script on GitHub under the
-[LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
-
-<a name="azure-pipelines"></a>
-
-## Azure DevOps Azure Pipelines
-
-To deploy logic app templates and manage environments, teams commonly use a tool such as 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) in [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). 
-Azure Pipelines provides an 
-[Azure Resource Group Deployment task](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 
-that you can add to any build or release pipeline.
-
-For authorization to deploy and generate the release pipeline, 
-you also need an Azure Active Directory (AD) 
-[service principal](../active-directory/develop/app-objects-and-service-principals.md). 
-Learn more about [using service principals with Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure).
-
-1. In Azure Pipelines, choose **Empty** so that you create an empty pipeline.
-
-2. Choose the resources you need for the pipeline, 
-such as your logic app template, that you generate 
-manually or as part of the build process.
-
-3. Add the **Azure Resource Group Deployment** task.
-
-4. Configure with a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Reference your template and template parameters files.
-
-5. Continue to build out steps in the release process for any other environment, 
-automated test, or approvers as needed.
-
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploy logic app templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)
