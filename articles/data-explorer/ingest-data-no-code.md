@@ -3,7 +3,7 @@ title: 'Tutorial: Ingest diagnostic and activity log data in Azure Data Explorer
 description: In this tutorial, you learn how to ingest data to Azure Data Explorer without one line of code and query that data.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial

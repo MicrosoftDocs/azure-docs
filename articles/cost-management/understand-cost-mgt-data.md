@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -66,7 +66,7 @@ If you don't see data for a subscription and you want to determine if your subsc
 
 ## Costs included in Cost Management
 
-The following tables show data that's included or isn't in Cost Management.
+The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown do not include free and prepaid credits.
 
 **Cost and usage data**
 

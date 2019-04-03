@@ -1,6 +1,6 @@
 ---
 title: Index of Blueprint samples
-description: Index of samples for Azure Blueprints
+description: Index of compliance and standard environment samples for deploying with Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm
