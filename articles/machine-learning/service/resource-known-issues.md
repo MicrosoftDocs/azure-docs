@@ -119,7 +119,3 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
-
-## Get more support
-
-You can submit requests for support and get help from technical support, forums, and more. [Learn more...](support-for-aml-services.md)
