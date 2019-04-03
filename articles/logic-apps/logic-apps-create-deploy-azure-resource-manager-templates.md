@@ -20,7 +20,7 @@ you can deploy your template in these ways:
 * [Azure portal](#portal)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure Resource Manager REST API](../azure/azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 * [Azure DevOps Azure Pipelines](#azure-pipelines)
 
 <a name="portal"></a>
