@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 # More sign-in options for Microsoft accounts in Microsoft 365
 
-We're updating the Microsoft 365 sign-in page in Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts.
+We're updating the Microsoft 365 sign-in page in Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts, also called "personal accounts."
 
 ## Sign-in pages that support Microsoft accounts
 
-The Microsoft 365 sign-in page can accept both work or school accounts and Microsoft accounts to support:
+The Microsoft 365 sign-in page supports can accept one or both of work or school accounts and Microsoft accounts, depending on the situation, to support, for example:
 
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
