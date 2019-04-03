@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: iainfou
 ---
 
@@ -14,7 +14,7 @@ ms.author: iainfou
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. You can also configure Kubernetes role-based access control (RBAC) to limit access to cluster resources based a user's identity or group membership.
 
-This article shows you how to use Azure AD group membership to control access to namespaces and cluster resources using Kubernetes RBAC in an AKS cluster.
+This article shows you how to use Azure AD group membership to control access to namespaces and cluster resources using Kubernetes RBAC in an AKS cluster. Example groups and users are created in Azure AD, then Roles and RoleBindings are created in the AKS cluster to grant the appropriate permissions to create and view resources.
 
 ## Before you begin
 
@@ -111,7 +111,7 @@ AKSSRE_ID=$(az ad user create \
 az ad group member add --group opssre --member-id $AKSSRE_ID
 ```
 
-## Create AKS cluster resources for the application developers
+## Create the AKS cluster resources for app devs
 
 The Azure AD groups and users are now created. Azure role assignments were created for the group members to connect to an AKS cluster as a regular user. Now, let's configure the AKS cluster to allow these different groups access to specific resources.
 
@@ -186,7 +186,7 @@ Create the RoleBinding using the [kubectl apply][kubectl-apply] command and spec
 kubectl apply -f rolebinding-dev-namespace.yaml
 ```
 
-## Create AKS cluster resources for the site reliability engineers
+## Create the AKS cluster resources for SREs
 
 Now, repeat the previous steps to create a namespace, Role, and RoleBinding for the SREs.
 
@@ -251,11 +251,11 @@ Create the RoleBinding using the [kubectl apply][kubectl-apply] command and spec
 kubectl apply -f rolebinding-sre-namespace.yaml
 ```
 
-## Create and manage cluster resources using Azure AD identity
+## Interact with cluster resources using Azure AD identities
 
 Now, let's test the expected permissions work when you create and manage resources in an AKS cluster. In these examples, you schedule and view pods in the user's assigned namespace. Then, you try to schedule and view pods outside of the assigned namespace.
 
-First, reset the *kubeconfig* context to use the user credentials. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign in prompts. The user context requires all requests to be authenticated using Azure AD.
+First, reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
@@ -267,7 +267,7 @@ Schedule a basic NGINX pod using the [kubectl run][kubectl-run] command in the *
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-As the sign in prompt, enter the credentials for the `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
+As the sign in prompt, enter the credentials for your own `appdev@contoso.com` account created at the start of the article. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -291,6 +291,8 @@ $ kubectl get pods --namespace dev
 NAME        READY   STATUS    RESTARTS   AGE
 nginx-dev   1/1     Running   0          4m
 ```
+
+### Create and view cluster resources outside of the assigned namespace
 
 Now try to view pods outside of the *dev* namespace. Use the [kubectl get pods][kubectl-get] command again, this time to see `--all-namespaces` as follows:
 
@@ -318,13 +320,13 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 
 To confirm that our Azure AD group membership and Kubernetes RBAC work correctly between different users and groups, try the previous commands when signed in as the *opssre* user.
 
-Reset the *kubeconfig* context and force a user sign in:
+Reset the *kubeconfig* context using the [az aks get-credentials][az-aks-get-credentials] command that clears the previously cached authentication token for the *aksdev* user:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Try to schedule and view pods in the assigned *sre* namespace. When prompted, sign in with the `opssre@contoso.com` credentials created at the start of the article:
+Try to schedule and view pods in the assigned *sre* namespace. When prompted, sign in with your own `opssre@contoso.com` credentials created at the start of the article:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
@@ -368,7 +370,7 @@ Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cann
 In this article, you created resources in the AKS cluster and users and groups in Azure AD. To clean up all these resources, run the following commands:
 
 ```azurecli-interactive
-# Get the admin kubeconfig context to delete all necessary resources
+# Get the admin kubeconfig context to delete the necessary cluster resources
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 
 # Delete the dev and sre namespaces. This also deletes the pods, Roles, and RoleBindings
@@ -391,6 +393,7 @@ For more information about how to secure Kubernetes clusters, see [Access and id
 For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-run]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run
