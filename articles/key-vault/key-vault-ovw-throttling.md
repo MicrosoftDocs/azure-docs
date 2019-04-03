@@ -31,7 +31,7 @@ If you have a valid business case for higher throttle limits, please contact us.
 
 ## How to throttle your app in response to service limits
 
-The following are **best practices** for throttling your app:
+The following are **best practices** you should implement when your service is throttled:
 - Reduce the number of operations per request.
 - Reduce the frequency of requests.
 - Avoid immediate retries. 
@@ -112,7 +112,7 @@ Code that implements exponential backoff is shown below.
 ```
 
 
-Using this code in a client C\# application (another Web API client microservice, an ASP.NET MVC application, or even a C\# Xamarin application) is straightforward. The following example shows how, using the HttpClient class.
+Using this code in a client C\# application is straightforward. The following example shows how, using the HttpClient class.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
