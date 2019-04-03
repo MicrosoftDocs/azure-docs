@@ -13,7 +13,7 @@ monikerRange: 'vsts'
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+Azure DevOps Projects present a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
 DevOps Projects also:
 
@@ -33,9 +33,9 @@ In this tutorial, you will:
 
 - Examine the CD pipeline
 
-- Commit changes to Git and automatically deploy them to Azure
+- Commit the changes to Git and automatically deploy them to Azure
 
-- Clean up resources
+- Clean up the resources
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-1. In the left pane, select **Create a resource**.
+1. In the left pane, select the section **Create a resource**.
 
 1. In the search box, type **DevOps Projects**, and then click **Add**.
 
@@ -55,9 +55,11 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Select **Node.js** as the runtime, and then select **Next**. Under **Choose an application framework**, select **Express.js**.
 
-1. Enable **Add a database** for **Cosmos DB** and click on **Next**.
+1. Enable the section **Add a database** for **Cosmos DB** and click on **Next**.
 
     ![Add Database](_img/azure-devops-project-cosmosdb/add-database.png)
+
+    Cosmos DB supports various application frameworks like **Express.js**, **Sample Node.js app**, and **Sail.js**. In this tutorial, lets consider **Express.js**.
 
 1. Select an Azure service to deploy the application. You have different services like Windows Web App, Kubernetes Service and Web App for Containers. For this tutorial, we will use **Windows Web App**. Click on **Next**.
 
@@ -77,7 +79,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
    After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
 
-   This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Cosmos DB. You can configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Azure Cosmos DB** to view.
+   This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and in your Azure Cosmos DB. You can configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Azure Cosmos DB** to view.
 
 ## Examine the Azure Cosmos DB
 
@@ -87,7 +89,7 @@ DevOps Projects automatically configures Cosmos DB, which you can explore and cu
 
     ![DevOps Projects Dashboard](_img/azure-devops-project-cosmosdb/devops-project-dashboard.png)
 
-1. At the right, select the Cosmos DB. A pane opens for the Cosmos DB. From this view you can perform various actions such as operations monitoring, searching logs.
+1. At the right, select the Cosmos DB. A pane opens for the Cosmos DB. From this view you can perform various actions such as operations monitoring and searching logs.
 
     ![Function App](_img/azure-devops-project-cosmosdb/cosmosdb.png)
 
@@ -125,7 +127,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 1. At the right of the **Drop** icon, select **Continuous deployment trigger**. This release pipeline has enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution.
 
-1. At the right, select **View releases** to display a history of releases.
+1. At the right, select the section **View releases** to display a history of releases.
 
 1. Click on the release, which will display the pipeline. Click on any environment to check the release **Summary, Commits**, associated **Work Items**.
 
