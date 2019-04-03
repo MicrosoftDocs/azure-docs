@@ -151,11 +151,11 @@ Here is an example of virtual machine data being pulled into a workbook to provi
 
 Workbook parameters allow you to change values in the workbook without having to manually edit the query or text sections. This removes the requirement of needing to understand the underlying analytics query language and greatly expands the potential audience of workbook-based reporting.
 
-The values of parameters are replaced in query, text or other parameter sections by putting the name of the parameter in braces, like ``{parameterName}``.  Parameter names are limited to similar rules as JavaScript identifiers, basically alphabetic characters or underscores, followed by alphanumeric characters or underscores. For example, **a1** is allowed, but **1a** is not allowed.
+The values of parameters are replaced in query, text or other parameter sections by putting the name of the parameter in braces, like ``{parameterName}``. Parameter names are limited to similar rules as JavaScript identifiers, alphabetic characters or underscores, followed by alphanumeric characters or underscores. For example, **a1** is allowed, but **1a** is not allowed.
 
-Parameters are linear, starting from the top of a workbook and flowing down to later steps.  Parameters declared later in a workbook can override those that were declared further up.  This also lets parameters that use queries to access the values from parameters defined further up.  Within a parameter's step itself, parameters are also linear, left to right, where parameters to the right can depend on a parameter declared earlier in that same step.
+Parameters are linear, starting from the top of a workbook and flowing down to later steps.  Parameters declared later in a workbook can override parameters that were declared earlier. This also lets parameters that use queries to access the values from parameters defined earlier. Within a parameter's step itself, parameters are also linear, left to right, where parameters to the right can depend on a parameter declared earlier in that same step.
  
-There are four different types of parameters which are currently supported:
+There are four different types of parameters, which are currently supported:
 
 |                  |      |
 | ---------------- |:-----|
@@ -222,13 +222,13 @@ Time range parameter types have 15 default ranges that go from five minutes to t
 
 ### Resource picker
 
-The resource picker parameter type gives you the ability to scope your report to certain types of resources. An example of prebuilt workbook that leverages the resource picker type is the **Performance** workbook.
+The resource picker parameter type gives you the ability to scope your report to certain types of resources. An example of a prebuilt workbook that leverages the resource picker type is the **Performance** workbook.
 
 ![Workspaces dropdown](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
 ## Saving and sharing workbooks with your team
 
-Workbooks are saved within a Log Analytics Workspace or a virtual machine resource, depending on how you access the workbooks gallery.  The workbook can be saved to the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource. To view all the workbooks in the resource, click the **Open** button in the action bar.
+Workbooks are saved within a Log Analytics Workspace or a virtual machine resource, depending on how you access the workbooks gallery. The workbook can be saved to the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource. To view all the workbooks in the resource, click the **Open** button in the action bar.
 
 To share a workbook that's currently in **My Reports**:
 
