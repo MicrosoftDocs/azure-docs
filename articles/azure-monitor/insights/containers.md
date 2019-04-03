@@ -187,7 +187,7 @@ There are three ways to add the Log Analytics agent to Red Hat OpenShift to star
 
 * [Install the Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directly on each OpenShift node  
 * [Enable Log Analytics VM Extension](../../azure-monitor/learn/quick-collect-azurevm.md) on each OpenShift node residing in Azure  
-* Install the Log Analytics agent as a OpenShift daemon-set  
+* Install the Log Analytics agent as an OpenShift daemon-set  
 
 In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
 
