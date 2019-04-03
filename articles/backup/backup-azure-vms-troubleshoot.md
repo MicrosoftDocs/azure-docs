@@ -119,6 +119,28 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 - **If more than four VMs share the same cloud service, spread the VMs across multiple backup policies**. Stagger the backup times, so no more than four VM backups start at the same time. Try to separate the start times in the policies by at least an hour.
 - **The VM runs at high CPU or memory**. If the virtual machine runs at high memory or CPU usage, more than 90 percent, your snapshot task is queued and delayed. Eventually it times out. If this issue happens, try an on-demand backup.
 
+## Troubleshoot backup of encrypted VMs
+
+### Azure Backup doesn't have permissions for Key Vault access
+- **Error code**: UserErrorKeyVaultPermissionsNotConfigured
+- **Error message**: Azure Backup Service does not have sufficient permissions to Key Vault for Backup of Encrypted Virtual Machines.
+- **Resolution**: Assign Azure Backup permissions for Key Vault in the [portal](backup-azure-vms-encryption.md#provide-permissions), or with [PowerShell](backup-azure-vms-automation.md#enable-protection)
+
+### The VM can't be restored because the associated Key Vault doesn't exist
+- **Resolution**: Ensure you've [created a Key Vault](../key-vault/quick-create-portal.md#create-a-vault).
+- **Resolution**: Follow [these instructions](backup-azure-restore-key-secret.md) to restore a key and secret even if they don't exist in Key Vault.
+
+### The VM can't be restored because the associated key doesn't exist
+- **Error code**: UserErrorKeyVaultKeyDoesNotExist
+- **Error message**: You cannot restore this encrypted VM since key associated with this VM does not exist.
+- **Resolution**: Follow [these instructions](backup-azure-restore-key-secret.md) to restore a key and secret even if they don't exist in Key Vault.
+
+### The VM can't be restored because Azure Backup doesn't have authorization
+- **Error code**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
+- **Error message**: Backup Service does not have authorization to access resources in your subscription.
+- **Resolution**: Restore disks as recommended. [Learn more](backup-azure-vms-encryption.md#restore-an-encrypted-vm). 
+
+
 ## Networking
 Like all extensions, Backup extensions need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:
 
