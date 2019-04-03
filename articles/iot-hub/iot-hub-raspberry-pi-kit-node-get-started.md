@@ -20,7 +20,6 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
-
 ## What you do
 
 * Create an IoT hub.
@@ -82,7 +81,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
    > [!WARNING]
    > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
- 
+
    b. Extract the Raspbian image to a folder on your computer.
 
 2. Install Raspbian to the microSD card.
@@ -155,26 +154,26 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Clone sample application and install the prerequisite packages
 
 1. Connect to your Raspberry Pi with one of the following SSH clients from your host computer:
-   
+
    **Windows Users**
   
    a. Download and install [PuTTY](https://www.putty.org/) for Windows. 
 
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
-   
+
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac and Ubuntu Users**
-   
+
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
 
    > [!NOTE] 
    > The default username is `pi` and the password is `raspberry`.
 
 2. Install Node.js and NPM to your Pi.
-   
+
    First check your Node.js version. 
-   
+
    ```bash
    node -v
    ```
@@ -198,6 +197,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
+
    > [!NOTE] 
    >It might take several minutes to finish this installation process depending on your network connection.
 
@@ -233,8 +233,14 @@ You should see the following output that shows the sensor data and the messages 
 
 ![Output - sensor data sent from Raspberry Pi to your IoT hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
+## Read the messages received by your hub
+
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+For more ways to process data sent by your device, continue on to the next section.
+
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi, see the [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+You’ve run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

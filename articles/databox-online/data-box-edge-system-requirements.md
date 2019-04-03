@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/03/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements
@@ -75,11 +75,23 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ### URL patterns for compute feature
 
-| URL pattern                      | Component or functionality                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |   |
-| https://\*.azurecr.io                     | Personal and third-party container registries (optional) |   |
-| https://\*.azure-devices.net              | IoT Hub access (required)                             |   |
+| URL pattern                      | Component or functionality                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
+| https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
+| https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+
+### URL patterns for gateway for Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### URL patterns for compute for Azure Government
+
+| URL pattern                      | Component or functionality                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
+| https://\*.azure-devices.us              | IoT Hub access (required)           |
+| https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
 
 ## Internet bandwidth
 
@@ -87,4 +99,4 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ## Next step
 
-- [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Deploy your Azure Data Box Edge](data-box-edge-deploy-prep.md)
