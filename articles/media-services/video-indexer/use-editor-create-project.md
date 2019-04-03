@@ -42,7 +42,7 @@ This article shows how to create a project from scratch and also how to create a
 
 1. Add videos that you want to work with in this project by selecting **Add videos**.
 
-    You will see all the videos in your account and a search box that says "Search for text, keywords, or visual content". to search for videos that have a specified person, label, brand, keyword, or occurrence in the transcript and OCR.
+    You will see all the videos in your account and a search box that says "Search for text, keywords, or visual content". To search for videos that have a specified person, label, brand, keyword, or occurrence in the transcript and OCR.
     
     For example, in the image below, we are looking for videos that mention "GitHub".
     
@@ -108,22 +108,20 @@ Remember to save your project when you make changes by selecting **Save project*
     
     You will see also see a notification that the project is being rendered on top of the page. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click **here** to download the project. It will download the project in mp4 format.
 
+    ![Rendering done](./media/video-indexer-view-edit/rendering-done.png)
+
 1. You can access saved projects from the **Projects** tab. 
 
     If you select this project, you see all the insights and the timeline of this project. If you select **Video editor**, you can continue making edits to this project. Edits include adding or removing videos and clips or renaming the project.
 
     ![Video editor](./media/video-indexer-view-edit/video-editor.png)
-
- 
-    
+     
 ## Create a project from your video
 
 You can create a new project directly from a video in your account. 
 
 1. Go to the **Library** tab of the Video Indexer website.
 1. Open the video that you want to use to create your project. On the insights and timeline page, select the **Video editor** button.
-
-    ![Video editor](./media/video-indexer-view-edit/video-editor.png)
 
     This takes you to the same page that you used to create a new project. Unlike the new project, you see the timestamped insights segments of the video, that you had started editing previously.
 
