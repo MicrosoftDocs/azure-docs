@@ -110,7 +110,7 @@ In this code, the consumer is configured to read from the start of the topic (`a
 
 ### Run.java
 
-The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) file provides a command-line interface that runs either the producer or consumer code. You must provide the Kafka broker host information as a parameter. You can optionally include a group id value, which is used by the consumer process. If you create multiple consumer instances using the same group id, they will load balance reading from the topic.
+The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) file provides a command-line interface that runs either the producer or consumer code. You must provide the Kafka broker host information as a parameter. You can optionally include a group ID value, which is used by the consumer process. If you create multiple consumer instances using the same group ID, they will load balance reading from the topic.
 
 ## Build and deploy the example
 
