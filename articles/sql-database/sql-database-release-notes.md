@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/03/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -32,6 +32,10 @@ This article lists the new features and improvements in the SQL Database service
 | Threat detection with managed instances |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md)|
 | Hyperscale service tiers with single databases |For information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md)|
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](sql-database-connect-query-portal.md)|
+|Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Batch Mode on Rowstore|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|Memory Grant Feedback (Row Mode)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|Table Variable Deferred Compilation|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 |||
 
 ## March 2019
