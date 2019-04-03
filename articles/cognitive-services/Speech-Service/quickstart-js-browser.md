@@ -24,7 +24,7 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 * A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
-* A current version of Chrome or Microsoft Edge.
+* A current version of Chrome, Microsoft Edge or Safari.
 * Optionally, a web server that supports hosting PHP scripts.
 
 ## Create a new Website folder
@@ -93,6 +93,10 @@ That way, your subscription key will never leave your server while allowing user
 ## Build and run the sample locally
 
 To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
+
+> [!NOTE]
+> This method doesn't work on the Safari browser.
+> On Safari, the sample web page needs to be hosted on a web server; Safari doesn't allow websites loaded from a local file to use the microphone.
 
 ## Build and run the sample via a web server
 
