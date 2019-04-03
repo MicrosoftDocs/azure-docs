@@ -108,12 +108,6 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Enable Azure Active Directory integration
-      items:
-        - name: Use the Azure CLI
-          href: aad-integration-cli.md
-        - name: Use the Azure portal
-          href: aad-integration.md
     - name: Create virtual nodes (preview)
       items:
       - name: Azure CLI
@@ -178,6 +172,14 @@
       href: use-network-policies.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
+    - name: Enable Azure Active Directory integration
+      items:
+        - name: Use the Azure CLI
+          href: aad-integration-cli.md
+        - name: Use the Azure portal
+          href: aad-integration.md
+    - name: Use Kubernetes RBAC with Azure AD integration
+      href: azure-ad-rbac.md
     - name: Authenticate with ACR
       href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
