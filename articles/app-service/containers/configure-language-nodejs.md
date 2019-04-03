@@ -18,9 +18,9 @@ ms.author: cephalin
 
 # Configure a Linux Node.js app for Azure App Service
 
-Node.js apps needs to be deployed with all the required NPM dependencies. The App Service deployment engine (Kudu) automatically runs `npm install --production` for you when you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on. If you deploy your files using [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine (Kudu) automatically runs `npm install --production` for you when you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on. If you deploy your files using [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), however, you need to upload the required packages manually.
 
-This guide provides key concepts and instructions for Node.js developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
+This guide provides key concepts and instructions for Node.js developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
 ## Show Node.js version
 
@@ -253,7 +253,7 @@ if (req.secure) {
 
 ## Troubleshooting
 
-When a working Node.js app behaves differently in App Service or have errors, try the following:
+When a working Node.js app behaves differently in App Service or has errors, try the following:
 
 - [Access the log stream](#access-diagnostic-logs).
 - Test the app locally in production mode. App Service runs your Node.js apps in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
@@ -266,3 +266,6 @@ When a working Node.js app behaves differently in App Service or have errors, tr
 
 > [!div class="nextstepaction"]
 > [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](app-service-linux-faq.md)

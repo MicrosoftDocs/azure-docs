@@ -20,7 +20,7 @@ ms.author: cephalin
 
 This article shows you how to configure a custom Linux container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, you should follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
 
 ## Configure port number
 
@@ -32,7 +32,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## Configure environment variables
 
-Your custom container may use environment variables that needs to be supplied. You can pass them in by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
+Your custom container may use environment variables that need to be supplied externally. You can pass them in by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -44,7 +44,7 @@ This method works both for single-container apps or multi-container apps, where 
 
 You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
 
-When persistent storage is disabled, then writes to the `/home` directory are not persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, your all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
 
 By default, persistent storage is *disabled*. To enable or disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting by running [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. For example:
 
@@ -69,7 +69,7 @@ SSH enables secure communication between a container and a client. In order for 
          && echo "root:Docker!" | chpasswd 
     ```
 
-    This configuration does not allow external connections to the container. SSH is available only through `https://<app-name>.scm.azurewebsites.net` and authenticated with the publishing credentials.
+    This configuration doesn't allow external connections to the container. SSH is available only through `https://<app-name>.scm.azurewebsites.net` and authenticated with the publishing credentials.
 
 - Add [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) to your image repository, and use the [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction to copy the file to the */etc/ssh/* directory. For more information about *sshd_config* files, see [OpenBSD documentation](https://man.openbsd.org/sshd_config).
 
@@ -82,7 +82,7 @@ SSH enables secure communication between a container and a client. In order for 
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 
-- Use the [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction to open port 2222 in the container. Although the root password is known, port 2222 cannot be accessed from the internet. It's accessible only by containers within the bridge network of a private virtual network.
+- Use the [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction to open port 2222 in the container. Although the root password is known, port 2222 is inaccessible from the internet. It's accessible only by containers within the bridge network of a private virtual network.
 
     ```Dockerfile
     EXPOSE 80 2222
@@ -109,7 +109,7 @@ SSH enables secure communication between a container and a client. In order for 
 
 ### Use persistent storage in Docker Compose
 
-Multi-container apps like WordPress need persistent storage to function properly. To enable it, your Docker Compose configuration must point to a storage location *outside* your container. Any storage location inside your container don't persist changes beyond app restart.
+Multi-container apps like WordPress need persistent storage to function properly. To enable it, your Docker Compose configuration must point to a storage location *outside* your container. Storage locations inside your container don't persist changes beyond app restart.
 
 Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting, using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in Cloud Shell.
 

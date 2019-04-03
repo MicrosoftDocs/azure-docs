@@ -21,7 +21,7 @@ ms.author: cephalin
 
 ASP.NET Core apps need be deployed as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET Core developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+This guide provides key concepts and instructions for ASP.NET Core developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
 
 ## Show .NET Core version
 
@@ -106,7 +106,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ## Deploy multi-project solutions
 
-When you deploy an ASP.NET repository to the deployment engine with a .csproj file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with an .sln file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
+When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with an *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
 
 To deploy a multi-project solution, you can specify the project to use in App Service in two different ways:
 
@@ -138,4 +138,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](app-service-linux-faq.md)

@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This guide shows you how to configure the built-in PHP runtime for web apps, mobile back ends, and API apps in Azure App Service.
 
-This guide provides key concepts and instructions for PHP developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
+This guide provides key concepts and instructions for PHP developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
 
 ## Show PHP version
 
@@ -104,7 +104,7 @@ getenv("DB_HOST")
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the `public/` subdirectory as the site root.
 
-The default PHP image for App Service uses Apache, and it doesn't let you customize the site root for your app. To work around this, add an *.htaccess* file to your repository root with the following content:
+The default PHP image for App Service uses Apache, and it doesn't let you customize the site root for your app. To work around this limitation, add an *.htaccess* file to your repository root with the following content:
 
 ```
 <IfModule mod_rewrite.c>
@@ -130,7 +130,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Customize php.ini settings
 
-If you need to make changes to your PHP installation, you can change any of the [*php.ini* directives](http://www.php.net/manual/ini.list.php) by following these steps.
+If you need to make changes to your PHP installation, you can change any of the [php.ini directives](http://www.php.net/manual/ini.list.php) by following these steps.
 
 > [!NOTE]
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
@@ -138,7 +138,7 @@ If you need to make changes to your PHP installation, you can change any of the 
 
 ### Customize non-PHP_INI_SYSTEM directives
 
-To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [*php.ini* directives](http://www.php.net/manual/ini.list.php)), add a [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) to the root directory of your app.
+To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), add a [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) to the root directory of your app.
 
 Then, add the directives you want to configure to *.user.ini*. Use the same syntax you would use in a *php.ini* file. For example:
 
@@ -153,11 +153,11 @@ upload_max_filesize=10M
 
 Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), it's automatically restarted after deployment.
 
-As an alternative to using `.user.ini`, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
+As an alternative to using *.user.ini*, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
 ### Customize PHP_INI_SYSTEM directives
 
-To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)) you can't use the [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
+To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), you can't use the [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 
@@ -165,11 +165,11 @@ First, run the following command in the [Cloud Shell](https://shell.azure.com) t
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d` is the default dir where php.ini exists. `/home/site/ini` is the custom dir in which you will add a custom *.ini* file. You separate the values with a `:`.
+`/usr/local/etc/php/conf.d` is the default directory where *php.ini* exists. `/home/site/ini` is the custom directory in which you'll add a custom *.ini* file. You separate the values with a `:`.
 
 Navigate to the web SSH session with your Linux container (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
 
-Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a `php.ini` file. 
+Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file. 
 
 For example, to change the value of [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
 
@@ -185,7 +185,7 @@ echo “expose_php = Off” >> ini/setting.ini
 
 ## Enable PHP extensions
 
-The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives). You can also do it without using a *.ini* file by following the steps here.
+The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives). You can also do it without using an *.ini* file by following the steps here.
 
 > [!NOTE]
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
@@ -214,7 +214,7 @@ Separate multiple extensions with the comma.
 
 ## Troubleshooting
 
-When a working PHP app behaves differently in App Service or have errors, try the following:
+When a working PHP app behaves differently in App Service or has errors, try the following:
 
 - [Access the log stream](#access-diagnostic-logs).
 - Test the app locally in production mode. App Service runs your Node.js apps in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
@@ -227,3 +227,6 @@ When a working PHP app behaves differently in App Service or have errors, try th
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](app-service-linux-faq.md)

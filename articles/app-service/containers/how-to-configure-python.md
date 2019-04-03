@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Configure a Linux Python app for Azure App Service
 
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on.
 
@@ -135,7 +135,7 @@ To provide a custom command, do the following steps:
  
 1. In the **Runtime** settings, set the **Stack** option to **Python 3.7**, and enter the command directly in the **Startup File** field.
 
-    Alternately, you can save the command in a text file in the root of your project, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
+    Or, you can save the command in a text file in your project root, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
 
 1. Select **Save**. The App Service restarts automatically, and after a few seconds you should see the custom startup command applied.
 
@@ -183,7 +183,13 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Next steps
 
-The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
+The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app. You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
-> [Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Deploy from private container repository](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](app-service-linux-faq.md)

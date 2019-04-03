@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 # Configure a Linux Ruby app for Azure App Service
 
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 This guide provides key concepts and instructions for Ruby developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
 
@@ -40,7 +40,7 @@ To show all supported Ruby versions, run the following command in the [Cloud She
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-You can run an unsupported version of Ruby by build your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-docker-image.md).
+You can run an unsupported version of Ruby by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-docker-image.md).
 
 ## Set Ruby version
 
@@ -116,7 +116,7 @@ You can customize the start-up process in the following ways:
 
 ### Serve static assets
 
-The Rails server in the Ruby container runs in production mode by default, and [assumes that assets have been precompiled and will be served by your web server](https://guides.rubyonrails.org/asset_pipeline.html#in-production). To serve static assets from the Rails server, you need to do both of the following:
+The Rails server in the Ruby container runs in production mode by default, and [assumes that assets are precompiled and are served by your web server](https://guides.rubyonrails.org/asset_pipeline.html#in-production). To serve static assets from the Rails server, you need to do two things:
 
 - **Precompile the assets** - [Precompile the static assets locally](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) and deploy them manually. Or, let the deployment engine handle it instead (see [Precompile assets](#precompile-assets).
 - **Enable serving static files** - To serve static assets from the Ruby container, set the `RAILS_SERVE_STATIC_FILES` [set the `RAILS_SERVE_STATIC_FILES` app setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to `true`. For example:
@@ -159,3 +159,6 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 > [!div class="nextstepaction"]
 > [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](app-service-linux-faq.md)
