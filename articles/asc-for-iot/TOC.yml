@@ -1,4 +1,4 @@
-- name: ASC for IoT Preview Documentation
+- name: Azure Security Center (ASC) for IoT Preview Documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -7,6 +7,8 @@
     href: architecture.md
   - name: Security agents
     href: security-agent-architecture.md
+  - name: Edge security module
+    href: security-edge-architecture.md
   - name: Service prerequisites
     href: service-prerequisites.md
   - name: Get started with ASC for IoT
@@ -22,29 +24,8 @@
     href: quickstart-create-security-twin.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
-
-- name: Tutorials
-  items:
-  - name: Deploy security agents
-    items:
-    - name: Deploy a C#-based security agent on a Windows device
-      href: tutorial-deploy-windows-cs.md
-    - name: Deploy a C#-based security agent on a Linux device
-      href: tutorial-deploy-linux-cs.md
-    - name: Deploy a C-based security agent on a Linux device
-      href: tutorial-deploy-linux-c.md
-  - name: Investigate a device
-    href: tutorial-investigate-device.md
-  - name: Send your own security messages
-    href: tutorial-send-security-messages.md
-
-
 - name: Concepts
   items:
-  - name: Which agent should I deploy?
-    href: select-deploy-agent.md
-  - name: Configure security agents
-    href: concept-agent-configuration.md
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: Security module
@@ -53,16 +34,30 @@
     href: concept-security-alerts.md
   - name: Security recommendations
     href: concept-recommendations.md
-
-
+  - name: Pricing and associated costs
+    href: concept-pricing.md
 - name: How-to guides
   items:
+  - name: Which agent should I deploy?
+    items:
+    - name: Select an agent to deploy
+      href: how-to-deploy-agent.md
+    - name: Deploy a C#-based security agent on a Windows device
+      href: how-to-deploy-windows-cs.md
+    - name: Deploy a C#-based security agent on a Linux device
+      href: how-to-deploy-linux-cs.md
+    - name: Deploy a C-based security agent on a Linux device
+      href: how-to-deploy-linux-c.md
+  - name: Deploy Edge security module
+    href: how-to-deploy-edge.md
+  - name: Configure security agents
+    href: how-to-agent-configuration.md
+  - name: Send your own security messages
+    href: how-to-send-security-messages.md
   - name: Access raw security data
     href: how-to-security-data-access.md
-  - name: Modify a security module twin
-    href: how-to-modify-security-module-twin.md
-
-
+  - name: Investigate a device
+    href: how-to-investigate-device.md
 - name: Resources
   items:
   - name: Frequently asked questions
