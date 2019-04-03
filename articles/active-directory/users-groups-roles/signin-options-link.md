@@ -23,7 +23,7 @@ We're updating the Microsoft 365 sign-in page in Azure Active Directory (Azure A
 
 ## Sign-in pages that support Microsoft accounts
 
-The Microsoft 365 sign-in page supports can accept one or both of work or school accounts and Microsoft accounts, depending on the situation, to support, for example:
+The Microsoft 365 sign-in page supports one or both of work or school accounts and Microsoft accounts, depending on the situation, to support:
 
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
@@ -36,11 +36,9 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 The **Sign-in options** link will be added only to sign-in pages which support Microsoft accounts. If the sign-in page your organization uses doesn't support Microsoft accounts, this change doesn't affect you.
   
-After this change takes place, your users will see a new link that says "Sign-in options" on the sign-in page. Clicking the link will bring the user to a new screen that will show additional sign-in options that only work for personal Microsoft account users.
+After this change takes place, your users will see a new link that says "Sign-in options" on the sign-in page. Clicking the link will bring the user to a new screen that will show additional sign-in options that only work for personal Microsoft account users. These options will only work for Microsoft accounts and don't allow users to access their work or school resources by signing in to their Microsoft account.
 
 ![sign-in options opens choices for Microsoft accounts](./media/signin-options-link/options-link.png)
-
-At launch time, there will only be one option on this screen. These options will only work for Microsoft accounts and don't allow users to access their work or school resources by signing in to their Microsoft account.
 
 ## Timing of the change
 
