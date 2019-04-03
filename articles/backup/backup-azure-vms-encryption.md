@@ -40,6 +40,9 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 - Azure Backup supports VMs encrypted using standalone keys. Any key which is a part of a certificate used to encrypt a VM isn't currently supported.
 - You can back up and restore encrypted VMs within the same subscription and region as the Recovery Services Backup vault.
 - Encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
+- When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for encrypted VMs. This option is only supported for unencrypted managed disks.
+
+
 
 
 ## Before you start
