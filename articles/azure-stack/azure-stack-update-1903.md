@@ -30,9 +30,10 @@ This article describes the contents of the 1903 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1903 update build number is **1.1903.0.35**. 
+The Azure Stack 1903 update build number is **1.1903.0.35**.
 
-The 1903 payload does not include an ASDK release.
+> [!IMPORTANT]
+> The 1903 payload does not include an ASDK release.
 
 ## Hotfixes
 
