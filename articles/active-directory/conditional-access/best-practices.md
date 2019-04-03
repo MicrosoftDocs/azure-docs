@@ -111,9 +111,9 @@ Yes, you can use Exchange ActiveSync in a conditional access policy.
 
 Because Office 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
 
-Common interconnected applications include Flow, Planner, PowerApps, Teams, Exchange, SharePoint, Yammer, and Delve.
+Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
 
-It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don’t, users won’t be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won’t be able to attach SharePoint files to a message.
+It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don’t, users won’t be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won’t be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory conditional access?](service-dependencies.md).
 
 
 
