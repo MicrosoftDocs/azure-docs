@@ -71,11 +71,33 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
+## Multiple metrics and charts
+
+You can also create charts that plot multiple metrics or show multiple metric charts at once. This functionality allows you to:
+
+- correlate related metrics on the same graph to see how one value is related to another.
+- Display metrics with different units of measure in close proximity
+- Visually aggregate and compare metrics from multiple resources.  
+
+For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
+
+### Put multiple metrics on a chart
+
+Create a new chart as shown in [Create a new chart](#create-a-new-chart). Click **Add Metric** and repeat the steps to add another metric on a new chart.
+
+### Create multiple charts
+
+Click the "Add chart" button and create another chart with a different metric. 
+
+### Order or delete multiple charts
+
+To can change the chart order or delete a chart, click on **...** to open the chart menu and choose the appropriate menu item.
+
 ## Apply splitting to a chart
 
-You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
+You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension.
 
-### To apply splitting
+### Apply splitting
 
 1. Click on **Apply splitting** above the chart.
  
