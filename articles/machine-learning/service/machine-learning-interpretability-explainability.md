@@ -232,6 +232,6 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## Next Steps
+## Next steps
 
 To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
