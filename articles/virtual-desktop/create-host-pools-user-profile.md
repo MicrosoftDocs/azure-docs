@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Set up a user profile share for a host pool
 
-The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, and it will be deprecated in future versions of Windows Virtual Desktop.
+The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
 
 This section will tell you how to set up a FSLogix profile container share for a host pool. For general documentation regarding FSLogix, see the [FSLogix site](https://docs.fslogix.com/).
 
@@ -53,7 +53,7 @@ To configure the virtual machines with the FSLogix software, do the following on
 2. Launch an internet browser and navigate to [this link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
 3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
-5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**.
+5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Create a key named **Profiles**.
 7. Create the following values for the Profiles key:
 
