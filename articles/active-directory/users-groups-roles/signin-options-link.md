@@ -40,7 +40,7 @@ After this change takes place, your users will see a new link that says "Sign-in
 
 ![sign-in options opens choices for Microsoft accounts](./media/signin-options-link/options-link.png)
 
-At launch time, there will only be one option on this screen, but more will be added as we release new capabilities in the future. These options will only work for Microsoft accounts and don't allow users to access their work or school resources by signing in to their Microsoft account.
+At launch time, there will only be one option on this screen. These options will only work for Microsoft accounts and don't allow users to access their work or school resources by signing in to their Microsoft account.
 
 ## Timing of the change
 
