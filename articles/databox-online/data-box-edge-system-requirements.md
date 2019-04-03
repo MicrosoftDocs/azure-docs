@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements
@@ -77,7 +77,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 | URL pattern                      | Component or functionality                     |   
 |----------------------------------|---------------------------------------------|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
 
@@ -89,7 +89,9 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 | URL pattern                      | Component or functionality                     |  
 |----------------------------------|---------------------------------------------|
-| https://\*.azure-devices.us              | IoT Hub access (required)           |   
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
+| https://\*.azure-devices.us              | IoT Hub access (required)           |
+| https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
 
 ## Internet bandwidth
 
