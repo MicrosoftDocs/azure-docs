@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
