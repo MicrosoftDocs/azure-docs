@@ -4316,6 +4316,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/connectors/connectors-overview.md",
+      "redirect_url": "/azure/connectors/apis-list",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/connectors/connectors-create-api-sharepointserver.md",
       "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
       "redirect_document_id": true
@@ -36725,6 +36730,11 @@
       "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+      "redirect_document_id": true
     }
   ]
 }
