@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -28,6 +28,8 @@ After you stream your data into Azure Sentinel, you can enrich it with the threa
 To enable you to cross check your alerts and rules with true threat intelligence, for example if you get an alert from a specific IP address, your threat intelligence provider integration will be able to let you know if that IP address was recently found to be malicious, Azure Sentinel enables integration with [threat intelligence providers](https://aka.ms/graphsecuritytips). 
 
 You can stream logs from Threat intelligence providers into Azure Sentinel with a single click. This connection enables you to incorporate indicators containing various types of observables such as IP address, domain, URL and file hash to search and create custom alerts rules in Azure Sentinel.  
+> [!NOTE]
+> You can input customized threat indicators into Azure Sentinel for use in alert rules, dashboards, and hunting scenarios by integrating with the [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entity or by using a [Microsoft Graph Security integrated Threat Intelligence Platform](https://aka.ms/graphsecuritytips).
 
 ## Prerequisites  
 

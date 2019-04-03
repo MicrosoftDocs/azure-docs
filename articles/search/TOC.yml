@@ -17,30 +17,26 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
+  - name: C#
+    items:
+    - name: 1 - Create an index
+      href: search-create-index-dotnet.md
+    - name: 2 - Load data
+      href: search-import-data-dotnet.md
+    - name: 3 - Search an index
+      href: search-query-dotnet.md
   - name: Postman
     href: search-fiddler.md
   - name: PowerShell
     href: search-create-index-rest-api.md
-  - name: C#
-    items:
-    - name: Create an index
-      href: search-create-index-dotnet.md
-    - name: Import data
-      href: search-import-data-dotnet.md
-    - name: Search
-      href: search-query-dotnet.md
 - name: Tutorials
   items:
-  - name: Learn cognitive search APIs
-    href: cognitive-search-tutorial-blob.md
-  - name: Index Azure blobs
-    href: search-semi-structured-data.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Add synonyms in .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Add autocomplete in .NET
-    href: search-autocomplete-tutorial.md
+  - name: Index Azure blobs
+    href: search-semi-structured-data.md
+  - name: Index with AI (Cognitive Services)
+    href: cognitive-search-tutorial-blob.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -105,7 +101,7 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Design indexes
+  - name: Create indexes
     items:
     - name: Create a basic index
       href: search-what-is-an-index.md
@@ -119,12 +115,18 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Add autosuggest
-      href: index-add-suggesters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Add synonyms
-      href: search-synonyms.md
+    - name: Typeahead
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Examples (suggestions, autocomplete)
+        href: search-autocomplete-tutorial.md
+    - name: Synonyms
+      items:
+      - name: Add synonyms
+        href: search-synonyms.md
+      - name: Synonyms example
+        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
@@ -167,7 +169,7 @@
         href: search-indexer-field-mappings.md
       - name: Troubleshooting common issues
         href: search-indexer-troubleshooting.md
-  - name: AI-enriched indexing (cognitive search)
+  - name: AI-indexing (cognitive search)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -197,22 +199,24 @@
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: Query examples (simple syntax)
+    - name: Examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Query examples (full Lucene)
+    - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
-  - name: Handle results
-    items:
-    - name: Page-related features
-      href: search-pagination-page-layout.md
   - name: Filter and sort data
     items:
     - name: Filter overview
       href: search-filters.md
     - name: Facet filters
       href: search-filters-facets.md
-    - name: Filter and OrderBy expression syntax
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
+    - name: Filter and OrderBy expression syntax and examples
       href: query-odata-filter-orderby-syntax.md
+  - name: Handle results
+    items:
+    - name: Page-related features
+      href: search-pagination-page-layout.md
   - name: Relevance tuning
     items:
     - name: Add scoring profiles
@@ -290,7 +294,7 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: Job listings app
+    - name: NYC Jobs demo
       href: https://aka.ms/azjobsdemo
     - name: Search Analyzer demo
       href: https://alice.unearth.ai/

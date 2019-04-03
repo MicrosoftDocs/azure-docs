@@ -36,7 +36,7 @@ If there is an attempt to provision a new object with a UPN or ProxyAddress valu
 
 ## Behavior with Duplicate Attribute Resiliency
 Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
-“***<OriginalPrefix>+<4DigitNumber>\@<InitialTenantDomain>.onmicrosoft.com***”.  
+“***\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com***”.  
 If the attribute is not required, like a  **ProxyAddress**, Azure Active Directory simply quarantines the conflict attribute and proceeds with the object creation or update.
 
 Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it does not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
@@ -62,7 +62,7 @@ To check if the feature is enabled for your tenant, you can do so by downloading
 > You can no longer use Set-MsolDirSyncFeature cmdlet to proactively enable the Duplicate Attribute Resiliency feature before it is turned on for your tenant. To be able to test the feature, you will need to create a new Azure Active Directory tenant.
 
 ## Identifying Objects with DirSyncProvisioningErrors
-There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the Office 365 Admin Portal. There are plans to extend to additional portal based reporting in the future.
+There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the [Microsoft 365 admin center](https://admin.microsoft.com). There are plans to extend to additional portal based reporting in the future.
 
 ### Azure Active Directory PowerShell
 For the PowerShell cmdlets in this topic, the following is true:
@@ -110,17 +110,17 @@ To do a broad string search use the **-SearchString** flag. This can be used ind
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### In a limited quantity or all
-1. **MaxResults <Int>** can be used to limit the query to a specific number of values.
+1. **MaxResults \<Int>** can be used to limit the query to a specific number of values.
 2. **All** can be used to ensure all results are retrieved in the case that a large number of errors exists.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## Office 365 admin portal
-You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups** and **Contacts**.
+## Microsoft 365 admin center
+You can view directory synchronization errors in the Microsoft 365 admin center. The report in the Microsoft 365 admin center only displays **User** objects that have these errors. It does not show info about conflicts between **Groups** and **Contacts**.
 
 ![Active Users](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active Users")
 
-For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+For instructions on how to view directory synchronization errors in the Microsoft 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### Identity synchronization error report
 When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict does only appear once- at the time the conflicting attribute is quarantined.

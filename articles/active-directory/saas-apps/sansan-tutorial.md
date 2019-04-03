@@ -168,7 +168,7 @@ To configure Azure AD single sign-on with Sansan, perform the following steps:
 	}while($i -lt $applications.Length);
 	echo "Not able to find the matched application with this service principal"
 	}
-	```
+    ```
 
 8. After successful completion of PowerShell script, the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal.
 

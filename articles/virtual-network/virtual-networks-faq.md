@@ -284,7 +284,7 @@ No. VNet peering, whether local or global, does not impose any bandwidth restric
 ## Virtual network TAP
 
 ### Which Azure regions are available for virtual network TAP?
-During developer preview, the capability is available in the West Central US region. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
+Virtual network TAP  preview is available in all Azure regions. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
 
 ### Does Virtual Network TAP support any filtering capabilities on the mirrored packets?
 Filtering capabilities are not supported with the virtual network TAP preview. When a TAP configuration is added to a network interface a deep copy of all the ingress and egress traffic on the network interface is streamed to the TAP destination.
@@ -297,7 +297,7 @@ Yes. The same virtual network TAP resource can be used to aggregate mirrored tra
 
 ### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
 
-Virtual network TAP is in developer preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+Virtual network TAP is in preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 

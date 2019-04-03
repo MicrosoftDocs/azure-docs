@@ -4,15 +4,12 @@ description: Learn how to use the Beeline client to run Hive queries with Hadoop
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: beeline hive,hive beeline
-
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-
 ---
+
 # Use the Apache Beeline client with Apache Hive
 
 Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
@@ -20,8 +17,11 @@ Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hi
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline:
 
 * __Using Beeline from an SSH connection to a headnode or edge node__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+
 * __Using Beeline on a client, connecting to HDInsight over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Using Beeline on a client, connecting to a HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
+
+* __Using Beeline on a client, connecting to a HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+
 * __Using Beeline on a client, connecting to HDInsight over the public internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -33,7 +33,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 >
 > When connecting to the cluster through a virtual network, replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode.
 >
-> When connecting to an Enterprise Security Package (ESP) cluster, replace `<AAD-Domain>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Replace `<username>` with the name of an account on the domain with permissions to access the cluster.
+> When connecting to an Enterprise Security Package (ESP) cluster, replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential can't be found. Check `/etc/krb5.conf` for the realm names if needed. Replace `<username>` with the name of an account on the domain with permissions to access the cluster. 
 
 ## <a id="prereq"></a>Prerequisites
 
@@ -276,8 +276,6 @@ For more information on other ways you can work with Hadoop on HDInsight, see th
 * [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following document: [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md).
-
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -289,8 +287,7 @@ If you are using Tez with Hive, see the following document: [Use the Apache Amba
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

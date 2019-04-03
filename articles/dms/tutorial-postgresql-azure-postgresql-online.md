@@ -3,14 +3,14 @@ title: "Tutorial: Use the Azure Database Migration Service to perform an online 
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -48,7 +48,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
-- Ensure that your VNET Network Security Group rules do not block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Ensure that your VNET Network Security Group rules do not block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source PostgreSQL Server, which by default is TCP port 5432.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.

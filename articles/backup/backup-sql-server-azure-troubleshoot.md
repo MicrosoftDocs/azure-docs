@@ -16,7 +16,7 @@ This article provides troubleshooting information for protecting SQL Server VMs 
 
 ## Feature consideration and limitations
 
-To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
@@ -75,7 +75,7 @@ The following tables are organized by error code.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## Restore failures
 
@@ -93,12 +93,18 @@ The following error codes are shown when restore jobs fail.
 |---|---|---|
 | Restore failed as the database could not be brought offline. | While doing a restore, target database needs to be brought offline. Azure Backup is not able to bring this data offline. | Use the additional details in the Azure portal error menu to narrow down the root causes. For more information, see the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  UserErrorCannotFindServerCertificateWithThumbprint
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot find the server certificate with thumbprint on the target. | The Master database on the destination instance doesn't have a valid encryption thumbprint. | Import the valid certificate thumbprint used on the Source instance, to the target instance. |
+
+### UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk logged recovery mode, the data between a bulk logged transaction and next log transaction cannot be recovered. | Please choose a different Point in Time for Recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## Registration failures
 

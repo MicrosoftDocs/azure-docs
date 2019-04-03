@@ -1,13 +1,13 @@
 ---
 title: Tutorial for indexing Azure SQL databases in Azure portal - Azure Search
-description: In this tutorial, crawl Azure SQL database to extract searchable data and populate an Azure Search index.
+description: In this tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
@@ -15,14 +15,13 @@ ms.custom: seodec2018
 
 # Tutorial: Crawl an Azure SQL database using Azure Search indexers
 
-This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
+Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 
 Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
 
-In this tutorial, using the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application, you perform the following tasks:
+In this tutorial, use the [Azure Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
 
 > [!div class="checklist"]
-> * Download and configure the solution
 > * Add search service information to application settings
 > * Prepare an external dataset in Azure SQL database 
 > * Review the index and indexer definitions in sample code
@@ -34,16 +33,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure Search service. For help setting one up, see [Create a search service](search-create-service-portal.md).
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-* An Azure SQL database providing the external data source used by an indexer. The sample solution provides a SQL data file to create the table.
+* An [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) providing the external data source used by an indexer. The sample solution provides a SQL data file to create the table.
 
-* Visual Studio 2017. You can use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
 > [!Note]
 > If you are using the free Azure Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
 
-## Download the solution
+### Download the solution
 
 The indexer solution used in this tutorial is from a collection of Azure Search samples delivered in one master download. The solution used for this tutorial is *DotNetHowToIndexers*.
 
@@ -59,7 +58,7 @@ The indexer solution used in this tutorial is from a collection of Azure Search 
 
 6. In **Solution Explorer**, right-click the top node parent Solution > **Restore Nuget Packages**.
 
-## Set up connections
+### Set up connections
 Connection information to required services is specified in the **appsettings.json** file in the solution. 
 
 In Solution Explorer, open **appsettings.json** so that you can populate each setting, using the instructions in this tutorial.  
@@ -101,7 +100,7 @@ You can find the search service endpoint and key in the portal. A key provides a
    }
    ```
 
-## Prepare an external data source
+## Prepare sample data
 
 In this step, create an external data source that an indexer can crawl. The data file for this tutorial is *hotels.sql*, provided in the \DotNetHowToIndexers solution folder. 
 
