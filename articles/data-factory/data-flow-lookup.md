@@ -23,7 +23,17 @@ When matches are found, the resulting rows and columns from the reference source
 
 ## Optimizations
 
+In Data Factory, Data Flows execute in scaled-out Spark environments. If your dataset can fit into worker node memory space, we can optimize your Lookup performance.
 
+![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
+
+### Broadcast join
+
+Select Left and/or Right side broadcast join to request ADF to push the entire dataset from either side of the Lookup relationship into memory.
+
+### Data partitioning
+
+You can also specify partitioning of your data by selecting "Set Partitioning" on the Optimize tab of the Lookup transformation to create sets of data that can fit better into memory per worker.
 
 ## Next steps
 
