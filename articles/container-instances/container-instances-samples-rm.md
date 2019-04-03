@@ -21,7 +21,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | | |
 |-|-|
 | **Applications** ||
-| [Wordpress][app-wp] | Creates a WordPress website and its MySQL database in a container instance. The WordPress site content and MySQL database are persisted to an Azure Files share. |
+| [Wordpress][app-wp] | Creates a WordPress website and its MySQL database in a container group. The WordPress site content and MySQL database are persisted to an Azure Files share. Also creates an application gateway to expose public network access to WordPress. |
 | [MS NAV with SQL Server and IIS][app-nav] | Deploys a single Windows container with a fully featured self-contained Dynamics NAV / Dynamics 365 Business Central environment. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Deploys two Linux containers that share an emptyDir volume. |
@@ -31,6 +31,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
 | [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
 | [Deploy a container group with a virtual network (preview)][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
+
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 

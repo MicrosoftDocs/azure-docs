@@ -6,11 +6,16 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.author: danlep
 ---
 
-# Tutorial: Deploy a multi-container group with YAML
+# Tutorial: Deploy a multi-container group using a YAML file
+
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
+>
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). A container group is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
@@ -118,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## View container logs
 
-View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
+View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the `aci-tutorial-app` container is specified.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -133,7 +138,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-To see the logs for the sidecar container, run the same command specifying the second container name.
+To see the logs for the sidecar container, run a similar command specifying the `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -159,82 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-<<<<<<< HEAD
-As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
-
-## Deploy from private registry
-
-To use a private container image registry, include the following YAML with values modified for your environment:
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## Export container group to YAML
-
-You can export the configuration of an existing container group to a YAML file by using the Azure CLI command [az container export][az-container-export].
-
-Useful for preserving a container group's configuration, export allows you to store your container group configurations in version control for "configuration as code." Or, use the exported file as a starting point when developing a new configuration in YAML.
-
-Export the configuration for the container group you created earlier by issuing the following [az container export][az-container-export] command:
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-No output is displayed if the command is successful, but you can view the contents of the file to see the result. For example, the first few lines with `head`:
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
-=======
 As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than `200 OK`.
-
->>>>>>> ACI: refactored group how-tos as tutorials
 
 ## Next steps
 

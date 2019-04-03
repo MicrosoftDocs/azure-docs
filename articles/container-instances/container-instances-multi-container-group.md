@@ -6,12 +6,16 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Tutorial: Deploy a multi-container group using a Resource Manager template
+
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). A container group is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
@@ -33,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Configure a template
 
-Start by creating a file named `azuredeploy.json`, then copy the following JSON into it. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
+Start by copying the following JSON into a new file named `azuredeploy.json`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```
 code azuredeploy.json
@@ -173,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## View container logs
 
-View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
+View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the `aci-tutorial-app` container is specified.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -188,7 +192,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-To see the logs for the sidecar container, run the same command specifying the second container name.
+To see the logs for the sidecar container, run a similar command specifying the `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
