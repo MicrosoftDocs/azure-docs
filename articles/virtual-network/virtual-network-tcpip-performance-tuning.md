@@ -256,7 +256,7 @@ To use accelerated networking, you need to explicitly enable it on each applicab
 
 #### Receive side scaling
 
-Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multi-processor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. A more technical discussion of RSS can be found at the [Introduction to Receive Side Scaling page](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Receive side scaling (RSS) is a network driver technology that distributes the receiving of network traffic more efficiently by distributing receive processing across multiple CPUs in a multiprocessor system. In simple terms, RSS allows a system to process a greater amount of received traffic because it uses all available CPUs instead of just one. A more technical discussion of RSS can be found at the [Introduction to Receive Side Scaling page](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
 RSS is required to achieve maximum performance when Accelerated Networking is enabled on a VM. There can also be benefits in using RSS on VMs that don’t have accelerated networking enabled. An overview of how to determine if RSS is enabled and configuration for enabling it can be found at the [Optimize network throughput for Azure virtual machines page](http://aka.ms/FastVM).
 

@@ -23,6 +23,7 @@ The new model for Instant Restore provides the following feature enhancements:
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 *	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What's new in this feature
 
@@ -69,9 +70,9 @@ In the Azure portal, you can see a field added in the **VM Backup Policy** blade
 > From Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 The default snapshot retention for each policy is set to 2 days. User can change the value to a minimum of 1 and a maximum of 5 days. For weekly policies, the snapshot retention is fixed to 5 days.
 
