@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
 
-In this quickstart, you use Azure Container Registry Tasks commands to quickly build, push, and run a Docker container image natively within Azure, offloading your "inner-loop" development cycle to Azure. [ACR Tasks][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container lifecycle. 
+In this quickstart, you use Azure Container Registry Tasks commands to quickly build, push, and run a Docker container image natively within Azure, showing how to offload your "inner-loop" development cycle to the cloud. [ACR Tasks][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container lifecycle. 
 
 After this quickstart, explore more advanced features of ACR Tasks. ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
 
@@ -58,7 +58,7 @@ az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --f
 
 Output from a successful build and push is similar to the following:
 
-```
+```console
 Packing source code into tar to upload...
 Uploading archived source code from '/tmp/build_archive_b0bc1e5d361b44f0833xxxx41b78c24e.tar.gz'...
 Sending context (1.856 KiB) to registry: mycontainerregistry008...
@@ -129,7 +129,7 @@ az acr run --registry myContainerRegistry008 --file quickrun.yaml .
 
 Output is similar to the following:
 
-```
+```console
 Packing source code into tar to upload...
 Uploading archived source code from '/tmp/run_archive_ebf74da7fcb04683867b129e2ccad5e1.tar.gz'...
 Sending context (1.855 KiB) to registry: mycontainerre...
