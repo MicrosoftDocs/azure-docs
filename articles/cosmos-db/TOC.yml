@@ -285,6 +285,9 @@
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
           maintainContext: true
+        - name: MongoDB extension commands
+          href: mongodb-custom-commands.md
+          displayName: custom commands
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -465,6 +468,9 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Data modeling and partitioning - a real-world example
+        displayName: model, partition, example
+        href: how-to-model-partition-example.md
       - name: Configure time to live
         displayName: delete, delete data, ttl
         href: how-to-time-to-live.md

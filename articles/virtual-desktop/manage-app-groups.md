@@ -23,13 +23,13 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Create a RemoteApp group
 
-1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
+1. Run the following PowerShell cmdlet to create a new empty RemoteApp app group.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
+2. (Optional) To verify the app group was created, you can run the following cmdlet to see a list of all app groups for the host pool.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -40,17 +40,17 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
+   
+4. Run the following cmdlet to install the application based on its appalias. appalias becomes visible when you run the output from step 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Optional) Run the following cmdlet to install the application based on appalias. appalias becomes visible when you run the output from step 3.
+5. (Optional) Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. To verify that the app was published, run the following cmdlet.

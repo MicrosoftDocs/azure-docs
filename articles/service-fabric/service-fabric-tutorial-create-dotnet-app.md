@@ -3,8 +3,8 @@ title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 
 ---

@@ -4,7 +4,7 @@ description: Configure an Azure Load Balancer to open ports for your Azure Servi
 services: service-fabric
 documentationcenter: na
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
