@@ -105,6 +105,8 @@
         href: service-bus-sas.md
     - name: Topic filters and actions
       href: topic-filters.md
+    - name: Migrate from Standard to Premium namespaces
+      href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
       href: service-bus-partitioning.md
     - name: Message sessions
@@ -197,7 +199,7 @@
   - name: Go
     href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicebus
+    href: /powershell/module/az.servicebus
   - name: REST
     href: /rest/api/servicebus
   - name: Resource Manager template

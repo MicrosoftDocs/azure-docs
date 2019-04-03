@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
 ---
 
@@ -48,7 +48,7 @@ The following table summarizes the differences in key capabilities.
 
 ### Continuous data ingestion over network
 
-| Feature                                       | Data Box Gateway (preview) | Data Box Edge (preview)  | Azure Data Factory        |
+| Feature                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Form factor                                   | Virtual device             | Physical device          | Service in Azure portal, agent on-premises                                                            |
 | Hardware                                      | Your hypervisor            | Supplied by Microsoft    | NA                                                            |

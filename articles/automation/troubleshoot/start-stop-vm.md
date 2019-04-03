@@ -18,23 +18,23 @@ manager: carmonm
 
 When deploying the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md), you receive one of the following errors:
 
-```
+```error
 Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
 ```
 
-```
+```error
 Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
 ```
 
-```
+```error
 The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
 ```
 
-```
+```error
 The subscription is not registered to use namespace 'Microsoft.Insights'.
 ```
 
-```
+```error
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 

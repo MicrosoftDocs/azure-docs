@@ -48,7 +48,7 @@ To view the compliance details, follow these steps:
 
 1. The **Compliance details** pane displays information from the latest evaluation of the resource to the current policy assignment. In this example, the field **Microsoft.Sql/servers/version** is found to be _12.0_ while the policy definition expected _14.0_. If the resource is non-compliant for multiple reasons, each is listed on this pane.
 
-   ![Compliance details pane](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Compliance details pane and reasons for non-compliance](../media/determine-non-compliance/compliance-details-pane.png)
 
    For an **auditIfNotExists** or **deployIfNotExists** policy definition, the details include the
    **details.type** property and any optional properties. For a list, see [auditIfNotExists
@@ -131,11 +131,11 @@ triggered when the Resource Manager properties are added, removed, or altered.
 
 1. Select the **Change History (preview)** tab on the **Resource Compliance** page. A list of detected changes, if any exist, are displayed.
 
-   ![Policy Change History - Tab](../media/determine-non-compliance/change-history-tab.png)
+   ![Policy Change History tab on Resource Compliance page](../media/determine-non-compliance/change-history-tab.png)
 
 1. Select one of the detected changes. The _visual diff_ for the resource is presented on the **Change history** page.
 
-   ![Policy Change History - Visual Diff](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Policy Change History Visual Diff on Change history page](../media/determine-non-compliance/change-history-visual-diff.png)
 
 The _visual diff_ aides in identifying changes to a resource. The changes detected may not be
 related to the current compliance state of the resource.
