@@ -18,13 +18,13 @@ ms.custom: seodec18
 ---
 # App Service Environment management addresses
 
-The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the management plane used by the Azure App Service.  This ASE management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service in your Azure Virtual Network (VNet).  The ASE must be accessible from a number of dedicated IP addresses that are used by the Azure App Service to manage the service.  In the case of an ASE, the management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
 
-All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE. This document lists the App Service source addresses for management traffic to the ASE. These addresses are in the Service Tag named AppServiceManagement.
+All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE. This document lists the App Service source addresses for management traffic to the ASE. These addresses are also in the IP Service Tag named AppServiceManagement.
 
 You can use the Service Tag named AppServiceManagement in your Network Security Groups in order to lock down inbound management traffic to your ASE.  
 
-The addresses noted below can be configured in a route table. This is important when operating your ASE in a force tunneled VNet where you might otherwise have an asymmetric routing problem. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
+The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replys are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
 ## List of management addresses ##
 
@@ -35,7 +35,7 @@ The addresses noted below can be configured in a route table. This is important 
 
 ## Configuring a Network Security Group
 
-With Network Security Groups you do not need to worry about the individual addresses or maintaining your own configuration. There is an IP service tag named AppServiceManagement that is kept up to date with all of the addresses. To use this IP service tag in your NSG, go to the portal, open your Network Security Groups UI and select Inbound security rules. If you have a pre-existing rule for the inbound management traffic edit it. If this NSG was not created with your ASE, or if it is all new, then select **Add**. Under the Source drop down, select **Service Tag**.  Under the Source service tag, select **AppServiceManagement**. Set the source port ranges to \*, Destination to **Any**, Destination port ranges to **454-455**, Protocol to **TCP**, and Action to **Allow**. If you are making the rule then you need to set the Priority. 
+With Network Security Groups, you do not need to worry about the individual addresses or maintaining your own configuration. There is an IP service tag named AppServiceManagement that is kept up-to-date with all of the addresses. To use this IP service tag in your NSG, go to the portal, open your Network Security Groups UI, and select Inbound security rules. If you have a pre-existing rule for the inbound management traffic, edit it. If this NSG was not created with your ASE, or if it is all new, then select **Add**. Under the Source drop down, select **Service Tag**.  Under the Source service tag, select **AppServiceManagement**. Set the source port ranges to \*, Destination to **Any**, Destination port ranges to **454-455**, Protocol to **TCP**, and Action to **Allow**. If you are making the rule, then you need to set the Priority. 
 
 ![creating an NSG with the service tag][1]
 
