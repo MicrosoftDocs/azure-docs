@@ -3,7 +3,7 @@ title: What is Azure web application firewall for Azure Front Door? (Preview)
 description: Learn how Azure web application firewall for Azure Front Door service protects your web applications from malicious attacks.  
 services: frontdoor
 documentationcenter: ''
-author: teresayao
+author: KumudD
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article

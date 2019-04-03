@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: kumud;tyao
 ---
 
@@ -27,8 +27,8 @@ An Azure WAF policy can be applied to web applications hosted on Application Gat
 
 Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
 
-## How will I be charged for Azure WAF for Front Door??
-During public preview, WAF usage at Front Door are free of charge. Note that Front Door charge is extra.See Front Door Service pricing [here](https://azure.microsoft.com/pricing/details/frontdoor/).
+## How will I be charged for Azure WAF for Front Door?
+During public preview, WAF usage at Front Door are free of charge. Note that Front Door charge is extra. See Front Door Service pricing [here](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## Does Azure WAF support HTTPS?
 
@@ -68,7 +68,7 @@ Currently, ModSec CRS 2.2.9 and CRS 3.0 rules are only supported with WAF at App
 
 ## Is DDoS protection integrated with Front Door? 
 
-Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDos protection on the VNet where your back-ends are deployed. Azure DDoS Protection Standard Enterprise customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. 
+Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. 
 
 ## Next steps
 
