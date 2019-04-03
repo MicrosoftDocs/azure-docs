@@ -152,7 +152,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained >  **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
-## Install the VM agent if needed
+## Install the VM agent
 
 Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the table.
 
@@ -161,7 +161,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 **Windows VMs** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click the WaAppAgent.exe > **Properties**, > **Details** tab. **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux VMs** | Install using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
 
-## Allow outbound access if needed
+## Explicitly allow outbound access
 
 The Backup extension running on the VM needs outbound access to Azure public IP addresses.
 
@@ -175,7 +175,11 @@ The Backup extension running on the VM needs outbound access to Azure public IP 
 **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage.<br/><br/> Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.
 **Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service. |  Simple to use if you have Azure Firewall set up in a VNet subnet<br/><br/> You can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If your Azure VMs have managed disks, you might need an additional port open (8443) on the firewalls.
 
-### Set up an NSG rule to allow outbound access to Azure
+### Establish network connectivity
+
+Establish connectivity with NSG, by proxy, or through the firewall
+
+#### Set up an NSG rule to allow outbound access to Azure
 
 If the VM access is managed by an NSG, allow outbound access for the backup storage, to the required ranges and ports.
 
@@ -199,7 +203,7 @@ You can apply the NSG rule to multiple VMs to allow outbound access. This video 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 
-### Route backup traffic through a proxy
+#### Route backup traffic through a proxy
 
 You can route backup traffic through a proxy, and then give the proxy access to the required Azure ranges. Configure the proxy VM to allow the following:
 
@@ -207,7 +211,7 @@ You can route backup traffic through a proxy, and then give the proxy access to 
 - The proxy should allow incoming traffic from VMs in the applicable virtual network (VNet).
 - The NSG **NSF-lockdown** needs a rule that allows outbound internet traffic from the proxy VM.
 
-#### Set up the proxy
+##### Set up the proxy
 
 If you don't have a system account proxy, set one up as follows:
 
@@ -232,7 +236,7 @@ If you don't have a system account proxy, set one up as follows:
 
        ```
 
-#### Allow incoming connections on the proxy
+##### Allow incoming connections on the proxy
 
 Allow incoming connections in the proxy settings.
 
@@ -247,7 +251,7 @@ Allow incoming connections in the proxy settings.
   
 6. Finish the wizard and specify a name for the rule.
 
-#### Add an exception rule to the NSG for the proxy
+##### Add an exception rule to the NSG for the proxy
 
 On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any internet address on port 80 (HTTP) or 443 (HTTPS).
 
@@ -259,7 +263,7 @@ On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any inte
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
 
-### Allow firewall access with an FQDN tag
+#### Allow firewall access with an FQDN tag
 
 You can set up the Azure Firewall to allow outbound access for network traffic to Azure Backup.
 
