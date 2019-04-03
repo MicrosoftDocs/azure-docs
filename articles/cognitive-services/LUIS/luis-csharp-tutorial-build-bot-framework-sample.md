@@ -1,18 +1,19 @@
 ---
-title: LUIS bot with C# - Web app Bot - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v3
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
-# LUIS bot in C#
+# LUIS bot in C# with the Bot Framework 3.x and the Azure Web app bot
 
 Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
@@ -31,25 +32,25 @@ Using C#, build a chat bot integrated with language understanding (LUIS). This c
 
 1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the top left menu.
 
-    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Create new resource in Azure portal](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. In the search box, search for **Web App Bot**. 
 
-    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Select web app bot as resource type](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. In the Web App Bot window, click **Create**.
 
-4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
-    * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
-    * For **Bot template**, select:
-        * **SDK v3**
-        * **C#**
-        * **Language understanding**
-    * Select the **LUIS App Location**. This is the authoring [region](luis-reference-regions.md) the app is created in.
-    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
+4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
+   * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
+   * For **Bot template**, select:
+       * **SDK v3**
+       * **C#**
+       * **Language understanding**
+   * Select the **LUIS App Location**. This is the authoring [region](luis-reference-regions.md) the app is created in.
+   * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
-    ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Confirm that the bot service has been deployed.
@@ -80,9 +81,9 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 > 1. Click on **My apps**. 
 > 2. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 > 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](luis-interactive-test.md) and [published](luis-how-to-publish-app.md). 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> If you delete your app ID or LUIS key, the bot will stop working.
 
 ## Modify the bot code
 
@@ -105,26 +106,26 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-3. Add constants to manage strings at the top of the `BasicLuisDialog ` class:
+3. Add constants to manage strings at the top of the `BasicLuisDialog` class:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog ` class:
+4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog` class:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog ` class:
+5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog` class:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-6. Change **ShowLuisResult** method in the `BasicLuisDialog ` class to round the score, collect the entities, and display the response message in the chatbot:
+6. Change **ShowLuisResult** method in the `BasicLuisDialog` class to round the score, collect the entities, and display the response message in the chatbot:
 
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 
 ## Build the bot
 In the code editor, right-click on `build.cmd` and select **Run from Console**.
 
-![Build Web bot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Build Web bot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 The code view is replaced with a terminal window showing the progress and results of the build.
 
@@ -149,7 +150,7 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 > You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## Download the bot to debug
-If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
+If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot). 
 
 ## Learn more about Bot Framework
 Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDKs.
@@ -158,19 +159,10 @@ Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](ht
 
 Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, and **Greeting** intents. Remember to train, publish and to [build](#build-the-bot) the web app bot. Both LUIS and the bot should have the same intents.
 
+See more [samples](https://github.com/Microsoft/AI) with conversational bots. 
+
 > [!div class="nextstepaction"]
 > [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
-
-
-<!-- Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
-[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
-[BFPortal]: https://dev.botframework.com/
-[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
-[BotFramework]: https://docs.microsoft.com/bot-framework/
-[VisualStudio]: https://www.visualstudio.com/
 
 <!-- tested on Win10 -->

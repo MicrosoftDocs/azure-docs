@@ -21,8 +21,8 @@ ms.author: ccompy
 
 > [!IMPORTANT]
 > BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## Overview of the Steps
 1. Create a Hybrid Connection by entering the **host name** or **FQDN** of the on-premises resource in your private network.
@@ -38,7 +38,7 @@ This topic lists these steps.
 > For example (pseudocode), you define **10.4.5.6** as your on-premises host:
 > 
 > **The following scenario works:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **The following scenario doesn't work:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -46,7 +46,7 @@ This topic lists these steps.
 > 
 
 ## <a name="CreateHybridConnection"></a>Create a Hybrid Connection
-A Hybrid Connection can be created in [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) **or** using [BizTalk Services REST APIs](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+A Hybrid Connection can be created in [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) **or** using [BizTalk Services REST APIs](/previous-versions/azure/reference/dn232347(v=azure.100)). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -114,7 +114,7 @@ Once copied, you can use Group Policy Editor to change the policy.
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 ## See Also
-[REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[REST API for Managing BizTalk Services on Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)  
 [Create a BizTalk Service](biztalk-provision-services.md)  
 [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)

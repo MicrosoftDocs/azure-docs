@@ -3,18 +3,19 @@ title: How to manage a user-assigned managed identity using Azure CLI
 description: Step by step instructions on how to create, list and delete a user-assigned managed identity using the Azure CLI.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list or delete a user-assigned managed identity using the Azure CLI

@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Find alternate translations, Ruby - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Ruby - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ---
-# Quickstart: Find alternate translations with the Translator Text REST API (Ruby)
+# Quickstart: Look up words with bilingual dictionary using Ruby
 
 In this quickstart, you find details of possible alternate translations for a term, and also usage examples of those alternate translations, using the Translator Text API.
 

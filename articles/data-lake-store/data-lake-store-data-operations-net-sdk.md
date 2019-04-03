@@ -3,15 +3,15 @@ title: '.NET SDK: Filesystem operations on Azure Data Lake Storage Gen1 | Micros
 description: Use Azure Data Lake Storage Gen1 .NET SDK to perform filesystem operations on Data Lake Storage Gen1 such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Filesystem operations on Azure Data Lake Storage Gen1 using .NET SDK
@@ -23,7 +23,7 @@ ms.author: nitinme
 >
 >
 
-In this article, you learn how to perform filesytem operations on Data Lake Storage Gen1 using .NET SDK. Filesystem operations include creating folders in a Data Lake Storage Gen1 account, uploading files, downloading files, etc.
+In this article, you learn how to perform filesystem operations on Data Lake Storage Gen1 using .NET SDK. Filesystem operations include creating folders in a Data Lake Storage Gen1 account, uploading files, downloading files, etc.
 
 For instructions on how to perform account management operations on Data Lake Storage Gen1 using .NET SDK, see [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md).
 
@@ -58,7 +58,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
       * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
     
-    Close the **NuGet Package Manager**.
+      Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
@@ -142,7 +142,7 @@ The following snippet returns the properties associated with a file or a directo
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-The definition of the `PrintDirectoryEntry` method is available as part of the sample [on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+The definition of the `PrintDirectoryEntry` method is available as part of the sample [on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## Rename a file
 The following snippet renames an existing file in a Data Lake Storage Gen1 account.
@@ -160,7 +160,7 @@ The following snippet enumerates directories in a Data Lake Storage Gen1 account
         PrintDirectoryEntry(entry);
     }
 
-The definition of the `PrintDirectoryEntry` method is available as part of the sample [on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+The definition of the `PrintDirectoryEntry` method is available as part of the sample [on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## Delete directories recursively
 The following snippet deletes a directory, and all its sub-directories, recursively.
@@ -170,8 +170,8 @@ The following snippet deletes a directory, and all its sub-directories, recursiv
 
 ## Samples
 Here are a couple of samples on how to use the Data Lake Storage Gen1 Filesystem SDK.
-* [Basic sample on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Advanced sample on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Basic sample on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Advanced sample on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## See also
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)

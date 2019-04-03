@@ -4,7 +4,7 @@ description: Documentation related to preparing the environment and creating the
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.service: service-fabric
@@ -16,11 +16,9 @@ ms.date: 9/11/2018
 ms.author: dekapur
 
 ---
-
-<a id="preparemachines"></a>
-
 # Plan and prepare your Service Fabric Standalone cluster deployment
-Perform the following steps before you create your cluster.
+
+<a id="preparemachines"></a>Perform the following steps before you create your cluster.
 
 ## Plan your cluster infrastructure
 You are about to create a Service Fabric cluster on machines you "own", so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to various fault domains (see next step). The infrastructure planning for production clusters is more involved than for test clusters.
@@ -80,6 +78,7 @@ To create a standalone cluster you have to create a standalone cluster configura
 For details on the sections in this file, see [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md).
 
 Open one of the ClusterConfig.json files from the package you downloaded and modify the following settings:
+
 | **Configuration Setting** | **Description** |
 | --- | --- |
 | **NodeTypes** |Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics: <br> **Name** - This is the node type name. <br>**Endpoint Ports** - These are various named end points (ports) that are associated with this node type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other application running on the machine/VM. <br> **Placement Properties** - These describe properties for this node type that you use as placement constraints for the system services or your services. These properties are user-defined key/value pairs that provide extra meta data for a given node. Examples of node properties would be whether the node has a hard drive or graphics card, the number of spindles in its hard drive, cores, and other physical properties. <br> **Capacities** - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB available by default. These capacities are used at runtime to ensure that services that require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary** - If you have more than one NodeType defined ensure that only one is set to primary with the value *true*, which is where the system services run. All other node types should be set to the value *false* |
@@ -94,26 +93,26 @@ After the cluster configuration has had all settings configured to the environme
 When a cluster administrator configures a Service Fabric standalone cluster, the environment needs to be set up with the following criteria: <br>
 1. The user creating the cluster should have administrator-level security privileges to all machines that are listed as nodes in the cluster configuration file.
 2. Machine from which the cluster is created, as well as each cluster node machine must:
-* Have Service Fabric SDK uninstalled
-* Have Service Fabric runtime uninstalled 
-* Have the Windows Firewall service (mpssvc) enabled
-* Have the Remote Registry Service (remote registry) enabled
-* Have file sharing (SMB) enabled
-* Have necessary ports opened, based on cluster configuration ports
-* Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
-* Have network connectivity to one another
+   * Have Service Fabric SDK uninstalled
+   * Have Service Fabric runtime uninstalled 
+   * Have the Windows Firewall service (mpssvc) enabled
+   * Have the Remote Registry Service (remote registry) enabled
+   * Have file sharing (SMB) enabled
+   * Have necessary ports opened, based on cluster configuration ports
+   * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
+   * Have network connectivity to one another
 3. None of the cluster node machines should be a Domain Controller.
 4. If the cluster to be deployed is a secure cluster, validate the necessary security prerequisites are in place, and are configured correctly against the configuration.
 5. If the cluster machines are not internet-accessible, set the following in the cluster configuration:
-* Disable telemetry:
-    Under *properties* set
-    *"enableTelemetry": false*
-* Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
-    Under *properties* set
-    *"fabricClusterAutoupgradeEnabled": false*
-* Alternatively, if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
-    go.microsoft.com
-    download.microsoft.com
+   * Disable telemetry:
+     Under *properties* set
+     *"enableTelemetry": false*
+   * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
+     Under *properties* set
+     *"fabricClusterAutoupgradeEnabled": false*
+   * Alternatively, if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+     go.microsoft.com
+     download.microsoft.com
 
 6. Set appropriate Service Fabric antivirus exclusions:
 

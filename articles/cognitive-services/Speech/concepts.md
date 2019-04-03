@@ -6,10 +6,11 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Basic concepts
 
@@ -88,7 +89,7 @@ Microsoft speech recognition service  provides two ways for developers to add Sp
 There are three modes of recognition: `interactive`, `conversation`, and `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
 
 > [!NOTE]
-> Recognition modes might have different behaviors in the [REST protocol](#rest-speech-recognition-api) than they do in the [WebSocket protocol](#webSocket-speech-recognition-api). For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
 > [!NOTE]
 > These modes are applicable when you directly use the REST or WebSocket protocol. The [client libraries](GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
 
@@ -194,7 +195,7 @@ The `detailed` format contains [N-best values](#n-best-values), in addition to `
 
 ### N-best values
 
-Listeners, whether human or machine, can never be certain that they heard *exactly* what was spoken. A listener can assign a *probability* only to a particular interpretation of an utterance. 
+Listeners, whether human or machine, can never be certain that they heard *exactly* what was spoken. A listener can assign a *probability* only to a particular interpretation of an utterance.
 
 In normal conditions, when speaking to others with whom they frequently interact, people have a high probability of recognizing the words that were spoken. Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, [they achieve parity with humans](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -304,7 +305,7 @@ The Microsoft Speech Service recognizes all forms of human speech, including wor
 
 | *Profanity* value | Description |
 | - | - |
-| `masked` | Masks profanity with asterisks. This behavior is the default. | 
+| `masked` | Masks profanity with asterisks. This behavior is the default. |
 | `removed` | Removes profanity from all results. |
 | `raw` | Recognizes and returns profanity in all results. |
 
@@ -318,7 +319,7 @@ When the *profanity* query parameter has the value *removed*, the service remove
 
 #### Profanity-only utterances
 
-A user might speak *only* profanity when an application has configured the service to remove profanity. For this scenario, if the recognition mode is *dictation* or *conversation*, the service does not return a *speech.result*. If the recognition mode is *interactive*, the service returns a *speech.result* with the status code *NoMatch*. 
+A user might speak *only* profanity when an application has configured the service to remove profanity. For this scenario, if the recognition mode is *dictation* or *conversation*, the service does not return a *speech.result*. If the recognition mode is *interactive*, the service returns a *speech.result* with the status code *NoMatch*.
 
 ### Profanity value `Raw`
 

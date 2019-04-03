@@ -86,7 +86,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 	New-AzureNetworkSecurityGroup -Name $NSGName `
 	    -Location $DeploymentLocation `
 	    -Label "Security group for $VNetName subnets in $DeploymentLocation"
-	```
+    ```
 
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
    
@@ -94,15 +94,15 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
    * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
    * “Action” signifies if traffic affected by this rule is blocked or allowed.
 
-	```PowerShell    
-	Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
 	    Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
 	    -Type Inbound -Priority 100 -Action Allow `
 	    -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
 	    -DestinationAddressPrefix $VMIP[4] `
 	    -DestinationPortRange '53' `
 	    -Protocol *
-	```
+     ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; “VIRTUAL_NETWORK” and “INTERNET.” These tags are an easy way to address a larger category of address prefixes.
 
@@ -114,7 +114,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
          -DestinationAddressPrefix VIRTUAL_NETWORK `
          -DestinationPortRange '3389' `
          -Protocol *
-	```
+    ```
 
 4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
 
@@ -126,7 +126,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
          -DestinationAddressPrefix $VMIP[0] `
          -DestinationPortRange '*' `
          -Protocol *
-	```
+    ```
 
 5. This rule allows traffic to pass from the IIS01 server to the AppVM01 server, a later rule blocks all other Frontend to Backend traffic. To improve this rule, if the port is known that should be added. For example, if the IIS server is hitting only SQL Server on AppVM01, the Destination Port Range should be changed from “*” (Any) to 1433 (the SQL port) thus allowing a smaller inbound attack surface on AppVM01 should the web application ever be compromised.
 
@@ -138,7 +138,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
      	-DestinationAddressPrefix $VMIP[2] `
      	-DestinationPortRange '*' `
      	-Protocol *
-	```
+    ```
 
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
 	```PowerShell
@@ -150,7 +150,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
         -DestinationAddressPrefix VIRTUAL_NETWORK `
         -DestinationPortRange '*' `
         -Protocol *
-	```
+    ```
 7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
 
 	```PowerShell
@@ -162,7 +162,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
         -DestinationAddressPrefix $BEPrefix `
         -DestinationPortRange '*' `
         -Protocol * 
-	```
+    ```
 
 ## Traffic scenarios
 #### (*Allowed*) Internet to web server
@@ -540,7 +540,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the preceding script.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>

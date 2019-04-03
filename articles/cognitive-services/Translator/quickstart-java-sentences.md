@@ -4,15 +4,15 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to determine sentence length using Java and the Translator Text API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Get sentence lengths with the Translator Text REST API (Java)
+# Quickstart: Use the Translator Text API to determine sentence length using Java
 
 In this quickstart, you'll learn how to determine sentence lengths using Java and the Translator Text API.
 
@@ -29,8 +29,8 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 Let's start by creating a working directory for this project. From the command line (or terminal), run this command:
 
 ```console
-mkdir break-sentence-sample
-cd break-sentence-sample
+mkdir length-sentence-sample
+cd length-sentence-sample
 ```
 
 Next, you're going to initialize a Gradle project. This command will create essential build files for Gradle, most importantly, the `build.gradle.kts`, which is used at runtime to create and configure your application. Run this command from your working directory:
@@ -51,7 +51,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "BreakSentence"
+    mainClassName = "LengthSentence"
 }
 repositories {
     mavenCentral()
@@ -72,11 +72,11 @@ Let's create a folder for your sample app. From your working directory, run:
 mkdir -p src/main/java
 ```
 
-Next, in this folder, create a file named `BreakSentence.java`.
+Next, in this folder, create a file named `LengthSentence.java`.
 
 ## Import required libraries
 
-Open `BreakSentence.java` and add these import statements:
+Open `LengthSentence.java` and add these import statements:
 
 ```java
 import java.io.*;
@@ -87,26 +87,26 @@ import com.squareup.okhttp.*;
 ```
 
 
-## Add the subscription key and host URL
+## Define variables
 
 First, you'll need to create a public class for your project:
 
 ```java
-public class BreakSentence {
+public class LengthSentence {
   // All project code goes here...
 }
 ```
 
-Add these lines to the `BreakSentence` class. You'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
+Add these lines to the `LengthSentence` class. You'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
 ```
 
-## Instantiate the HTTP client and build a request
+## Create a client and build a request
 
-Add this line to the `BreakSentence` class to instantiate the `OkHttpClient`:
+Add this line to the `LengthSentence` class to instantiate the `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -151,8 +151,8 @@ The last step is to make a request and get a response. Add these lines to your p
 ```java
 public static void main(String[] args) {
     try {
-        BreakSentence breakSentenceRequest = new BreakSentence();
-        String response = breakSentenceRequest.Post();
+        LengthSentence lengthSentenceRequest = new LengthSentence();
+        String response = lengthSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);
@@ -166,6 +166,12 @@ That's it, you're ready to run your sample app. From the command line (or termin
 
 ```console
 gradle build
+```
+
+When the build completes, run:
+
+```console
+gradle run
 ```
 
 ## Sample response

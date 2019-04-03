@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint

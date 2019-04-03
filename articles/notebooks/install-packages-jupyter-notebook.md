@@ -1,13 +1,13 @@
 ---
-title: Install packages in a Jupyter notebook on Azure | Microsoft Docs 
-description: How to install Python, R, and F# packages from within a notebook.
+title: Install packages in a Jupyter notebook on Azure
+description: How to install Python, R, and F# packages from within a Jupyter notebook running on Azure.
 services: app-service
 documentationcenter: ''
 author: kraigb
 manager: douge
 
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -36,13 +36,13 @@ If the command output indicates that the requirement is already satisfied, then 
 
 ## R
 
-Packages in R can be installed from CRAN or Github using the `install.packages` function in a code cell:
+Packages in R can be installed from CRAN or GitHub using the `install.packages` function in a code cell:
 
 ```r
 install.packages("package_name")
 ```
 
-You can also install prerelease versions and other development packages from Github using the devtools library:
+You can also install prerelease versions and other development packages from GitHub using the devtools library:
 
 ```r
 options(unzip = 'internal')

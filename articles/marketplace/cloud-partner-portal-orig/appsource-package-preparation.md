@@ -67,11 +67,11 @@ Steps to create package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Select all the items in the folder, right-click and choose Send To Compressed (zip) folder
+1. Select all the items in the folder, right-click and choose Send To Compressed (zip) folder
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Change the name to package.zip
+1. Change the name to package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -93,7 +93,7 @@ Here is example code for input.xml. See definitions in the below table.
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>

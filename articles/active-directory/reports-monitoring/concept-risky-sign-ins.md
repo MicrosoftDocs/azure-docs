@@ -3,8 +3,8 @@
 title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Risky sign-ins report in the Azure Active Directory portal
 
@@ -58,9 +59,9 @@ All editions of Azure AD provide you with risky sign-ins reports. However, the l
 
 The Azure AD free and basic editions provide you with a list of risky sign-ins that have been detected for your users. Each record contains the following attributes:
 
-- **User** - The name of the user that was used during the sign-in operation
-- **IP** - The IP address of the device that was used to connect to Azure Active Directory
-- **Location** - The location used to connect to Azure Active Directory
+- **User** - The name of the user that was used during the sign-in operation.
+- **IP** - The IP address of the device that was used to connect to Azure Active Directory.
+- **Location** - The location used to connect to Azure Active Directory. This is a best effort approximation based on traces, registry data, reverse look ups and other information.
 - **Sign-in time** - The time when the sign-in was performed
 - **Status** - The status of the sign-in
 
@@ -82,12 +83,11 @@ This report also provides you with an option to:
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/93.png)
 
-
 ## Risky sign-ins report for Azure AD premium editions
 
 The risky sign-ins report in the Azure AD premium editions provides you with:
 
-- Aggregated information about the [risk event types](concept-risk-events.md) that have been detected
+- Aggregated information about the [risk event types](concept-risk-events.md) that have been detected. With the **Azure AD Premium P1 edition**, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**. With the **Azure AD Premium P2 edition**, you get the most detailed information about all underlying detections.
 
 - An option to download the report
 
@@ -104,6 +104,9 @@ When you select a risk event, you get a detailed report view for this risk event
 - Manually close risk events. 
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
 
 When you select a user, you get a detailed report view for this user that enables you to:
 

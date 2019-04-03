@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
@@ -96,7 +96,7 @@ To copy data from SAP ECC, set the type property of the dataset to **SapEccResou
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {
@@ -118,7 +118,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapEccSource** | Yes |
-| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example:**
 
@@ -157,7 +157,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 When copying data from SAP ECC, the following mappings are used from OData data types for SAP ECC data to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | OData data type | Data factory interim data type |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
 | Edm.Boolean | Bool |
 | Edm.Byte | String |

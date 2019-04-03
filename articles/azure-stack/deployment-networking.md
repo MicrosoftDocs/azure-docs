@@ -13,9 +13,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
+ms.lastreviewed: 08/30/2018
 ---
 
 # About deployment network traffic

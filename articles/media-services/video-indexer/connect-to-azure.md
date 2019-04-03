@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
 ---
 
@@ -56,7 +56,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
-2. Click on the **Connect to Azure** button:
+2. Click on the **Create new account** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
@@ -86,13 +86,14 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
     ![new account](./media/create-account/new-account.png)
 
-7. Browse to your new account:
-
-    ![Video Indexer account](./media/create-account/vi-account.png)
+7. Browse to your new account
 
 ## Connect to Azure manually (advanced option)
 
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
+
+> [!NOTE]
+> It is highly recommended to have the following three accounts in the same region: the Video Indexer account that you are connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account.
 
 ### Create and configure a Media Services account
 

@@ -13,16 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
+ms.lastreviewed: 10/25/2018
+
+
 ---
 # Connect to the ASDK
 
 To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK by using the following connection options:
 
 * [Remote Desktop Connection (RDP)](#connect-with-rdp). When you connect by using Remote Desktop Connection, a single user can quickly connect to the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
+* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect to the Azure Stack portals from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
 
 <a name="connect-with-rdp"></a>
 ## Connect to Azure Stack using RDP
@@ -63,7 +66,7 @@ Before setting up a VPN connection to the ASDK, ensure you have met the followin
 
 To create a VPN connection to the ASDK, open PowerShell as an administrator on your local Windows-based computer. Then, run the following script (update the IP address and password values for your environment):
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -103,9 +106,9 @@ If setup succeeds, **azurestack** appears in your list of VPN connections.
 
   Connect to the Azure Stack instance by using one of the following methods:  
 
-  * Use the `Connect-AzsVpn ` command:
+  * Use the `Connect-AzsVpn` command:
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```

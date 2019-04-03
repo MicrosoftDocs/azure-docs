@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with TurboRater | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TurboRater.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: abb116b8-8024-4cc6-bc81-f32ef490ea17
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with TurboRater
 

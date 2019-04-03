@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Application types for v2.0
@@ -117,9 +118,9 @@ In this flow, the app receives an authorization code from the v2.0 endpoint when
 
 ## Daemons and server-side apps
 
-Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
+Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow. You can prove the app's identity using a client secret or certificate. For more info, see [Authenticating to Azure AD in daemon apps with certificates](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
+In this flow, the app interacts directly with the `/token` endpoint to obtain access:
 
 ![Daemon app authentication flow](./media/v2-app-types/convergence_scenarios_daemon.png)
 

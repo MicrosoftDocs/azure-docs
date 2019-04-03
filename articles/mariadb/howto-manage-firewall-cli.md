@@ -1,14 +1,11 @@
 ---
 title: Create and manage Azure Database for MariaDB firewall rules using Azure CLI
 description: This article describes how to create and manage Azure Database for MariaDB firewall rules using Azure CLI command-line.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
 ---
 
@@ -33,10 +30,10 @@ Commands:
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
 1. From the command-line, run the following command:
-```azurecli
-az login
-```
-This command outputs a code to use in the next step.
+   ```azurecli
+   az login
+   ```
+   This command outputs a code to use in the next step.
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 

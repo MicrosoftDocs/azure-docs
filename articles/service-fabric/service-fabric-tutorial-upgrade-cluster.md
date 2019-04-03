@@ -3,8 +3,8 @@ title: Upgrade the Service Fabric runtime in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use PowerShell to upgrade the runtime of an Azure-hosted Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 # Tutorial: Upgrade the runtime of a Service Fabric cluster in Azure
 
-This tutorial is part three of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
+This tutorial is part four of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
 
 > [!WARNING]
 > This part of the tutorial requires PowerShell. Support for upgrading the cluster runtime is not yet supported by the Azure CLI tools. Alternatively, a cluster can be upgraded in the portal. For more information, see [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md).
@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure using a template
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * Upgrade the runtime of a cluster
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
@@ -44,10 +45,9 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
-* Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
-* If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
-* If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md).
+* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
+* Set up a Windows development environment. Install [Visual Studio 2017](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
 ### Sign in to Azure
 

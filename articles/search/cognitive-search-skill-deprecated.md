@@ -1,5 +1,5 @@
 ---
-title: Deprecated cognitive skills (Azure Search) | Microsoft Docs
+title: Deprecated cognitive skills - Azure Search
 description: This page contains a list of cognitive search skills that are considered deprecated and will not be supported in the near future.
 services: search
 manager: pablocas
@@ -9,11 +9,12 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/25/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
-#	 Deprecated Cognitive Seach Skills
+# Deprecated Cognitive Search Skills
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
 

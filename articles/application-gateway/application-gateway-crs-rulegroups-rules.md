@@ -24,6 +24,11 @@ The following tables are the Rule groups and rules that are available when using
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">General</p>
+
+|RuleId|Description|
+|---|---|
+|200004|Possible Multipart Unmatched Boundary.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -236,6 +241,8 @@ The following tables are the Rule groups and rules that are available when using
 |941290|IE XSS Filters - Attack Detected.|
 |941300|IE XSS Filters - Attack Detected.|
 |941310|US-ASCII Malformed Encoding XSS Filter - Attack Detected.|
+|941330|IE XSS Filters - Attack Detected.|
+|941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 |941013|Rule 941013|
 |941014|Rule 941014|
@@ -252,18 +259,29 @@ The following tables are the Rule groups and rules that are available when using
 |942011|Rule 942011|
 |942012|Rule 942012|
 |942100|SQL Injection Attack Detected via libinjection|
+|942110|SQL Injection Attack: Common Injection Testing Detected|
+|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack = Common DB Names Detected|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
 |942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942190|Detects MSSQL code execution and information gathering attempts|
+|942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942230|Detects conditional SQL injection attempts|
+|942260|Detects basic SQL authentication bypass attempts 2/3|
 |942270|Looking for basic sql injection. Common attack string for mysql oracle and others.|
 |942290|Finds basic MongoDB SQL injection attempts|
+|942300|Detects MySQL comments, conditions and ch(a)r injections|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Detects classic SQL injection probings 1/2|
+|942340|Detects basic SQL authentication bypass attempts 3/3|
 |942350|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942370|Detects classic SQL injection probings 2/2|
 |942013|Rule 942013|
 |942014|Rule 942014|
 |942150|SQL Injection Attack|
 |942410|SQL Injection Attack|
+|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
 |942440|SQL Comment Sequence Detected.|
 |942450|SQL Hex Encoding Identified|
 |942015|Rule 942015|

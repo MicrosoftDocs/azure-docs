@@ -1,14 +1,15 @@
 ---
-title: "Tutorial: QnA bot with Azure Bot Service - QnA Maker"
+title: QnA bot - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 04/02/2019
 ms.author: tulasim
 ---
 
@@ -55,11 +56,11 @@ You need to have a published knowledge base for this tutorial. If you do not hav
 
 5. Select the **Question and Answer** template for the Bot template field, then save the template settings by selecting **Select**.
 
-    ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![save bot service template selection](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. Review your settings, then select **Create**. This creates and deploys the bot service with to Azure.
 
-    ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![create bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
 7. Confirm that the bot service has been deployed.
 
@@ -84,15 +85,12 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
 
 1. Get your knowledge base ID, host url, and the endpoint key from the settings tab of your knowledge base in the QnA Maker portal.
 
-    - Sign in to [QnA Maker](https://qnamaker.ai)
-    - Go to your knowledge base
-    - Select the **Settings** tab
-    - **Publish** your knowledge base, if not already done so
+   - Sign in to [QnA Maker](https://qnamaker.ai)
+   - Go to your knowledge base
+   - Select the **Settings** tab
+   - **Publish** your knowledge base, if not already done so
 
-    ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-> [!NOTE]
-> If you want to connect the preview version of the knowledge base with the QnA bot, set the value of **Ocp-Apim-Subscription-Key** to **QnAAuthKey**. Leave the **QnAEndpointHostName** empty.
+     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## Test the bot
 
@@ -101,6 +99,12 @@ In the Azure portal, select **Test in Web Chat** to test the bot.
 ![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Your QnA Bot answers from your knowledge base.
+
+## Related to QnA Maker bots
+
+* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## Clean up resources
 

@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and PHP
-services: cosmos-db
 author: luisbosquez
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Create a graph database using PHP and the Azure portal
+# Quickstart: Create a graph database in Azure Cosmos DB using PHP and the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -33,7 +30,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition:
-* [PHP](http://php.net/) 5.6 or newer
+* [PHP](https://php.net/) 5.6 or newer
 * [Composer](https://getcomposer.org/download/)
 
 ## Create a database account
@@ -100,7 +97,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
 
     Copy the first portion of the URI value.
 
@@ -237,17 +234,17 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 12. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
-   ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check.
 
-   ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-   ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   That completes the resource creation part of this quickstart. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+    That completes the resource creation part of this quickstart. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 

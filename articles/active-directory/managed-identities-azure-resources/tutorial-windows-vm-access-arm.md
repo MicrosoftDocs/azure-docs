@@ -1,20 +1,21 @@
-﻿---
+---
 title: Use a Windows VM system-assigned managed identity to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Use a Windows VM system-assigned managed identity to access Resource Manager
@@ -46,15 +47,15 @@ Using managed identities for Azure resources, your code can get access tokens to
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 
-You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
+You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](https://docs.microsoft.com/powershell/azure/overview). 
 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using Powershell’s Invoke-WebRequest, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
+4.	Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -71,7 +72,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have **Powe
     $ArmToken = $content.access_token
     ```
     
-    Finally, call Azure Resource Manager using the access token. In this example, we're also using PowerShell's Invoke-WebRequest to make the call to Azure Resource Manager, and include the access token in the Authorization header.
+    Finally, call Azure Resource Manager using the access token. In this example, we're also using the Invoke-WebRequest cmdlet to make the call to Azure Resource Manager, and include the access token in the Authorization header.
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content

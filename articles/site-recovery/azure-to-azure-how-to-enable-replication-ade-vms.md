@@ -21,6 +21,7 @@ This article describes how to enable replication of Azure disk encryption (ADE) 
 >
 
 ## Required user permissions
+Azure Site Recovery requires the user to have a permission to create the key vault in the target region and copy keys to the region.
 
 To enable replication of ADE VMs from portal, the user should have the below permissions.
 - Key vault permissions
@@ -40,12 +41,22 @@ To enable replication of ADE VMs from portal, the user should have the below per
     - Encrypt
     - Decrypt
 
-You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user.
+You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user. For example: below step by step guide shows how to enable it for the Key vault "ContosoWeb2Keyvault" ,which is in the source region.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  Navigate to "Home> Keyvaults> ContosoWeb2KeyVault> Access policies"
+
+![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- You can see there is no user persimmon hence add the above mentioned permission by clicking on "ADD new" and  the user and the permissions
+
+![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
 
+Refer [this article](#trusted-root-certificates-error-code-151066) for troubleshooting permission issues.
 >[!NOTE]
 >To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
 >
@@ -109,8 +120,8 @@ You can modify the default target settings used by Site Recovery.
 
 
 2. Click **Customize:** next to 'Encryption settings' to modify the below default settings:
-	- In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
-  - In **Target key encryption key vault**, select the target key encryption key vault from the list of all the key vaults in the target location of the subscription.
+   - In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
+     - In **Target key encryption key vault**, select the target key encryption key vault from the list of all the key vaults in the target location of the subscription.
 
 3. Click **Create target resource** > **Enable Replication**.
 4. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
@@ -121,12 +132,26 @@ You can modify the default target settings used by Site Recovery.
 
 ## Update target VM encryption settings
 In the below scenarios, you will be required to update the target VM encryption settings.
-  - You enabled Site recovery replication on the VM and enabled Azure Disk Encryption (ADE) on the source VM at a later date
-  - You enabled Site recovery replication on the VM and changed the disk encryption key and/or key encryption key on the source VM at a later date
+  - You enabled Site Recovery replication on the VM and enabled Azure Disk Encryption (ADE) on the source VM at a later date
+  - You enabled Site Recovery replication on the VM and changed the disk encryption key and/or key encryption key on the source VM at a later date
 
 You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to copy the encryption keys to target region and then update the target encryption settings in **Recovery services vault -> replicated item -> Properties -> Compute and Network.**
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Troubleshoot Key vault permission issues during  Azure-to-Azure VM replication
+
+**Cause 1:** You may have selected an already created Keyvault from the Target region which doesn't have required permissions.
+If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the Key vault has require permissions as mentioned above.</br>
+*For example*: A user try to replicate a VM, which has a key vault on source region say "ContososourceKeyvault".
+User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault", which doesn't has permission then protection will throws an error.</br>
+**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above. 
+
+**Cause 2:** You may have selected an already created Keyvault from the Target region which  doesn't have decry pt-encrypt permissions.
+If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the user has decrypt-encrypt permissions in case you are encrypting the key too on the source region.</br>
+*For example*: A user try to replicate a VM, which has a key vault on source region say "ContososourceKeyvault".
+User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault", which doesn't has permission to decrypt and encrypt.</br>
+**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions under Key permissions> Cryptographic Operations.
 
 ## Next steps
 

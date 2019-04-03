@@ -3,8 +3,8 @@ title: Tutorial - Stream Azure Active Directory logs to an Azure event hub (prev
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub (preview) 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)

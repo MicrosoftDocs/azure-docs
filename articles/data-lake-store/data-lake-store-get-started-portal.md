@@ -3,14 +3,14 @@ title: Use Azure portal to get started with Azure Data Lake Storage Gen1 | Micro
 description: Use the Azure portal to create an Azure Data Lake Storage Gen1 account and perform basic operations in the Data Lake Storage Gen1 account.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Get started with Azure Data Lake Storage Gen1 using the Azure portal
@@ -72,9 +72,9 @@ If you used keys from an Azure Key Vault to configure encryption on the Data Lak
 
 > [!NOTE]
 > You can also create a Data Lake Storage Gen1 account using Azure Resource Manager templates. These templates are accessible from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Without data encryption: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - With data encryption using Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - With data encryption using Azure Key Vault: [Deploy Data Lake Storage Gen1 account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - Without data encryption: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - With data encryption using Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - With data encryption using Azure Key Vault: [Deploy Data Lake Storage Gen1 account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
@@ -91,7 +91,7 @@ You can create folders under your Data Lake Storage Gen1 account to manage and s
    
     ![Create folders in a Data Lake Storage Gen1 account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in a Data Lake Storage Gen1 account")
    
-    The newly created folder is listed in the **Data Explorer** blade. You can create nested folders upto any level.
+    The newly created folder is listed in the **Data Explorer** blade. You can create nested folders up to any level.
    
     ![Create folders in a Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in a Data Lake account")
 

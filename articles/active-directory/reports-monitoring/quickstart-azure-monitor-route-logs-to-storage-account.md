@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Archive Azure Active Directory logs to an Azure storage account (preview) | Microsoft Docs
+title: Tutorial - Archive Azure Active Directory logs to a storage account (preview) | Microsoft Docs
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account (preview)  
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Archive Azure AD logs to an Azure storage account (preview)
@@ -42,11 +43,11 @@ To use this feature, you need:
 3. Select **Export Settings**. 
 
 4. In the **Diagnostics settings** pane, do either of the following:
-    * To change existing settings, select **Edit setting**.
-    * To add new settings, select **Add diagnostics setting**.  
-      You can have up to three settings. 
+   * To change existing settings, select **Edit setting**.
+   * To add new settings, select **Add diagnostics setting**.  
+     You can have up to three settings. 
 
-    ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
 

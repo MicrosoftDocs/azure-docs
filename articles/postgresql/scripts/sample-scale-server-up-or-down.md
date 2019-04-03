@@ -1,13 +1,10 @@
 ---
 title: Azure CLI script - Scale Azure Database for PostgreSQL
 description: Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
@@ -32,10 +29,10 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Creates a PostgreSQL server that hosts the databases. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server) | Creates a PostgreSQL server that hosts the databases. |
+| [az monitor metrics list](/cli/azure/monitor/metrics) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure)

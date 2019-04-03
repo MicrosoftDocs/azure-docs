@@ -1,15 +1,13 @@
 ---
-title: Import data for use with the Azure Cosmos DB Table API
-description: Learn how import data to use with the Azure Cosmos DB Table API.
-services: cosmos-db
+title: Migrate existing data to Table API account in Azure Cosmos DB 
+description: Learn how migrate or import on-premises or cloud data to Azure Table API account in Azure Cosmos DB.
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-
+ms.custom: seodec18
 ---
 
 # Migrate your data to Azure Cosmos DB Table API account
@@ -40,7 +38,7 @@ To perform a migration of table data, complete the following tasks:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 Options for the command are:
 
@@ -48,6 +46,8 @@ Options for the command are:
     /OverwriteErrorLog: Optional. Overwrite error log file
     /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
     /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
+    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
+	/CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
 
 ### Command-line source settings
 

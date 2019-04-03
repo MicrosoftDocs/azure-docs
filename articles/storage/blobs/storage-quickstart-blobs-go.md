@@ -47,14 +47,14 @@ This command clones the repository to your local git folder. To open the Go samp
 ## Configure your storage connection string
 This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -85,7 +85,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 When you press the key to continue, the sample program deletes the storage container and the files. 
 
 > [!TIP]
-> You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+> You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 >
 
 ## Understand the sample code
@@ -204,7 +204,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### Download the blob
 
-Download blobs using the **Download** low-level function on a BlobURL. This will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection failes while reading, it will make additional requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
+Download blobs using the **Download** low-level function on a BlobURL. This will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection fails while reading, it will make additional requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
 
 The following code downloads the blob using the **Download** function. The contents of the blob is written into a buffer and shown on the console.
 

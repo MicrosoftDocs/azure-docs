@@ -1,15 +1,16 @@
 ---
-title: "Tutorial: Computer Vision API Java"
+title: "Tutorial: Perform image operations - Java"
 titlesuffix: "Azure Cognitive Services"
 description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
 ---
 
@@ -451,7 +452,7 @@ Press **F6** to run the application. Put your subscription key into the **Subscr
 
 ### Intelligently generate a thumbnail
 
-The Thumbnail feature of Computer Vision generates a thumnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumnail on this area, to generate more aesthetically pleasing thumbnail images.
+The Thumbnail feature of Computer Vision generates a thumbnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumbnail on this area, to generate more aesthetically pleasing thumbnail images.
 
 To complete the Thumbnail feature of the tutorial application, perform the following steps:
 
@@ -773,7 +774,7 @@ Copy and paste the following **HandwritingImage** method to just underneath the 
             
             // Check for success.
             if (textResponse.getStatusLine().getStatusCode() != 202) {
-                // An error occured. Return the JSON error message.
+                // An error occurred. Return the JSON error message.
                 HttpEntity entity = textResponse.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 return new JSONObject(jsonString);

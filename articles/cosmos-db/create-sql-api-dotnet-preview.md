@@ -2,17 +2,15 @@
 title: 'Quickstart: Build an ASP.NET web app with Azure Cosmos DB using the SQL API and the Azure portal'
 description: In this quickstart, use the Azure Cosmos DB SQL API and the Azure portal to create an ASP.NET web app
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-clicktale: true
 
 ---
-# Quickstart: Build an ASP.NET web app with Azure Cosmos DB using the SQL API and the Azure portal
+# Quickstart: Build an ASP.NET web app using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET (Preview)](create-sql-api-dotnet-preview.md)
@@ -113,7 +111,7 @@ The following snippets are all taken from the ToDoItemService.cs file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation select **Keys**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation select **Keys**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
@@ -137,12 +135,12 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the **Solution Explorer**, right click on your new console application project, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
     
-    ![Screen shot of the Right Clicked Menu for the Project](./media/create-sql-api-dotnet/manage-nuget-package.png)
+    ![Screenshot of the Right Clicked Menu for the Project](./media/create-sql-api-dotnet/manage-nuget-package.png)
 1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-   ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 

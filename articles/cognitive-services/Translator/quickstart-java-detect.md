@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Identify language from text, Java - Translator Text API"
+title: "Quickstart: Detect text language, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using Java and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Detect text language with the Translator Text REST API (Java)
+# Quickstart: Use the Translator Text API to detect text language using Java
 
 In this quickstart, you'll learn how to detect the language of provided text using Java and the Translator Text REST API.
 
@@ -87,7 +87,7 @@ import com.squareup.okhttp.*;
 ```
 
 
-## Add the subscription key and host URL
+## Define variables
 
 First, you'll need to create a public class for your project:
 
@@ -104,7 +104,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
 ```
 
-## Instantiate the HTTP client and build a request
+## Create a client and build a request
 
 Add this line to the `Detect` class to instantiate the `OkHttpClient`:
 
@@ -168,7 +168,15 @@ That's it, you're ready to run your sample app. From the command line (or termin
 gradle build
 ```
 
+When the build completes, run:
+
+```console
+gradle run
+```
+
 ## Sample response
+
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 [

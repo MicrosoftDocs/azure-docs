@@ -97,10 +97,10 @@ After paying for Azure, Contoso needs to figure out how to manage Azure subscrip
 - An Azure Enterprise Enrollment defines how a company shapes and uses Azure services, and defines a core governance structure.
 - As a first step, Contoso has determined a structure (known as an enterprise scaffold for Enterprise Enrollment. Contoso used [this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) to help understand and design a scaffold.
 - For now, Contoso has decided to use a functional approach to manage subscriptions.
-    - Inside the enterprise it  will use a single IT department that controls the Azure budget. This will be the only group with subscriptions.
-    - Contoso will extend this model in the future, so that other corporate groups can join as departments in the Enterprise Enrollment.
-    - Inside the IT department Contoso has structured two subscriptions, Production and Development.
-    - If Contoso requires additional subscriptions in the future, it needs to manage access, policies and compliance for those subscriptions. Contoso will do that by introducing [Azure management groups](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), as an additional layer above subscriptions.
+  - Inside the enterprise it  will use a single IT department that controls the Azure budget. This will be the only group with subscriptions.
+  - Contoso will extend this model in the future, so that other corporate groups can join as departments in the Enterprise Enrollment.
+  - Inside the IT department Contoso has structured two subscriptions, Production and Development.
+  - If Contoso requires additional subscriptions in the future, it needs to manage access, policies and compliance for those subscriptions. Contoso will do that by introducing [Azure management groups](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), as an additional layer above subscriptions.
 
     ![Enterprise structure](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -142,7 +142,7 @@ Giving and controlling user access to Azure resources with identity and access m
 
 Contoso is using the Azure AD Free edition that's included with an Azure subscription. Contoso admins set up an AD directory as follows:
 
-1. In the [Azure portal](http://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
 2. In **Create Directory**, they specify a name for the directory, an initial domain name, and region in which the Azure AD directory should be created.
 
     ![Create Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -306,7 +306,7 @@ With the regional design in place, Contoso is ready to consider a networking str
 
 Contoso considered a [number of architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) for hybrid networking between Azure and the on-premises datacenter. [Read more](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) about comparing options.
 
-As a reminder, the Contoso on-premises network infrastructure currently consists of the datacenter in New York, and local branches in the eastern portion of the US.  All locations have a business class connection to the internet.  Each of the branches is then connected to the datacenter via a IPSec VPN tunnel over the internet.
+As a reminder, the Contoso on-premises network infrastructure currently consists of the datacenter in New York, and local branches in the eastern portion of the US.  All locations have a business class connection to the internet.  Each of the branches is then connected to the datacenter via an IPSec VPN tunnel over the internet.
 
 ![Contoso network](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -447,7 +447,7 @@ Azure IaaS components are located in the Production network. Each app tier has i
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Frontends/web tier VMs
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | App-tier VMs
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | Database VMs
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | Domain controller VMs
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | Domain controller VMs
 
 
 ![Hub network architecture](./media/contoso-migration-infrastructure/azure-networks-eus2.png)
@@ -577,18 +577,18 @@ After updating network settings, Contoso admins are ready to build out the domai
 
 1. In the Azure portal, they deploy a new Windows Server VM to the appropriate VNet.
 2. They create availability sets in each location for the VM. Availability sets do the following:
-    - Ensure that the Azure fabric separates the VMs into different infrastructures in the Azure Region. 
-    -  Allows Contoso to be eligible for the 99.95% SLA for VMs in Azure.  [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Ensure that the Azure fabric separates the VMs into different infrastructures in the Azure Region. 
+   - Allows Contoso to be eligible for the 99.95% SLA for VMs in Azure.  [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![Availability group](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Availability group](./media/contoso-migration-infrastructure/availability-group.png) 
 3. After the VM is deployed, they open the network interface for the VM. They set the private IP address to static, and specify a valid address.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Now, they attach a new data disk to the VM. This disk contains the Active Directory database, and the sysvol share. 
-    - The size of the disk will determine the number of IOPS that it supports.
-    - Over time the disk size might need to increase as the environment grows.
-    - The drive shouldn't be set to Read/Write for host caching. Active Directory databases don't support this.
+   - The size of the disk will determine the number of IOPS that it supports.
+   - Over time the disk size might need to increase as the environment grows.
+   - The drive shouldn't be set to Read/Write for host caching. Active Directory databases don't support this.
 
      ![Active Directory disk](./media/contoso-migration-infrastructure/ad-disk.png)
 
@@ -642,7 +642,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag. 
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) about creating and managing policies.
+Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](../governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 

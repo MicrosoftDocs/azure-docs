@@ -1,91 +1,58 @@
 ---
-title: "Azure Machine Learning service tutorials in Jupyter notebooks"
+title: Example Jupyter notebooks
+titleSuffix: Azure Machine Learning service
 description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
 # Use Jupyter notebooks to explore Azure Machine Learning service
 
-
 For your convenience, we have developed a series of Jupyter Python notebooks you can use to explore the Azure Machine Learning service. 
 
 Learn how to use the service with the documentation on this site and use these notebooks to customize them to your situation. 
 
-## Prerequisite
+Use one of the paths below to run a notebook server with these sample notebooks.  Once the server is running, find tutorial notebooks in **tutorials** folder, or explore different features in **how-to-use-azureml** folder.
 
-Complete the [Azure Machine Learning Python quickstart](quickstart-get-started.md) to create a workspace and launch Azure Notebooks.
 
 ## Try Azure Notebooks: Free Jupyter notebooks in the cloud
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on Azure Notebooks. The installation and future updates are automatically managed via Azure services.
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
   
-+ To run the **core tutorial notebooks**:
-  1. Go to [Azure Notebooks](https://notebooks.azure.com/).
-    
-  1. Find the **tutorials** folder in the  **Getting Started** library you created during the prerequisite quickstart.
-    
-  1. Open the notebook you want to run.
-    
-+ To run **other notebooks**:
-
-  1. [Import the sample notebooks](https://aka.ms/aml-clone-azure-notebooks) into Azure Notebooks.
-
-  1. Add a workspace configuration file to the library using either of these methods:
-     + Copy the **config.json** file from the **Getting Started** Library into the new cloned library.
-
-     + Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-    
-  1. Open the notebook you want to run.     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## Use a Data Science Virtual Machine (DSVM)
 
-The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook server are already installed and configured for you on a DSVM. Use these steps run the notebooks.
+The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook server are already installed and configured for you on a DSVM. 
 
-1. [Create a DSVM](how-to-configure-environment.md#dsvm).
+After you [create a DSVM](how-to-configure-environment.md#dsvm), use these steps on the DSVM to run the notebooks.
 
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. Add a workspace configuration file to the library using either of these methods:
-    * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
-
-    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
-1. Start the notebook server from your cloned directory.
 
 ## Use your own Jupyter notebook server
 
 Use these steps to create a local Jupyter Notebook server on your computer.
 
-1. Ensure you've completed the prerequisite quickstart in which you installed the Azure Machine Learning SDKs.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+The quickstart instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
-1. Add a workspace configuration file to the library using either of these methods:
-    * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
-    
-    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+<a name="automated-ml-setup"></a>
 
-1. Start the notebook server from your cloned directory.
+## Automated machine learning setup 
 
-1. Go to the folder containing the notebook.
-
-1. Open the notebook.
-
-<a name="auto"></a>
-
-## Automated ML setup 
-
-**These steps apply only to the notebooks in the `automated-machine-learning` folder.**
+_These steps apply only to the notebooks in the **how-to-use-azureml/automated-machine-learning** folder._
 
 While you can use any of the above options, you can also install the environment and create a workspace at the same time with the following instructions. 
 
@@ -93,7 +60,7 @@ While you can use any of the above options, you can also install the environment
    >[!NOTE]
    >You can use an existing conda as long as it is version 4.4.10 or later. Use `conda -V` to display the version. You can update a conda version with the command: `conda update conda`. There's no need to install mini-conda specifically.
 
-1. Download the sample notebooks from [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Download the sample notebooks from [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) as a zip and extract the contents to a local directory. The Automated machine learning notebooks are in the `how-to-use-azureml/automated-machine-learning` folder.
 
 1. Set up a new Conda environment. 
@@ -101,7 +68,7 @@ While you can use any of the above options, you can also install the environment
    
    1. Navigate to the files you extracted to your local machine.
    
-   1. Open the `automated-machine-learning` folder.
+   1. Open the **automated-machine-learning** folder.
    
    1. Execute `automl_setup.cmd` in  the conda prompt for Windows, or the `.sh` file for your operating system. It can take about 10 minutes to execute.
 
@@ -111,13 +78,14 @@ While you can use any of the above options, you can also install the environment
       + Configures the widget
       + Starts a jupyter notebook
       
-      The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. 
+   >[!NOTE]
+   > The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. This is useful if you are creating a new environment or upgrading to a new version. For example you can use 'automl_setup.cmd azure_automl_sandbox' to create an environment name azure_automl_sandbox. 
       
-      Once the script has completed, you will see a Jupyter notebook home page in your browser.
+1. Once the script has completed, you will see a Jupyter notebook home page in your browser.
 
 1. Navigate to the path where you saved the notebooks. 
 
-1. Open the automated-machine-learning folder, then open the `configuration.ipynb` notebook. 
+1. Open the automated-machine-learning folder, then open the **configuration.ipynb** notebook. 
 
 1. Execute the cells in the notebook to register Machine Learning Services Resource Provider and create a workspace.
 

@@ -363,7 +363,7 @@ during startup to support the Mobile Services runtime.  You can override certain
 file.  Create a file in called `applicationHost.xdt` - this file must end up in the `D:\home\site` directory on the Azure Service.  Upload the
 `applicationHost.xdt` file via a custom deployment script or directly using Kudu.  The following shows an example document:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -410,27 +410,27 @@ Now that your application is migrated to App Service, there are even more featur
 
 <!-- Links -->
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [Auto-scale]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Azure Classic Portal]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
-[continuously deploy]: ../app-service/app-service-continuous-deployment.md
+[continuously deploy]: ../app-service/deploy-continuous-deployment.md
 [Convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[curl]: https://curl.haxx.se/
 [custom domain names]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [general availability of Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Logging]: ../app-service/web-sites-enable-diagnostic-log.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [performance monitoring]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
-[staging slots]: ../app-service/web-sites-staged-publishing.md
+[Postman]: https://www.getpostman.com/
+[staging slots]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md

@@ -109,13 +109,13 @@ To run the code, do the following:
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
-5.	At the PowerShell prompt, type the following command:
+5. At the PowerShell prompt, type the following command:
 
    ```shell
    dotnet build
    ```
-6.	Navigate to the `\bin\Debug\netcoreapp2.0` folder.
-7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+6. Navigate to the `\bin\Debug\netcoreapp2.0` folder.
+7. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -284,4 +284,4 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

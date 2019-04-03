@@ -1,29 +1,25 @@
 ---
 title: Monitoring in Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
-services: mariadb
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2018
 ---
 # Monitoring in Azure Database for MariaDB
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview]
-(../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MariaDB:
 
 |Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|
@@ -39,9 +35,8 @@ These metrics are available for Azure Database for MariaDB:
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 
 ## Server logs
-You can enable slow query logging on your server. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable slow query logging on your server. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## Next steps
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+  - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.

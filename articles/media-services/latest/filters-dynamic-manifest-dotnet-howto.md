@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -33,17 +33,18 @@ This topic shows how to use Media Services .NET SDK to define a filter for a Vid
 
 In .NET, you configure track selections with [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) and [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) classes. 
 
-The following code defines a filter that includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
+The following code defines a filter that includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
 {
-    new FilterTrackPropertyCondition(FilterTrackPropertyType.Language, "en-us", FilterTrackPropertyCompareOperation.Equal),
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Audio", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.FourCC, "EC-3", FilterTrackPropertyCompareOperation.Equal)
 };
 
 var videoConditions = new List<FilterTrackPropertyCondition>()
 {
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Video", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.Bitrate, "0-1000000", FilterTrackPropertyCompareOperation.Equal)
 };
 

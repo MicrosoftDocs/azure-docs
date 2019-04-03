@@ -1,51 +1,51 @@
 ---
-title: 'Quickstart: Create a public Basic load balancer by using the Azure portal | Microsoft Docs'
+title: 'Quickstart: Create a public Basic Load Balancer by using the Azure portal'
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a public Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Quickstart: Create a public Basic load balancer by using the Azure portal
+# Quickstart: Create a Basic Load Balancer by using the Azure portal
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across virtual machines (VMs). You can use the Azure portal to create a load balancer and balance traffic among VMs. This quickstart shows you how to create and configure a load balancer, back-end servers, and network resources at the Basic pricing tier.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
+To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a Basic load balancer
+## Create a Basic Load Balancer
 
-First, create a public Basic load balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public Basic Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
-   
-1. In the **Create load balancer** pane, type or select these values:
-   
-   - **Name**: Type *MyLoadBalancer*.
-   - **Type**: Select **Public**. 
-   - **SKU**: Select **Basic**.
-   - **Public IP address:** Select **Create new**. 
-     - **Public IP Address** field: Type *MyPublicIP*.
-     - **Configure Public IP address** > **Assignment**: Select **Dynamic**.
-   - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
-   
-1. Select **Create**.
-   
-![Create a load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Basic**.                          |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name              | *MyPublicIP*   |
+    | Assignment| Static|
+
+3. In the **Review + create** tab, click **Create**.   
+
 
 ## Create back-end servers
 
@@ -75,10 +75,7 @@ Next, create a virtual network and two virtual machines for the back-end pool of
    - **Instance Details** > **Availability Options**: 
      1. Drop down and select **Availability set**. 
      2. Select **Create new**, type *MyAvailabilitySet*, and select **OK**.
-   - **Administrator Account** > **Username**: Type *azureuser*.
-   - **Administrator Account** > **Password**: Type *Azure1234567*. 
-     Retype the password in the **Confirm password** field.
-   
+  
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
    
    Make sure the following are selected:
@@ -131,7 +128,7 @@ In this section, you create network security group (NSG) rules for the VMs, to a
 
 In this section, you configure load balancer settings for a back-end address pool, a health probe, and a load balancer rule.
 
-### Create a back-end address pool
+### Create a backend address pool
 
 To distribute traffic to the VMs, the load balancer uses a back-end address pool. The back-end address pool contains the IP addresses of the virtual network interfaces (NICs) that are connected to the load balancer. 
 
@@ -153,7 +150,7 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
    
 1. Select **OK**.
    
-   ![Add the back-end address pool](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+   ![Add the backend address pool](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
    
 1. On the **Backend pools** page, expand **MyBackendPool** and make sure both **VM1** and **VM2** are listed.
 
@@ -205,7 +202,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## Test the load balancer
 
@@ -227,7 +224,7 @@ Install Internet Information Services (IIS) on the virtual machines to help test
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
-   Enter username *azureuser* and password *Azure1234567*, and select **OK**.
+   Enter username and password and select **OK**.
    
 1. Respond **Yes** to any certificate prompt. 
    
@@ -253,12 +250,11 @@ Install Internet Information Services (IIS) on the virtual machines to help test
 
 ### Test the load balancer
 
-On each VM, open a browser, and respond **OK** to any configuration prompts. 
-
-Paste your load balancer's public IP address into the browser's address bar. The IIS web server default page should appear in the browser.
+Open a browser and paste your load balancer's public IP address into the browser's address bar. The IIS web server default page should appear in the browser.
 
 ![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 ## Clean up resources
 
 To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.

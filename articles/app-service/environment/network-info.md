@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service Environment
+title: Networking considerations with App Service Environment - Azure
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
@@ -48,6 +49,7 @@ The normal app access ports are:
 |  HTTP/HTTPS  | User configurable |  80, 443 |
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
+|  Web Deploy service | User configurable | 8172 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
@@ -125,7 +127,7 @@ If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*,
 
 ## Functions and Web jobs ##
 
-Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
+Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Microsoft Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
 
 ## ASE IP addresses ##
 
@@ -145,7 +147,7 @@ All these IP addresses are easily visible in an ASEv2 in the Azure portal from t
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure web apps](../app-service-web-tutorial-custom-ssl.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
@@ -229,10 +231,10 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Summary of the Bing Custom Search API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 12/05/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
 ---
 

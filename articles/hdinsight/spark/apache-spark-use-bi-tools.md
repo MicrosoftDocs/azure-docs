@@ -67,7 +67,7 @@ In this section, you use Power BI to create visualizations, reports, and dashboa
 ### Create a report in Power BI Desktop
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
-> [!NOTE]
+> [!NOTE]  
 > The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Open [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
@@ -101,7 +101,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         The diagram looks like:
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
 
         By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Click the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
 
@@ -111,7 +111,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         Your data visualization shall be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
 
 7. Click **File** then **Save**, and enter the name `BuildingTemperature.pbix` for the file. 
 
@@ -172,7 +172,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

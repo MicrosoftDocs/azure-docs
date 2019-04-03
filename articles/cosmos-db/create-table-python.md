@@ -1,16 +1,14 @@
 ---
 title: 'Quickstart: Table API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Python
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.custom: mvc
+
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB
@@ -54,7 +52,7 @@ In addition:
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -80,7 +78,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 

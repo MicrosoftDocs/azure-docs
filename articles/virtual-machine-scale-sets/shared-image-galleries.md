@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 09/13/2018
+ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: 
 
@@ -31,4 +31,4 @@ ms.custom:
 
 ## Next steps
 
-Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md)
+Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md) and [Azure PowerShell](shared-images-powershell.md)

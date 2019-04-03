@@ -1,24 +1,20 @@
 ---
-title: Create text analytics models in Azure Machine Learning Studio | Microsoft Docs
+title: Create a sentiment analysis model
+titleSuffix: Azure Machine Learning Studio
 description: How to create text analytics models in Azure Machine Learning Studio using modules for text preprocessing, N-grams or feature hashing
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=roastala, author=rastala)"
-ms.author: amlstudiodocs
-manager: cgronlun
-editor: ''
-ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/14/2018
 ---
-# Create text analytics models in Azure Machine Learning Studio
-You can use Azure Machine Learning to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
+# Create a sentiment analysis model in Azure Machine Learning Studio
+
+You can use Azure Machine Learning Studio to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
 
 In a text analytics experiment, you would typically:
 
@@ -32,9 +28,9 @@ In this tutorial, you learn these steps as we walk through a sentiment analysis 
 
 You can find experiments covered in this tutorial at Azure AI Gallery:
 
-[Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Predict Book Reviews](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Predict Book Reviews - Predictive Experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## Step 1: Clean and preprocess text dataset
 We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values](https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
@@ -65,7 +61,7 @@ As an alternative approach to using Extract N-Gram Features, you can use Feature
 ## Step 3: Train classification or regression model
 Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
 
-We then use [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+We then use [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning Studio to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
 
 ![Train and Score](./media/text-analytics-module-tutorial/scoring-text.png)
 

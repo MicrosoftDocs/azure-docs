@@ -1,14 +1,11 @@
 ---
-title: Azure Standard Load Balancer diagnostics | Microsoft Docs
+title: Azure Standard Load Balancer diagnostics
+titlesuffix: Azure Load Balancer
 description: Use the available metrics and health information for diagnostics for Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

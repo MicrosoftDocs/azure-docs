@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: API reference provides information about the Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms APIs.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
@@ -24,5 +24,6 @@ The Azure Face API is a cloud-based API that provides algorithms for face detect
 - [LargeFaceList Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): Used to manage a LargeFaceList for [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [PersonGroup Person Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): Used to manage PersonGroup Person Faces for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [PersonGroup Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): Used to manage a PersonGroup dataset for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [Snapshot Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Used to manage a Snapshot for data migration across subscriptions.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

@@ -7,12 +7,13 @@ author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.author: mialdrid
+ms.author: mialdridm
+ms.custom: seodec18
 
 ---
 # ExpressRoute circuits and peering
 
-ExpressRoute circuits allow you to connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
+ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 

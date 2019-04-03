@@ -12,7 +12,7 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
 ---

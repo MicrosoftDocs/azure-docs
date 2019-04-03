@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -15,27 +15,31 @@ ms.reviewer: minewiskan
 
 This article describes PowerShell cmdlets used to perform Azure Analysis Services server and database management tasks. 
 
-Server management tasks such as creating or deleting a server, suspending or resuming server operations, or changing the service level (tier) use Azure Resource Manager (resource) cmdlets and Analysis Services (server) cmdlets. Other tasks for managing databases such as adding or removing role members, processing, or partitioning use cmdlets included in the same SqlServer module as SQL Server Analysis Services.
+Server management tasks like creating or deleting a server, suspending or resuming server operations, or changing the service level (tier) use Azure Resource Manager (resource) cmdlets and Analysis Services (server) cmdlets. Other tasks for managing databases like adding or removing role members, processing, or partitioning use cmdlets included in the same SqlServer module as SQL Server Analysis Services.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Permissions
-Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account or service principle running the scheduler must have Admin privileges on the Analysis Services server. 
 
-For server operations using AzureRm cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
+Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account or service principal running the scheduler must have Admin privileges on the Analysis Services server. 
+
+For server operations using Azure PowerShell cmdlets, your account or the account running scheduler must also belong to the Owner role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## Resource management operations 
-Module - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+
+Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|   
-|[New-AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Creates a new Analysis Services firewall config.|   
-|[New-AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Creates a new Analysis Services firewall rule.|   
-|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Removes a server instance.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Resumes a server instance.|  
-|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspends a server instance.| 
-|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifies a server instance.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Tests the existence of a server  instance.| 
+|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Gets details of a server instance.|  
+|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Creates a server instance.|   
+|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Creates a new Analysis Services firewall config.|   
+|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Creates a new Analysis Services firewall rule.|   
+|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Removes a server instance.|  
+|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Resumes a server instance.|  
+|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Suspends a server instance.| 
+|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Modifies a server instance.|   
+|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Tests the existence of a server  instance.| 
 
 ## Server management operations
 
@@ -43,14 +47,14 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Adds an authenticated account to use for Azure Analysis Services server cmdlet requests.| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exports a log from an instance of Analysis Services server in the currently logged in Environment as specified in Add-AzureAnalysisServicesAccount command|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Restarts an instance of Analysis Services server in the currently logged in environment; specified in Add-AzureAnalysisServicesAccount command.|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synchronizes a specified database on the specified instance of Analysis Services server to all the query scaleout instances in the currently logged in Environment as specified in Add-AzureAnalysisServicesAccount command|  
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Adds an authenticated account to use for Azure Analysis Services server cmdlet requests.| 
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exports a log from an instance of Analysis Services server in the currently logged in Environment as specified in Add-AzAnalysisServicesAccount command|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Restarts an instance of Analysis Services server in the currently logged in environment; specified in Add-AzAnalysisServicesAccount command.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synchronizes a specified database on the specified instance of Analysis Services server to all the query scale-out instances in the currently logged in Environment as specified in Add-AzAnalysisServicesAccount command|  
 
 ## Database operations
 
-Azure Analysis Services database operations use the same [SqlServer module](https://www.powershellgallery.com/packages/SqlServer) as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services. To learn more see, [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services database operations use the same [SqlServer module](https://www.powershellgallery.com/packages/SqlServer) as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services. To learn more, see [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 The SqlServer module provides task-specific database management cmdlets as well as the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SqlServer module are supported for Azure Analysis Services.
 
@@ -73,4 +77,4 @@ The SqlServer module provides task-specific database management cmdlets as well 
 * [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)
+* [Tabular Model Programming for Compatibility Level 1200 and higher](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

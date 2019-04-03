@@ -1,23 +1,19 @@
 ---
 title: Build a management solution in Azure | Microsoft Docs
 description: Management solutions include packaged management scenarios in Azure that customers can add to their Log Analytics workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service:  monitoring
-ms.devlang: na
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 # Design and build a management solution in Azure (Preview)
 > [!NOTE]
@@ -51,11 +47,11 @@ If you require data that's not accessible through any of the available data sour
 You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include them in a [List of Queries visualization part](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) in your custom view.
 
 ### Alerts
-[Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
+[Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
 
 If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](/powershell/azure/overview) which the runbook would leverage to perform such functionality.
 
-If your solution requires external functionality in response to an alert, then you can use a [webhook response](../../monitoring-and-diagnostics/alert-metric.md).  This allows you to call an external web service sending information from the alert.
+If your solution requires external functionality in response to an alert, then you can use a [webhook response](../../azure-monitor/platform/alerts-metric.md).  This allows you to call an external web service sending information from the alert.
 
 ### Views
 Views in Log Analytics are used to visualize data from the Log Analytics repository.  Each solution will typically contain a single view with a [tile](../../azure-monitor/platform/view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../../azure-monitor/platform/view-designer-parts.md) to provide different visualizations of the collected data to the user.

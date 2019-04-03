@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Deploy container instances that use GPU resources
 
-To run certain compute-intensive workloads on Azure Container Instances, deploy your container groups with *GPU resources*. The container instances can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
+To run certain compute-intensive workloads on Azure Container Instances, deploy your [container groups](container-instances-container-groups.md) with *GPU resources*. The container instances in the group can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
 
 As shown in this article, you can add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
 
@@ -24,15 +24,7 @@ As shown in this article, you can add GPU resources when you deploy a container 
 
 In preview, the following limitations apply when using GPU resources in container groups. 
 
-**Supported regions**:
-
-* East US (eastus)
-* West US 2 (westus2)
-* South Central US (southcentralus)
-* West Europe (westeurope)
-* North Europe (northeurope)
-* East Asia (eastasia)
-* Central India (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Support will be added for additional regions over time.
 
@@ -55,21 +47,9 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### CPU and memory
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the following table. These values are currently larger than the CPU and memory limits in container instances without GPU resources.  
-
-| GPU SKU | GPU count | CPU |  Memory (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
 
 ### Things to know
 
@@ -81,9 +61,13 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
+  We support CUDA 9.0 at this stage. For example, you can use following base images for your Docker file:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## YAML example
 
-Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
+One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
 ```YAML
 additional_properties: {}
@@ -101,7 +85,7 @@ properties:
           gpu:
             count: 1
             sku: K80
-    osType: Linux
+  osType: Linux
   restartPolicy: OnFailure
 ```
 
@@ -130,7 +114,7 @@ Done
 
 ## Resource Manager template example
 
-Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
+Another way to deploy a container group with GPU resources is by using a [Resource Manager template](container-instances-multi-container-group.md). Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
 
 ```JSON
 {
@@ -191,7 +175,7 @@ az group deployment create --resource-group myResourceGroup --template-file gpud
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Output:

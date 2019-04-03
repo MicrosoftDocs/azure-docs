@@ -9,7 +9,7 @@ editor: ''
 tags: billing
 
 ms.assetid: 0ff41bee-1606-4adc-94e6-92fd80dc286b
-ms.service: value
+ms.service: azure
 ms.devlang: na
 ms.topic: landing-page
 ms.tgt_pltfrm: na

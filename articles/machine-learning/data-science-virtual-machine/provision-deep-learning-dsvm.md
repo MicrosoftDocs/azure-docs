@@ -1,14 +1,16 @@
 ---
-title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Microsoft Docs
+title: Create a Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
@@ -44,10 +46,10 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 > [!NOTE]
 > The DLVM supports all NC and ND series GPU VM instances. When provisioning the DLVM, you must choose one of the locations in Azure that has GPUs. Check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) page for the available locations and look for **NC-Series**, **NCv2-Series**, **NCv3-Series**, or **ND-Series** under **Compute**. 
 
-   2. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Summary**: Verify that all information you entered is correct.
-   5. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+1. **Summary**: Verify that all information you entered is correct.
+1. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 > [!NOTE]
 > The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
@@ -71,7 +73,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 #### Installing and configuring X2Go client
 The Linux DLVM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
-1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.

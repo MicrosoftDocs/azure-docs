@@ -1,20 +1,22 @@
 ---
-title: How to assign directory roles to users with Azure Active Directory | Microsoft Docs
-description: Learn how to assign directory roles to users with Azure Active Directory.
+title: Assign directory roles to users - Azure Active Directory | Microsoft Docs
+description: Instructions about how to assign administrator and non-administrator roles to users with Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Assign roles and administrators to users with Azure Active Directory
+# Assign administrator and non-administrator roles to users with Azure Active Directory
 If a user in your organization needs permission to manage Azure Active Directory (Azure AD) resources, you must assign the user an appropriate role in Azure AD, based on the actions the user needs permission to perform.
 
 For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).

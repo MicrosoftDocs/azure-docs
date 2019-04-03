@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # Understand how the Azure reservation discount is applied to virtual machines
 
@@ -48,19 +48,23 @@ To understand and view the application of your Azure Reservations in billing usa
 
 When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
+## Discount applies to different sizes with instance size flexibility
+
+When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact us.
+## Need help? Contact us
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to get AppSource Certified for Azure Active Directory
@@ -45,7 +46,7 @@ For more information about multi-tenancy, see [How to sign in any Azure Active D
 
 A *single-tenant application* is an application that only accepts sign-ins from users of a defined Azure AD instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Azure AD instance that the application is registered. 
 
-You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../b2b/what-is-b2b.md) and you can do this [programatically](../../active-directory-b2c/code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../b2b/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 

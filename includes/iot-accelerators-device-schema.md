@@ -100,7 +100,7 @@ The `Properties` section of the schema defines the property values the device re
 }
 ```
 
-When the solution starts, it queries all the simulated devices to build a list of `Type` values to use in the UI. The solution uses the `Latitiude` and `Longitude` properties to add the location of the device to the map on the dashboard.
+When the solution starts, it queries all the simulated devices to build a list of `Type` values to use in the UI. The solution uses the `Latitude` and `Longitude` properties to add the location of the device to the map on the dashboard.
 
 ## Telemetry
 

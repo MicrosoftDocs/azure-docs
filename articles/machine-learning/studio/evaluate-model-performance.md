@@ -1,34 +1,30 @@
 ---
-title: Evaluate model performance - Azure Machine Learning Studio | Microsoft Docs
+title: Evaluate model performance
+titleSuffix: Azure Machine Learning Studio
 description: This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
-# How to evaluate model performance in Azure Machine Learning
+# How to evaluate model performance in Azure Machine Learning Studio
+
 This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 
 * regression
 * binary classification 
 * multiclass classification
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. 
 
-Azure Machine Learning supports model evaluation through two of its main machine learning modules: [Evaluate Model][evaluate-model] and [Cross-Validate Model][cross-validate-model]. These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.
+Azure Machine Learning Studio supports model evaluation through two of its main machine learning modules: [Evaluate Model][evaluate-model] and [Cross-Validate Model][cross-validate-model]. These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.
 
 ## Evaluation vs. Cross Validation
 Evaluation and cross validation are standard ways to measure the performance of your model. They both generate evaluation metrics that you can inspect or compare against those of other models.
@@ -82,7 +78,7 @@ After running the experiment, you can inspect the evaluation results by clicking
 Figure 4. Cross-Validation Results of a Regression Model.
 
 ## Evaluating a Binary Classification Model
-In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
+In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning Studio computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ### Creating the Experiment
 Add the following modules to your workspace in Azure Machine Learning Studio:
@@ -104,7 +100,7 @@ After running the experiment, you can click on the output port of the [Evaluate 
 
 Accuracy is simply the proportion of correctly classified instances. It is usually the first metric you look at when evaluating a classifier. However, when the test data is unbalanced (where most of the instances belong to one of the classes), or you are more interested in the performance on either one of the classes, accuracy doesn’t really capture the effectiveness of a classifier. In the income level classification scenario, assume you are testing on some data where 99% of the instances represent people who earn less than or equal to 50K per year. It is possible to achieve a 0.99 accuracy by predicting the class “<=50K” for all instances. The classifier in this case appears to be doing a good job overall, but in reality, it fails to classify any of the high-income individuals (the 1%) correctly.
 
-For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation. Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation. The class labels in the training set can take on only 2 possible values, which we usually refer to as positive or negative. The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively. Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN). The confusion matrix is simply a table showing the number of instances that fall under each of these 4 categories. Azure Machine Learning automatically decides which of the two classes in the dataset is the positive class. If the class labels are Boolean or integers, then the ‘true’ or ‘1’ labeled instances are assigned the positive class. If the labels are strings, as in the case of the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.
+For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation. Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation. The class labels in the training set can take on only 2 possible values, which we usually refer to as positive or negative. The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively. Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN). The confusion matrix is simply a table showing the number of instances that fall under each of these 4 categories. Azure Machine Learning Studio automatically decides which of the two classes in the dataset is the positive class. If the class labels are Boolean or integers, then the ‘true’ or ‘1’ labeled instances are assigned the positive class. If the labels are strings, as in the case of the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.
 
 ![Binary Classification Confusion Matrix](./media/evaluate-model-performance/6a.png)
 
@@ -132,8 +128,8 @@ Figure 8. Cross-Validating a Binary Classification Model.
 Figure 9. Cross-Validation Results of a Binary Classifier.
 
 ## Evaluating a Multiclass Classification Model
-In this experiment we will use the popular [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split Data][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
-The Iris dataset is publicly available on the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
+In this experiment we will use the popular [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split Data][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
+The Iris dataset is publicly available on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
 
 ### Creating the Experiment
 Add the following modules to your workspace in Azure Machine Learning Studio:

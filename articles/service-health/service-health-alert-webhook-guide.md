@@ -1,20 +1,13 @@
 ---
 title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
 description: Get personalized notifications about service health events to your existing problem management system.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.workload: Supportability
+
 ms.date: 3/27/2018
-ms.author: shtabriz
 
 ---
 
@@ -34,7 +27,7 @@ If you want to use a preconfigured integration, see how to:
 ## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during service health notifications.
 
-Look [here to see an example](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) of what the `ServiceHealth` webhook payload looks like.
+Look [here to see an example](../azure-monitor/platform/activity-log-alerts-webhook.md) of what the `ServiceHealth` webhook payload looks like.
 
 You can detect this is a service health alert by looking at `context.eventSource == "ServiceHealth"`. From there, the properties that are most relevant to ingest are:
  * `data.context.activityLog.status`
@@ -63,7 +56,7 @@ From lowest severity to highest severity, the `level` property in the payload ca
 
 ## Parsing the impacted services to understand the full scope of the incident
 Service health alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](http://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
+The content inside is a [JSON escaped](https://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
@@ -99,7 +92,7 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 
 
 ## Testing your webhook integration via an HTTP POST request
-1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Create an HTTP POST request as follows:
 
@@ -115,6 +108,6 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
-- Review the [activity log alert webhook schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Learn more about [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
+- Learn more about [action groups](../azure-monitor/platform/action-groups.md).

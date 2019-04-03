@@ -1,19 +1,21 @@
 ---
-title: "Tutorial: Bing News Search single-page app"
+title: "Tutorial: Create a single-page web app - Bing News Search API"
 titlesuffix: Azure Cognitive Services
-description: Explains how to use the Bing News Search API in a single-page Web application.
+description: Use this tutorial to build a single-page web application that can send search queries to the Bing News API, and display the results within the webpage.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
+ms.custom: seodec2018
 ---
-# Tutorial: Single-page News Search app
-The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
+# Tutorial: Create a single-page web app
+
+The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -32,8 +34,6 @@ The tutorial app illustrates how to:
 > * Handle errors that might occur
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
-
-In this tutorial, we discuss selected portions of the source code. The complete [source code](tutorial-bing-news-search-single-page-app-source.md) is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:

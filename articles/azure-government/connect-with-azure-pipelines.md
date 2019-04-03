@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/25/18
+ms.date: 10/25/2018
 ms.author: yujhong
 ---
 
@@ -31,7 +31,7 @@ Before starting this tutorial, you must have the following:
 
 + [Create an organization in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=vsts)
 + [Create and add a project to the Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&%3Bbc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav)
-+ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
++ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -61,7 +61,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
-    `./<name of script file you saved> `
+    `./<name of script file you saved>`
 6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, enter your desired password. 
 8. After providing your Azure Government subscription credentials, you should see the following: 
