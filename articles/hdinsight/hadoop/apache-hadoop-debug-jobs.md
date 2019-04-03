@@ -311,6 +311,5 @@ Some of these error messages could also be seen in the Azure portal when it is u
 
 ## Next steps
 
-* [Use Apache Ambari Views to debug Apache Tez Jobs on HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)

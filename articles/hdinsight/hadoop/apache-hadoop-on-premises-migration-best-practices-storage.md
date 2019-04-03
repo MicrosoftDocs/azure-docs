@@ -217,7 +217,6 @@ Additional storage account can be added in one on the following ways:
 
 For more information, see the following articles:
 - [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## Next steps
 

@@ -411,10 +411,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>Publish to Azure
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).

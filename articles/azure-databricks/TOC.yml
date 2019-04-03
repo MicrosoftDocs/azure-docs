@@ -31,6 +31,8 @@
     href: https://docs.azuredatabricks.net/user-guide/jobs.html 
   - name: Connect to data sources 
     href: databricks-connect-to-data-sources.md
+  - name: Use VNet injection
+    href: vnet-injection.md
   - name: Use with Azure Data Factory
     href: ../data-factory/transform-data-using-databricks-notebook.md
     maintainContext: true

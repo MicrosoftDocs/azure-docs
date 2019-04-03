@@ -1,12 +1,12 @@
 ---
-title: Combined registration for Azure AD SSPR and MFA (preview)
+title: Combined registration for Azure AD SSPR and MFA (preview) - Azure Active Directory
 description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) through two different experiences. People were confused that similar methods were used for both Azure MFA and SSPR but they had to register for each feature separately. Now, with combined registration, users can register once and get the benefits of both Azure MFA and SSPR.
 
-![Combined security information - My Profile showing registered Security info for a user, including Microsoft Authenticator and Phone for a sample user in the directory.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and impact of this feature. Base your training on the user documentation to prepare your users for the new experience and help to ensure a successful rollout.
 
@@ -33,7 +33,7 @@ Before enabling the new experience, review this administrator-focused documentat
 
 The MyProfile pages are localized based on the current language settings on the machine accessing the page. Microsoft stores the most recent language utilized in the browser cache so subsequent attempts to access will continue to render in the last language used. Clearing the cache will cause the pages to re-render. If you would like to force a specific language adding a `?lng=de-DE` to the end of the URL where `de-DE` is set to the appropriate language code will force the pages to render in that language.
 
-![My Profile interface showing Security info and ability for user to setup SSPR or other additional security verification methods.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Setup SSPR or other additional security verification methods](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## Methods available in converged registration
 
@@ -65,11 +65,11 @@ As we continue to add more authentication methods such to Azure AD, those method
 
 ## Combined registration Modes
 
-There are two “modes” of combined registration: interrupt and manage. 
+There are two “modes” of combined registration: interrupt and manage.
 
-Interrupt mode, is a wizard-like experience, shown to a user when they register or refresh their security info at sign in. 
+Interrupt mode, is a wizard-like experience, shown to a user when they register or refresh their security info at sign in.
 
-Manage mode is part of the user’s profile and allows them to manage their security info. 
+Manage mode is part of the user’s profile and allows them to manage their security info.
 
 For both modes, if a user has previously registered a method that can be used for MFA, they will need to perform MFA before they can access their security info.
 
@@ -96,7 +96,7 @@ Example:
 
 The following flowchart describes which methods are shown to a user when interrupted to register during sign in:
 
-![Combined security info flow chart explaining number of methods required when More information is required when signing in. This can change if only MFA or only SSPR is required](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Combined security info flow chart](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 If you have both MFA and SSPR enabled, we recommend that you enforce MFA registration.
 

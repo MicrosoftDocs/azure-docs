@@ -61,7 +61,7 @@ The following properties are supported for Azure Data Explorer linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureDataExplorer** | Yes |
-| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net `. | Yes |
+| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is what you normally know as "**Authority ID**" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering with the mouse in the top-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. This is what you normally know as "**AAD application client ID**" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |

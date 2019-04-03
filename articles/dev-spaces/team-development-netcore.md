@@ -14,7 +14,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### Make a code change
-Go to the VS Code window for `mywebapi` and make a code edit to the `string Get(int id)` method, for example:
+Go to the VS Code window for `mywebapi` and make a code edit to the `string Get(int id)` method in `Controllers/ValuesController.cs`, for example:
 
 ```csharp
 [HttpGet("{id}")]

@@ -146,13 +146,13 @@ This section guides you through the process of connecting your Azure AD to the u
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-      ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, select **Authorize**. It opens a Google authorization dialog box in a new browser window.
 
 1. Confirm that you want to give Azure Active Directory permission to make changes to your G Suite tenant. Select **Accept**.
     
-      ![Confirm permissions.][28]
+       ![Confirm permissions.][28]
 
 1. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your app. If the connection fails, ensure that your G Suite account has Team Admin permissions. Then try the **Authorize** step again.
 
