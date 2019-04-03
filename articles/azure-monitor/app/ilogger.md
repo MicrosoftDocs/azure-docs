@@ -421,6 +421,50 @@ If you prefer to always send `TraceTelemetry`, then use the snippet ```builder.A
 
 * Application Insights extension in Azure Web App uses the old provider. Filtering rules can be modified in `appsettings.json` for your application. If you want to take advantage of the new provider, use build-time instrumentation by taking nuget dependency on the SDK. This document will be updated when extension switches to use the new provider.
 
+*6. I am using the standalone package Microsoft.Extensions.Logging.ApplicationInsights, and enabling Application Insights provider by calling builder.AddApplicationInsights("ikey"). Is there an option to get instrumentation key from configuration?*
+
+
+* Modify `Program.cs` and `appsettings.json` as shown below.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                // hostingContext.HostingEnvironment can be used to determine environments as well.
+                var appInsightKey = hostingContext.Configuration["myikeyfromconfig"];
+                logging.AddApplicationInsights(appInsightKey);
+            });
+}
+```
+
+Relevant section from `appsettings.json`
+
+```json
+{
+  "myikeyfromconfig": "putrealikeyhere"
+}
+```
+
+The above code is required only when using standalone logging provider. For regular Application Insights monitoring, instrumentation key is loaded automatically from the configuration path `ApplicationInsights:Instrumentationkey` and `appsettings.json` should look like below.
+
+```json
+{
+  "ApplicationInsights":
+    {
+        "Instrumentationkey":"putrealikeyhere"
+    }
+}
+```
+
 ## Next steps
 
 Learn more about:
