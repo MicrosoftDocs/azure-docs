@@ -3,8 +3,8 @@ title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Access control in Azure Data Lake Storage Gen1
