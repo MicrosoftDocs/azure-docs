@@ -188,7 +188,7 @@ The results are:
 ```
 
 ## <a id="EscapingReservedKeywords"></a>Quoted property accessor
-You can access properties using the quoted property operator `[]`. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful to escape a property that contains spaces, special characters, or has the same name as a SQL keyword or reserved word.
+You can access properties using the quoted property operator []. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful to escape a property that contains spaces, special characters, or has the same name as a SQL keyword or reserved word.
 
 ```sql
     SELECT f["lastName"]
@@ -237,7 +237,7 @@ The results are:
     }]
 ```
 
-In the preceding example, the `SELECT` clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
+In the preceding example, the SELECT clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -339,7 +339,7 @@ The results are:
 
 ## <a id="FromClause"></a>FROM clause
 
-The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. For more information about the syntax, see [FROM syntax](sql-api-query-reference.md#bk_from_clause). A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier `ROOT` for the container instead of using the container name.
+The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. For more information about the syntax, see [FROM syntax](sql-api-query-reference.md#bk_from_clause). A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
 
 The FROM clause enforces the following rules per query:
 
@@ -866,7 +866,7 @@ The result is:
     }]
 ```
 
-In the following example, the join is a cross product between two JSON objects, the item root `id` and the `children` subroot. The fact that `children` is an array isn't effective in the JOIN, because it deals with a single root that is the `children` array. The result contains only two results, because the cross product of each item with the array yields exactly only one item.
+In the following example, the join is a cross product between two JSON objects, the item root `id` and the `children` subroot. The fact that `children` is an array isn't effective in the join, because it deals with a single root that is the `children` array. The result contains only two results, because the cross product of each item with the array yields exactly only one item.
 
 ```sql
     SELECT f.id
@@ -911,7 +911,7 @@ The results are:
     ]
 ```
 
-The `from_source` of the JOIN clause is an iterator. So, the flow in the preceding example is:  
+The FROM source of the JOIN clause is an iterator. So, the flow in the preceding example is:  
 
 1. Expand each child element `c` in the array.
 2. Apply a cross product with the root of the item `f` with each child element `c` that the first step flattened.
@@ -919,7 +919,7 @@ The `from_source` of the JOIN clause is an iterator. So, the flow in the precedi
 
 The first item, `AndersenFamily`, contains only one `children` element, so the result set contains only a single object. The second item, `WakefieldFamily`, contains two `children`, so the cross product produces two objects, one for each `children` element. The root fields in both these items are the same, just as you would expect in a cross product.
 
-The real utility of the JOIN is to form tuples from the cross product in a shape that's otherwise difficult to project. The example below filters on the combination of a tuple that lets the user choose a condition satisfied by the tuples overall.
+The real utility of the JOIN clause is to form tuples from the cross product in a shape that's otherwise difficult to project. The example below filters on the combination of a tuple that lets the user choose a condition satisfied by the tuples overall.
 
 ```sql
     SELECT 
@@ -1165,7 +1165,7 @@ The SQL API supports the following aggregate functions. SUM and AVG operate on n
 | MAX   | Returns the maximum value in the expression. |
 | AVG   | Returns the average of the values in the expression. |
 
-You can also aggregate over the results of an array iteration. For more information, see [Iteration](#Iteration).
+You can also aggregate over the results of an array iteration. For more information, see the [Iteration](#Iteration) section.
 
 > [!NOTE]
 > In the Azure portal's Data Explorer, aggregation queries may aggregate partial results over only one query page. The SDK produces a single cumulative value across all pages. To perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.
@@ -1343,7 +1343,7 @@ The following scalar functions perform an operation on an array input value and 
 | [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returns part of an array expression. |
 
-Use array functions to manipulate arrays within JSON. For example, here's a query that returns all item `id`s where one of the parents is "Robin Wakefield": 
+Use array functions to manipulate arrays within JSON. For example, here's a query that returns all item `id`s where one of the `parents` is `Robin Wakefield`: 
 
 ```sql
     SELECT Families.id 
@@ -1359,7 +1359,7 @@ The result is:
     }]
 ```
 
-You can specify a partial fragment for matching elements within the array. The following query finds all `parent`s with the `givenName` of `Robin`.
+You can specify a partial fragment for matching elements within the array. The following query finds all item `id`s that have `parents` with the `givenName` of `Robin`:
 
 ```sql
     SELECT Families.id 
@@ -1407,7 +1407,7 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 | ST_ISVALID | Returns a Boolean value indicating whether the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid. |
 | ST_ISVALIDDETAILED | Returns a JSON value containing a Boolean value if the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid, and if invalid, the reason as a string value. |
 
-You can use spatial functions to perform proximity queries against spatial data. For example, here's a query that returns all family items that are within 30 km of a specified location using the `ST_DISTANCE` built-in function:
+You can use spatial functions to perform proximity queries against spatial data. For example, here's a query that returns all family items that are within 30 km of a specified location using the ST_DISTANCE built-in function:
 
 ```sql
     SELECT f.id
@@ -1460,7 +1460,7 @@ The following example sets the TOP argument with a parameterized query:
     }
 ```
 
-Parameter values can be any valid JSON: strings, numbers, Booleans, null, even arrays or nested JSON. Since Cosmos DB is schemaless, parameters are not validated against any type.
+Parameter values can be any valid JSON: strings, numbers, Booleans, null, even arrays or nested JSON. Since Cosmos DB is schemaless, parameters aren't validated against any type.
 
 ## <a id="JavaScriptIntegration"></a>JavaScript integration
 
@@ -1477,7 +1477,7 @@ Cosmos DB, by virtue of being a JSON database, draws parallels with JavaScript o
 
 In the SQL API, unlike in traditional SQL, the types of values are often not known until the API retrieves the values from the database. In order to efficiently execute queries, most of the operators have strict type requirements.
 
-Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. It does not match any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0`. This contrasts with JavaScript, where string values are implicitly cast to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
+Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches items that contain an `Age` property whose value is `21`. It doesn't match any other item whose `Age` property matches possibly infinite variations like `twenty-one`, `021`, or `21.0`. This contrasts with JavaScript, where string values are implicitly cast to numbers based on operator, for example: `==`. This SQL API behavior is crucial for efficient index matching.
 
 ## <a id="ExecutingSqlQueries"></a>SQL query execution
 
