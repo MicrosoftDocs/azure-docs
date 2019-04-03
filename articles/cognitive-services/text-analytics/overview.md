@@ -43,6 +43,14 @@ You can [detect which language the input text is written in](how-tos/text-analyt
 
 The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
 
+> [!NOTE]
+> You can start using the Text Analytics API in your processes, even if you don't have much experience in programming. Use these tutorials to learn how the API can fit your experience level. 
+> * Minimal programming required:
+>    * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
+>    * [Integrate Power BI with the Text Analytics API to analyze customer feedback](tutorials/tutorial-power-bi-key-phrases.md)
+> * More programming experience recommended:
+>    * [Sentiment analysis on streaming data using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+
 1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for an [access key](how-tos/text-analytics-how-to-access-key.md). The key must be passed on each request.
 
 2. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON.
