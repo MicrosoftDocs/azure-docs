@@ -27,6 +27,8 @@ ms.collection: M365-identity-device-management
 
 This topic provides information on how to troubleshoot and diagnose issues with Enterprise State Roaming, and provides a list of known issues.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Preliminary steps for troubleshooting 
 
 Before you start troubleshooting, verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
