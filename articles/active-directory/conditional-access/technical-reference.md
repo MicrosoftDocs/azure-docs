@@ -180,7 +180,7 @@ This setting has an impact on access attempts made from the following mobile app
 | Outlook 2016 (Office for macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Outlook mobile app | Office 365 Exchange Online | Android, iOS |
-| PowerBI app | PowerBI service | Windows 10, Windows 8.1, Windows 7, Android and iOS |
+| Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
 | Skype for Business | Office 365 Exchange Online| Android, IOS |
 | Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
 
@@ -213,7 +213,7 @@ This setting applies to the following client apps:
 - Microsoft Outlook
 - Microsoft Planner
 - Microsoft PowerApps
-- Microsoft PowerBI
+- Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
