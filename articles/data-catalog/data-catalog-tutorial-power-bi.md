@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 To get started, you're required to follow the quickstart:
 
-* [Get started with Azure Data Catalog](data-catalog-get-started.md)
+* [Create an Azure Data Catalog](data-catalog-get-started.md)
 
 ### Adventure Works sample database
 
@@ -38,13 +38,14 @@ The Adventure Works database supports standard online transaction-processing sce
 To install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
+
 2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
    2. Right-click **Databases** and click **Restore Database**.
    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.
    4. Under **Select backup devices**, click **Add**.
    5. Go to the folder where you have the **AdventureWorks2014.bak** file, select the file, and click **OK** to close the **Locate Backup File** dialog box.
-   6. Click **OK** to close the **Select backup devices** dialog box.    
+   6. Click **OK** to close the **Select backup devices** dialog box.
    7. Click **OK** to close the **Restore Database** dialog box.
 
 You can now register data assets from the Adventure Works sample database by using Azure Data Catalog.
@@ -111,21 +112,26 @@ Following are a few examples for discovering data assets in the catalog.
 Basic search helps you search a catalog by using one or more search terms. Results are any assets that match on any property with one or more of the terms specified.
 
 1. Click **Home** in the Azure Data Catalog portal. If you have closed the web browser, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
+
 2. In the search box, enter `cycles` and press **ENTER**.
 
     ![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
+
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by clicking buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
 
     ![Azure Data Catalog--basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
 
     The **Searches** panel is on the left and the **Properties** panel is on the right. On the **Searches** panel, you can change search criteria and filter results. The **Properties** panel displays properties of a selected object in the grid or list.
+
 4. Click **Product** in the search results. Click the **Preview**, **Columns**, **Data Profile**, and **Documentation** tabs, or click the arrow to expand the bottom pane.  
 
     ![Azure Data Catalog--bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
 
     On the **Preview** tab, you see a preview of the data in the **Product** table.  
 5. Click the **Columns** tab to find details about columns (such as **name** and **data type**) in the data asset.
+
 6. Click the **Data Profile** tab to see the profiling of data (for example: number of rows, size of data, or minimum value in a column) in the data asset.
+
 7. Filter the results by using **Filters** on the left. For example, click **Table** for **Object Type**, and you see only the four tables, not the database.
 
     ![Azure Data Catalog--filter search results](media/data-catalog-get-started/data-catalog-filter-search-results.png)
@@ -135,7 +141,9 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 Property scoping helps you discover data assets where the search term is matched with the specified property.
 
 1. Clear the **Table** filter under **Object Type** in **Filters**.  
+
 2. In the search box, enter `tags:cycles` and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
+
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results.  
 
     ![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)

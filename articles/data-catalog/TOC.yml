@@ -6,11 +6,11 @@
     href: data-catalog-what-is-data-catalog.md
 - name: Quickstart
   items:
-  - name: Get started with Azure Data Catalog
+  - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md
 - name: Tutorials
   items:
-  - name: Create a Powre BI report
+  - name: Create a Power BI report
     href: data-catalog-tutorial-power-bi.md
 - name: Concepts
   items:
