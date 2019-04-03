@@ -97,7 +97,7 @@ Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png
 
 ## Web APIs
 
-The following sample shows how to protect a web API with the Azure AD v2.0 endpoint. This API is exercised by a WPF application, but it can be called by any application. The web API also calls Microsoft Graph
+The following sample shows how to protect a web API with the Azure AD v2.0 endpoint. This API is exercised by a WPF application, but it can be called by any application. The web API also calls Microsoft Graph.
 
 Platform | Sample
  -------- | -------------------
