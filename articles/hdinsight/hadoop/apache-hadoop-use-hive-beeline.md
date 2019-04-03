@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 04/03/2019
 ms.author: hrasheed
 ---
 
@@ -16,13 +16,13 @@ Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hi
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline:
 
-* __Using Beeline from an SSH connection to a headnode or edge node__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+|When connecting from.. | Connection string to Hive|
+|---|---|
+|SSH to a headnode or edge node|`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`|
+|client to HDInsight over an Azure Virtual Network|`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`|
+|client to HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network|`-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` |
+|client to HDInsight over the public internet|`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`|
 
-* __Using Beeline on a client, connecting to HDInsight over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-
-* __Using Beeline on a client, connecting to a HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
-
-* __Using Beeline on a client, connecting to HDInsight over the public internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
 > Replace `admin` with the cluster login account for your cluster.
