@@ -1,6 +1,6 @@
 ---
-title: Get started with custom policies in Azure Active Directory B2C | Microsoft Docs
-description: How to get started with Azure Active Directory B2C custom policies.
+title: Get started with custom policies - Azure Active Directory B2C | Microsoft Docs
+description: Learn how to get started with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
@@ -21,7 +21,8 @@ ms.subservice: B2C
 
 ## Prerequisites
 
-If you don't have one already, you need to [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+- If you don't have one already, you need to [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+- You also need to [register your application](tutorial-register-applications.md) it to communicate with Azure AD B2C.
 
 ## Add signing and encryption keys
 
@@ -59,7 +60,7 @@ If you already have a [Facebook application secret](active-directory-b2c-setup-f
 5. For **Key usage**, select **Signature**.
 6. Click **Create**.
 
-## Register applications
+## Register Identity Experience Framework applications
 
 Azure AD B2C requires you to register two applications that are used to sign up and sign in users: IdentityExperienceFramework (a web app), and ProxyIdentityExperienceFramework (a native app) with delegated permission from the IdentityExperienceFramework app. Local accounts exist only in your tenant. Your users sign up with a unique email address/password combination to access your tenant-registered applications.
 
@@ -127,12 +128,11 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 ## Test the custom policy
 
-1. On the Custom Policies page, select **B2C_1A_signup_signin**. 
-2. Select **Run now**.
-
-3. You should be able to sign up using an email address.
-
-4. Sign in with the same account to confirm that you have the correct configuration.
+1. On the Custom Policies page, select **B2C_1A_signup_signin**.
+2. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered. Make sure that the **Reply URL** is `https://jwt.ms`.
+3. Select **Run now**.
+4. You should be able to sign up using an email address.
+5. Sign in with the same account to confirm that you have the correct configuration.
 
 ## Add Facebook as an identity provider
 
