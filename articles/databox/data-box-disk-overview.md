@@ -103,7 +103,7 @@ Currently Data Box Disk can transfer data to the following Azure regions:
 
 ## Pricing
 
-For information on pricing, go to [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+For information on pricing, go to [Pricing page](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ## Next steps
 

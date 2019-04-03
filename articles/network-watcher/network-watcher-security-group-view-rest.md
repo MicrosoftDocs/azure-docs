@@ -38,7 +38,7 @@ The scenario covered in this article retrieves the effective and applied securit
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 

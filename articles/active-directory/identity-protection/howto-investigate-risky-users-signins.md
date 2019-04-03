@@ -4,10 +4,10 @@ description: Learn how to investigate risky users and sign-ins in Azure Active D
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 
-ms.author: markvi
+ms.author: joflore
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -16,7 +16,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.reviewer: raluthra
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---

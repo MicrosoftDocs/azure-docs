@@ -85,7 +85,7 @@ already configured with the setting you want to enforce also provide the value t
 Look at the **Automation script** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Automation script page](../media/create-custom-policy-definition/automation-script.png)
+![Export template page on existing resource](../media/create-custom-policy-definition/automation-script.png)
 
 Doing so for a storage account reveals a template similar to this example:
 

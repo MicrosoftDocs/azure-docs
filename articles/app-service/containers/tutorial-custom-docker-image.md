@@ -4,8 +4,8 @@ description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: SyntaxC4
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -305,7 +305,7 @@ SSH enables secure communication between a container and a client. In order for 
     EXPOSE 8000 2222
     ```
 
-* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) by using a shell script in the /bin directory.
+* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/8.9/startup/init_container.sh#L18) by using a shell script in the /bin directory.
  
 	```bash
 	#!/bin/bash

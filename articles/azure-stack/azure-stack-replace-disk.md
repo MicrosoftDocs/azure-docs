@@ -52,20 +52,20 @@ After you replace the disk, Azure Stack automatically discovers the new disk and
  After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
 
 1. Open a Windows PowerShell session and connect to the privileged endpoint.
-    ```PowerShell
+    ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ``` 
   
 2. Run the following command to view virtual disk health:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
    ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Run the following command to view current storage job status:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
       ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
@@ -73,6 +73,6 @@ After you replace the disk, Azure Stack automatically discovers the new disk and
 ## Troubleshoot virtual disk repair
 
 If the virtual disk repair job appears stuck, run the following command to restart the job:
-  ```PowerShell
+  ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ``` 

@@ -17,7 +17,7 @@ ms.date: 02/27/2019
 ms.author: pbutlerm
 ---
 
-# SaaS Fulfillment API Version 2
+# SaaS Fulfillment API
 
 This article details the API that enables independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. This API enables ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  This API is a requirement for listing transactable SaaS offers on the Azure Marketplace.
 
@@ -650,7 +650,7 @@ Enables the user to track the status of a triggered async operation (Subscribe/U
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
 |  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  authorization     | The JSON web token (JWT) bearer token.  |

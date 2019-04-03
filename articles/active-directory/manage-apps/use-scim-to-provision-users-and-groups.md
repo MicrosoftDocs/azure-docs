@@ -634,7 +634,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 
 5. Build the FileProvisioningService project.
 6. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** folder.
-7. Run the following command, replacing <ip-address> with the IP address or domain name of the Windows machine:
+7. Run the following command, replacing `<ip-address>` with the IP address or domain name of the Windows machine:
 
    ```
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv

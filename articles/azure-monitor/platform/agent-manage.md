@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
-After initial deployment of the Windows or Linux agent for Log Analytics, you may need to reconfigure the agent, or remove it from the computer if has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, or remove it from the computer if has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Adding or removing a workspace
 
@@ -34,7 +34,7 @@ After initial deployment of the Windows or Linux agent for Log Analytics, you ma
 
 #### Remove a workspace using PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.RemoveCloudWorkspace($workspaceId)
@@ -43,7 +43,7 @@ $mma.ReloadConfiguration()
 
 #### Add a workspace in Azure commercial using PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -53,7 +53,7 @@ $mma.ReloadConfiguration()
 
 #### Add a workspace in Azure for US Government using PowerShell
 
-```PowerShell
+```powershell
 $workspaceId = "<Your workspace Id>"
 $workspaceKey = "<Your workspace Key>"
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -110,9 +110,9 @@ To configure the agent to communicate to the service through a proxy server or [
 
 #### Update settings using PowerShell
 
-Copy the following sample PowerShell code, update it with information specific to your environment, and save it with a PS1 file name extension. Run the script on each computer that connects directly to the Log Analytics service.
+Copy the following sample PowerShell code, update it with information specific to your environment, and save it with a PS1 file name extension. Run the script on each computer that connects directly to the Log Analytics workspace in Azure Monitor.
 
-```PowerShell
+```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
 # First we get the Health Service configuration object. We need to determine if we
