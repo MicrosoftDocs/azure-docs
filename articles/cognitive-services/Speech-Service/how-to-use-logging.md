@@ -15,16 +15,14 @@ ms.author: amishu
 
 # Enable logging in the Speech SDK
 
-Logging to file is an optional feature. During development, it can help you to get additional information and diagnostics from the Speeck SDK core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
+Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speeck SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
 
 > [!NOTE]
 > Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
 
-A `SpeechSynthesizer` can't start a logging session. Once a logging session has been started, you will also receive diagnostics from a `SpeechSynthesizer`.
-
 ## Sample
 
-The log file name is specified on a configuration object. Taking a `SpeechConfig` instance object you called `config` as an example:
+The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you have created an instance called `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -46,11 +44,14 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-You can then create a recognizer from the config object and start the logging functionality.
+You can create a recognizer from the config object. This will enable logging for all recognizers.
+
+> [!NOTE]
+> If you create a `SpeechSynthesizer` from the config object, it will not enable logging. If logging is enabled though, you will also receive diagnostics from the `SpeechSynthesizer`.
 
 ## Create a log file on different platforms
 
-For Windows or Linux, the log file can be in any path the user has write permission for. In other environments, you only have access to certain file system locations by default.
+For Windows or Linux, the log file can be in any path the user has write permission for. Write permissions to file system locations in other operating systems may be limited or restricted by default.
 
 ### Universal Windows Platform (UWP)
 
