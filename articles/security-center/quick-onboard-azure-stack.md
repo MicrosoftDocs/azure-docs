@@ -31,7 +31,7 @@ You must have an Azure subscription on Security Center’s Standard tier before 
 ## Add an Azure Stack virtual machine
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
-2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
+2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens. 
 
    ![Security Center overview][2]
 
