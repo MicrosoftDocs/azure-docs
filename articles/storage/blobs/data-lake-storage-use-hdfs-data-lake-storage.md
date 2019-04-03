@@ -57,7 +57,7 @@ For example: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.wi
 
 First, establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
 
-```PowerShell
+```powershell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net
 #Execute basic HDFS commands. Display the hierarchy.

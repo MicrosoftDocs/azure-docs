@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure portal
+  - name: About the Azure portal
     href: azure-portal-overview.md
   - name: Supported browsers and devices
     href: azure-portal-supported-browsers-devices.md 

@@ -37,7 +37,7 @@ In this article, you learn how to view the service principal of a managed identi
 
 This following command demonstrates how to view the service principal of a VM or application with system assigned identity enabled. Replace `<VM or application name>` with your own values.
 
-```PowerShell
+```powershell
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 

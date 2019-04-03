@@ -3,8 +3,8 @@ title: Copy data to and from WASB into Azure Data Lake Storage Gen1 using Distcp
 description: Use Distcp tool to copy data to and from Azure Storage Blobs to Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen1

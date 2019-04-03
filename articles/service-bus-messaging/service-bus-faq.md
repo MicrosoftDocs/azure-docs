@@ -51,7 +51,7 @@ The following properties of a queue and topic are immutable. Consider this limit
 ## Pricing
 This section answers some frequently asked questions about the Service Bus pricing structure.
 
-The [Service Bus pricing and billing](service-bus-pricing-billing.md) article explains the billing meters in Service Bus. For specific information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
+The [Service Bus pricing and billing](https://azure.microsoft.com/pricing/details/service-bus/) article explains the billing meters in Service Bus. For specific information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
 You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing information. 
 

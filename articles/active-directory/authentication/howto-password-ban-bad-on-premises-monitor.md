@@ -77,7 +77,7 @@ When a pair of events is logged together, both events are explicitly associated 
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet may be used to produce a summary view of password validation activity. An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -250,7 +250,7 @@ The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic i
 
 An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -322,7 +322,7 @@ The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic inf
 
 An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

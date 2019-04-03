@@ -277,7 +277,7 @@
       href: media-services-protect-hls-with-fairplay.md
     - name: Offline PlayReady for Windows 10
       href: offline-playready-streaming-windows-10.md
-    - name: Offline Fairplay for iOS
+    - name: Offline FairPlay for iOS
       href: media-services-protect-hls-with-offline-fairplay.md
     - name: Offline Widevine for Android
       href: offline-widevine-for-android.md
@@ -331,8 +331,6 @@
       items:
       - name: Task preset
         href: indexer-task-preset.md
-    - name: Process with Hyperlapse
-      href: media-services-hyperlapse-content.md
     - name: Process with Face Detector
       href: media-services-face-and-emotion-detection.md
     - name: Process with Motion Detector
@@ -448,7 +446,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=media-services
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
-  - name: Azure PowerShell (Service Management)
+  - name: Azure PowerShell 
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client

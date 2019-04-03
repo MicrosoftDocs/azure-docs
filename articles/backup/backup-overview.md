@@ -20,12 +20,16 @@ The Azure Backup service backs up data to the Microsoft Azure cloud. You can bac
 Azure Backup delivers these key benefits:
 
 - **Offload on-premises backup**: Azure Backup offers a simple solution for backing up your on-premises resources to the cloud. Get short and long-term backup without the need to deploy complex on-premises backup solutions. 
-- **Back up Azure IaaS VMs**: Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a Recovery Services vault with built-in managed of recovery points. Configuration and scalability is simple, backups are optimized, and you can easily restore as needed.
+- **Back up Azure IaaS VMs**: Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a Recovery Services vault with built-in managed of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
 - **Scale easily** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability with no maintenance or monitoring overhead. 
-- **Get unlimited data transfer** - Azure Backup does not limit the amount of inbound or outbound data you transfer, or charge for the data that is transferred.
+- **Get unlimited data transfer**: Azure Backup does not limit the amount of inbound or outbound data you transfer, or charge for the data that is transferred.
     - Outbound data refers to data transferred from a Recovery Services vault during a restore operation.
     - If you perform an offline initial backup using the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data.  [Learn more](backup-azure-backup-import-export.md). 
-- **Keep data secure**: Data encryption allows for secure transmission and storage of your data in the public cloud. You store the encryption passphrase locally, and it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
+- **Keep data secure**:
+    - On-premises, data in transit is encrypted on the on-premises machine using AES256. The data transmitted is protected by HTTPS between storage and backup. The iSCSI protocol secures the data transmitted between backup and the user machine. Secure tunneling is used to protect the iSCSI channel.
+    - For on-premises to Azure backup, data in Azure is encrypted at-rest using the passphrase you provide when you set up backup. The passphrase or key it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
+    - For Azure VMs, data is encrypted at-reset using Storage Service Encryption (SSE). Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it.
+    - Backup also supports Azure VMs encrypted using Azure Disk Encryption (ADE). [Learn more](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Get app-consistent backups**: An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
 - **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. [Learn more](backup-introduction-to-azure-backup.md#backup-and-retention)about how this limit impacts your backup needs.
 - **Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model, so that you only pay for the storage you consume. [Learn more](https://azure.microsoft.com/pricing/details/backup) about pricing.
@@ -50,7 +54,7 @@ Use the table points to help figure out your BCDR needs.
 
 **Objective** | **Details** | **Comparison**
 --- | --- | --- 
-**Data backup/retention** | Backup data can be retained and stored for days, months, or even years if required from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine tuning.
+**Data backup/retention** | Backup data can be retained and stored for days, months, or even years if required from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine-tuning.
 **Recovery point objective (RPO)** | The amount of acceptable data loss if a recovery needs to be done. | Backups have more variable RPO.<br/><br/> VM backups usually have an RPO of a day, while database backups have RPOs as low as 15 minutes.<br/><br/> Site Recovery provides a low RPO since replication is continuous or frequent, so that the delta between the source and replica copy is small.
 **Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. 
 
@@ -60,7 +64,7 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 
 **Machine** | **Back up scenario**
 --- | ---
-**On-premises backup** |  1) Run the Azure Backup Microsoft Azure Recovery Services (MARS) agent on on-premises Windows machines to back up individual files and system state. <br/><br/>2) Back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then configure the backup server to backup to an Azure Backup Recovery Services vault in Azure.
+**On-premises backup** |  1) Run the Azure Backup Microsoft Azure Recovery Services (MARS) agent on on-premises Windows machines to back up individual files and system state. <br/><br/>2) Back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then configure the backup server to back up to an Azure Backup Recovery Services vault in Azure.
 **Azure VMs** | 1) Enable backup for individual Azure VMs. When you enable backup, Azure Backup installs an extension to the Azure VM agent that's running on the VM. The agent backs up the entire VM.<br/><br/> 2) Run the MARS agent on an Azure VM. This is useful if you want to back up individual files and folders on the VM.<br/><br/> 3) Back up an Azure VM to a DPM server or MABS running in Azure. Then back up the DPM server/MABS to a vault using Azure Backup. 
 
 
@@ -69,10 +73,10 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 
 
 
-The advantages of backing up machines and apps to MABS/DPM storage , and then backing up DPM/MABS storage to a vault are as follows:
+The advantages of backing up machines and apps to MABS/DPM storage, and then backing up DPM/MABS storage to a vault are as follows:
 
 - Backing up to MABS/DPM provides app-aware backups optimized for common apps such as SQL Server, Exchange, and SharePoint, in additional to file/folder/volume backups, and machine state backups (bare-metal, system state).
-- For on-premises machines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
+- For on-premises machines, you don't need to install the MARS agent on each machine you want to back up. Each machine runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
 - You have more flexibility and granular scheduling options for running backups.
 - You can manage backups for multiple machines that you gather into protection groups in a single console. This is particularly useful when apps are tiered over multiple machines and you want to back them up together.
 

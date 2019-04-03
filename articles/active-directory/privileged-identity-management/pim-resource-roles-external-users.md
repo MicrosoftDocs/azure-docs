@@ -1,6 +1,6 @@
 ---
-title: Invite external guests and assign Azure AD admin roles - Privileged Identity Management | Microsoft Docs
-description: Learn how to invite guest users and assign Azure Active Directory admin roles in Azure AD Privileged Identity Management.
+title: Invite guests and assign Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to invite external guest users and assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Invite guest users and assign Azure resource access in PIM
+# Invite guest users and assign Azure resource roles in PIM
 
 Azure Active Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external guest users (guests) and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements to guests. For example, you can use these PIM features for Azure identity tasks with guests:
 

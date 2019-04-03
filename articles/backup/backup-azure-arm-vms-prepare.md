@@ -214,7 +214,7 @@ After enabling backup:
 - An initial backup runs in accordance with your backup schedule.
 - The Backup service installs the backup extension whether or not the VM is running.
     - A running VM provides the greatest chance of getting an application-consistent recovery point.
-    -  However, the VM is backed up even if it's turned off and the extension can't be installed. It's known as an offline VM. In this case, the recovery point will be crash-consistent. [Learn more]()
+    -  However, the VM is backed up even if it's turned off and the extension can't be installed. It's known as an offline VM. In this case, the recovery point will be crash-consistent.
     Note that Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. Modify backup policies manually as required.
 
 ## Run the initial backup
