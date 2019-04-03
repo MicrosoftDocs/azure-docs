@@ -12,6 +12,8 @@ ms.author: chrande
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Configure the default consistency level
 
 The default consistency level is the consistency level that clients use by default. Clients can override it.
@@ -44,7 +46,7 @@ $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "ipRangeFilter"=$iprangefilter;
                         "enableMultipleWriteLocations"="true"}
 
-New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -ApiVersion "2015-04-08" `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
