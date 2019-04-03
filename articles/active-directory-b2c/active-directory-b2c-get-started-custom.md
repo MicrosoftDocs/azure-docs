@@ -22,7 +22,7 @@ ms.subservice: B2C
 ## Prerequisites
 
 - If you don't have one already, you need to [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- You also need to [register your application](tutorial-register-applications.md) it to communicate with Azure AD B2C.
+- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
 
 ## Add signing and encryption keys
 
