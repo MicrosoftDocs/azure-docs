@@ -61,13 +61,13 @@ template and role assignment on the new resource group.
    a. Select the **+ Add artifact** row under
       **Subscription**. The **Add artifact** window opens on the right side of the browser. 
    
-   a. Select
+   b. Select
       **Role assignment** for **Artifact type**. 
    
-   a. Under **Role**, select **Contributor**. Leave the **Add
+   c. Under **Role**, select **Contributor**. Leave the **Add
       user, app or group** box with the check box that indicates a **dynamic parameter**. 
    
-   a. Select **Add** to
+   d. Select **Add** to
       add this artifact to the blueprint.
 
    ![Role assignment for a blueprint artifact](./media/create-blueprint-portal/add-role-assignment.png)
