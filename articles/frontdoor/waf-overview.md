@@ -43,7 +43,7 @@ Rules within a policy are executed in a prioritized order where priority is a un
 
 A web application delivered by Front Door can have only one WAF policy associated with it at a time. However, you can have a Front Door configuration without any WAF policies associated with it. If a WAF policy is present, it is replicated to all of our edge locations to ensure consistency in security policies across the world.
 
-## WAF policy modes
+## WAF Modes
 
 WAF policy can be configured to run in the following two modes:
 
