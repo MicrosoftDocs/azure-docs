@@ -14,7 +14,7 @@ ms.date: 03/27/2019
 
 # Azure Machine Learning Interpretability SDK
 
-In this article, you will learn how to explain why your model made the predictions it made by using the Azure Machine Learning Interpretability SDK. Being able to explain your model is important for the following reasons:
+Learn how to explain why your model arrives the predictions it makes. The Azure Machine Learning Interpretability SDK enables you to explain your model, which is important for the following reasons:
 
 * Customers and stakeholders want to know **if they can trust the predictions your model makes**.
 * As a data scientist, you want to understand **how to query the model to find insights**. You also need tools to make informed decisions on **how to improve your model**.
@@ -22,10 +22,16 @@ In this article, you will learn how to explain why your model made the predictio
 
 Machine learning interpretability is important in two phases of machine learning development cycle: **training** time and **inferencing** time:
 
-* During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. They also need insights into the model so that they can debug the model and make decisions on whether the behavior matches their objectives. Finally, they need to ensure that the model is not biased.
+* During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. Interpretability tools also enable you to debug the model:
+
+    * Does its behavior match the goals and objectives?
+    * Is it biased?
+
 * During **inferencing**: Predictions need to be explainable to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
-The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME). The SDK creates a common API across the integrated libraries and integrates Azure Machine Learning services. Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
+The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and proven third-party libraries (for example, SHAP and LIME). It provides a common API across the integrated libraries, and integrates with Azure Machine Learning services. 
+
+Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
 
 ## How does it work?
 
@@ -37,7 +43,11 @@ Azure Machine Learning Interpretability returns a set of information on how a mo
 
 * Global/local relative feature importance
 * Global/local feature and prediction relationship
-* Interactive visualizations showing predictions, feature and prediction relationship, and relative feature importance values globally and locally
+* Interactive visualizations for:
+
+    * Predictions
+    * Feature and prediction relationships
+    * Relative feature importance values globally and locally
 
 ## Architecture
 
@@ -99,7 +109,11 @@ The explanation functions accept both models and pipelines as input. If a model 
 
 ### Local and remote compute target
 
-The Machine Learning Interpretability SDK is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace Portal for user analysis.
+The Machine Learning Interpretability SDK is designed to work with both local and remote compute targets. 
+
+* If run **locally**, the SDK does not contact any Azure services.
+
+* If run **remotely**, information about the run is logged in the Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace Portal for user analysis.
 
 ## Train and explain locally
 
@@ -119,8 +133,9 @@ The Machine Learning Interpretability SDK is designed to work with both local an
     model = clf.fit(x_train, y_train)
     ```
 
-2. Call the explainer: To initiate an explainer object, you need to pass the model, training data, features of interest (optional), and output class names (if classification) to the explainer. 
-Here is how to instantiate an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), and `LimeExplainer` locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
+2. Call the explainer. When instantiating an explainer object, pass the model, and training data. Optionally you can pass features of interest. If using classification, pass the output class names.
+
+    The following example demonstrates how to create an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), and `LimeExplainer` locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -193,7 +208,7 @@ While you can train on the various compute targets supported by Azure Machine Le
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Follow the instructions on [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn about how to set up an Azure Machine Learning Compute as your compute target and submit your training run.
+2. To submit a training run, follow the steps in the [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) article. Use the steps to create an Azure Machine Learning Compute target, and then submit a training run.
 
 3. Download the explanation in your local Jupyter notebook. 
 
