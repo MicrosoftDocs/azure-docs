@@ -6,12 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
 ---
 # Set up a user profile share for a host pool
 
-The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, and it will be deprecated in future versions of Windows Virtual Desktop.
+The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
 
 This section will tell you how to set up a FSLogix profile container share for a host pool. For general documentation regarding FSLogix, see the [FSLogix site](https://docs.fslogix.com/).
 
@@ -35,7 +35,7 @@ After creating the virtual machine, join it to the domain by doing the following
 
 The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
-1. Join the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
+1. Add the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
@@ -51,17 +51,13 @@ To configure the virtual machines with the FSLogix software, do the following on
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and navigate to [this link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
-3. Install the FSLogix agent.
+3. Navigate to either \\\\Win32\\Release or \\\\X64\\Release in the .zip file and run **FSLogixAppsSetup** to install the FSLogix agent.
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
-5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**
-6. Create the following values:
+5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Create a key named **Profiles**.
+7. Create the following values for the Profiles key:
 
 | Name                | Type               | Data/Value                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
-| VHDLocations        | Multi-String Value | "Network path for file share" |
-| VolumeType          | String             | VHDX                              |
-| SizeInMBs           | DWORD              | "integer for size of profile"     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Multi-String Value | "Network path for file share"     |
