@@ -17,23 +17,6 @@ ms.author: pafarley
 
 Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.
 
-* [What is Form Recognizer](What-is-Form-Understanding?)
-  * [What it does](What-is-Form-Understanding.md#What-it-does)
-  * [What it includes](What-is-Form-Understanding.md#What-it-includes)
-  * [Input requirements](What-is-Form-Understanding.md#Input-requirements)
-  * [Data privacy and security](What-is-Form-Understanding.md#Data-privacy-and-security)
-* Quickstart
-  * [Train a Form Recognizer model and extract form data using cURL](curl-quickstart.md)
-* [Use Containers](form-understanding-how-to-install.md)
-  * [Install and run Forms Understanding containers](form-understanding-how-to-install.md#Install-and-run-containers)
-  * [Configure Forms Understanding containers](form-understanding-how-to-configure.md#Configure-containers)
-* [How To](How-To.md)
-  * [Using Form Recognizer with cURL](cURL-api.md)
-  * [JSON output](How-To.md#-Form-Understanding-Output-JSON-Schema)
-* [API reference](forms_api_private_preview.pdf)
-* [Form Recognizer private preview limits](limits.md)
-* [FAQ](faq.md)
-
 ## What it does
 
 The Form Recognizer service uses machine learning algorithms to extract key-value pairs and tables out of forms. You, the developer, must submit a minimum of five sample forms or an empty form of the same type as your input material. Then the algorithm trains to this data, clusters the forms by types, discovers what are the keys and tables in the forms and learns to associate values to keys and entries to tables. Once the model is trained, you can test, retrain, and eventually use it to extract key-value pairs and tables from forms according to the needs of your app.
