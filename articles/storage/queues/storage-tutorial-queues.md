@@ -65,7 +65,7 @@ dotnet build
 
 The client library uses a **connection string** to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal. Click the **Copy** button to the right of the **Connection string** field.
 
-![Connection string](media/get-connection-string.png)
+![Connection string](media/storage-tutorial-queues/get-connection-string.png)
 
 The connection string will look something like this:
 
