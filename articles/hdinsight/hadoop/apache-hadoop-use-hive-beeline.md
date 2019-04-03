@@ -16,24 +16,56 @@ Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hi
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline:
 
-|When connecting from.. | Connection string to Hive|
-|---|---|
-|SSH to a headnode or edge node|`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`|
-|client to HDInsight over an Azure Virtual Network|`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`|
-|client to HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network|`-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` |
-|client to HDInsight over the public internet|`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`|
 
+## Types of connections
 
-> [!NOTE]  
-> Replace `admin` with the cluster login account for your cluster.
->
-> Replace `password` with the password for the cluster login account.
->
-> Replace `clustername` with the name of your HDInsight cluster.
->
-> When connecting to the cluster through a virtual network, replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode.
->
-> When connecting to an Enterprise Security Package (ESP) cluster, replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential can't be found. Check `/etc/krb5.conf` for the realm names if needed. Replace `<username>` with the name of an account on the domain with permissions to access the cluster. 
+### From an SSH session
+
+When connecting from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+```
+
+---
+
+### Over an Azure Virtual Network
+
+When connecting from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Since this connection is made directly to the cluster nodes, the connection uses port `10001`:
+
+```bash
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode.
+
+---
+
+### To HDInsight Enterprise Security Package (ESP) cluster
+
+When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+
+```bash
+kinit <username>
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
+```
+
+Replace `<username>` with the name of an account on the domain with permissions to access the cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential wont be found. Check `/etc/krb5.conf` for the realm names if needed.
+
+---
+
+### Over public internet
+
+When connecting over the public internet, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `<clustername>.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL:
+
+```bash
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. Replace `password` with the password for the cluster login account.
+
+---
+
 
 ## <a id="prereq"></a>Prerequisites
 
@@ -49,30 +81,6 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 ## <a id="beeline"></a>Run a Hive query
 
 1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster:
-
-    * When connecting over the public internet, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `<clustername>.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL:
-
-        ```bash
-        beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
-        ```
-
-    * When connecting from an SSH session to a cluster headnode, you can connect to the `headnodehost` address on port `10001`:
-
-        ```bash
-        beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-        ```
-
-    * When connecting over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Since this connection is made directly to the cluster nodes, the connection uses port `10001`:
-
-        ```bash
-        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
-        ```
-    * When connecting to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
-        
-        ```bash
-        kinit <username>
-        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
-        ```
 
 2. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
