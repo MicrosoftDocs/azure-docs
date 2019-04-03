@@ -46,7 +46,7 @@ Add comments to your expressions using single line and multi-line comment syntax
 
 ## Regular Expressions
 
-The Azure Data Factory Data Flow expression language, [full reference documentation here](https://aka.ms/dataflowexpressions), enables functions that include regular expression syntax. When using regular expression functions, the Expression Builder will try to interpret backslash (\) as an escape character sequence. When using backslashes in your regular expression, either enclose the entire regex in ticks ` ` or use a double backslash.
+The Azure Data Factory Data Flow expression language, [full reference documentation here](https://aka.ms/dataflowexpressions), enables functions that include regular expression syntax. When using regular expression functions, the Expression Builder will try to interpret backslash (\\) as an escape character sequence. When using backslashes in your regular expression, either enclose the entire regex in ticks (\`) or use a double backslash.
 
 Example using ticks
 

@@ -106,7 +106,7 @@ If setup succeeds, **azurestack** appears in your list of VPN connections.
 
   Connect to the Azure Stack instance by using one of the following methods:  
 
-  * Use the `Connect-AzsVpn ` command:
+  * Use the `Connect-AzsVpn` command:
       
     ```powershell
     Connect-AzsVpn `

@@ -3,8 +3,8 @@ title: Overview of security in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how Azure Data Lake Storage Gen1 is a more secure big data store
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Security in Azure Data Lake Storage Gen1

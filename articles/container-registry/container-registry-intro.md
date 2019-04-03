@@ -6,7 +6,7 @@ author: stevelas
 
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: "seodec18, mvc"
 ---
@@ -29,7 +29,7 @@ Developers can also push to a container registry as part of a container developm
 
 Configure ACR Tasks to automatically rebuild application images when their base images are updated, or automate image builds when your team commits code to a Git repository. Create multi-step tasks to automate building, testing, and patching multiple container images in parallel in the cloud.
 
-Azure provides tooling including Azure Command-Line Interface, Azure portal, and API support for your Azure container registries. Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
+Azure provides tooling including Azure Command-Line Interface, Azure portal, and API support to manage your Azure container registries. Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 ## Key concepts
 
@@ -51,7 +51,7 @@ Azure provides tooling including Azure Command-Line Interface, Azure portal, and
 
 [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. Use ACR Tasks to extend your development inner-loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
 
-[Multi-step tasks](container-registry-tasks-overview.md#multi-step-tasks-preview), a preview feature of ACR Tasks, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+[Multi-step tasks](container-registry-tasks-overview.md#multi-step-tasks) provide step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
 
 ## Next steps
 
