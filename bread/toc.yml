@@ -99,6 +99,9 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: ASC for IoT
+    tocHref: /azure/asc-for-iot/
+    topicHref: /azure/asc-for-iot/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/

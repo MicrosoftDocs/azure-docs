@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -34,17 +34,17 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
+While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
+Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## 1.3.9.0 
+## 1.3.X.0 
 
 ### Release status 
 
-3/25/2019: Not yet released 
+3/25/2019: Pending
  
 ### New features and improvements 
-
-
 
 - Add support for Domain Refresh 
 - Exchange Mail Public Folders feature goes GA 
@@ -58,8 +58,8 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 - Allow database name to be entered during install (default name ADSync)
 - Upgrade to ADAL 3.19.8 to pick up a WS-Trust fix for Ping and add support for new Azure instances 
 - Modify Group Sync Rules to flow samAccountName, DomainNetbios and DomainFQDN to cloud - needed for claims 
-- Modified Default Sync Rule Handling – read more here:
-- Added a new agent running as a windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. Read more about the Admin Agent here. 
+- Modified Default Sync Rule Handling – read more [here](how-to-connect-fix-default-rules.md).
+- Added a new agent running as a windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. Read more about the Admin Agent [here](whatis-aadc-admin-agent.md). 
 - Updated the End User License Agreement (EULA) 
 - Added auto upgrade support for deployments that use AD FS as their login type.  This also removed the requirement of updating the AD FS Azure AD Relying Party Trust as part of the upgrade process. 
 - Added an Azure AD trust management task that provides two options: analyze/update trust and reset trust. 

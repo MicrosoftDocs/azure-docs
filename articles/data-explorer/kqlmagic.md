@@ -3,7 +3,7 @@ title: 'Analyze data using Jupyter Notebook and Kqlmagic'
 description: This topic will show you how to analyze data using Jupyter Notebook and KQLmagic
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual

@@ -33,7 +33,8 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 ## Deployment requirements
 
-* All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later.
+* All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later. This requirement does not imply that the Active Directory domain or forest must also be at Windows Server 2012 domain or forest functional level. As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there is no minimum DFL or FFL required for either the DC agent or proxy software to run.
+* All machines that get the DC agent service installed must have .NET 4.5 installed.
 * All machines that get the proxy service for Azure AD password protection installed must run Windows Server 2012 R2 or later.
 * All machines where the Azure AD Password Protection Proxy service will be installed must have .NET 4.7 installed.
   .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -106,6 +107,7 @@ There are two required installers for Azure AD password protection. They're avai
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > This mode doesn't work on Server Core operating systems. Instead, use one of the following authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.
 
@@ -130,7 +132,6 @@ There are two required installers for Azure AD password protection. They're avai
 
        You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
-   
    Registration of the proxy service for password protection is necessary only once in the lifetime of the service. After that, the proxy service will automatically perform any other necessary maintenance.
 
    > [!TIP]
@@ -146,6 +147,7 @@ There are two required installers for Azure AD password protection. They're avai
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.  
 
@@ -159,6 +161,7 @@ There are two required installers for Azure AD password protection. They're avai
         You then complete authentication by following the displayed instructions on a different device.
 
      * Silent (password-based) authentication mode:
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -171,7 +174,7 @@ There are two required installers for Azure AD password protection. They're avai
 
    > [!NOTE]
    > If multiple proxy servers are installed in your environment, it doesn't matter which proxy server you use to register the forest.
-
+   >
    > [!TIP]
    > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
 
@@ -218,6 +221,7 @@ There are two required installers for Azure AD password protection. They're avai
 1. Optional: Configure the proxy service for password protection to listen on a specific port.
    * The DC Agent software for password protection on the domain controllers uses RPC over TCP to communicate with the proxy service. By default, the proxy service listens on any available dynamic RPC endpoint. But you can configure the service to listen on a specific TCP port, if this is necessary because of networking topology or firewall requirements in your environment.
       * <a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -226,6 +230,7 @@ There are two required installers for Azure AD password protection. They're avai
          > You must stop and restart the service for these changes to take effect.
 
       * To configure the service to run under a dynamic port, use the same procedure but set *StaticPort* back to zero:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
