@@ -140,8 +140,14 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
-  - name: Integrate services with Azure AD
-    items: 
+    - name: Manage sign-in
+      items:    
+    - name: Customize company branding    
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Sign-in options
+      href: signin-options-link.md
+    - name: Integrate services with Azure AD
+      items: 
     - name: Integrate LinkedIn with Azure AD    
       href: linkedin-integration.md
     - name: LinkedIn data sharing   
