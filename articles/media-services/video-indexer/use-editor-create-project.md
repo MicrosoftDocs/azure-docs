@@ -106,7 +106,7 @@ Remember to save your project when you make changes by selecting **Save project*
 
     There will be a popup that tells you that Video indexer will render a file and then the download link will be send to your email. Select Proceed. 
     
-    You will see also see a notification that the project is being rendered on top of the page. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click **here** to download the project. It will download the project in mp4 format.
+    You will also see a notification that the project is being rendered on top of the page. Once it is done being rendered, you will see a new notification that the project has been successfully rendered. Click the notification to download the project. It will download the project in mp4 format.
 
     ![Rendering done](./media/video-indexer-view-edit/rendering-done.png)
 
