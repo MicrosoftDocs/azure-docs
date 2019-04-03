@@ -29,9 +29,9 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabic      | `ar`          |           |             | ✔ \*                     | |
-| Czech       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
+| Arabic      | `ar`          |           |             | ✔ \*\*                     | |
+| Czech       | `cs`          |           |             | ✔ \*\*                     | |
+| Chinese-Simplified | `zh-CN`|           |             | ✔ \*\*        |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔        | ✔           |  ✔      |      |
@@ -39,7 +39,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
 | German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
-| Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
+| Hungarian   | `hu`          |           |             |  ✔ \*\*          |     | 
 | Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Japanese    | `ja`          |          | ✔           |  ✔ \*          |     |
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
@@ -54,7 +54,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* indicates language support in preview
 
-\*\* Only [Named Entity Recognition](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for Spanish 
+\*\* Only [Named Entity Recognition](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for this language.    
 
 ## See also
 
