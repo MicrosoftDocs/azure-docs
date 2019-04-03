@@ -27,7 +27,7 @@ ms.subservice: B2C
 ## Add signing and encryption keys
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Click the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 
@@ -56,7 +56,7 @@ If you already have a [Facebook application secret](active-directory-b2c-setup-f
 1. Select **Policy Keys** and then select **Add**.
 2. For **Options**, choose `Manual`.
 3. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
-4. In **Secret**, enter your Facebook secret from developers.facebook.com or `0` as a placeholder. This is the secret, not the application ID.
+4. In **Secret**, enter your Facebook secret from developers.facebook.com or `0` as a placeholder. This value is the secret, not the application ID.
 5. For **Key usage**, select **Signature**.
 6. Click **Create**.
 
