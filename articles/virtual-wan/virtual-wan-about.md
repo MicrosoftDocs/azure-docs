@@ -15,9 +15,9 @@ Customer intent: As someone with a networking background, I want to understand w
 
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. Once the branches are connected, you can leverage the Azure backbone to establish branch-to-VNet and branch-to-branch connectivity. For a list of partners and locations that support Virtual WAN VPN, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), Point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections.
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections.
 
-![Virtual WAN diagram](./media/virtual-wan-about/vwangraphic.png)
+![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
 
 This article provides a quick view into the network connectivity in Azure Virtual WAN. Virtual WAN offers the following advantages:
 
@@ -45,7 +45,7 @@ To configure an end-to-end Virtual WAN, you create the following resources:
 
 ## <a name="connectivity"></a>Connectivity
 
-Virtual WAN allows three types of connectivity: site-to-site, Point-to-site (Preview), and ExpressRoute (Preview).
+Virtual WAN allows three types of connectivity: site-to-site, point-to-site (Preview), and ExpressRoute (Preview).
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 
@@ -67,7 +67,7 @@ For a list of the available partners and locations, see the [Virtual WAN partner
 
 ### <a name="p2s"></a>Point-to-site VPN connections (Preview)
 
-A Point-to-Site (P2S) connection lets you create a secure connection to your virtual hub from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect.
+A point-to-site (P2S) connection lets you create a secure connection to your virtual hub from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect.
 
 To create the connection, see [Create a point-to-site connection using Virtual WAN](virtual-wan-point-to-site-portal.md).
 

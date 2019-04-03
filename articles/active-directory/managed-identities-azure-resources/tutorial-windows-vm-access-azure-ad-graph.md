@@ -3,7 +3,7 @@ title: Use a Windows VM system-assigned managed identity to access Azure AD Grap
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -81,7 +81,7 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    ```
    To connect to a specific Azure Active Directory, use the _TenantId_ parameter, as follows:
 
-   ```PowerShell
+   ```powershell
    Connect-AzureAD -TenantId "Object Id of the tenant"
    ```
 

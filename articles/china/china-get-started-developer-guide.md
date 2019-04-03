@@ -20,7 +20,7 @@ ms.author: v-wimarc
 # Developer guide for Azure China 21Vianet
 Microsoft provides tools to help developers create and deploy cloud applications to the global Microsoft Azure services ("global Azure") and Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Most of the currently available technical content, such as the [Azure Documentation Center](https://azure.microsoft.com/documentation/), assumes that applications are being developed for global Azure, so it’s important to learn which [services and features](https://www.azure.cn/home/features/products-by-region) are available in Microsoft Azure China 21Vianet.
 
-When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#Check-endpoints-in-Azure).
+When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#check-endpoints-in-azure).
 
 ## Migrate existing applications and workloads
 Migrating an application or workload hosted elsewhere takes time and planning. To migrate to Microsoft Azure China 21Vianet:

@@ -3,8 +3,8 @@ title: Set up a Windows development environment for Azure microservices | Micros
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
-ms.author: ryanwi
+ms.author: aljo
 
 ---
 # Prepare your development environment on Windows

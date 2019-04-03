@@ -75,7 +75,6 @@ After your data sources are connected, your data starts streaming into Azure Sen
 
 
 
-
 ## Next steps
 In this document, you learned about connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).

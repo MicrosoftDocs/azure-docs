@@ -20,9 +20,10 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Create a new data factory](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image:
       
    ![New data factory page](./media/load-office-365-data/new-azure-data-factory.png)

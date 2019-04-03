@@ -33,7 +33,7 @@ Natural language and image processing is applied during the data ingestion phase
 
 ## Components of cognitive search
 
-Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md), supported in [these regions](#where-do-i-start). 
+Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md).
 
 The cognitive search pipeline is based on [Azure Search *indexers*](search-indexer-overview.md) that crawl data sources and provide end-to-end index processing. Skills are now attached to indexers, intercepting and enriching documents according to the skillset you define. Once indexed, you can access content via search requests through all [query types supported by Azure Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
 
