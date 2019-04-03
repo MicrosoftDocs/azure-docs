@@ -182,6 +182,10 @@ Azure Machine Learning can create two types of images:
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
 
+The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+
+For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
+
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### Image registry

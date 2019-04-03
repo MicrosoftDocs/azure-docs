@@ -83,6 +83,8 @@ Deployed models are packaged as an image. The image contains the dependencies ne
 
 For **Azure Container Instance**, **Azure Kubernetes Service**, and **Azure IoT Edge** deployments, the [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class is used to create an image configuration. The image configuration is then used to create a new Docker image.
 
+When creating the image configuration, you can use either a __default image__ provided by the Azure Machine Learning service or a __custom image__ that you provide.
+
 The following code demonstrates how to create a new image configuration:
 
 ```python
@@ -108,6 +110,36 @@ The important parameters in this example described in the following table:
 For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Use a custom image
+
+When using a custom image, the image must meet the following requirements:
+
+* Ubuntu 16.04 or greater.
+* Conda 4.5.# or greater.
+* Python 3.5.# or 3.6.#.
+
+To use a custom image, set the `base_image` property of the image configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+For more information on uploading images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+If your model is trained using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Execution script
 
@@ -392,7 +424,7 @@ For a walkthrough of deploying a model using Project Brainwave, see the [Deploy 
 
 ## Define schema
 
-Custom decorators can be used for [OpenAPI](https://swagger.io/docs/specification/about/) specification generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to auto-generate the schema. The following types are currently supported:
+Custom decorators can be used for [OpenAPI](https://swagger.io/docs/specification/about/) specification generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. The following types are currently supported:
 
 * `pandas`
 * `numpy`
