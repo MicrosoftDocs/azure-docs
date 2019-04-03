@@ -29,7 +29,8 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 ).
 2. Select the **Create** button at the bottom to be taken into a wizard.![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. The wizard used to create the DLVM requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
-   
+
+<a name="basics"></a>   
    1. **Basics**
       
       1. **Name**: Name of your data science server you are creating.
@@ -60,7 +61,7 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 
 ### Linux Edition
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On aWindows client, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the [**Basics**](#basics) section of step 3 for the text shell interface. For more information about SSH connections to Azure VMs, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](/azure/virtual-machines/linux/use-remote-desktop). On a Windows client, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client. 
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in our testing. We recommend using the X2Go client for a graphical desktop interface.
