@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
 ---
 
@@ -61,6 +61,17 @@ You can create a new app with the authoring APIs in a couple of ways:
 Possible errors are: 
 
 * An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
+
+## Export app
+
+1. On **My Apps** page, select **Import new app**.
+1. In the **Import new app** dialog, select the JSON file defining the LUIS app.
+
+## Delete app
+
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+1. Select **Delete** from the menu.
+1. Select **Ok** in the confirmation window.
 
 ## Next steps
 

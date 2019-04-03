@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/28/2019
 ms.author: jingwang
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
@@ -49,7 +49,7 @@ The following properties are supported for the REST linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property must be set to **HttpServer**. | Yes |
+| type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal** and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
@@ -70,7 +70,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 {
     "name": "RESTLinkedService",
     "properties": {
-        "type": "HttpServer",
+        "type": "RestService",
         "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<REST endpoint>",

@@ -38,14 +38,14 @@ can't use Resource Manager templates to create management groups.
 
 1. On the main page, select **New Management group**.
 
-   ![Main Group](./media/main.png)
+   ![Page for working with management groups](./media/main.png)
 
 1. Fill in the management group ID field.
 
    - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system to identify this group.
    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
 
-   ![Create](./media/create_context_menu.png)  
+   ![Options pane for creating a new management group](./media/create_context_menu.png)  
 
 1. Select **Save**.
 

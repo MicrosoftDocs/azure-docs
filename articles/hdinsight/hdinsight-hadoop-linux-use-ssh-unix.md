@@ -5,12 +5,10 @@ services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
-
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 03/26/2018
 ms.author: hrasheed
-
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 ---
