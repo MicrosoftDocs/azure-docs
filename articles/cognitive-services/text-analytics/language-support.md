@@ -29,9 +29,9 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabic      | `ar`          |  ✔ \*     | ✔ \*       | ✔ \*                     | |
-| Czech       | `cs`          | ✔ \*      | ✔ \*       | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`| ✔ \*     | ✔ \*        | ✔ \*        |    |
+| Arabic      | `ar`          |           |             | ✔ \*                     | |
+| Czech       | `cs`          |           |             | ✔ \*                     | |
+| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔        | ✔           |  ✔      |      |
@@ -39,7 +39,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
 | German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
-| Hungarian   | `hu`          |           |             |  ✔ \*          |     | l
+| Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
 | Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Japanese    | `ja`          |          | ✔           |  ✔ \*          |     |
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
