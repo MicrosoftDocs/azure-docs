@@ -80,7 +80,7 @@ The example above is the tilde (~), but the same principle applies to every oper
 
  Please ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it is a fragement/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure Search. Please see [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
 
- Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ] ``. Reserved characters are `; / ? : @ = + &`.
+ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
 ### Precedence operators: grouping and field grouping  
  You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi||luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).

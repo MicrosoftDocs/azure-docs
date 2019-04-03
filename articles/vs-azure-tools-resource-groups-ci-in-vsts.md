@@ -33,7 +33,7 @@ Regardless of the scenario, if you have any artifacts that are needed for templa
 * Application binaries
 
 ### Nested Templates and Configuration Scripts
-When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.  When using tasks in Azure DevOps Services, you must select the appropriate tasks for your template deployment and if necessary, pass parameter values from the staging step to the template deployment.
+When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](/previous-versions/azure/reference/dn790564(v=azure.100)) to learn more about nested templates.  When using tasks in Azure DevOps Services, you must select the appropriate tasks for your template deployment and if necessary, pass parameter values from the staging step to the template deployment.
 
 ## Set up continuous deployment in Azure Pipelines
 To call the PowerShell script in Azure Pipelines, you need to update your build pipeline. In brief, the steps are: 
