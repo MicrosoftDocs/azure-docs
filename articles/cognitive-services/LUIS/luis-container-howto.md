@@ -76,7 +76,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. [Run the container](##run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
-1. Use LUIS portal's [active learning](luis-how-to-review-endoint-utt.md) on the **Review endpoint utterances** page to improve the app.
+1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order the change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
@@ -264,7 +264,7 @@ The query parameters configure how and what is returned in the query response:
 |`timezoneOffset`|number|The timezoneOffset allows you to [change the timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) used by the prebuilt entity datetimeV2.|
 |`verbose`|boolean|Returns all intents and their scores when set to true. Default is false, which returns only the top intent.|
 |`staging`|boolean|Returns query from staging environment results if set to true. |
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endoint-utt.md). Default is true.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
 
 ### Query published app
 
