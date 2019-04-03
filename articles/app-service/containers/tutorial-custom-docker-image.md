@@ -90,10 +90,10 @@ docker build --tag mydockerimage .
 Test that the build works by running the Docker container. Issue the [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
-docker run -p 2222:8000 mydockerimage
+docker run -p 8000:8000 mydockerimage
 ```
 
-Verify the web app and container are functioning correctly by browsing to `http://localhost:2222`.
+Verify the web app and container are functioning correctly by browsing to `http://localhost:8000`.
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
