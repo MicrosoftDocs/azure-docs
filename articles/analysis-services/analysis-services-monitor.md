@@ -82,4 +82,4 @@ Use this table to determine which metrics are best for your monitoring scenario.
 ## Next steps
 [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Metrics in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

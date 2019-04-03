@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: pareshmu
 ---
 # ExpressRoute partners and peering locations
@@ -86,7 +86,7 @@ The following table shows connectivity locations and the service providers for e
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
 | **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
 | **London** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | Telehouse | Equinix
+| **London2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marseille** |Interxion | Interxion |
 | **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |

@@ -82,17 +82,17 @@ In case you are using a Hyper-V core server, follow the below steps once you dow
 
 1. Extract the files from AzureSiteRecoveryProvider.exe by running
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     This will extract the files to the local directory.
  
-2.	Run ``.\setupdr.exe /i ``
+2.	Run `.\setupdr.exe /i`
 
     Results will be logged to %Programdata%\ASRLogs\DRASetupWizard.log
 
 3.	Register the server using the command:
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## Set up the target environment
