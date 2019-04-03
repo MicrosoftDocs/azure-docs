@@ -100,7 +100,7 @@ Query sections are highly flexible and can be used to answer questions like:
 
 You also aren't only limited to querying from the context of the virtual machine you launched the workbook from. You can query across multiple virtual machines, as well as Log Analytics workspaces, as long as you have access permission to those resources.
 
-To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries refer to the [official guidance](../../log-query/cross-workspace-query.md).
+To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries, refer to the [official guidance](../log-query/cross-workspace-query.md).
 
 ### Advanced analytic query settings
 
@@ -110,11 +110,11 @@ Each section has its own advanced settings, which are accessible via the setting
 
 |         |          |
 | ---------------- |:-----|
-| **Custom width**    | Set this to make an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
-| **Conditionally visible** | Use this to hide steps based on a parameter when in reading mode. |
-| **Export a parameter**| This allows a selected row in the grid or chart to cause later steps to change values or become visible.  |
-| **Show query when not editing** | This displays the query above the chart or table even when in reading mode.
-| **Show open in analytics button when not editing** | This adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
+| **Custom width**    | Makes an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
+| **Conditionally visible** | Specify to hide steps based on a parameter when in reading mode. |
+| **Export a parameter**| Allow a selected row in the grid or chart to cause later steps to change values or become visible.  |
+| **Show query when not editing** | Displays the query above the chart or table even when in reading mode.
+| **Show open in analytics button when not editing** | Adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
 
 Most of these settings are fairly intuitive, but to understand **Export a parameter** it is better to examine a workbook that makes use of this functionality.
 
@@ -124,11 +124,11 @@ The first section of the workbook is based on log query data. The second section
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
-This is possible through use of the **When an item is selected, export a parameter** advanced settings that are enabled in the table's analytics query.
+The behavior is possible through use of the **When an item is selected, export a parameter** advanced settings, which are enabled in the table's log query.
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/009-settings-export.png)
 
-The second analytics query then utilizes the exported values when a row is selected to create a set of values that are then used by the section heading and charts. If no row is selected, it hides the section heading and charts. 
+The second log query then utilizes the exported values when a row is selected to create a set of values that are then used by the section heading and charts. If no row is selected, it hides the section heading and charts. 
 
 For example, the hidden parameter in the second section uses the following reference from the row selected in the grid:
 
@@ -159,18 +159,16 @@ There are four different types of parameters which are currently supported:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | This allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
-| **Drop down** | This allows the user to choose from a set of values. |
-| **Time range picker**| This allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
-| **Resource picker** | This allows the user to choose from the resources selected for the workbook.|
+| **Text**    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
+| **Drop down** | Allows the user to choose from a set of values. |
+| **Time range picker**| Allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
+| **Resource picker** | Allows the user to choose from the resources selected for the workbook.|
 
 ### Using a text parameter
 
 The value a user types in the text box is replaced directly in the query, with no escaping or quoting. If the value you need is a string, the query should have quotes around the parameter (like **'{parameter}'**).
 
-This allows the value in a text box to be used anywhere. It can be a table name, column name, function name, operator, etc.
-
-The text parameter type has a setting **Get default value from analytics query**, which allows the workbook author to use a query to populate the default value for that text box.
+The text parameter allows the value in a text box to be used anywhere. It can be a table name, column name, function name, operator, etc.  The text parameter type has a setting **Get default value from analytics query**, which allows the workbook author to use a query to populate the default value for that text box.
 
 When using the default value from a log query, only the first value of the first row (row 0, column 0) is used as the default value. Therefore it is recommended to limit your query to return just one row and one column. Any other data returned by the query is ignored. 
 
