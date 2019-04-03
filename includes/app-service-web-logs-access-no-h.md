@@ -27,4 +27,4 @@ If you don't see console logs immediately, check again in 30 seconds.
 > [!NOTE]
 > You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-To stop log streaming at anytime, type `Ctrl`+`C`.
+To stop log streaming at any time, type `Ctrl`+`C`.

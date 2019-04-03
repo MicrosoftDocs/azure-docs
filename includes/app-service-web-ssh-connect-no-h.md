@@ -18,6 +18,6 @@ Paste the following URL into your browser and replace \<app-name> with your app 
 https://<app-name>.scm.azurewebsites.net/webssh/host
 ```
 
-If you are not already authenticated, you are required to authenticate with your Azure subscription to connect. Once authenticated, you see an in-browser shell, where you can run commands inside your container.
+If you're not yet authenticated, you're required to authenticate with your Azure subscription to connect. Once authenticated, you see an in-browser shell, where you can run commands inside your container.
 
 ![SSH connection](./media/app-service-web-ssh-connect-no-h/app-service-linux-ssh-connection.png)
