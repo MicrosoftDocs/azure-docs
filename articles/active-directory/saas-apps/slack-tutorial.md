@@ -245,7 +245,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect is the synchronization tool which can sync on premise Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
+> Azure AD Connect is the synchronization tool which can sync on premises Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
 
 ### Test single sign-on 
 

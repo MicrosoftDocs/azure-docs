@@ -329,7 +329,7 @@ When referencing management groups from other Resource Provider's actions, use t
 
 An example of using this path is when assigning a new role assignment to a management group in PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
