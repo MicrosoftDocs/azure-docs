@@ -19,20 +19,21 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Create an Azure storage queue
+> - Create an Azure storage account
 > - Create the app
 > - Get your connection string
+> - Programmatically access a queue
 > - Insert messages into the queue
 > - Get messages from the queue
 > - Delete messages from the queue
 
 ## Prerequisites
 
-- This tutorial assumes you have an Azure subscription. If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- This tutorial also assumes you have Visual Studio Code installed. If you don't already have it, get your free copy of [Visual Studio Code](https://code.visualstudio.com/download).
+- If you don't already have it, get your free copy of [Visual Studio Code](https://code.visualstudio.com/download).
 
-## Sign in to Azure
+### Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -60,7 +61,6 @@ cd QueueApp
 dotnet build
 ```
 
-
 ## Get your connection string
 
 The client library uses a **connection string** to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal. Click the **Copy** button to the right of the **Connection string** field.
@@ -70,86 +70,187 @@ The client library uses a **connection string** to establish your connection. Yo
 The connection string will look something like this:
 
 ```csharp
-const string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
+private const string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net";
 ```
 
 ### Add the connection string to the app
 
 Add the connection string into the app so it can access the storage account.
 
+Type `code .` in the terminal to open the online code editor. Alternatively, if you are working on your own you can use the IDE of your choice. We recommend Visual Studio Code, which is an excellent cross-platform IDE.
 
+Open the `Program.cs` source file in the project.
+
+In the `Program` class, add a const string value to hold the connection string. You only need the value (it starts with the text DefaultEndpointsProtocol).
+
+Save the file. You can click the ellipse "..." in the right corner of the cloud editor, or use the accelerator key (`Ctrl+S` on Windows and Linux, `Cmd+S` on macOS).
+
+Your code should look something like this (the string value will be unique to your account).
+
+```csharp
+...
+namespace QueueApp
+{
+    class Program
+    {
+        private const string connectionString = "DefaultEndpointsProtocol=https; ...";
+
+        ...
+    }
+}
+```
+
+## Programmatically access a queue
+
+1. Install the `WindowsAzure.Storage` package to the project with the `dotnet add package` command. Do this in the same folder as the project.
+
+```azurecli
+dotnet add package WindowsAzure.Storage
+```
+
+2. At the top of the file, add the following namespaces. We'll be using types from both of these to connect to Azure Storage and then to work with queues.
+
+```csharp
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue; 
+```
+
+1. Add the following method to your `Program` class to get a reference to the `CloudQueue`. This method will be called for both Send and Receive operations.
+
+```csharp
+static CloudQueue GetQueue()
+{
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    return queueClient.GetQueueReference("newsqueue");
+}
+```
 
 ## Insert messages into the queue
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Create a new method to asynchronously send a news story into a queue. Add the following method to your `Program` class.
 
-1. Step 1 of the procedure
-2. Step 2 of the procedure
-3. Step 3 of the procedure
+```csharp
+static async Task SendArticleAsync(string newsMessage)
+{
+    CloudQueue queue = GetQueue();
+    bool createdQueue = await queue.CreateIfNotExistsAsync();
 
-## Get messages from the queue
+    if (createdQueue)
+    {
+        Console.WriteLine("The queue of news articles was created.");
+    }
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
+    CloudQueueMessage articleMessage = new CloudQueueMessage(newsMessage);
+    await queue.AddMessageAsync(articleMessage);
+}
 ```
 
-or a code block for Azure CLI:
+## Dequeue messages
 
-```azurecli-interactive
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+Once we've successfully received the message from the queue, it is safe to delete it so we don't process it more than once. Create a new method to asynchronously receive a news story from a queue. After the message is received, delete it from the queue. Add the following method to your `Program` class.
+
+```csharp
+static async Task<string> ReceiveArticleAsync()
+{
+    CloudQueue queue = GetQueue();
+    bool exists = await queue.ExistsAsync();
+    if (exists)
+    {
+        CloudQueueMessage retrievedArticle = await queue.GetMessageAsync();
+        if (retrievedArticle != null)
+        {
+            string newsMessage = retrievedArticle.AsString;
+            await queue.DeleteMessageAsync(retrievedArticle);
+            return newsMessage;
+        }
+    }
+
+    return "<queue empty or not created>";
+}
 ```
 
-or a code block for Azure PowerShell:
+## Complete code
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+Here is the complete code listing for this project.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
+
+namespace QueueApp
+{
+    class Program
+    {
+        private const string connectionString = "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net";
+
+        static async Task Main(string[] args)
+        {
+            if (args.Length > 0)
+            {
+                string value = String.Join(" ", args);
+                await SendArticleAsync(value);
+                Console.WriteLine($"Sent: {value}");
+            }
+            else
+            {
+                string value = await ReceiveArticleAsync();
+                Console.WriteLine($"Received {value}");
+            }
+        }
+
+        static async Task SendArticleAsync(string newsMessage)
+        {
+            CloudQueue queue = GetQueue();
+            bool createdQueue = await queue.CreateIfNotExistsAsync();
+
+            if (createdQueue)
+            {
+                Console.WriteLine("The queue of news articles was created.");
+            }
+
+            CloudQueueMessage articleMessage = new CloudQueueMessage(newsMessage);
+            await queue.AddMessageAsync(articleMessage);
+        }
+
+        static async Task<string> ReceiveArticleAsync()
+        {
+            CloudQueue queue = GetQueue();
+            bool exists = await queue.ExistsAsync();
+            if (exists)
+            {
+                CloudQueueMessage retrievedArticle = await queue.GetMessageAsync();
+                if (retrievedArticle != null)
+                {
+                    string newsMessage = retrievedArticle.AsString;
+                    await queue.DeleteMessageAsync(retrievedArticle);
+                    return newsMessage;
+                }
+            }
+
+            return "<queue empty or not created>";
+        }
+
+        static CloudQueue GetQueue()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+            return queueClient.GetQueueReference("newsqueue");
+        }
+    }
+}
+
 ```
-
-## Delete messages from the queue
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete resources with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+When you're working in your own subscription, it's a best practice at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources one by one or just delete the resource group to get rid of the entire set.
 
 ## Next steps
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
 > [Next steps](storage-quickstart-queues-portal.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
