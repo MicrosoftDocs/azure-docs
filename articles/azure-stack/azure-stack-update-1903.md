@@ -30,7 +30,9 @@ This article describes the contents of the 1903 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1903 update build number is **1.1903.0.35**.
+The Azure Stack 1903 update build number is **1.1903.0.35**. 
+
+The 1903 payload does not include an ASDK release.
 
 ## Hotfixes
 
@@ -64,10 +66,10 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - Make sure to use the latest version of the [Azure Stack capacity planner](https://aka.ms/azstackcapacityplanner) to do your workload planning and sizing. The latest version contains bug fixes and provides new features that are released with each Azure Stack update.
 
-- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
+- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameter to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
     ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+   Test-AzureStack -Group UpdateReadiness  
     ```
 
 - When Azure Stack is managed by System Center Operations Manager, make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1903.
