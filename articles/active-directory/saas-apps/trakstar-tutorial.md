@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Trakstar, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Trakstar single sign-on enabled subscription
 *  SSO is a paid feature in Trakstar. To enable it for your organization, reach out to [Trakstar Client support team](mailto:support@trakstar.com).
 
