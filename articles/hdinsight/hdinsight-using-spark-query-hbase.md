@@ -19,7 +19,7 @@ Apache HBase is typically queried either with its low-level API (scans, gets, an
 * Two separate HDInsight clusters, one HBase, and one Spark with at least Spark 2.1 (HDInsight 3.6) installed.
 * The Spark cluster needs to communicate directly with the HBase cluster with minimal latency, so the recommended configuration is deploying both clusters in the same virtual network. For more information, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-* The [URI scheme](/hdinsight-hadoop-linux-information#URI-and-scheme.md) for your clusters primary storage. This would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 
 ## Overall process

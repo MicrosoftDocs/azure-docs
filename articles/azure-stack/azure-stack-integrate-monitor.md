@@ -77,7 +77,7 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 | Parameter | Description | Example |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administrator) endpoint | https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Admin subscription ID | Retrieve via the administrator portal or PowerShell |
 | *User_name* | Operator subscription username | operator@myazuredirectory.onmicrosoft.com |
@@ -96,31 +96,32 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+   ```powershell
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Use commands such as the following examples to work with alerts:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## Learn more

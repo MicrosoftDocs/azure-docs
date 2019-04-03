@@ -3,8 +3,8 @@ title: Integrate API Management with Service Fabric in Azure | Microsoft Docs
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/26/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 # Integrate API Management with Service Fabric in Azure
@@ -137,7 +137,7 @@ Enter a descriptive **displayName** and **description** for the product. For thi
 
 * **displayName** can be any name for your API. For this article, use "Service Fabric App".
 * **name** provides a unique and descriptive name for the API, such as "service-fabric-app". It is displayed in the developer and publisher portals.
-* **serviceUrl** references the HTTP service implementing the API. API management forwards requests to this address. For Service Fabric backends, this URL value is not used. You can put any value here. For this article, for example "<http://servicefabric>".
+* **serviceUrl** references the HTTP service implementing the API. API management forwards requests to this address. For Service Fabric backends, this URL value is not used. You can put any value here. For this article, for example "http:\//servicefabric".
 * **path** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
 * **protocols** determine which protocols can be used to access the API. For this article, list **http** and **https**.
 * **path** is a suffix for the API. For this article, use "myapp".

@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline (Preview)
 
-In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. YOu can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by an AI-powered indexing pipeline. 
+In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by an AI-powered indexing pipeline. 
 
 In this tutorial, you make REST API calls to perform following tasks:
 
@@ -126,9 +126,6 @@ Since this is your first request, check the Azure portal to confirm the data sou
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
-
-> [!TIP]
-> Now, before you do a lot of work, is a good time to verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
 
 ## Create a skillset
 

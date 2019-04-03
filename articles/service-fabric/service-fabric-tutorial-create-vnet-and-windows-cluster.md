@@ -3,8 +3,8 @@ title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
@@ -53,6 +53,7 @@ Before you begin this tutorial:
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 * Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
+* [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
 The following procedures create a seven-node Service Fabric cluster. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to calculate cost incurred by running a Service Fabric cluster in Azure.
 
@@ -152,7 +153,7 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 |clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
-|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## Set up Azure Active Directory client authentication
@@ -176,7 +177,7 @@ Create two Azure AD applications to control access to the cluster: one web appli
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters. Specify usernames and passwords for the users. For example:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

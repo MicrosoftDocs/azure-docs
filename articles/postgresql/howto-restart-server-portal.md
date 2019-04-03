@@ -17,7 +17,7 @@ The time required to complete a restart depends on the PostgreSQL recovery proce
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-portal.md)
+- An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md)
 
 ## Perform server restart
 

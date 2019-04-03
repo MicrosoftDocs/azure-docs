@@ -259,7 +259,7 @@ If you’re already using Azure AD Privileged Identity Management, adjust timefr
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and conditional access. 
+In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and conditional access. You can block [legacy authentication using conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchnage online. 
 
 #### Complete a roles review assessment for Office 365 roles (if using Office 365)
 

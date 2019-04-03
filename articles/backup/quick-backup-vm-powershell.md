@@ -14,16 +14,15 @@ ms.custom: mvc
 
 # Back up a virtual machine in Azure with PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module is used to create and manage Azure resources from the command line or in scripts. 
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with the AZ module. Alternatively, you can back up a VM using the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
 
 This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run ` Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Log in and register
 
@@ -68,6 +67,14 @@ Now create a vault.
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
+3. Change the storage redundancy configuration (LRS/GRS) of the vault with [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), as follows:
+    
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+    ```
+    > [!NOTE]
+    > Storage Redundancy can be modified only if there are no backup items protected to the vault.
 
 ## Enable backup for an Azure VM
 
@@ -78,13 +85,13 @@ You enable backup for an Azure VM, and specify a backup policy.
 
 Enable backup as follows:
 
-1. First, set the default policy with [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupProtectionPolicy):
+1. First, set the default policy with [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy):
 
     ```powershell
     $policy = Get-AzRecoveryServicesBackupProtectionPolicy     -Name "DefaultPolicy"
     ```
 
-2. Enable VM backup with [Enable-AzRecoveryServicesBackupProtection](/powershell/module/Az.RecoveryServices.Backup/Enable-AzRecoveryServicesBackupProtection). Specify the policy, the resource group and the VM name.
+2. Enable VM backup with [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Specify the policy, the resource group and the VM name.
 
     ```powershell
     Enable-AzRecoveryServicesBackupProtection `
@@ -102,9 +109,9 @@ Backups run in accordance with the schedule specified in the backup policy. You 
 - After the initial backup, each backup job creates incremental recovery points.
 - Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-To run an ad hoc backup, you use the[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem). 
-- You specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-- Each VM to back up is treated as an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
+To run an ad hoc backup, you use the[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+- You specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
+- Each VM to back up is treated as an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 Run an ad hoc backup job as follows:
 
@@ -127,7 +134,7 @@ Run an ad hoc backup job as follows:
 
 ## Monitor the backup job
 
-1. Run [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupjob) to monitor the job status.
+1. Run [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) to monitor the job status.
 
     ```powershell
     Get-AzRecoveryservicesBackupJob

@@ -76,7 +76,7 @@ Get-AzVM
 
 The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -87,7 +87,7 @@ OSProfile                  :
 
 The following script can be used to return a concise list of VM names and the state of the VM Agent:
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

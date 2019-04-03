@@ -272,40 +272,40 @@ then sends an email that confirms the current value.
    ![Add action for incrementing variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
 1. For **Name**, select the **Limit** variable. For **Value**, 
-    enter "1". 
+     enter "1". 
 
-    ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Outside and under the loop, choose **New step**. 
 
 1. Under the search box, choose **All**. 
-    Find and add an action that sends email, 
-    for example: 
+     Find and add an action that sends email, 
+     for example: 
 
-    ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. If prompted, sign in to your email account.
 
 1. Set the email action's properties. Add the **Limit** 
-    variable to the subject. That way, you can confirm the 
-    variable's current value meets your specified condition, 
-    for example:
+     variable to the subject. That way, you can confirm the 
+     variable's current value meets your specified condition, 
+     for example:
 
-     ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-     | Property | Value | Description |
-     | -------- | ----- | ----------- | 
-     | **To** | *<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
-     | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
-     | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
-     |||| 
+      | Property | Value | Description |
+      | -------- | ----- | ----------- | 
+      | **To** | *<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
+      | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
+      | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
+      |||| 
 
 1. Save your logic app. To manually test your logic app, 
-    on the designer toolbar, choose **Run**.
+     on the designer toolbar, choose **Run**.
 
-     After your logic starts running, you get an email with the content that you specified:
+      After your logic starts running, you get an email with the content that you specified:
 
-     ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## Prevent endless loops
 
