@@ -101,7 +101,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 1. In the vault menu, click **Backup items**.
 2. In **Backup Items** click **Azure Virtual Machine**.
-3. In the **Backup Items** list, click the ellipses **...**.
+3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained >  **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.

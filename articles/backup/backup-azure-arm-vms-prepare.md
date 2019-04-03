@@ -80,7 +80,6 @@ Modify storage replication type as follows:
 3. Select the storage replication type, and click **Save**.
 
       ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
-
 > [!NOTE]
    > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this you need to recreate the vault. 
 
@@ -93,7 +92,7 @@ Discover VMs in the subscription, and configure backup.
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
 
-2. In **Backup Goal**> **Where is your workload running?**, select **Azure**. In **What do you want to backup?**, select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
+2. In **Backup Goal** > **Where is your workload running?**, select **Azure**. In **What do you want to backup?** select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
 
    ![Backup and Backup Goal panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -134,11 +133,13 @@ If you selected to create a new backup policy, fill in the policy settings.
     - When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally-stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
     - You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
 3. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
-4. In **Retention of monthly backup point**, specify whether you want to keep a monthly back up of your daily or weekly backups. 
+4. In **Retention of monthly backup point**, specify whether you want to keep a monthly backup of your daily or weekly backups. 
 5. Click **OK** to save the policy.
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
+> [!NOTE]
+   > Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
 
 ## Trigger the initial backup
 
@@ -146,7 +147,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 1. In the vault menu, click **Backup items**.
 2. In **Backup Items** click **Azure Virtual Machine**.
-3. In the **Backup Items** list, click the ellipses **...**.
+3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained >  **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
@@ -172,7 +173,7 @@ The Backup extension running on the VM needs outbound access to Azure public IP 
 --- | --- | --- 
 **Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). | Instead of allowing and managing every address range, you can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Learn more](../virtual-network/security-overview.md#service-tags).<br/><br/> No additional costs.<br/><br/> Simple to manage with service tags.
 **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage.<br/><br/> Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.
-**Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service. |  Simple to use if you have Azure Firewall set up in a VNet subnet<br/><br/> You can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
+**Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service. |  Simple to use if you have Azure Firewall set up in a VNet subnet<br/><br/> You can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If your Azure VMs have managed disks, you might need an additional port open (8443) on the firewalls.
 
 ### Set up an NSG rule to allow outbound access to Azure
 
@@ -272,4 +273,3 @@ You can set up the Azure Firewall to allow outbound access for network traffic t
 - Troubleshoot any issues with [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
 - [Restore](backup-azure-arm-restore-vms.md) Azure VMs.
 
-ote that Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. Modify backup policies manually as required.
