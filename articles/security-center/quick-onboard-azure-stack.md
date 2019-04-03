@@ -40,14 +40,14 @@ You must have an Azure subscription on Security Center’s Standard tier before 
 
    ![Get started][3]
 
-5. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want the Azure stack VM to report security data to.
+5. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want the Azure Stack VM to report security data to.
 
     ![Add non-Azure computer](./media/quick-onboard-windows-computer/non-azure.png)
 
    The **Direct Agent** blade opens with a link for downloading the agent and keys for your workspace ID to use in configuring the agent.
 
->[!NOTE]
-> You do NOT need to download the agent manually. The agent will be installed as a VM extension in the steps below.
+   >[!NOTE]
+   > You do NOT need to download the agent manually. The agent will be installed as a VM extension in the steps below.
 
 6. On the right of **Workspace ID**, select the copy icon and paste the ID into Notepad.
 
