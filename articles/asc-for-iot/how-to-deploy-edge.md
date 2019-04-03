@@ -87,11 +87,15 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
    
-  >[!Note]
-  > Do **not** disable AMQP communication for the IoT Edge Hub.
-  > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
+   >[!Note]
+   > Do **not** disable AMQP communication for the IoT Edge Hub.
+   > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
 1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
+
+   >[!Note]
+   > Azure Security Center for IoT module requires a forked version of IoT Edge Hub, based on SDK version 1.8.
+   > By changing IoT Edge Hub image, you instruct your IoT Edge device to use the forked version which is not support by IoT Edge team.
       
 1. Verify **Create Options** is set to: 
          
