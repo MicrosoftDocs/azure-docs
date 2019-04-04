@@ -15,6 +15,7 @@ ms.author: adjohnso
 Azure CycleCloud is a tool for creating, managing, operating, and optimizing HPC & Big Compute clusters in Azure. With Azure CycleCloud, users can dynamically provision HPC Azure clusters and orchestrate data and jobs for hybrid and cloud workflows. Azure CycleCloud provides alerting, monitoring, and automatically scales HPC infrastructure to ensure your jobs run efficiently at any scale. Azure CycleCloud offers advanced policy and governance features such as: cost reporting and controls, usage reporting, AD/LDAP integration, monitoring and alerting, and audit/event logging to give users full control over who runs what, where, and at what cost within Azure.
 
 ![Overview Intro](~/images/overview-gui.png)
+
 [//]: # (do we have a video that would work?)
 
 ## Why Should I Use Azure CycleCloud?
