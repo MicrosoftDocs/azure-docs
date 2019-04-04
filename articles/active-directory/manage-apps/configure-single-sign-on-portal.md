@@ -33,7 +33,7 @@ This tutorial uses the Azure portal to:
 
 1. If the application hasn't been added to your Azure AD tenant, see  [Quickstart: Add an application to your Azure AD tenant](add-application-portal.md).
 
-2. Ask your application vendor for the information described in [Configure domain and URLS](#configure-domain-and-urls).
+2. Ask your application vendor for the information described in [Configure basic SAML options](#configure-basic-SAML-options).
 
 3. Use a non-production environment to test the steps in this tutorial. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
