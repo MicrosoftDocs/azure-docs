@@ -95,8 +95,8 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 
    >[!Note]
    > Azure Security Center for IoT module requires a forked version of IoT Edge Hub, based on SDK version 1.8.
-   > By changing IoT Edge Hub image, you instruct your IoT Edge device to use the forked version which is not support by IoT Edge team.
-      
+   > By changing IoT Edge Hub image, you are instructing your IoT Edge device to replace the latest stable release with the forked version of IoT Edge Hub, which is not officially supported by the IoT Edge service.
+
 1. Verify **Create Options** is set to: 
          
     ``` json
