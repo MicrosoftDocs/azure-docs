@@ -1251,6 +1251,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
       "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
       "redirect_document_id": true
