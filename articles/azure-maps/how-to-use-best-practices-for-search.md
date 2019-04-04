@@ -241,7 +241,7 @@ To find cross street addresses, that is, 1st Avenue & Union Street, Seattle, spe
 
 Get Search Address:
 
-```HTTP
+```
 query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
 ```
 
@@ -303,7 +303,7 @@ Points of Interest (POI) Search allows you to request POI results by name, for e
 
 ### Brand search
 
-To improve the relevance of the results and the information in the response, POI response includes the brand information that can be used further to parse the response.
+To improve the relevance of the results and the information in the response, Point of Interest (POI) search response includes the brand information that can be used further to parse the response.
 
 Let's make a [POI Category Search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) request for gas stations near Microsoft campus (Redmond, WA). If you observe the response, you can see brand information for each POI returned.
 
