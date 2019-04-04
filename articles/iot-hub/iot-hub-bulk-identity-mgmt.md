@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Import and export IoT Hub device identities in bulk
