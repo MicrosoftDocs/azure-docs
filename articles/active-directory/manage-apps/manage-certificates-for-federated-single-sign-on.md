@@ -90,7 +90,7 @@ Next, download the new certificate in the correct format, upload it to the appli
 
 ## Add email notification addresses for certificate expiration
 
-Azure AD will send an email notification 60, 30, and seven days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es) you want the notifications to be sent to:
+Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es) you want the notifications to be sent to:
 
 1. In the **SAML Signing Certificate** page, go to the **notification email addresses** heading. By default, this heading uses only the email address of the admin who added the application.
 
@@ -113,11 +113,13 @@ If a certificate is about to expire, you can renew it using a procedure that res
 2. If the application can automatically roll over a certificate, set the new certificate to active by following these steps:
    1. Go back to the **SAML Signing Certificate** page.
    2. In the newly saved certificate row, select the ellipsis (**...**) and then select **Make certificate active**.
-   3. Skip the remaining steps.
+   3. Skip the next two steps.
 
 3. If the app can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
 
 4. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier.
+
+5. Sign in to the application to make sure that the certificate works correctly.
 
 ## Related articles
 
