@@ -87,3 +87,8 @@ property along with the `"minimumItemCount"` property in that action's
    }
 },
 ```
+
+## Get support
+
+For questions, visit the 
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
