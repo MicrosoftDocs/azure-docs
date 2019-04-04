@@ -1,5 +1,5 @@
 ﻿---
-title: Security Attributes for Azure Backup
+title: Security attributes for Azure Backup
 description: A checklist of common security attributes for evaluating Azure Backup
 services: backup
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 04/03/2019
 ms.author: mbaldwin
 
 ---
-# Security Attributes for Azure Backup
+# Security attributes for Azure Backup
 
 Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Backup. 
 
