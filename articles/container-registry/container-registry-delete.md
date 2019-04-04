@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
 ---
 
@@ -14,7 +14,7 @@ ms.author: danlep
 
 To maintain the size of your Azure container registry, you should periodically delete stale image data. While some container images deployed into production may require longer-term storage, others can typically be deleted more quickly. For example, in an automated build and test scenario, your registry can quickly fill with images that might never be deployed, and can be purged shortly after completing the build and test pass.
 
-Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article first introduces the components of a Docker registry and container images, then covers several methods for deleting image data.
+Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article first introduces the components of a Docker registry and container images, then covers several methods for deleting image data. Sample scripts are provided to help automate delete operations.
 
 ## Registry
 
@@ -50,7 +50,7 @@ An image's *tag* specifies its version. A single image within a repository can b
 
 The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
 
-In a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the first image in the 'marketing' namespace in the previous section would be:
+In a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io* (all lowercase). For example, the full name of the first image in the 'marketing' namespace in the previous section would be:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -198,6 +198,50 @@ Are you sure you want to continue? (y/n): y
 ```
 
 The "acr-helloworld:v2" image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
+
+### List digests by timestamp
+
+To maintain the size of a repository or registry, you might need to periodically delete manifest digests older than a certain date.
+
+The following Azure CLI command lists all manifest digest in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### Delete digests by timestamp
+
+The following Bash script deletes all manifest digests older than a specified timestamp from a repository. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
+
+> [!WARNING]
+> Run this script with care, because it deletes data. Ensure that you do not have systems that pull these images by manifest digest. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:51.4873258Z.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
+fi
+```
 
 ## Delete untagged images
 
