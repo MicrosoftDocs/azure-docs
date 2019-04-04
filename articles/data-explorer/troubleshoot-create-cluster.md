@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Troubleshoot: failed cluster creation of Azure Data Explorer
+# Troubleshoot: Failed cluster creation of Azure Data Explorer
 
 In the unlikely event that cluster creation fails in Azure Data Explorer, follow these steps.
 
