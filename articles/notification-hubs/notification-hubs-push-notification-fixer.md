@@ -37,7 +37,7 @@ The next section looks at scenarios in which notifications might be dropped, ran
 
 ## Notification Hubs misconfiguration
 
-To successfully send notifications to the respective push notification service, the Notification Hubs service needs to authenticate itself in the context of the developer's application. For this to occur, the developer creates a developer account with the respective platform (Google, Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials.
+To successfully send notifications to the respective push notification service, the Notification Hubs service needs to authenticate itself in the context of the developer's application. The developer creates a developer account with the respective platform (Google, Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials.
 
 You must add platform credentials to the Azure portal. If no notifications are reaching the device, the first step should be to ensure that the correct credentials are configured in Notification Hubs. The credentials must match the application that is created under a platform-specific developer account.
 
@@ -53,7 +53,7 @@ Here are some common misconfigurations to check for:
         * Where you configured the push notification service credentials.
     * Ensure that you use the correct shared access signature configuration strings on the client and on the application back end. Generally, you must use **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application back end (grants permissions to send notifications to Notification Hubs).
 
-**APNs configuration:**
+**APN configuration:**
 
     You must maintain two different hubs: one hub for production, and another hub for testing. This means that you must upload the certificate that you use in a sandbox environment to a separate hub than the certificate and hub that you are going to use in production. Don't try to upload different types of certificates to the same hub. This might cause notification failures.
 
@@ -102,11 +102,11 @@ Here are some common misconfigurations to check for:
 
 After the notification message has been received by the platform push notification service, it's the responsibility of the push notification service to deliver the notification to the device. At this point, the Notification Hubs service is out of the picture and has no control over when or if the notification is delivered to the device.
 
-Because platform notification services are robust, notifications tend to reach devices from the push notification service in a few seconds. If the push notification service is throttling,  Notification Hubs applies an exponential back-off strategy. If the push notification service remains unreachable for 30 minutes, we have a policy in place to expire and drop those messages permanently.
+Because platform notification services are robust, notifications tend to reach devices from the push notification service in a few seconds. If the push notification service is throttling, the Notification Hubs service applies an exponential back-off strategy. If the push notification service remains unreachable for 30 minutes, we have a policy in place to expire and drop the messages permanently.
 
 If a push notification service attempts to deliver a notification but the device is offline, the notification is stored by the push notification service for a limited period of time. The notification is delivered to the device when the device becomes available.
 
-For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APNs, and *collapsing* in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APNs overview] and [About FCM messages].
+For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APN, and *collapsing* in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APN overview] and [About FCM messages].
 
 With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use `SendNotificationAsync`. The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service.
 
@@ -134,7 +134,7 @@ If you use Visual Studio for development, you can connect to Azure through Serve
 
 ![Visual Studio Server Explorer][9]
 
-You can view and manage all the registrations in your hub, categorized by platform, native or template registration, any tags, push notification service identifier, registration ID, and expiration date. You can also edit a registration on this page. This is especially useful for editing tags.
+You can view and manage all the registrations in your hub, categorized by platform, native or template registration, any tags, push notification service identifier, registration ID, and expiration date. You can also edit a registration on this page. It's especially useful for editing tags.
 
 Right-click on your **notification hub** in the **Server Explorer**, and select **Diagnose**. 
 
@@ -252,7 +252,7 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
 3. Begin by reviewing **Incoming Messages**, **Registration Operations**, and **Successful Notifications**. Then, go to the per-platform tab to review errors that are specific to the push notification service.
 
-4. If the authentication settings for your notification hub are incorrect, the message **PNS Authentication Error** appears. This is a good indication to check the push notification service credentials.
+4. If the authentication settings for your notification hub are incorrect, the message **PNS Authentication Error** appears. It's a good indication to check the push notification service credentials.
 
 * **Programmatic access**
 
