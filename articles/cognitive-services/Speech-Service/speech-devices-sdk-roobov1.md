@@ -60,6 +60,14 @@ This article provides device specific information for the Roobo Smart Audio Dev 
 
     ![Vysor audio](media/speech-devices-sdk/qsg-14.png)
 
+## Development information
+
+For more development information, see the [ROOBO development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+
+## Audio
+
+ROOBO provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [ROOBO site](http://ddk.roobo.com/), select your device, and then select the **ROOBO Tools** link at the bottom of the page.
+
 ## Next steps
 
-* [Run the sample app](speech-devices-sdk-android-qsg.md)
+* [Run the Android sample app](speech-devices-sdk-android-qsg.md)
