@@ -1,6 +1,6 @@
 ---
-title: Configure and monitor IoT devices at scale with Azure IoT Hub | Microsoft Docs
-description: Use Azure IoT Hub automatic device configurations to assign a configuration to multiple devices
+title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
+description: Use Azure IoT Hub automatic device management to assign a configuration to multiple devices
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.date: 04/13/2018
 ms.author: chrisgre
 ---
 
-# Configure and monitor IoT devices at scale using the Azure portal
+# Automatic IoT device management at scale using the Azure portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -18,7 +18,7 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
+Automatic device management works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
