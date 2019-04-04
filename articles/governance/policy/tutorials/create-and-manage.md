@@ -127,7 +127,7 @@ You can create a policy with the REST API for Policy Definitions. The REST API e
 create and delete policy definitions, and get information about existing definitions. To create a
 policy definition, use the following example:
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 

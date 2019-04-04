@@ -21,6 +21,8 @@ ms.author: damaerte
 
 Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General troubleshooting
 
 ### Early timeouts in FireFox
@@ -71,7 +73,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolution**:  Run `Enable-AzureRmVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
+- **Resolution**:  Run `Enable-AzVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
 
 ### `dir` does not update the result in Azure drive
 

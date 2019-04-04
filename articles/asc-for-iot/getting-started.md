@@ -1,7 +1,8 @@
 ---
 title: Get started using Azure Security Center (ASC) for IoT Preview| Microsoft Docs
 description: Get started in understanding the basic workflow of Azure Security Center for IoT features and service.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
