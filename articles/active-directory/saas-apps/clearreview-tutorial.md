@@ -121,29 +121,21 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+7. In the **User Claims** section on the **User Attributes** dialog, edit the **Name identifier value** by using **Edit icon** as shown in the image above and perform the following steps:
     
 	| Name | Source Attribute | 
 	| ---------------| --------------- |
 	| Name identifier value   | user.mail |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+	a. Click **Edit icon** on the right of **Name identifier value**.
 
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
+	![image](common/edit-name-identifier.png)
+	
+	b. Select **user.mail** in the **Source attribute** shown in the image below
+	
+	![image](common/edit-name-identifier-source-attribute.png)
+	
+	c. Click **Save**.
 
 8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
