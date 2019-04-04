@@ -137,7 +137,7 @@ To configure Azure AD single sign-on with ScaleX Enterprise, perform the followi
 
 ### Configure ScaleX Enterprise Single Sign-On
 
-1. To configure single sign-on on **ScaleX Enterprise** side, login to the ScaleX Enterprise company website as an administrator.
+1. To configure single sign-on on **ScaleX Enterprise** side, sign in to the ScaleX Enterprise company website as an administrator.
 
 1. Click the menu in the upper right and select **Contoso Administration**.
 
@@ -188,8 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -223,7 +222,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create ScaleX Enterprise test user
 
-To enable Azure AD users to log in to ScaleX Enterprise, they must be provisioned in to ScaleX Enterprise. In the case of ScaleX Enterprise, provisioning is an automatic task and no manual steps are required. Any user who can successfully authenticate with SSO credentials will be automatically provisioned on the ScaleX side.
+To enable Azure AD users to sign in to ScaleX Enterprise, they must be provisioned in to ScaleX Enterprise. In the case of ScaleX Enterprise, provisioning is an automatic task and no manual steps are required. Any user who can successfully authenticate with SSO credentials will be automatically provisioned on the ScaleX side.
 
 ### Test single sign-on
 
