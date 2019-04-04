@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor metrics explorer
-description: Learn about new features in Azure Monitor metrics explorer
+title: Advanced features of Metrics Explorer
+description: Learn about advanced features of Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,7 +10,7 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Azure Monitor metrics explorer
+# Advanced features of Azure Monitor metrics explorer
 
 Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
@@ -49,6 +49,28 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
 
+## Create views with multiple metrics and charts
+
+You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
+
+- correlate related metrics on the same graph to see how one value is related to another
+- display metrics with different units of measure in close proximity
+- visually aggregate and compare metrics from multiple resources
+
+For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
+
+### Multiple metrics on the same chart
+
+First, [create a new chart](#create-a-new-chart). Click **Add Metric** and repeat the steps to add another metric on the same chart.
+
+### Multiple charts
+
+Click the **Add chart** and create another chart with a different metric.
+
+### Order or delete multiple charts
+
+To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
+
 ## Apply filters to charts
 
 You can apply filters to the charts that show metrics with dimensions. For example, if the metric “Transaction count” has a dimension, “Response type”, which indicates whether the response from transactions succeeded or failed then filtering on this dimension would plot a chart line for only successful (or only failed) transactions. 
@@ -71,27 +93,7 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
-## Multiple metrics and charts
 
-You can also create charts that plot multiple metrics or show multiple metric charts at once. This functionality allows you to:
-
-- correlate related metrics on the same graph to see how one value is related to another
-- display metrics with different units of measure in close proximity
-- visually aggregate and compare metrics from multiple resources
-
-For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
-
-### Multiple metrics on a chart
-
-First, [create a new chart](#create-a-new-chart). Click **Add Metric** and repeat the steps to add another metric on the same chart.
-
-### Multiple charts
-
-Click the **Add chart** and create another chart with a different metric.
-
-### Order or delete multiple charts
-
-To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
 
 ## Apply splitting to a chart
 
