@@ -107,6 +107,9 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
      - Select **File**, then **Open…**, and then find the PowerShell script from the downloaded files and open it.
      - Select the green play button to run the script.
 
+>[!IMPORTANT]
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## Next steps
 
 Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
