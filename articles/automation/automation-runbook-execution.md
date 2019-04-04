@@ -46,7 +46,7 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 
 Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted if there were transient issues.
 
-PowerShell jobs started from a Runbook ran in an Azure sandbox may not run in the Full language mode. To learn more about PowerShell language modes, see [PowerShell language modes](/powershell/module/microsoft.powershell.core/about/about_language_modes). For additional details on how to interact with jobs in Azure Automation, see [Retrieving job status with PowerShell](#retrieving-job-status-using-powershell]
+PowerShell jobs started from a Runbook ran in an Azure sandbox may not run in the Full language mode. To learn more about PowerShell language modes, see [PowerShell language modes](/powershell/module/microsoft.powershell.core/about/about_language_modes). For additional details on how to interact with jobs in Azure Automation, see [Retrieving job status with PowerShell](#retrieving-job-status-using-powershell)
 
 ### Creating resources
 
