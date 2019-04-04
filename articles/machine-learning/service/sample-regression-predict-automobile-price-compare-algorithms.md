@@ -49,7 +49,7 @@ The major data preparation tasks include data cleaning, integration, transformat
 
 We use **Select Columns in Dataset** to exclude normalized-losses that has many missing values. Then we use **Clean Missing Data** to remove the rows with missing values. This helps create a clean set of training data.
 
-![data pre-processing](../media/sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![data pre-processing](media/sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 
 ## Train the model
@@ -73,8 +73,7 @@ First, two algorithms are compared on training dataset.
 Second, two algorithms are compared on testing dataset.
 From these results, we observe that:
 
-
-![data pre-processing](media/sample-regression-predict-autoobile-price-compare-algorithms/result.png)
+![data pre-processing](media/sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 The model built using **Boosted Decision Tree Regression** has lower root mean squared error than the model built on **Decision Forest Regression**.
 
