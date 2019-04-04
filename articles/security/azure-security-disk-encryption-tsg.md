@@ -46,6 +46,14 @@ After the VM has restarted into the new kernel, the new kernel version can be co
 uname -a
 ```
 
+## <a name="bkmk_VMAgentVer"></a> Update the Azure Virtual Machine Agent and Extension Versions
+
+Azure Disk Encryption requires the most recent version of the Azure Virtual Machine Agent to be present on the virtual machine.  Installation will fail on virtual machine images using outdated versions of the Azure Virtual Machine Agent.  For more information, please refer to [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+Azure Disk Encryption also requires the correct version of the Microsoft.Azure.Security.AzureDiskEncryption and Microsoft.Azure.Security.AzureDiskEncryptionForLinux extensions.  By default, the correct version is installed at time of enable and  extension versions are automatically updated by the platform as needed.  If virtual machine settings, hardening steps, or other changes are applied to the virtual machine that interfere with this update capability, the initial version of the extension that was installed may eventually become outdated and unsupported.   
+
+The Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux extension is deprecated and is no longer supported.
+
 ## Unable to encrypt Linux disks
 
 In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to finish on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days.
