@@ -12,7 +12,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 04/04/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -54,6 +54,7 @@ The following table compares the ERT and RPO for each service tier for the three
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
 | Geo-restore from geo-replicated backups |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
 | Auto-failover groups |RTO = 1 h<br>RPO < 5s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
+| Geo-replication failover |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
 
 ## Recover a database to the existing server
 
@@ -78,7 +79,7 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 - One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 - Another option is to restore a database on any server in any Azure region using [geo-redundant database backups](sql-database-recovery-using-backups.md#geo-restore) (geo-restore). Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
-- Finally, you can quickly recover from an outage if you have configured either geo-replicas using [active geo-replication](sql-database-active-geo-replication.md) or an [auto-failover group](sql-database-auto-failover-group.md) for your database or databases. Depending on your choice of these technologies, you can use either manual or automatic failover. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that the failover is justified by the scale of the outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the table earlier in this article for details of the auto-failover RTO and RPO.
+- Finally, you can quickly recover from an outage if you have configured either geo-secondary using [active geo-replication](sql-database-active-geo-replication.md) or an [auto-failover group](sql-database-auto-failover-group.md) for your database or databases. Depending on your choice of these technologies, you can use either manual or automatic failover. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that the failover is justified by the scale of the outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the table earlier in this article for details of the auto-failover RTO and RPO.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
