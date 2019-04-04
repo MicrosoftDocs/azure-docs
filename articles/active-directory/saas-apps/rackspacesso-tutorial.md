@@ -108,23 +108,23 @@ To configure Azure AD single sign-on with Rackspace SSO, perform the following s
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Rackspace SSO** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
+This file will be uploaded to Rackspace to populate required Identity Federation configuration settings.
 
 ### Configure Rackspace SSO Single Sign-On
 
-To configure single sign-on on **Rackspace SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Rackspace SSO support team](https://support.rackspace.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Rackspace SSO** side:
 
-### Create an Azure AD test user 
+1. See the documentation at [Add an Identity Provider to the Control Panel](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
+1. It will lead you through the steps to:
+    1. Create a new Identity Provider
+    1. Specify an email domain that users will use to identify your company when logging in.
+    1. Upload the **Federation Metadata XML** previously downloaded from the Azure control panel.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+This will correctly configure the basic SSO settings needed for Azure and Rackspace to connect.
+
+### Create an Azure AD test user
+
+The objective of this section is to create a test user in the Azure portal called Britta Simon. 
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
@@ -172,15 +172,60 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Rackspace SSO test user
+### Set up Attribute Mapping in Rackspace Control Panel
 
-In this section, you create a user called Britta Simon in Rackspace SSO. Work with [Rackspace SSO support team](https://support.rackspace.com/) to add the users in the Rackspace SSO platform. Users must be created and activated before you use single sign-on.
+Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and groups to your single sign-on users. The **Attribute Mapping Policy** translates Azure AD SAML claims into the user configuration fields Rackspace requires. More documentation can be found in the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Some considerations:
+
+* If you want to assign varying levels of Rackspace access using Azure AD groups, you will need to enable the Groups claim in the Azure **Rackspace SSO** Single Sign-on settings. The **Attribute Mapping Policy** will then be used to match those groups to desired Rackspace roles and groups:
+
+    ![The Groups claim settings](common/sso-groups-claim.png)
+
+* By default, Azure AD sends the UID of Azure AD Groups in the SAML claim, versus the name of the Group. However, if you are synchronizing your on-premises Active Directory to Azure AD, you have the option to send the actual names of the groups:
+    
+    ![The Groups claim name settings](common/sso-groups-claims-names.png)
+
+The following example **Attribute Mapping Policy** demonstrates:
+1. Setting the Rackspace user's name to the `user.name` SAML claim.
+1. Setting the Rackspace roles `admin` and `billing:admin` on a user by matching an Azure AD Group, by either Group Name or Group UID. A *substitution* of `"{0}"` in the `roles` field is used, and will be replaced by the results of the `remote` rule expressions. 
+1. Using the `"{D}"` *default substition* to let Rackspace retrieve additional SAML fields by looking for standard and well-known SAML claims in the SAML exchange.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+        domain: "{D}"
+        name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+        email: "{D}"
+        roles:
+            - "{0}"
+        expire: "{D}"
+    remote:
+        - path: |
+            (
+            if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+            if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+            )
+        multiValue: true
+    version: RAX-1
+)
+```
+> [!TIP]
+> Ensure that you use a text editor that validates YAML syntax when editing your policy file.
+ 
+
+See the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) for more examples.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Rackspace SSO tile in the Access Panel, you should be automatically signed in to the Rackspace SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+You can also use the **Validate** button in the **Rackspace SSO** Single sign-on settings:
+
+   ![SSO Validate Button](common/sso-validate-sign-on.png)
 
 ## Additional Resources
 
