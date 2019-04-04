@@ -1,5 +1,5 @@
 ---
-title: Scale an Azure Data Explorer cluster to accommodate changing demand
+title: Scale up an Azure Data Explorer cluster to accommodate changing demand
 description: This article describes steps to scale up and scale down an Azure Data Explorer cluster based on changing demand.
 author: radennis
 ms.author: radennis
