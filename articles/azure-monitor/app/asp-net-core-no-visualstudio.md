@@ -75,11 +75,10 @@ Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor
     Example:
     `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
+`APPINSIGHTS_INSTRUMENTATIONKEY` is typically used to specify instrumentation key for applications deployed to Azure Web App.
+
 > [!NOTE]
 > Instrumentation key specified in code wins over environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
-
-> [!Additional Note]
-> `APPINSIGHTS_INSTRUMENTATIONKEY` is typically used to specify instrumentation key for applications deployed to Azure Web App.
 
 4. Run your application, and make requests to it. Telemetry should now start flowing to Application Insights. The following telemetry is automatically collected by Application Insights SDK.
 
