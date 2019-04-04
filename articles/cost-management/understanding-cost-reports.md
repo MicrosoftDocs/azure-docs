@@ -1,202 +1,235 @@
 ---
-title: Understanding Cloudyn cost management reports in Azure | Microsoft Docs
-description: This article helps you understand Cloudyn cost management reports basic structure and functions.
-services: cost-management
-keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 03/18/2019
-ms.topic: conceptual
-ms.service: cost-management
-manager: benshy
-ms.custom: seodec18
+title: 'Tutorial: Azure Active Directory integration with eDigitalResearch | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and eDigitalResearch.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: daveba
+ms.reviewer: joflore
+
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/20/2017
+ms.author: jeedes
+
+ms.collection: M365-identity-device-management
 ---
+# Tutorial: Azure Active Directory integration with eDigitalResearch
 
-# Understanding Cloudyn cost management reports
+In this tutorial, you learn how to integrate eDigitalResearch with Azure Active Directory (Azure AD).
 
-This article helps you understand Cloudyn cost management reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the cost management reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
+Integrating eDigitalResearch with Azure AD provides you with the following benefits:
 
-## Report fields and options
+- You can control in Azure AD who has access to eDigitalResearch.
+- You can enable your users to automatically get signed-on to eDigitalResearch (Single Sign-On) with their Azure AD accounts.
+- You can manage your accounts in one central location - the Azure portal.
 
-Here's a look at an example of the Cost Over Time report. Most Cloudyn reports have a similar layout.
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-![Example of the Cost Over Time report with numbered areas corresponding to descriptions](./media/understanding-cost-reports/sample-report.png)
+## Prerequisites
 
-Each numbered area in the preceding image is described in detail in the following information:
+To configure Azure AD integration with eDigitalResearch, you need the following items:
 
-1. **Date Range**
+- An Azure AD subscription
+- A eDigitalResearch single sign-on enabled subscription
 
-    Use the Date Range list to define a report time interval using a preset or custom.
-2. **Saved Filter**
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
-    Use the Saved Filter list to save the current groups and filters that are applied to the report. Saved filters are available across cost and performance reports, including:
+To test the steps in this tutorial, you should follow these recommendations:
 
-      - Cost Analysis
-      - Allocation
-      - Asset Management
-      - Optimization
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-   Type a filter name and the click **Save**.
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
 
-3. **Tags**
+1. Adding eDigitalResearch from the gallery
+1. Configuring and testing Azure AD single sign-on
 
-    Use the Tags area to group by tag categories. Tags listed in the menu are Azure department or cost center tags or they are Cloudyn's cost entity and subscription tags. Select tags to filter results. You can also type a tag name (keyword) to filter results.
+## Adding eDigitalResearch from the gallery
+To configure the integration of eDigitalResearch into Azure AD, you need to add eDigitalResearch from the gallery to your list of managed SaaS apps.
 
-    ![Example of a list of tags to filter results by](./media/understanding-cost-reports/select-options.png)
+**To add eDigitalResearch from the gallery, perform the following steps:**
 
-    Click **Add** to add a new filter.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-    ![Add filter box showing options and conditions to filter by](./media/understanding-cost-reports/add-filter.png)
+	![The Azure Active Directory button][1]
 
-    Tag grouping or filtering does not relate to Azure resources or resource group tags.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-    Cost allocation tag grouping and filtering are available in the **Groups** menu option.
+	![The Enterprise applications blade][2]
+	
+1. To add new application, click **New application** button on the top of dialog.
 
-4. **Groups in reports**
+	![The New application button][3]
 
-    Use groups in Cost Analysis reports to show standard, itemized categories from billing data in your report.  However, groups in Cost Allocation reports show view tag-based categories. Tag-based categories are defined in the cost allocation model and standard itemized categories from billing data.
+1. In the search box, type **eDigitalResearch**, select **eDigitalResearch** from result panel then click **Add** button to add the application.
 
-    ![First example list of tags that you can group by](./media/understanding-cost-reports/groups-tags01.png)
+	![eDigitalResearch in the results list](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_addfromgallery.png)
 
-    ![Second example list of tags that you can group by](./media/understanding-cost-reports/groups-tags02.png)
+## Configure and test Azure AD single sign-on
 
-    In Cost Allocation Reports, groups in tag-based group categories might include:
-      - Tags
-      - resource group tags
-      - Cloudyn cost entity tags
-      - Subscription tag categories for cost allocation purposes
+In this section, you configure and test Azure AD single sign-on with eDigitalResearch based on a test user called "Britta Simon".
 
-   Examples might include:
-   - Cost center
-   - Department
-   - Application
-   - Environment
-   - Cost code
+For single sign-on to work, Azure AD needs to know what the counterpart user in eDigitalResearch is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in eDigitalResearch needs to be established.
 
-     Here's a list of built-in groups available in reports:
+In eDigitalResearch, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-     - **Cost Type**
-     - Select a cost type or multiple cost types, or select all. Cost types include:
-       - One-Time Fee
-       - Support
-       - Usage Cost
-     - **Customer**
-       - Select a specific customer, multiple customers, or select all customers.
-     - **Account Name**
-       - The account or subscription name. In Azure, it is the name of the Azure subscription.
-     - **Account No**
-       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
-     - **Parent Account**
-       - Select the parent account, multiple accounts, or select all.
-     - **Service**
-       - Select a service, multiple services, or select all services.
-     - **Provider**
-       - The cloud provider where assets and expenses are associated.
-     - **Region**
-       - Region where the resource is hosted.
-     - **Availability Zone**
-       - AWS isolated locations within a region.
-     - **Resource Type**
-       - The type of resource in use.
-     - **Sub-Type**
-       - Select the sub-type.
-     - **Operation**
-       - Select the operation or **Show all**.
-     - **Price Model**
-       - All Upfront
-       - No Upfront
-       - Partial Upfront
-       - On Demand
-       - Reservation
-       - Spot
-     - **Charge Type**
-       - Select Negative or Positive charge type or both.
-     - **Tenancy**
-       - Whether a machine is running as a dedicated machine.
-     - **Usage Type**
-       - Usage type can be one-time fees or recurring fees.
+To configure and test Azure AD single sign-on with eDigitalResearch, you need to complete the following building blocks:
 
-5. **Filters**
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create an eDigitalResearch test user](#create-a-edigitalresearch-test-user)** - to have a counterpart of Britta Simon in eDigitalResearch that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)**  to verify whether the configuration works.
 
-    Use single or multi-select filters to set ranges to selected values. To set a filter, click **Add** and then select filter categories and values.
+### Configure Azure AD single sign-on
 
-6. **Cost Model**
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your eDigitalResearch application.
 
-    Use Cost Model to select a cost model that you previously created with Cost Allocation 360. You might have multiple Cloudyn cost models, depending on your cost allocation requirements. Some of your organizational teams might have cost allocation requirements that differ from others. Each team can have their own dedicated cost model.
+**To configure Azure AD single sign-on with eDigitalResearch, perform the following steps:**
 
-    For information about creating a cost allocation model definition, see [Use custom tags to allocate costs](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+1. In the Azure portal, on the **eDigitalResearch** application integration page, click **Single sign-on**.
 
-7. **Amortization**
+	![Configure single sign-on link][4]
 
-    Use Amortization in Cost Allocation reports to view non-usage based service fees or one-time payable costs and spread their cost over time evenly during their lifespan. Examples of one-time fees might include:
-    - Annual support fees
-    - Annual security components fees
-    - Reserved instances purchase fees
-    - Some Azure Marketplace items.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Single sign-on dialog box](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_samlbase.png)
 
-   Under Amortization, select **Amortized cost** or **Actual Cost**.
+1. On the **eDigitalResearch Domain and URLs** section, perform the following steps:
 
-8. **Resolution**
+	![eDigitalResearch Domain and URLs single sign-on information](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    Use Resolution to select the time resolution within the selected date range. Your time resolution determines how units are displayed in the report and can be:
-    - Daily
-    - Weekly
-    - Monthly
-    - Quarterly
-    - Annual
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<company-name>.edigitalresearch.com`
 
-9. **Allocation rules**
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company-name>.edigitalresearch.com/login/consume`
 
-    Use Allocation Rules to apply or disable the cost allocation cost recalculation. You can enable or disable the cost allocation recalculation for billing data. The recalculation applies to the selected categories in the report. It allows you to assess the cost allocation recalculation impact against raw billing data.
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [eDigitalResearch support team](https://www.maruedr.com/contact) to get these values.
+ 
 
-10. **Uncategorized**
 
-    Use Uncategorized to include or exclude uncategorized costs in the report.
+1. On the **SAML Signing Certificate** section, click **Certificate Base(64)** and then save the certificate file on your computer.
 
-11. **Show/hide fields**
+	!![The Certificate download link](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_certificate.png) 
 
-    The Show/hide option does not have any effect in reports.
+1. Click **Save** button.
 
-12. **Display formats**
+	![Configure Single Sign-On Save button](./media/edigitalresearch-tutorial/tutorial_general_400.png)
 
-    Use Display formats to select various graph or table views.
+1. On the **eDigitalResearch Configuration** section, click **Configure eDigitalResearch** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID** from the **Quick Reference section.**
 
-    ![Symbols of display formats that you can select](./media/understanding-cost-reports/display-formats.png)
+	![eDigitalResearch Configuration](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-13. **Multi-color**
+1. To configure single sign-on on **eDigitalResearch** side, you need to send the downloaded **Certificate (Base64) File**, **SAML Entity ID**, and **Sign-Out URL** to [eDigitalResearch support team](https://www.maruedr.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
-    Use Multi-color to set the color of charts in your report.
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-14. **Actions**
+### Create an Azure AD test user
 
-    Use Actions to save, export, or schedule the report.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-15. **Policy**
+   ![Create an Azure AD test user][100]
 
-    Although not pictured, some reports include a projected cost calculation policy. In those reports, the **Consolidated** policy shows recommendations for all accounts and subscriptions under the current entity such as Microsoft enrollment or AWS payer. The **Standalone** policy shows recommendations for one account or subscription as if no other subscriptions exist. The policy that you select varies on the optimization strategy used by your organization. Cost projections are based on the last 30 days of usage.
+**To create a test user in Azure AD, perform the following steps:**
 
-## Save and schedule reports
+1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-After you create a report, you can save it for future use. Saved reports are available in **My Tools** > **My Reports**. If you make changes to an existing report and save it, the report is saved as a new version. Or, you can save it as a new report.
+    ![The Azure Active Directory button](./media/edigitalresearch-tutorial/create_aaduser_01.png)
 
-### Save a report to the Cloudyn portal
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
-While viewing any report, click **Actions** and then select **Save to my reports**. Name the report and then either add a your own URL or use the automatically created URL. You can optionally **Share** the report publicly with others in your organization or you can share it to your entity. If you do not share the report, it remains a personal report and that only you can view. Save the report.
+    ![The "Users and groups" and "All users" links](./media/edigitalresearch-tutorial/create_aaduser_02.png)
 
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
-### Save a report to cloud provider storage
+    ![The Add button](./media/edigitalresearch-tutorial/create_aaduser_03.png)
 
-In order to save a report to your cloud service provider, you must have already configured a storage account. While viewing any report, click **Actions** and then select **Schedule report**. Name the report and then either add a your own URL or use the automatically created URL. Select **Save to storage** and then select the storage account or add a new one. Enter a prefix that gets appended to the report file name. Select a either CSV or JSON file format and then save the report.
+1. In the **User** dialog box, perform the following steps:
 
-### Schedule a report
+    ![The User dialog box](./media/edigitalresearch-tutorial/create_aaduser_04.png)
 
-You can run reports at scheduled intervals and you can sent them to a recipient list or cloud service provider storage account. While viewing any report, click **Actions** and then select **Schedule report**. You can send the report by email and save to a storage account. Under **Schedule**, select the interval (daily, weekly or monthly). For weekly and monthly, select the day or dates to deliver and select the time. Save the scheduled report. If you select the Excel report format, the report is sent as an attachment. When you select email content format, report results that are displayed in chart format are delivered as a graph.
+    a. In the **Name** box, type **BrittaSimon**.
 
-### Export a report as a CSV file
+    b. In the **User name** box, type the email address of user Britta Simon.
 
-While viewing any report, click **Actions** and then select **Export all report data**. A pop-up window appears and a CSV file is downloaded.
+    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
-## Next steps
+    d. Click **Create**.
+  
+### Create an eDigitalResearch test user
 
-- Learn about the reports that are included in Cloudyn at [Use Cloudyn reports](use-reports.md).
-- Learn about how to use reports to create [dashboards](dashboards.md).
+The objective of this section is to create a user called Britta Simon in eDigitalResearch. 
+
+Work with the [eDigitalResearch support team](https://www.maruedr.com/contact) to get users created.		
+	
+ > [!NOTE]
+ > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to eDigitalResearch.
+
+![Assign the user role][200] 
+
+**To assign Britta Simon to eDigitalResearch, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+1. In the applications list, select **eDigitalResearch**.
+
+	![The eDigitalResearch link in the Applications list](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_app.png)  
+
+1. In the menu on the left, click **Users and groups**.
+
+	![The "Users and groups" link][202]
+
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![The Add Assignment pane][203]
+
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+1. Click **Select** button on **Users and groups** dialog.
+
+1. Click **Assign** button on **Add Assignment** dialog.
+	
+### Test single sign-on
+
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the eDigitalResearch tile in the Access Panel, you should get automatically signed-on to your eDigitalResearch application.
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/edigitalresearch-tutorial/tutorial_general_01.png
+[2]: ./media/edigitalresearch-tutorial/tutorial_general_02.png
+[3]: ./media/edigitalresearch-tutorial/tutorial_general_03.png
+[4]: ./media/edigitalresearch-tutorial/tutorial_general_04.png
+
+[100]: ./media/edigitalresearch-tutorial/tutorial_general_100.png
+
+[200]: ./media/edigitalresearch-tutorial/tutorial_general_200.png
+[201]: ./media/edigitalresearch-tutorial/tutorial_general_201.png
+[202]: ./media/edigitalresearch-tutorial/tutorial_general_202.png
+[203]: ./media/edigitalresearch-tutorial/tutorial_general_203.png
+
