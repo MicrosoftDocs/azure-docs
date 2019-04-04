@@ -1251,6 +1251,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
       "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
       "redirect_document_id": true
@@ -36751,8 +36761,6 @@
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
@@ -36768,8 +36776,6 @@
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-ndk",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
@@ -36779,6 +36785,81 @@
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
 	  "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
       "redirect_document_id": false
-    }	
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-backup-restore.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-dashboard-monitor-scale-tabs.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-editions-feature-chart.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-issuer-name-issuer-key.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-migrating-to-edi-guide.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-process-edifact-invoice.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-provision-services.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-release-notes.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-services-administration-and-development-task-list.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-service-state-chart.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-throttling-thresholds.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-troubleshoot-using-ops-logs.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/index.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/integration-hybrid-connection-create-manage.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    }
   ]
 }
