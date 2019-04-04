@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ---
 
 # Status of migration scenarios supported by Azure Database Migration Service
@@ -29,7 +29,7 @@ The following tables show which migration scenarios are supported when using Azu
 > If a scenario listed as supported below does not appear within the user interface, please contact the [Data Migration Team](mailto:datamigrationteam@microsoft.com) for additional information.
 
 > [!IMPORTANT]
-> To view scenarios currently supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
+> To view all scenarios currently supported by Azure Database Migration Service in Private Preview, see the [DMS Preview site](https://aka.ms/dms-preview).
 
 ### Offline (one-time) migration support
 The following table shows Azure Database Migration Service support for offline migrations.

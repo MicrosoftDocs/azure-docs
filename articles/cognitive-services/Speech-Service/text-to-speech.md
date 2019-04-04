@@ -33,7 +33,7 @@ This table lists the core features for text-to-speech:
 
 | Use case | SDK | REST |
 |----------|-----|------|
-| Convert text to speech. | No | Yes |
+| Convert text to speech. | Yes | Yes |
 | Upload datasets for voice adaptation. | No | Yes\* |
 | Create and manage voice font models. | No | Yes\* |
 | Create and manage voice font deployments. | No | Yes\* |
@@ -49,17 +49,24 @@ This table lists the core features for text-to-speech:
 
 We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of text-to-speech quickstarts organized by language.
 
-| Quickstart | Platform | API reference |
+| Quickstart (REST) | Platform | API reference |
 |------------|----------|---------------|
 | [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Quickstart (SDK) | Platform | API reference |
+|------------|----------|---------------|
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ## Sample code
 
 Sample code for text-to-speech is available on GitHub. These samples cover text-to-speech conversion in most popular programming languages.
 
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## Reference docs
 
