@@ -125,7 +125,7 @@ To help secure a service when you're using service remoting with C# services, fo
        }
        ```
 
-        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings ` will load all the settings from this section by default.
+        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings` will load all the settings from this section by default.
 
         ```xml
         <!--"TransportSettings" section .-->

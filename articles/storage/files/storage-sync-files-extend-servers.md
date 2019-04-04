@@ -25,6 +25,8 @@ The article demonstrates the basic steps for extending the storage capacity of a
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -177,7 +179,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -196,7 +198,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
 
-The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've set up your environment for the tutorial. You're ready to deploy the Storage Sync Service.
 

@@ -345,7 +345,7 @@ Note the following points:
 * The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 
 > [!IMPORTANT]
-> To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
+> To create Data Factory instances, you need to be an admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
 Navigate to the home page for your data factory:

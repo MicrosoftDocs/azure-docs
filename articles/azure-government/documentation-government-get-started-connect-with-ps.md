@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Connect with PowerShell | Microsoft Docs
 description: Information on connecting your subscription in Azure Government with PowerShell
 services: azure-government
@@ -48,7 +48,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | [Azure](/powershell/module/azurerm.profile/Connect-AzureRmAccount) commands |`Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
+| [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 
 ![Connect to Azure Government](./media/connect-with-powershell/connect-with-powershell.png)
 
