@@ -9,24 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/06/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
-# Quickstart: Run the sample app on an Android Speech Devices SDK
+Quickstart: Run the Speech Devices SDK sample app on Android
 
-This article describes how to configure your development PC and an Android Speech Device Development Kit for developing speech-enabled devices by using the Speech Devices SDK. It shows you how to build and deploy a sample application to the device.
+This article explains how to configure your machine and a Speech Devices Development Kit for Android to build speech-enabled products with the Speech Devices SDK.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## Prerequisites
 
-Before you begin developing with the Speech Devices SDK, gather the information and software you need:
+Before you start using the Speech Devices SDK, you'll need to: 
 
-* After choosing your [development kit](get-speech-devices-sdk.md) follow the device specific instructions to power it on.
+* Follow the instructions provided with your [development kit](get-speech-devices-sdk.md) to power on the device.
 
-* Get the latest version of the Speech Devices SDK, which includes a sample app, from the [Speech Devices SDK download site](TBD). Extract the .zip file to a local folder, like C:\SDSDK.
+* Download the latest version of the [Speech Devices SDK](REPLACEME), and extract the .zip to your working directory. 
+   > [!NOTE] 
+   > The .zip file includes the Android sample app.
 
 * Get a [Speech Services subscription key](get-started.md). Start with a free trial or get a key from your Azure dashboard.
 
