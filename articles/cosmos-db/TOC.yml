@@ -462,6 +462,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Find request unit charge
+        displayName: request units, RUs, RU, charge, consumption
+        href: find-request-unit-charge.md
     - name: Working with containers and items
       items:
       - name: Create a container
