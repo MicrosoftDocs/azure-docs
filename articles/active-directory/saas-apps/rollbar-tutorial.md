@@ -132,7 +132,7 @@ To configure Azure AD single sign-on with Rollbar, perform the following steps:
 
 ### Configure Rollbar Single Sign-On
 
-1. In a different web browser window, log in to your Rollbar company site as an administrator.
+1. In a different web browser window, sign in to your Rollbar company site as an administrator.
 
 1. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
 
@@ -219,11 +219,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Rollbar test user
 
-To enable Azure AD users to log in to Rollbar, they must be provisioned into Rollbar. In the case of Rollbar, provisioning is a manual task.
+To enable Azure AD users to sign in to Rollbar, they must be provisioned into Rollbar. In the case of Rollbar, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Rollbar company site as an administrator.
+1. Sign in to your Rollbar company site as an administrator.
 
 1. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
 
