@@ -315,11 +315,12 @@ public class HomeController : Controller
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        // The following will configure channel to use the given folder to temporarily store telemetry
-        // items during temporary network or server issues.
+        // The following will configure channel to use the given folder to temporarily
+        // store telemetry items during network or application insights server issues.
         // User should ensure that the given folder already exists,
-        // and the application has read/write permissions.
-        services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+        // and that application has read/write permissions.
+        services.AddSingleton(typeof(ITelemetryChannel),
+                                new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
         services.AddApplicationInsightsTelemetry();
     }
 ```
