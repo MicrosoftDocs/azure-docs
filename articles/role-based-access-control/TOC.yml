@@ -55,7 +55,7 @@
       href: deny-assignments-rest.md
   - name: Custom roles
     items:
-    - name: Custom roles overview
+    - name: Overview
       href: custom-roles.md
     - name: PowerShell
       href: custom-roles-powershell.md
