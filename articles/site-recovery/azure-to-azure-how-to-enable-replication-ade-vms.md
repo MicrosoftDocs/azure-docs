@@ -1,6 +1,6 @@
 ---
 title: Configure replication for Azure disk encryption (ADE)-enabled VMs in Azure Site Recovery | Microsoft Docs
-description: This article describes how to configure replication for ADE VMs, from one Azure region to another by using Site Recovery.
+description: This article describes how to configure replication for ADE VMs from one Azure region to another by using Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -13,15 +13,15 @@ ms.author: sutalasi
 
 # Replicate Azure disk encryption-enabled virtual machines to another Azure region
 
-This article describes how to enable replication of Azure disk encryption (ADE)-enabled VMs from one Azure region to another.
+This article describes how to replicate Azure disk encryption (ADE)-enabled VMs from one Azure region to another.
 
 >[!NOTE]
->Only Azure VMs running a Windows OS and [enabled for encryption with [Azure Active Directory](https://aka.ms/ade-aad-app) are currently supported by Azure Site Recovery.>
+>Azure Site Recovery currently supports only Azure VMs that run a Windows OS and that are [enabled for encryption with Azure Active Directory](https://aka.ms/ade-aad-app).>
 
 ## Required user permissions
-Site Recovery requires the user to have a permission to create the key vault in the target region and copy keys to the region.
+Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys to the region.
 
-To enable replication of ADE VMs from the portal, the user needs the following permissions:
+To enable replication of ADE VMs from the Azure portal, the user needs the following permissions:
 
 - Key vault permissions
     - List
@@ -33,39 +33,40 @@ To enable replication of ADE VMs from the portal, the user needs the following p
     - Create
     - Get
 
-- Key vault key permissions (required only if the VMs use Key Encryption Key to encrypt Disk Encryption keys)
+- Key vault key permissions (required only if the VMs use Key Encryption Key to encrypt disk encryption keys)
     - List
     - Get
     - Create
     - Encrypt
     - Decrypt
 
-To manage permissions, go to the key vault resource in the portal. Add the required permissions to the user. The following example shows how to enable for the key vault "ContosoWeb2Keyvault", which is in the source region.
+To manage permissions, go to the key vault resource in the portal. Add the required permissions to the user. The following example shows how to enable permissions to the key vault "ContosoWeb2Keyvault", which is in the source region.
 
 -  Go to **Home** > **Keyvaults** > **ContosoWeb2KeyVault > Access policies**.
 
    ![key vault permissions window](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
-- You can see there are no user persimmons. Select **Add new**. Enter the user and permissions info.
+- You can see that there are no user permissions. Select **Add new**. Enter the user and permissions information.
 
 ![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 If the user who's enabling disaster recovery (DR) doesn't have permissions to copy the keys, a security administrator who has appropriate permissions can use the following script to copy the encryption secrets and keys to the target region.
 
-To troubleshoot, refer to [key vault permission issues](#trusted-root-certificates-error-code-151066) later in this article.
->[!NOTE]
->To enable replication of ADE VM from the portal, you at least need "List" permissions on the key vaults, secrets, and keys.
+To troubleshoot permissions, refer to [key vault permission issues](#trusted-root-certificates-error-code-151066) later in this article.
 
-## Copy ADE keys to DR region by using PowerShell script
+>[!NOTE]
+>To enable replication of ADE VM from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
+
+## Copy ADE keys to the DR region by using PowerShell script
 
 1. [Open the "CopyKeys" raw script code](https://aka.ms/ade-asr-copy-keys-code).
-2. Copy the script to a file and name it **Copy-keys.ps1**.
-3. Open the Windows PowerShell application, and go to the folder location where you saved the file.
+2. Copy the script to a file, and name it **Copy-keys.ps1**.
+3. Open the Windows PowerShell application, and go to the folder where you saved the file.
 4. Launch Copy-keys.ps1.
 5. Provide Azure credentials to sign in.
 6. Select the **Azure subscription** of your VMs.
 7. Wait for the resource groups to load, and then select the **Resource group** of your VMs.
-8. Select the VMs from the list of VMs displayed. Only VMs that are enabled with Azure disk encryption are on the list.
+8. Select the VMs from the list that's displayed. Only VMs that are enabled for Azure disk encryption are on the list.
 9. Select the **Target location**.
 
     - **Disk encryption key vaults**
@@ -75,23 +76,23 @@ To troubleshoot, refer to [key vault permission issues](#trusted-root-certificat
 
 ## Enable replication
 
-This procedure assumes that the primary Azure region is East Asia, and the secondary region is South East Asia.
+For this example, the primary Azure region is East Asia, and the secondary region is South East Asia.
 
 1. In the vault, select **+Replicate**.
 2. Note the following fields:
     - **Source**: The point of origin of the VMs, which in this case is **Azure**.
-    - **Source location**: The Azure region from where you want to protect your virtual machines. For this example, the source location is "East Asia."
+    - **Source location**: The Azure region where you want to protect your virtual machines. For this example, the source location is "East Asia."
     - **Deployment model**: Azure deployment model of the source machines.
-    - **Source subscription**: The subscription to which your source virtual machines belong. It can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
+    - **Source subscription**: The subscription to which your source virtual machines belong. It can be any subscription that's in the same Azure Active Directory tenant where your recovery services vault is.
     - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.
 
 3. In **Virtual Machines** > **Select virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. Then, select **OK**.
 
 4. In **Settings**, you can configure these target-site settings:
 
-    - **Target Location**: The location where your source virtual machine data will be replicated. Depending on your selected machine's location, Site Recovery a list of suitable target regions. We recommend that you use the same location as the Recovery Services vault location.
+    - **Target Location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription is the same as the source subscription.
-    - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name has the "Site Recovery" suffix. If a resource group that was created by Azure Site Recovery already exists, it's reused. You can also choose to customize it as shown in the following section. The location of the target resource group can be any Azure region except the region in which the source virtual machines are hosted.
+    - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The group name has the "Site Recovery" suffix. If a resource group that was created by Azure Site Recovery already exists, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
     - **Target Virtual Network**: By default, Site Recovery creates a new virtual network in the target region. The name has the "Site Recovery" suffix. It's mapped to your source network and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
     - **Target Storage accounts (If your source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If the storage account already exists, it's reused.
     - **Replica managed disks (If your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (Standard or Premium) as the source VM's managed disk.
