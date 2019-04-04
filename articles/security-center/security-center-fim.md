@@ -20,9 +20,9 @@ ms.author: monhaber
 
 # Compare baselines using File Integrity Monitoring (FIM)
 
-File Integrity Monitoring informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files. 
+File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files. 
 
-This topic explains how to enable FIM on the files and registries.
+This topic explains how to enable FIM on the files and registries. For more information about FIM, see [File Integrity Monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
 
 ## Why use FIM?
 
@@ -36,9 +36,13 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 ![Registry](./media/security-center-fim/fim-registry.png)
 
+*To configure FIM to monitor registry baselines:*
 
-![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
+1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
+> ><code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+</code>
 
+>>![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
 
 >[!NOTE]
 > Recursive checks apply only recommended security hives and not to custom registry paths.  
@@ -59,12 +63,9 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 > [!NOTE]
 > To learn more about registry settings supported by various operating system versions, refer to the Group Policy Settings reference spreadsheet here.  
 
-*To configure FIM to monitor baselines:*
-
->  <code>  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-</code>
-
 ## Tracking changes to Windows files
+
+1. In the **Add Windows File for Change Tracking** window, in the **Enter path** text box, enter the folder which contains the files that you want to track.
 
 In this example, Contoso Web App resides in the D:\ drive within the ‘ContosWebApp’ folder structure.  Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.  
 
@@ -74,7 +75,9 @@ In this example, Contoso Web App resides in the D:\ drive within the ‘ContosWe
 
 ## Retrieving change data
 
-File Integrity Monitoring data resides within Azure Log Analytics / ConfigurationChange table set.  Begin monitoring changes by setting a time range and retrieving a summary of changes by resource.  In this example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
+File Integrity Monitoring data resides within Azure Log Analytics / ConfigurationChange table set.  
+
+Begin monitoring changes by setting a time range and retrieving a summary of changes by resource.  In this example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
 <code>
 > ConfigurationChange
@@ -103,5 +106,3 @@ To view details of registry changes, remove ‘Files’ from the where clause, a
 These reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
 
 ![FIM data](./media/security-center-fim/fim-data.png)
-
-Through these steps, Azure Security Center’s File Integrity Monitoring capabilities enable you to track configuration and file system drift from initial baselines and archive those changes for auditing.  To learn more about Azure Security Center’s other capabilities, refer to https://docs.microsoft.com/en-us/azure/security-center/ 
