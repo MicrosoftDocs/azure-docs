@@ -15,7 +15,7 @@ ms.date: 04/02/2019
 
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md).
 
-This tutorial helps you get started with creating a Power BI report from data in an Azure Data CAtalog
+This tutorial helps you get started with creating a Power BI report from data in an Azure Data Catalog.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -27,7 +27,7 @@ To get started, you're required to follow the quickstart:
 
 * [Create an Azure Data Catalog](data-catalog-get-started.md)
 
-### Adventure Works sample database
+## Add a data source
 
 In this tutorial, you register data assets (tables) from the AdventureWorks2014 sample database for the SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 

@@ -30,7 +30,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ## Create a data catalog
 
-You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
+You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
 1. Go to the [Data Catalog service page](https://azure.microsoft.com/services/data-catalog) and click **Get started**.
 
@@ -75,7 +75,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 ## Next Steps
 
-In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now try and build reports with the data in your data catalog.
+In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now try to build reports with the data in your data catalog.
 
 > [!div class="nextstepaction"]
 > [Create a Power BI report from data in an Azure Data Catalog](data-catalog-tutorial-power-bi.md)
