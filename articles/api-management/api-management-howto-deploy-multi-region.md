@@ -102,6 +102,9 @@ To fully leverage geographical distribution of your system, you should have back
     </policies>
     ```
 
+> [!TIP]
+> You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically.
+
 ## <a name="custom-routing"> </a>Use custom routing to API Management regional gateways
 
 API Management routes the requests to a regional *gateway* based on [the lowest latency](../traffic-manager/traffic-manager-routing-methods#performance). Although it is not possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules.
