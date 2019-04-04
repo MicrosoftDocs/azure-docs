@@ -97,7 +97,7 @@ The attributes provisioned as part of Group objects can be customized in the sam
 
 The user attributes supported for a given application are pre-configured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application. 
 
-However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. Their definitions must be entered into the Azure portal using the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen.
+However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. Their definitions must be entered into the Azure portal by selecting the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen and then selecting **Edit attribute list for** your app.
 
 Applications and systems that support customization of the attribute list include:
 
@@ -109,8 +109,6 @@ Applications and systems that support customization of the attribute list includ
 
 >[!NOTE]
 >Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. 
-
-![Editor](./media/customize-application-attributes/25.png) 
 
 When editing the list of supported attributes, the following properties are provided:
 
