@@ -103,7 +103,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS
-Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 is supported. <br/> 2. LVM is supported for data disks only. <br/> 3. Azure VMs have only a single OS disk.<br/><br/>From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, LVM and LVM2 are supported.
+Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM is supported. <br/> 2. /boot on LVM volume is not supported. <br/> 3. Multiple OS disks are not supported.<br/><br/>From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, /boot on LVM is supported. Multiple OS disks are not supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
@@ -183,6 +183,7 @@ Guest/server multipath (MPIO) | No
 >
 > - Only migration to Azure is supported. Failback to on-premises VMware site isn't supported.
 > - The server shouldn't have more than four partitions on the OS disk.
+> - Only NTFS is supported
 > - Requires Mobility Service version 9.13 or later.
 
 ## Azure storage
