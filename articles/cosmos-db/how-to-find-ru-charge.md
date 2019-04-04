@@ -1,6 +1,6 @@
 ---
 title: How to find the request unit charge
-description: Learn how to find the request unit charge for any operation executed against an Azure Cosmos DB container
+description: Learn how to find the request unit charge for any operation executed against an Azure Cosmos container
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
@@ -8,9 +8,9 @@ ms.date: 03/21/2019
 ms.author: thweiss
 ---
 
-# How to find the request unit charge
+# How to find the request unit (RU) charge in Azure Cosmos DB
 
-This article presents the different ways to find the request unit consumption for any operation executed against an Azure Cosmos DB container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDK.
+This article presents the different ways to find the [request unit](request-units.md) consumption for any operation executed against an Azure Cosmos container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
 
 ## Core API
 
@@ -26,7 +26,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 1. Click on **New SQL Query**.
 
-1. Enter a valid query then click on **Execute query**.
+1. Enter a valid query then click on **Execute Query**.
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
@@ -142,6 +142,8 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## Azure Cosmos DB's API for MongoDB
 
+Request unit charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. This command returns a document containing the name of the last operation executed, its request charge and its duration.
+
 ### Using the Azure portal
 
 The Azure portal currently lets you find the request charge for a query only.
@@ -154,15 +156,11 @@ The Azure portal currently lets you find the request charge for a query only.
 
 1. Click on **New Query**.
 
-1. Enter a valid query then click on **Execute query**.
+1. Enter a valid query then click on **Execute Query**.
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
 ![Screenshot of MongoDB query request charge on Azure portal](./media/how-to-find-ru-charge/portal-mongodb-query.png)
-
-### Using drivers and SDK
-
-Request unit charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. This command returns a document containing the name of the last operation executed, its request charge and its duration.
 
 ### Using the MongoDB .NET driver
 
@@ -203,8 +201,6 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 
 ## Cassandra API
 
-### Using drivers and SDK
-
 When performing operations against Azure Cosmos DB's Cassandra API, request unit charge is returned in the incoming payload as a field named `RequestCharge`.
 
 ### Using the .NET SDK
@@ -212,7 +208,7 @@ When performing operations against Azure Cosmos DB's Cassandra API, request unit
 When using the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/) (see [this quickstart](create-cassandra-dotnet.md) regarding its usage), the incoming payload can be retrieved under the `Info` property of a `RowSet` object.
 
 ```csharp
-RowSet rowSet = session.Execute("CQL SELECT QUERY");
+RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
 ```
 
@@ -221,7 +217,7 @@ double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["Reques
 When using the [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core) (see [this quickstart](create-cassandra-java.md) regarding its usage), the incoming payload can be retrieved by calling the `getExecutionInfo()` method on a `ResultSet` object.
 
 ```java
-ResultSet resultSet = session.execute("CQL SELECT QUERY");
+ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tables;");
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
