@@ -77,7 +77,7 @@ When performing a reverse geocode search with [Search Address Reverse API](https
 
 **Sample request:**
 
-```
+```HTTP
 https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
 ```
 
@@ -133,7 +133,7 @@ In the sample query below you can see that the search Address service is queried
 
 **Sample query:**
 
-```
+```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
