@@ -54,8 +54,9 @@
     - name: REST API
       href: deny-assignments-rest.md
   - name: Custom roles
-    href: custom-roles.md
     items:
+    - name: Custom roles overview
+      href: custom-roles.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: Azure CLI
