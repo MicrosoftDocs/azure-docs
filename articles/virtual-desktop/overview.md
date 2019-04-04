@@ -53,8 +53,8 @@ First, make sure you have the appropriate licenses for your users based on the d
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 single-session|Microsoft 365 E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session or Windows 10 single-session|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
