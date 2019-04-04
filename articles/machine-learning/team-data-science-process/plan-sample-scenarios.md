@@ -1,16 +1,16 @@
 ---
-title: Identify advanced analytics scenarios for Azure Machine Learning | Microsoft Docs
+title: Identify scenarios for Azure Machine Learning - Team Data Science Process
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Scenarios for advanced analytics in Azure Machine Learning
 This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
@@ -141,7 +141,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 1. Simple Azure Machine Learning experiment flow starting with uploaded dataset
 
-## <a name="largedbtodb"></a>Scenario \#6: Large dataset in a SQL Server database on-prem, targeting SQL Server in an Azure Virtual Machine
+## <a name="largedbtodb"></a>Scenario \#6: Large dataset in a SQL Server database on premises, targeting SQL Server in an Azure Virtual Machine
 ![Large SQL DB on-prem to SQL DB in Azure][6]
 
 #### Additional Azure resources: Azure Virtual Machine (SQL Server / IPython Notebook server)
@@ -149,7 +149,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 1. Use one of the data export methods to export the data from SQL Server to dump files.
    
    > [!NOTE]
-   > If you decide to move all data from the on-prem database,
+   > If you decide to move all data from the on premises database,
    > an alternate (faster) method to move the full database to the
    > SQL Server instance in Azure. Skip the steps to export data,
    > create database, and load/import data to the target database and

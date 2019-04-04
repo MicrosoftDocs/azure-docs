@@ -19,6 +19,8 @@ Learn how to use Python in streaming MapReduce operations. Apache Hadoop provide
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * A Linux-based Apache Hadoop on HDInsight cluster
 
   > [!IMPORTANT]
@@ -29,7 +31,7 @@ Learn how to use Python in streaming MapReduce operations. Apache Hadoop provide
   > [!IMPORTANT]
   > The text editor must use LF as the line ending. Using a line ending of CRLF causes errors when running the MapReduce job on Linux-based HDInsight clusters.
 
-* The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## Word count
 
@@ -140,7 +142,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
     This command copies the files from the local system to the head node.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connect to the cluster by using SSH:
@@ -178,7 +180,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
    * **-output**: The directory that the output is written to.
 
-    As the MapReduce job works, the process is displayed as percentages.
+     As the MapReduce job works, the process is displayed as percentages.
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
         15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
@@ -197,6 +199,6 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

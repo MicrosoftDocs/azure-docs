@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Notebooks project with a custom environment | Microsoft Docs 
+title: Create an Azure Notebooks project with a custom environment
 description: Create a new project in Azure Notebooks that's configured with a specific set of installed packages and startup scripts.
 services: app-service
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -4,14 +4,12 @@ description: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Dat
 services: sql-server-stretch-database
 documentationcenter: ''
 author: douglaslMS
-manager: barbkess
-editor: ''
+manager: craigg
 
 ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl

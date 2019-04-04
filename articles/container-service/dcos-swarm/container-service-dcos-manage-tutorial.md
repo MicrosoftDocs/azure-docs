@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Manage DC/OS
+title: (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
 description: Azure Container Service tutorial - Manage DC/OS
 services: container-service
 author: iainfoulds
@@ -12,7 +12,9 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Azure Container Service tutorial - Manage DC/OS
+# (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
 

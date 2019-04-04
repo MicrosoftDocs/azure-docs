@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes cluster - Operations Management
+title: (DEPRECATED) Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
@@ -12,9 +12,12 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service cluster with Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Azure Monitor for containers](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -67,7 +70,7 @@ excess container on a host.
 
 For more information about Container Solution, please refer to the
 [Container Solution Log
-Analytics](../../log-analytics/log-analytics-containers.md).
+Analytics](../../azure-monitor/insights/containers.md).
 
 ## Installing Log Analytics on Kubernetes
 
@@ -96,40 +99,40 @@ $ kubectl create -f oms-daemonset.yaml
 ### Installing the Log Analytics agent using a Kubernetes Secret
 To protect your Log Analytics workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
 
- - Copy the script, secret template file, and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory.
-	  - secret generating script - secret-gen.sh
-	  - secret template - secret-template.yaml
-   - DaemonSet YAML file - omsagent-ds-secrets.yaml
- - Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Insert that and the script will create a secret yaml file so you can run it.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- Copy the script, secret template file, and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory.
+  - secret generating script - secret-gen.sh
+  - secret template - secret-template.yaml
+    - DaemonSet YAML file - omsagent-ds-secrets.yaml
+- Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Insert that and the script will create a secret yaml file so you can run it.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - Create the secrets pod by running the following:
-  ``` kubectl create -f omsagentsecret.yaml ```
+  - Create the secrets pod by running the following:
+  ```kubectl create -f omsagentsecret.yaml```
 
-   - To check, run the following:
+  - To check, run the following:
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
-  - Create your omsagent daemon-set by running ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Create your omsagent daemon-set by running ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### Conclusion
 That's it! After a few minutes, you should be able to see data flowing to your Log Analytics dashboard.

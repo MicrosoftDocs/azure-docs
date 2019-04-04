@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl cluster commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl cluster
 Select, manage, and operate Service Fabric clusters.
 
@@ -136,9 +137,9 @@ Get the Service Fabric cluster manifest. The cluster manifest contains propertie
 ## sfctl cluster operation-cancel
 Cancels a user-induced fault operation.
 
-The following APIs start fault operations that may be cancelled by using CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. 
+The following APIs start fault operations that may be canceled by using CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. 
 
- Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command. It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. 
+Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command.  It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. 
 
 > [!NOTE]
 > If this API is invoked with force==true, internal state may be left behind.
@@ -239,13 +240,13 @@ The report must contain the information about the source of the health report an
 | --- | --- |
 | --health-property [Required] | The property of the health information. <br><br> An entity can have health reports for different properties. The property is a string and not a fixed enumeration to allow the reporter flexibility to categorize the state condition that triggers the report. For example, a reporter with SourceId "LocalWatchdog" can monitor the state of the available disk on a node, so it can report "AvailableDisk" property on that node. The same reporter can monitor the node connectivity, so it can report a property "Connectivity" on the same node. In the health store, these reports are treated as separate health events for the specified node. Together with the SourceId, the property uniquely identifies the health information. |
 | --health-state    [Required] | Possible values include\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
-| --source-id       [Required] | The source name which identifies the client/watchdog/system component which generated the health information. |
+| --source-id       [Required] | The source name that identifies the client/watchdog/system component that generated the health information. |
 | --description | The description of the health information. <br><br> It represents free text used to add human readable information about the report. The maximum string length for the description is 4096 characters. If the provided string is longer, it will be automatically truncated. When truncated, the last characters of the description contain a marker "[Truncated]", and total string size is 4096 characters. The presence of the marker indicates to users that truncation occurred. Note that when truncated, the description has less than 4096 characters from the original string. |
-| --immediate | A flag which indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
+| --immediate | A flag that indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --ttl | The duration for which this health report is valid. This field is using ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
+| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
 
@@ -260,7 +261,7 @@ The report must contain the information about the source of the health report an
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, specify also an absolute path to a CA bundle file or directory of trusted CA certs.
+If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolic links.
 
 ### Arguments
 
@@ -336,19 +337,19 @@ Validate the supplied upgrade parameters and start upgrading the code or configu
 | --delta-health-evaluation | Enables delta health evaluation rather than absolute health evaluation after completion of each upgrade domain. |
 | --delta-unhealthy-nodes | The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.  Default\: 10. <br><br> The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. |
 | --failure-action | Possible values include\: 'Invalid', 'Rollback', 'Manual'. |
-| --force-restart | Force restart. |
-| --health-check-retry | Health check retry timeout measured in milliseconds. |
-| --health-check-stable | Health check stable duration measured in milliseconds. |
-| --health-check-wait | Health check wait duration measured in milliseconds. |
-| --replica-set-check-timeout | Upgrade replica set check timeout measured in seconds. |
+| --force-restart | Processes are forcefully restarted during upgrade even when the code version has not changed. <br><br> The upgrade only changes configuration or data. |
+| --health-check-retry | The length of time between attempts to perform health checks if the application or cluster is not healthy. |
+| --health-check-stable | The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --health-check-wait | The length of time to wait after completing an upgrade domain before starting the health checks process. |
+| --replica-set-check-timeout | The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. <br><br> When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. |
 | --rolling-upgrade-mode | Possible values include\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Default\: UnmonitoredAuto. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 | --unhealthy-applications | The maximum allowed percentage of unhealthy applications before reporting an error. <br><br> For example, to allow 10% of applications to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning. This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap. The computation rounds up to tolerate one failure on small numbers of applications. |
 | --unhealthy-nodes | The maximum allowed percentage of unhealthy nodes before reporting an error. <br><br> For example, to allow 10% of nodes to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning. The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that. |
 | --upgrade-domain-delta-unhealthy-nodes | The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.  Default\: 15. <br><br> The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits. |
-| --upgrade-domain-timeout | Upgrade domain timeout measured in milliseconds. |
-| --upgrade-timeout | Upgrade timeout measured in milliseconds. |
-| --warning-as-error | Warnings are treated with the same severity as errors. |
+| --upgrade-domain-timeout | The amount of time each upgrade domain has to complete before FailureAction is executed. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --upgrade-timeout | The amount of time the overall upgrade has to complete before FailureAction is executed. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --warning-as-error | Indicates whether warnings are treated with the same severity as errors. |
 
 ### Global Arguments
 
@@ -385,7 +386,7 @@ Make the cluster code or configuration upgrade move on to the next upgrade domai
 ## sfctl cluster upgrade-rollback
 Roll back the upgrade of a Service Fabric cluster.
 
-Rollback the code or configuration upgrade of a Service Fabric cluster.
+Roll back the code or configuration upgrade of a Service Fabric cluster.
 
 ### Arguments
 
@@ -436,20 +437,20 @@ Update the upgrade parameters of a Service Fabric cluster upgrade.
 | --delta-health-evaluation | Enables delta health evaluation rather than absolute health evaluation after completion of each upgrade domain. |
 | --delta-unhealthy-nodes | The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.  Default\: 10. <br><br> The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. |
 | --failure-action | Possible values include\: 'Invalid', 'Rollback', 'Manual'. |
-| --force-restart | Force restart. |
-| --health-check-retry | Health check retry timeout measured in milliseconds. |
-| --health-check-stable | Health check stable duration measured in milliseconds. |
-| --health-check-wait | Health check wait duration measured in milliseconds. |
-| --replica-set-check-timeout | Upgrade replica set check timeout measured in seconds. |
+| --force-restart | Processes are forcefully restarted during upgrade even when the code version has not changed. <br><br> The upgrade only changes configuration or data. |
+| --health-check-retry | The length of time between attempts to perform health checks if the application or cluster is not healthy. |
+| --health-check-stable | The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --health-check-wait | The length of time to wait after completing an upgrade domain before starting the health checks process. |
+| --replica-set-check-timeout | The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. <br><br> When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. |
 | --rolling-upgrade-mode | Possible values include\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Default\: UnmonitoredAuto. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 | --unhealthy-applications | The maximum allowed percentage of unhealthy applications before reporting an error. <br><br> For example, to allow 10% of applications to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning. This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap. The computation rounds up to tolerate one failure on small numbers of applications. |
 | --unhealthy-nodes | The maximum allowed percentage of unhealthy nodes before reporting an error. <br><br> For example, to allow 10% of nodes to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning. The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that. |
 | --upgrade-domain-delta-unhealthy-nodes | The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.  Default\: 15. <br><br> The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits. |
-| --upgrade-domain-timeout | Upgrade domain timeout measured in milliseconds. |
+| --upgrade-domain-timeout | The amount of time each upgrade domain has to complete before FailureAction is executed. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
 | --upgrade-kind | Possible values include\: 'Invalid', 'Rolling', 'Rolling_ForceRestart'.  Default\: Rolling. |
-| --upgrade-timeout | Upgrade timeout measured in milliseconds. |
-| --warning-as-error | Warnings are treated with the same severity as errors. |
+| --upgrade-timeout | The amount of time the overall upgrade has to complete before FailureAction is executed. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --warning-as-error | Indicates whether warnings are treated with the same severity as errors. |
 
 ### Global Arguments
 
@@ -460,6 +461,7 @@ Update the upgrade parameters of a Service Fabric cluster upgrade.
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.

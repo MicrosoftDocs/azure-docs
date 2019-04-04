@@ -1,6 +1,6 @@
 ---
 title: LCS Subscription | Microsoft Docs
-description: Introduction to a tuutorial for creating a subscription.
+description: Introduction to a tutorial for creating a subscription.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm
@@ -17,8 +17,7 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ---
 
-LCS Subscription
-================
+# LCS Subscription
 
 In this tutorial, you will learn how create a subscription. This subscription will give you a Microsoft Online test tenant and a Microsoft Dynamics Lifecycle Services project where you can deploy an
 environment. You will also set up additional users in your Microsoft Online tenant and gain experience with the following service administration capabilities. Here are the skills that you will learn:
@@ -29,8 +28,7 @@ environment. You will also set up additional users in your Microsoft Online tena
 - Adding additional users to Microsoft Azure Active Directory and the client.
 - Viewing resources in your subscription email.
 
-Key terms
-=========
+## Key terms
 
 **Microsoft Online Services tenant** - A tenant is the group of all subscriptions and users for your organization. The tenant is created at the same time as your first subscription in Microsoft Online Services.
 
@@ -38,7 +36,7 @@ Key terms
 you develop can be deployed to the cloud.
 
 **Microsoft Azure Active Directory** - The cloud environment includes Azure Active Directory (AD), which helps you manage users, groups, security roles, and licenses for online applications, similarly to the
-way that you manage them for on-premise environments.
+way that you manage them for on-premises environments.
 
 **Users** - Users of the services that your organization has subscribed to are managed in Azure AD. Any users in your tenant can be added and assigned to security roles.
 

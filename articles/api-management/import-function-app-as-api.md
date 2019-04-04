@@ -66,7 +66,7 @@ Follow the steps below to create a new API from an Azure Function App.
     ![Add from Function App](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
+    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*. At this moment, Linux Function Apps are not supported.
 
 7. Switch to the **Full** view and assign **Product** to your new API. If needed, edit other pre-populated fields.
 
@@ -108,11 +108,14 @@ Follow the steps below to append Azure Function App to an existing API.
 
     ![Append from Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Generated Azure Function App host key
+## <a name="authorization"></a> Authorization
 
 Import of an Azure Function App automatically generates:
-* host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
-* named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
+
+* Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
+* Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
+
+For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
 
 > [!WARNING]
 > Removing or changing value of either the Azure Function App host key or Azure API Management named value will break the communication between the services. The values do not sync automatically.
@@ -157,7 +160,7 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 You can also call operations from the developer portal to test APIs. 
 
-1. Select the API that you created in [Import and publish a back-end API](#create-api).
+1. Select the API that you created in Import and publish a back-end API.
 
 2. Select **Developer portal**.
 

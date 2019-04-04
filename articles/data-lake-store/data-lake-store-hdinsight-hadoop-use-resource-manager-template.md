@@ -3,8 +3,8 @@ title: Use Azure templates to create HDInsight with Azure Data Lake Storage Gen1
 description: Use Azure Resource Manager templates to create and use HDInsight clusters with Azure Data Lake Storage Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Create an HDInsight cluster with Azure Data Lake Storage Gen1 using Azure Resource Manager template
@@ -39,6 +39,9 @@ Here are some important considerations for using HDInsight with Data Lake Storag
 In this article, we provision a Hadoop cluster with Data Lake Storage Gen1 as additional storage. For instructions on how to create a Hadoop cluster with Data Lake Storage Gen1 as default storage, see [Create an HDInsight cluster with Data Lake Storage Gen1 using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,14 +57,20 @@ The instructions at the link mentioned above require PowerShell. Before you star
 
 ```
 # Log in to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List all the subscriptions associated to your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Select a subscription
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
+
+The template deploys these resource types:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## Upload sample data to Data Lake Storage Gen1
 The Resource Manager template creates a new Data Lake Storage Gen1 account and associates it with the HDInsight cluster. You must now upload some sample data to Data Lake Storage Gen1. You'll need this data later in the tutorial to run jobs from an HDInsight cluster that access data in the Data Lake Storage Gen1 account. For instructions on how to upload data, see [Upload a file to your Data Lake Storage Gen1 account](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
@@ -75,9 +84,9 @@ To make sure the sample data you upload is accessible from the HDInsight cluster
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1
 After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Storage Gen1. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Storage Gen1 account.
 
-In this section you will SSH into an HDInsight Linux cluster and run the a sample Hive query. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In this section you will SSH into an HDInsight Linux cluster and run the a sample Hive query. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 1. Once connected, start the Hive CLI by using the following command:
 
@@ -111,9 +120,9 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 ## Access Data Lake Storage Gen1 using HDFS commands
 Once you have configured the HDInsight cluster to use Data Lake Storage Gen1, you can use the HDFS shell commands to access the store.
 
-In this section you will SSH into an HDInsight Linux cluster and run the HDFS commands. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In this section you will SSH into an HDInsight Linux cluster and run the HDFS commands. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Once connected, use the following HDFS filesystem command to list the files in the Data Lake Storage Gen1 account.
 

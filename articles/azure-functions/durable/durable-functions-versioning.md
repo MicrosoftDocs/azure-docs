@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
 ---
 
@@ -116,25 +116,17 @@ The most fail-proof way to ensure that breaking changes are deployed safely is b
 
 The task hub can be configured in the *host.json* file as follows:
 
+#### Functions 1.x
+
 ```json
 {
-    "extensions": {
-        "durableTask": {
-            "HubName": "MyTaskHubV2"
-        }
+    "durableTask": {
+        "HubName": "MyTaskHubV2"
     }
 }
 ```
 
-> [!NOTE]
-> For V1 Functions, *host.json* should be configured like this instead
->```json
->{
->    "durableTask": {
->        "HubName": "MyTaskHubV2"
->    }
->}
->```
+#### Functions 2.x
 
 The default value is `DurableFunctionsHub`.
 

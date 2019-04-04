@@ -3,7 +3,7 @@ title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure Stack |
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: 
 tags: 
@@ -14,8 +14,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 04/03/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
+ms.lastreviewed: 08/15/2018
 
 ---
 # Prepare a Red Hat-based virtual machine for Azure Stack
@@ -95,6 +97,13 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+1. Stop and Uninstall cloud-init:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
@@ -241,9 +250,10 @@ This section assumes that you already have an ISO file from the Red Hat website 
     dracut -f -v
     ```
 
-1. Uninstall cloud-init:
+1. Stop and Uninstall cloud-init:
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
@@ -260,22 +270,55 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ClientAliveInterval 180
     ```
 
-1. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
+1. When creating a custom vhd for Azure Stack, keep in mind that WALinuxAgent version between 2.2.20 and 2.2.35.1 (both exclusive) do not work on Azure Stack environments that are running a build before 1903. To resolve this, apply the 1901/1902 hotfix or follow the second half of this portion of instructions. 
+
+    If you are running an Azure Stack build 1903 (or above) or have the 1901/1902 hotfix, download the WALinuxAgent package from the Redhat extras repository like so:
+    
+   The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository      by running the following command:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Install the Azure Linux Agent by running the following command:
+   Install the Azure Linux Agent by running the following command:
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    Enable the waagent service:
+   Enable the waagent service:
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+    If you are running an Azure Stack build before 1903 and have not applied the 1901/1902 hotfix, then follow these instructions to download the WALinuxAgent:
+    
+   a.	Download setuptools
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. Download and unzip the latest version of the agent from our github. This is an example where we download "2.2.36" version from the github repo.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. Do not create swap space on the operating system disk.
@@ -343,7 +386,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 ## Prepare a Red Hat-based virtual machine from VMware
 
-This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html).
+This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * When you install the Linux operating system, we recommend that you use standard partitions rather than LVM, which is often the default for many installations. This avoids LVM name conflicts with cloned virtual machine, particularly if an operating system disk ever needs to be attached to another virtual machine for troubleshooting. LVM or RAID can be used on data disks if preferred.
 * Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
@@ -415,6 +458,13 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
     ```bash
     dracut -f -v
+    ```
+
+1. Stop and Uninstall cloud-init:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Ensure that the SSH server is installed and configured to start at boot time. This setting is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
@@ -576,6 +626,10 @@ This section assumes that you have already installed a RHEL virtual machine in V
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -652,20 +706,20 @@ To resolve this issue, add Hyper-V modules to initramfs and rebuild it:
 
 Edit `/etc/dracut.conf`, and add the following content:
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 Rebuild initramfs:
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 For more information, see [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
 ## Next steps
 
-You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure Stack. If this is the first time that you're uploading the VHD file to Azure Stack, see [Use the Marketplace toolkit to create and publish marketplace items](azure-stack-marketplace-publisher.md).
+You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure Stack. If this is the first time that you're uploading the VHD file to Azure Stack, see [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
 For more information about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).

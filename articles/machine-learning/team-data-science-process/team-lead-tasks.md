@@ -1,18 +1,18 @@
 ---
-title: Team Data Science Process Team Lead tasks - Azure  | Microsoft Docs
-description: An outline of the tasks for a team lead on a data science team project.
+title: Tasks for the team lead in the Team Data Science Process Team
+description: An outline of the tasks that a team lead on a data science team project is expected to complete for their data science team.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
-# Team Lead tasks
+# Tasks for the team lead in the Team Data Science Process Team
 
 This topic outlines the tasks that a team lead is expected to complete for their data science team. The objective is to establish collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). TDSP is an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. It is designed to help improve collaboration and team learning. The process is a distillation of the best practices and structures from both Microsoft as well as from the industry, needed for successful implementation of data science initiatives to help companies fully realize the benefits of their analytics programs. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 

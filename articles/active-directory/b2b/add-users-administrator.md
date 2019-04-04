@@ -5,15 +5,16 @@ description: Shows how an admin can add guest users to their directory from a pa
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 2/6/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal
@@ -36,12 +37,15 @@ To add B2B collaboration users to the directory, follow these steps:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > The **New guest user** option is also available on the **Organizational relationships** page. In **Azure Active Directory**, under **Manage**, select **Organizational relationships**.
+
 5. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
+    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
 
 6. Select **Invite** to automatically send the invitation to the guest user. 
  

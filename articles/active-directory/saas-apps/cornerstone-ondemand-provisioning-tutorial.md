@@ -9,13 +9,14 @@ manager: beatrizd
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cornerstone OnDemand for automatic user provisioning

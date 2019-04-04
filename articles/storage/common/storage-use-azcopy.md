@@ -5,9 +5,9 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Transfer data with the AzCopy on Windows
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
@@ -51,7 +51,7 @@ Let's look at several ways to download blobs using AzCopy.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Note that if the folder `C:\myfolder` does not exist, AzCopy creates it and download `abc.txt ` into the new folder.
+Note that if the folder `C:\myfolder` does not exist, AzCopy creates it and download `abc.txt` into the new folder.
 
 ### Download a single blob from the secondary region
 
@@ -706,11 +706,11 @@ Specifies whether the destination blob is a block blob, a page blob, or an appen
 
 ### /CheckMD5
 
-Calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob or file's Content-MD5 property matches the calculated hash. The MD5 check is turned off by default, so you must specify this option to perform the MD5 check when downloading data.
+Calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob or file's Content-MD5 property matches the calculated hash. If the values do not match, AzCopy will fail to download the data. The MD5 check is turned off by default, so you must specify this option to perform the MD5 check when downloading data.
 
-Note that Azure Storage doesn't guarantee that the MD5 hash stored for the blob or file is up-to-date. It is client's responsibility to update the MD5 whenever the blob or file is modified.
+Note that Azure Storage doesn't guarantee that the MD5 hash stored for the blob or file is up-to-date. It is client's responsibility to update the MD5 whenever the blob or file is modified. In the case of disk images (managed or unmanaged disks), Azure VMs do not update the MD5 value as the disk contents change, hence /CheckMD5 will throw an error when downloading disk images.
 
-AzCopy always sets the Content-MD5 property for an Azure blob or file after uploading it to the service.  
+AzCopy v8 always sets the Content-MD5 property for an Azure blob or file after uploading it to the service.  
 
 **Applicable to:** Blobs, Files
 

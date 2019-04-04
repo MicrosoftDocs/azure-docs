@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Stack storage accounts  | Microsoft Docs
-description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
+description: Learn how to find, manage, recover, and reclaim Azure Stack storage accounts
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,34 +11,28 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 09/28/2018 
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed: 03/19/2019
 
+# keyword: Azure Stack storage accounts
 ---
-# Manage storage accounts in Azure Stack
-Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
+# Manage Azure Stack storage accounts
 
-## <a name="find"></a>Find a storage account
+Learn how to manage Azure Stack storage accounts. Find, recover, and reclaim storage capacity based on business needs.
+
+## Find a storage account
+
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
 1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
 
-2. Select **All services** > **Region management** under **Administration**.
+2. Select **All services** > **Storage** > **Storage accounts**.
 
-3. Select **Storage** from the **Resource Providers** list.
-   
-   ![Storage Resource Provider](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Select **Storage accounts** in **Storage**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   The blade displays the list of storage accounts in that region.
-   
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack storage accounts](media/azure-stack-manage-storage-accounts/image4.png)
 
 By default, the first 10 accounts are displayed. You can choose to fetch
 more by clicking the  **Load more** link at the bottom of the list.
@@ -53,11 +47,12 @@ and fetch the relevant accounts** only.
 
 1. Select **Filter** at the top of the pane.
 2. On the Filter pane, it allows you to specify **account name**,
-    **subscription ID, or **status** to fine-tune the list of storage
+    **subscription ID**, or **status** to fine-tune the list of storage
     accounts to be displayed. Use them as appropriate.
-3. Select **Update**. The list should refresh accordingly.
+3. As you type, the list will automatically apply the filter.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filter Azure Stack storage accounts](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. To reset the filter: select **Filter**, clear out the
     selections and update.
 
@@ -68,7 +63,7 @@ when the full name or ID is not easily available.
 You can use free text here to help find the account you are interested
 in.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Find Azure Stack storage accounts](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## Look at account details
 Once you have located the accounts you are interested in viewing, you
@@ -82,9 +77,9 @@ creation time, location, etc.
 You may be in a situation where you need to recover a deleted
 account.
 
-In Azure Stack there is a simple way to do that:
+In Azure Stack, there is a simple way to do that:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this article for more information.
+1. Browse to the storage accounts list. See Find a storage account in this article for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
 4. Select the account, which opens the account details pane.
@@ -94,7 +89,7 @@ In Azure Stack there is a simple way to do that:
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. The recovery is now in *process…wait* for an indication that it was
    successful.
-   You can also select the “bell” icon at the top of the portal to
+   You can also select the "bell" icon at the top of the portal to
    view progress indications.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -115,7 +110,7 @@ In Azure Stack there is a simple way to do that:
 The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
 potentially be recovered. The default retention period is set to 0
-days. Setting the value to “0” means that any deleted account is
+days. Setting the value to "0" means that any deleted account is
 immediately out of retention and marked for periodic garbage
 collection.
 
@@ -123,9 +118,8 @@ collection.
 
 1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
 2. Select **All services** > **Region management** under **Administration**.
-3. Select **Storage** from the **Resource Providers** list.
-4. Select **Settings** at the top to open the setting pane.
-5. Select **Configuration** then edit the retention period value.
+3. Select **Resources providers** > **Storage** > **Settings**. Your path is Home > *region* - Resource providers > Storage.
+4. Select **Configuration** then edit the retention period value.
 
    Set the number of days and then save it.
    
@@ -140,7 +134,7 @@ One of the side effects of having a retention period is that a deleted account c
 You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
-1. Navigate to the storage accounts pane. See [Find a storage account](#find).
+1. Navigate to the storage accounts pane. See Find a storage account.
 2. Select **Reclaim space** at the top of the pane.
 3. Read the message and then select **OK**.
 
@@ -166,12 +160,12 @@ You can also use PowerShell to explicitly override the retention period and imme
 > [!NOTE]  
 > If you run these cmdlets, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
-```PowerShell  
+```powershell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
-````
+```
 
-For more information, see [Azure Stack PowerShell documentation.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
+For more information, see [Azure Stack PowerShell documentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## Next steps

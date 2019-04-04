@@ -11,4 +11,4 @@ ms.topic: "include"
 ms.date: 09/24/2018
 ---
 
-Learn how to run notebooks by following the article, [Use Jupyter notebooks to explore this service](../articles/machine-learning/service/samples-notebooks.md).
+Learn how to run notebooks by following the article, [Use Jupyter notebooks to explore Azure Machine Learning service](../articles/machine-learning/service/samples-notebooks.md).

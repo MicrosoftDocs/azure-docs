@@ -12,17 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 01/14/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/14/2019
 
 ---
 # Connect to Azure Stack
 
 To manage resources, you must connect to the Azure Stack Development Kit. This article details the steps required to connect to the development kit. You can use either of the following connection options:
 
-* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* Remote Desktop: lets a single concurrent user quickly connect from the development kit.
+* Virtual Private Network (VPN): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
 ## Connect to Azure Stack with Remote Desktop
 With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
@@ -50,7 +51,7 @@ You can establish a split tunnel Virtual Private Network (VPN) connection to an 
 
 To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the IP address and password values for your environment):
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -87,9 +88,9 @@ If the set-up succeeds, you should see **azurestack** in your list of VPN connec
 
 Connect to the Azure Stack instance by using either of the following two methods:  
 
-* By using the `Connect-AzsVpn ` command: 
+* By using the `Connect-AzsVpn` command: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

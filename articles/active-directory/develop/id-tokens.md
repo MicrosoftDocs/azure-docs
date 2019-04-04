@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,19 +17,21 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms:custom: fasttrack-edit
+ms.collection: M365-identity-device-management
 ---
 
 # ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. 
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 
-ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application. 
+ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application.
 
 ## Claims in an id_token
 
-`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519), meaning they consist of a header, payload, and signature portion. You can use the header and payload to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all claims listed here appear in both v1.0 and v2.0 tokens.
+`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519), meaning they consist of a header, payload, and signature portion. You can use the header and signature to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all claims listed here appear in both v1.0 and v2.0 tokens.
 
 ### v1.0
 
@@ -63,7 +65,7 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value, and reject the token if the value does not match. |
 |`iss` |  String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred.  |
-|`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an orgnizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
 |`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected. |
 | `c_hash`| String |The code hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. For details about performing this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html). |
@@ -74,6 +76,7 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |`name` | String | The `name` claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
 |`nonce`| String | The nonce matches the parameter included in the original /authorize request to the IDP. If it does not match, your application should reject the token. |
 |`oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
+|`roles`| Array of strings | The set of roles which were assigned to the user who is logging in. |
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 |`tid` | String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |

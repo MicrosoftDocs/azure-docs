@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
 
 ---
 # Manage Role-Based Access Control
@@ -36,8 +37,8 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 
 ## Set access permissions for a universal group 
 
-> [!Note]  
-Applicable only to Active Directory Federated Services (AD FS).
+> [!Note]
+> Applicable only to Active Directory Federated Services (AD FS).
 
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).

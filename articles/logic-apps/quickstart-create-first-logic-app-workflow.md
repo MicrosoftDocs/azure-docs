@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Create and automate your first workflow - Azure Logic Apps | Microsoft Docs
-description: Quickstart for how to create your first logic app that automates tasks, processes, and workflows with Azure Logic Apps. Create logic apps for system integration and enterprise application integration (EAI) solutions for your systems & cloud services
+title: Quickstart - Create and automate your first workflow - Azure Logic Apps | Microsoft Docs
+description: Create your first logic app that automates tasks, processes, and workflows with Azure Logic Apps. Create logic apps for system integration and enterprise application integration (EAI) solutions for your systems & cloud services
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -50,7 +50,7 @@ with your Azure account credentials.
    ![Create logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
 3. Under **Create logic app**, provide details about your logic app as shown here. 
-After you're done, choose **Pin to dashboard** > **Create**.
+After you're done, choose **Create**.
 
    ![Provide logic app details](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -114,13 +114,13 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 that sends email when a new item appears in the RSS feed. 
 
 1. Under the **When a feed item is published** trigger, 
-choose **+ New step** > **Add an action**.
+choose **New step**.
 
    ![Add an action](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Under **Choose an action**, enter "send an email" as your filter. 
-From the actions list, select the "send an email" action 
-for the email provider that you want. 
+2. Under **Choose an action**, enter "send an email" in the search box. 
+Under the search box, choose **All**. From the actions list, 
+select the "send an email" action for the email provider that you want. 
 
    ![Select this action: "Office 365 Outlook - Send an email"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -148,7 +148,7 @@ specify the data that you want the email to include.
       you can include as inputs in your workflow. 
 
    2. In the **Subject** box, enter this text 
-   with a trailing blank space: ```New RSS item: ```
+   with a trailing blank space: ```New RSS item:```
 
       ![Enter the email subject](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

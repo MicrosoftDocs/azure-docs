@@ -1,15 +1,18 @@
 ---
-title: Azure Active Directory Overview | Microsoft Docs
+title: What is Azure Active Directory? - Azure Active Directory | Microsoft Docs
 description: Learn about Azure Active Directory, including the required terminology, audience, licensing basics, and associated features.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
+ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
+
 #customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure Active Directory? 
@@ -68,7 +71,7 @@ To better understand Azure AD and its documentation, you should review the follo
 |Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can perform all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users.<br><br>**Note**<br>This administrator role is called Global administrator in the Azure portal, but it's called **Company administrator** in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.<br><br>For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Microsoft account (also called, MSA)|Personal accounts that provide access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 
-## What features work in Azure AD?
+## Which features work in Azure AD?
 After you choose your Azure AD license, you will get access to some or all of the following features for your organization:
 
 |Category|Description|

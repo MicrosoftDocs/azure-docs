@@ -35,7 +35,7 @@ First, define `$schema` and `contentVersion` in the template. The `$schema` elem
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
 ## Define parameters
@@ -65,7 +65,7 @@ Next is the resources section of the template. Here, you define what you actuall
    "resources": [
 ```
 
-All resources require `type`, `name`, `apiVersion`, and `location` properties. This example's first resource has type `Microsft.Network/virtualNetwork`, name `myVnet`, and apiVersion `2016-03-30`. (To find the latest API version for a resource type, see the [Azure REST API documentation](https://docs.microsoft.com/rest/api/).)
+All resources require `type`, `name`, `apiVersion`, and `location` properties. This example's first resource has type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), name `myVnet`, and apiVersion `2016-03-30`. (To find the latest API version for a resource type, see the [Azure Resource Manager template reference](/azure/templates/).)
 
 ```json
      {
@@ -119,7 +119,7 @@ In this case, there is only one element in the list, the virtual network from th
        ],
 ```
 ## Specify scale set properties
-Scale sets have many properties for customizing the VMs in the scale set. For a full list of these properties, see the [scale set REST API documentation](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). For this tutorial, only a few commonly used properties are set.
+Scale sets have many properties for customizing the VMs in the scale set. For a full list of these properties, see the [template reference](/azure/templates/microsoft.compute/virtualmachinescalesets). For this tutorial, only a few commonly used properties are set.
 ### Supply VM size and capacity
 The scale set needs to know what size of VM to create ("sku name") and how many such VMs to create ("sku capacity"). To see which VM sizes are available, see the [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

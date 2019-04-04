@@ -3,7 +3,6 @@
 title: Connect to SAP systems - Azure Logic Apps | Microsoft Docs
 description: How to access and manage SAP resources by automating workflows with Azure Logic Apps
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -19,9 +18,9 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 > [!NOTE]
-> This SAP connector will be deprecated soon. We have released new and more advanced SAP connector and recommend to choose or move to the 
-> [new SAP connector](./logic-apps-using-sap-connector.md).
->  
+> This SAP connector is scheduled for deprecation. 
+> Please use or migrate to the 
+> [newer and more advanced SAP connector](./logic-apps-using-sap-connector.md). 
 
 This article shows how you can access your SAP resources from inside a logic 
 app by using the SAP Application Server and SAP Message Server connectors. 

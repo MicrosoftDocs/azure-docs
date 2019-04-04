@@ -1,15 +1,16 @@
 ---
 title: Provision a Geo Artificial Intelligence Virtual Machine on Azure - Azure | Microsoft Docs
-description: How to provision a Geo AI Virtual Machine on Azure.
+description: Learn how to create and configure the Geo AI Data Science Virtual Machine. The Geo AI Data Science Virtual Machine provides you with the tools to create AI and ML solutions using geographic data.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +30,7 @@ The Geo-DSVM contains several tools for AI including:
 - tools to acquire and pre-process image, textual data, 
 - tools for development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases
 - ESRI's ArcGIS Pro desktop software along with Python and R interfaces that can work with the geospatial data from your AI applications. 
-​
+ 
 
 ## Create your Geo AI Data Science VM
 
@@ -63,16 +64,16 @@ Here is the procedure to create an instance of the Geo AI Data Science VM:
    - **Summary**: Verify that all information you entered is correct.
 
    - **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
-​
+ 
 >[!NOTE]
 > The provisioning should take about 20-30 minutes. The status of the provisioning is displayed on the Azure portal.
 
-​
+ 
 ## How to access the Geo AI Data Science Virtual Machine
 
-​Once your VM is created, you are ready to start using the tools that are installed and pre-configured on it. There are start menu tiles and desktop icons for many of the tools. You can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
+ Once your VM is created, you are ready to start using the tools that are installed and pre-configured on it. There are start menu tiles and desktop icons for many of the tools. You can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
 
-​
+ 
 ## Using ArcGIS Pro installed in the VM
 
 The Geo-DSVM already has ArcGIS Pro desktop pre-installed and the environment pre-configured to work with all the tools in the DSVM. When you start ArcGIS it prompts you for a login to your ArcGIS account. If you already have an ArcGIS account and have licenses for the software, you can use your existing credentials.  
@@ -83,7 +84,7 @@ Otherwise, you can sign up for new ArcGIS account and license or get a [free tri
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Once you have signup for a either a paid or a free trial ArcGIS account, you can authorize ArcGIS Pro for your account by following the instructions in the [Getting Started with ArcGIS Pro documentation](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+After you sign up for either a paid or free trial ArcGIS account, you can authorize ArcGIS Pro for your account by following the instructions in [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 After you sign in to ArcGIS Pro desktop with your ArcGIS account, you are ready to begin using the data science tools that are installed and configured on the VM for your Geospatial analytics and machine learning projects.
 

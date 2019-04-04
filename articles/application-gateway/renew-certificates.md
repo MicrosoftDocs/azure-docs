@@ -26,10 +26,12 @@ Upload your new PFX certificate, give it a name, type the password, and then cli
 
 ## Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To renew your certificate using Azure PowerShell, use the following script:
 
 ```azurepowershell-interactive
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
 
@@ -38,10 +40,10 @@ $password = ConvertTo-SecureString `
   -Force `
   -AsPlainText
 
-set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
+set-AzApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
 
-Set-AzureRmApplicationGateway -ApplicationGateway $appgw
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 ## Azure CLI
 

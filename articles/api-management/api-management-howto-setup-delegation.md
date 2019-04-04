@@ -43,7 +43,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -100,7 +100,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    
@@ -116,7 +116,7 @@ Then ensure the delegation endpoint performs the following actions:
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
    
-   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId, and **salt** query parameters:
+   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId**, and **salt** query parameters:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

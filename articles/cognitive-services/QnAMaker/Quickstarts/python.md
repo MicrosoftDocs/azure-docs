@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: Get Python information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 02/13/2019
 ms.author: diberry
-
+ms.custom: seodec18
 ---
-# QnA Maker REST API with Python
+# How to use the QnA Maker REST API with Python
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Python to do the following.
@@ -30,10 +30,10 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Delete a knowledge base.](#Delete)
 - [Get the current endpoint keys.](#GetKeys)
 - [Re-generate the current endpoint keys.](#PutKeys)
-- [Get the current set of word alterations.](#GetAlterations)
-- [Replace the current set of word alterations.](#PutAlterations)
+- [Get the current set of case-insensitive word alterations.](#GetAlterations)
+- [Replace the current set of case-insensitive word alterations.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## Prerequisites
 

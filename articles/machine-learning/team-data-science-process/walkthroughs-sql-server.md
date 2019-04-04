@@ -1,16 +1,16 @@
 ---
-title: SQL Server data science walkthroughs using R, Python and T-SQL  | Microsoft Docs
+title: Analytics on SQL Server with R, Python, and T-SQL - Team Data Science Process
 description: Examples that walk through the use R, Python and T-SQL in SQL Server to do predictive analytics.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # SQL Server data science walkthroughs using R, Python and T-SQL

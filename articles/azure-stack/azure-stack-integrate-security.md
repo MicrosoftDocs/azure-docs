@@ -6,20 +6,21 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/28/2019
 keywords:
 ---
 
 # Azure Stack datacenter integration - syslog forwarding
 
-This article shows you how to use syslog to integrate Azure Stack infrastructure with external security solution(s) already deployed in your datacenter. For example, a Security Information Event Management (SIEM) system. The syslog channel exposes audits, alerts, and security logs from all the components of the Azure Stack infrastructure. Use syslog forwarding to integrate with security monitoring solutions and/or to retrieve all audits, alerts, and security logs to store them for retention. 
+This article shows you how to use syslog to integrate Azure Stack infrastructure with external security solution(s) already deployed in your datacenter. For example, a Security Information Event Management (SIEM) system. The syslog channel exposes audits, alerts, and security logs from all the components of the Azure Stack infrastructure. Use syslog forwarding to integrate with security monitoring solutions and/or to retrieve all audits, alerts, and security logs to store them for retention.
 
 Starting with the 1809 update, Azure Stack has an integrated syslog client that, once configured, emits syslog messages with the payload in Common Event Format (CEF).
 
-The following diagram describes the integration of Azure Stack with an external SIEM. There are two integration patterns that need to be considered: the first one (the one in blue) is the Azure Stack infrastructure that encompasses the infrastructure virtual machines and the Hyper-V nodes. All the audits, security logs and alerts from those components are centrally collected and exposed via syslog with CEF payload. This integration pattern is described in this document page.
-The second integration pattern is the one depicted in orange and covers the baseboard management controllers (BMCs), the hardware lifecycle host (HLH), the virtual machines and/or virtual appliances that run the hardware partner monitoring and management software, and the top of rack (TOR) switches. Since these components are hardware-partner specific, please reach out to your hardware partner for documentation on how to integrate them with an external SIEM.
+The following diagram describes the integration of Azure Stack with an external SIEM. There are two integration patterns that need to be considered: the first one (the one in blue) is the Azure Stack infrastructure that encompasses the infrastructure virtual machines and the Hyper-V nodes. All the audits, security logs, and alerts from those components are centrally collected and exposed via syslog with CEF payload. This integration pattern is described in this document page.
+The second integration pattern is the one depicted in orange and covers the baseboard management controllers (BMCs), the hardware lifecycle host (HLH), the virtual machines and/or virtual appliances that run the hardware partner monitoring and management software, and the top of rack (TOR) switches. Since these components are hardware-partner specific, contact your hardware partner for documentation on how to integrate them with an external SIEM.
 
 ![Syslog forwarding diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -31,9 +32,9 @@ The syslog client in Azure Stack supports the following configurations:
 
 2. **Syslog over TCP with server authentication and TLS 1.2 encryption:** In this configuration, the syslog client can verify the identity of the syslog server via a certificate. The messages are sent over a TLS 1.2 encrypted channel.
 
-3. **Syslog over TCP, with no encryption:** In this configuration, neither the syslog client nor syslog server verifies the identity of each other. The messages are sent in clear text over TCP.
+3. **Syslog over TCP, with no encryption:** In this configuration, the syslog client and syslog server identities are not verified. The messages are sent in clear text over TCP.
 
-4. **Syslog over UDP, with no encryption:** In this configuration, neither the syslog client nor syslog server verifies the identity of each other. The messages are sent in clear text over UDP.
+4. **Syslog over UDP, with no encryption:** In this configuration, the syslog client and syslog server identities are not verified. The messages are sent in clear text over UDP.
 
 > [!IMPORTANT]
 > Microsoft strongly recommends to use TCP using authentication and encryption (configuration #1 or, at the very minimum, #2) for production environments to protect against man-in-the-middle attacks and eavesdropping of messages.
@@ -66,6 +67,7 @@ Parameters for *Set-SyslogServer* cmdlet:
 |*Remove*| Remove configuration of the server from the client and stop syslog forwarding| flag | no|
 
 Parameters for *Set-SyslogClient* cmdlet:
+
 | Parameter | Description | Type |
 |---------|---------| ---------|
 | *pfxBinary* | pfx file containing the certificate to be used by the client as identity to authenticate against the syslog server  | Byte[] |
@@ -124,7 +126,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### Configuring syslog forwarding with TCP, Server authentication, and TLS 1.2 encryption
 
-In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with TLS 1.2 encryption. During the initial handshake, the client also verifies that the server provides a valid, trusted certificate. This prevents the client to send messages to untrusted destinations.
+In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with TLS 1.2 encryption. During the initial handshake, the client also verifies that the server provides a valid, trusted certificate. This configuration prevents the client to send messages to untrusted destinations.
 TCP using authentication and encryption is the default configuration and represents the minimum level of security that Microsoft recommends for a production environment. 
 
 ```powershell
@@ -178,13 +180,13 @@ To remove the syslog server configuration altogether and stop syslog forwarding:
 
 **Remove the syslog server configuration from the client**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **Remove the client certificate from the client**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -194,13 +196,13 @@ If you successfully connected the syslog client to your syslog server, you shoul
 
 **Verify the server configuration in the syslog client**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Verify the certificate setup in the syslog client**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 
@@ -281,6 +283,7 @@ Table of events for the recovery endpoint:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP Severity table:
+
 | Severity | Level | Numerical value |
 |----------|-------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -300,6 +303,7 @@ REP Severity table:
 ```
 
 Severity table for Windows events:
+
 | CEF severity value | Windows event level | Numerical value |
 |--------------------|---------------------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -310,6 +314,7 @@ Severity table for Windows events:
 |0|Verbose|Value: 5. Indicates logs at all levels|
 
 Custom extension table for Windows events in Azure Stack:
+
 | Custom extension name | Windows event example | 
 |-----------------------|---------|
 |MasChannel | System|
@@ -346,6 +351,7 @@ Custom extension table for Windows events in Azure Stack:
 ```
 
 Alerts severity table:
+
 | Severity | Level |
 |----------|-------|
 |0|Undefined|
@@ -353,6 +359,7 @@ Alerts severity table:
 |5|Warning|
 
 Custom Extension table for Alerts created in Azure Stack:
+
 | Custom extension name | Example | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Contact support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles |

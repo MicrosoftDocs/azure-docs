@@ -1,19 +1,20 @@
-﻿---
+---
 
 title: Leave an organization as a guest user - Azure Active Directory | Microsoft Docs
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
+manager: daveba
+ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Leave an organization as a guest user
@@ -22,13 +23,17 @@ An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organ
 
 ## Leave an organization
 
-To leave an organization, as a user signed in to the [Access Panel](https://myapps.microsoft.com), do the following:
+To leave an organization, follow these steps.
 
-1. If you’re not already signed in to the organization that you want to leave, select your name in the upper-right corner, and click the organization you want to leave.
-2. In the upper-right corner, select your name.
-3. Next to **Organizations**, select the settings icon (gear).
+1. Go to your Access Panel Profile page by doing one of the following:
+   
+   - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
+   - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
  
    ![Screenshot showing user settings in Access Panel](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > If you’re not already signed in to the organization you want to leave, under **Organizations**, click the **Sign in to leave organization** link next to the organization’s name. After you’re signed in, click your name again in the upper right and next to **Organizations**, select the settings icon (gear).
 
 3. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
 

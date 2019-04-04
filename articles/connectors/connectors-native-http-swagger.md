@@ -32,7 +32,7 @@ experience in Logic App Designer by exposing the API structure and outputs from 
 If you want to implement a polling trigger, follow the polling pattern that's described in 
 [Create custom APIs to call other APIs, services, and systems from logic apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Learn more about [logic app triggers and actions](connectors-overview.md).
+Learn more about [logic app triggers and actions](../connectors/apis-list.md).
 
 Here's an example of how to use the HTTP + Swagger operation as an action in a workflow in a logic app.
 
@@ -44,7 +44,7 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 4. Type the URL for a Swagger document:
    
    * To work from the Logic App Designer, the URL must be an HTTPS endpoint and have CORS enabled.
-   * If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
+   * If the Swagger document doesn't meet this requirement, you can use Azure Storage with CORS enabled to store the document.
 5. Click **Next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
    
@@ -66,7 +66,7 @@ To perform this step, set permissions to **Public Access**.
 
 3. Upload the Swagger file to the blob. 
 
-   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](https://storageexplorer.com/).
 
 4. Reference an HTTPS link to the document in Azure Blob storage. 
 
@@ -78,14 +78,16 @@ To perform this step, set permissions to **Public Access**.
 Following are the details for the triggers and actions that this HTTP + Swagger connector supports.
 
 ## HTTP + Swagger triggers
-A trigger is an event that can be used to start the workflow that's defined in a logic app. [Learn more about triggers.](connectors-overview.md) The HTTP + Swagger connector has one trigger.
+A trigger is an event that can be used to start the workflow that's defined in a logic app. 
+The HTTP + Swagger connector has one trigger. [Learn more about triggers](../connectors/apis-list.md).
 
 | Trigger | Description |
 | --- | --- |
 | HTTP + Swagger |Make an HTTP call and return the response content |
 
 ## HTTP + Swagger actions
-An action is an operation that's carried out by the workflow that's defined in a logic app. [Learn more about actions.](connectors-overview.md) The HTTP + Swagger connector has one possible action.
+An action is an operation that's carried out by the workflow that's defined in a logic app. 
+The HTTP + Swagger connector has one possible action. [Learn more about actions](../connectors/apis-list.md).
 
 | Action | Description |
 | --- | --- |
@@ -129,7 +131,6 @@ When making calls to various actions, you might get certain responses. Following
 | 404 |Not Found |
 | 500 |Internal server error. Unknown error occurred. |
 
-- - -
 ## Next steps
 
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)

@@ -19,42 +19,16 @@ ms.author: spelluru
 # Introduction to classroom labs
 Azure Lab Services enables you to quickly set up a classroom lab environment in the cloud. An educator creates a classroom lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools labs in the class, and makes them available to students. The students in the class connect to virtual machines (VMs) in the lab, and use them for their projects, assignments, classroom exercises. 
 
-The classroom labs are managed labs that are managed by Azure. The service itself handles all the infrastructure management for a managed lab, from spinning up virtual machines (VMs) to handling errors, and scaling the infrastructure. You specify what kind of infrastructure you need and install any tools or software that's required for the class. The managed labs are currently in preview.  
+The classroom labs are managed lab types that are managed by Azure. The service itself handles all the infrastructure management for a managed lab type, from spinning up virtual machines (VMs) to handling errors, and scaling the infrastructure. You specify what kind of infrastructure you need and install any tools or software that's required for the class. 
 
-## Scenarios
-Here is the main scenario that classroom labs of Azure Lab Services support: 
+## Automatic management of Azure infrastructure and scale 
+Azure Lab Services is a managed service, which means that provisioning and management of a lab’s underlying infrastructure is handled automatically by the service. You can just focus on preparing the right lab experience for your users. Let the service handle the rest and roll out your lab’s virtual machines to your audience. Scale your lab to hundreds of virtual machines with a single click.
 
-### Set up a resizable computer lab in the cloud for your classroom  
+## Simple experience for your lab users 
+Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can click on a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service. 
 
-- Create a managed classroom lab. You just tell the service exactly what you need, and it creates and manages the infrastructure of the lab for you so that you can focus on teaching your class, not technical details of a lab. 
-- Provide students with a lab of virtual machines that are configured with exactly what’s needed for a class. Give each student a limited number of hours for using the VMs for class work.  
-- Move your school’s physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab. 
-- Delete the lab with a single click once you’re done. 
-
-## User profiles
-This article describes different user profiles in Azure Lab Services. 
-
-### Lab account owner
-Typically, and IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:   
-
-- Sets up a lab account for your organization.
-- Manages and configures policies across all labs.
-- Gives permissions to people in the organization to create a lab under the lab account.
-
-### Educator
-Typically, users such as a teacher or an online trainer creates classroom labs under a lab account. An educator does the following tasks: 
-
-- Creates a classroom lab.
-- Creates virtual machines in the lab. 
-- Installs the appropriate software on virtual machines.
-- Specifies who can access the lab.
-- Provides registration link to the lab to students.
-
-### Student
-A student does the following tasks:
-
-- Uses the registration link that the lab user receives from a lab creator to register with the lab. 
-- Connects to a virtual machine in the lab and use it for doing class work, assignments, and projects. 
+## Cost optimization and tracking  
+Keep your budget in check by controlling exactly how many hours your lab users can use the virtual machines. Set up schedules in the lab to allow users to use the virtual machines only during designated time slots or set up reoccurring auto-shutdown and start times. Keep track of individual users’ usage and set limits.
 
 ## Next steps
 Get started with setting up a lab account that's required to create a classroom lab using Azure Lab Services:

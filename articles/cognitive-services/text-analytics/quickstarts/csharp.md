@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 01/02/2019
+ms.author: assafi
 ---
 
 # Quickstart: Using C# to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to detect language, analyze sentiment, and extract key phrases using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .Net Core application, with minimal references to external libraries, so you could also run it on Linux or MacOS.
+This article shows you how to detect language, analyze sentiment, and extract key phrases using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .NET Core application, with minimal references to external libraries, so you could also run it on Linux or MacOS.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -24,28 +24,27 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
+You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-
-## Install the Nuget SDK Package
+## Install the NuGet SDK Package
 1. Create a new Console solution in Visual Studio.
 1. Right click on the solution and click **Manage NuGet Packages for Solution**
 1. Mark the **Include Prerelease** checkbox.
 1. Select the **Browse** tab, and Search for **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Select the Nuget package and install it.
+1. Select the NuGet package and install it. You may need to downgrade to v2.8.0 for now (as of 3-18-2019) until the sample code is updated with v3.0.0.
 
 > [!Tip]
 >  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
 >
 > A few useful links:
-> - [SDK Nuget page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
-
+> - [SDK Nuget page](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
+> - [SDK code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## Call the Text Analytics API using the SDK
-1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in 3 sections (language extraction, key-phrase extraction and sentiment analysis).
+
+1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in three sections (language extraction, key-phrase extraction, and sentiment analysis).
 1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key valid for your subscription.
-1. Replace the location in `Endpoint` to the endpoint you signed up for. You can find the endpoint on Azure Portal resource. The endpoint typically starts with "https://[region].api.cognitive.microsoft.com", and in here please only include protocol and hostname.
+1. Replace the region in `Endpoint`. You can find your endpoint in the overview section of your Text Analytics resource in the [Azure portal](<https://ms.portal.azure.com>). Include only this portion of your endpoint: "https://[region].api.cognitive.microsoft.com".
 1. Run the program.
 
 ```csharp
@@ -64,13 +63,14 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
+
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -100,7 +100,7 @@ namespace ConsoleApp1
             // Printing language results.
             foreach (var document in result.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
+                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
             }
 
             // Getting key-phrases
@@ -118,13 +118,13 @@ namespace ConsoleApp1
             // Printing keyphrases
             foreach (var document in result2.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Key phrases:");
 
                 foreach (string keyphrase in document.KeyPhrases)
                 {
-                    Console.WriteLine("\t\t" + keyphrase);
+                    Console.WriteLine($"\t\t{keyphrase}");
                 }
             }
 
@@ -145,14 +145,14 @@ namespace ConsoleApp1
             // Printing sentiment results
             foreach (var document in result3.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
+                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
             }
 
 
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -162,13 +162,13 @@ namespace ConsoleApp1
             // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
-                    Console.WriteLine("\t\t" + entity.Name);
+                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}\t\t{entity.Type}\t\t{entity.SubType}");
                 }
             }
 
@@ -178,13 +178,47 @@ namespace ConsoleApp1
 }
 ```
 
+## Application output
+
+The application displays the following information:
+
+```console
+===== LANGUAGE EXTRACTION ======
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
+
+
+===== KEY-PHRASE EXTRACTION ======
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+Document ID: 3
+         Key phrases:
+                cat
+                rock
+Document ID: 4
+         Key phrases:
+                fútbol
+
+===== SENTIMENT ANALYSIS ======
+Document ID: 0 , Sentiment Score: 0.87
+Document ID: 1 , Sentiment Score: 0.11
+Document ID: 2 , Sentiment Score: 0.44
+Document ID: 3 , Sentiment Score: 1.00
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also 
+## See also
 
- [Text Analytics overview](../overview.md)  
+ [Text Analytics overview](../overview.md)
  [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
 

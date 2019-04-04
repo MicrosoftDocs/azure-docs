@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Samanage for automatic user provisioning
@@ -72,7 +73,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ### Important tips for assigning users to Samanage
 
-*	It is recommended that a single Azure AD user is assigned to Samanage to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+*    Samanage roles are automatically and dynamically populated in the Azure portal UI today. Before assigning Samanage roles to users, ensure that an initial sync is completed against Samanage to retrieve the latest roles in your Samanage tenant.
+
+*    It is recommended that a single Azure AD user is assigned to Samanage to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
 
 *	When assigning a user to Samanage, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -101,9 +104,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username** and **Admin Password** of your Samanage account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Samanage tenant. Example: admin@contoso.com.
+   * In the **Admin Username** field, populate the username of the admin account on your Samanage tenant. Example: admin@contoso.com.
 
-	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
+   * In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Samanage. If the connection fails, ensure your Samanage account has Admin permissions and try again.
 

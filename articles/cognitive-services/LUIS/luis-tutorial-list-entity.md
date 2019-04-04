@@ -1,15 +1,15 @@
 ---
-title: Label entities automatically with a list entity using Nodejs | Microsoft Docs
+title: Extact text match entities
 description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: diberry
+ms.date: 01/23/2019
+ms.author: diberry 
 ---
 
 # Use a list entity to increase entity detection 
@@ -18,9 +18,9 @@ This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create a list entity 
-* Add normalized values and synonyms
-* Validate improved entity identification
+> * Create a list entity 
+> * Add normalized values and synonyms
+> * Validate improved entity identification
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## Use HomeAutomation app
 The HomeAutomation app gives you control of devices such as lights, entertainment systems, and environment controls such as heating and cooling. These systems have several different names that can include Manufacturer names, nicknames, acronyms, and slang. 
@@ -76,15 +76,16 @@ Create a Node.js file and copy the following code into it. Change the authoringK
 
 Use the following command to install the NPM dependencies and run the code to create the list entity:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 The output of the run is the ID of the list entity:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## Train the model
 Train LUIS in order for the new list to affect the query results. Training is a two-part process of training, then checking status if the training is done. An app with many models may take a few moments to train. The following code trains the app then waits until the training is successful. The code uses a wait-and-retry strategy to avoid the 429 "Too many requests" error. 
 
@@ -94,13 +95,13 @@ Create a Node.js file and copy the following code into it. Change the authoringK
 
 Use the following command to run the code to train the app:
 
-```Javascript
+```console
 node train.js
 ```
 
 The output of the run is the status of each iteration of the training of the LUIS models. The following execution required only one check of training:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -125,13 +126,13 @@ Create a Node.js file and copy the following code into it. Change the endpointKe
 
 Use the following command to run the code to query the app:
 
-```Javascript
+```console
 node publish.js
 ```
 
 The following output includes the endpoint url for any queries. Real JSON results would include the real appID. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -152,13 +153,13 @@ Create a Node.js file and copy the following code into it. Change the endpointKe
 
 Use the following command to run the code and query the app:
 
-```Javascript
+```console
 node train.js
 ```
 
 The output is the query results. Because the code added the **verbose** name/value pair to the query string, the output includes all intents and their scores:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

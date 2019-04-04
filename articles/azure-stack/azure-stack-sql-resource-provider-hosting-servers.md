@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 10/16/2018
 
 ---
 # Add hosting servers for the SQL resource provider
 
-You can host a SQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
+You can create SQL Server database hosting servers on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
 
 > [!NOTE]
-> SQL databases should be created on the SQL resource provider server. The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
+> The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
 
 ## Overview
 
@@ -182,14 +183,18 @@ SKUs can't be assigned to specific users or groups.
 SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
 
 To edit a SKU, go to **All services** > **SQL Adapter** > **SKUs**. Select the SKU to modify, make any necessary changes, and click **Save** to save changes. 
+
 To delete a SKU that is no longer needed, go to **All services** > **SQL Adapter** > **SKUs**. Right-click the SKU name and select **Delete** to delete it.
 
-> [!TIP]
-> You can edit or delete SQL resource provider quotas in the same location.
+> [!IMPORTANT]
+> It can take up to an hour for new SKUs to be available in the user portal.
 
 ## Make SQL databases available to users
 
 Create plans and offers to make SQL databases available for users. Add the **Microsoft.SqlAdapter** service to the plan and create a new quota.
+
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
 
 ## Next steps
 

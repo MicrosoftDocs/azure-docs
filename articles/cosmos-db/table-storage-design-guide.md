@@ -1,17 +1,17 @@
 ---
-title: Azure Storage Table Design Guide
-description: Design Scalable and Performant Tables in Azure Table Storage
-services: cosmos-db
-author: SnehaGunda
-
+title: Design Azure Cosmos DB tables to support scaling and performance 
+description: "Azure Storage Table Design Guide: Designing scalable and performant tables in Azure Cosmos DB and Azure Storage Table"
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: sngun
+ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
+ms.custom: seodec18
 
 ---
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 To design scalable and performant tables you must consider a number of factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations will be familiar to you, but while there are some similarities between the Azure Table service storage model and relational models, there are also many important differences. These differences typically lead to different designs that may look counter-intuitive or wrong to someone familiar with relational databases, but that do make good sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences will reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (rows in relational database terminology) of data or for datasets that must support high transaction volumes: therefore, you need to think differently about how you store your data and understand how the Table service works. A well designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
@@ -203,7 +203,7 @@ The following examples assume the table service is storing employee entities wit
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-The earlier section [Azure Table service overview](#overview) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+The earlier section Azure Table service overview describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
   $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -213,7 +213,7 @@ The earlier section [Azure Table service overview](#overview) describes some of 
   $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * A ***Table Scan*** does not include the **PartitionKey** and is inefficient because it searches all of the partitions that make up your table in turn for any matching entities. It will perform a table scan regardless of whether or not your filter uses the **RowKey**. For example:
   $filter=LastName eq 'Jones'  
-* Queries that return multiple entities return them sorted in **PartitionKey** and **RowKey** order. To avoid resorting the entities in the client, choose a **RowKey** that defines the most common sort order.  
+* Azure Table Storage Queries that return multiple entities return them sorted in **PartitionKey** and **RowKey** order. To avoid resorting the entities in the client, choose a **RowKey** that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Using an "**or**" to specify a filter based on **RowKey** values results in a partition scan and is not treated as a range query. Therefore, you should avoid queries that use filters such as:
 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
@@ -252,7 +252,13 @@ Many designs must meet requirements to enable lookup of entities based on multip
 * [Index Entities Pattern](#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 
 ### Sorting data in the Table service
-The Table service returns entities sorted in ascending order based on **PartitionKey** and then by **RowKey**. These keys are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**.  
+
+Query results returned by the Table service are sorted in ascending order based on **PartitionKey** and then by **RowKey**.
+
+> [!NOTE]
+> Query results returned by the Azure Table API in Azure DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+
+Keys in Azure Storage table are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**. 
 
 Many applications have requirements to use data sorted in different orders: for example, sorting employees by name, or by joining date. The following patterns in the section [Table Design Patterns](#table-design-patterns) address how to alternate sort orders for your entities:  
 
@@ -320,7 +326,7 @@ This example also shows a department entity and its related employee entities in
 
 An alternative approach is to denormalize your data and store only employee entities with denormalized department data as shown in the following example. In this particular scenario, this denormalized approach may not be the best if you have a requirement to be able to change the details of a department manager because to do this you need to update every employee in the department.  
 
-![][2]
+![Employee entity][2]
 
 For more information, see the [Denormalization pattern](#denormalization-pattern) later in this guide.  
 
@@ -397,18 +403,18 @@ For example, if you have small tables that contain data that does not change oft
 ### Inheritance relationships
 If your client application uses a set of classes that form part of an inheritance relationship to represent business entities, you can easily persist those entities in the Table service. For example, you might have the following set of classes defined in your client application where **Person** is an abstract class.
 
-![][3]
+![ER diagram of inheritance relationships][3]
 
 You can persist instances of the two concrete classes in the Table service using a single Person table using entities in that look like this:  
 
-![][4]
+![Diagram of the Customer entity and Employee entity][4]
 
 For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 ## Table Design Patterns
 In previous sections, you have seen some detailed discussions about how to optimize your table design for both retrieving entity data using queries and for inserting, updating, and deleting entity data. This section describes some patterns appropriate for use with Table service solutions. In addition, you will see how you can practically address some of the issues and trade-offs raised previously in this guide. The following diagram summarizes the relationships between the different patterns:  
 
-![][5]
+![Image of table design patterns][5]
 
 The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [Command Query Responsibility Segregation (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
 
@@ -425,7 +431,7 @@ If you also want to be able to find an employee entity based on the value of ano
 #### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using a different **RowKey** value. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **RowKey**, "empid_" and "email_" enable you to query for a single employee or a range of employees by using a range of email addresses or employee ids.  
 
-![][7]
+![Employee entity with varying RowKey values][7]
 
 The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
 
@@ -451,7 +457,7 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that look up the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
 
-![][8]
+![Employee entity][8]
 
 * It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query, than to use one query to locate an entity and another to look up the required data.  
 
@@ -472,7 +478,7 @@ Store multiple copies of each entity using different **RowKey** values in separa
 #### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee id within each department.  
 
-![][9]
+![Employee entity][9]
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
 
@@ -481,7 +487,7 @@ You are anticipating a high volume of transactions against these entities and wa
 #### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
 
-![][10]
+![Employee entity with primary index and Employee entity with secondary index][10]
 
 The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
 
@@ -506,7 +512,7 @@ Consider the following points when deciding how to implement this pattern:
 * Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
   
-  ![][11]
+  ![Employee entity with secondary index][11]
 * It is typically better to store duplicate data and ensure that you can retrieve all the data you need with a single query than to use one query to locate an entity using the secondary index and another to lookup the required data in the primary index.  
 
 #### When to use this pattern
@@ -536,7 +542,7 @@ EGTs enable atomic transactions across multiple entities that share the same par
 By using Azure queues, you can implement a solution that delivers eventual consistency across two or more partitions or storage systems.
 To illustrate this approach, assume you have a requirement to be able to archive old employee entities. Old employee entities are rarely queried and should be excluded from any activities that deal with current employees. To implement this requirement you store active employees in the **Current** table and old employees in the **Archive** table. Archiving an employee requires you to delete the entity from the **Current** table and add the entity to the **Archive** table, but you cannot use an EGT to perform these two operations. To avoid the risk that a failure causes an entity to appear in both or neither tables, the archive operation must be eventually consistent. The following sequence diagram outlines the steps in this operation. More detail is provided for exception paths in the text following.  
 
-![][12]
+![Solution diagram for eventual consistency][12]
 
 A client initiates the archive operation by placing a message on an Azure queue, in this example to archive employee #456. A worker role polls the queue for new messages; when it finds one, it reads the message and leaves a hidden copy on the queue. The worker role next fetches a copy of the entity from the **Current** table, inserts a copy in the **Archive** table, and then deletes the original from the **Current** table. Finally, if there were no errors from the previous steps, the worker role deletes the hidden message from the queue.  
 
@@ -576,7 +582,7 @@ Maintain index entities to enable efficient searches that return lists of entiti
 #### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using a point query. For example, using the table structure shown below, a client application can efficiently retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey**).  
 
-![][13]
+![Employee entity][13]
 
 If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as their last name, you must use a less efficient partition scan to find matches rather than using an index to look them up directly. This is because the table service does not provide secondary indexes.  
 
@@ -595,7 +601,7 @@ For the first option, you create a blob for every unique last name, and in each 
 
 For the second option, use index entities that store the following data:  
 
-![][14]
+![Employee entity with string containing a list of employee IDs with same last name][14]
 
 The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
 
@@ -617,7 +623,7 @@ The following steps outline the process you should follow when you need to look 
 
 For the third option, use index entities that store the following data:  
 
-![][15]
+![Employee entity with string containing a list of employee IDs with same last name][15]
 
 The **EmployeeIDs** property contains a list of employee ids for employees with the last name stored in the **RowKey**.  
 
@@ -649,12 +655,12 @@ Combine related data together in a single entity to enable you to retrieve all t
 #### Context and problem
 In a relational database, you typically normalize data to remove duplication resulting in queries that retrieve data from multiple tables. If you normalize your data in Azure tables, you must make multiple round trips from the client to the server to retrieve your related data. For example, with the table structure shown below you need two round trips to retrieve the details for a department: one to fetch the department entity that includes the manager's id, and then another request to fetch the manager's details in an employee entity.  
 
-![][16]
+![Department entity and Employee entity][16]
 
 #### Solution
 Instead of storing the data in two separate entities, denormalize the data and keep a copy of the manager's details in the department entity. For example:  
 
-![][17]
+![Denormalized and combined Department entity][17]
 
 With department entities stored with these properties, you can now retrieve all the details you need about a department using a point query.  
 
@@ -682,18 +688,18 @@ In a relational database, it is natural to use joins in queries to return relate
 
 Assume you are storing employee entities in the Table service using the following structure:  
 
-![][18]
+![Employee entity][18]
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
-![][19]
+![Employee review entity][19]
 
 Notice that with this approach you may decide to duplicate some information (such as first name and last name) in the new entity to enable you to retrieve your data with a single request. However, you cannot maintain strong consistency because you cannot use an EGT to update the two entities atomically.  
 
 #### Solution
 Store a new entity type in your original table using entities with the following structure:  
 
-![][20]
+![Employee entity with compound key][20]
 
 Notice how the **RowKey** is now a compound key made up of the employee id and the year of the review data that enables you to retrieve the employee's performance and review data with a single request for a single entity.  
 
@@ -720,6 +726,9 @@ The following patterns and guidance may also be relevant when implementing this 
 
 ### Log tail pattern
 Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+
+> [!NOTE]
+> Query results returned by the Azure Table API in Azure DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### Context and problem
 A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
@@ -762,7 +771,7 @@ Many applications delete old data that no longer needs to be available to a clie
 
 One possible design is to use the date and time of the sign-in request in the **RowKey**:  
 
-![][21]
+![Login attempt entity][21]
 
 This approach avoids partition hotspots because the application can insert and delete sign in entities for each user in a separate partition. However, this approach may be costly and time consuming if you have a large number of entities because first you need to perform a table scan in order to identify all the entities to delete, and then you must delete each old entity. You can reduce the number of round trips to the server required to delete the old entities by batching multiple delete requests into EGTs.  
 
@@ -792,14 +801,14 @@ Store complete data series in a single entity to minimize the number of requests
 #### Context and problem
 A common scenario is for an application to store a series of data that it typically needs to retrieve all at once. For example, your application might record how many IM messages each employee sends every hour, and then use this information to plot how many messages each user sent over the preceding 24 hours. One design might be to store 24 entities for each employee:  
 
-![][22]
+![Message stats entity][22]
 
 With this design, you can easily locate and update the entity to update for each employee whenever the application needs to update the message count value. However, to retrieve the information to plot a chart of the activity for the preceding 24 hours, you must retrieve 24 entities.  
 
 #### Solution
 Use the following design with a separate property to store the message count for each hour:  
 
-![][23]
+![Message stats entity with separated properties][23]
 
 With this design, you can use a merge operation to update the message count for an employee for a specific hour. Now, you can retrieve all the information you need to plot the chart using a request for a single entity.  
 
@@ -828,7 +837,7 @@ An individual entity can have no more than 252 properties (excluding the mandato
 #### Solution
 Using the Table service, you can store multiple entities to represent a single large business object with more than 252 properties. For example, if you want to store a count of the number of IM messages sent by each employee for the last 365 days, you could use the following design that uses two entities with different schemas:  
 
-![][24]
+![Message stats entity with Rowkey 01 and Message state entity with Rowkey 02][24]
 
 If you need to make a change that requires updating both entities to keep them synchronized with each other, you can use an EGT. Otherwise, you can use a single merge operation to update the message count for a specific day. To retrieve all the data for an individual employee you must retrieve both entities, which you can do with two efficient requests that use both a **PartitionKey** and a **RowKey** value.  
 
@@ -855,7 +864,7 @@ An individual entity cannot store more than 1 MB of data in total. If one or sev
 #### Solution
 If your entity exceeds 1 MB in size because one or more properties contain a large amount of data, you can store data in the Blob service and then store the address of the blob in a property in the entity. For example, you can store the photo of an employee in blob storage and store a link to the photo in the **Photo** property of your employee entity:  
 
-![][25]
+![Employee entity with string for Photo pointing to blob storage][25]
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -880,12 +889,12 @@ Increase scalability when you have a high volume of inserts by spreading the ins
 #### Context and problem
 Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any given time are taking place in the same partition, creating a hotspot that prevents the table service from load-balancing inserts across multiple nodes, and possibly causing your application to hit the scalability targets for partition. For example, if you have an application that logs network and resource access by employees, then an entity structure as shown below could result in the current hour's partition becoming a hotspot if the volume of transactions reaches the scalability target for an individual partition:  
 
-![][26]
+![Employee entity][26]
 
 #### Solution
 The following alternative entity structure avoids a hotspot on any particular partition as the application logs events:  
 
-![][27]
+![Employee entity with RowKey compounding the Year, Month, Day, Hour, and Event ID][27]
 
 Notice with this example how both the **PartitionKey** and **RowKey** are compound keys. The **PartitionKey** uses both the department and employee id to distribute the logging across multiple partitions.  
 
@@ -911,13 +920,13 @@ Typically, you should use the Blob service instead of the Table service to store
 #### Context and problem
 A common use case for log data is to retrieve a selection of log entries for a specific date/time range: for example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You do not want to use the date and time of the log message to determine the partition you save log entities to: that results in a hot partition because at any given time, all the log entities will share the same **PartitionKey** value (see the section [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition because the application writes all log messages to the partition for the current date and hour:  
 
-![][28]
+![Log message entity][28]
 
 In this example, the **RowKey** includes the date and time of the log message to ensure that log messages are stored sorted in date/time order, and includes a message id in case multiple log messages share the same date and time.  
 
 Another approach is to use a **PartitionKey** that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you could use the following entity schema:  
 
-![][29]
+![Log message entity][29]
 
 However, the problem with this schema is that to retrieve all the log messages for a specific time span you must search every partition in the table.
 
@@ -977,7 +986,7 @@ var employees = query.Execute();
 
 Notice how the query specifies both a **RowKey** and a **PartitionKey** to ensure better performance.  
 
-The following code sample shows equivalent functionality using the fluent API (for more information about fluent APIs in general, see [Best Practices for Designing a Fluent API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+The following code sample shows equivalent functionality using the fluent API (for more information about fluent APIs in general, see [Best Practices for Designing a Fluent API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -1293,7 +1302,7 @@ Each entity must still have **PartitionKey**, **RowKey**, and **Timestamp** valu
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
 
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section [Modeling relationships](#modelling-relationships).  
+The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section Modeling relationships.  
 
 > [!NOTE]
 > You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  

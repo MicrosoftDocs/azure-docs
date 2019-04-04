@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access Administrator | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Private Access Administrator.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Private Access Administrator
 
@@ -213,7 +214,7 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 	![Zscaler Private Access Administrator user admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-	a. In the **Username** textbox, enter the email of user like **BrittaSimon@contoso.com**.
+	a. In the **Username** textbox, enter the email of user like **BrittaSimon\@contoso.com**.
 
 	b. In the **Password** textbox, type the Password.
 
@@ -221,7 +222,7 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 	d. Select **Role** as **Zscaler Private Access Administrator**.
 
-	e. In the **Email** textbox, enter the email of user like **BrittaSimon@contoso.com**.
+	e. In the **Email** textbox, enter the email of user like **BrittaSimon\@contoso.com**.
 
 	f. In the **Phone** textbox, type the Phone number.
 

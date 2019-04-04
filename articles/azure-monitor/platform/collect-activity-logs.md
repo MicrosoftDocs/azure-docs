@@ -1,5 +1,5 @@
 ---
-title: Collect and analyze Azure activity logs in Log Analytics | Microsoft Docs
+title: Collect and analyze Azure activity logs in Log Analytics workspace | Microsoft Docs
 description: You can use the Azure Activity Logs solution to analyze and search the Azure activity log across all your Azure subscriptions.
 services: log-analytics
 documentationcenter: ''
@@ -10,26 +10,23 @@ ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: 
-
 ---
 
-# Collect and analyze Azure activity logs in Log Analytics
+# Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor
 
 ![Azure Activity Logs symbol](./media/collect-activity-logs/activity-log-analytics.png)
 
-The Activity Log Analytics solution helps you analyze and search the [Azure activity log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) across all your Azure subscriptions. The Azure Activity Log is a log that offers insights into the operations performed on resources in your subscriptions. The Activity Log was previously known as *Audit Logs* or *Operational Logs* since it reports events for your subscriptions.
+The Activity Log Analytics solution helps you analyze and search the [Azure activity log](../../azure-monitor/platform/activity-logs-overview.md) across all your Azure subscriptions. The Azure Activity Log is a log that offers insights into the operations performed on resources in your subscriptions. The Activity Log was previously known as *Audit Logs* or *Operational Logs* since it reports events for your subscriptions.
 
 Using the Activity Log, you can determine the *what*, *who*, and *when* for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic deployment model.
 
-When you connect your Azure activity logs to Log Analytics, you can:
+When you connect your Azure activity logs to a Log Analytics workspace, you can:
 
 - Analyze the activity logs with pre-defined views
-- Analyze and search and activity logs from multiple Azure subscriptions
+- Analyze and search activity logs from multiple Azure subscriptions
 - Keep activity logs for longer than 90 days<sup>1</sup>
 - Correlate activity logs with other Azure platform and application data
 - See operational activities aggregated by status
@@ -38,21 +35,21 @@ When you connect your Azure activity logs to Log Analytics, you can:
 - Identify outage or service health issues impacting your resources
 - Use Log Search to correlate user activities, auto-scale operations, authorization changes, and service health to other logs or metrics from your environment
 
-<sup>1</sup>By default, Log Analytics keeps your Azure activity logs for 90 days, even if you are on the Free tier. Or, if you have a workspace retention setting of less than 90 days. If your workspace has retention that is longer than 90 days, the activity logs are kept based on the retention period of your workspace.
+<sup>1</sup>By default, Azure Monitor keeps your Azure activity logs in a Log Analytics workspace for 90 days, even if you are on the Free tier. Or, if you have a workspace retention setting of less than 90 days. If your workspace has retention that is longer than 90 days, the activity logs are kept based on the retention period of your workspace.
 
-Log Analytics collects activity logs free of charge and stores the logs for 90 days free of charge. If you store logs for longer than 90 days, you will incur data retention charges for the data stored longer than 90 days.
+The Log Analytics workspace collects activity logs free of charge and stores the logs for 90 days free of charge. If you store logs for longer than 90 days, you will incur data retention charges for the data stored longer than 90 days.
 
 When you're on the Free pricing tier, activity logs do not apply to your daily data consumption.
 
 ## Connected sources
 
-Unlike most other Log Analytics solutions, data isn't collected for activity logs by agents. All data used by the solution comes directly from Azure.
+Unlike most other Azure Monitor solutions, data isn't collected for activity logs by agents. All data used by the solution comes directly from Azure.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [SCOM management group](../../log-analytics/log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
+| [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collect information from Azure storage. |
 
 ## Prerequisites
@@ -96,5 +93,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Create an [alert](../../azure-monitor/platform/alerts-metric.md) when a specific activity happens.
 - Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information from your activity logs.

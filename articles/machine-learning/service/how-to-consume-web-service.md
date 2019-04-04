@@ -1,35 +1,39 @@
 ---
-title: How to consume web service deployments - Azure Machine Learning
-description: Learn how to consume a web service created by deploying an Azure Machine Learning model. Deploying an Azure Machine Learning model creates a web service that exposes a REST API. You can create clients for this API using the programming language of your choice. In this document, learn how to access the API using Python and C#.
+title: Create client to consume deployed web service
+titleSuffix: Azure Machine Learning service
+description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model. The web service exposes a REST API. Create clients for this API by using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
+ms.custom: seodec18
+
+
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
 # Consume an Azure Machine Learning model deployed as a web service
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service using C#, Go, Java, and Python.
+Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-A web service is created when you deploy an image to an Azure Container Instance, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). Images are created from registered models and scoring files. The URI used to access a web service can be retrieved using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
+You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
 
-The general workflow when creating a client that uses an ML web service is:
+The general workflow for creating a client that uses a machine learning web service is:
 
-1. Use the SDK to get the connection information
-1. Determine the type of request data used by the model
-1. Create an application that calls the web service
+1. Use the SDK to get the connection information.
+1. Determine the type of request data used by the model.
+1. Create an application that calls the web service.
 
 ## Connection information
 
 > [!NOTE]
-> The Azure Machine Learning SDK is used to get the web service information. This is a Python SDK. While it is used to retrieve information about the web services, you can use any language to create a client for the service.
+> Use the Azure Machine Learning SDK to get the web service information. This is a Python SDK. You can use any language to create a client for the service.
 
-The web service connection information can be retrieved using the Azure Machine Learning SDK. The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information needed to create a client. The following `Webservice` properties that are useful when creating a client application:
+The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
 * `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
@@ -47,14 +51,14 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     ```
 
-* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information on what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) reference documentation.
+* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) reference documentation.
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* If you know the name of the deployed service, you can create a new instance of `Webservice` and provide the workspace and service name as parameters. The new object contains information about the deployed service.
+* If you know the name of the deployed service, you can create a new instance of `Webservice`, and provide the workspace and service name as parameters. The new object contains information about the deployed service.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -63,12 +67,12 @@ There are a three ways to retrieve this information for deployed web services:
 
 ### Authentication key
 
-Authentication keys are created automatically when authentication is enabled for a deployment.
+When you enable authentication for a deployment, you automatically create authentication keys.
 
-* Authentication is __enabled by default__ when deploying to __Azure Kubernetes Service__.
-* Authentication is __disabled by default__ when deploying to __Azure container Instances__.
+* Authentication is enabled by default when you are deploying to Azure Kubernetes Service.
+* Authentication is disabled by default when you are deploying to Azure Container Instances.
 
-To control authentication, use the `auth_enabled` parameter when creating or updating a deployment.
+To control authentication, use the `auth_enabled` parameter when you are creating or updating a deployment.
 
 If authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
 
@@ -78,7 +82,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## Request data
 
@@ -96,7 +100,7 @@ The REST API expects the body of the request to be a JSON document with the foll
 > [!IMPORTANT]
 > The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request and passes it to the model. The following example shows the data this service expects:
+For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request, and passes it to the model. The following example shows the data this service expects:
 
 ```json
 {
@@ -119,6 +123,45 @@ For example, the model in the [Train within notebook](https://github.com/Azure/M
 ``` 
 
 The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
+
+### Binary data
+
+If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody 
+        # and send to the model. Then return the response.
+        
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> The `azureml.contrib` namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
+>
+> If you need to test this on your local development environment, you can install the components in the `contrib` namespace by using the following command:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## Call the service (C#)
 
@@ -387,7 +430,6 @@ This example demonstrates how to use Python to call the web service created from
 
 ```python
 import requests
-import requests
 import json
 
 # URL for the web service
@@ -442,7 +484,3 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## Next steps
-
-Now that you have learned how to create a client for a deployed model, learn how to [Deploy a model to an IoT Edge device](how-to-deploy-to-iot.md).

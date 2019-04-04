@@ -1,11 +1,9 @@
 ---
 title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)'
 description: A tutorial that creates an online database and C# console application using the SQL API.
-keywords: nosql tutorial, online database, c# console application
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
@@ -58,14 +56,14 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Open **Visual Studio 2017** on your computer.
 1. On the **File** menu, select **New**, and then choose **Project**.
 1. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
-    ![Screen shot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+    ![Screenshot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
     
-    ![Screen shot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
+    ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
 1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box. Be sure to check *Include prelease* to find the preview.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
@@ -73,14 +71,16 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 1. First, replace the references at the beginning of your C# application, in the **Program.cs** file with these references:
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
+
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
+
 1. Now, add these constants and variables into your public class ``Program``.
     ```csharp
     public class Program
@@ -114,7 +114,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
     Copy the URI from the portal and paste it into `<your endpoint URL>` in the ```Program.cs``` file. Copy the PRIMARY KEY from the portal and paste it into `<your primary key>`.
 
-   ![Screen shot to get Azure Cosmos DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Screenshot to get Azure Cosmos DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Next, we'll create a new instance of ```CosmosClient``` and set up some scaffolding for our program.
 
@@ -169,7 +169,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 Congratulations! You have successfully connected to an Azure Cosmos DB account. 
 
 ## Step 4: Create a database
-A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) or [**CreateDatabaseAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) function of the ``CosmosDatabases`` class. A database is the logical container of items partitioned across containers.
+A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) or [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) function of the ``CosmosDatabases`` class. A database is the logical container of items partitioned across containers.
     
 1. Copy and paste the **CreateDatabase** method below your **GetStartedDemoAsync** method. **CreateDatabase**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
 
@@ -286,14 +286,14 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 > 
 > 
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosContainers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosContainers** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript server-side application logic, e.g. stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the **CreateContainer** method below your **CreateDatabase** method. **CreateContainer**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field. 
 
     ```csharp
     /*
         Create the container if it does not exist. 
-        Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+        Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
     */
     private async Task CreateContainer()
     {
@@ -315,18 +315,18 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         //ADD THIS PART TO YOUR CODE
         await this.CreateContainer();
     }
-
-Select **F5** to run your application.
+    ```
+   Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
 1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
 
-    ![Screen shot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Screenshot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** class into **Family.cs**. 
     ```csharp
@@ -594,8 +594,8 @@ Now, we will update an item in Azure Cosmos DB.
         //ADD THIS PART TO YOUR CODE
         await this.ReplaceFamilyItem();
     }
-
-Select **F5** to run your application.
+    ```
+   Select **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.
 

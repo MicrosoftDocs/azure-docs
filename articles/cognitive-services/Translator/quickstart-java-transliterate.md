@@ -4,14 +4,14 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Java and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
-# Quickstart: Transliterate text with the Translator Text REST API (Java)
+# Quickstart: Use the Translator Text API to transliterate text using Java
 
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Java and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 
@@ -68,7 +68,7 @@ Take note that this sample has dependencies on OkHttp for HTTP requests, and Gso
 Let's create a folder for your sample app. From your working directory, run:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Next, in this folder, create a file named `Transliterate.java`.
@@ -86,7 +86,7 @@ import com.squareup.okhttp.*;
 ```
 
 
-## Add the subscription key and host URL
+## Define variables
 
 First, you'll need to create a public class for your project:
 
@@ -103,7 +103,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
 
-## Instantiate the HTTP client and build a request
+## Create a client and build a request
 
 Add this line to the `Transliterate` class to instantiate the `OkHttpClient`:
 
@@ -167,12 +167,18 @@ That's it, you're ready to run your sample app. From the command line (or termin
 gradle build
 ```
 
+When the build completes, run:
+
+```console
+gradle run
+```
+
 ## Sample response
 
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

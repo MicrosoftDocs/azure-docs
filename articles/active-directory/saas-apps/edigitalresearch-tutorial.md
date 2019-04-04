@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with eDigitalResearch | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and eDigitalResearch.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with eDigitalResearch
 
@@ -85,7 +86,7 @@ To configure and test Azure AD single sign-on with eDigitalResearch, you need to
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a eDigitalResearch test user](#create-a-edigitalresearch-test-user)** - to have a counterpart of Britta Simon in eDigitalResearch that is linked to the Azure AD representation of user.
+1. **[Create an eDigitalResearch test user](#create-an-edigitalresearch-test-user)** - to have a counterpart of Britta Simon in eDigitalResearch that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)**  to verify whether the configuration works.
 
@@ -165,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
   
-### Create a eDigitalResearch test user
+### Create an eDigitalResearch test user
 
 The objective of this section is to create a user called Britta Simon in eDigitalResearch. 
 

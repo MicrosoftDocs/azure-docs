@@ -14,11 +14,11 @@ ms.author: hrasheed
 
 Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to develop [Apache Spark](https://spark.apache.org/) applications written in [Scala](https://www.scala-lang.org/) and submit them to an Azure HDInsight Spark cluster, directly from the Eclipse IDE. You can use the HDInsight Tools plug-in in a few different ways:
 
-* To develop and submit a Scala Spark application on an HDInsight Spark cluster
-* To access your Azure HDInsight Spark cluster resources
-* To develop and run a Scala Spark application locally
+* To develop and submit a Scala Spark application on an HDInsight Spark cluster.
+* To access your Azure HDInsight Spark cluster resources.
+* To develop and run a Scala Spark application locally.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > You can use this tool to create and submit applications only for an HDInsight Spark cluster on Linux.
 > 
 > 
@@ -41,7 +41,7 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
 
 ![Automatic installation of the Scala plug-in](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscription), or [link a HDInsight cluster](#Link-a-cluster) using Ambari username/password or domain joined credential to start. 
+User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to start. 
 
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
@@ -72,7 +72,7 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    
    ![link cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
    > ![storage explorer in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -135,12 +135,12 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    a. From Package Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
    b. In the **Spark Submission** dialog box, provide the following values, and then select **Submit**:
       
-      * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the Eclipse project, or select one from a hard drive. The default value depends on the item that you right-click from Package Explorer.
-      * In the **Main class name** drop-down list, the submission wizard displays all object names from your project. Select or enter one that you want to run. If you selected an artifact from a hard drive, you must enter the main class name manually. 
-      * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
+   * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
+   * Select an artifact from the Eclipse project, or select one from a hard drive. The default value depends on the item that you right-click from Package Explorer.
+   * In the **Main class name** drop-down list, the submission wizard displays all object names from your project. Select or enter one that you want to run. If you selected an artifact from a hard drive, you must enter the main class name manually. 
+   * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
-      ![Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. The **Spark Submission** tab should start displaying the progress. You can stop the application by selecting the red button in the **Spark Submission** window. You can also view the logs for this specific application run by selecting the globe icon (denoted by the blue box in the image).
       
    ![Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
@@ -201,7 +201,7 @@ You can use HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala appl
 ### Prerequisite
 While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because **WinUtils.exe** is missing in Windows. 
 
-To resolve this error, you need [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+To resolve this error, you need [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
 1. Start Eclipse and create a project. In the **New Project** dialog box, make the following choices, and then select **Next**.

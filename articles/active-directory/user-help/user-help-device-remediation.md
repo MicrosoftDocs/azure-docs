@@ -1,19 +1,20 @@
 ---
-title: Potential reasons for the "You can't get there from here" error message in Azure Active Directory| Microsoft Docs
+title: Troubleshoot the "You can't get there from here" error - Azure Active Directory| Microsoft Docs
 description: Troubleshoot the potential reasons you're getting the "You can't get there from here" error message.
 services: active-directory
 author: eross-msft 
-manager: mtillman
+manager: daveba
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-
+ms.custom: "user-help, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 # Potential reasons for the "You can't get there from here" error message
 While accessing your organization's internal web apps or services, you might get an error message that says, **You can't get there from here**. This message means your organization has put a policy in place that's preventing your device from accessing your organization's resources. While you might end up having to contact your Helpdesk to fix this problem, here are a few things you can try first.
@@ -64,4 +65,4 @@ If your device isn't joined to your organization's network, you can do one of tw
 ## Next steps
 - [What is the MyApps portal?](active-directory-saas-access-panel-introduction.md)
 
-- [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md)
+- [Sign in with your phone, not your password](user-help-auth-app-sign-in.md)

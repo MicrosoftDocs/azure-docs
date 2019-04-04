@@ -1,5 +1,5 @@
 ---
-title: Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
+title: Entity Recognition cognitive search skill - Azure Search
 description: Extract different types of entities from text in an Azure Search cognitive search pipeline.
 services: search
 manager: pablocas
@@ -9,16 +9,20 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/27/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	 Entity Recognition cognitive skill
 
-The **Entity Recognition** skill extracts entities of different types from text. 
+The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
+>
+> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+
 
 ## @odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
@@ -35,7 +39,8 @@ Parameters are case-sensitive and are all optional.
 | categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
 |defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
 |minimumPrecision | Unused. Reserved for future use. |
-|includeTypelessEntites | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will returned as part of the `"entities"` complex output field. Default is `false` |
+|includeTypelessEntities | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will be returned as part of the `"entities"` complex output field. 
+These are entities that are well known but not classified as part of the current supported "categories". For instance "Windows 10" is a well known entity (a product), but "Products" are not in the categories supported today. Default is `false` |
 
 
 ## Skill inputs
@@ -59,8 +64,8 @@ Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Ema
 | dateTimes  | An array of strings where each string represents a DateTime (as it appears in the text) value. |
 | urls | An array of strings where each string represents a URL |
 | emails | An array of strings where each string represents an email |
-| namedEntities | An array of complex types, that contain the following fields: <ul><li>category</li> <li>value (the actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
-| entities | An array of complex types, that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granual view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
+| namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (The actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
+| entities | An array of complex types that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granular view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
 
 ##	Sample definition
 

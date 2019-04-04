@@ -6,16 +6,16 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
 
 ---
@@ -24,23 +24,7 @@ ms.author: gokuma
 
 This article discusses how you can create a shared pool of Data Science Virtual Machines (DSVMs) for a team to use. The benefits of using a shared pool are better resource utilization, facilitation of sharing and collaboration, and more effective management of DSVM resources. 
 
-You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for batch processing and interactive VMs.
-
-## Batch-processing pool
-If you want to set up a pool of DSVMs mainly to run jobs in a batch offline, you can use the [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) or [Azure Batch](https://docs.microsoft.com/azure/batch/) service. This article focuses on Azure Batch AI.
-
-The Ubuntu edition of the DSVM is supported as one of the images in Azure Batch AI. In Azure CLI or the Python SDK, where you create the Azure Batch AI cluster, you can specify the `image` parameter and set it to `UbuntuDSVM`. You can choose what kind of processing nodes you want: GPU-based instances versus CPU-only instances, number of CPUs, and memory from a [wide choice of VM instances](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) available on Azure. 
-
-When you use the Ubuntu DSVM image in Batch AI with GPU-based nodes, all the necessary GPU drivers and deep learning frameworks are preinstalled. The preinstallation saves you considerable time in preparing the batch nodes. In fact, if you're developing on an Ubuntu DSVM interactively, you'll notice that the Batch AI nodes are exactly the same setup and configuration of the environment. 
-
-Typically when you create a Batch AI cluster, you also create a file share that is mounted by all the nodes. The file share is used for input and output of data, as well as storing the batch job code/scripts. 
-
-After you create a Batch AI cluster, you can use the same CLI or Python SDK to submit jobs to be run. You pay for only the time that's used to run the batch jobs. 
-
-For more information, see:
-* Step-by-step walkthrough of using [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) to manage Batch AI
-* Step-by-step walkthrough of using [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) to manage Batch AI
-* [Batch AI recipes](https://github.com/Azure/BatchAI) that demonstrate how to use various AI and deep learning frameworks with Batch AI
+You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive VMs. An alternative managed compute infrastructure is Azure Machine Learning Compute. See [Set up compute targets](../service/how-to-set-up-training-targets.md#amlcompute) for more information.
 
 ## Interactive VM pool
 
