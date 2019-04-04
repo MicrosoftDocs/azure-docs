@@ -101,7 +101,7 @@ We used the standard experimental workflow to create, train, and test the models
 
 The following diagram shows a portion of this experiment, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![experiment-graph](../media/sample-experiment-predict-credit-risk-cost-sensitive/score-part.png)
+![experiment-graph](media/sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
 
 In the evaluation stage of the experiment, we computed the accuracy of each of the four models. For this experiment, we've used **Evaluate Model** to compare examples that have the same misclassification cost.
