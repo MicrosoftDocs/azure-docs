@@ -856,6 +856,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/avere-vfxt/avere-vfxt-controller-role.md",
+      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy-plan#vm-access-roles",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
       "redirect_document_id": false
