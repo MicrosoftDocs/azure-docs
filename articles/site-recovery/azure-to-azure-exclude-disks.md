@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery - exclude disks during replication of Azure virtual machines using Azure PowerShell  | Microsoft Docs
-description: Learn how to exclude disk for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
+title: Azure Site Recovery - exclude disks during replication of Azure virtual machines by using Azure PowerShell  | Microsoft Docs
+description: Learn how to exclude disks of Azure virtual machines during Azure Site Recovery by using Azure PowerShell.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -11,31 +11,31 @@ ms.author: asgang
 ---
 # Exclude disks from Powershell replication of Azure VMs
 
-This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or to optimize target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
+This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
 
 ## Prerequisites
 
 Before you start:
 
 - Make sure that you understand the [disaster-recovery architecture and components](azure-to-azure-architecture.md).
-- Review the [support requirements].(azure-to-azure-support-matrix.md) for all components.
-- Make sure you have AzureRm PowerShell module version 5.7.0. To intall or update PowerShell, see [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-- You have created a recovery services vault and have done protection of virtual machines at least once. If you haven't done this, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
+- Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
+- Make sure that you have AzureRm PowerShell module version 5.7.0. To install or update PowerShell, see [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- You created a recovery services vault and protected virtual machines at least once. If you haven't done these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 
 ## Why exclude disks from replication
-Excluding disks from replication is often necessary because:
+You might need to exclude disks from replication because:
 
 - Your virtual machine has reached [Azure Site Recovery limits to replicate data change rates](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
 
-- The data that's churned on the excluded disk is not important or doesn’t need to be replicated.
+- The data that's churned on the excluded disk isn't important or doesn’t need to be replicated.
 
 - You want to save storage and network resources by not replicating this data.
 
 ## How to exclude disks from replication
 
-In the example in this article, we replicate a virtual machine that has one OS and three data disks in the East US region to the West US 2 region. The name of the virtual machine in the example is *AzureDemoVM*. We exclude Disk 1 and keep disks 2 and 3.
+In our example, we replicate a virtual machine that has one OS and three data disks that's in the East US region to the West US 2 region. The name of the virtual machine is *AzureDemoVM*. We exclude Disk 1 and keep disks 2 and 3.
 
-## Get details of the virtual machines to be replicated
+## Get details of the virtual machines to replicate
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -60,8 +60,7 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Get details about the virtual machine
-s disks. This information will be used later when you start replication of the VM.
+Get details about the virtual machine's disks. This information will be used later when you start replication of the VM.
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
@@ -70,7 +69,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## Replicate Azure virtual machine
 
-In the following, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md). 
+For the following procedure, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md). 
 
 Replicate the Azure virtual machine with **managed disks**.
 
@@ -122,12 +121,12 @@ $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -N
 
 When the start-replication operation succeeds, the VM data is replicated to the recovery region.
 
-You can go to the Azure portal and see the VMs getting replicated and under "replicated items."
+You can go to the Azure portal and see the VMs that get replicated and under "replicated items."
 
 The replication process starts by seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial-replication phase.
 
-Atter initial replication completes, replication moves to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine disks to see that if any disk is excluded.
+After initial replication completes, replication moves on to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine disks to see that if any disk is excluded.
 
 ## Next steps
 
-Learn about [running a test failover](site-recovery-test-failover-to-azure.md) .
+Learn about [running a test failover](site-recovery-test-failover-to-azure.md).
