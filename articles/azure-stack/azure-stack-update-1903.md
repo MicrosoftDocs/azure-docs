@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
+ms.lastreviewed: 04/05/2019
 ---
 
 # Azure Stack 1903 update
@@ -59,6 +59,12 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - Improvements to the reliability of the update engine, including auto-remediation of common issues so that updates apply without interruption.
 
 - Improvements to the detection and remediation of low disk space conditions.
+
+### Secret management
+
+- Azure Stack now supports rotation of the root certificate used by certificates for external secret rotation. For more information, [see this article](azure-stack-rotate-secrets.md).
+
+- 1903 contains performance improvements for secret rotation that reduce the time that it takes to execute internal secret rotation.
 
 ## Prerequisites
 
@@ -189,7 +195,6 @@ The following are post-installation known issues for this build version.
 
 <!-- 2352906 - IS ASDK --> 
 - You must register the storage resource provider before you create your first Azure Function in the subscription.
-
 
 <!-- ### Usage -->
 

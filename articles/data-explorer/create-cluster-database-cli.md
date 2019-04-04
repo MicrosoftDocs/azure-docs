@@ -1,13 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Azure CLI'
 description: Learn how to create an Azure Data Explorer cluster and database by using the Azure CLI
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
+ms.date: 03/25/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using Azure CLI
