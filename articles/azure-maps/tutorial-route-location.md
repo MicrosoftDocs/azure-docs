@@ -104,7 +104,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 1. After initializing the map, add the following JavaScript code.
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
+    //Wait until the map resources are ready.
     map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
@@ -169,7 +169,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
 ## Get directions
 
-This section shows how to use Azure Maps route service API to find the route from a given start point to end point. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the map load eventListener** to ensure that they load after the map loads fully.
+This section shows how to use Azure Maps route service API to find the route from a given start point to end point. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the map ready eventListener** to ensure that they load after the map resources are ready to be accessed.
 
 1. In the GetMap function, add the following to Javascript code.
 

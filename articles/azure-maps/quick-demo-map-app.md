@@ -65,7 +65,7 @@ The tutorials detail how to use and configure Azure Maps with your account. Don'
 
 ## Next steps
 
-In this quickstart, you created your Azure Maps account and created a demo app. To learn how to create your own application by using the Azure Maps APIs, continue to the following tutorial:
+In this quickstart, you created your Azure Maps account and created a demo app. Take a look at the following tutorials to learn about Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Search nearby points of interest by using Azure Maps](./tutorial-search-location.md)
