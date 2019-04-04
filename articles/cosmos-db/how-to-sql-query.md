@@ -2156,7 +2156,6 @@ A nested query applies the inner query to each element of the outer container. O
 - [JSON](https://json.org/)
 - [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
 - Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
 - Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
 - Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
