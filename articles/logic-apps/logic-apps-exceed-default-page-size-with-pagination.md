@@ -35,11 +35,11 @@ can turn on pagination for specific actions:
 * <a href="https://docs.microsoft.com/connectors/excel/" target="_blank">Excel</a>
 * <a href="https://docs.microsoft.com/azure/connectors/connectors-native-http" target="_blank">HTTP</a>
 * <a href="https://docs.microsoft.com/connectors/db2/" target="_blank">IBM DB2</a>
+* <a href="https://docs.microsoft.com/en-us/connectors/teams/" target="_blank">Microsoft Teams</a>
 * <a href="https://docs.microsoft.com/connectors/oracle/" target="_blank">Oracle Database</a>
 * <a href="https://docs.microsoft.com/connectors/salesforce/" target="_blank">Salesforce</a>
 * <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
 * <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a>
-* <a href="https://docs.microsoft.com/en-us/connectors/teams/" target="_blank">Microsoft Teams</a>
 
 ## Turn on pagination
 
