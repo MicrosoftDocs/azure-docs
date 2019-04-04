@@ -36,7 +36,7 @@ A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 ## Add a custom icon to a symbol layer
 
-Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom symbol icon to the map resources and then use it to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property of the point feature as the text value. This can be achieved with this expression: `['get', 'temperature']`. 
+Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom symbol icon to the map resources and then use it to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property but since it is a number, it needs to be converted to a string. Additionally we want to append the "°F" to it. This can be achieved with this expression `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 

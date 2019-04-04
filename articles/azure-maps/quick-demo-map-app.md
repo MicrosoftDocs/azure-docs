@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
-3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value from the preceding section.
+3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
 
 ## Open the application
 
