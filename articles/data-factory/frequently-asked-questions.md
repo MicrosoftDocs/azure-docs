@@ -51,7 +51,7 @@ For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 ### Data transformed at scale with code-free pipelines
 The new browser-based tooling experience provides code-free pipeline authoring and deployment with a modern, interactive web-based experience.
 
-For visual data developers and data engineers, the ADF Web UI is the code-free design environment that you will use to build pipelines. It's fully integrated with Visual Studio Online Git and provides integration for CI/CD and iterative development with debugging options.
+For visual data developers and data engineers, the Data Factory web UI is the code-free design environment that you will use to build pipelines. It's fully integrated with Visual Studio Online Git and provides integration for CI/CD and iterative development with debugging options.
 
 ### Rich cross-platform SDKs for advanced users
 Data Factory V2 provides a rich set of SDKs that can be used to author, manage, and monitor pipelines by using your favorite IDE, including:
@@ -82,7 +82,7 @@ Since the initial public preview release in 2017, Data Factory has added the fol
 -	SQL Database with virtual network service endpoints
 -	Managed instance
 -	Elastic pool
--	Support for Azure Resource Manager virtual network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access. For more information, see also [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
+-	Support for an Azure Resource Manager virtual network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access. For more information, see also [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 -	Support for Azure Active Directory (Azure AD) authentication and SQL authentication to connect to the SSISDB, allowing Azure AD authentication with your Data Factory managed identity for Azure resources
 -	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from the Azure Hybrid Benefit option
 -	Support for Enterprise Edition of the Azure-SSIS integration runtime that lets you use advanced/premium features, a custom setup interface to install additional components/extensions, and a partner ecosystem. For more information, see also [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
@@ -96,7 +96,7 @@ The integration runtime is the compute infrastructure that Azure Data Factory us
 - **Dispatch activities**: For transformation, the integration runtime provides capability to natively execute SSIS packages.
 - **Execute SSIS packages**: The integration runtime natively executes SSIS packages in a managed Azure compute environment. The integration runtime also supports dispatching and monitoring transformation activities running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, SQL Database, and SQL Server.
 
-You can deploy one or many instances of the integration runtime as required to move and transform data. The integration runtime can run on an Azure public network or on a private network (on-premises, Virtual Network, or Amazon Web Services virtual private cloud [VPC]). 
+You can deploy one or many instances of the integration runtime as required to move and transform data. The integration runtime can run on an Azure public network or on a private network (on-premises, Azure Virtual Network, or Amazon Web Services virtual private cloud [VPC]). 
 
 For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
@@ -189,7 +189,7 @@ You will no longer have to bring your own Azure Databricks clusters. Data Factor
 
 ### Can I migrate my private preview factories to Data Factory V2?
 
-Yes, follow the instructions [here.](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+Yes. [Follow the instructions](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
 
 ### I need help troubleshooting my data flow logic. What info do I need to provide to get help?
 
