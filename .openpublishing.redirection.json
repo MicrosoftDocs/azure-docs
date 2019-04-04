@@ -27608,8 +27608,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-tou.md",
-      "redirect_url": "/azure/active-directory/governance/active-directory-tou",
+      "redirect_url": "/azure/active-directory/conditional-access/terms-of-use",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/governance/active-directory-tou.md",
+      "redirect_url": "/azure/active-directory/conditional-access/terms-of-use",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",

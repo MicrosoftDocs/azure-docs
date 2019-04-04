@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
+ms.lastreviewed: 04/05/2019
 ---
 
 # Azure Stack 1903 update
@@ -60,6 +60,12 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - Improvements to the detection and remediation of low disk space conditions.
 
+### Secret management
+
+- Azure Stack now supports rotation of the root certificate used by certificates for external secret rotation. For more information, [see this article](azure-stack-rotate-secrets.md).
+
+- 1903 contains performance improvements for secret rotation that reduce the time that it takes to execute internal secret rotation.
+
 ## Prerequisites
 
 > [!IMPORTANT]
@@ -87,7 +93,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
-- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title `Error – Template for FaultType UserAccounts.New is missing.`  You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
+- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title **Error – Template for FaultType UserAccounts.New is missing.** You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
 
 ## Post-update steps
 
@@ -147,9 +153,9 @@ The following are post-installation known issues for this build version.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to sign in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
-- If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise, you won't be able to establish a PowerShell remote session and you'll receive an *Access is denied* error:
+- If you do not have a Hardware Lifecycle Host (HLH): before build 1902, you had to set group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you won't be able to establish a PowerShell remote session and you will see an **Access is denied** error:
 
-   ```PowerShell
+   ```shell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
@@ -165,7 +171,7 @@ The following are post-installation known issues for this build version.
 <!-- 3239127 - IS, ASDK -->
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
@@ -189,7 +195,6 @@ The following are post-installation known issues for this build version.
 
 <!-- 2352906 - IS ASDK --> 
 - You must register the storage resource provider before you create your first Azure Function in the subscription.
-
 
 <!-- ### Usage -->
 
