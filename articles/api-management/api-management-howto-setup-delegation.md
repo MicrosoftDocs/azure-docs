@@ -101,8 +101,7 @@ Then ensure the delegation endpoint performs the following actions:
 1. Receive a request in the following form:
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
-   > 
-   > 
+   >
    
     Query parameters for the product subscription case:
    
@@ -111,9 +110,11 @@ Then ensure the delegation endpoint performs the following actions:
      * "Unsubscribe": a request to unsubscribe a user from a product
      * "Renew": a request to renew a subscription (for example, that may be expiring)
    * **productId**: the ID of the product the user requested to subscribe to
+   * **subscriptionId**: on *Unsubscribe* and *Renew* - the ID of the product subscription
    * **userId**: the ID of the user for whom the request is made
    * **salt**: a special salt string used for computing a security hash
    * **sig**: a computed security hash to be used for comparison to your own computed hash
+
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
    
    * Compute an HMAC-SHA512 of a string based on the **productId**, **userId**, and **salt** query parameters:
