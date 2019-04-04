@@ -218,7 +218,7 @@ This example is based on using the Beeline client from an SSH connection.
 
 6. To exit Beeline, use `!exit`.
 
-## <a id="file"></a>Use Beeline to run a HiveQL file
+## <a id="file"></a>Run a HiveQL file
 
 This is a continuation from the prior example. Use the following steps to create a file, then run it using Beeline.
 
