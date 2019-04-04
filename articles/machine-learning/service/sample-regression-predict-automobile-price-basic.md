@@ -12,7 +12,7 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 1 - Regression: Predict price
+# Sample 1 - Regression: predict price
 
 This visual interface sample experiment demonstrates how to build a regression model to predict the automobile's price. The process includes training, testing and evaluating the model on the **Auto Imports** dataset.
 
