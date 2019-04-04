@@ -34,13 +34,13 @@ An Azure Functions deployment typically consists of these resources:
 |---------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|-----|
 | A function app                                                                  | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |     |
 | An [Azure Storage](../storage/index.yml) account                                | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |     |
-| An [Application Insights](../azure-monitor/app/app-insights-overview) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |     |
-| A [hosting plan](./functions-scale)                                             | Optional    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |     |
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |     |
+| A [hosting plan](./functions-scale.md)                                             | Optional    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |     |
 
-A hosting plan is only required if you choose to run on an [Azure Functions Premium plan (Preview)](./functions-premium-plan) or an [App Service plan](./app-service/overview-hosting-plans).
+A hosting plan is only required if you choose to run on an [Azure Functions Premium plan (Preview)](./functions-premium-plan.md) or an [App Service plan](./app-service/overview-hosting-plans.md).
 
 > [!TIP]
-> While not required, it is strongly recommended that you configure [Application Insights](../azure-monitor/app/app-insights-overview) for your app.
+> While not required, it is strongly recommended that you configure Application Insights for your app.
 
 <a name="storage"></a>
 ### Storage account
@@ -242,7 +242,7 @@ A Consumption plan requires two additional settings in the site configuration: `
 
 ## Deploy a function app on the Premium plan (Preview)
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan).
+The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan.md).
 
 ### Create a Premium plan
 
