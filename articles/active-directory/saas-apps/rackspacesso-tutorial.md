@@ -124,7 +124,7 @@ This will correctly configure the basic SSO settings needed for Azure and Racksp
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon. 
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
@@ -213,11 +213,10 @@ mapping:
 ```
 > [!TIP]
 > Ensure that you use a text editor that validates YAML syntax when editing your policy file.
- 
 
 See the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) for more examples.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
