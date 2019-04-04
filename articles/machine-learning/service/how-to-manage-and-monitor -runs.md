@@ -80,7 +80,7 @@ notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-You can also use Python's with...as pattern. In this context, the run will automatically complete when the run is out of scope. This way you don't need to manually mark the run as complete.
+You can also use Python's `with...as` pattern. In this context, the run will automatically mark itself as complete when the run is out of scope. This way you don't need to manually mark the run as complete.
 
 ```Python
 with exp.start_logging() as notebook_run:
