@@ -149,7 +149,7 @@ Any alert instance describes **the resource that was affected** and **the cause 
 
 ### Log Alerts
 
-[!NOTE]
+> [!NOTE]
 > If you use the custom JSON option for your existing log alerts, the customization is not preserved in the common schema.
 
 #### monitoringService = 'Log Analytics'
