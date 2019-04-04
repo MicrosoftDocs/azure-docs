@@ -22,7 +22,7 @@ ms.author: sngun
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+Welcome to the Azure Cosmos DB SQL API get started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 This tutorial shows you how to:
 
@@ -38,17 +38,27 @@ This tutorial shows you how to:
 > - Delete a document
 > - Delete the database
 
-The complete solution is also available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). For more information, see the [Get the complete NoSQL tutorial solution](#GetSolution) section.
+## Get the complete solution
+
+If you don't have time to complete the tutorial, or just want to download the code samples, the complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+
+To run the downloaded complete solution, 
+
+1. Make sure you have the [Prerequisites](#prerequisites) installed. 
+1. In Visual Studio, right-click the **GetStarted** solution in **Solution Explorer**, and then select **Enable NuGet Package Restore** to restore the references to the Azure Cosmos DB .NET SDK.
+1. In the *App.config* file, update the `EndpointUrl` and `AuthorizationKey` values as described in the [Connect to an Azure Cosmos DB account](#Connect) section.
+1. Select **Debug** > **Start Without Debugging** or press **Ctrl**+**F5** to build and run the app.
 
 ## Prerequisites
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
+Visual Studio 2017 with the Azure development workflow installed
+- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+An Azure subscription or free Cosmos DB trial account
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
-
-## Step 1: Create an Azure Cosmos DB account
+## Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -515,19 +525,6 @@ You should see the output of your get started app in a console window. The outpu
     End of demo, press any key to exit.
 
 Congratulations! You've completed the tutorial and have a working C# console application!
-
-## <a id="GetSolution"></a> Get the complete tutorial solution
-If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
-
-To build the GetStarted solution, you will need the following:
-
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
-* An [Azure Cosmos DB account][cosmos-db-create-account].
-* The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
-
-To restore the references to the Azure Cosmos DB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
-
-That's it, build it and you're on your way!
 
 
 ## Next steps
