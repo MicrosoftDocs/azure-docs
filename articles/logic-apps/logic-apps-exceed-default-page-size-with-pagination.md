@@ -32,19 +32,15 @@ If the final set returns 5100 items, you get that number of items.
 This list shows just some of the connectors where you 
 can turn on pagination for specific actions:
 
-* <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365 CRM Online</a>
-
+* <a href="https://docs.microsoft.com/connectors/azureblob/" target="_blank">Azure Blob Storage</a>
+* <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365</a>
 * <a href="https://docs.microsoft.com/connectors/excel/" target="_blank">Excel</a>
-
 * <a href="https://docs.microsoft.com/azure/connectors/connectors-native-http" target="_blank">HTTP</a>
-
 * <a href="https://docs.microsoft.com/connectors/db2/" target="_blank">IBM DB2</a>
-
 * <a href="https://docs.microsoft.com/connectors/oracle/" target="_blank">Oracle Database</a>
-
 * <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
-
 * <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a>
+* <a href="https://docs.microsoft.com/en-us/connectors/teams/" target="_blank">Microsoft Teams</a>
 
 ## Set up pagination
 
@@ -70,7 +66,7 @@ results that you want the action to return.
 
 ### Pagination in your workflow definition
 
-When you turn on pagination on an action that supports this feature, 
+When you turn on pagination for an action that supports this capability, 
 your logic app's workflow definition includes the `"paginationPolicy"` 
 property along with the `"minimumItemCount"` property in that action's 
 `"runtimeConfiguration"` property, for example:
