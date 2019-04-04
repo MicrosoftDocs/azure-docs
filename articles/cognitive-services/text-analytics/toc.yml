@@ -30,8 +30,8 @@
     - name: Text Analytics in Power Apps
       href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
     - name: Sentiment analysis on streaming data using Azure Databricks
-      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
       maintainContext: true
+      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       maintainContext: true
       href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
