@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 04/03/2019
 ---
 
 # How to start an Azure Stream Analytics job
