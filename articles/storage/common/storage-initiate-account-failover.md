@@ -20,6 +20,8 @@ This article shows how to initiate an account failover for your storage account 
 > [!WARNING]
 > An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Understand the account failover process](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 Before you can perform an account failover on your storage account, make sure that you have performed the following steps:
@@ -31,7 +33,7 @@ Before you can perform an account failover on your storage account, make sure th
 
 When you initiate an account failover for your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
 
-To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property using the `Get-AzureRmStorageAccount` PowerShell cmdlet, and include the `-IncludeGeoReplicationStats` parameter. Then check the `GeoReplicationStats` property for your account. 
+To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property using the `Get-AzStorageAccount` PowerShell cmdlet, and include the `-IncludeGeoReplicationStats` parameter. Then check the `GeoReplicationStats` property for your account. 
 
 After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
 

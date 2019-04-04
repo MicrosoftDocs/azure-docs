@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
+ms.lastreviewed: 04/05/2019
 ---
 
 # Azure Stack 1902 update
@@ -60,6 +60,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  If the `AzsControlPlane` parameter is included when **Test-AzureStack** is executed, you will see the following failure in the **Test-AzureStack** output: **FAIL Azure Stack Control Plane Websites Summary**. You can safely ignore this specific error.
 
 - When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1902.
 
