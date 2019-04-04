@@ -57,7 +57,7 @@ Azure Multi-factor Authentication is deployed by enforcing policies with conditi
 * Compliant device
 * Hybrid Azure AD joined device
 * Approved client application
-
+ 
 
 Use the customizable posters and email templates in [multi-factor authentication rollout materials] to roll out multi-factor authentication to your organization. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
 
