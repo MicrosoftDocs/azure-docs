@@ -61,6 +61,8 @@
       href: logic-apps-scenario-function-sb-trigger.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
+    - name: Get bulk data with pagination
+      href: logic-apps-exceed-default-page-size-with-pagination.md  
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
     - name: Author JSON definitions
