@@ -500,7 +500,7 @@ There are two ways to resolve this error:
 * Instead of using `Start-Job`, use `Start-AzureRmAutomationRunbook` to start a runbook
 * If your runbook has this error message, run it on a Hybrid Runbook Worker
 
-To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-bahavior).
+To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
 
 ## Next steps
 
