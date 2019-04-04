@@ -171,36 +171,37 @@ From the actions list, select any SQL action that you want.
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## Process data in bulk
+## Handle bulk data
 
-When you work with result sets so large that the connector 
-doesn't return all the results at the same time, 
-or you want better control over the size and structure for your result sets, 
-you can use *pagination*, which helps you manage those results as smaller sets. 
+Sometimes, you might have to work with result sets so large that the connector doesn't return all the results at the same time, or you want 
+better control over the size and structure for your result sets. Here's 
+a couple ways you can handle such large result sets: 
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Use *pagination*, which helps you manage results as smaller sets. 
+For more information, see 
+[Get bulk data, records, and items by setting up pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### Create a stored procedure
+* Create a stored procedure that organizes the results the way you want.
 
-When getting or inserting multiple rows, your logic 
-app can iterate through these items by using an 
-[*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
-within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
-But, sometimes your logic app has to work with record sets so large, 
-such as thousands or millions of rows, that you want to minimize the 
-costs for calls to the database. 
+  For example, when getting or inserting multiple rows, your logic 
+  app can iterate through these items by using an 
+  [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
+  within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
+  But, sometimes your logic app has to work with record sets so large, 
+  such as thousands or millions of rows, that you want to minimize the 
+  costs for calls to the database. 
 
-Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
-the **SELECT - ORDER BY** statement to organize the results the way you want. 
-This solution gives you more control over the size and structure of your results. 
-Your logic app calls the stored procedure by using the SQL Server 
-connector's **Execute stored procedure** action. 
+  Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
+  the **SELECT - ORDER BY** statement to organize the results the way you want. 
+  This solution gives you more control over the size and structure of your results. 
+  Your logic app calls the stored procedure by using the SQL Server 
+  connector's **Execute stored procedure** action.
 
-For solution details, see these articles:
+  For solution details, see these articles:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
+  * <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY Clause</a>
+  * <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY Clause</a>
 
 ## Connector-specific details
 
