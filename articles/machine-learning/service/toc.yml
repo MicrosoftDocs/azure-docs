@@ -53,23 +53,21 @@
     href: samples-notebooks.md
   - name: Visual interface experiments
     items:
-    - name: "Regression (Automobile)"
-      displayName: Sample 1, training
+    - name: "Predict price"
+      displayName: Sample 1, training, regression
       href:  sample-regression-predict-automobile-price-basic.md
-    - name: "Regression (Automobile, compare algorithms)"
-      displayName: Sample 2, training
-      href: sample-regression-predict-automobile-price-basic.md
-    - name: "Classification (Credit risk)"
-      displayName: Sample 3, training
+    - name: "Predict price (advanced)"
+      displayName: Sample 2, training, regression
+      href: sample-regression-predict-automobile-price-compare-models.md
+    - name: "Predict credit risk"
+      displayName: Sample 3, training, classification
       href: sample-classification-predict-credit-risk-basic.md
-    - name: "Classification( Credit risk, cost sensitive)"
-      displayName: Sample 4, training
+    - name: "Predict credit risk (advanced)"
+      displayName: Sample 4, training, classification
       href: sample-classification-predict-credit-risk-cost-sensitive.md
-    - name: "Classification (Customer relationship)"
-      displayName: Sample 5, training
+    - name: "Predict churn"
+      displayName: Sample 5, training, CRM, classification
       href: sample-classification-predict-churn.md
-      displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
-      href: samples-notebooks.md
 - name: Concepts
   items:
   - name: How the service works
