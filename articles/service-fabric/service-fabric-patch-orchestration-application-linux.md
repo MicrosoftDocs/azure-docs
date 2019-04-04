@@ -118,7 +118,7 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.3.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
