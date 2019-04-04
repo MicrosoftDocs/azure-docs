@@ -33,14 +33,12 @@ After you connect your data sources, choose from a gallery of expertly created d
 
 ## Global prerequisites
 
-- If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Contributor permissions to your tenant to enable Azure Sentinel
-
-- Tenant global or security admin permissions
- 
+    - Contributor permissions to the resource group tied to Azure Sentinel
+    - Contributor permissions to your resource group to enable Azure Sentinel 
 
 ## Enable Azure Sentinel <a name="enable"></a>
 
