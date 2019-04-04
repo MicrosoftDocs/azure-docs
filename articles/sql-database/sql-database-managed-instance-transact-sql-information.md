@@ -283,10 +283,9 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
     - Queue Reader isn't supported.  
     - Command shell is not yet supported.
   - Managed Instances can't access external resources (for example, network shares via robocopy).  
-  - PowerShell is not yet supported.
   - Analysis Services aren't supported.
 - Notifications are partially supported.
-- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. SQL Agent can use only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.  
   - Pager isn't supported.  
   - NetSend isn't supported.
   - Alerts are not yet supported.
@@ -427,10 +426,7 @@ Limitations:
 - `.BAK` files containing multiple backup sets can't be restored.
 - `.BAK` files containing multiple log files can't be restored.
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory objects currently can't be restored.  
-- Backups containing databases where at some point In-Memory objects existed currently can't be restored.
-- Backups containing databases in read-only mode currently can't be restored. This limitation will be removed soon.
-
+- Backups containing databases that have active In-memory objects can't be restored on General Purpose instance.  
 For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker
@@ -480,6 +476,8 @@ Managed Instance cannot restore [contained databases](https://docs.microsoft.com
 
 ### Exceeding storage space with small database files
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, and `RESTORE DATABASE` statements might fail because the instance can reach the Azure Storage limit.
+
 Each General Purpose Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
 
 For example, a General Purpose Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
@@ -509,9 +507,13 @@ SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have 
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Do not rely on these GUID identifiers because they would be replaced with actual database names in the future.
 
+### Database mail
+
+`@query` parameter in [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure don't work.
+
 ### Database mail profile
 
-The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`.
+The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`. There are no restriction regarding other database mail profile names.
 
 ### Error logs are not-persisted
 
