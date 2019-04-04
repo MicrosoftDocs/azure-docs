@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Ingest Azure Blobs into Azure Data Explorer'
 description: In this quickstart, you learn how to send storage account data to Azure Data Explorer using an Event Grid subscription.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
+ms.date: 01/30/2019
+# Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
 ---
 
 # Quickstart: Ingest blobs into Azure Data Explorer by subscribing to Event Grid notifications
