@@ -40,9 +40,9 @@ After this change takes place, your users will see a new link that says "Sign-in
 
 ![sign-in options opens choices for Microsoft accounts](./media/signin-options-link/options-link.png)
 
-## Timing of the change
+## Deployment schedule
 
-We'll begin gradually rolling this out in early-May 2019, and we anticipate roll out completion worldwide by the middle of May 2019.
+The new options will begin gradually rolling out to Azure AD organizations in early May 2019, and roll out is targeted to be complete worldwide by the middle of May 2019.
 
 ## Next steps
 

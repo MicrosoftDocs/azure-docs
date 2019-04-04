@@ -66,8 +66,6 @@
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Configure company branding    
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups    
     items: 
     - name: Manage access with groups    
@@ -144,8 +142,13 @@
     items:    
     - name: Customize company branding    
       href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+<<<<<<< HEAD
     - name: Sign-in options
       href: signin-options-link.md
+=======
+    - name: Home Realm Discovery
+      href: signin-realm-discovery.md
+>>>>>>> d60003a23681ef98521bbe62727efeec01974f9b
   - name: Integrate services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    
