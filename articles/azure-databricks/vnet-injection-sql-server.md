@@ -37,11 +37,11 @@ In this tutorial, you learn how to:
 
     ![Add new Azure virtual machine](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. On the Basic tab, Choose Ubuntu Server 16.04 LTS. Change the VM size to B1ms, which has one VCPUS and 2-GB RAM. The minimum requirement for a Linux SQL Server Docker container is 2 GB. Choose an administrator username and password.
+2. On the **Basics** tab, Choose Ubuntu Server 16.04 LTS. Change the VM size to B1ms, which has one VCPUS and 2-GB RAM. The minimum requirement for a Linux SQL Server Docker container is 2 GB. Choose an administrator username and password.
 
     ![Basics tab of new virtual machine configuration](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Navigate to the **Networking** tab. Choose the virtual network and public subnet you created. Select **Review + create**, then **Create** to deploy the virtual machine.
+3. Navigate to the **Networking** tab. Choose the virtual network and the public subnet that includes your Azure Databricks cluster. Select **Review + create**, then **Create** to deploy the virtual machine.
 
     ![Networking tab of new virtual machine configuration](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
@@ -55,11 +55,34 @@ In this tutorial, you learn how to:
 
 6. Select the **Networking** tab under **Settings**. Notice that the network security group that was created during the Azure Databricks deployment is associated with the virtual machine. Select **Add inbound port rule**.
 
-7. Add a rule to open port 22 for SSH. Change the Destination to **IP Address** and enter the virtual machine's private IP address as the **Destination IP address**. Enter **22** for the **Destination port ranges** and give the rule a name.
+7. Add a rule to open port 22 for SSH. Use the following settings:
+    
+    |Setting|Suggested Value|Description|
+    |-------|---------------|-----------|
+    |Source|IP Addresses|IP Addresses specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
+    |Source IP addresses|<your public ip\>|Enter the your public IP address. You can find your  public IP address by visiting [bing.com](https://www.bing.com/) and searching for **"my IP"**.|
+    |Source port ranges|*|Allow traffic from any port.|
+    |Destination|IP Addresses|IP Addresses specifies that outgoing traffic for a specific source IP Address will be allowed or denied by this rule.|
+    |Destination IP addresses|<your vm public ip\>|Enter your virtual machine's public IP address. You can find this on the **Overview** page of your virtual machine.|
+    |Destination port ranges|22|Opn port 22 for SSH.|
+    |Priority|290|Give the rule a priority.|
+    |Name|ssh-databricks-tutorial-vm|Give the rule a name.|
+
 
     ![Add inbound security rule for port 22](./media/vnet-injection-sql-server/open-port.png)
 
-8. Add a rule to open port 1433 for SQL. Enter **1433** for the **Destination port ranges** and give the rule a name.
+8. Add a rule to open port 1433 for SQL with the following settings:
+
+    |Setting|Suggested Value|Description|
+    |-------|---------------|-----------|
+    |Source|IP Addresses|IP Addresses specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
+    |Source IP addresses|10.179.0.0/16|Enter the address range for your virtual network.|
+    |Source port ranges|*|Allow traffic from any port.|
+    |Destination|IP Addresses|IP Addresses specifies that outgoing traffic for a specific source IP Address will be allowed or denied by this rule.|
+    |Destination IP addresses|<your vm public ip\>|Enter your virtual machine's public IP address. You can find this on the **Overview** page of your virtual machine.|
+    |Destination port ranges|1433|Opn port 22 for SQL Server.|
+    |Priority|300|Give the rule a priority.|
+    |Name|sql-databricks-tutorial-vm|Give the rule a name.|
 
     ![Add inbound security rule for port 1433](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -154,7 +177,7 @@ In this tutorial, you learn how to:
 3. Once you've successfully pinged the SQL Server, you can query the database and tables. Run the following python code:
 
     ```python
-    jdbcHostname = "10.179.64.9"
+    jdbcHostname = "10.179.64.4"
     jdbcDatabase = "MYDB"
     userName = 'SA'
     password = 'Password1234'
@@ -177,4 +200,4 @@ When no longer needed, delete the resource group, the Azure Databricks workspace
 
 Advance to the next article to learn how to extract, transform, and load data using Azure Databricks.
 > [!div class="nextstepaction"]
-> [Next steps button](databricks-extract-load-sql-data-warehouse.md)
+> [Tutorial: Extract, transform, and load data by using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

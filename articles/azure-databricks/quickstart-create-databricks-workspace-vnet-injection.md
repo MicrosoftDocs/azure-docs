@@ -12,7 +12,7 @@ ms.date: 04/02/2019
 
 # Quickstart: Create an Azure Databricks workspace in a Virtual Network
 
-This quickstart shows how to create an Azure Databricks workspace in a virtual netowrk. You will also create an Apache Spark cluster within that workspace.
+This quickstart shows how to create an Azure Databricks workspace in a virtual network. You will also create an Apache Spark cluster within that workspace.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     ![Azure virtual network address space](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
-## Create Azure Databricks workspace
+## Create an Azure Databricks workspace
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Databricks**.
 
@@ -68,7 +68,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     ![Azure Databricks overview in Azure portal](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    The managed resource group contains the physical location of the storage account (DBFS), worker-sg (network security group), workers-vnet (virtual network). It is also the location where virtual machines, disk, IPAddress, and network interface will be created. This resource group is locked by default; however when a cluster is started in the virtual network, a Network Interface is created between the workers-vnet in the managed resource group and the "hub" virtual network.
+    The managed resource group contains the physical location of the storage account (DBFS), worker-sg (network security group), workers-vnet (virtual network). It is also the location where virtual machines, disk, IP Address, and network interface will be created. This resource group is locked by default; however when a cluster is started in the virtual network, a Network Interface is created between the workers-vnet in the managed resource group and the "hub" virtual network.
 
     ![Azure Databricks managed resource group](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 
@@ -83,21 +83,21 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     ![Create Azure Databricks cluster](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
-3. Once the cluster is running, return to the managed resource group in the Azure portal. Notice the new virtual machines, disks, IPAddress, and network interfaces. A network interface is created in each of the public and private subnets with IPAddresses.  
+3. Once the cluster is running, return to the managed resource group in the Azure portal. Notice the new virtual machines, disks, IP Address, and network interfaces. A network interface is created in each of the public and private subnets with IP addresses.  
 
     ![Azure Databricks managed resource group after cluster creation](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group2.png)
 
-4. Return to your Azure Databricks workspace and select the cluster you created. Then navigate to the **Executors** tab on the **Spark UI** page. Notice that the addresses for the driver and the executors are in the private subnet range. The driver is 10.179.0.6 and executors are 10.179.0.4 and 10.179.0.5.
+4. Return to your Azure Databricks workspace and select the cluster you created. Then navigate to the **Executors** tab on the **Spark UI** page. Notice that the addresses for the driver and the executors are in the private subnet range. In this example, the driver is 10.179.0.6 and executors are 10.179.0.4 and 10.179.0.5. Your IP addresses could be different.
 
     ![Azure Databricks Spark UI executors](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
 
 ## Clean up resources
 
-After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
+After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon. This stops the cluster.
 
 If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops, if it has been inactive for the specified time.
 
-You can also delete the resource group you created in the Azure portal.
+If you do not wish to reuse the cluster, you can delete the resource group you created in the Azure portal.
 
 ## Next steps
 
