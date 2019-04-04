@@ -1,7 +1,6 @@
 ---
-title: 'Azure Data Explorer time series analysis'
-description: 'Learn about time series analysis in Azure Data Explorer '
-services: data-explorer
+title: Analyze time series data using Azure Data Explorer
+description: Learn how to analyze time series data in the cloud using Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
