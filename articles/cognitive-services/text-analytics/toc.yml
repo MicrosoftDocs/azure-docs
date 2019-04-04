@@ -32,7 +32,9 @@
     - name: Sentiment analysis on streaming data using Azure Databricks
       href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
       maintainContext: true
-   
+    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
+      maintainContext: true
+      href: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
    
 - name: How-to guides
   items:
