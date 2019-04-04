@@ -1,22 +1,20 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Services'
+title: 'Quickstart: Synthesize speech, C++ (Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
+description: Learn how to synthesize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services
-author: wolfma61
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
-ms.author: wolfma
+ms.date: 4/03/2019
+ms.author: yinhew
 ---
 
-# Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
+# Quickstart: Synthesize speech in C++ on Linux by using the Speech SDK
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In this article, you create a C++ console application for Ubuntu Linux 16.04 or 18.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for Ubuntu Linux 16.04 or 18.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
@@ -72,7 +70,7 @@ Download and install the SDK as follows:
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-linux/helloworld.cpp#code)]
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
@@ -117,11 +115,13 @@ Download and install the SDK as follows:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
    ```text
-   Say something...
-   We recognized: What's the weather like?
+   Type some text that you want to speak...
+   > hello
+   Speech synthesized to speaker for text [hello]
+   Press enter to exit...
    ```
 
 ## Next steps
@@ -131,5 +131,5 @@ Download and install the SDK as follows:
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)

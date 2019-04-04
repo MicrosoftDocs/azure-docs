@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
+description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 04/03/2019
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
+# Quickstart: Recognize speech in C++ on macOS by using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C++ console application for Ubuntu Linux 16.04 or 18.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for macOS 10.13 and above. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your Mac's microphone. The application is built with the [Speech SDK for macOS](https://aka.ms/csspeech/macosbinary) and your Mac's default C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
@@ -28,16 +28,9 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 The current version of the Cognitive Services Speech SDK is `1.4.0`.
 
-The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
+The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
 
 Download and install the SDK as follows:
-
-1. Make sure the SDK's dependencies are installed.
-
-   ```sh
-   sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-   ```
 
 1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following:
 
@@ -51,11 +44,11 @@ Download and install the SDK as follows:
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Download and extract the `.tar.gz` archive containing the Speech SDK binaries:
+1. Download and extract the `.zip` archive containing the Speech SDK framework:
 
    ```sh
-   wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
-   tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
+   wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
+   unzip SpeechSDK-macOS.zip -d "$SPEECHSDK_ROOT"
    ```
 
 1. Validate the contents of the top-level directory of the extracted package:
@@ -64,15 +57,13 @@ Download and install the SDK as follows:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
-
-   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
 
 ## Add sample code
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-macos/helloworld.cpp#code)]
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
@@ -83,33 +74,19 @@ Download and install the SDK as follows:
 > [!NOTE]
 > Make sure to enter the commands below as a _single command line_. The easiest way to do that is to copy the command by using the **Copy** button next to each command, and then paste it at your shell prompt.
 
-* On an **x64**  (64-bit) system, run the following command to build the application.
+* Run the following command to build the application.
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
-  ```
-
-* On an **x86** (32-bit) system, run the following command to build the application.
-
-  ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## Run the app
 
 1. Configure the loader's library path to point to the Speech SDK library.
 
-   * On an **x64** (64-bit) system, enter the following command.
-
-     ```sh
-     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
-     ```
-
-   * On an **x86** (32-bit) system, enter this command.
-
-     ```sh
-     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
-     ```
+    ```sh
+    export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:$SPEECHSDK_ROOT"
+    ```
 
 1. Run the application.
 
@@ -133,3 +110,4 @@ Download and install the SDK as follows:
 
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
+

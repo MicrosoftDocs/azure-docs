@@ -1,22 +1,20 @@
 ---
-title: 'Quickstart: Recognize speech, .NET Framework (Windows) - Speech Services'
+title: 'Quickstart: Synthesize speech, .NET Framework (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
 services: cognitive-services
-author: wolfma61
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
-ms.author: wolfma
+ms.date: 4/03/2019
+ms.author: yinhew
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for .NET Framework (Windows)
+# Quickstart: Synthesize speech with the Speech SDK for .NET Framework (Windows)
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
+Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
 
 For a quick demonstration (without building the Visual Studio project yourself as shown below):
 
@@ -28,7 +26,7 @@ To complete this project, you'll need:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
-* Access to your computer's microphone
+* A speaker (or headset) available.
 
 ## Create a Visual Studio project
 
@@ -38,7 +36,7 @@ To complete this project, you'll need:
 
 1. Open `Program.cs` and replace the automatically generated code with this sample:
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
@@ -56,9 +54,9 @@ To complete this project, you'll need:
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
 
-1. A console window will appear, prompting you to speak. Now, say something in English. Your speech is transmitted to the Speech Services and transcribed to text in real time. The result is printed to the console.
+1. A console window will appear, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-    ![Screenshot of console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
+    ![Screenshot of console output after successful recognition](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console output after successful recognition")
 
 ## Next steps
 
@@ -67,5 +65,5 @@ To complete this project, you'll need:
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)
