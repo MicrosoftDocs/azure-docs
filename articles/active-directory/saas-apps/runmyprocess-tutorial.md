@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -197,11 +197,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create RunMyProcess test user
 
-In order to enable Azure AD users to log in to RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
+In order to enable Azure AD users to sign in to RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your RunMyProcess company site as an administrator.
+1. Sign in to your RunMyProcess company site as an administrator.
 
 1. Click **Account** and select **Users** in left navigation panel, then click **New User**.
 
