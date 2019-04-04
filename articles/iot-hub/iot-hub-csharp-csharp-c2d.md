@@ -31,7 +31,7 @@ This tutorial builds on the quickstart [Send telemetry from a device to an IoT h
 
 You can find more information on cloud-to-device messages in [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
-At the end of this tutorial, you run two .NET console apps
+At the end of this tutorial, you run two .NET console apps.
 
 * **SimulatedDevice**, a modified version of the app created in [Send telemetry from a device to an IoT hub...](quickstart-send-telemetry-dotnet.md), which connects to your IoT hub and receives cloud-to-device messages.
 
