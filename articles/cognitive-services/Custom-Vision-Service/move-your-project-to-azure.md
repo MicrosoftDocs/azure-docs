@@ -13,15 +13,15 @@ ms.date: 02/19/2019
 ms.author: anroth
 ---
 
-
-
 # How to move your Limited Trial project to Azure
 
-As Custom Vision Service completes it move to Azure, support for Limited Trial projects outside of Azure is ending. This document will show you how to use the Custom Vision APIs to copy your Limited Trial project to an Azure resource.
+As Custom Vision Service completes its move to Azure, support for Limited Trial projects outside of Azure is ending. This document will show you how to use the Custom Vision APIs to copy your Limited Trial project to an Azure resource.
 
-Support for viewing Limited Trial projects on the [Custom Vision website](https://customvision.ai) ended on March 25, 2019. This document now guides you on how to use the Custom Vision APIs to duplicate your project to an Azure resource using the APIs via [this sample code.](https://github.com/Azure-Samples/custom-vision-move-project)
+Support for viewing Limited Trial projects on the [Custom Vision website](https://customvision.ai) ended on March 25, 2019. This document now shows you how to use the Custom Vision APIs with a [migration python script](https://github.com/Azure-Samples/custom-vision-move-project) on GitHub) to duplicate your project to an Azure resource.
 
 For more details, including key deadlines in the limited trial deprecation process, please refer to the [release notes](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) or to email communications sent to owners of limited trial projects.
+
+The [migration script](https://github.com/Azure-Samples/custom-vision-move-project) allows you to recreate a project by downloading and then uploading all of the tags, regions, and images in your current iteration. It will leave you with a new project in your new subscription which you can then train.
 
 ## Prerequisites
 
@@ -32,19 +32,19 @@ For more details, including key deadlines in the limited trial deprecation proce
 - [Pip](https://pip.pypa.io/en/stable/installing/)
 
 ## Create Custom Vision resources in the Azure portal
+
 To use Custom Vision Service with Azure, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
 
 Multiple projects can be associated to a single resource. More detail about [Pricing and Limits](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) is available. To continue to use Custom Vision Service for free, you can select the F0 tier in the Azure portal. 
 
-Note, when you move your Custom Vision projects to an Azure resource, it inherits the underlying [permissions]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) of that Azure resource. If other users in your organization are Owners of the Azure resource your project is in, they will be able to access your project on the [Custom Vision website](https://customvision.ai). Similarly, deleting your resources will delete your projects.  
+> [!NOTE]
+> When you move your Custom Vision project to an Azure resource, it inherits the underlying [permissions]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) of that Azure resource. If other users in your organization are owners of the Azure resource your project is in, they will be able to access your project on the [Custom Vision website](https://customvision.ai). Similarly, deleting your resources will delete your projects.  
 
 ## Find your limited trial project information
-To move your project, you will need the _project ID_ and _training key_ for the project you are trying to migrate. If you do note have this information, visit [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) to obtain the ID and key for each of your projects. 
 
+To move your project, you will need the _project ID_ and _training key_ for the project you are trying to migrate. If you do not have this information, visit [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) to obtain the ID and key for each of your projects. 
 
 ## Use the Python sample code to copy your project to Azure
-
-This [sample code](https://github.com/Azure-Samples/custom-vision-move-project) allows you to recreate a project by downloading and then uploading all of the tags, regions, and images in your current iteration. It will leave you with a new project in your new subscription which you can then train.
 
 Follow the [sample code instructions](https://github.com/Azure-Samples/custom-vision-move-project), using your limited trial key and project ID as the "source" materials, and the key from the new Azure resource you created as the "destination".
 
