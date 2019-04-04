@@ -90,7 +90,7 @@ attach_config = RemoteCompute.attach_configuration(username='<username>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached_vm',
+                                      name='attached-vm',
                                       attach_configuration=attach_config)
 
 compute_target.wait_for_completion(show_output=True)
