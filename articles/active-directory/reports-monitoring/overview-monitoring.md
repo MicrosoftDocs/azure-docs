@@ -4,7 +4,7 @@ title: What is Azure Active Directory monitoring? (preview) | Microsoft Docs
 description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what monitoring solutions are available for Azure AD activity data and how they can help me manage my tenant.
@@ -34,6 +34,8 @@ Currently, you can route the logs to:
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Diagnostic settings configuration
 

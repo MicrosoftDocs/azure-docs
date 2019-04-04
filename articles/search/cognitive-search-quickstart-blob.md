@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -26,21 +26,7 @@ In this quickstart, create your first enrichment pipeline in the [Azure portal](
 
 ## <a name="supported-regions"></a> Supported Regions
 
-You can try out cognitive search in an Azure Search service created in the following regions:
-
-* West Central US
-* South Central US
-* East US
-* East US 2
-* West US 2
-* Canada Central
-* West Europe
-* UK South
-* North Europe
-* Brazil South
-* Southeast Asia
-* Central India
-* Australia East
+AI-enriched indexing through Cognitive Services is available in all Azure Search regions.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -64,11 +50,11 @@ Azure services are used exclusively in this scenario. Creating the services you 
 
 First, sign up for the Azure Search service. 
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in by using your Azure account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time and you need more help.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
+   ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a new resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
@@ -76,16 +62,16 @@ First, sign up for the Azure Search service.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
+   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
 
-  > [!NOTE]
-  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
+   > [!NOTE]
+   > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
+   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
 
 ### Set up Azure Blob service and load sample data
 
@@ -93,11 +79,13 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, open the Blob services pages, and create a container. On the container, set the public access level to **Container**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
+1. Sign up for Azure Blob storage, create a storage account, open the Blob services pages, and create a container. 
+
+1. On the container, set the public access level to **Container (anonymous read access for containers and blobs)**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
 
 1. In the container you created, click **Upload** to upload the sample files you downloaded in a previous step.
 
-  ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
+   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## Create the enrichment pipeline
 
@@ -121,17 +109,17 @@ Next, add enrichment steps to the indexing pipeline. If you do not have a Cognit
 
 1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitive Services APIs. For the purposes of this tutorial, you can use the **Free** resource.
 
-  ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 2. Expand **Add Enrichments** and select skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
 
-  ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Attach Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
 
-  The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
+   The portal offers built-in skills for OCR processing and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
 
 3. Continue to the next page.
 
-  ![Next page customize index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+   ![Next page customize index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
 
 > [!NOTE]
 > Natural language processing skills operate over text content in the sample data set. Since we didn't select the OCR option, the JPEG and PNG files found in the sample data set won't be processed in this quickstart. 

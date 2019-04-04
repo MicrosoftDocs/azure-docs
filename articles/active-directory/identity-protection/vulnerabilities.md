@@ -4,7 +4,7 @@ description: Overview of the vulnerabilities detected by Azure Active Directory 
 services: active-directory
 keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---

@@ -56,11 +56,11 @@ The following steps walk you through turning on change tracking for a file:
 
 1. On the **Change details** page, you see the standard before and after file information, in the top left, click **View File Content Changes** to see the contents of the file.
 
-  ![change details](./media/change-tracking-file-contents/change-details.png)
+   ![change details](./media/change-tracking-file-contents/change-details.png)
 
 1. The new page shows you the file contents in a side-by-side view. You can also select **Inline** to see an inline view of the changes.
 
-  ![view file changes](./media/change-tracking-file-contents/view-file-changes.png)
+   ![view file changes](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## Next steps
 
@@ -69,5 +69,5 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [!div class="nextstepaction"]
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
 

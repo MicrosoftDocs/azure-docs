@@ -105,12 +105,12 @@ availabilityResults
     
     (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key, there is the option to **Create API Key**.)
     
-    * AI_APP_ID = Application ID
-    * AI_APP_KEY = API Key
-    * SendGridAPI =SendGrid API Key
+   * AI_APP_ID = Application ID
+   * AI_APP_KEY = API Key
+   * SendGridAPI =SendGrid API Key
 
-    > [!NOTE]
-    > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
+     > [!NOTE]
+     > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
 
 9. Select **Integrate** and under Outputs click **SendGrid ($return)**.
 

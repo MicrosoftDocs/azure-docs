@@ -4,7 +4,7 @@ description: Use Visual Studio to create, develop, package, deploy, and debug yo
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf

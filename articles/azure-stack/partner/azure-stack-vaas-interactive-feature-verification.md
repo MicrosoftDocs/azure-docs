@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -35,13 +35,13 @@ This article describes a simple manual scenario. The test checks replacing a dis
 
 ## Overview of interactive testing
 
-A test for disk replacement is a common scenario. In this example, the test has seven steps:
+A test for disk replacement is a common scenario. In this example, the test has five steps:
 
-1. Create a new **Test Pass** workflow
-1. Select the **Disk Identification Test**
-1. Complete the manual step when prompted
-1. Check the result of the scenario
-1. Send the test result to Microsoft
+1. Create a new **Test Pass** workflow.
+2. Select the **Disk Identification Test**.
+3. Complete the manual step when prompted.
+4. Check the result of the scenario.
+5. Send the test result to Microsoft.
 
 ## Create a new test pass
 

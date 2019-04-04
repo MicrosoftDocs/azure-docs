@@ -77,8 +77,8 @@ You can also attach an existing Linux DSVM as the compute target. This example u
 
 > [!NOTE]
 >
-> The following code uses the `RemoteCompute` target class to attach an existing VM as your compute target.
-> The `DsvmCompute` class will be deprecated in future releases in favor of this design pattern.
+> The following code uses the [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) target class to attach an existing VM as your compute target.
+> The [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) class will be deprecated in future releases in favor of this design pattern.
 
 Run the following code to create the compute target from a pre-existing Linux DSVM.
 
@@ -90,7 +90,7 @@ attach_config = RemoteCompute.attach_configuration(username='<username>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached_vm',
+                                      name='attached-vm',
                                       attach_configuration=attach_config)
 
 compute_target.wait_for_completion(show_output=True)
@@ -104,7 +104,7 @@ Provide the remote resource access to your training data. For automated machine 
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
-* Place that file in a directory accessible as an absolute path 
++ Place that file in a directory accessible as an absolute path 
 
 You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 

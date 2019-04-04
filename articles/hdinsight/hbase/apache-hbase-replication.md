@@ -130,7 +130,7 @@ To install Bind, use the following procedure:
 	sudo apt-get install bind9 -y
     ```
 
-3. Configure Bind to forward name resolution requests to your on-prem DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. Configure Bind to forward name resolution requests to your on premises DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
     ```
     acl goodclients {
@@ -282,15 +282,15 @@ The following steps describe how to call the script action script from the Azure
 4. At the top of the page, select **Submit New**.
 5. Select or enter the following information:
 
-  1. **Name**: Enter **Enable replication**.
-  2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Head**: Ensure this is selected. Clear the other node types.
-  4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
+   1. **Name**: Enter **Enable replication**.
+   2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **Head**: Ensure this is selected. Clear the other node types.
+   4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > Use hostname instead of FQDN for both the source and destination cluster DNS name.
+      > [!NOTE]
+      > Use hostname instead of FQDN for both the source and destination cluster DNS name.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 

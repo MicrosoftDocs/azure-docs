@@ -7,17 +7,11 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 03/13/2019
 ---
 # Regional disaster recovery for Azure Databricks clusters
 
 This article describes a disaster recovery architecture useful for Azure Databricks clusters, and the steps to accomplish that design.
-
-## Azure Databricks overview
-
-Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka, Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) and turn it into breakthrough insights using Spark.
-
-![Databricks pipeline](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## Azure Databricks architecture
 
@@ -263,9 +257,14 @@ To create your own regional disaster recovery topology, follow these requirement
 
 10. **Manually reconfigure and reapply access control.**
 
-   If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    If your existing primary workspace is configured to use the Premium tier (SKU), it's likely you also are using the [Access Control feature](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
+    If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
+
+## Disaster recovery for your Azure ecosystem
+
+If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## Next steps
+
 For more information, see [Azure Databricks documentation](https://docs.azuredatabricks.net/user-guide/index.html).

@@ -23,7 +23,7 @@ ms.author: jomolesk
 
  The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We've provided information against each of these principles to help you understand the split of responsibilities.
 
- This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
+ This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organizations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
 
@@ -127,7 +127,7 @@ Storage
 
 ### Deployment Architecture:
 
-**On-Premises Network**: A private local-area network implemented in an organisation.
+**On-Premises Network**: A private local-area network implemented in an organization.
 
 **Production VNet**: The Production [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) hosts the application and other operational resources running in Azure. Each VNet may contain several subnets which are used for isolating and managing network traffic.
 
@@ -174,7 +174,7 @@ Storage
 
 **Firewall Logs**: Application Gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
-**Log Archiving**: Log data storage can be configured to write to a centralised Azure storage account for archival and a defined retention period. Logs can be processed using Azure Log Analytics or by third party SIEM systems.
+**Log Archiving**: Log data storage can be configured to write to a centralized Azure storage account for archival and a defined retention period. Logs can be processed using Azure Monitor logs or by third party SIEM systems.
 
 ### Identity
 
@@ -206,7 +206,7 @@ Customers may also consider using an [enhanced security administrative model](ht
 
 **Access Control Restrictions**: Use [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) to manage the resources in your application using [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC can be used to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-**Internet Access**: This reference architecture utilises [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internet Access**: This reference architecture utilizes [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Azure Security Center**: The [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a central view of the security status of resources in the subscription, and provides recommendations that help prevent compromised resources. It can also be used to enable more granular policies. For example, policies can be applied to specific resource groups, which allows the enterprise to tailor its posture to risk. It is recommended that customers enable Azure Security Center in their Azure Subscription.
 
@@ -224,7 +224,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 ## Deploy the Solution
 
-There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises the Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
+There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilizes the Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## Disclaimer
 

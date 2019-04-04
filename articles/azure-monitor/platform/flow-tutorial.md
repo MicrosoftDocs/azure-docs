@@ -43,13 +43,13 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 1. Specify the details for your workspace including the Subscription ID, Resource Group, and Workspace Name.
 2. Add the following log query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
-```
+   ```
 	Event
 	| where EventLevelName == "Error" 
 	| where TimeGenerated > ago(1day)
 	| summarize count() by Computer
 	| sort by Computer
-```
+   ```
 
 2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/flow-tutorial/flow03.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Using Ansible with Azure
 description: Introduction to using Ansible to automates cloud provisioning, configuration management, and application deployments.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarchermsft
 manager: jeconnoc

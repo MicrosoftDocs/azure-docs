@@ -4,7 +4,7 @@ description: Learn about performance counters for monitoring and diagnostics of 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

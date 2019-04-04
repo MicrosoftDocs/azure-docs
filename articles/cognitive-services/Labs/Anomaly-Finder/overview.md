@@ -1,4 +1,4 @@
---- 
+---
 title: What is Anomaly Finder? - Microsoft Cognitive Services | Microsoft Docs 
 description: Use advanced algorithms in Anomaly Finder to help you identify anomalies in time series data and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
@@ -9,7 +9,7 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018 
 ms.author: tonyxing
---- 
+---
 
 # What is Anomaly Finder?
 

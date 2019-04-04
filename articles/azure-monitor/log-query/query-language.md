@@ -22,7 +22,7 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 
 ## Getting started
 
-- [Get started with Azure Monitor log analytics](get-started-portal.md) is a lesson for writing queries and working with results in the Azure portal.
+- [Get started with Azure Monitor Log Analytics](get-started-portal.md) is a lesson for writing queries and working with results in the Azure portal.
 - [Get started with Azure Monitor log queries](get-started-queries.md) is a lesson for writing queries using Azure Monitor log data.
 
 ## Concepts

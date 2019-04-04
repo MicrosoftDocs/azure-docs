@@ -85,7 +85,7 @@ With the most comprehensive IoT portfolio of platform services, Platform-as-a-Se
 
 ### Device support
 
-Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) or choosing from hundreds of Certified for IoT devices in the [device catalog](http://catalog.azureiotsuite.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
+Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) or choosing from hundreds of Certified for IoT devices in the [device catalog](https://catalog.azureiotsolutions.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
 Connect all your devices to Azure IoT using the open-source [device SDKs](/azure/iot-hub/iot-hub-devguide-sdks). The SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems, as well as multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### IoT 

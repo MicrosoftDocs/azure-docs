@@ -91,7 +91,7 @@ Please note that the physical media that you are shipping may need to cross inte
 ### Are there any special requirements for delivering my disks to a datacenter?
 
 The requirements depend on the specific Azure datacenter restrictions.
-- There are a few Class C sites (for example, Frankfurt), that require a Microsoft datacenter Inbound ID number to be written on the parcel for security reasons. Before you ship your drives or disks to the datacenter, contact Azure DataBox Operations (adbops@microsoft.com) to get this number. Without this number, the package will be rejected.
+- There are a few sites, that require a Microsoft datacenter Inbound ID number to be written on the parcel for security reasons. Before you ship your drives or disks to the datacenter, contact Azure DataBox Operations (adbops@microsoft.com) to get this number. Without this number, the package will be rejected.
 - The datacenters in India require the personal details of the driver, such as the Government ID Card or Proof No. (for example, PAN, AADHAR, DL), name, contact, and the car plate number to get a gate entry pass. To avoid delivery delays, inform your carrier about these requirements.
 
 
@@ -133,7 +133,7 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
-Max Page Blob size is 1TB.
+Max Page Blob size is 8TB.
 
 
 ### Does Azure Import/Export support AES-256 encryption?

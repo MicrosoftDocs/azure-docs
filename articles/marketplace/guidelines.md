@@ -1,4 +1,4 @@
----  
+---
 title: Guidelines for Azure Marketplace and AppSource publisher | Azure
 description: Guidelines for Azure Marketplace and AppSource for app and service publishers
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 
----  
+---
 
 # Guidelines  
 
 <!--
 ## Guidelines for AppSource  
 -->
----  
+---
 
 ## Guidelines for Azure Marketplace  
 
@@ -46,7 +46,7 @@ If more than one person requires access to the same Microsoft ID used to create 
 Your Dev Center account should be primarily accessed from trusted computers. It is critical that you access from trusted computers, because there is a limit to the number of codes generated per Dev Center account per week. Using trusted computers also enables the most secure and consistent sign-in experience. 
 *   For more information about additional Dev Center account guidelines and security, visit the Opening a developer account page located at [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
----  
+---
 
 #### Issue: Microsoft ID in an Azure AD federated domain  
 Your corporate account may be federated through Azure Active Directory (Azure AD). If you try to create a Microsoft ID using a corporate email address that is federated with Azure AD, then you receive an error. If you receive an error, then you should check with your IT team to confirm your account is federated through Azure AD. Azure AD federated email is a known issue and Microsoft is working to resolving it.  
@@ -72,4 +72,4 @@ Microsoft recommends a workaround. Follow these steps to create a new email addr
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

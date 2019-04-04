@@ -11,7 +11,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
@@ -64,56 +64,56 @@ Each unmanaged disk you add should be put in a separate container.
 
 ### Use the portal to create and attach a new data disk
 
-1.  In the portal, choose **All services** > **Virtual machines**.    
-    ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. In the portal, choose **All services** > **Virtual machines**.    
+   ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Select a virtual machine that has previously been created.   
-    ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Select a virtual machine that has previously been created.   
+   ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  For the virtual machine, select **Disks** > **Add data disk**.       
-    ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. For the virtual machine, select **Disks** > **Add data disk**.       
+   ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  For the Data disk:
-    -  Enter the **LUN**. The LUN must be a valid number.
-    -  Select **Create disk**.
-    ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. For the Data disk:
+   -  Enter the **LUN**. The LUN must be a valid number.
+   -  Select **Create disk**.
+   ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  In the create managed disk blade:
-    -  Enter the **Name** of the disk.
-    -  Select an existing or create a new **Resource group**.
-    -  Select the **Location**. By default, the location is set to the same container that holds the OS disk.
-    -  Select the **Account type**. 
-        ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. In the create managed disk blade:
+   - Enter the **Name** of the disk.
+   - Select an existing or create a new **Resource group**.
+   - Select the **Location**. By default, the location is set to the same container that holds the OS disk.
+   - Select the **Account type**. 
+      ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads.
+      **Premium SSD**  
+      Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads.
        
-        **Standard HDD**  
-        Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across  multiple zones and are available even if a single zone is down. 
+      **Standard HDD**  
+      Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across  multiple zones and are available even if a single zone is down. 
 
-    -  Select the **Source type**.
+   - Select the **Source type**.
 
-       Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
+     Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
 
-        **Snapshot**  
-        Select a snapshot, if it is available. The snapshot must be in available in the VM's subscription and location.
+      **Snapshot**  
+      Select a snapshot, if it is available. The snapshot must be in available in the VM's subscription and location.
 
-        **Storage blob**  
-        - Add the URI of the Storage blob that contains the disk image.  
-        - Select **Browse** to open the Storage accounts blade. For instructions see [Add a data disk from a storage account](#add-a-data-disk-from-a-storage-account).
-        - Select the OS type of the image, either **Windows**, **Linux**, or **None (data disk)**.
+      **Storage blob**  
+     - Add the URI of the Storage blob that contains the disk image.  
+     - Select **Browse** to open the Storage accounts blade. For instructions see [Add a data disk from a storage account](#add-a-data-disk-from-a-storage-account).
+     - Select the OS type of the image, either **Windows**, **Linux**, or **None (data disk)**.
 
-        **None (empty disk)**
+       **None (empty disk)**
 
-    -  Select the **Size (GiB)**.
+   - Select the **Size (GiB)**.
 
-       Standard disk costs increase based on the size of the disk. Premium disk costs and performance  increase based on the size of the disk. For more information, see [Managed Disks pricing](https://go.microsoft.com/fwlink/?linkid=843142).
+     Standard disk costs increase based on the size of the disk. Premium disk costs and performance  increase based on the size of the disk. For more information, see [Managed Disks pricing](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Select **Create**. Azure Stack creates and validates the managed disk.
+   - Select **Create**. Azure Stack creates and validates the managed disk.
 
-5.  After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **DATA DISKS**.   
+5. After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **DATA DISKS**.   
 
-    ![Example: View disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Example: View disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### Add a data disk from a storage account
 

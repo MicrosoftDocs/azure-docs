@@ -4,7 +4,7 @@ description: Develop custom modules for Azure IoT Edge that can communicate with
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -60,5 +60,9 @@ Create a ModuleClient instance to connect your module to the IoT Edge hub runnin
 
 ## Next steps
 
-After you develop a module, learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+[Prepare your development and test environment for IoT Edge](development-environment.md)
+
+[Use Visual Studio 2017 to develop C# modules for IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+
+[Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
 

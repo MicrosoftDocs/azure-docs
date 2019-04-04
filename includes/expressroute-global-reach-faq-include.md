@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 01/29/2019
+ ms.date: 03/19/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -43,7 +43,7 @@ No. To enable connectivity between any two of your on-premises networks, you mus
 
 ### What is the network throughput I can expect between my on-premises networks after I enable ExpressRoute Global Reach?
 
-The network throughput between your on-premises networks, enabled by ExpressRoute Global Reach, is capped by the smaller of the two ExpressRoute circuits.
+The network throughput between your on-premises networks, enabled by ExpressRoute Global Reach, is capped by the smaller of the two ExpressRoute circuits. Premises-to-Azure traffic and premises-to-premises traffic share the same circuit and are subject to the same bandwidth cap. 
 
 ### With ExpressRoute Global Reach, what are the limits on the number of routes I can advertise and the number of routes I will receive?
 

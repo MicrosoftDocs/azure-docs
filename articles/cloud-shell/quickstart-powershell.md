@@ -30,11 +30,11 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal
 
-  ![](media/quickstart-powershell/shell-icon.png)
+   ![](media/quickstart-powershell/shell-icon.png)
 
 2. Select the PowerShell environment from the drop-down and you will be in Azure drive `(Azure:)`
 
-  ![](media/quickstart-powershell/environment-ps.png)
+   ![](media/quickstart-powershell/environment-ps.png)
 
 ## Run PowerShell commands
 
@@ -101,7 +101,7 @@ PS Azure:\MySubscriptionName> dir AllResources
 
  You can go to the `ResourceGroups` directory and inside a specific resource group you can find virtual machines.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -125,7 +125,7 @@ However, you can always use `dir -Force` to get fresh data.
 
 By entering into the `StorageAccounts` directory, you can easily navigate all your storage resources
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
@@ -264,7 +264,7 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM cmdlets.
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using Azure PowerShell cmdlets.
 Before calling into `New-AzVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
@@ -289,7 +289,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Under `Azure` drive, type `Get-AzCommand` to get context-specific Azure commands.
 
-Alternatively, you can always use `Get-Command *azurerm* -Module AzureRM.*` to find out the available Azure commands.
+Alternatively, you can always use `Get-Command *az* -Module Az.*` to find out the available Azure commands.
 
 ## Install custom modules
 

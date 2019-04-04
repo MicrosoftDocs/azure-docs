@@ -60,7 +60,7 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
-In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premise VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
+In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
 
 ## How to access High Availability recommendations in Advisor
 

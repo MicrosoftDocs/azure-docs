@@ -21,15 +21,15 @@ Time Series Insights allows you to get started visualizing and querying data flo
 ## Steps to create the environment
 Follow these steps to create an environment:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2.	Select the **+ New** button.
+2. Select the **+ New** button.
 
-3.	Select the **Internet of Things** category, and select **Time Series Insights**.
+3. Select the **Internet of Things** category, and select **Time Series Insights**.
 
    ![Create the Time Series Insights environment](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.	On the **Time Series Insights** page, select **Create**.
+4. On the **Time Series Insights** page, select **Create**.
 
 5. Fill in the required parameters. The following table explains each parameter:
    

@@ -1,4 +1,4 @@
----  
+---
 title: Azure Marketplace and AppSource preferred solutions
 description: Overview of preferred solutions within the Marketplace and how they are selected
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
 
----  
+---
 
 # Preferred Solutions in Azure Marketplace and AppSource
 
