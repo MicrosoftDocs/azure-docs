@@ -16,12 +16,12 @@ ms.author: cithomas
 
 # Application Insights for ASP.NET Core Application
 
-This article walks you through the steps of enabling Application Insights monitoring for a [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2) application without using Visual Studio IDE. If you have Visual Studio IDE installed, then [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) document contains Visual Studio specific instructions. Once completed, Application Insights starts collecting requests, dependencies, exceptions, performance counters, heartbeats and logs. The example application used is a [MVC Application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2) targeting `netcoreapp2.2`, but instructions here is applicable to all Asp.Net Core Applications. These instructions are applicable on all platforms (Windows/Linux/Mac) and with or without any IDEs. Any exceptions to this are called out when applicable.
+This article walks you through the steps of enabling Application Insights monitoring for a [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2) application without using Visual Studio IDE. If you have Visual Studio IDE installed, then [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) document contains Visual Studio specific instructions. By completing the instructions in this article, Application Insights starts collecting requests, dependencies, exceptions, performance counters, heartbeats and logs from your Asp.Net Core application. The example application used is a [MVC Application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2) targeting `netcoreapp2.2`, but instructions here is applicable to all Asp.Net Core Applications. These instructions would work irrespective of the Operating System (Windows/Linux/Mac), Hosting method (IIS, Azure Web Apps, Docker, AKS etc.),  and IDEs (Visual Studio, VS Code, command line etc.). Any exceptions to this are called out when applicable.
 
 ## Prerequisites
 
 - A functioning Asp.Net Core Application. Follow [this](https://docs.microsoft.com/aspnet/core/getting-started/) guide to create an Asp.Net Core Application, if needed.
-- A valid Application Insights instrumentation key which is required to send any telemetry to Application Insights service. Follow [these](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) instructions to create a new Application Insights resource, if needed.
+- A valid Application Insights instrumentation key which is required to send any telemetry to Application Insights service. Follow [these](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) instructions to create a new Application Insights resource, if needed and obtain instrumentation key.
 
 ## Enabling Application Insights Server Side Telemetry
 
@@ -49,7 +49,7 @@ This article walks you through the steps of enabling Application Insights monito
 
 3. Setup instrumentation key.
 
-   While it is possible to provide instrumentation key as an argument to `services.AddApplicationInsightsTelemetry("putinstrumentationkeyhere");`, it is recommended to be provided in configuration. Following shows how to specify instrumentation key in `appsettings.json`. Make sure `appsettings.json` is copied to application root folder.
+   While it is possible to provide instrumentation key as an argument to `services.AddApplicationInsightsTelemetry("putinstrumentationkeyhere");`, it is recommended to be provided in configuration. Following shows how to specify instrumentation key in `appsettings.json`. Make sure `appsettings.json` is copied to application root folder while publishing.
 
 ```json
     {
@@ -264,7 +264,7 @@ The default channel used is the `ServerTelemetryChannel`. It can be overridden b
 
 *1. I want to track some additional telemetry apart from the auto collected telemetry. How do I do it?*
 
-* Obtain an instance of `TelemetryClient` from DependencyInjection, using Constructor injection, and call the required `TrackXXX()` method on it. The following shows how to track additional telemetry from a controller. It is not recommended to new up `TelemetryClient` instances in Asp.Net Core application, as the a singleton instance of `TelemetryClient` is already registered in the DI container, which shares `TelemetryConfiguration` with rest of the telemetry.
+* Obtain an instance of `TelemetryClient` by using Constructor injection, and call the required `TrackXXX()` method on it. The following shows how to track additional telemetry from a controller. It is not recommended to new up `TelemetryClient` instances in Asp.Net Core application, as a singleton instance of `TelemetryClient` is already registered in the DI container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it has to have a separate config from the rest of the telemetry.
 
 ```csharp
 public class HomeController : Controller
