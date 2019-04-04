@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 # Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values in form of  attribute-mappings.
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
 There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 
@@ -97,7 +97,7 @@ The attributes provisioned as part of Group objects can be customized in the sam
 
 The user attributes supported for a given application are pre-configured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application. 
 
-However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. Their definitions must be entered into the Azure portal by selecting the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen and then selecting **Edit attribute list for** your app.
+However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. To enter their definitions into the Azure portal, select the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen, and then select **Edit attribute list for** your app.
 
 Applications and systems that support customization of the attribute list include:
 
