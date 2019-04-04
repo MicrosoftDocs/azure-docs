@@ -37,7 +37,7 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
 |Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Using modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependency on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
-|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
+|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be copiable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
 |Scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. To solve this, use a Hybrid Runbook Worker and you can turn off UAC and use `Invoke-Command` when running the command that requires elevation|
 |Scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes the cloud [do not have access the WMI](#device-and-application-characteristics)|
