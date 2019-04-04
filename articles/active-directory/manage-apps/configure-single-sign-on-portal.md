@@ -35,31 +35,31 @@ This tutorial uses the Azure portal to:
 
 2. Ask your application vendor for the information described in [Configure domain and URLS](#configure-domain-and-urls).
 
-3. To test the steps in this tutorial, we recommend using a non-production environment. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+3. Use a non-production environment to test the steps in this tutorial. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 4. Sign in to the [Azure portal](https://portal.azure.com) as a cloud application admin, or an application admin for your Azure AD tenant.
 
 ## Select a single sign-on mode
 
-After an application is added to your Azure AD tenant, you're ready to configure single sign-on for the application.
+After you've added an application to your Azure AD tenant, you're ready to configure single sign-on for the application.
 
 To open the single sign-on settings:
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**. 
 
-2. In the **Azure Active Directory** blade, click **Enterprise applications**. The **All applications** blade opens to show a random sample of the applications in your Azure AD tenant. 
+2. Under **Management**, select **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
 
-3. In the **Application Type** menu, select **All applications**, and click **Apply**.
+3. In the **Application Type** menu, select **All applications**, and then select **Apply**.
 
-4. Enter the name of the application for which you want to configure single sign-on. Choose your own application, or enter **GitHub-test** to configure the application you added in the [add application](add-application-portal.md) quickstart.
+4. Enter the name of the application for which you want to configure single sign-on. For example, you can enter **GitHub-test** to configure the application you added in the [add application](add-application-portal.md) quickstart.  
 
-5. Click **Single sign-on**. Under **Single Sign-on Mode**, **SAML-based Sign-on** appears as the default option. 
+5. Choose the application.
 
-    ![Configuration options](media/configure-single-sign-on-portal/config-options.png)
+6. Under the **Manage** section, select **Single sign-on**. **Default** is the default option. 
 
-6. Click **Save** at the top of the blade. 
+7. Select **SAML** to configure single sign-on. The **Set up Single Sign-On with SAML - Preview** page appears.
 
-## Configure domain and URLs
+## Configure basic SAML options
 
 To configure the domain and URLs:
 
@@ -67,18 +67,20 @@ To configure the domain and URLs:
 
     | Configuration setting | SP-Initiated | idP-Initiated | Description |
     |:--|:--|:--|:--|
-    | Sign-on URL | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD relies on the identity provider to initiate single sign-on when a user launches the application.|
     | Identifier (Entity ID) | Required for some apps | Required for some apps | Uniquely identifies the application for which single sign-on is being configured. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.|
     | Reply URL | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. |
+    | Sign-on URL | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD relies on the identity provider to initiate single sign-on when a user launches the application.|
     | Relay State | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application, however some applications use this field differently. For more information, ask the application vendor.
+    | Logout URL | Optional | Optional | Used to send the SAML Logout responses back to the application.
 
-2. Enter the information. To see all the settings, click **Show advanced URL settings**.
 
-    ![Configuration options](media/configure-single-sign-on-portal/config-urls.png)
+2. To edit the basic SAML configuration options, select the **Edit** icon in the upper-right corner of the **Basic SAML Configuration** section.
 
-3. At the top of the blade, click **Save**.
+3. Enter the information.
 
-4. There's a **Test SAML Settings** button in this section. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
+4. At the top of the page, select **Save**.
+
+4. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
 
 ## Configure user attributes
 
