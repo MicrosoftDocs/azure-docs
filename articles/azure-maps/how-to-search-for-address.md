@@ -4,7 +4,7 @@ title: How to search for an address using the Azure Maps Search service  | Micro
 description: Learn how to search for an address using the Azure Maps Search service
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/29/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ The Maps search service is a set of RESTful APIs designed for developers to sear
 
 In this article you will learn, how to:
 
-* Search for an address using [Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Search for an address using [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * Search for an address along with properties and coordinates
 * Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to search for a street address
 * Search for a cross street using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
