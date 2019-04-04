@@ -58,7 +58,7 @@
       href:  sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
       displayName: Sample 2, training, regression
-      href: sample-regression-predict-automobile-price-compare-models.md
+      href: sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
       displayName: Sample 3, training, classification
       href: sample-classification-predict-credit-risk-basic.md
