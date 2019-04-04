@@ -12,81 +12,92 @@ ms.custom: seodec18
 ---
 
 # Understand outputs from Azure Stream Analytics
-This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. Using the output data, you can do further business analytics and data warehousing of your data.
+This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. By using the output data, you can do further business analytics and data warehousing of your data.
 
-When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
+When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by providing multiple INTO clauses in the query.
 
 To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
-Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput.
+Some outputs types support [partitioning](#partitioning). [Output batch sizes](#output-batch-size) vary to optimize throughput.
 
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics has to be authorized to access the Data Lake Store.
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Store to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics has to be authorized to access Data Lake Store.
 
 Azure Data Lake Store output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
 
 ### Authorize an Azure Data Lake Store account
 
-1. When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.
+1. When you select Data Lake Store an output in the Azure portal, you're prompted to authorize a connection to an existing Data Lake Store instance.
 
-   ![Authorize connection to Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+   ![Authorize a connection to Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
 
-2. If you already have access to Data Lake Store, select **Authorize Now** and a page pops up indicating **Redirecting to authorization**. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.
+2. If you already have access to Data Lake Store, select **Authorize Now**. A page pops up and indicates **Redirecting to authorization**. After authorization succeeds, you're presented with the page that allows you to configure the Data Lake Store output.
 
-3. Once you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The table below is the list of property names and their description to configure your Data Lake Store output.
+3. After you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The following table lists property names and their descriptions to configure your Data Lake Store output.
 
    ![Define Data Lake Store as Stream Analytics output](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
 
 | Property name | Description |
 | --- | --- |
-| Output alias | A friendly name used in queries to direct the query output to this Data Lake Store. |
-| Account name | The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
-| Path prefix pattern | The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.<br /><ul><li>Example 1: folder1/logs/{date}/{time}</li><li>Example 2: folder1/logs/{date}</li></ul><br />The timestamp of the folder structure created follows UTC and not local time.<br /><br />If the file path pattern does not contain a trailing "/", the last pattern in the file path is treated as a filename prefix. <br /><br />New files are created in these circumstances:<ul><li>Change in output schema</li><li>External or Internal restart of a job.</li></ul> |
+| Output alias | A friendly name used in queries to direct the query output to Data Lake Store. |
+| Account name | The name of the Data Lake Store account where you're sending your output. You're presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
+| Path prefix pattern | The file path used to write your files within the specified Data Lake Store account. You can specify one or more instances of the {date} and {time} variables.<br /><ul><li>Example 1: folder1/logs/{date}/{time}</li><li>Example 2: folder1/logs/{date}</li></ul><br />The time stamp of the folder structure created follows UTC and not local time.<br /><br />If the file path pattern does not contain a trailing slash (/), the last pattern in the file path is treated as a file name prefix. <br /><br />New files are created in these circumstances:<ul><li>Change in output schema</li><li>External or Internal restart of a job</li></ul> |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 |Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event serialization format | Serialization format for output data. JSON, CSV, and Avro are supported.|
-| Encoding | If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
-| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and, vertical bar.|
-| Format | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.|
+| Encoding | If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
+| Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.|
+| Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to.|
 
 ### Renew Data Lake Store authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error indicating the need for reauthorization in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. However, you can overcome this limitation by [authenticating using managed identities (preview)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
+You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error that indicates the need for reauthorization in the Operation Logs. 
 
-To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating **Redirecting to authorization...**. The page automatically closes and if successful, indicates **Authorization has been successfully renewed**. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
+Currently, the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. You can overcome this limitation by [authenticating through managed identities (preview)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
+
+To renew authorization:
+
+1. Select **Stop** to stop your job.
+1. Go to your Data Lake Store output and select the **Renew authorization** link.
+
+   For a brief time, a pop-up page indicates **Redirecting to authorization**. If authorization is successful, the page indicates **Authorization has been successfully renewed** and then closes automatically. 
+   
+1. Select **Save** at the bottom of the page. You can then restart your job from the **Last Stopped Time** to avoid data loss.
 
 ![Renew Data Lake Store authorization in output](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
 
 ## SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database. The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well. To learn about ways to improve write throughput, refer to the [Stream Analytics with Azure SQL DB as output](stream-analytics-sql-output-perf.md) article. The table below lists the property names and their description for creating a SQL Database output.
+You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article. 
+
+The following table lists the property names and their description for creating a SQL Database output.
 
 | Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
-| Database | The name of the database where you are sending your output. |
+| Database | The name of the database where you're sending your output. |
 | Server name | The SQL Database server name. |
-| Username | The Username, which has access to write to the database. Stream Analytics only supports SQL Authentication. |
+| Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
 | Password | The password to connect to the database. |
-| Table | The table name where the output is written. The table name is case-sensitive and the schema of this table should match exactly to the number of fields and their types being generated by your job output. |
-|Inherit partition scheme| This allows you to inherit the partitioning scheme of your previous query step to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
-|Match batch count| The recommended upper limit number of records sent with every bulk insert transaction.|
+| Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
+|Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
+|Match batch count| The recommended limit on the number of records sent with every bulk insert transaction.|
 
 > [!NOTE]
-> Currently the Azure SQL Database offering is supported for a job output in Stream Analytics. However, an Azure Virtual Machine running SQL Server with a database attached is not supported. This is subject to change in future releases.
+> Currently the Azure SQL Database offering is supported for a job output in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is not supported. This is subject to change in future releases.
 >
 
 ## Blob storage
-Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [How to use Blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
-The table below lists the property names and their description for creating a blob output.
+The following table lists the property names and their descriptions for creating a blob output.
 
 | Property name       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Output Alias        | A friendly name used in queries to direct the query output to this blob storage. |
-| Storage Account     | The name of the storage account where you are sending your output.               |
+| Storage Account     | The name of the storage account where you're sending your output.               |
 | Storage Account Key | The secret key associated with the storage account.                              |
-| Storage Container   | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
-| Path Pattern | Optional. The file path pattern used to write your blobs within the specified container. <br /><br /> In the path pattern, you may choose to use one or more instances of the date time variables to specify the frequency that blobs are written: <br /> {date}, {time} <br /><br />You can use custom blob partitioning to specify one custom {field} name from your event data to partition blobs. The field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <ul><li>Case insensitivity (cannot differentiate between column "ID" and column "id")</li><li>Nested fields are not permitted (instead use an alias in the job query to "flatten" the field)</li><li>Expressions cannot be used as a field name.</li></ul> <br /><br /> This feature enables the use of custom date/time format specifier configurations in the path. Custom date and time formats must be specified one at a time, enclosed by the {datetime:\<specifier>} keyword. Allowable inputs \<specifier> are yyyy, MM, M, dd, d, HH, H, mm, m, ss, or s. The {datetime:\<specifier>} keyword may be used multiple times in the path to form custom date/time configurations. <br /><br />Examples: <ul><li>Example 1: cluster1/logs/{date}/{time}</li><li>Example 2: cluster1/logs/{date}</li><li>Example 3: cluster1/{client_id}/{date}/{time}</li><li>Example 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li><li>Example 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />The timestamp of the folder structure created follows UTC and not local time.<br /><br />File naming follows the following convention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Example output files:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> For more information about this feature, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Storage Container   | A logical grouping for blobs stored in the Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
+| Path Pattern | Optional. The file path pattern used to write your blobs within the specified container. <br /><br /> In the path pattern, you can choose to use one or more instances of the date and time variables to specify the frequency that blobs are written: <br /> {date}, {time} <br /><br />You can use custom blob partitioning to specify one custom {field} name from your event data to partition blobs. The field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <ul><li>Field names aren't case-sensitive. For example, the service can't differentiate between column "ID" and column "id."</li><li>Nested fields are not permitted. Instead, use an alias in the job query to "flatten" the field.</li><li>Expressions can't be used as a field name.</li></ul> <br /><br /> This feature enables the use of custom date/time format specifier configurations in the path. Custom date and time formats must be specified one at a time, enclosed by the {datetime:\<specifier>} keyword. Allowable inputs \<specifier> are yyyy, MM, M, dd, d, HH, H, mm, m, ss, or s. The {datetime:\<specifier>} keyword can be used multiple times in the path to form custom date/time configurations. <br /><br />Examples: <ul><li>Example 1: cluster1/logs/{date}/{time}</li><li>Example 2: cluster1/logs/{date}</li><li>Example 3: cluster1/{client_id}/{date}/{time}</li><li>Example 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li><li>Example 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />The time stamp of the created folder structure follows UTC and not local time.<br /><br />File naming uses the following convention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Example output files:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> For more information about this feature, see [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 | Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event serialization format | Serialization format for output data. JSON, CSV, and Avro are supported. |
