@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/04/2019
 ms.author: mjbrown
 
 ---
@@ -2149,21 +2149,24 @@ A nested query applies the inner query to each element of the outer container. O
       WHERE c.familyName = f.parents[0].familyName
   ```
 
-## <a id="References"></a>Next steps
+## <a id="References"></a>References
 
-- [Introduction to Azure Cosmos DB][introduction]
 - [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB Consistency Levels][consistency-levels]
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](https://msdn.microsoft.com/library/bb308959.aspx) 
-- [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611)
-- Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-- Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-- Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-- G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
+- "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
+- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
+- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
+- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
+- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
+
+## Next steps
+
+- [Introduction to Azure Cosmos DB][introduction]
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB consistency levels][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
