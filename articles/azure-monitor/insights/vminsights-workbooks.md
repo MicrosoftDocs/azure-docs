@@ -28,17 +28,19 @@ Workbooks are helpful for scenarios such as:
 
 Azure Monitor for VMs includes several workbooks to get you started, and the following table summarizes them.
 
-| Workbook | Description |
+| Workbook | Description | Scope |
 |----------|-------------|
-| Performance | blah |
-| Performance counters | blah |
-| Connections | blah |
-| Active Ports | blah |
-| Open Ports | blah |
-| Failed Connections | blah |
-| Security and Audit | blah |
-| TCP Traffic | blah |
-| Traffic Comparison | blah | 
+| Performance | Provides a customizable version of our Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.| At scale |
+| Performance counters | A Top N chart view across a wide set of performance counters. | At scale |
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. | At scale |
+| Active Ports | Provides a list of the processes that have bound to the ports on the monitored VMs and their activity in the chosen timeframe. | At scale |
+| Open Ports | Provides the number of ports open on your monitored VMs and the details on those open ports. | At scale |
+| Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. | At scale |
+| Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. | At scale |
+| TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. | At scale |
+| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. | At scale |
+| Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
+| Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
  
 ## Starting with a template or saved workbook
 
