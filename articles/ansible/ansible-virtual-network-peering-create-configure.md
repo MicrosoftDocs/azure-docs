@@ -7,9 +7,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
 # Manage Azure Virtual Network Peering using Ansible
+
+[!INCLUDE [Ansible 2.8 note](../../includes/ansible-28-note.md)]
 
 [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
