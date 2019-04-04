@@ -66,7 +66,7 @@ While you estimate the number of RUs per second to provision, consider the follo
 * Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
-* Learn how to [find the request unit charge for an operation](how-to-find-ru-charge.md).
+* Learn how to [find the request unit charge for an operation](find-request-unit-charge.md).
 * Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
 * Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).

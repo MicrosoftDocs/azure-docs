@@ -30,7 +30,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
-![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-ru-charge/portal-sql-query.png)
+![Screenshot of SQL query request charge on Azure portal](./media/find-request-unit-charge/portal-sql-query.png)
 
 ### Use the .NET SDK V2
 
@@ -160,7 +160,7 @@ The Azure portal currently lets you find the request charge for a query only.
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
-![Screenshot of MongoDB query request charge on Azure portal](./media/how-to-find-ru-charge/portal-mongodb-query.png)
+![Screenshot of MongoDB query request charge on Azure portal](./media/find-request-unit-charge/portal-mongodb-query.png)
 
 ### Use the MongoDB .NET driver
 
