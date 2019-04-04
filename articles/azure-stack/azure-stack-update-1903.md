@@ -191,6 +191,10 @@ The following are post-installation known issues for this build version.
 - You must register the storage resource provider before you create your first Azure Function in the subscription.
 
 
+### Secret Management
+- We now support rotation of the root certificate used by certificates for external secret rotation. Read more [here](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-rotate-secrets)
+- 1903 contains performance improvements for secret rotation that reduce the time that it takes to execute internal secret rotation
+
 <!-- ### Usage -->
 
  
