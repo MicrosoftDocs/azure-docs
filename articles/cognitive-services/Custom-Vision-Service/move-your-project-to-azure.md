@@ -19,7 +19,7 @@ As Custom Vision Service completes its move to Azure, support for Limited Trial 
 
 Support for viewing Limited Trial projects on the [Custom Vision website](https://customvision.ai) ended on March 25, 2019. This document now shows you how to use the Custom Vision APIs with a [migration python script](https://github.com/Azure-Samples/custom-vision-move-project) on GitHub) to duplicate your project to an Azure resource.
 
-For more details, including key deadlines in the limited trial deprecation process, please refer to the [release notes](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) or to email communications sent to owners of limited trial projects.
+For more details, including key deadlines in the limited trial deprecation process, please refer to the [release notes](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) or to email communications sent to owners of limited trial projects.
 
 The [migration script](https://github.com/Azure-Samples/custom-vision-move-project) allows you to recreate a project by downloading and then uploading all of the tags, regions, and images in your current iteration. It will leave you with a new project in your new subscription which you can then train.
 
