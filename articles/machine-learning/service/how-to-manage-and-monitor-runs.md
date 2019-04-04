@@ -129,7 +129,7 @@ list(parent_run.get_children())
 
 ## Cancel and Fail runs
 
-Stop a run during execution, for example if there is a long running iteration that isn't converging, you can use the `cancel()` method.
+You can use the `cancel()` method to stop a run during execution. For example, if there is an iteration of the run that isn't converging.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -141,7 +141,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-With the `fail()` method, you can mark a run as failed. This is useful in scenarios when the run finishes, but contains an error like the incorrect training script was used.
+With the `fail()` method, you can mark a run as failed. This is useful in scenarios where the run finishes, but contains an error such as, the incorrect training script was used.
 
 ```Python
 local_script_run = exp.submit(run_config)
