@@ -132,8 +132,8 @@ Azure uses [role-based access control](../role-based-access-control/index.yml) (
 
 Two built-in Azure roles are used for the Avere vFXT virtual machines: 
 
-* The cluster controller uses the built-in role [Avere Contributor](../role-based-access-control/built-in-roles#avere-contributor). 
-* Cluster nodes use the built-in role [Avere Operator](../role-based-access-control/built-in-roles#avere-operator)
+* The cluster controller uses the built-in role [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Cluster nodes use the built-in role [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator)
 
 If you need to customize access roles for Avere vFXT components, you must define your own role and then assign it to the VMs at the time they are created. You cannot use the deployment template in the Azure Marketplace. Consult Microsoft Customer Service and Support by opening a ticket in the Azure portal as described in [Get help with your system](avere-vfxt-open-ticket.md). 
 

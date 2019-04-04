@@ -120,7 +120,7 @@ Page three summarizes the configuration and validates the parameters. After vali
 
 ![Third page of the deployment template - validation](media/avere-vfxt-deploy-3.png)
 
-On page four, click the **Create** button to accept the terms and create the Avere vFXT for Azure cluster. 
+On page four, enter any required contact information and click the **Create** button to accept the terms and create the Avere vFXT for Azure cluster. 
 
 ![Fourth page of the deployment template - terms and conditions, create button](media/avere-vfxt-deploy-4.png)
 

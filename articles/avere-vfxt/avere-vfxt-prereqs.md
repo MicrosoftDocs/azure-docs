@@ -31,8 +31,8 @@ There are some workaround scenarios that allow a non-owner to create an Avere vF
 
 | Scenario | Restrictions | Access roles required to create the Avere vFXT cluster | 
 |----------|--------|-------|
-| Resource group administrator | The virtual network, cluster controller, and cluster nodes must be created within the resource group | [User Access Administrator](../role-based-access-control/built-in-roles#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles#contributor) roles, both scoped to the target resource group | 
-| External vnet | The cluster controller and cluster nodes are created within the resource group but an existing virtual network in a different resource group is used | (1) [User Access Administrator](../role-based-access-control/built-in-roles#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](role-based-access-control/built-in-roles#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles#avere-contributor) roles scoped to the VNET resource group. |
+| Resource group administrator | The virtual network, cluster controller, and cluster nodes must be created within the resource group | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles, both scoped to the target resource group | 
+| External vnet | The cluster controller and cluster nodes are created within the resource group but an existing virtual network in a different resource group is used | (1) [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles scoped to the vFXT resource group; and (2) [Virtual Machine Contributor](role-based-access-control/built-in-roles.md#virtual-machine-contributor), [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor) roles scoped to the VNET resource group. |
  
 An alternative is to create a custom role-based access control (RBAC) role ahead of time and assign privileges to the user, as explained in [this article](avere-vfxt-non-owner.md). This method gives significant permissions to these users. 
 
@@ -72,77 +72,6 @@ To accept the software terms in advance:
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-<<<<<<< Updated upstream
-## Create access roles 
-
-[Role-based access control](../role-based-access-control/index.yml) (RBAC) gives the vFXT cluster controller and cluster nodes authorization to perform necessary tasks.
-
-* The cluster controller needs permission to create and modify VMs in order to create the cluster. 
-
-* Individual vFXT nodes need to do things like read Azure resource properties, manage storage, and control other nodes' network interface settings as part of normal cluster operation.
-
-Before you can create your Avere vFXT cluster, you must define a custom role to use with the cluster nodes. 
-
-For the cluster controller, you can accept the default role from the template. The default gives the cluster controller resource group owner privileges. If you prefer to create a custom role for the controller, see [Customized controller access role](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Only a subscription owner, or a user with the role Owner or User Access Administrator, can create roles. The roles can be created ahead of time.  
-
-### Create the cluster node access role
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-You must create the cluster node role before you can create the Avere vFXT for Azure cluster.
-
-> [!TIP] 
-> Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
-
-1. Copy this file. Add your subscription ID in the AssignableScopes line.
-
-   (The current version of this file is stored in the github.com/Azure/Avere repository as [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Save the file as ``avere-operator.json`` or a similar memorable file name. 
-
-
-1. Open an Azure Cloud shell and sign in with your subscription ID (described [earlier in this document](#accept-software-terms)). Use this command to create the role:
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-The role name is used when creating the cluster. In this example, the name is ``avere-operator``.
-
-=======
->>>>>>> Stashed changes
 ## Create a storage service endpoint in your virtual network (if needed)
 
 A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network. It is recommended for any Avere vFXT for Azure cluster that uses Azure Blob for back-end data storage. 
