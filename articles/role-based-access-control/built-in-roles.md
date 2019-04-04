@@ -1370,7 +1370,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
+> | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | List global event subscriptions by topic type |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | List regional event subscriptions by topictype |
