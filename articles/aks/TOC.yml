@@ -110,7 +110,7 @@
       maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
-    - name: Create virtual nodes (preview)
+    - name: Create virtual nodes
       items:
       - name: Azure CLI
         href: virtual-nodes-cli.md
