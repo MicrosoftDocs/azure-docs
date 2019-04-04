@@ -49,7 +49,7 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-First, make sure you have the appropriate licenses for your users based on the desktop and apps you plan to deploy:
+First, make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
 |---|---|
