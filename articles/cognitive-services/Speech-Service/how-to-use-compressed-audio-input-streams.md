@@ -20,11 +20,15 @@ The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream 
 > Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04 or Ubuntu 18.04).
 > Support is limited to MP3 and OPUS/OGG.
 
+## Prerequisites
+
 You must install these dependencies to use compressed audio input with the Speech SDK for Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
+
+## Streaming compressed audio
 
 To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 

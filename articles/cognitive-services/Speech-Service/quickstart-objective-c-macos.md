@@ -34,7 +34,7 @@ The current version of the Cognitive Services Speech SDK is `1.4.0`.
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle.
 It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
 
-## Create an Xcode Project
+## Create an Xcode project
 
 Start Xcode, and start a new project by clicking **File** > **New** > **Project**.
 In the template selection dialog, choose the "Cocoa App" template.
@@ -79,7 +79,7 @@ In the dialogs that follow, make the following selections:
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-## Build and Run the Sample
+## Build and run the sample
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** -> **Run** from the menu or clicking the **Play** button.

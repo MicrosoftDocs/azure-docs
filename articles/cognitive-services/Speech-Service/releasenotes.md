@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 ## Speech SDK 1.4.0: 2019-April release
 
-**New Features** 
+**New features** 
 
 * The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
 * The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
@@ -34,10 +34,10 @@ ms.custom: seodec18
 **Improvements / Changes**
 
 * Python: Additional properties of recognition results are now exposed via the `properties` property.
-* For additional development and debug support you can redirect SDK logging and diagnostocs information into a log file (more details [here](how-to-use-logging.md)).
+* For additional development and debug support you can redirect SDK logging and diagnostics information into a log file (more details [here](how-to-use-logging.md)).
 * JavaScript: Improve audio processing performance.
 
-**Bug Fixes**
+**Bug fixes**
 
 * Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed.
 * Python: improve error handling for arguments in Python callbacks.
