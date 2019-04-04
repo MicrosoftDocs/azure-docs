@@ -29,7 +29,7 @@ Workbooks are helpful for scenarios such as:
 Azure Monitor for VMs includes several workbooks to get you started, and the following table summarizes them.
 
 | Workbook | Description | Scope |
-|----------|-------------|
+|----------|-------------|-------|
 | Performance | Provides a customizable version of our Top N List and Charts view in a single workbook that leverages all of the Log Analytics performance counters that you have enabled.| At scale |
 | Performance counters | A Top N chart view across a wide set of performance counters. | At scale |
 | Connections | Connections provides an in-depth view of the inbound and outbound connections from your monitored VMs. | At scale |
