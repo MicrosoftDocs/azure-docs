@@ -23,7 +23,7 @@ In this quickstart, you take the following actions:
 
 * Create a workstation
 * Start a Jupyter Notebook server on your workstation
-* Open a notebook that contains code to estimate pi and logs errors at each iteration. 
+* Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
 
@@ -54,23 +54,21 @@ A notebook workstation gives you a cloud platform for Jupyter notebooks that is 
     ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
     > [!NOTE]
-    > Your workstation takes approximately **HOW MANY** minutes to create.  
+    > Your workstation takes approximately two minutes to create. When finished, the status updates to "Running" and links to Jupyter and JupyterLab appear.
 
-    How do you know when it is complete?  What do you see at the end, or do you have to click somewhere to see it?  Need to document exactly how this flows.  
+## Launch Jupyter web interface
 
-## Start a Jupyter Notebook server
+After your workstation is created, use the Notebook Workstations section to launch the Jupyter web interface.
 
-After your workstation is created, use the Notebook Workstations section to launch your Jupyter notebook server.
-
-1.  Select **Jupyter** in the **Launch** column for your workstation.
+1.  Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
 
     ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
 
-    This starts your notebook server and opens the server homepage in a new browser tab.  Your server already has sample notebooks for you to use to get started with Azure Machine Learning service.
+    This starts your notebook server and opens the server homepage in a new browser tab.  Your server shows sample notebooks for you to use to get started with Azure Machine Learning service.
 
 ### Run the notebook
 
-In the list of files on this server, you see a `config.json` file. This config file contains information about the workspace you created in the Azure portal.  This file allows your code to connect to and add information into your workspace.
+Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
@@ -78,7 +76,7 @@ In the list of files on this server, you see a `config.json` file. This config f
 
     ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk, __*__, next to a cell, the cell is still running. After the code for that cell finishes, a number appears. 
+1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk, __*__, next to a cell, the cell is still running. After the code for that cell finishes, a number appears.  
 
 After you've finished running all of the cells in the notebook, you can view the logged values in your workspace.
 
