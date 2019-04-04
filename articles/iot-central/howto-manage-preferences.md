@@ -18,7 +18,9 @@ IoT Central provides the flexibility to customize your applications to fit your 
 
 ## Changing language
 
-IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. Note that customization within the application such dashboard images aren't localized.
+IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. 
+[!NOTE]
+Customization within the application, such dashboard tiles and images, aren't localized.
 
 ## Changing theme
 
