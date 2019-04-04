@@ -31,7 +31,7 @@ With Live Metrics Stream, you can:
 
 [![Live Metrics Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, and Java apps.
+Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 ## Get started
 
