@@ -25,9 +25,9 @@ To make changes in the Azure portal:
 
    ![Advisor configuration menu](./media/view-recommendations/configuration.png)
 
-1. Check the box in the **Include** column for any subscriptions or resource groups to receive Advisor recommendations. If the box is disabled, you may not have permission to make a configuration change on that subscription or resource group. Learn more about [permissions in Azure Advisor](TODO).
+1. Check the box in the **Include** column for any subscriptions or resource groups to receive Advisor recommendations. If the box is disabled, you may not have permission to make a configuration change on that subscription or resource group. Learn more about [permissions in Azure Advisor](permissions.md).
 
-1. Click **Apply** at the bottom after you make a change
+1. Click **Apply** at the bottom after you make a change.
 
 ## Filtering your view in the Azure portal
 
@@ -51,11 +51,11 @@ Azure Advisor allows you to dismiss or postpone recommendations on a single reso
 
 ### Postpone or dismiss a multiple recommendation in the Azure portal 
 
-1. Open Azure Advisor in the Azure portal
-1. Select a recommendation category to view your recommendations
-1. Select a recommendation from the list of recommendations
-1. Select the checkbox at the left of the row for all resources you want to postpone or dismiss the recommendation
-1. Select **Postpone** or **Dismiss** at the top left of the table
+1. Open [Azure Advisor](https://aka.ms/azureadvisordashboard) in the Azure portal.
+1. Select a recommendation category to view your recommendations.
+1. Select a recommendation from the list of recommendations.
+1. Select the checkbox at the left of the row for all resources you want to postpone or dismiss the recommendation.
+1. Select **Postpone** or **Dismiss** at the top left of the table.
 
      ![Advisor filtering menu](./media/view-recommendations/postpone-dismiss-multiple.png)
 
@@ -69,24 +69,27 @@ Azure Advisor allows you to dismiss or postpone recommendations on a single reso
 
 You can activate a recommendation that has been postponed or dismissed. This can be done in the Azure portal or programmatically. To do this in the Azure portal:
 
-1. Open Azure Advisor in the Azure portal
+1. Open [Azure Advisor](https://aka.ms/azureadvisordashboard) in the Azure portal.
+
 1. Change the filter on the Overview blade to Postponed. This will show you if you have any postponed or dismissed recommendations.
 
     ![Advisor filtering menu](./media/view-recommendations/activate-postponed.png)
 
 1. Select a category to see **Postponed** and **Dismissed** recommendations.
+
 1. Select a recommendation from the list of recommendations. This opens recommendations with the **Postponed & Dismissed** tab already selected to show the resources for which this recommendation has been postponed or dismissed.
+
 1. Click on **Activate** at the end of the row. Once clicked, the recommendation is active for that resource, so it is removed from this table. It now is visible in the **Active** tab.
  
      ![Advisor filtering menu](./media/view-recommendations/activate-postponed-2.png)
 
-## Learn more
+## Next steps
 
 This article explains how you can view recommendations that matter to you in Azure Advisor. To learn more about Advisor, see: 
 
 - [What is Azure Advisor?](advisor-overview.md)
 - [Getting Started with Advisor](advisor-get-started.md)
-- [Permissions in Azure Advisor]()
+- [Permissions in Azure Advisor](permissions.md)
 
 
 
