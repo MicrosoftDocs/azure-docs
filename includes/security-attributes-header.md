@@ -17,4 +17,4 @@ Security attributes are categorized as:
 * Access controls (if used)
 * Configuration management (if used)
 
-In each category, we identify if an attribute is used or not (yes/no). For some services an attribute may not be applicable and is shown as N/A. A note or a link to more information about an attribute may also be provided.
+In each category, we identify if an attribute is used or not (yes/no). For some services, an attribute may not be applicable and is shown as N/A. A note or a link to more information about an attribute may also be provided.

@@ -8,7 +8,7 @@ manager: barbkess
 
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 04/03/20199
+ms.date: 04/03/2019
 ms.author: mbaldwin
 
 ---

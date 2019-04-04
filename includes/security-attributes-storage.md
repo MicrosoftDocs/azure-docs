@@ -29,7 +29,7 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Azure Monitor Metrics available now, Logs starting preview |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics available now, Logs starting preview |
 
 ## IAM Support
 
@@ -50,4 +50,4 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
+| Configuration management support (versioning of configuration, etc.)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |

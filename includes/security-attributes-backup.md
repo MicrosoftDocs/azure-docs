@@ -29,7 +29,7 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Log Analytics is supported via diagnostic logs. See Monitor Azure Backup protected workloads using Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via diagnostic logs. See Monitor Azure Backup protected workloads using Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
 
 ## IAM Support
 
@@ -50,4 +50,4 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes|  |
+| Configuration management support (versioning of configuration, etc.)| Yes|  |
