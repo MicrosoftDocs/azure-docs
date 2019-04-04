@@ -181,13 +181,13 @@ Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and gro
     ![The Groups claim settings](common/sso-groups-claim.png)
 
 * By default, Azure AD sends the UID of Azure AD Groups in the SAML claim, versus the name of the Group. However, if you are synchronizing your on-premises Active Directory to Azure AD, you have the option to send the actual names of the groups:
-    
+
     ![The Groups claim name settings](common/sso-groups-claims-names.png)
 
 The following example **Attribute Mapping Policy** demonstrates:
 1. Setting the Rackspace user's name to the `user.name` SAML claim.
-1. Setting the Rackspace roles `admin` and `billing:admin` on a user by matching an Azure AD Group, by either Group Name or Group UID. A *substitution* of `"{0}"` in the `roles` field is used, and will be replaced by the results of the `remote` rule expressions. 
-1. Using the `"{D}"` *default substition* to let Rackspace retrieve additional SAML fields by looking for standard and well-known SAML claims in the SAML exchange.
+1. Setting the Rackspace roles `admin` and `billing:admin` on a user by matching an Azure AD Group, by either Group Name or Group UID. A *substitution* of `"{0}"` in the `roles` field is used, and will be replaced by the results of the `remote` rule expressions.
+1. Using the `"{D}"` *default substitution* to let Rackspace retrieve additional SAML fields by looking for standard and well-known SAML claims in the SAML exchange.
 
 ```yaml
 ---
