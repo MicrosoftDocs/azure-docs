@@ -11,7 +11,7 @@ ms.author: kasparks
 
 # Permissions in Azure Advisor
 
-Azure Advisor provides recommendations based on the usage and configuration of your Azure resources and subscriptions. Advisor uses the [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) provided by [Role-Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) (RBAC) to manage your access to recommendations and Advisor features. 
+Azure Advisor provides recommendations based on the usage and configuration of your Azure resources and subscriptions. Advisor uses the [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) provided by [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) to manage your access to recommendations and Advisor features. 
 
 ## Roles and their access
 
