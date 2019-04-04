@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 	![Configure Single Sign-On Save button](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Select **Change** at the bottom of the page.
+3. In the **Integrations** section at the bottom of the page click the **Change** button to the right of **Single Sign-On Settings**.
 
 	![Configure Single Sign-On Save button](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
