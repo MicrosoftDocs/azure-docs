@@ -131,4 +131,3 @@ You can also add other solutions or make other modifications to your Log Analyti
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
 * [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)
-nitor logs](../azure-monitor/platform/view-designer.md)
