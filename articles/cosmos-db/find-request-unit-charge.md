@@ -1,5 +1,5 @@
 ---
-title: How to find the request unit charge
+title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit charge for any operation executed against an Azure Cosmos container
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -8,13 +8,13 @@ ms.date: 03/21/2019
 ms.author: thweiss
 ---
 
-# How to find the request unit (RU) charge in Azure Cosmos DB
+# Find the request unit (RU) charge in Azure Cosmos DB
 
 This article presents the different ways to find the [request unit](request-units.md) consumption for any operation executed against an Azure Cosmos container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
 
 ## Core API
 
-### Using the Azure portal
+### Use the Azure portal
 
 The Azure portal currently lets you find the request charge for a SQL query only.
 
@@ -32,7 +32,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 ![Screenshot of SQL query request charge on Azure portal](./media/how-to-find-ru-charge/portal-sql-query.png)
 
-### Using the .NET SDK V2
+### Use the .NET SDK V2
 
 Objects returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (see [this quickstart](create-sql-api-dotnet.md) regarding its usage) expose a `RequestCharge` property.
 
@@ -67,7 +67,7 @@ while (query.HasMoreResults)
 }
 ```
 
-### Using the Java SDK
+### Use the Java SDK
 
 Objects returned from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) expose a `getRequestCharge()` method.
 
@@ -95,7 +95,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-### Using the Node.js SDK
+### Use the Node.js SDK
 
 Objects returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this quickstart](create-sql-api-nodejs.md) regarding its usage) expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
 
@@ -128,7 +128,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-### Using the Python SDK
+### Use the Python SDK
 
 The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this quickstart](create-sql-api-python.md) regarding its usage) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
 
@@ -144,7 +144,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 Request unit charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. This command returns a document containing the name of the last operation executed, its request charge and its duration.
 
-### Using the Azure portal
+### Use the Azure portal
 
 The Azure portal currently lets you find the request charge for a query only.
 
@@ -162,7 +162,7 @@ The Azure portal currently lets you find the request charge for a query only.
 
 ![Screenshot of MongoDB query request charge on Azure portal](./media/how-to-find-ru-charge/portal-mongodb-query.png)
 
-### Using the MongoDB .NET driver
+### Use the MongoDB .NET driver
 
 When using the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/) (see [this quickstart](create-mongodb-dotnet.md) regarding its usage), commands can be executed by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class.
 
@@ -179,7 +179,7 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-### Using the MongoDB Java driver
+### Use the MongoDB Java driver
 
 When using the [official MongoDB Java driver](http://mongodb.github.io/mongo-java-driver/) (see [this quickstart](create-mongodb-java.md) regarding its usage), commands can be executed by calling the `runCommand` method on a `MongoDatabase` object.
 
@@ -188,7 +188,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-### Using the MongoDB Node.js driver
+### Use the MongoDB Node.js driver
 
 When using the [official MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/) (see [this quickstart](create-mongodb-nodejs.md) regarding its usage), commands can be executed by calling the `command` method on a `Db` object.
 
@@ -203,7 +203,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 
 When performing operations against Azure Cosmos DB's Cassandra API, request unit charge is returned in the incoming payload as a field named `RequestCharge`.
 
-### Using the .NET SDK
+### Use the .NET SDK
 
 When using the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/) (see [this quickstart](create-cassandra-dotnet.md) regarding its usage), the incoming payload can be retrieved under the `Info` property of a `RowSet` object.
 
@@ -212,7 +212,7 @@ RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
 ```
 
-### Using the Java SDK
+### Use the Java SDK
 
 When using the [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core) (see [this quickstart](create-cassandra-java.md) regarding its usage), the incoming payload can be retrieved by calling the `getExecutionInfo()` method on a `ResultSet` object.
 
@@ -223,11 +223,11 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ## Gremlin API
 
-### Using drivers and SDK
+### Use drivers and SDK
 
 Headers returned by the Gremlin API are mapped to custom status attributes which are currently surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key.
 
-### Using the .NET SDK
+### Use the .NET SDK
 
 When using the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/) (see [this quickstart](create-graph-dotnet.md) regarding its usage), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object.
 
@@ -236,7 +236,7 @@ ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-### Using the Java SDK
+### Use the Java SDK
 
 When using the [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) (see [this quickstart](create-graph-java.md) regarding its usage), status attributes can be retrieved by calling the `statusAttributes()` method on the `ResultSet` object.
 
