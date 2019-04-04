@@ -53,7 +53,7 @@ In the Global Authentication Policy, authentication methods can be enabled separ
 
  ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-## Provision data catalog
+## Create a data catalog
 
 You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
@@ -91,9 +91,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 ## Next Steps
 
-* [How to register data assets](data-catalog-how-to-register.md)
-* [How to discover data assets](data-catalog-how-to-discover.md)
-* [How to annotate data assets](data-catalog-how-to-annotate.md)
-* [How to document data assets](data-catalog-how-to-documentation.md)
-* [How to connect to data assets](data-catalog-how-to-connect.md)
-* [How to manage data assets](data-catalog-how-to-manage.md)
+In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now try and build reports with the data in your data catalog.
+
+> [!div class="nextstepaction"]
+>[Create a Power BI report from data in an Azure Data Catalog](data-catalog-tutorial-power-bi.md)
