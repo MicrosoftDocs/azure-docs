@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
 ---
 
