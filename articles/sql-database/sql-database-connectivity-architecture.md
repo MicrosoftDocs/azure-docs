@@ -1,6 +1,6 @@
 ---
 title: Directing Azure traffic to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
-description: This document explains the Azure SQL Database and SQL Data Warehouse connectivity architecture from within Azure or from outside of Azure.
+description: This document explains the Azcure SQL onnectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
