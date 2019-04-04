@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -19,9 +19,17 @@ Text-to-speech from Azure Speech Services is a REST-based service that enables y
 
 Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and virtual assistants.
 
+### Standard voices
+
+Standard voices are created using Statistical Parametric Synthesis and/or Concatenation Synthesis techniques. These voices are highly intelligible and sound quite natural. You can easily enable your applications to speak in more than 45 languages, with a wide range of voice options. These voices provide high pronunciation accuracy, including support for abbreviations, acronym expansions, date/time interpretations, polyphones, and more. Use standard voice to improve accessibility for your applications and services by allowing users to interact with your content audibly.
+
 ### Neural voices
 
 Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural voices significantly reduce listening fatigue when you interact with AI systems. For more information about neural voices, see [supported languages](language-support.md#text-to-speech).
+
+Text-to-speech with neural voices uses deep neural networks to overcome the limits of traditional text-to-speech systems in matching the patterns of stress and intonation in spoken language, and in synthesizing the units of speech into a computer voice. Standard text-to-speech breaks down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models. That can result in muffled, buzzy voice synthesis. Our neural capability does prosody prediction and voice synthesis simultaneously, which results in a more fluid and natural-sounding voice.
+
+To learn more about the benefits of neural voices, see [Microsoft’s new neural text-to-speech service helps machines speak like people](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### Custom voices
 
