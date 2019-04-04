@@ -157,7 +157,7 @@ You can use **Test Send** page to send a test notification message:
 
 **Service Bus Explorer:**
 
-Many customers use [Service Bus Explorer] to view and manage their notification hub. Service Bus Explorer is an open-source project. For samples, see [Service Bus Explorer code].
+Many customers use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to view and manage their notification hub. Service Bus Explorer is an open-source project. 
 
 ### Verify message notifications
 
@@ -282,7 +282,6 @@ For more information about programmatic access, see [Programmatic telemetry acce
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
-[Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
 [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
