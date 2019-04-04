@@ -119,8 +119,6 @@ To configure Azure AD single sign-on with PageDNA, perform the following steps:
 	||
 	|--|
 	| `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-	| `https://<your domain>/saml2ep.cgi` |
-	| `https://<your domain>/<your site>/saml2ep.cgi` |
 	| `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
 	| |
 
