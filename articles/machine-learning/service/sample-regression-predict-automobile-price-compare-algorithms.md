@@ -14,7 +14,7 @@ ms.date: 05/06/2019
  
 # Sample 2 - Regression: predict price and compare algorithms
 
-This visual interface sample experiment demonstrates how to compare two regression models' performance on predict the automobile's price. The process includes training, testing and evaluating the model on the **Auto Imports** dataset.
+This visual interface sample experiment demonstrates how to compare two regression models' performance on predict the automobile's price. The process includes training, testing and evaluating the model on the **Automobile price data (Raw)** dataset.
 
 ## Prerequisites
 
