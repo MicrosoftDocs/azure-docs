@@ -247,11 +247,11 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|15.1| To help your users discover your add-in, similar to validation policy **4.12.1**, Add-ins that contain custom functions must support add-in commands. |
-|15.2| Your [custom functions metadata](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json) must have the `helpUrl` property set.|
-|15.3| To help to ensure the security of your app and users, your custom functions html, javascript and JSON metadata files mst be hosted on the same domain. |
+|15.1| Add-ins that contain custom functions must support add-in commands. This is to ensure users can easily discover your add-in. |
+|15.2| Your custom functions metadata must have the `helpUrl` property set. See an example [here](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json).|
+|15.3| To help to ensure the security of your app and users, your custom functions html, javascript and JSON metadata files must be hosted on the same domain. |
 |15.4| Your add-in must work across all platforms that support custom functions. If your add-in must also define in the Requirements element the following requirement set `<Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>`. |
-|15.5| To help to ensure that your end user's Excel workbooks continue to work, if you add the `EquivalentAddins` tag to your manifest, this will cause your Custom Functions to save in XLL-compatiblle mode. Once set, you will not be able to remove this tag on upgrade of your add-in. Doing so will cause your add-in to fail re-submission, unless an exception is explicitly granted. |
+|15.5| Once an add-in is approved using the EquivalentAddins tag in the manifest, all future updates to the add-in must include this tag.  This tag ensures your CustomFunctions save in XLL-compatible mode. |
 |15.6| To help ensure an efficient validation process, if your add-in contains custom functions, you must provide test notes to validate them on submission. |
 
 
