@@ -36,7 +36,7 @@ Items that are listed under **Favorites** are selected from **All services**. A 
 
 1. **Cost Management + Billing** is now added as the last item in your **Favorites** list.
 
-## Sort Favorites
+## Sort favorites
 
 You can change the order that your favorite services are listed. Just drag and drop the menu item to another location under **Favorites**.
 
@@ -48,7 +48,7 @@ You can change the order that your favorite services are listed. Just drag and d
 
 1. While continuing to hold, drag the item to the top of **Favorites** and then release.
 
-## Next Steps
+## Next steps
 
 * To create a project-focused workspace, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)
 * Discover more how-to's in the [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
