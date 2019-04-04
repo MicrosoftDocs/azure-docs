@@ -92,7 +92,7 @@ resources within that Azure AD Tenant.
 
 ## Trouble seeing all subscriptions
 
-A few directories that started using management groups early in the preview before June 25 2018 could see an issue where all the subscriptions aren't within the hierarchy.  The processes to have all subscriptions in the hierarchy was put in place after a role or policy assignment was done on the root management group in the directory.
+A few directories that started using management groups early in the preview before June 25 2018 could see an issue where not all the subscriptions were within the hierarchy. The process to have all subscriptions in the hierarchy was put in place after a role or policy assignment was done on the root management group in the directory. 
 
 ### How to resolve the issue
 
