@@ -17,8 +17,8 @@ ms.author: kegodin
 This how-to provides detailed integration steps of the Project Acoustics plugin package into your existing Unreal and Wwise game project. 
 
 Software requirements:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.+
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 or 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Wwise plugin for Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * If you're using a direct integration of the Wwise SDK instead of using the Wwise Unreal plugins, consult the Project Acoustics Unreal plugin and adjust Wwise API calls.
 
