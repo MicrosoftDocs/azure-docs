@@ -1,6 +1,6 @@
 ---
-title: Performance best practices for SQL Server in Azure Stack Virtual Machines
-description: Provides best practices for optimizing SQL Server performance in Microsoft Azure Stack Virtual Machines.
+title: Use SQL Server best practices and to increase performance in Azure Stack virtual machines | Microsoft Docs
+description: This article provides SQL server best practices to help increase performance and optimize SQL Server in Azure Stack VMs.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,15 +13,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
 ---
 
-# Optimize SQL Server performance
+# SQL server best practices to optimize performance in Azure Stack
 
-This article provides guidance for optimizing SQL Server performance in Microsoft Azure Stack virtual machines. When running SQL Server in Azure Stack virtual machines, use the same database performance-tuning options applicable to SQL Server in an on-premises server environment. The performance of a relational database in an Azure Stack cloud depends on many factors. Factors include the family size of a virtual machine, and the configuration of the data disks.
+This article provides SQL server best practices to optimize SQL Server and improve performance in Microsoft Azure Stack virtual machines. When running SQL Server in Azure Stack virtual machines, use the same database performance-tuning options applicable to SQL Server in an on-premises server environment. The performance of a relational database in an Azure Stack cloud depends on many factors. Factors include the family size of a virtual machine, and the configuration of the data disks.
 
 When creating SQL Server images, [consider provisioning your virtual machines in the Azure Stack portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Download the SQL IaaS Extension from Marketplace Management in the Azure Stack Admin Portal and download your choice of SQL virtual machine virtual hard drives (VHDs). These include SQL2014SP2, SQL2016SP1, and SQL2017.
 
@@ -33,7 +33,8 @@ Getting the *best* performance for SQL Server on Azure Stack virtual machines is
 > [!NOTE]  
 > For performance guidance for SQL Server in Azure virtual machines, refer to [this article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## Before you begin
+## Checklist for SQL server best practices
+
 The following checklist is for optimal performance of SQL Server on Azure Stack virtual machines:
 
 
