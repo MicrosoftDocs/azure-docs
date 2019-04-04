@@ -20,7 +20,7 @@ This article describes the steps of enabling Application Insights for a [ASP.NET
 
 ## Supported scenarios
 
-Application Insights SDK for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Application Insights service, telemetry is expected to be collected. This support includes, but not limited to any operating systems (Windows, Linux, Mac), any hosting method (In-Process vs Out-of-Process), any deployment method (framework-dependent vs self-contained), any Web Server (IIS, Kestrel), any platform (Azure Web Apps, Azure VM, Docker, AKS etc.) and IDEs (Visual Studio, VS Code, command line etc.)
+Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Application Insights service, telemetry is expected to be collected. This support includes, but not limited to any operating systems (Windows, Linux, Mac), any hosting method (In-Process vs Out-of-Process), any deployment method (framework-dependent vs self-contained), any Web Server (IIS, Kestrel), any platform (Azure Web Apps, Azure VM, Docker, AKS etc.) and IDEs (Visual Studio, VS Code, command line etc.)
 
 ## Prerequisites
 
