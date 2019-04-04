@@ -38,10 +38,10 @@ Here is a list of all the email notifications that might be sent by entitlement 
 
 | # | Email subject | When sent | Who receives |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve request to *&lt;access package&gt;* by *&lt;date&gt;* *&lt;time&gt;* | When requestor submits request | All approvers |
-| 2 | Status notification: *&lt;requestor&gt;* access request to *&lt;access package&gt;* has been completed | When the first approver approves or denies request | All approvers |
-| 3 | You now have access to *&lt;access package&gt;*  | When the requestor has been granted access to every resource in the access package | Requestor |
-| 4 | Your access to *&lt;access package&gt;* expires in X day(s) | X days before access expires | Requestor |
+| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When requestor submits request | All approvers |
+| 2 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies request | All approvers |
+| 3 | You now have access to *[access package]*  | When the requestor has been granted access to every resource in the access package | Requestor |
+| 4 | Your access to *[access package]* expires in X day(s) | X days before access expires | Requestor |
 | 5 |  |  |  |
 | 6 |  |  |  |
 | 7 |  |  |  |
