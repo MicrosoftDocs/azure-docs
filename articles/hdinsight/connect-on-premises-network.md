@@ -62,7 +62,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
   
-2. From the left menu, navigate **+ Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**.
+2. From the left menu, navigate to **+ Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**.
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
