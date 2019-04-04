@@ -377,6 +377,6 @@ The patch orchestration app collects telemetry to track usage and performance. T
 - Fixed an issue with health warning getting left behind during restart.
 
 ### Version 2.0.3 (Latest)
-- Fixing the issue where CPU usage of Node Agent daemon service reached upto 9% on Standard_D1_v2 VMs.
+- Fixing the issue where CPU usage of Node Agent daemon service reached upto 99% on Standard_D1_v2 VMs.
 - Fixing the issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending.
 - Fixed a bug due to which Node Agent daemon keeps crashing when corrupt settings are passed to the service.
