@@ -114,7 +114,8 @@ with exp.start_logging() as parent_run:
             child.log(name="Hello from child run", value=c)
 ```
 
-> [!NOTE] Child runs complete automatically as they move out of scope
+> [!NOTE] 
+> Child runs complete automatically as they move out of scope
 
 You can also start child runs one by one, but because each creation results in a network call it's less efficient than submitting a batch of runs.
 
