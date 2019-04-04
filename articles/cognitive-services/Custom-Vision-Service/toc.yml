@@ -62,7 +62,7 @@
     href: ./export-delete-data.md
   - name: Move your Limited Trial project to Azure
     href: ./move-your-project-to-azure.md
-  - name: Migrate your app to the latest SDKs
+  - name: Update your app to the 3.0 API
     href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
