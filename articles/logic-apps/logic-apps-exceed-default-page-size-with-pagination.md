@@ -22,7 +22,7 @@ that you want better control over the size and structure for your result sets.
 
 Some actions, such as the SQL Server **Get rows** action, support the pagination capability, 
 which makes an action get the remaining results, but returns all those results in 
-a single message when the action finishes. You can also specify a limit that sets the 
+a single message when the action finishes. You must also specify a limit that sets the 
 *minimum* number of results that the action returns. The action continues getting results 
 until the action has at least the specified minimum or the default maximum number of results, 
 whichever number is smaller. However, if the final result set exceeds your specified minimum, 
@@ -30,8 +30,9 @@ the action returns those results. For example, suppose you set the limit to 5000
 If the final set has 5100 results, you get that number of results.
 
 > [!NOTE]
-> If the initial response or a subsequent response doesn't link to the next page of results, 
-> your logic app doesn't call for the next page of results.
+> If the initial response or a subsequent response 
+> doesn't link to the next page of results, your logic 
+> app doesn't call for the next page of results.
 
 This list shows just some of the connectors where you 
 can turn on pagination for specific actions:
@@ -66,9 +67,33 @@ ellipses (**...**) button, and select **Settings**.
    the action displays the **Pagination** setting.
 
 1. Change the **Pagination** setting from **Off** to **On**. 
-In the **Limit** property, specify the minimum number of results 
-that you want the action to return.
+In the **Limit** property, specify the minimum number of 
+results that you want the action to return.
 
    ![Specify that the action return a minimum number of results](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
 1. When you're ready, choose **Done**.
+
+### Pagination setting in workflow definition
+
+In your logic app's workflow definition, when you turn on pagination for an action, 
+the `"paginationPolicy"` property along with the `"minimumItemCount"` property 
+appears in the action's `"runtimeConfiguration"` property, for example:
+
+```json
+"actions": {
+   "HTTP": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.testuri.com"
+      },
+      "runAfter": {},
+      "runtimeConfiguration": {
+         "paginationPolicy": {
+            "minimumItemCount": 1000
+         }
+      },
+      "type": "Http"
+   }
+},
+```
