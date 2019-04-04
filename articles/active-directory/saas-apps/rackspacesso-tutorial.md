@@ -68,7 +68,7 @@ To configure the integration of Rackspace SSO into Azure AD, you need to add Rac
 ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Rackspace SSO based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Rackspace SSO needs to be established.
+When using single sign-on with Rackspace, the Rackspace users will be automatically created the first time they log in to the Rackspace portal. 
 
 To configure and test Azure AD single sign-on with Rackspace SSO, you need to complete the following building blocks:
 
@@ -76,8 +76,8 @@ To configure and test Azure AD single sign-on with Rackspace SSO, you need to co
 2. **[Configure Rackspace SSO Single Sign-On](#configure-rackspace-sso-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Rackspace SSO test user](#create-rackspace-sso-test-user)** - to have a counterpart of Britta Simon in Rackspace SSO that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Set up Attribute Mapping in the Rackspace Control Panel](#set-up-attribute-mapping-in-the-rackspace-control-panel)** - to assign Rackspace roles to Azure AD users.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -172,7 +172,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Set up Attribute Mapping in Rackspace Control Panel
+### Set up Attribute Mapping in the Rackspace control panel
 
 Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and groups to your single sign-on users. The **Attribute Mapping Policy** translates Azure AD SAML claims into the user configuration fields Rackspace requires. More documentation can be found in the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Some considerations:
 
