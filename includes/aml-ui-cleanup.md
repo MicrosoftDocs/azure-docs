@@ -18,13 +18,13 @@ If you don't plan to use the resources you created, delete them, so you don't in
 
 ### Delete resources
 
-Delete experiments, web services, or datasets you have created in a workspace by selecting them, and then selecting the delete button.
+Delete experiments, web services, or datasets you created by selecting them, and then selecting **Delete**.
 
 ![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
 
 ### Delete compute target
 
-The compute target used to run experiments auto-scales to 0 nodes when not in use so that it does not incur extra charges.
+The compute target used to run experiments autoscales to `0` nodes when not in use to avoid extra charges.
 
 To delete the compute resource altogether, select it in the **Compute** section of your workspace in the [Azure portal](https://portal.azure.com).
 
