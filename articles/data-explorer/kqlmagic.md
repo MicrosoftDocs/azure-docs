@@ -1,7 +1,6 @@
 ---
-title: 'Analyze data using Jupyter Notebook and Kqlmagic'
-description: This topic will show you how to analyze data using Jupyter Notebook and KQLmagic
-services: data-explorer
+title: Use a Jupyter Notebook to analyze data in Azure Data Explorer
+description: This topic shows you how to analyze data in Azure Data Explorer using a Jupyter Notebook and the Kqlmagic extension.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -9,7 +8,7 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 
-#Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
+# Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
 ---
 
 # Analyze data using Jupyter Notebook and KQL magic
