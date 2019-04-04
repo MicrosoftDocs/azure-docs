@@ -17,7 +17,7 @@ When you get data, records, or items by using a connector action in Azure Logic 
 your results might exceed the connector's default page size. In this scenario, 
 the action returns only the first page of results. For example, the default page size 
 for the SQL Server connector's **Get rows** action is 2048. This limit might also vary 
-based on other settings. In another scenario, you might be working with resuls so large 
+based on other settings. In another scenario, you might be working with results so large 
 that you want better control over the size and structure for your result sets.
 
 Some actions, such as the SQL Server **Get rows** action, support the pagination capability, 
