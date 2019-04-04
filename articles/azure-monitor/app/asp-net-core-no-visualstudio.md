@@ -20,7 +20,7 @@ This article describes the steps of enabling Application Insights for a [ASP.NET
 
 ## Supported scenarios
 
-Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Application Insights service, telemetry is expected to be collected. This support includes, but not limited to any operating systems (Windows, Linux, Mac), any hosting method (In-Process vs Out-of-Process), any deployment method (framework-dependent vs self-contained), any Web Server (IIS, Kestrel), any platform (Azure Web Apps, Azure VM, Docker, AKS etc.) and IDEs (Visual Studio, VS Code, command line etc.)
+Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Application Insights service, telemetry is expected to be collected. This support includes, but not limited to any operating systems (Windows, Linux, Mac), any hosting method (In-Process vs Out-of-Process), any deployment method (framework-dependent vs self-contained), any Web Server (IIS, Kestrel), any platform (Azure Web Apps, Azure VM, Docker, AKS and so on.) and IDEs (Visual Studio, VS Code, command line)
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ Modify the files names as per your actual application. Above used names are from
 
 ## Configuring Application Insights SDK
 
-Application Insights SDK for Asp.Net Core can be customized to alter the default configuration. Users of Application Insights Asp.Net SDK might be familiar with configuration using `ApplicationInsights.config`, or by modifying `TelemetryConfiguration.Active`. For Asp.Net Core, configuration is done differently. Asp.Net Core SDK is added to the application using Asp.Net Core's built-in [DependencyInjection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) mechanism, and hence configuring the same would also be using DependencyInjection. Almost all the configuration changes are done in the `ConfigureServices()` method of your `Startup.cs` class, unless stated otherwise. Follow the sections below to learn more.
+Application Insights SDK for Asp.Net Core can be customized to alter the default configuration. Users of Application Insights Asp.Net SDK might be familiar with configuration using `ApplicationInsights.config`, or by modifying `TelemetryConfiguration.Active`. For Asp.Net Core, configuration is done differently. Asp.Net Core SDK is added to the application using Asp.Net Core's built-in [DependencyInjection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) mechanism, and configuring the same would also be using DependencyInjection. Almost all the configuration changes are done in the `ConfigureServices()` method of your `Startup.cs` class, unless stated otherwise. Follow the sections below to learn more.
 
 > [!NOTE]
 > It is important to note that modifying configuration by modifying `TelemetryConfiguration.Active` is not recommended in Asp.Net Core applications.
@@ -215,7 +215,7 @@ The following auto collection modules are enabled by default, and are responsibl
 1. `AppServicesHeartbeatTelemetryModule`
 1. `AzureInstanceMetadataTelemetryModule`
 
-In order to configure any of the default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection` as shown in the example below.
+To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection` as shown in the example below.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -281,7 +281,7 @@ public class HomeController : Controller
 
  Refer to [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/) for description of custom data reporting in Application Insights.
 
-*2. I have seen from Visual Studio templates that UseApplicationInsights() extension method on IWebHostBuilder is used to enable Application Insights. Is this usage still valid?*
+*2. Some Visual Studio templates used UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?*
 
 * Enabling Application Insights with this method is valid, and is used in Visual Studio on-boarding, Azure Web App extensions as well. However, it is recommended to use `services.AddApplicationInsightsTelemery()` as it provides overloads to control some configuration. Both method internally does the same thing, so if there is no custom configuration to be applied, calling either is fine.
 
@@ -309,7 +309,7 @@ public class HomeController : Controller
 
 * Feature support for SDK is same in all platforms, with the following exceptions:
     1. Performance Counter is not yet supported in Non-Windows. This document will be updated when Linux support is added.
-    1. Even though `ServerTelemetryChannel` is enabled by default, if the application is running in non-windows, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This limitation causes telemetry is lost in the event of temporary network issues. The workaround for this issue is for user to configure a local folder to the channel, as shown below.
+    1. Even though `ServerTelemetryChannel` is enabled by default, if the application is running in non-windows, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This limitation causes telemetry is lost if there are temporary network or server issues. The workaround for this issue is for user to configure a local folder to the channel, as shown below.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
