@@ -90,7 +90,7 @@ The following steps show you how to create a static HTML page embedded with the 
     });
     ```
 
-    The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
+    The `atlas.Map` class provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
@@ -98,7 +98,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
 ## Visualize traffic flow
 
-1. Add the traffic flow display to the map. The maps `ready` event ensures waits until minumum maps resources are loaded and ready to safely interact with it.
+1. Add the traffic flow display to the map. The maps `ready` event waits until the maps resources are loaded and ready to safely interact with it.
 
     ```javascript
     map.events.add("ready", function() {
@@ -111,7 +111,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     In the map `ready` event handler,  the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow.
 
-2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles you should see the streets with the current traffic data.
+2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles, you should see the streets with the current traffic data.
 
    ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
 
@@ -240,7 +240,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response which is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. It also adds an index of 0 to ensure that it is rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of 9 pixels.
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. It also adds an index of 0 to ensure that it is rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
 
 3. Add the following JavaScript code to construct a route for a car and display the results.
 
@@ -260,7 +260,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response which is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. Two properties are added to the car route line, a stroke color that is a shade of purple, and a stroke width of 5 pixels.  
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. Two properties are added to the car route line, a stroke color that is a shade of purple, and a stroke width of  five pixels.  
 
 4. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
 
