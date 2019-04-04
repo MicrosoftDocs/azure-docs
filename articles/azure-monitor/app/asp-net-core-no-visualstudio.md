@@ -176,14 +176,16 @@ To remove all or specific TelemetryInitializers, which are present by default, u
         services.AddApplicationInsightsTelemetry();
 
         // Remove a specific built-in TelemetryInitializer
-        var tiToRemove = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
+        var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
+                         (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
         if (tiToRemove != null)
         {
             services.Remove(tiToRemove);
         }
 
         // Remove all initializers
-        services.RemoveAll(typeof(ITelemetryInitializer)); // this requires importing namespace using Microsoft.Extensions.DependencyInjection.Extensions;
+        // This requires importing namespace using Microsoft.Extensions.DependencyInjection.Extensions;
+        services.RemoveAll(typeof(ITelemetryInitializer));
     }
 ```
 
@@ -306,7 +308,7 @@ public class HomeController : Controller
 
 *6. I run my application in Linux. Are all features supported in Linux as well?*
 
-* Feature support for SDK is same in all platforms, with the following exceptions:
+* Yes. Feature support for SDK is same in all platforms, with the following exceptions:
     1. Performance Counter is not yet supported in Non-Windows. This document will be updated when Linux support is added.
     1. Even though `ServerTelemetryChannel` is enabled by default, if the application is running in non-windows, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This limitation causes telemetry is lost if there are temporary network or server issues. The workaround for this issue is for user to configure a local folder to the channel, as shown below.
 
