@@ -93,7 +93,7 @@ Supply the following values:
 * Resource group name for the cluster, and also for network and storage resources if they are not the same as the cluster
 * Cluster location
 * Cluster network and subnet 
-* Cluster node access role 
+* Cluster node access role (use the built-in role [Avere Contributor](../role-based-access-control/built-in-roles#avere-contributor))
 * Cluster management IP address and administrative password 
 * Number of nodes to add (1, 2, or 3)
 * Node instance type and cache size values 
