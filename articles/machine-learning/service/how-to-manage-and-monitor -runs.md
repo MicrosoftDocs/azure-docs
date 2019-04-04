@@ -16,7 +16,7 @@ ms.date: 3/25/2019
 
 # Manage and monitor runs with Azure Machine Learning
 
-The Azure Machine Learning service provides various methods to monitor, organize and manage your runs for training and experimentation.
+The Azure Machine Learning service provides various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This how-to shows examples of the following tasks:
 
@@ -41,7 +41,7 @@ You'll need the following:
 
 <a name="monitor"></a>
 
-## Start, status and complete a run 
+## Start, status, and complete a run 
 
 Before you start a run, import the necessary packages
 
@@ -114,9 +114,9 @@ with exp.start_logging() as parent_run:
 
 > [!NOTE] Child runs complete automatically as they move out of scope>
 
-You can also start child runs one by one, but because each creation results in a network call this is less efficient than submitting a batch of runs.
+You can also start child runs one by one, but because each creation results in a network call it's less efficient than submitting a batch of runs.
 
-To query the child runs of a specific parent, use the `get_children()` method.
+ Use the `get_children()` method to query the child runs of a specific parent,.
 
 ```Python
 list(parent_run.get_children())
@@ -126,7 +126,7 @@ list(parent_run.get_children())
 
 ## Cancel and Fail runs
 
-To stop a run during execution, for example if there is a long running iteration that isn't converging, you can use the `cancel()` method.
+Stop a run during execution, for example if there is a long running iteration that isn't converging, you can use the `cancel()` method.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -138,7 +138,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-With the `fail()` method, you can mark a run as failed. This is particularly useful in scenarios when the run finishes, but contains an error like the incorrect training script was used.
+With the `fail()` method, you can mark a run as failed. This is useful in scenarios when the run finishes, but contains an error like the incorrect training script was used.
 
 ```Python
 local_script_run = exp.submit(run_config)
@@ -171,7 +171,7 @@ except Exception as e:
     print(e)
 ```
 
-Whereas, tags are changeable:
+Whereas tags are changeable:
 
 ```Python
 local_script_run.tag("quality", "great run")
