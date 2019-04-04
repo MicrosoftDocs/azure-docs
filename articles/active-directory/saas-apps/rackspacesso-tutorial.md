@@ -195,21 +195,20 @@ mapping:
     rules:
     - local:
         user:
-        domain: "{D}"
-        name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
-        email: "{D}"
-        roles:
-            - "{0}"
-        expire: "{D}"
-    remote:
-        - path: |
-            (
-            if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
-            if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
-            )
-        multiValue: true
-    version: RAX-1
-)
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://  schemas.microsoft.com/ws/2008/06/identity/  claims/groups')  ='7269f9a2-aabb-9393-8e6d-282e0f945985')   then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://  schemas.microsoft.com/ws/2008/06/identity/  claims/groups')='MyAzureGroup') then   ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
 ```
 > [!TIP]
 > Ensure that you use a text editor that validates YAML syntax when editing your policy file.
