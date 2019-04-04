@@ -1,6 +1,6 @@
 ---
 title: Get bulk data, records, and items by using pagination - Azure Logic Apps
-description: To exceed default page size for some connector actions, set up pagination so you can customize paging in Azure Logic Apps
+description: Set up pagination so you can exceed the default page size on some connector actions and control paging in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ---
 
-# Get bulk data, records, and items by setting up pagination in Azure Logic Apps
+# Get bulk data, records, and items with pagination in Azure Logic Apps
 
 When you get data, records, or items by using a connector action in Azure Logic Apps, 
 your results might exceed the connector's default page size. In this scenario, 
@@ -21,18 +21,13 @@ based on other settings. In another scenario, you might be working with results 
 that you want better control over the size and structure for your result sets.
 
 Some actions, such as the SQL Server **Get rows** action, support the pagination capability, 
-which makes an action get the remaining results, but returns all those results in 
-a single message when the action finishes. You must also specify a limit that sets the 
-*minimum* number of results that the action returns. The action continues getting results 
-until the action has at least the specified minimum or the default maximum number of results, 
-whichever number is smaller. However, if the final result set exceeds your specified minimum, 
-the action returns those results. For example, suppose you set the limit to 5000 items. 
-If the final set has 5100 results, you get that number of results.
-
-> [!NOTE]
-> If the initial response or a subsequent response 
-> doesn't link to the next page of results, your logic 
-> app doesn't call for the next page of results.
+which makes an action get the remaining results, but returns all those results in a single 
+message when the action finishes. With pagination, you also specify a limit that sets the 
+*minimum* number of results that the action returns. The action continues retrieving results 
+until the action gets *at least* the specified minimum number of results or the default limit, 
+whichever number is smaller. If your final set of results exceeds your specified minimum, 
+the action returns those results. For example, suppose you set the limit to at least 5000 items. 
+If the final set returns 5100 items, you get that number of items.
 
 This list shows just some of the connectors where you 
 can turn on pagination for specific actions:
@@ -53,32 +48,32 @@ can turn on pagination for specific actions:
 
 ## Set up pagination
 
-To determine whether an action supports pagination, 
-check the action's settings for the **Pagination** setting.
-This example shows how to turn on pagination in the SQL 
-Server's **Get rows** action.
+To determine whether an action supports pagination in the Logic App Designer, 
+check the action's settings for the **Pagination** setting. This example shows 
+how to turn on pagination in the SQL Server's **Get rows** action.
 
 1. In the action's upper-right corner, choose the 
 ellipses (**...**) button, and select **Settings**.
 
-   ![On the action, open "Settings"](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
+   ![Open the action's settings](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
    If the action supports pagination, 
-   the action displays the **Pagination** setting.
+   the action shows the **Pagination** setting.
 
 1. Change the **Pagination** setting from **Off** to **On**. 
-In the **Limit** property, specify the minimum number of 
+In the **Limit** property, specify the *minimum number* of 
 results that you want the action to return.
 
-   ![Specify that the action return a minimum number of results](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
+   ![Specify minimum number of results to return](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
 1. When you're ready, choose **Done**.
 
-### Pagination setting in workflow definition
+### Pagination in your workflow definition
 
-In your logic app's workflow definition, when you turn on pagination for an action, 
-the `"paginationPolicy"` property along with the `"minimumItemCount"` property 
-appears in the action's `"runtimeConfiguration"` property, for example:
+When you turn on pagination on an action that supports this feature, 
+your logic app's workflow definition includes the `"paginationPolicy"` 
+property along with the `"minimumItemCount"` property in that action's 
+`"runtimeConfiguration"` property, for example:
 
 ```json
 "actions": {

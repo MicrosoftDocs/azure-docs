@@ -173,29 +173,31 @@ From the actions list, select any SQL action that you want.
 
 ## Handle bulk data
 
-Sometimes, you might have to work with result sets so large that the connector doesn't return all the results at the same time, or you want 
-better control over the size and structure for your result sets. Here's 
-a couple ways you can handle such large result sets: 
+Sometimes, you might have to work with result sets so large that the 
+connector doesn't return all the results at the same time, or you 
+want better control over the size and structure for your result sets. 
+Here's some ways that you can handle such large result sets:
 
-* Use *pagination*, which helps you manage results as smaller sets. 
+* To help you manage results as smaller sets, turn on *pagination*. 
 For more information, see 
-[Get bulk data, records, and items by setting up pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+[Get bulk data, records, and items by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
 * Create a stored procedure that organizes the results the way you want.
 
-  For example, when getting or inserting multiple rows, your logic 
-  app can iterate through these items by using an 
+  When getting or inserting multiple rows, your logic 
+  app can iterate through these rows by using an 
   [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
   within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
-  But, sometimes your logic app has to work with record sets so large, 
-  such as thousands or millions of rows, that you want to minimize the 
-  costs for calls to the database. 
+  However, when your logic app has to work with record sets so large, 
+  for example, thousands or millions of rows, that you want to minimize 
+  the costs resulting from calls to the database.
 
-  Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
-  the **SELECT - ORDER BY** statement to organize the results the way you want. 
+  To organize the results in the way that you want, you can create a 
+  <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> 
+  that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. 
   This solution gives you more control over the size and structure of your results. 
-  Your logic app calls the stored procedure by using the SQL Server 
-  connector's **Execute stored procedure** action.
+  Your logic app calls the stored procedure by using the SQL Server connector's 
+  **Execute stored procedure** action.
 
   For solution details, see these articles:
 
