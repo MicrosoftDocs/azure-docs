@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Run the Speech Devices SDK on Android - Speech Services
+title: "Quickstart: Run the Speech Devices SDK on Android - Speech Services"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
 services: cognitive-services
@@ -21,12 +21,12 @@ The source code for the sample application is included with the Speech Devices S
 
 ## Prerequisites
 
-Before you start using the Speech Devices SDK, you'll need to: 
+Before you start using the Speech Devices SDK, you'll need to:
 
 * Follow the instructions provided with your [development kit](get-speech-devices-sdk.md) to power on the device.
 
 * Download the latest version of the [Speech Devices SDK](REPLACEME), and extract the .zip to your working directory. 
-   > [!NOTE] 
+   > [!NOTE]
    > The .zip file includes the Android sample app.
 
 * Get a [Speech Services subscription key](get-started.md). Start with a free trial or get a key from your Azure dashboard.
