@@ -1,16 +1,16 @@
 ---
-title: 'Azure Cosmos DB: SQL API getting started tutorial'
-description: A tutorial that creates an online database and C# console application using the SQL API.
+title: 'Azure Cosmos DB: SQL API get started tutorial'
+description: A tutorial that creates an online database and C# console app using the SQL API.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/16/2017
+ms.date: 04/03/2019
 ms.author: sngun
 
 ---
-# Azure Cosmos DB: SQL API getting started tutorial
+# Azure Cosmos DB: SQL API get started tutorial
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -24,21 +24,21 @@ ms.author: sngun
 
 Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
-This tutorial covers:
+This tutorial shows you how to:
 
-* Creating and connecting to an Azure Cosmos DB account
-* Configuring your Visual Studio Solution
-* Creating an online database
-* Creating a collection
-* Creating JSON documents
-* Querying the collection
-* Replacing a document
-* Deleting a document
-* Deleting the database
+> [!div class="checklist"]
+>
+> - Create and connect to an Azure Cosmos DB account
+> - Configure a Visual Studio solution
+> - Create an online database
+> - Create a collection
+> - Create JSON documents
+> - Query the collection
+> - Replace a document
+> - Delete a document
+> - Delete the database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Jump to the [Get the complete NoSQL tutorial solution section](#GetSolution) for quick instructions.
-
-Now let's get started!
+The complete solution is also available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). For more information, see the [Get the complete NoSQL tutorial solution](#GetSolution) section.
 
 ## Prerequisites
 
