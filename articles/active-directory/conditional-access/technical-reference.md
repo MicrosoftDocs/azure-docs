@@ -118,8 +118,8 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Intune Managed Browser                |
-| Android                | Chrome, Intune Managed Browser                |
+| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
+| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
 | Windows Phone          | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Chrome                                        |
