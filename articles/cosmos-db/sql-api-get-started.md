@@ -40,9 +40,9 @@ This tutorial shows you how to:
 
 ## Get the complete solution
 
-If you don't have time to complete the tutorial, or just want to download the code samples, the complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+If you don't have time to complete the tutorial, or just want the code samples, you can download the complete solution from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
-To run the downloaded complete solution, 
+To run the downloaded complete solution: 
 
 1. Make sure you have the [Prerequisites](#prerequisites) installed. 
 1. In Visual Studio, right-click the **GetStarted** solution in **Solution Explorer**, and then select **Enable NuGet Package Restore** to restore the references to the Azure Cosmos DB .NET SDK.
@@ -57,30 +57,40 @@ Visual Studio 2017 with the Azure development workflow installed
 An Azure subscription or free Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+  If you're using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator, and then go to [Set up the Visual Studio solution](#SetupVS).
 
 ## Create an Azure Cosmos DB account
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+
+Follow these instructions to create an Azure Cosmos DB account in the Azure portal. If you already have an account to use, skip ahead to [Set up the Visual Studio solution](#SetupVS). 
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
-1. Open **Visual Studio 2017** on your computer.
-2. On the **File** menu, select **New**, and then choose **Project**.
-3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
-   ![Screenshot of the New Project window](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
-4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-    
-    ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. In the **NuGet** tab, click **Browse**, and type **azure documentdb** in the search box.
-6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
-   The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+## <a id="SetupVS"></a>Create the Visual Studio solution
 
-    If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
+1. In Visual Studio 2017, select **File** > **New** > **Project**.
+   
+1. In the **New Project** dialog, select **Templates** > **Visual C#** > **Console Application**, name your project, and then select **OK**.
+   
+   ![Screenshot of the New Project window](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
+   
+1. In **Solution Explorer**, right-click the new console app, which is under your Visual Studio solution, and then select **Manage NuGet Packages**.
+   
+   ![Project context menu](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   
+1. On the **NuGet** tab, select **Browse**, and type *azure documentdb* in the search box.
+   
+1. Find and select **Microsoft.Azure.DocumentDB**, and select **Install** if it is not already installed.
+   
+   The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   
+   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   
+   If you get a message about reviewing changes to the solution, select **OK**. If you get a message about license acceptance, select **I accept**.
+
+## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
     using System;
