@@ -1,5 +1,5 @@
 ---
-title: Security Attributes for Azure services
+title: Security attributes for Azure services
 description: A checklist of common security attributes for evaluating Azure Service Fabric
 services: security
 documentationcenter: ''
@@ -7,11 +7,11 @@ author: msmbaldwin
 manager: barbkess
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
 
 ---
-# Common Security Attributes for Azure Services
+# Common security attributes for Azure services
 
 Security is integrated into every aspect of an Azure service. This article collects the common security attributes for selected Azure services. 
 
@@ -43,7 +43,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Log Analytics is supported via diagnostic logs. See Monitor Azure Backup protected workloads using Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via diagnostic logs. See Monitor Azure Backup protected workloads using Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
 
 ### IAM Support
 
@@ -64,7 +64,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes|  |
+| Configuration management support (versioning of configuration, etc.)| Yes|  |
 
 ## [Azure Key Vault](../key-vault/key-vault-security-attributes.md)
 
@@ -91,7 +91,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Using Log Analytics. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Using Log Analytics. |
 
 ### IAM Support
 
@@ -140,7 +140,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Using Azure monitoring support and third party support. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Using Azure monitoring support and third party support. |
 
 ### IAM Support
 
@@ -161,7 +161,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | The service configuration is versioned and deployed using Azure Deploy. The code (application and runtime) is versioned using Azure Build.
+| Configuration management support (versioning of configuration, etc.)| Yes | The service configuration is versioned and deployed using Azure Deploy. The code (application and runtime) is versioned using Azure Build.
  |
 
 ## Azure Storage
@@ -189,7 +189,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Azure Monitor Metrics available now, Logs starting preview |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics available now, Logs starting preview |
 
 ### IAM Support
 
@@ -210,4 +210,4 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
+| Configuration management support (versioning of configuration, etc.)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
