@@ -22,11 +22,16 @@ that you want better control over the size and structure for your result sets.
 
 Some actions, such as the SQL Server **Get rows** action, support the pagination capability, 
 which makes an action get the remaining results, but returns all those results in 
-a single message when the action finishes. You can also specify a minimum number 
-of results that the action returns. The action continues getting results until the 
-action has at least the specified minimum or the default maximum number of results, 
-whichever number is smaller. If the initial response or a subsequent response doesn't 
-link to the next page of items, your logic app doesn't make the call for the next page of results.
+a single message when the action finishes. You can also specify a limit that sets the 
+*minimum* number of results that the action returns. The action continues getting results 
+until the action has at least the specified minimum or the default maximum number of results, 
+whichever number is smaller. However, if the final result set exceeds your specified minimum, 
+the action returns those results. For example, suppose you set the limit to 5000 items. 
+If the final set has 5100 results, you get that number of results.
+
+> [!NOTE]
+> If the initial response or a subsequent response doesn't link to the next page of results, 
+> your logic app doesn't call for the next page of results.
 
 This list shows just some of the connectors where you 
 can turn on pagination for specific actions:
@@ -53,7 +58,7 @@ This example shows how to turn on pagination in the SQL
 Server's **Get rows** action.
 
 1. In the action's upper-right corner, choose the 
-ellipses (**...***) button, and select **Settings**.
+ellipses (**...**) button, and select **Settings**.
 
    ![On the action, open "Settings"](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
