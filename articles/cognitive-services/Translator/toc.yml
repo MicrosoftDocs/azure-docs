@@ -108,6 +108,8 @@
     items:
     - name: Create a WPF app for Translator Text
       href: tutorial-wpf-translation-csharp.md
+    - name: Create a Flask translation app
+      href: tutorial-build-flask-app-translation-synthesis.md
   - name: Concepts
     items:
     - name: Customize and improve text translation

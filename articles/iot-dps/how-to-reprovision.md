@@ -3,7 +3,7 @@ title: How to reprovision devices in the Azure IoT Hub Device Provisioning Servi
 description: How to reprovision devices with your device provisioning service instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps

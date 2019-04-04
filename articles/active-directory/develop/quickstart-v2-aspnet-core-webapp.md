@@ -76,7 +76,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 
 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
 1. If you use Visual Studio 2017, open the solution in Visual Studio (optional).
-1. Edit the **appsettings.json** file. Find `ClientId` and Update the value of `ClientId` with the **Application (client) ID** value of the application you just registered. 
+1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you just registered. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
