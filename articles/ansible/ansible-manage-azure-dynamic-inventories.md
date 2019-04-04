@@ -11,6 +11,7 @@ ms.topic: tutorial
 ---
 
 # Use Ansible to manage your Azure dynamic inventories
+
 Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one of those virtual machines, and install Nginx on the tagged virtual machine.
 
 ## Prerequisites
@@ -53,6 +54,7 @@ Ansible can be used to pull inventory information from various sources (includin
         ```
 
 ## Tag a virtual machine
+
 You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
 
 Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
@@ -62,6 +64,9 @@ az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resou
 ```
 
 ## Generate a dynamic inventory
+
+### For usere using Ansible version < 2.8
+
 Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
@@ -97,6 +102,42 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     }
     ```
 
+### For user using Ansible version >= 2.8
+
+From Ansible 2.8, Ansible provides [Azure dynamic inventory plugin](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). Please  follow below instruction if you're using Ansible >=2.8.
+
+- Prepare configuration file. The inventory plugin requires a YAML configuration file whose name ends with `azure_rm.(yml|yaml)`. Sample configuration file as below:
+
+    ```yaml
+    plugin: azure_rm
+    include_vm_resource_groups:
+    - ansible-inventory-test-rg
+    auth_source: auto
+    ```
+
+  save it as `myazure_rm.yml`.
+
+- Run below command to ping VMs in your resource group created above:
+
+  ```bash
+  ansible all -m ping -i ./myazure_rm.yml
+  ```
+
+  If you meet error like `Failed to connect to the host via ssh: Host key verification failed.`.  Pls do below configuration line in `/etc/ansible/ansible.cfg`
+  
+  ```bash
+  host_key_checking = False
+  ```
+
+- Once connected,  you see reuslts similiar to the following output:
+  
+  ```Output
+  PLAY RECAP ***********************************************************************************************************************************************************************************
+  ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+  ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+  ```
+
 ## Enable the virtual machine tag
 Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
 
@@ -106,9 +147,18 @@ export AZURE_TAGS=nginx
 
 Once the tag has been exported, you can try the `ansible` command again:
 
-```azurecli-interactive
-ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-```
+- For Ansible < 2.8
+
+    ```bash
+    azurecli-interactive
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
+    ```
+
+- For Ansible >=  2.8
+  
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
 
 You now see only one virtual machine (the one whose tag matches the value exported into the **AZURE_TAGS** environment variable):
 
@@ -121,6 +171,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## Set up Nginx on the tagged VM
+
 The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
 
 1. Create a file (to contain your playbook) named `nginx.yml` as follows:
@@ -134,23 +185,31 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
     ```yml
     ---
     - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-      apt: pkg=nginx state=installed
-      notify:
-      - start nginx
+      hosts: all
+      become: yes
+      tasks:
+      - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
 
-    handlers:
-    - name: start nginx
-      service: name=nginx state=started
+      handlers:
+        - name: start nginx
+          service: name=nginx state=started
     ```
 
 1. Run the `nginx.yml` playbook:
 
-    ```azurecli-interactive
+   - for ansible < 2.8 
+
+    ```bash
     ansible-playbook -i azure_rm.py nginx.yml
+    ```
+
+   - for ansible >=2.8
+
+    ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
     ```
 
 1. Once you run the playbook, you see results similar to the following output:
@@ -172,6 +231,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
     ```
 
 ## Test Nginx installation
+
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
 1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
@@ -194,7 +254,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
-    
+
     tom@ansible-inventory-test-vm1:~$
     ```
 
@@ -213,5 +273,6 @@ This section illustrates one technique to test that Nginx is installed on your v
     ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
 > [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
