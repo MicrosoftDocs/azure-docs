@@ -31,9 +31,11 @@ You'll need the following:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md).
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) installed (version 1.0.21 or later). To install or update to the latest version of the SDK go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page. To check your version of the Azure Machine Learning SDK use the following code.
+* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) installed (version 1.0.21 or later). To install or update to the latest version of the SDK, go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page. 
+
+    To check your version of the Azure Machine Learning SDK use the following code.
 
     ```Python
     print(azureml.core.VERSION)
