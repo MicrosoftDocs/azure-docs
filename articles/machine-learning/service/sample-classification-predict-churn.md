@@ -1,5 +1,5 @@
 ---
-title: "Sample 5 - Classification: Predict churn"
+title: "Classification: predict churn"
 titleSuffix: Azure Machine Learning service
 description: This visual interface sample experiment shows binary classifier prediction of churn, a common task for Customer Relationship Management (CRM)..
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 5 - Classification: Predict churn
+# Sample 5 - Classification: predict churn
 
 This visual interface sample experiment shows binary classifier prediction of churn, a common task for Customer Relationship Management (CRM).
 

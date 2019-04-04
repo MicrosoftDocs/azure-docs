@@ -1,5 +1,5 @@
 ---
-title: "Sample 3 - Classification: Predict credit risk"
+title: "Classification: predict credit risk"
 titleSuffix: Azure Machine Learning service
 description: This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information given on a credit application.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 3 - Classification: Predict credit risk
+# Sample 3 - Classification: predict credit risk
 
 This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information given on a credit application. It shows how you can perform basic classification including data processing operations, split the dataset into training and test sets, train the model, score the test dataset, and evaluate the predictions.
 

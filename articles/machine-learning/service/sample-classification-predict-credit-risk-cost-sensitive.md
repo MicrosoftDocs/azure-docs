@@ -1,5 +1,5 @@
 ---
-title: "Sample 4 - Classification: Credit risk prediction (cost sensitive)"
+title: "Classification: predict credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning service
 description: This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. It predicts credit risk based on information given on a credit application.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 4 - Classification: Credit risk prediction (cost sensitive)
+# Sample 4 - Classification: Predict credit risk (cost sensitive)
 
 This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
 
