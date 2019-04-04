@@ -63,7 +63,7 @@ results that you want the action to return.
 
 1. When you're ready, choose **Done**.
 
-### Workflow definition - pagination
+## Workflow definition - pagination
 
 When you turn on pagination for an action that supports this capability, 
 your logic app's workflow definition includes the `"paginationPolicy"` 
