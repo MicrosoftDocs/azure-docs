@@ -140,8 +140,5 @@ For more information, see [Security concepts for applications and clusters in AK
 [concepts-security]: concepts-security.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
-<<<<<<< HEAD
-=======
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
->>>>>>> 2ea7938e4a9354492ad415d61bdcfe095f0acde4
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-extension-add]: /cli/azure/extension#az-extension-add
