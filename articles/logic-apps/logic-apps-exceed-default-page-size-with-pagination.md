@@ -13,22 +13,25 @@ ms.date: 04/04/2019
 
 # Get bulk data, records, and items with pagination in Azure Logic Apps
 
-When you get data, records, or items by using a connector action in Azure Logic Apps, 
-your results might exceed the connector's default page size. For example, the default 
-page size limit for the SQL Server connector's **Get rows** action is 2048. This limit 
-might also vary based on other settings. In this scenario, the action returns only the 
-first page of results. In other scenarios, you might be working with results so large 
-that you want better control over the size and structure for your result sets.
+When you get data, records, or items by using a connector action in 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md), your results 
+might exceed the connector's default page size. For example, the default 
+page size limit for the SQL Server connector's **Get rows** action is 2048, 
+but this limit might vary based on other settings. In this scenario, 
+the action returns only the first page of results. In other scenarios, 
+you might be working with results so large that you want better control 
+over the size and structure for your result sets.
 
-Specific actions, such as the SQL Server **Get rows** action, support *pagination* so that 
-the action can get the remaining results, but returns all those results in a single message 
-when the action finishes. When you use pagination, you also specify a limit that sets the *minimum* number of results that the action returns. The action continues retrieving results until the action gets *at least* the specified minimum or the default limit, whichever number 
-is smaller. If your final set of results exceeds your specified minimum, the action returns 
-those results. For example, suppose you set the limit to at least 5000 items. If the final 
-set returns 5100 items, you get that number of items.
+Specific actions, such as the SQL Server **Get rows** action, support *pagination* 
+so that the action can get the remaining results, but returns all those results in 
+a single message when the action finishes. When you use pagination, you also specify 
+a limit that sets the *minimum* number of results that the action returns. The action 
+continues retrieving results until the action gets *at least* the specified minimum or 
+the default limit, whichever number is smaller. If your final set of results exceeds your 
+specified minimum, the action returns those results. For example, suppose you set the limit 
+to at least 5000 items. If the final set returns 5100 items, you get that number of items.
 
-This list shows just some connectors where you 
-can turn on pagination for specific actions:
+Here's a list with just some of the connectors where you can turn on pagination for specific actions:
 
 * <a href="https://docs.microsoft.com/connectors/azureblob/" target="_blank">Azure Blob Storage</a>
 * <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365</a>
@@ -40,6 +43,15 @@ can turn on pagination for specific actions:
 * <a href="https://docs.microsoft.com/connectors/salesforce/" target="_blank">Salesforce</a>
 * <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
 * <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a>
+
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription yet, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+
+* The logic app and the action where you want to turn on pagination. 
+If you don't have a logic app, see 
+[Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Turn on pagination
 
