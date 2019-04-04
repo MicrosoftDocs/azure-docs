@@ -47,14 +47,17 @@ Then, you can learn about the additional mechanisms that you can use to recover 
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
-The following table compares the ERT and RPO for each service tier for the three most common scenarios.
+The following table compares the ERT and RPO for each service tier for the most common scenarios.
 
 | Capability | Basic | Standard | Premium | General Purpose | Business Critical
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
 | Geo-restore from geo-replicated backups |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
 | Auto-failover groups |RTO = 1 h<br>RPO < 5s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
-| Manual unplanned failover |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+| Manual database failover |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+
+> [!NOTE]
+> *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
 ## Recover a database to the existing server
 
@@ -111,7 +114,7 @@ If you do not prepare properly, bringing your applications online after a failov
 
 ### Fail over to a geo-replicated secondary database
 
-If you are using active geo-replication or auto-failover groups as your recovery mechanism, you can configure an automatic failover policy or use [manual unplanned failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data not yet replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+If you are using active geo-replication or auto-failover groups as your recovery mechanism, you can configure an automatic failover policy or use [manual unplanned failover](sql-database-active-geo-replication-portal.md#initiate-a-failover). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data not yet replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > When the data center comes back online the old primaries automatically reconnect to the new primary and become secondary databases. If you need to relocate the primary back to the original region, you can initiate a planned failover manually (failback).
