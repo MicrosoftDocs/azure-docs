@@ -12,7 +12,7 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 4 - Classification: Predict credit risk (cost sensitive)
+# Sample 4 - Classification: predict credit risk (cost sensitive)
 
 This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
 
