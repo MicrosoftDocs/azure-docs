@@ -5,9 +5,9 @@ description: How to prepare your trained model for deployment as a web service b
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
 ---
@@ -17,7 +17,7 @@ Azure Machine Learning Studio gives you the tools you need to develop a predicti
 
 To do this, you use Studio to create an experiment - called a *training experiment* - where you train, score, and edit your model. Once you're satisfied, you get your model ready to deploy by converting your training experiment to a *predictive experiment* that's configured to score user data.
 
-You can see an example of this process in [ Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
+You can see an example of this process in [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 
 This article takes a deep dive into the details of how a training experiment gets converted into a predictive experiment, and how that predictive experiment is deployed. By understanding these details, you can learn how to configure your deployed model to make it more effective.
 

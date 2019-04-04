@@ -1,19 +1,19 @@
 ---
-title: How a machine learning model becomes a web service
+title: How a model becomes a web service
 titleSuffix: Azure Machine Learning Studio
-description: An overview of the mechanics of how your Azure Machine Learning Studio model progresses from a development experiment to an operationalized Web service.
+description: An overview of the mechanics of how your Azure Machine Learning Studio model progresses from a development experiment to a Web service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ---
 
-# How a Machine Learning Studio model progresses from an experiment to an operationalized Web service
+# How a Machine Learning Studio model progresses from an experiment to a Web service
 Azure Machine Learning Studio provides an interactive canvas that allows you to develop, run, test, and iterate an ***experiment*** representing a predictive analysis model. There are a wide variety of modules available that can:
 
 * Input data into your experiment
@@ -28,7 +28,7 @@ Once you’re satisfied with your experiment, you can deploy it as a ***Classic 
 In this article, we give an overview of the mechanics of how your Machine Learning model progresses from a development experiment to an operationalized Web service.
 
 > [!NOTE]
-> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For example, to read a description of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For example, to read a description of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 >
 >
 
@@ -92,7 +92,7 @@ Here’s an example: Suppose your predictive experiment returns the entire row o
 
 If you want to keep your machine learning model, but you would like to retrain it with new data, you have two choices:
 
-1. **Retrain the model while the Web service is running** - If you want to retrain your model while the predictive Web service is running, you can do this by making a couple modifications to the training experiment to make it a ***retraining experiment***, then you can deploy it as a ***retraining web* service**. For instructions on how to do this, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md).
+1. **Retrain the model while the Web service is running** - If you want to retrain your model while the predictive Web service is running, you can do this by making a couple modifications to the training experiment to make it a ***retraining experiment***, then you can deploy it as a ***retraining web* service**. For instructions on how to do this, see [Retrain Machine Learning models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Go back to the original training experiment and use different training data to develop your model** - Your predictive experiment is linked to the Web service, but the training experiment is not directly linked in this way. If you modify the original training experiment and click **Set Up Web Service**, it will create a *new*     predictive experiment which, when deployed, will create a *new* Web service. It doesn’t just update the original Web service.
 
    If you need to modify the training experiment, open it and click **Save As** to make a copy. This will leave intact the original training experiment, predictive experiment, and Web service. You can now create a new Web service with your changes. Once you’ve deployed the new Web service you can then decide whether to stop the previous Web service or keep it running alongside the new one.
@@ -106,7 +106,7 @@ For more details on the process of developing and experiment, see the following 
 
 * converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
 * deploying the Web service - [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
-* retraining the model - [Retrain Machine Learning models programmatically](retrain-models-programmatically.md)
+* retraining the model - [Retrain Machine Learning models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 For examples of the whole process, see:
 

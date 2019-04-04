@@ -65,7 +65,6 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 4.  In Android Studio, open the Android Project in located in "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
 5.  Open gradle.properties file, and replace "Device_connection_string" with your device connection string noted earlier.
-    ![Screenshot of the master branch of the repository](./media/how-to-android-things/connection-string.png)
 6.  Click on Run - Debug and select your device to deploy this code to your Android Things devices.
 7.  When the application is started successfully, you can see an application running on your Android Things device.  This sample application sends randomly generated temperature readings.
 

@@ -4,7 +4,7 @@ description: Learn about platform level events and logs used to monitor and diag
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -91,13 +91,13 @@ For a list of performance counters to collect when using Service Fabric, see [Pe
 Here are two common ways in which you can set up collecting performance data for your cluster:
 
 * **Using an agent**  
-This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change. The Read about the Azure Monitor offering Log Analytics in Service Fabric's [Log Analytics integration](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the Log Analytics agent](../log-analytics/log-analytics-windows-agent.md) to learn more about the Log Analytics agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
+This is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change. The Read about the Azure Monitor offering Azure Monitor logs in Service Fabric's [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the Log Analytics agent](../log-analytics/log-analytics-windows-agent.md) to learn more about the Log Analytics agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
 
 * **Performance counters to Azure Table Storage**  
 You can also send performance metrics to the same table storage as the events. This requires changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. Read about configuring [Performance Counters in WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric to set up performance counter collection.
 
 ## Next steps
 
-* Read about Service Fabric's [Log Analytics integration](service-fabric-diagnostics-event-analysis-oms.md) to collect cluster diagnostics and create custom queries and alerts
+* Read about Service Fabric's [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md) to collect cluster diagnostics and create custom queries and alerts
 * Learn about Service Fabric's in built diagnostic experience, the [EventStore](service-fabric-diagnostics-eventstore.md)
 * Walk through some [common diagnostic scenarios](service-fabric-diagnostics-common-scenarios.md) in Service Fabric

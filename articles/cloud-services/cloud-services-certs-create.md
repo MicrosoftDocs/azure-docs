@@ -65,7 +65,7 @@ You can use any tool available to create a self-signed certificate as long as th
 There are two easy ways to create a certificate on Windows, with the `makecert.exe` utility, or IIS.
 
 ### Makecert.exe
-This utility has been deprecated and is no longer documented here. For more information, see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+This utility has been deprecated and is no longer documented here. For more information, see [this MSDN article](/windows/desktop/SecCrypto/makecert).
 
 ### PowerShell
 ```powershell

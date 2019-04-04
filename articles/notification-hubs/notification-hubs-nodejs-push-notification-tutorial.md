@@ -27,7 +27,7 @@ ms.author: jowargo
 > [!IMPORTANT]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, create a free trial account in just a couple of minutes through the [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
-This guide shows you how to send push notifications with the help of Azure Notification Hubs directly from a [Node.js](http://nodejs.org) application.
+This guide shows you how to send push notifications with the help of Azure Notification Hubs directly from a [Node.js](https://nodejs.org) application.
 
 The scenarios covered include sending push notifications to applications on the following platforms:
 
@@ -56,7 +56,7 @@ To use Azure Notification Hubs, you need to download and use the Node.js [azure 
 4. Inside that folder, find the **azure** package, which contains the libraries you need to access the Notification Hub.
 
 > [!NOTE]
-> You can learn more about installing NPM on the official [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
+> You can learn more about installing NPM on the official [NPM blog](https://blog.npmjs.org/post/85484771375/how-to-install-npm).
 
 ### Import the module
 
@@ -104,7 +104,7 @@ The `GcmService` object provides a `send` method that can be used to send push n
 - **Payload** - the message's JSON or raw string payload.
 - **Callback** - the callback function.
 
-For more information on the payload format, see the **Payload** section of the [Implementing GCM Server](http://developer.android.com/google/gcm/server.html#payload) document.
+For more information on the payload format, see the **Payload** section of the [Implementing GCM Server](https://developer.android.com/google/gcm/server.html#payload) document.
 
 The following code uses the `GcmService` instance exposed by the `NotificationHubService` to send a push notification to all registered clients.
 
@@ -129,7 +129,7 @@ Same as with Android applications described above, the `ApnsService` object prov
 - **Payload** - the message's JSON or string payload.
 - **Callback** - the callback function.
 
-For more information the payload format, see The **Notification Payload** section of the [Local and Push Notification Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) document.
+For more information the payload format, see The **Notification Payload** section of the [Local and Push Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) document.
 
 The following code uses the `ApnsService` instance exposed by the `NotificationHubService` to send an alert message to all clients:
 
@@ -218,9 +218,9 @@ The sample snippets above allow you to easily build service infrastructure to de
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

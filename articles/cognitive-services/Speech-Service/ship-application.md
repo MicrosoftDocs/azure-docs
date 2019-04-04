@@ -37,8 +37,10 @@ The required Speech SDK files can be deployed in the same directory as your appl
 | Name | Function
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | Core SDK, required for native and managed deployment
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Required for managed deployment
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment
+
+>[!NOTE]
+> Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
 
 ## Linux
 

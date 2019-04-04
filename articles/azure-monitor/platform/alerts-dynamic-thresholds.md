@@ -74,7 +74,11 @@ Probably not. Dynamic Thresholds are good for detecting significant deviations r
 
 ## How much data is used to preview and then calculate thresholds?
 
-The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based on the last 10 days of historical data, once an alert rule is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
+The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based enough historical data to calculate hour or daily seasonal patterns (10 days). Pressing on 'Display weekly pattern' will acquire enough historical data to calculate weekly seasonal patterns (28 days). Once an alert rule is created, the Dynamic Thresholds will use all needed historical data that is available and will continuously learn and adept based on new data to make the thresholds more accurate.
+
+## How much data is needed to trigger an alert?
+
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days of data are available to ensure accurate thresholds.
 
 ## Dynamic Thresholds best practices
 

@@ -136,7 +136,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Date range to and from web control**: With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different time zones. After you make the changes, to apply to your current workspace, select **Save**.
 
-  ![explorer-thirteen][13]
+   ![explorer-thirteen][13]
 
 ## Time Series Insights Preview navigation panel
 

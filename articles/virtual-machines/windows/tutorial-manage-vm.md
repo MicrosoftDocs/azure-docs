@@ -178,6 +178,7 @@ The VM size determines the amount of compute resources like CPU, GPU, and memory
 ### VM Sizes
 
 The following table categorizes sizes into use cases.  
+
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |

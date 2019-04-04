@@ -50,7 +50,7 @@ Before building the application, you need to register it with Azure AD. Registra
    ---|---
    **Name** | Provide a meaningful registration name.  
    **Application type** | Since you're building an SPA web application, leave as "Web app/API."
-   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https://azurewebsites.net" domain. In this example, the name is based on the registration name.
+   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https:\//azurewebsites.net" domain. In this example, the name is based on the registration name.
 
    When finished, click **Create** to create the new application registration.
 

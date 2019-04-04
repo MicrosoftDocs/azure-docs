@@ -6,7 +6,7 @@ author: stevelas
 
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: "seodec18, mvc"
 ---
@@ -22,7 +22,7 @@ For background about Docker and containers, see the [Docker overview](https://do
 
 Pull images from an Azure container registry to various deployment targets:
 
-* **Scalable orchestration systems** that manage containerized applications across clusters of hosts, including [Kubernetes](http://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/), and [Docker Swarm](https://docs.docker.com/swarm/).
+* **Scalable orchestration systems** that manage containerized applications across clusters of hosts, including [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/), and [Docker Swarm](https://docs.docker.com/swarm/).
 * **Azure services** that support building and running applications at scale, including [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) or [Jenkins](https://jenkins.io/).
@@ -49,7 +49,7 @@ Configure ACR Tasks to automatically rebuild application images when their base 
 
 [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. Use ACR Tasks to extend your development inner-loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
 
-[Multi-step tasks](container-registry-tasks-overview.md#multi-step-tasks-preview), a preview feature of ACR Tasks, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+[Multi-step tasks](container-registry-tasks-overview.md#multi-step-tasks) provide step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
 
 ## Next steps
 

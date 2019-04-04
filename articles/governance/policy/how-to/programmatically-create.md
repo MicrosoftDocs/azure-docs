@@ -98,12 +98,13 @@ CLI, and HTTP requests.
 
    Replace _ContosoRG_ with the name of your intended resource group.
 
-   The **Scope** parameter on `New-AzPolicyAssignment` also works with subscriptions and management
-   groups. The parameter uses a full resource path, which the **ResourceId** property on
-   `Get-AzResourceGroup` returns. The pattern for **Scope** for each container is as follows.
-   Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your resource name, resource group
-   name, subscription ID, and management group name, respectively. `{rType}` would be replaced with
-   the **resource type** of the resource, such as `Microsoft.Compute/virtualMachines` for a VM.
+   The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription,
+   resource group, or a single resource. The parameter uses a full resource path, which the
+   **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each
+   container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your
+   resource name, resource group name, subscription ID, and management group name, respectively.
+   `{rType}` would be replaced with the **resource type** of the resource, such as
+   `Microsoft.Compute/virtualMachines` for a VM.
 
    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -191,24 +192,24 @@ To create a policy definition, use the following procedure:
 
 1. Copy the following JSON snippet to create a JSON policy assignment file.
 
-  ```json
-  {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
-  }
-  ```
+   ```json
+   {
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
+   }
+   ```
 
    For more information about authoring a policy definition, see [Azure Policy Definition
    Structure](../concepts/definition-structure.md).

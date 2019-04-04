@@ -22,7 +22,7 @@ Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/an
 
 ## Request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https://swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https:\//swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
 
 ```
     // construct URL of search request (endpoint + query string)

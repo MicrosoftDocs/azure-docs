@@ -7,12 +7,12 @@ author: kraigb
 manager: douge
 
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
 ---
 
@@ -42,7 +42,7 @@ A **Configure User ID** command also appears next to the temporary user name:
 
 You can also change your user ID at any time on your profile page.
 
-A user ID must be composed of at least four letters, numbers, and hyphens. No other characters are allowed, and the user ID cannot begin or end with a hyphen or use multiple hyphens in a row.
+A user ID must be composed of between four and sixteen letters, numbers, and hyphens. No other characters are allowed, and the user ID cannot begin or end with a hyphen or use multiple hyphens in a row. Because user IDs are unique across all Azure Notebooks accounts, you may see the message, "User ID is already in use." (The message also appears if you attempt to use a Microsoft trademark as a user ID.) In these cases, choose a different user ID.
 
 > [!Important]
 > Changing your ID invalidates any URLs you might have shared using your previous ID. You can change your ID back to your previous ID to revalidate the links. However, it's possible for another user to claim an unused the ID in the meantime.

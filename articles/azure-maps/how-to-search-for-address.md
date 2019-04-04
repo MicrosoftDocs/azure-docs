@@ -33,7 +33,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -45,7 +45,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Key | Value |
     |------------------|-------------------------|
@@ -71,7 +71,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
   
 6. In Params, enter the following Key / Value pairs and click **Send**:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Key | Value |
     |-----|------------|
@@ -85,7 +85,7 @@ You can pass a complete or partial street address to the search address API and 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
 
-    ![Address Search ](./media/how-to-search-for-address/address_search_url.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -95,7 +95,7 @@ You can pass a complete or partial street address to the search address API and 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Address Search ](./media/how-to-search-for-address/address_search_params.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -126,7 +126,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Search URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Search URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -136,7 +136,7 @@ You can pass a complete or partial street address to the search address API and 
   
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Reverse Address Search Parameters ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Reverse Address Search Parameters](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -186,7 +186,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Cross Street Search ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Cross Street Search](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|

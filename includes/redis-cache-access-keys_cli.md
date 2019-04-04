@@ -13,7 +13,7 @@ ms.custom: "include file"
 
 ### Retrieve host name, ports, and access keys using Azure CLI
 
-To retrieve the host name and ports using the Azure CLI you can call [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), and to retrieve the keys you can call [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). The following script calls these two commands and echos the hostname, ports, and keys to the console.
+To retrieve the host name and ports using the Azure CLI you can call [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), and to retrieve the keys you can call [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). The following script calls these two commands and echoes the hostname, ports, and keys to the console.
 
 ```azurecli
 #/bin/bash

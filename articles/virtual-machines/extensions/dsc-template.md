@@ -270,7 +270,7 @@ The following example is from the
 This example uses Resource Manager templates
 instead of cmdlets to deploy the extension.
 Save the IisInstall.ps1 configuration,
-place it in a .zip file,
+place it in a .zip file (example: `iisinstall.zip`),
 and then upload the file in an accessible URL.
 This example uses Azure Blob storage,
 but you can download .zip files from any arbitrary location.
@@ -282,7 +282,7 @@ and then run the appropriate PowerShell function:
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }

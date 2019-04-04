@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Validation Best Practices. | Microsoft Docs
-description: This article has best practices for Validation as a Service.
+description: This article discusses best practices for Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -46,7 +46,7 @@ Use the same VaaS solution when running workflows against the same hardware SKU.
 
 ### Naming convention for VaaS workflows
 
-Use a consistent naming convention for all VaaS workflow runs. For example, the construct a workflow name from the build properties below as follows:
+Use a consistent naming convention for all VaaS workflow runs. For example, construct a workflow name from the build properties below as follows:
 
 |Build Number (Major) | Date | Solution Size | Workflow Name
 |---|---|---| ---|

@@ -4,7 +4,7 @@ description: Prerequisites for Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
 ---
 
@@ -52,7 +52,7 @@ You must have sufficient quota for the following Azure components. If needed, [r
 
 |Azure component|Quota|
 |----------|-----------|
-|Virtual machines|3 or more D16s_v3 or E32s_v3|
+|Virtual machines|3 or more E32s_v3|
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |
 |Storage account (optional) |v2|
 |Data backend storage (optional) |One new LRS Blob container |
@@ -120,6 +120,7 @@ You must create the cluster node role before you can create the Avere vFXT for A
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.Network/networkInterfaces/read",
           "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/read",
           "Microsoft.Network/virtualNetworks/subnets/read",
           "Microsoft.Network/virtualNetworks/subnets/join/action",
           "Microsoft.Network/networkSecurityGroups/join/action",
@@ -146,6 +147,30 @@ You must create the cluster node role before you can create the Avere vFXT for A
    ```
 
 The role name is used when creating the cluster. In this example, the name is ``avere-operator``.
+
+## Create a storage service endpoint in your virtual network (if needed)
+
+A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network. It is recommended for any Avere vFXT for Azure cluster that uses Azure Blob for back-end data storage. 
+
+If you are providing an existing vnet and creating a new Azure Blob container for your back-end storage as part of the cluster creation, you must have a service endpoint in the vnet for Microsoft storage. This endpoint must exist before creating the cluster, or the creation will fail. 
+
+A storage service endpoint is recommended for any Avere vFXT for Azure cluster that uses Azure Blob storage, even if you add the storage later. 
+
+> [!TIP] 
+> * Skip this step if you are creating a new virtual network as part of cluster creation. 
+> * This step is optional if you are not creating Blob storage during cluster creation. In that case, you can create the service endpoint later if you decide to use Azure Blob.
+
+Create the storage service endpoint from the Azure portal. 
+
+1. From the portal, click **Virtual networks** on the left.
+1. Select the vnet for your cluster. 
+1. Click **Service endpoints** on the left.
+1. Click **Add** at the top.
+1. Leave the service as ``Microsoft.Storage`` and choose the cluster's subnet.
+1. At the bottom, click **Add**.
+
+   ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
+
 
 ## Next step: Create the vFXT cluster
 

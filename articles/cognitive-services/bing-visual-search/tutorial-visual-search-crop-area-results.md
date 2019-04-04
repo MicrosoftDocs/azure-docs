@@ -23,13 +23,13 @@ This tutorial illustrates how to:
 > * Send a request using the Bing Visual Search SDK
 > * Crop an area of image to search with Bing Visual Search
 > * Receive and handle the response
-> * Find the URLs of action items in the resposne
+> * Find the URLs of action items in the response
 
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
-- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
     - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

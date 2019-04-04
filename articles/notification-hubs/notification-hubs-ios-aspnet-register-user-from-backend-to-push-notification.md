@@ -38,9 +38,9 @@ This topic shows you how to request push notification registration with Azure No
    * **Text Field**: "Password"
    * **Button**: "Login"
 
-    At this point, your storyboard looks like the following:
+     At this point, your storyboard looks like the following:
 
-    ![][0]
+     ![][0]
 
 2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 

@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Resource Graph
-description: Azure Resource Graph is a service in Azure that enables complex querying of resources at scale.
+description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ---
-# What is Azure Resource Graph
+# Overview of the Azure Resource Graph service
 
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across
@@ -64,8 +64,8 @@ the team to contact you.
 
 ## Running your first query
 
-Resource Graph supports both Azure CLI and Azure PowerShell. The query is structured the same for
-both languages. Learn how to enable Resource Graph in [Azure
+Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is
+structured the same for each language. Learn how to enable Resource Graph in [Azure
 CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
 PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 

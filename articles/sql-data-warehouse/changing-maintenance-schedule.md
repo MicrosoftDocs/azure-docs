@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 10/15018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---

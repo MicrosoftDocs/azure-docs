@@ -73,16 +73,16 @@ If you chose to install RStudio Server Community Edition as part of your HDInsig
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Option 2** - Use the Azure portal.
-From the portal:
+  From the portal:
   1. Select **All services** from the left menu.
   2. Under **ANALYTICS**, select **HDInsight clusters**.
   3. Select your cluster name from the **HDInsight clusters** page.
   4. From **ML Services dashboards**, select **R Studio server**. 
 
-    ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log ins only require the SSH credentials.
+     > [!IMPORTANT]  
+     > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log-ins only require the SSH credentials.
 
 Once you are connected, your screen should resemble the following screenshot:
 

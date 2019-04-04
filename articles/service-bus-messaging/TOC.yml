@@ -105,6 +105,8 @@
         href: service-bus-sas.md
     - name: Topic filters and actions
       href: topic-filters.md
+    - name: Migrate from Standard to Premium namespaces
+      href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
       href: service-bus-partitioning.md
     - name: Message sessions
@@ -121,6 +123,8 @@
         href: service-bus-amqp-protocol-guide.md
       - name: AMQP request-response-based operations
         href: service-bus-amqp-request-response.md
+      - name: AMQP errors
+        href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
       - name: Use firewalls
@@ -186,10 +190,18 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Python
+    href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
+  - name: PHP
+    href: https://github.com/Azure/azure-sdk-for-php
+  - name: Ruby
+    href: https://github.com/Azure/azure-sdk-for-ruby
+  - name: Go
+    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.servicebus
+    href: /powershell/module/az.servicebus
   - name: REST
     href: /rest/api/servicebus
   - name: Resource Manager template
@@ -216,8 +228,6 @@
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Pricing details
-    href: service-bus-pricing-billing.md
   - name: Serverless360
     href: https://www.serverless360.com/
   - name: Service Bus Explorer
@@ -225,6 +235,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=service-bus
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azureservicebus
+    href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus

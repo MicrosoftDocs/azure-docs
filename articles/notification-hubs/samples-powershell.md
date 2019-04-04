@@ -11,9 +11,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/20189
+ms.date: 01/04/2019
 ms.author: jowargo
-
 ---
 
 # Azure PowerShell samples for Azure Notification Hubs
