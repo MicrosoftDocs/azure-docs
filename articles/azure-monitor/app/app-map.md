@@ -161,6 +161,27 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
+### Java
+
+If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
+
+`spring.application.name=<name-of-app>`
+
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
+
+For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
+
+### Client/browser-side JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
 ### Understanding Cloud.RoleName within the context of the Application Map
 
 As far as how to think about Cloud.RoleName it can be helpful to look at an Application Map that has multiple Cloud.RoleNames present:
@@ -186,27 +207,6 @@ For the [official definitions](https://github.com/Microsoft/ApplicationInsights-
 Alternatively, Cloud.RoleInstance can be helpful for scenarios where Cloud.RoleName tells you the problem is somewhere in your web front end, but you might be running your web front end across multiple load-balanced servers so being able to drill in a layer deeper via Kusto queries and knowing if the issue is impacting all web front-end servers/instances or just one can be extremely important.
 
 A scenario where you might want to override the value for Cloud.RoleInstance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
-
-### Java
-
-If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
-
-`spring.application.name=<name-of-app>`
-
-The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
-
-For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
-
-### Client/browser-side JavaScript
-
-```javascript
-appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
-  envelope.tags["ai.cloud.role"] = "your role name";
-  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
-});
-});
-```
 
 For more information about how to override the cloud_RoleName property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
