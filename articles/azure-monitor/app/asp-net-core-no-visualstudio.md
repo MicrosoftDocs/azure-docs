@@ -16,7 +16,7 @@ ms.author: cithomas
 
 # Application Insights for ASP.NET Core Application
 
-This article walks you through the steps of enabling Application Insights monitoring for a [ASP.NET Core] (https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2) application without using Visual Studio IDE. If you have Visual Studio IDE installed, then [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) document can used for instructions. Once completed, Application Insights starts collecting requests, dependencies, exceptions, performance counters, heartbeats and logs. The example application used is a [MVC Application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2) targeting `netcoreapp2.2`, but instructions here is applicable to all Asp.Net Core Applications. These instructions are applicable on all platforms (Windows/Linux/Mac) and with or without any IDEs. Any exceptions to this are called out when applicable.
+This article walks you through the steps of enabling Application Insights monitoring for a [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2) application without using Visual Studio IDE. If you have Visual Studio IDE installed, then [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) document contains Visual Studio specific instructions. Once completed, Application Insights starts collecting requests, dependencies, exceptions, performance counters, heartbeats and logs. The example application used is a [MVC Application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2) targeting `netcoreapp2.2`, but instructions here is applicable to all Asp.Net Core Applications. These instructions are applicable on all platforms (Windows/Linux/Mac) and with or without any IDEs. Any exceptions to this are called out when applicable.
 
 ## Prerequisites
 
@@ -80,13 +80,13 @@ This article walks you through the steps of enabling Application Insights monito
 
             This document will be updated when perf counter support in Linux is added.
     1. [Live Metrics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)
-    1. ILogger logs are automatically captured as well, from SDK version 2.7.0-beta3 or higher. Read more [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
+    1. ILogger logs of severity `Warning` or  above are automatically captured from SDK version 2.7.0-beta3 or higher. Read more [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## Send ILogger logs to Application Insights
 
 Application Insights supports capturing logs sent via ILogger. Read the full documentation [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
-## Enable Client side Telemetry for Web Application
+## Enable Client side Telemetry for Web Applications
 
 The steps above are sufficient to start collecting server side telemetry. If your application has client side components, then follow steps below to start collecting [usage telemetry](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-overview) from there.
 
@@ -98,10 +98,10 @@ The steps above are sufficient to start collecting server side telemetry. If you
 
 2. In _Layout.cshtml, insert HtmlHelper to the end of `<head>` section but before any other script. Any custom JavaScript telemetry you want to report from the page should be injected after this snippet:
 
-   ```cshtml
+```cshtml
     @Html.Raw(JavaScriptSnippet.FullScript)
     </head>
-   ```
+```
 
 Modify the files names as per your actual application. Above names are from a default MVC Application template.
 
@@ -165,7 +165,7 @@ The exact list of configurable settings in `ApplicationInsightsServiceOptions` c
 
 ### Sampling
 
-Application Insights SDK for Asp.Net Core supports both FixedRate and Adaptive sampling. Follow [this](../../azure-monitor/app/sampling.md#adaptive-sampling-in-your-aspnet-core-web-applications) document to learn how to configure sampling for Asp.Net Core applications.
+Application Insights SDK for Asp.Net Core supports both FixedRate and Adaptive sampling. Follow [this](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) document to learn how to configure sampling for Asp.Net Core applications.
 
 ### Adding TelemetryInitializers
 
@@ -286,13 +286,3 @@ public class HomeController : Controller
 ```
 
  Please refer to [Application Insights custom metrics API reference](http://azure.microsoft.com/en-us/documentation/articles/app-insights-custom-events-metrics-api/) for description of custom data reporting in Application Insights.
-
-* The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), containing an improved ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider), and extensions methods on ILoggerBuilder for enabling it.
-
-* [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 onwards will take a dependency on the above package, and enables `ILogger` capture automatically.
-
-## Next steps
-* [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
-* [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) to see the state of source code and variables at the moment an exception is thrown.
-* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
-* Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.
