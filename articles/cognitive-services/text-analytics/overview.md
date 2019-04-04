@@ -57,7 +57,7 @@ Data is not stored in your account. Operations performed by the Text Analytics A
 
 ## Text Analytics for multiple programming experience levels
 
-You can start using the Text Analytics API in your processes, even if you don't have much experience in programming. Use these tutorials to learn how the API can fit your experience level. 
+You can start using the Text Analytics API in your processes, even if you don't have much experience in programming. Use these tutorials to learn how you can use the API to analyze text in different ways to fit your experience level. 
 
 * Minimal programming required:
     * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
