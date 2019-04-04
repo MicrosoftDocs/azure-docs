@@ -17,14 +17,14 @@ ms.author: fmegen
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Speech SDK for JavaScript ([Download version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Speech SDK for JavaScript ([Download version 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
-* A current version of Chrome, Microsoft Edge or Safari.
+* A current version of Chrome, Microsoft Edge, or Safari.
 * Optionally, a web server that supports hosting PHP scripts.
 
 ## Create a new Website folder

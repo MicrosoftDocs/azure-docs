@@ -28,7 +28,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 The current version of the Cognitive Services Speech SDK is `1.4.0`.
 
-The Speech SDK for macOS can downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
+The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
 
 Download and install the SDK as follows:
 

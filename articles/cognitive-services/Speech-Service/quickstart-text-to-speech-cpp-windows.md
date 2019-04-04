@@ -50,7 +50,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
    ![Screenshot of console output after successful synthesis](media/sdk/qs-tts-cpp-windows-console-output.png)
 

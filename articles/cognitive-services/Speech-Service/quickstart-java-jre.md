@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn create a simple Java application that captures and transcribes user speech from your computer's microphone.
+description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -37,7 +37,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+If you're running Windows (64-bit) ensure you have installed Microsoft Visual C++ Redistributable for your platform.
 * [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 

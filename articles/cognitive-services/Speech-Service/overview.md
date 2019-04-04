@@ -35,7 +35,7 @@ These features make up the Azure Speech Services. Use the links in this table to
 Learn what's new with the Azure Speech Services.
 
 * April 2019 - Released Speech SDK 1.4.0 with support for text-to-speech (Beta) for C++, C#, and Java on Windows and Linux. Additionally, the SDK now supports MP3 and Opus/Ogg audio formats for C++ and C# on Linux. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md). 
-* March 2019 - A new endpoint for text-to-speech (TTS) that returns a full list of voices available in a specific regions is now available. Additionally, new regions are now supported for TTS. For more information, see [Text-to-speech API reference (REST)](rest-text-to-speech.md).
+* March 2019 - A new endpoint for text-to-speech (TTS) that returns a full list of voices available in a specific region is now available. Additionally, new regions are now supported for TTS. For more information, see [Text-to-speech API reference (REST)](rest-text-to-speech.md).
 * February 2019 - Released Speech SDK 1.3.0 with support for [Unity (beta)](quickstart-csharp-unity.md). Added support for the `AudioInput` class, which enables you to choose the streaming source for audio. For a complete list of enhancements and known issues, see [Release notes](releasenotes.md).
 * December 2018 - Released Speech SDK 1.2.0 with support for [Python](quickstart-python.md) and [Node.js](quickstart-js-node.md), as well as Ubuntu 18.04 LTS. For more information, see [Release notes](releasenotes.md).
 
@@ -58,7 +58,7 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 Sample code is available on GitHub for each of the Azure Speech Services. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-* [Speech-to-text, text-to-speech and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 

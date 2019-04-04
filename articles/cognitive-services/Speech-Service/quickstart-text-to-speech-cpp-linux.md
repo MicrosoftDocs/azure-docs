@@ -115,7 +115,7 @@ Download and install the SDK as follows:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, prompting you to type some text. Type a few words or a sentence. The text you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+1. In the console window, a prompt appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
    ```text
    Type some text that you want to speak...

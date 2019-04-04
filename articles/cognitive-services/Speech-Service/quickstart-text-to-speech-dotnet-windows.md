@@ -54,7 +54,7 @@ To complete this project, you'll need:
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
 
-1. A console window will appear, prompting you to type some text. Type a few words or a sentence. The text you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+1. A console window will appear, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
     ![Screenshot of console output after successful recognition](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console output after successful recognition")
 
