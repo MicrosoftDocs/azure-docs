@@ -75,8 +75,8 @@ You can activate a recommendation that has been postponed or dismissed. This can
     ![Advisor filtering menu](./media/view-recommendations/activate-postponed.png)
 
 1. Select a category to see **Postponed** and **Dismissed** recommendations.
-1. Select a recommendation from the list of recommendations. This will open that recommendation with the **Postponed & Dismissed** tab already selected to show the resources for which this recommendation has been postponed or dismissed.
-1. Click on **Activate** at the end of the row. Once clicked, the recommendation will be active for that resource, so it will be removed from this table. It will now be visible in the Active tab.
+1. Select a recommendation from the list of recommendations. This opens recommendations with the **Postponed & Dismissed** tab already selected to show the resources for which this recommendation has been postponed or dismissed.
+1. Click on **Activate** at the end of the row. Once clicked, the recommendation is active for that resource, so it is removed from this table. It now is visible in the **Active** tab.
  
      ![Advisor filtering menu](./media/view-recommendations/activate-postponed-2.png)
 
