@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/24/2019
+ms.date: 04/03/2019
 ms.author: rolyon
 
 ms.collection: M365-identity-device-management
@@ -268,6 +268,7 @@ Per-device Terms of use has the following constraints:
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
 - The Intune Enrollment app is not supported.
+- Azure AD B2B users are not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
