@@ -241,6 +241,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.16|Microsoft Teams apps must focus on the Microsoft Teams experience and should not include names, icons, or imagery of other similar chat-based collaboration platforms or services unless the apps provide specific interoperability.|
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign-in/sign-out and sign-up experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented, and the documentation should be accessible from within the app.|
 |14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
+|14.19| The policies outlined in [Section 2](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#2-apps-or-add-ins-can-display-certain-ads) do not apply to Microsoft Teams apps. Microsoft Teams apps may not display ads.
 
 ## Conclusion
 <a name="bk_conclusion"> </a>
@@ -254,6 +255,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|April 04,2019|Added policy 14.19.|
 |2.2|December 03,2018|Updated policy 13.1.|
 |2.2|November 19,2018|Updated policy 7.4.5.|
 |2.2|September 11, 2018|Updated policy 4.12.3.|
