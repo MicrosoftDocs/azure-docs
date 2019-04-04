@@ -13,7 +13,7 @@ ms.date: 04/03/2019
 
 # Tutorial: Work with Azure storage queues
 
-Queues let your application scale automatically and immediately when demand changes. This makes them useful for critical business data that would be damaging to lose. A queue increases resiliency by temporarily storing waiting messages. At times of low or normal demand, the size of the queue remains small because the destination component removes messages from the queue faster than they are added. At times of high demand, the queue may increase in size, but messages are not lost. The destination component can catch up and empty the queue as demand returns to normal. The article demonstrates the basic steps for creating an Azure storage queue.
+Queues let your application scale automatically and immediately when demand changes. This makes them useful for critical business data that would be damaging to lose. A queue increases app's resilience by temporarily storing waiting messages. At times of low or normal demand, the size of the queue remains small because the destination component removes messages from the queue faster than they are added. At times of high demand, the queue may increase in size, but messages are not lost. The destination component can catch up and empty the queue as demand returns to normal. This article demonstrates the basic steps for working with an Azure storage queue.
 
 In this tutorial, you learn how to:
 
@@ -21,11 +21,10 @@ In this tutorial, you learn how to:
 >
 > - Create an Azure storage account
 > - Create the app
-> - Get your connection string
 > - Programmatically access a queue
 > - Insert messages into the queue
-> - Get messages from the queue
-> - Delete messages from the queue
+> - Dequeue messages
+> - Add support for asynchronous code
 
 ## Prerequisites
 
@@ -61,7 +60,7 @@ cd QueueApp
 dotnet build
 ```
 
-## Get your connection string
+### Get your connection string
 
 The client library uses a connection string to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal.
 
@@ -75,7 +74,7 @@ The client library uses a connection string to establish your connection. Your c
 
 ![Storage account](media/storage-tutorial-queues/storage-account.png)
 
-4. Select **access keys**
+4. Select **Access keys**
 
 ![Access keys menu item](media/storage-tutorial-queues/select-access-keys.png)
 
@@ -97,9 +96,11 @@ Add the connection string into the app so it can access the storage account.
 
 2. Open the **Program.cs** source file in the project.
 
-3. In the **Program** class, add a `const string` value to hold the connection string. You only need the value (it starts with the text "DefaultEndpointsProtocol").
+3. In the **Program** class, add a `private const string connectionString = ` member to hold the connection string.
 
-Your code should look something like this. The string value will be unique to your account.
+4. After the equal sign, paste the string value that you copied earlier in your Azure portal in order to initialize **connectionString**.
+
+Your code should look similar to this. The **connectionString** value will be unique to your account.
 
 ```csharp
 using System;
@@ -118,17 +119,17 @@ namespace QueueApp
 }
 ```
 
-4. Save the file.
+5. Save the file.
 
 ## Programmatically access a queue
 
-1. Install the **WindowsAzure.Storage** package to the project with the `dotnet add package` command. Do this from the command line in the same folder as the project.
+1. Install the **WindowsAzure.Storage** package to the project with the `dotnet add package` command. Do this from a command line in the same folder as the project.
 
 ```console
 dotnet add package WindowsAzure.Storage
 ```
 
-2. At the top of the **Program.cs** file, add the following namespaces. We'll be using types from both of these to connect to Azure Storage and then to work with queues.
+2. At the top of the **Program.cs** file, add the following namespaces. We'll be using types from these namespaces to connect to Azure Storage and work with queues.
 
 ```csharp
 using System.Threading.Tasks;
@@ -136,56 +137,56 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 ```
 
-3. Add the following method to your **Program** class to get a reference to the **CloudQueue**, which we're calling **newsqueue**. This method will be called for both Send and Receive operations.
+3. Add the following method to your **Program** class to get a reference to a **CloudQueue**, which we're calling **mystoragequeue**. Getting a queue reference is a common task. This method will be called for both Send and Receive operations.
 
 ```csharp
 static CloudQueue GetQueue()
 {
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-    return queueClient.GetQueueReference("newsqueue");
+    return queueClient.GetQueueReference("mystoragequeue");
 }
 ```
 
 ## Insert messages into the queue
 
-Create a new method to asynchronously send a news story into a queue. Add the following method to your **Program** class.
+Create a new method to asynchronously send a message into a queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it does not already exist.
 
 ```csharp
-static async Task SendArticleAsync(string newsMessage)
+static async Task SendMessageAsync(string newMessage)
 {
     CloudQueue queue = GetQueue();
     bool createdQueue = await queue.CreateIfNotExistsAsync();
 
     if (createdQueue)
     {
-        Console.WriteLine("The queue of news articles was created.");
+        Console.WriteLine("The queue was created.");
     }
 
-    CloudQueueMessage articleMessage = new CloudQueueMessage(newsMessage);
-    await queue.AddMessageAsync(articleMessage);
+    CloudQueueMessage message = new CloudQueueMessage(newMessage);
+    await queue.AddMessageAsync(message);
 }
 ```
 
 ## Dequeue messages
 
-Once we've successfully received the message from the queue, it is safe to delete it so we don't process it more than once. Create a new method to asynchronously receive a news story from a queue. After the message is received, delete it from the queue.
+Create a new method to asynchronously receive a messages from the queue. Once we've successfully received the message, it is safe to delete it so we don't process it more than once. After the message is received, delete it from the queue.
 
 Add the following method to your **Program** class.
 
 ```csharp
-static async Task<string> ReceiveArticleAsync()
+static async Task<string> ReceiveMessageAsync()
 {
     CloudQueue queue = GetQueue();
     bool exists = await queue.ExistsAsync();
     if (exists)
     {
-        CloudQueueMessage retrievedArticle = await queue.GetMessageAsync();
-        if (retrievedArticle != null)
+        CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+        if (retrievedMessage != null)
         {
-            string newsMessage = retrievedArticle.AsString;
-            await queue.DeleteMessageAsync(retrievedArticle);
-            return newsMessage;
+            string theMessage = retrievedMessage.AsString;
+            await queue.DeleteMessageAsync(retrievedMessage);
+            return theMessage;
         }
     }
 
@@ -195,7 +196,7 @@ static async Task<string> ReceiveArticleAsync()
 
 ## Update Main
 
-Now we'll update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string, which we then add to our message queue by calling the **SendArticleAsync** method we added earlier.
+Now we'll update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string. We then add  this string to our message queue by calling the **SendArticleAsync** method we added earlier.
 
 If there are no command line arguments, the app will instead retrieve the last message from the queue and delete it by calling the **ReceiveActicleAsync** method.
 
@@ -207,12 +208,12 @@ static async Task Main(string[] args)
     if (args.Length > 0)
     {
         string value = String.Join(" ", args);
-        await SendArticleAsync(value);
+        await SendMessageAsync(value);
         Console.WriteLine($"Sent: {value}");
     }
     else
     {
-        string value = await ReceiveArticleAsync();
+        string value = await ReceiveMessageAsync();
         Console.WriteLine($"Received {value}");
     }
 }
@@ -239,57 +240,56 @@ namespace QueueApp
             if (args.Length > 0)
             {
                 string value = String.Join(" ", args);
-                await SendArticleAsync(value);
+                await SendMessageAsync(value);
                 Console.WriteLine($"Sent: {value}");
             }
             else
             {
-                string value = await ReceiveArticleAsync();
+                string value = await ReceiveMessageAsync();
                 Console.WriteLine($"Received {value}");
             }
-        }
-
-        static async Task SendArticleAsync(string newsMessage)
-        {
-            CloudQueue queue = GetQueue();
-            bool createdQueue = await queue.CreateIfNotExistsAsync();
-
-            if (createdQueue)
-            {
-                Console.WriteLine("The queue of news articles was created.");
-            }
-
-            CloudQueueMessage articleMessage = new CloudQueueMessage(newsMessage);
-            await queue.AddMessageAsync(articleMessage);
-        }
-
-        static async Task<string> ReceiveArticleAsync()
-        {
-            CloudQueue queue = GetQueue();
-            bool exists = await queue.ExistsAsync();
-            if (exists)
-            {
-                CloudQueueMessage retrievedArticle = await queue.GetMessageAsync();
-                if (retrievedArticle != null)
-                {
-                    string newsMessage = retrievedArticle.AsString;
-                    await queue.DeleteMessageAsync(retrievedArticle);
-                    return newsMessage;
-                }
-            }
-
-            return "<queue empty or not created>";
         }
 
         static CloudQueue GetQueue()
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
             CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-            return queueClient.GetQueueReference("newsqueue");
+            return queueClient.GetQueueReference("mystoragequeue");
+        }
+
+        static async Task SendMessageAsync(string newMessage)
+        {
+            CloudQueue queue = GetQueue();
+            bool createdQueue = await queue.CreateIfNotExistsAsync();
+
+            if (createdQueue)
+            {
+                Console.WriteLine("The queue was created.");
+            }
+
+            CloudQueueMessage message = new CloudQueueMessage(newMessage);
+            await queue.AddMessageAsync(message);
+        }
+
+        static async Task<string> ReceiveMessageAsync()
+        {
+            CloudQueue queue = GetQueue();
+            bool exists = await queue.ExistsAsync();
+            if (exists)
+            {
+                CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+                if (retrievedMessage != null)
+                {
+                    string theMessage = retrievedMessage.AsString;
+                    await queue.DeleteMessageAsync(retrievedMessage);
+                    return theMessage;
+                }
+            }
+
+            return "<queue empty or not created>";
         }
     }
 }
-
 ```
 
 ## Add support for asynchronous code
@@ -326,7 +326,7 @@ C#'s **async** and **await** keywords were not valid keywords in **Main** method
 dotnet build
 ```
 
-2. After the project builds successfully, run the following command to add a message to the news queue.
+2. After the project builds successfully, run the following command to add our first message to the queue.
 
 ```console
 dotnet run First queue message
@@ -334,10 +334,7 @@ dotnet run First queue message
 
 You should see output similar to this:
 
-```console
-C:\Tutorials\QueueApp>dotnet run First queue message
-Sent: First queue message
-```
+![First app run](media/storage-tutorial-queues/first-app-run.png)
 
 ### Verify that the message was added to the queue
 
@@ -353,7 +350,7 @@ Now that our app has run and told us that it sent a message to the queue, we can
 
 If you don't yet have Storage Explorer installed, you can follow the link to download your free copy of the utility.
 
-3. In **Storage Explorer**, navigate to our **newsqueue** and see the message we added.
+3. In **Storage Explorer**, navigate to our **mystoragequeue** and see the message we added.
 
 ![Queue message](media/storage-tutorial-queues/queue-message.png)
 
@@ -375,30 +372,7 @@ dotnet run
 
 8. If you continue to run the app until all the messages are removed, then run it one more time, you will get a message that the queue is empty.
 
-```console
-C:\Tutorials\QueueApp>dotnet run First queue message
-Sent: First queue message
-
-C:\Tutorials\QueueApp>dotnet run Second queue message
-Sent: Second queue message
-
-C:\Tutorials\QueueApp>dotnet run Third queue message
-Sent: Third queue message
-
-C:\Tutorials\QueueApp>dotnet run
-Received First queue message
-
-C:\Tutorials\QueueApp>dotnet run
-Received Second queue message
-
-C:\Tutorials\QueueApp>dotnet run
-Received Third queue message
-
-C:\Tutorials\QueueApp>dotnet run
-Received <queue empty or not created>
-
-C:\Tutorials\QueueApp>_
-```
+![App run](media/storage-tutorial-queues/run-app.png)
 
 ## Clean up resources
 
