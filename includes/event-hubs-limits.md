@@ -15,7 +15,7 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 
 | Limit | Scope | Notes | Value |
 | --- | --- | --- | --- |
-| Number of Event Hubs namespaces per subscription |Subscription |- |1,000 |
+| Number of Event Hubs namespaces per subscription |Subscription |- |100 |
 | Number of event hubs per namespace |Namespace |Subsequent requests for creation of a new event hub are rejected. |10 |
 | Number of partitions per event hub |Entity |- |32 |
 | Number of consumer groups per event hub |Entity |- |20 |

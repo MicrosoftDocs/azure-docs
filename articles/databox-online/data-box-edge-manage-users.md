@@ -14,9 +14,6 @@ ms.author: alkohli
 
 This article describes how to manage users on your Azure Data Box Edge. You can manage the Azure Data Box Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]

@@ -33,14 +33,12 @@ After you connect your data sources, choose from a gallery of expertly created d
 
 ## Global prerequisites
 
-- If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Contributor permissions to your tenant to enable Azure Sentinel
-
-- Tenant global or security admin permissions
- 
+    - Contributor permissions to the resource group tied to Azure Sentinel
+    - Contributor permissions to your resource group to enable Azure Sentinel 
 
 ## Enable Azure Sentinel <a name="enable"></a>
 
@@ -72,7 +70,6 @@ For example, click **Azure Active Directory**. If you connect this data source, 
 At the bottom, Azure Sentinel provides recommendations for which dashboards you should install for each connector so you can immediately get interesting insights across your data. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-data-sources.md) for more information. For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
 
 After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in dashboards](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
-
 
 
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -27,6 +27,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
 - You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have the following Python packages installed. You can use [pip](https://packaging.python.org/tutorials/installing-packages/) to install Python packages.
+    - [requests](http://docs.python-requests.org/en/master/)
+    - [matplotlib](https://matplotlib.org/)
+    - [pillow](https://python-pillow.org/)
 
 ## Create and run the sample
 
