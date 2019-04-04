@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: jowargo
 ---
 
@@ -136,7 +136,21 @@ If you use Visual Studio for development, you can connect to Azure through Serve
 
 You can view and manage all the registrations in your hub, categorized by platform, native or template registration, any tags, push notification service identifier, registration ID, and expiration date. You can also edit a registration on this page. This is especially useful for editing tags.
 
-![Visual Studio Device Registrations][8]
+Right-click on your **notification hub** in the **Server Explorer**, and select **Diagnose**. 
+
+![Visual Studio - Server Explorer - Diagnose menu](./media/notification-hubs-diagnosing/diagnose-menu.png)
+
+You see the following page: 
+
+![Visual Studio - Diagnose page](./media/notification-hubs-diagnosing/diagnose-page.png)
+
+Switch to the **Device Registrations** page: 
+
+![Visual Studio Device Registrations](./media/notification-hubs-diagnosing/VSRegistrations.png)
+
+You can use **Test Send** page to send a test notification message:
+
+![Visual Studio - Test Send](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
 > Use Visual Studio to edit registrations only during dev/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [Export and modify registrations in bulk](https://msdn.microsoft.com/library/dn790624.aspx).
