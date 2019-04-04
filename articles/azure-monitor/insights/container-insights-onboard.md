@@ -17,8 +17,6 @@ ms.author: magoedte
 
 # How to onboard Azure Monitor for containers  
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 This article describes how to set up Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of AKS using the following supported methods:
@@ -26,6 +24,7 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 * From the Azure portal, Azure PowerShell, or with Azure CLI
 * Using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites 
 Before you start, make sure that you have the following:

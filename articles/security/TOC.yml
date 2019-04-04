@@ -303,6 +303,8 @@
   href: security-best-practices-and-patterns.md
 - name: Resources
   items:
+  - name: Common security attributes
+    href: common-security-attributes.md
   - name: Azure security MVP program
     href: azure-security-mvp.md
   - name: Cybersecurity consulting
