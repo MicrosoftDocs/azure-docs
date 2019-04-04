@@ -91,7 +91,7 @@
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
       href: vmware-azure-common-questions.md
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Support requirements for configuration server deployment
       href: vmware-azure-configuration-server-requirements.md
@@ -111,7 +111,7 @@
       href: hyper-v-azure-architecture.md
   - name: About physical server disaster recovery to Azure
     items:
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
