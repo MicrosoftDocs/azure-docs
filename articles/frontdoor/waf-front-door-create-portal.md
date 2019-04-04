@@ -29,30 +29,26 @@ Create a Front Door profile by following the instructions described in [Quicksta
 
 First, create a basic WAF policy with managed Default Rule Set (DRS) by using the portal. 
 
-1. On the top left-hand side of the screen, click **Create a resource** >
-**search for "WAF"**> **select: Web application firewall policies (Preview)** > .
+1. On the top left-hand side of the screen, select **Create a resource** >
+**search for "WAF"**> **select: WAF policy** > select **Create**.
 2. In the **Basics** tab of the **Create a WAF policy** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your front door subscription name|
-    | Resource group         | Select your front door resource group or create new in the text box.|
+    | Resource group         | Select your front door resource group *myResourceGroupFD1*.|
     | Resource location                | auto populated for your Resource Group  |
-    | Policy Name                               |Enter *yourpolicyname*|
+    | Policy Name                               |Enter *yourpolicyname*. The policy name needs to be unique.|
     | Policy for                              |Front Door is auto-populated |
     | Policy state                              |Enabled|
 
-3. In the **Review + create** tab, click **Create**
    ![Create a WAF policy](.\media\waf-front-door-create-portal\basic.png)
 
-## Association
-
-Next, associate created WAF policy to your front-end host.
-In the **Association** tab of the **Create a WAF policy** page, select **Add frontend host**:
+3. In the **Association** tab of the **Create a WAF policy** page, select **Add frontend host**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Front door                | Select your front door subscription name|
+    | Front door                | Select your front door profile name.|
     | Frontend host       | Select *MyResourceGroupFD1* in the text box.|
 
 ## Rules (optional)
