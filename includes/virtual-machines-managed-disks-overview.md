@@ -36,11 +36,13 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 ## Disk roles
 
-### Data disks
+![Disk roles in action](media/virtual-machines-managed-disks-overview/diskTypes.png)
+
+### Data disk
 
 A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 32,767 gibibytes (GiB). The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
-### OS disks
+### OS disk
 
 Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created.
 
