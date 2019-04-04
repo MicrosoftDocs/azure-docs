@@ -104,7 +104,7 @@ Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor
     1. [Live Metrics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)
     1. `ILogger` logs of severity `Warning` or  above are automatically captured from SDK version 2.7.0-beta3 or higher. Read more [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
-Note that it may take few minutes for telemetry to start appearing in portal. To quickly check if everything is working, it is best to use [Live Metrics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream), while making requests to the running application.
+It may take few minutes for telemetry to start appearing in portal. To quickly check if everything is working, it is best to use [Live Metrics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream), while making requests to the running application.
 
 ## Send ILogger logs to Application Insights
 
@@ -281,7 +281,7 @@ public class HomeController : Controller
 
  Refer to [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/) for description of custom data reporting in Application Insights.
 
-*2. I have seen from Visual Studio templates that UseApplicationInsights() extension method on IWebHostBuilder is used to enable Application Insights. Is this still valid?*
+*2. I have seen from Visual Studio templates that UseApplicationInsights() extension method on IWebHostBuilder is used to enable Application Insights. Is this usage still valid?*
 
 * Enabling Application Insights with this method is valid, and is used in Visual Studio on-boarding, Azure Web App extensions as well. However, it is recommended to use `services.AddApplicationInsightsTelemery()` as it provides overloads to control some configuration. Both method internally does the same thing, so if there is no custom configuration to be applied, calling either is fine.
 
@@ -309,7 +309,7 @@ public class HomeController : Controller
 
 * Feature support for SDK is same in all platforms, with the following exceptions:
     1. Performance Counter is not yet supported in Non-Windows. This document will be updated when Linux support is added.
-    1. Even though `ServerTelemetryChannel` is enabled by default, if the application is running in non-windows, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This means that telemetry is lost in the event of temporary network issues. The workaround for this issue is for user to configure a local folder to the channel, as shown below.
+    1. Even though `ServerTelemetryChannel` is enabled by default, if the application is running in non-windows, the channel does not automatically create a local storage folder to keep telemetry temporarily if there are network issues. This limitation causes telemetry is lost in the event of temporary network issues. The workaround for this issue is for user to configure a local folder to the channel, as shown below.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
