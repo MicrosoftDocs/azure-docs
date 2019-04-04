@@ -60,6 +60,8 @@
     href: ./export-delete-data.md
   - name: Move your Limited Trial project to Azure
     href: ./move-your-project-to-azure.md
+  - name: Migrate your app to the latest SDKs
+    href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
