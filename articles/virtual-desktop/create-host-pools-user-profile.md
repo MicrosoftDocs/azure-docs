@@ -35,7 +35,7 @@ After creating the virtual machine, join it to the domain by doing the following
 
 The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
-1. Add the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the Windows Virtual Desktop users to the file share virtual machine you just created.
+1. Add the Windows Virtual Desktop Active Directory users to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the Windows Virtual Desktop users to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
