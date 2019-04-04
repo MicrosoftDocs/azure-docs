@@ -185,7 +185,7 @@ Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and gro
     ![The Groups claim name settings](common/sso-groups-claims-names.png)
 
 The following example **Attribute Mapping Policy** demonstrates:
-1. Setting the Rackspace user's name to the `user.name` SAML claim.
+1. Setting the Rackspace user's name to the `user.name` SAML claim. Any claim can be used, but it is most common to set this to a field containing the user's email address.
 1. Setting the Rackspace roles `admin` and `billing:admin` on a user by matching an Azure AD Group, by either Group Name or Group UID. A *substitution* of `"{0}"` in the `roles` field is used, and will be replaced by the results of the `remote` rule expressions.
 1. Using the `"{D}"` *default substitution* to let Rackspace retrieve additional SAML fields by looking for standard and well-known SAML claims in the SAML exchange.
 
