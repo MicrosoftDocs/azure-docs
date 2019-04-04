@@ -20,11 +20,13 @@ ms.author: monhaber
 
 # Compare baselines using File Integrity Monitoring (FIM)
 
-File Integrity Monitoring informs you when changes occur to sensitive areas in your resources, so you can address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
+File Integrity Monitoring informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files. 
+
+This topic explains how to enable FIM on the files and registries.
 
 ## Why use FIM?
 
-Operating system, applications, and associated configurations control the behavior and security state of your resources. Therefore,attackers target the files that control your resources, in order to overtake a resource's operating system and/or execute activities without being detected.
+Operating system, applications, and associated configurations control the behavior and security state of your resources. Therefore, attackers target the files that control your resources, in order to overtake a resource's operating system and/or execute activities without being detected.
 
 In fact, many regulatory compliance standards such as PCI-DSS & ISO 17799 require implementing FIM controls.  
 
@@ -32,9 +34,16 @@ In fact, many regulatory compliance standards such as PCI-DSS & ISO 17799 requir
 
 The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary may configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
 
+![Registry](./media/security-center-fim/fim-registry.png)
+
+
+![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
+
+
 >[!NOTE]
 > Recursive checks apply only recommended security hives and not to custom registry paths.  
-|Policy Name| Registry Setting|
+
+|Policy Name                 | Registry Setting|
 |---------------------------------------|-------------|
 |Domain controller: Refuse machine account password changes| MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RefusePasswordChange|
 |Domain member: Digitally encrypt or sign secure channel data (always)|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireSignOrSeal|
@@ -57,11 +66,15 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 ## Tracking changes to Windows files
 
-Changes to files often indicates malicious activity.  In this example, Contoso Web App resides in the D:\ drive within the ‘ContosWebApp’ folder structure.  Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.  
+In this example, Contoso Web App resides in the D:\ drive within the ‘ContosWebApp’ folder structure.  Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.  
+
+![Enable FIM on a file](./media/security-center-fim/fim-add-file.png)
+
+
 
 ## Retrieving change data
 
-File Integrity Monitoring data resides within Azure Log Analytics / ConfigurationChange table set.  Begin monitoring changes by setting a time range and retrieving a summary of changes by resource.  In this example, we are retrieving all change in the last fourteen days in the categories of registry and files:
+File Integrity Monitoring data resides within Azure Log Analytics / ConfigurationChange table set.  Begin monitoring changes by setting a time range and retrieving a summary of changes by resource.  In this example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
 <code>
 > ConfigurationChange
@@ -88,7 +101,7 @@ To view details of registry changes, remove ‘Files’ from the where clause, a
 </code>
 
 These reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
- 
 
+![FIM data](./media/security-center-fim/fim-data.png)
 
 Through these steps, Azure Security Center’s File Integrity Monitoring capabilities enable you to track configuration and file system drift from initial baselines and archive those changes for auditing.  To learn more about Azure Security Center’s other capabilities, refer to https://docs.microsoft.com/en-us/azure/security-center/ 
