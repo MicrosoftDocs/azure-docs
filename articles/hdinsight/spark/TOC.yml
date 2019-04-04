@@ -35,6 +35,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Monitor cluster availability with Ambari and Azure Monitor logs
+      href: ../hdinsight-cluster-availability.md    
 - name: How to
   items:
     - name: Use cluster storage

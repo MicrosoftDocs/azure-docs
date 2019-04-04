@@ -3,7 +3,7 @@ title: Security concepts in Azure IoT Hub Device Provisioning Service | Microsof
 description: Describes security provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps

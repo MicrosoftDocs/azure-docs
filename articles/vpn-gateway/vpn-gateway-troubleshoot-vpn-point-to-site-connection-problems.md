@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -212,7 +212,7 @@ If the certificate is more than 50 percent through its lifetime, the certificate
 
 ### Solution
 
-To resolve this problem, redeploy the Point to Site package on all clients.
+To resolve this problem, re-download and redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 

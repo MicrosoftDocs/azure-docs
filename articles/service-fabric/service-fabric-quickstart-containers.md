@@ -21,7 +21,7 @@ ms.custom: mvc
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server 2016 Nano Server and IIS container. This quickstart describes deploying a Windows container, read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server Core 2016 Server and IIS container. This quickstart describes deploying a Windows container, read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
 
 ![IIS default web page][iis-default]
 
@@ -31,6 +31,9 @@ In this quickstart you learn how to:
 * Configure communication
 * Build and package the Service Fabric application
 * Deploy the container application to Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ Select **Service Fabric application**, name it "MyFirstContainer", and click **O
 
 Select **Container** from the **Hosted Containers and Applications** templates.
 
-In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/).
+In **Image Name**, enter "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", the [Windows Server Core Server and IIS base image](https://hub.docker.com/r/microsoft-windows-servercore-iis).
 
 Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  Set **Container Port** to "80" and set **Host Port** to "80".  
 
@@ -69,14 +72,14 @@ Microsoft publishes different images for versions of IIS built on different vers
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-	      <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+	      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`.
+The service manifest continues to specify only one image for the nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
 
 Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **false**. The account and password are blank for the public container image that is on Docker Hub, so we turn off encryption because encrypting a blank password will generate a build error.
 
@@ -90,7 +93,7 @@ The following sample script creates a five-node Service Fabric cluster secured w
 
 If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview).
 
-Before you run the following script, in PowerShell run `Connect-AzureRmAccount` to create a connection with Azure.
+Before you run the following script, in PowerShell run `Connect-AzAccount` to create a connection with Azure.
 
 Copy the following script to the clipboard and open **Windows PowerShell ISE**.  Paste the contents into the empty Untitled1.ps1 window. Then provide values for the variables in the script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, etc.  The directory you specify for `certfolder` must exist before you run the script.
 
