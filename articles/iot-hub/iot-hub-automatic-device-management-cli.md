@@ -14,17 +14,17 @@ ms.author: chrisgre
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
+Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and then let IoT Hub update the devices when they come into scope. This update is done using an _automatic device configuration_, which lets you summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatic device management works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
+Automatic device management works by updating a set of device twins with desired properties and reporting a summary that's based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* that has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
 * The **target content** defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.
 
-* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
+* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
 
 ## CLI prerequisites
 
@@ -38,7 +38,7 @@ Automatic device configurations require the use of device twins to synchronize s
 
 ## Identify devices using tags
 
-Before you can create a configuration, you must specify which devices you want to affect. Azure IoT Hub identifies devices using tags in the device twin. Each device can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, you may add the following tags to a device twin:
+Before you create a configuration, you must specify which devices you want to affect. Azure IoT Hub identifies devices using tags in the device twin. Each device can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
 ```json
 "tags": {
@@ -51,7 +51,7 @@ Before you can create a configuration, you must specify which devices you want t
 
 ## Define the target content and metrics
 
-The target content and metric queries are specified as JSON documents that describe the device twin desired properties to be set and reported properties to be measured.  To create an automatic device configuration using Azure CLI, save the target content and metrics locally as .txt files. You will use the file paths in a later next section when you run the command to apply the configuration to your device. 
+The target content and metric queries are specified as JSON documents that describe the device twin desired properties to set and reported properties to measure.  To create an automatic device configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device. 
 
 Here's a basic target content sample:
 
@@ -104,7 +104,7 @@ Use the following command to create a configuration:
 
 * --**priority** - A positive integer. In the event that two or more configurations are targeted at the same device, the configuration with the highest numerical value for Priority will apply.
 
-* --**metrics** - Filepath to the metric queries. Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. 
+* --**metrics** - Filepath to the metric queries. Metrics provide summary counts of the various states that a device may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. 
 
 ## Monitor a configuration
 
@@ -125,7 +125,7 @@ Inspect the configuration in the command window. The **metrics** property lists
 
 * **appliedCount** - A system metric specifies the number of devices that have had the target content applied.
 
-* **Your custom metric** - Any metrics you have defined will be considered user metrics.
+* **Your custom metric** - Any metrics you've defined are user metrics.
 
 You can show a list of device IDs or objects for each of the metrics by using the following command:
 
@@ -189,7 +189,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 ## Next steps
 
-In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
 * [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
 * [IoT Hub metrics](iot-hub-metrics.md)

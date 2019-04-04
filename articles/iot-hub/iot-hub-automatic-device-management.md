@@ -1,6 +1,6 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
-description: Use Azure IoT Hub automatic device management to assign a configuration to multiple devices
+description: Use Azure IoT Hub automatic device management to assign a configuration to multiple IoT devices
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
@@ -14,25 +14,25 @@ ms.author: chrisgre
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
+Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and then let IoT Hub update the devices when they come into scope. This update is done using an _automatic device configuration_, which lets you summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatic device management works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* which has three parts:
+Automatic device management works by updating a set of device twins with desired properties and reporting a summary that's based on device twin reported properties.  It introduces a new class and JSON document called a *Configuration* that has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
 * The **target content** defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.
 
-* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
+* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
 
 ## Implement device twins to configure devices
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices. Refer to [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) for guidance on using device twins.
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) for guidance on using device twins.
 
 ## Identify devices using tags
 
-Before you can create a configuration, you must specify which devices you want to affect. Azure IoT Hub identifies devices using tags in the device twin. Each device can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, you may add the following tags to a device twin:
+Before you create a configuration, you must specify which devices you want to affect. Azure IoT Hub identifies devices using tags in the device twin. Each device can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
 ```json
 "tags": {
@@ -77,7 +77,7 @@ You can add additional settings by selecting **Add Device Twin Setting**.
 
 ### Specify Metrics (optional)
 
-Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
+Metrics provide summary counts of the various states that a device may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
 
 1. Enter a name for **Metric Name**.
 
@@ -183,7 +183,7 @@ To modify a configuration, use the following steps:
 
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
-1. In the [Azure portal](https://portal.azure.com) go to your IoT hub. 
+1. In the Azure portal,](https://portal.azure.com) go to your IoT hub. 
 
 2. Select **IoT device configuration**. 
 
@@ -195,7 +195,7 @@ When you delete a configuration, any device twins take on their next highest pri
 
 ## Next steps
 
-In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
 * [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
 * [IoT Hub metrics](iot-hub-metrics.md)
